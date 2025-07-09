@@ -1,0 +1,419 @@
+---
+title: Metric Catalog
+description: "Browse the comprehensive catalog of available metrics in the Blockworks Research API"
+---
+
+## Overview
+
+The Blockworks Research API provides access to a comprehensive catalog of crypto metrics across protocols, assets, and market data. This catalog helps you discover and understand the available metrics for your research and analysis.
+
+<Note>
+  The metric catalog is dynamically generated from our API. Use the `/v3/metrics` endpoint to get the most up-to-date list of available metrics.
+</Note>
+
+## Fetching Available Metrics
+
+Use the metrics endpoint to get a real-time catalog of available metrics:
+
+<CodeGroup>
+
+```typescript TypeScript
+const response = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  }
+});
+
+const data = await response.json();
+console.log(`Found ${data.data.length} metrics`);
+
+// Display metric information
+data.data.forEach(metric => {
+  console.log(`${metric.name}: ${metric.description}`);
+  console.log(`Unit: ${metric.unit}`);
+  console.log(`Projects: ${metric.projects?.join(', ')}`);
+});
+```
+
+```python Python
+import requests
+
+headers = {
+    'x-api-key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/metrics',
+    headers=headers
+)
+
+data = response.json()
+print(f"Found {len(data['data'])} metrics")
+
+# Display metric information
+for metric in data['data']:
+    print(f"{metric['name']}: {metric['description']}")
+    print(f"Unit: {metric['unit']}")
+    print(f"Projects: {', '.join(metric.get('projects', []))}")
+```
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  https://rest.staging.blockworksresearch.com/v3/metrics
+```
+
+</CodeGroup>
+
+## Metric Categories
+
+Our metrics are organized into several key categories:
+
+### 📊 DeFi Metrics
+
+<CardGroup cols={2}>
+  <Card title="Total Value Locked (TVL)" icon="vault">
+    **Identifier**: `tvl`
+    
+    **Description**: Total value locked across DeFi protocols
+    
+    **Unit**: USD
+    
+    **Projects**: Uniswap, AAVE, Compound, MakerDAO, and more
+  </Card>
+  <Card title="Trading Volume" icon="chart-line">
+    **Identifier**: `volume_24h`
+    
+    **Description**: 24-hour trading volume for DEXs and protocols
+    
+    **Unit**: USD
+    
+    **Projects**: Uniswap, SushiSwap, Curve, Balancer
+  </Card>
+  <Card title="Fees Generated" icon="coins">
+    **Identifier**: `fees_24h`
+    
+    **Description**: Protocol fees generated in the last 24 hours
+    
+    **Unit**: USD
+    
+    **Projects**: Uniswap, Ethereum, Polygon
+  </Card>
+  <Card title="Active Liquidity Providers" icon="users">
+    **Identifier**: `active_lps`
+    
+    **Description**: Number of active liquidity providers
+    
+    **Unit**: Count
+    
+    **Projects**: Uniswap, Curve, Balancer
+  </Card>
+</CardGroup>
+
+### 🏗️ Network Metrics
+
+<CardGroup cols={2}>
+  <Card title="Daily Active Users" icon="user-group">
+    **Identifier**: `daily_active_users`
+    
+    **Description**: Number of unique addresses active in 24 hours
+    
+    **Unit**: Count
+    
+    **Projects**: Ethereum, Polygon, Solana, Arbitrum
+  </Card>
+  <Card title="Transaction Count" icon="repeat">
+    **Identifier**: `transaction_count`
+    
+    **Description**: Number of transactions processed
+    
+    **Unit**: Count
+    
+    **Projects**: Ethereum, Bitcoin, Solana, Polygon
+  </Card>
+  <Card title="Gas Usage" icon="fire">
+    **Identifier**: `gas_used`
+    
+    **Description**: Total gas consumed by transactions
+    
+    **Unit**: Gwei
+    
+    **Projects**: Ethereum, Polygon, Arbitrum, Optimism
+  </Card>
+  <Card title="Block Production" icon="cube">
+    **Identifier**: `blocks_produced`
+    
+    **Description**: Number of blocks produced in timeframe
+    
+    **Unit**: Count
+    
+    **Projects**: Ethereum, Bitcoin, Solana
+  </Card>
+</CardGroup>
+
+### 💰 Token Metrics
+
+<CardGroup cols={2}>
+  <Card title="Market Capitalization" icon="chart-pie">
+    **Identifier**: `market_cap`
+    
+    **Description**: Total market value of circulating tokens
+    
+    **Unit**: USD
+    
+    **Projects**: All supported assets
+  </Card>
+  <Card title="Circulating Supply" icon="circle-stack">
+    **Identifier**: `circulating_supply`
+    
+    **Description**: Number of tokens in circulation
+    
+    **Unit**: Token amount
+    
+    **Projects**: All supported assets
+  </Card>
+  <Card title="Holder Distribution" icon="chart-bar">
+    **Identifier**: `holder_distribution`
+    
+    **Description**: Distribution of token holders by balance
+    
+    **Unit**: Percentage
+    
+    **Projects**: Major ERC-20 tokens
+  </Card>
+  <Card title="Price Volatility" icon="chart-mixed">
+    **Identifier**: `price_volatility`
+    
+    **Description**: 30-day price volatility measure
+    
+    **Unit**: Percentage
+    
+    **Projects**: All supported assets
+  </Card>
+</CardGroup>
+
+## Querying Specific Metrics
+
+Once you've identified a metric from the catalog, you can query its data:
+
+### Example: Querying TVL for Uniswap
+
+<CodeGroup>
+
+```typescript TypeScript
+const response = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics/tvl', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  params: {
+    project: 'uniswap',
+    limit: 30
+  }
+});
+
+const data = await response.json();
+console.log(`Retrieved ${data.data.length} TVL data points for Uniswap`);
+
+// Process the data
+data.data.forEach(point => {
+  console.log(`${point.timestamp}: $${point.value.toLocaleString()}`);
+});
+```
+
+```python Python
+import requests
+
+headers = {
+    'x-api-key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+}
+
+params = {
+    'project': 'uniswap',
+    'limit': 30
+}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/metrics/tvl',
+    headers=headers,
+    params=params
+)
+
+data = response.json()
+print(f"Retrieved {len(data['data'])} TVL data points for Uniswap")
+
+# Process the data
+for point in data['data']:
+    print(f"{point['timestamp']}: ${point['value']:,.2f}")
+```
+
+</CodeGroup>
+
+## Filtering and Searching
+
+### Filter by Project
+
+Get metrics available for a specific project:
+
+```typescript
+const response = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  params: {
+    project: 'uniswap'
+  }
+});
+```
+
+### Search by Identifier
+
+Find metrics by their identifier pattern:
+
+```python
+import requests
+
+# Get all metrics
+response = requests.get('https://rest.staging.blockworksresearch.com/v3/metrics', 
+                       headers={'x-api-key': 'YOUR_API_KEY'})
+metrics = response.json()['data']
+
+# Filter metrics containing 'volume'
+volume_metrics = [m for m in metrics if 'volume' in m['identifier']]
+
+for metric in volume_metrics:
+    print(f"{metric['name']}: {metric['identifier']}")
+```
+
+## Metric Data Structure
+
+Each metric in the catalog has the following structure:
+
+```json
+{
+  "identifier": "tvl",
+  "name": "Total Value Locked",
+  "description": "Total value locked across DeFi protocols",
+  "unit": "USD",
+  "projects": ["uniswap", "aave", "compound", "makerdao"],
+  "category": "defi",
+  "frequency": "daily",
+  "data_availability": {
+    "start_date": "2020-01-01",
+    "end_date": "2024-01-01"
+  }
+}
+```
+
+## Time Series Data
+
+When querying metric data, you'll receive time series data points:
+
+```json
+{
+  "data": [
+    {
+      "timestamp": "2024-01-01T00:00:00Z",
+      "value": 1500000000,
+      "project": "uniswap"
+    },
+    {
+      "timestamp": "2024-01-02T00:00:00Z", 
+      "value": 1520000000,
+      "project": "uniswap"
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "limit": 100,
+    "total": 365,
+    "pages": 4
+  }
+}
+```
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Start with Catalog" icon="book-open">
+    Always fetch the metric catalog first to understand available metrics
+  </Card>
+  <Card title="Filter by Project" icon="filter">
+    Use project filters to get relevant metrics for your use case
+  </Card>
+  <Card title="Understand Units" icon="ruler">
+    Pay attention to metric units (USD, percentage, count, etc.)
+  </Card>
+  <Card title="Check Data Availability" icon="calendar">
+    Verify the date range of available data for your metrics
+  </Card>
+</CardGroup>
+
+## Common Use Cases
+
+### Portfolio Analytics
+
+Track key metrics for your portfolio holdings:
+
+```typescript
+const portfolioMetrics = ['tvl', 'volume_24h', 'daily_active_users'];
+const projects = ['uniswap', 'aave', 'compound'];
+
+// Fetch metrics for all projects
+const metricData = await Promise.all(
+  portfolioMetrics.map(metric =>
+    projects.map(project =>
+      fetch(`/v3/metrics/${metric}?project=${project}`)
+    )
+  )
+);
+```
+
+### Research Dashboard
+
+Build a comprehensive research dashboard:
+
+```python
+# Key metrics to track
+research_metrics = [
+    'market_cap',
+    'tvl', 
+    'daily_active_users',
+    'transaction_count',
+    'fees_24h'
+]
+
+# Fetch data for analysis
+dashboard_data = {}
+for metric in research_metrics:
+    response = requests.get(f'/v3/metrics/{metric}', 
+                           headers={'x-api-key': 'YOUR_API_KEY'})
+    dashboard_data[metric] = response.json()['data']
+```
+
+## Getting Help
+
+<CardGroup cols={2}>
+  <Card
+    title="API Reference"
+    icon="book"
+    href="/api-reference/metrics/list-metrics"
+  >
+    Detailed documentation for the metrics endpoints
+  </Card>
+  <Card
+    title="Support"
+    icon="question-mark-circle"
+    href="mailto:support@blockworksresearch.com"
+  >
+    Contact us for help with specific metrics
+  </Card>
+</CardGroup>
+
+<Note>
+  New metrics are added regularly. Check the API periodically for updates to the catalog.
+</Note>

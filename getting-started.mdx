@@ -1,0 +1,176 @@
+---
+title: Getting Started
+description: "Get up and running with the Blockworks Research API in minutes"
+---
+
+## Welcome to Blockworks Research API
+
+The Blockworks Research API provides access to comprehensive crypto data and metrics that power institutional-grade research. This guide will help you get started with your first API call.
+
+## Prerequisites
+
+Before you begin, you'll need:
+- An API key from Blockworks Research
+- Basic knowledge of HTTP requests
+- A development environment with your preferred language (TypeScript, Python, etc.)
+
+## Get Your API Key
+
+<Card
+  title="Get API Access"
+  icon="key"
+  href="https://www.blockworksresearch.com/#pricing"
+>
+  Choose your plan and get instant API access
+</Card>
+
+Our API is available with different tiers to suit your needs:
+
+<CardGroup cols={2}>
+  <Card
+    title="Starter Plan"
+    icon="seedling"
+    href="https://www.blockworksresearch.com/#pricing"
+  >
+    Perfect for individual developers and small projects
+  </Card>
+  <Card
+    title="Professional Plan"
+    icon="briefcase"
+    href="https://www.blockworksresearch.com/#pricing"
+  >
+    Ideal for growing teams and applications
+  </Card>
+</CardGroup>
+
+## Quick Start
+
+### 1. Authentication
+
+All API requests require authentication using your API key. Include it in the `x-api-key` header:
+
+```bash
+curl -H "x-api-key: YOUR_API_KEY" \
+  https://rest.staging.blockworksresearch.com/v3/assets
+```
+
+### 2. Your First Request
+
+Let's fetch the list of available assets:
+
+<CodeGroup>
+
+```typescript TypeScript
+const response = await fetch('https://rest.staging.blockworksresearch.com/v3/assets', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  }
+});
+
+const data = await response.json();
+console.log(data);
+```
+
+```python Python
+import requests
+
+headers = {
+    'x-api-key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/assets',
+    headers=headers
+)
+
+data = response.json()
+print(data)
+```
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  https://rest.staging.blockworksresearch.com/v3/assets
+```
+
+</CodeGroup>
+
+### 3. Response Format
+
+All API responses follow a consistent structure:
+
+```json
+{
+  "data": [...],
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "total": 1000,
+    "pages": 100
+  }
+}
+```
+
+## Common Use Cases
+
+<CardGroup cols={2}>
+  <Card
+    title="Asset Information"
+    icon="coins"
+    href="/api-reference/assets/list-assets"
+  >
+    Get detailed information about crypto assets
+  </Card>
+  <Card
+    title="Market Metrics"
+    icon="chart-line"
+    href="/api-reference/metrics/list-metrics"
+  >
+    Access custom metrics and analytics
+  </Card>
+  <Card
+    title="Portfolio Tracking"
+    icon="wallet"
+    href="/examples/common-use-cases"
+  >
+    Track and analyze portfolio performance
+  </Card>
+  <Card
+    title="Research & Analysis"
+    icon="magnifying-glass"
+    href="/examples/common-use-cases"
+  >
+    Build research tools and dashboards
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+<Steps>
+  <Step title="Set up your API key">
+    Visit our [pricing page](https://www.blockworksresearch.com/#pricing) to get your API key
+  </Step>
+  <Step title="Explore the API">
+    Browse our [API Reference](/api-reference/introduction) to understand available endpoints
+  </Step>
+  <Step title="Try Examples">
+    Check out our [TypeScript](/examples/typescript) and [Python](/examples/python) examples
+  </Step>
+  <Step title="Build Something Great">
+    Start building your application with our comprehensive data
+  </Step>
+</Steps>
+
+## Support
+
+Need help? We're here to assist you:
+
+- **Email**: [support@blockworksresearch.com](mailto:support@blockworksresearch.com)
+- **Documentation**: Browse our comprehensive guides and API reference
+- **Community**: Follow us on [Twitter](https://x.com/Blockworks_) for updates
+
+<Note>
+  The API is currently in staging. Production endpoints will be available soon.
+</Note>

@@ -1,0 +1,800 @@
+---
+title: 'Common Use Cases'
+description: 'Real-world examples and use cases for the Blockworks Research API'
+---
+
+## Overview
+
+The Blockworks Research API enables a wide range of applications in the crypto space. Here are some common use cases with practical examples.
+
+## Portfolio Management
+
+### Portfolio Tracking Dashboard
+
+Build a comprehensive portfolio tracking system:
+
+<CodeGroup>
+
+```typescript TypeScript
+interface PortfolioHolding {
+  asset: string;
+  amount: number;
+  costBasis?: number;
+}
+
+interface PortfolioMetrics {
+  totalValue: number;
+  totalCost: number;
+  profitLoss: number;
+  profitLossPercent: number;
+  holdings: Array<{
+    asset: string;
+    amount: number;
+    currentPrice: number;
+    value: number;
+    allocation: number;
+  }>;
+}
+
+class PortfolioTracker {
+  private apiKey: string;
+  private baseUrl = 'https://rest.staging.blockworksresearch.com';
+
+  constructor(apiKey: string) {
+    this.apiKey = apiKey;
+  }
+
+  async getPortfolioMetrics(holdings: PortfolioHolding[]): Promise<PortfolioMetrics> {
+    const holdingsData = await Promise.all(
+      holdings.map(async (holding) => {
+        const response = await fetch(`${this.baseUrl}/v3/assets/${holding.asset}?expand=price`, {
+          headers: { 'x-api-key': this.apiKey }
+        });
+        const data = await response.json();
+        
+        return {
+          asset: holding.asset,
+          amount: holding.amount,
+          currentPrice: data.data.price,
+          value: holding.amount * data.data.price,
+          costBasis: holding.costBasis || 0
+        };
+      })
+    );
+
+    const totalValue = holdingsData.reduce((sum, h) => sum + h.value, 0);
+    const totalCost = holdingsData.reduce((sum, h) => sum + (h.costBasis * h.amount), 0);
+    
+    return {
+      totalValue,
+      totalCost,
+      profitLoss: totalValue - totalCost,
+      profitLossPercent: ((totalValue - totalCost) / totalCost) * 100,
+      holdings: holdingsData.map(h => ({
+        asset: h.asset,
+        amount: h.amount,
+        currentPrice: h.currentPrice,
+        value: h.value,
+        allocation: (h.value / totalValue) * 100
+      }))
+    };
+  }
+
+  async getPortfolioHistory(holdings: PortfolioHolding[], days: number = 30): Promise<any[]> {
+    const endDate = new Date();
+    const startDate = new Date(endDate);
+    startDate.setDate(startDate.getDate() - days);
+
+    const historicalData = await Promise.all(
+      holdings.map(async (holding) => {
+        const response = await fetch(`${this.baseUrl}/v3/assets/${holding.asset}?expand=price_history`, {
+          headers: { 'x-api-key': this.apiKey }
+        });
+        const data = await response.json();
+        
+        return {
+          asset: holding.asset,
+          amount: holding.amount,
+          priceHistory: data.data.price_history
+        };
+      })
+    );
+
+    // Calculate portfolio value over time
+    return historicalData;
+  }
+}
+
+// Usage
+const tracker = new PortfolioTracker('YOUR_API_KEY');
+const portfolio = [
+  { asset: 'bitcoin', amount: 0.5, costBasis: 40000 },
+  { asset: 'ethereum', amount: 2.0, costBasis: 2500 },
+  { asset: 'solana', amount: 10.0, costBasis: 80 }
+];
+
+const metrics = await tracker.getPortfolioMetrics(portfolio);
+console.log('Portfolio Metrics:', metrics);
+```
+
+```python Python
+import requests
+import pandas as pd
+from datetime import datetime, timedelta
+from typing import List, Dict, Any
+
+class PortfolioTracker:
+    def __init__(self, api_key: str):
+        self.api_key = api_key
+        self.base_url = 'https://rest.staging.blockworksresearch.com'
+        self.headers = {'x-api-key': api_key}
+    
+    def get_portfolio_metrics(self, holdings: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Calculate comprehensive portfolio metrics"""
+        holdings_data = []
+        
+        for holding in holdings:
+            response = requests.get(
+                f"{self.base_url}/v3/assets/{holding['asset']}?expand=price",
+                headers=self.headers
+            )
+            
+            if response.status_code == 200:
+                data = response.json()
+                current_price = data['data']['price']
+                value = holding['amount'] * current_price
+                
+                holdings_data.append({
+                    'asset': holding['asset'],
+                    'amount': holding['amount'],
+                    'current_price': current_price,
+                    'value': value,
+                    'cost_basis': holding.get('cost_basis', 0)
+                })
+        
+        # Calculate totals
+        total_value = sum(h['value'] for h in holdings_data)
+        total_cost = sum(h['cost_basis'] * h['amount'] for h in holdings_data)
+        
+        return {
+            'total_value': total_value,
+            'total_cost': total_cost,
+            'profit_loss': total_value - total_cost,
+            'profit_loss_percent': ((total_value - total_cost) / total_cost * 100) if total_cost > 0 else 0,
+            'holdings': [
+                {
+                    **h,
+                    'allocation': (h['value'] / total_value) * 100
+                }
+                for h in holdings_data
+            ]
+        }
+    
+    def get_portfolio_dataframe(self, holdings: List[Dict[str, Any]]) -> pd.DataFrame:
+        """Get portfolio data as a pandas DataFrame"""
+        metrics = self.get_portfolio_metrics(holdings)
+        return pd.DataFrame(metrics['holdings'])
+
+# Usage
+tracker = PortfolioTracker('YOUR_API_KEY')
+portfolio = [
+    {'asset': 'bitcoin', 'amount': 0.5, 'cost_basis': 40000},
+    {'asset': 'ethereum', 'amount': 2.0, 'cost_basis': 2500},
+    {'asset': 'solana', 'amount': 10.0, 'cost_basis': 80}
+]
+
+metrics = tracker.get_portfolio_metrics(portfolio)
+print(f"Portfolio Value: ${metrics['total_value']:,.2f}")
+print(f"Profit/Loss: ${metrics['profit_loss']:,.2f} ({metrics['profit_loss_percent']:.2f}%)")
+```
+
+</CodeGroup>
+
+## DeFi Analytics
+
+### Protocol TVL Monitor
+
+Track TVL across multiple DeFi protocols:
+
+<CodeGroup>
+
+```typescript TypeScript
+class DeFiAnalytics {
+  private apiKey: string;
+  private baseUrl = 'https://rest.staging.blockworksresearch.com';
+
+  constructor(apiKey: string) {
+    this.apiKey = apiKey;
+  }
+
+  async getTVLRanking(protocols: string[]): Promise<any[]> {
+    const tvlData = await Promise.all(
+      protocols.map(async (protocol) => {
+        const response = await fetch(`${this.baseUrl}/v3/metrics/tvl?project=${protocol}&limit=1`, {
+          headers: { 'x-api-key': this.apiKey }
+        });
+        const data = await response.json();
+        
+        return {
+          protocol,
+          tvl: data.data[0]?.value || 0,
+          lastUpdated: data.data[0]?.timestamp
+        };
+      })
+    );
+
+    return tvlData.sort((a, b) => b.tvl - a.tvl);
+  }
+
+  async getTVLTrends(protocols: string[], days: number = 30): Promise<any> {
+    const trends = {};
+    
+    for (const protocol of protocols) {
+      const response = await fetch(`${this.baseUrl}/v3/metrics/tvl?project=${protocol}&limit=${days}&sort=desc`, {
+        headers: { 'x-api-key': this.apiKey }
+      });
+      const data = await response.json();
+      
+      const values = data.data.map(d => d.value);
+      const change = values.length > 1 ? ((values[0] - values[values.length - 1]) / values[values.length - 1]) * 100 : 0;
+      
+      trends[protocol] = {
+        current: values[0],
+        change,
+        trend: change > 0 ? 'up' : 'down',
+        data: data.data
+      };
+    }
+    
+    return trends;
+  }
+
+  async getProtocolComparison(protocols: string[], metric: string = 'tvl'): Promise<any> {
+    const comparison = {};
+    
+    for (const protocol of protocols) {
+      const response = await fetch(`${this.baseUrl}/v3/metrics/${metric}?project=${protocol}&limit=7`, {
+        headers: { 'x-api-key': this.apiKey }
+      });
+      const data = await response.json();
+      
+      const values = data.data.map(d => d.value);
+      comparison[protocol] = {
+        current: values[0],
+        average: values.reduce((a, b) => a + b, 0) / values.length,
+        min: Math.min(...values),
+        max: Math.max(...values),
+        data: data.data
+      };
+    }
+    
+    return comparison;
+  }
+}
+
+// Usage
+const defiAnalytics = new DeFiAnalytics('YOUR_API_KEY');
+const protocols = ['uniswap', 'aave', 'compound', 'makerdao'];
+
+const ranking = await defiAnalytics.getTVLRanking(protocols);
+console.log('TVL Ranking:', ranking);
+
+const trends = await defiAnalytics.getTVLTrends(protocols);
+console.log('TVL Trends:', trends);
+```
+
+```python Python
+import requests
+import pandas as pd
+from typing import List, Dict, Any
+
+class DeFiAnalytics:
+    def __init__(self, api_key: str):
+        self.api_key = api_key
+        self.base_url = 'https://rest.staging.blockworksresearch.com'
+        self.headers = {'x-api-key': api_key}
+    
+    def get_tvl_ranking(self, protocols: List[str]) -> List[Dict[str, Any]]:
+        """Get TVL ranking across protocols"""
+        tvl_data = []
+        
+        for protocol in protocols:
+            response = requests.get(
+                f"{self.base_url}/v3/metrics/tvl?project={protocol}&limit=1",
+                headers=self.headers
+            )
+            
+            if response.status_code == 200:
+                data = response.json()
+                if data['data']:
+                    tvl_data.append({
+                        'protocol': protocol,
+                        'tvl': data['data'][0]['value'],
+                        'last_updated': data['data'][0]['timestamp']
+                    })
+        
+        return sorted(tvl_data, key=lambda x: x['tvl'], reverse=True)
+    
+    def get_protocol_metrics_dashboard(self, protocols: List[str]) -> pd.DataFrame:
+        """Create a comprehensive protocol metrics dashboard"""
+        metrics = ['tvl', 'volume_24h', 'fees_24h']
+        dashboard_data = []
+        
+        for protocol in protocols:
+            protocol_data = {'protocol': protocol}
+            
+            for metric in metrics:
+                response = requests.get(
+                    f"{self.base_url}/v3/metrics/{metric}?project={protocol}&limit=7",
+                    headers=self.headers
+                )
+                
+                if response.status_code == 200:
+                    data = response.json()
+                    if data['data']:
+                        values = [point['value'] for point in data['data']]
+                        protocol_data[f'{metric}_current'] = values[0]
+                        protocol_data[f'{metric}_avg'] = sum(values) / len(values)
+                        protocol_data[f'{metric}_change'] = ((values[0] - values[-1]) / values[-1]) * 100 if len(values) > 1 else 0
+            
+            dashboard_data.append(protocol_data)
+        
+        return pd.DataFrame(dashboard_data)
+    
+    def analyze_defi_trends(self, protocols: List[str], days: int = 30) -> Dict[str, Any]:
+        """Analyze DeFi trends across protocols"""
+        trends = {}
+        
+        for protocol in protocols:
+            response = requests.get(
+                f"{self.base_url}/v3/metrics/tvl?project={protocol}&limit={days}&sort=desc",
+                headers=self.headers
+            )
+            
+            if response.status_code == 200:
+                data = response.json()
+                if data['data']:
+                    values = [point['value'] for point in data['data']]
+                    change = ((values[0] - values[-1]) / values[-1]) * 100 if len(values) > 1 else 0
+                    
+                    trends[protocol] = {
+                        'current_tvl': values[0],
+                        'change_percent': change,
+                        'trend': 'up' if change > 0 else 'down',
+                        'volatility': pd.Series(values).std(),
+                        'data_points': len(values)
+                    }
+        
+        return trends
+
+# Usage
+analytics = DeFiAnalytics('YOUR_API_KEY')
+protocols = ['uniswap', 'aave', 'compound', 'makerdao']
+
+# Get TVL ranking
+ranking = analytics.get_tvl_ranking(protocols)
+print("TVL Ranking:")
+for i, protocol in enumerate(ranking, 1):
+    print(f"{i}. {protocol['protocol']}: ${protocol['tvl']:,.2f}")
+
+# Get comprehensive dashboard
+dashboard = analytics.get_protocol_metrics_dashboard(protocols)
+print("\nProtocol Dashboard:")
+print(dashboard.to_string(index=False))
+```
+
+</CodeGroup>
+
+## Market Research
+
+### Sector Analysis
+
+Analyze performance across different crypto sectors:
+
+<CodeGroup>
+
+```typescript TypeScript
+class SectorAnalyzer {
+  private apiKey: string;
+  private baseUrl = 'https://rest.staging.blockworksresearch.com';
+
+  constructor(apiKey: string) {
+    this.apiKey = apiKey;
+  }
+
+  async getSectorPerformance(sectors: string[]): Promise<any> {
+    const sectorData = {};
+    
+    for (const sector of sectors) {
+      const response = await fetch(`${this.baseUrl}/v3/assets?sector=${sector}&expand=price,market_cap&limit=20`, {
+        headers: { 'x-api-key': this.apiKey }
+      });
+      const data = await response.json();
+      
+      const assets = data.data;
+      const totalMarketCap = assets.reduce((sum, asset) => sum + (asset.market_cap || 0), 0);
+      const avgPrice = assets.reduce((sum, asset) => sum + (asset.price || 0), 0) / assets.length;
+      
+      sectorData[sector] = {
+        assetCount: assets.length,
+        totalMarketCap,
+        avgPrice,
+        topAssets: assets.slice(0, 5).map(a => ({
+          name: a.name,
+          symbol: a.symbol,
+          price: a.price,
+          marketCap: a.market_cap
+        }))
+      };
+    }
+    
+    return sectorData;
+  }
+
+  async compareSectors(sectors: string[], metric: string = 'market_cap'): Promise<any> {
+    const comparison = [];
+    
+    for (const sector of sectors) {
+      const response = await fetch(`${this.baseUrl}/v3/assets?sector=${sector}&expand=price,market_cap&limit=50`, {
+        headers: { 'x-api-key': this.apiKey }
+      });
+      const data = await response.json();
+      
+      const assets = data.data;
+      const metricValues = assets.map(a => a[metric] || 0);
+      
+      comparison.push({
+        sector,
+        total: metricValues.reduce((a, b) => a + b, 0),
+        average: metricValues.reduce((a, b) => a + b, 0) / metricValues.length,
+        median: metricValues.sort((a, b) => a - b)[Math.floor(metricValues.length / 2)],
+        assetCount: assets.length
+      });
+    }
+    
+    return comparison.sort((a, b) => b.total - a.total);
+  }
+}
+
+// Usage
+const analyzer = new SectorAnalyzer('YOUR_API_KEY');
+const sectors = ['DeFi', 'Layer 1', 'Layer 2', 'Gaming', 'NFT'];
+
+const performance = await analyzer.getSectorPerformance(sectors);
+console.log('Sector Performance:', performance);
+
+const comparison = await analyzer.compareSectors(sectors, 'market_cap');
+console.log('Sector Comparison:', comparison);
+```
+
+```python Python
+import requests
+import pandas as pd
+import numpy as np
+from typing import List, Dict, Any
+
+class SectorAnalyzer:
+    def __init__(self, api_key: str):
+        self.api_key = api_key
+        self.base_url = 'https://rest.staging.blockworksresearch.com'
+        self.headers = {'x-api-key': api_key}
+    
+    def get_sector_overview(self, sectors: List[str]) -> pd.DataFrame:
+        """Get comprehensive sector overview"""
+        sector_data = []
+        
+        for sector in sectors:
+            response = requests.get(
+                f"{self.base_url}/v3/assets?sector={sector}&expand=price,market_cap&limit=50",
+                headers=self.headers
+            )
+            
+            if response.status_code == 200:
+                data = response.json()
+                assets = data['data']
+                
+                prices = [asset['price'] for asset in assets if asset.get('price')]
+                market_caps = [asset['market_cap'] for asset in assets if asset.get('market_cap')]
+                
+                sector_data.append({
+                    'sector': sector,
+                    'asset_count': len(assets),
+                    'total_market_cap': sum(market_caps),
+                    'avg_price': np.mean(prices) if prices else 0,
+                    'median_price': np.median(prices) if prices else 0,
+                    'avg_market_cap': np.mean(market_caps) if market_caps else 0,
+                    'median_market_cap': np.median(market_caps) if market_caps else 0,
+                    'price_std': np.std(prices) if prices else 0
+                })
+        
+        return pd.DataFrame(sector_data)
+    
+    def analyze_sector_concentration(self, sector: str) -> Dict[str, Any]:
+        """Analyze market concentration within a sector"""
+        response = requests.get(
+            f"{self.base_url}/v3/assets?sector={sector}&expand=market_cap&limit=100",
+            headers=self.headers
+        )
+        
+        if response.status_code == 200:
+            data = response.json()
+            assets = data['data']
+            
+            # Sort by market cap
+            sorted_assets = sorted(assets, key=lambda x: x.get('market_cap', 0), reverse=True)
+            market_caps = [asset['market_cap'] for asset in sorted_assets if asset.get('market_cap')]
+            
+            total_market_cap = sum(market_caps)
+            
+            # Calculate concentration metrics
+            top_5_share = sum(market_caps[:5]) / total_market_cap * 100 if total_market_cap > 0 else 0
+            top_10_share = sum(market_caps[:10]) / total_market_cap * 100 if total_market_cap > 0 else 0
+            
+            # Calculate Herfindahl-Hirschman Index
+            hhi = sum((mc / total_market_cap) ** 2 for mc in market_caps) * 10000 if total_market_cap > 0 else 0
+            
+            return {
+                'sector': sector,
+                'total_assets': len(assets),
+                'total_market_cap': total_market_cap,
+                'top_5_concentration': top_5_share,
+                'top_10_concentration': top_10_share,
+                'hhi': hhi,
+                'concentration_level': 'High' if hhi > 2500 else 'Moderate' if hhi > 1500 else 'Low',
+                'top_assets': [
+                    {
+                        'name': asset['name'],
+                        'symbol': asset['symbol'],
+                        'market_cap': asset['market_cap'],
+                        'market_share': (asset['market_cap'] / total_market_cap) * 100
+                    }
+                    for asset in sorted_assets[:5]
+                ]
+            }
+        
+        return {}
+
+# Usage
+analyzer = SectorAnalyzer('YOUR_API_KEY')
+sectors = ['DeFi', 'Layer 1', 'Layer 2', 'Gaming', 'NFT']
+
+# Get sector overview
+overview = analyzer.get_sector_overview(sectors)
+print("Sector Overview:")
+print(overview.to_string(index=False))
+
+# Analyze concentration for DeFi sector
+concentration = analyzer.analyze_sector_concentration('DeFi')
+print(f"\nDeFi Sector Concentration:")
+print(f"Total Assets: {concentration['total_assets']}")
+print(f"Total Market Cap: ${concentration['total_market_cap']:,.2f}")
+print(f"Top 5 Concentration: {concentration['top_5_concentration']:.2f}%")
+print(f"HHI: {concentration['hhi']:.0f} ({concentration['concentration_level']})")
+```
+
+</CodeGroup>
+
+## Risk Management
+
+### Volatility Analysis
+
+Monitor asset volatility for risk management:
+
+<CodeGroup>
+
+```typescript TypeScript
+class RiskAnalyzer {
+  private apiKey: string;
+  private baseUrl = 'https://rest.staging.blockworksresearch.com';
+
+  constructor(apiKey: string) {
+    this.apiKey = apiKey;
+  }
+
+  async getVolatilityMetrics(assets: string[]): Promise<any> {
+    const volatilityData = {};
+    
+    for (const asset of assets) {
+      const response = await fetch(`${this.baseUrl}/v3/assets/${asset}?expand=metrics`, {
+        headers: { 'x-api-key': this.apiKey }
+      });
+      const data = await response.json();
+      
+      volatilityData[asset] = {
+        name: data.data.name,
+        symbol: data.data.symbol,
+        volatility30d: data.data.metrics?.volatility_30d || 0,
+        priceChange24h: data.data.metrics?.price_change_24h || 0,
+        priceChange7d: data.data.metrics?.price_change_7d || 0,
+        riskLevel: this.calculateRiskLevel(data.data.metrics?.volatility_30d || 0)
+      };
+    }
+    
+    return volatilityData;
+  }
+
+  private calculateRiskLevel(volatility: number): string {
+    if (volatility > 0.8) return 'Very High';
+    if (volatility > 0.6) return 'High';
+    if (volatility > 0.4) return 'Moderate';
+    if (volatility > 0.2) return 'Low';
+    return 'Very Low';
+  }
+
+  async getCorrelationMatrix(assets: string[]): Promise<any> {
+    // This would require historical price data analysis
+    // Implementation depends on specific requirements
+    return {};
+  }
+}
+
+// Usage
+const riskAnalyzer = new RiskAnalyzer('YOUR_API_KEY');
+const assets = ['bitcoin', 'ethereum', 'solana', 'chainlink'];
+
+const volatilityMetrics = await riskAnalyzer.getVolatilityMetrics(assets);
+console.log('Volatility Metrics:', volatilityMetrics);
+```
+
+```python Python
+import requests
+import pandas as pd
+import numpy as np
+from typing import List, Dict, Any
+
+class RiskAnalyzer:
+    def __init__(self, api_key: str):
+        self.api_key = api_key
+        self.base_url = 'https://rest.staging.blockworksresearch.com'
+        self.headers = {'x-api-key': api_key}
+    
+    def get_portfolio_risk_metrics(self, assets: List[str]) -> pd.DataFrame:
+        """Calculate risk metrics for a portfolio of assets"""
+        risk_data = []
+        
+        for asset in assets:
+            response = requests.get(
+                f"{self.base_url}/v3/assets/{asset}?expand=metrics",
+                headers=self.headers
+            )
+            
+            if response.status_code == 200:
+                data = response.json()
+                asset_data = data['data']
+                metrics = asset_data.get('metrics', {})
+                
+                volatility = metrics.get('volatility_30d', 0)
+                risk_data.append({
+                    'asset': asset,
+                    'name': asset_data['name'],
+                    'symbol': asset_data['symbol'],
+                    'volatility_30d': volatility,
+                    'price_change_24h': metrics.get('price_change_24h', 0),
+                    'price_change_7d': metrics.get('price_change_7d', 0),
+                    'risk_level': self.calculate_risk_level(volatility),
+                    'risk_score': self.calculate_risk_score(metrics)
+                })
+        
+        return pd.DataFrame(risk_data)
+    
+    def calculate_risk_level(self, volatility: float) -> str:
+        """Calculate risk level based on volatility"""
+        if volatility > 0.8:
+            return 'Very High'
+        elif volatility > 0.6:
+            return 'High'
+        elif volatility > 0.4:
+            return 'Moderate'
+        elif volatility > 0.2:
+            return 'Low'
+        else:
+            return 'Very Low'
+    
+    def calculate_risk_score(self, metrics: Dict[str, Any]) -> float:
+        """Calculate composite risk score"""
+        volatility = metrics.get('volatility_30d', 0)
+        price_change = abs(metrics.get('price_change_24h', 0))
+        
+        # Weighted risk score (0-100)
+        risk_score = (volatility * 60) + (price_change * 40)
+        return min(risk_score * 100, 100)
+    
+    def get_portfolio_risk_summary(self, assets: List[str], weights: List[float] = None) -> Dict[str, Any]:
+        """Get portfolio-level risk summary"""
+        if weights is None:
+            weights = [1.0 / len(assets)] * len(assets)
+        
+        risk_df = self.get_portfolio_risk_metrics(assets)
+        
+        # Calculate weighted metrics
+        weighted_volatility = sum(
+            risk_df.iloc[i]['volatility_30d'] * weights[i] 
+            for i in range(len(assets))
+        )
+        
+        weighted_risk_score = sum(
+            risk_df.iloc[i]['risk_score'] * weights[i] 
+            for i in range(len(assets))
+        )
+        
+        return {
+            'total_assets': len(assets),
+            'weighted_volatility': weighted_volatility,
+            'weighted_risk_score': weighted_risk_score,
+            'portfolio_risk_level': self.calculate_risk_level(weighted_volatility),
+            'diversification_score': self.calculate_diversification_score(risk_df),
+            'high_risk_assets': len(risk_df[risk_df['risk_level'].isin(['High', 'Very High'])]),
+            'asset_breakdown': risk_df.to_dict('records')
+        }
+    
+    def calculate_diversification_score(self, risk_df: pd.DataFrame) -> float:
+        """Calculate diversification score based on risk level distribution"""
+        risk_counts = risk_df['risk_level'].value_counts()
+        total_assets = len(risk_df)
+        
+        # Higher score for more even distribution across risk levels
+        if total_assets == 0:
+            return 0
+        
+        # Calculate Shannon entropy for diversification
+        entropy = -sum((count / total_assets) * np.log2(count / total_assets) 
+                      for count in risk_counts.values())
+        
+        # Normalize to 0-100 scale
+        max_entropy = np.log2(5)  # 5 risk levels
+        return (entropy / max_entropy) * 100
+
+# Usage
+analyzer = RiskAnalyzer('YOUR_API_KEY')
+assets = ['bitcoin', 'ethereum', 'solana', 'chainlink', 'uniswap']
+weights = [0.3, 0.25, 0.2, 0.15, 0.1]  # Portfolio weights
+
+# Get individual asset risk metrics
+risk_metrics = analyzer.get_portfolio_risk_metrics(assets)
+print("Individual Asset Risk Metrics:")
+print(risk_metrics.to_string(index=False))
+
+# Get portfolio risk summary
+portfolio_risk = analyzer.get_portfolio_risk_summary(assets, weights)
+print(f"\nPortfolio Risk Summary:")
+print(f"Weighted Volatility: {portfolio_risk['weighted_volatility']:.3f}")
+print(f"Weighted Risk Score: {portfolio_risk['weighted_risk_score']:.1f}/100")
+print(f"Portfolio Risk Level: {portfolio_risk['portfolio_risk_level']}")
+print(f"Diversification Score: {portfolio_risk['diversification_score']:.1f}/100")
+print(f"High Risk Assets: {portfolio_risk['high_risk_assets']}/{portfolio_risk['total_assets']}")
+```
+
+</CodeGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="TypeScript Examples"
+    icon="code"
+    href="/examples/typescript"
+  >
+    Explore detailed TypeScript implementations
+  </Card>
+  <Card
+    title="Python Examples"
+    icon="snake"
+    href="/examples/python"
+  >
+    See comprehensive Python code examples
+  </Card>
+  <Card
+    title="API Reference"
+    icon="book"
+    href="/api-reference/introduction"
+  >
+    Dive deep into the API documentation
+  </Card>
+  <Card
+    title="Metric Catalog"
+    icon="chart-line"
+    href="/metric-catalog"
+  >
+    Discover all available metrics
+  </Card>
+</CardGroup>

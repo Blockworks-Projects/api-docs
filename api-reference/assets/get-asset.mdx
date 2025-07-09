@@ -1,0 +1,469 @@
+---
+title: 'Get Asset'
+description: 'Retrieve detailed information about a specific crypto asset'
+---
+
+## GET /v3/assets/{idOrSlug}
+
+Retrieve detailed information about a specific crypto asset by its ID or slug.
+
+### Request
+
+```bash
+GET https://rest.staging.blockworksresearch.com/v3/assets/{idOrSlug}
+```
+
+### Path Parameters
+
+| Parameter | Type | Description | Required |
+|-----------|------|-------------|----------|
+| `idOrSlug` | string | Asset ID or slug identifier | Yes |
+
+### Authentication
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://rest.staging.blockworksresearch.com/v3/assets/bitcoin"
+```
+
+```typescript TypeScript
+const response = await fetch('https://rest.staging.blockworksresearch.com/v3/assets/bitcoin', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  }
+});
+```
+
+```python Python
+import requests
+
+headers = {
+    'x-api-key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/assets/bitcoin',
+    headers=headers
+)
+```
+
+</CodeGroup>
+
+### Query Parameters
+
+| Parameter | Type | Description | Default |
+|-----------|------|-------------|---------|
+| `expand` | array | Expand related data | - |
+
+### Expansion Options
+
+Use the `expand` parameter to include additional data:
+
+| Value | Description |
+|-------|-------------|
+| `price` | Current price information |
+| `market_cap` | Market capitalization data |
+| `sector` | Sector classification |
+| `addresses` | Contract addresses across chains |
+| `markets` | Trading market information |
+| `price_history` | Historical price data |
+| `metrics` | Key asset metrics |
+
+### Examples
+
+#### Basic Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://rest.staging.blockworksresearch.com/v3/assets/bitcoin"
+```
+
+```typescript TypeScript
+const response = await fetch('https://rest.staging.blockworksresearch.com/v3/assets/bitcoin', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  }
+});
+
+const data = await response.json();
+console.log(`Asset: ${data.data.name} (${data.data.symbol})`);
+```
+
+```python Python
+import requests
+
+headers = {'x-api-key': 'YOUR_API_KEY'}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/assets/bitcoin',
+    headers=headers
+)
+
+data = response.json()
+print(f"Asset: {data['data']['name']} ({data['data']['symbol']})")
+```
+
+</CodeGroup>
+
+#### With Full Expansion
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://rest.staging.blockworksresearch.com/v3/assets/ethereum?expand=price,market_cap,sector,addresses,markets"
+```
+
+```typescript TypeScript
+const response = await fetch('https://rest.staging.blockworksresearch.com/v3/assets/ethereum?expand=price,market_cap,sector,addresses,markets', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  }
+});
+
+const data = await response.json();
+const asset = data.data;
+
+console.log(`${asset.name}: $${asset.price}`);
+console.log(`Market Cap: $${asset.market_cap.toLocaleString()}`);
+console.log(`Sector: ${asset.sector}`);
+console.log(`Addresses: ${JSON.stringify(asset.addresses, null, 2)}`);
+```
+
+```python Python
+headers = {'x-api-key': 'YOUR_API_KEY'}
+params = {
+    'expand': 'price,market_cap,sector,addresses,markets'
+}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/assets/ethereum',
+    headers=headers,
+    params=params
+)
+
+data = response.json()
+asset = data['data']
+
+print(f"{asset['name']}: ${asset['price']}")
+print(f"Market Cap: ${asset['market_cap']:,.2f}")
+print(f"Sector: {asset['sector']}")
+print(f"Addresses: {asset['addresses']}")
+```
+
+</CodeGroup>
+
+#### Get Asset by Symbol
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://rest.staging.blockworksresearch.com/v3/assets/BTC?expand=price,market_cap"
+```
+
+```typescript TypeScript
+// You can use either slug or symbol
+const response = await fetch('https://rest.staging.blockworksresearch.com/v3/assets/BTC?expand=price,market_cap', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  }
+});
+
+const data = await response.json();
+console.log(`${data.data.name} price: $${data.data.price}`);
+```
+
+```python Python
+# You can use either slug or symbol
+headers = {'x-api-key': 'YOUR_API_KEY'}
+params = {'expand': 'price,market_cap'}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/assets/BTC',
+    headers=headers,
+    params=params
+)
+
+data = response.json()
+print(f"{data['data']['name']} price: ${data['data']['price']}")
+```
+
+</CodeGroup>
+
+### Response
+
+#### Success Response (200 OK)
+
+```json
+{
+  "data": {
+    "id": "bitcoin",
+    "slug": "bitcoin",
+    "name": "Bitcoin",
+    "symbol": "BTC",
+    "code": "BTC",
+    "is_supported": true,
+    "description": "Bitcoin is a decentralized cryptocurrency originally described in a 2008 whitepaper by Satoshi Nakamoto.",
+    "price": 45000.00,
+    "market_cap": 850000000000,
+    "circulating_supply": 19000000,
+    "total_supply": 21000000,
+    "max_supply": 21000000,
+    "sector": "Layer 1",
+    "tags": ["cryptocurrency", "digital-currency", "store-of-value"],
+    "addresses": {
+      "ethereum": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+      "polygon": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6"
+    },
+    "markets": [
+      {
+        "exchange": "binance",
+        "pair": "BTC/USDT",
+        "volume_24h": 1000000000,
+        "last_updated": "2024-01-01T12:00:00Z"
+      },
+      {
+        "exchange": "coinbase",
+        "pair": "BTC/USD",
+        "volume_24h": 800000000,
+        "last_updated": "2024-01-01T12:00:00Z"
+      }
+    ],
+    "price_history": {
+      "1h": 44800.00,
+      "24h": 44000.00,
+      "7d": 43000.00,
+      "30d": 40000.00
+    },
+    "metrics": {
+      "volatility_30d": 0.045,
+      "volume_24h": 28000000000,
+      "market_cap_rank": 1,
+      "price_change_24h": 0.023,
+      "price_change_7d": 0.047
+    },
+    "last_updated": "2024-01-01T12:00:00Z"
+  }
+}
+```
+
+#### Error Responses
+
+<AccordionGroup>
+  <Accordion title="404 Not Found">
+    ```json
+    {
+      "error": {
+        "code": "ASSET_NOT_FOUND",
+        "message": "Asset with identifier 'invalid-asset' not found"
+      }
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="400 Bad Request">
+    ```json
+    {
+      "error": {
+        "code": "INVALID_PARAMETER",
+        "message": "Invalid expand parameter value",
+        "details": {
+          "invalid_values": ["invalid_field"]
+        }
+      }
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="401 Unauthorized">
+    ```json
+    {
+      "error": {
+        "code": "UNAUTHORIZED",
+        "message": "Invalid API key"
+      }
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Response Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | string | Unique asset identifier |
+| `slug` | string | URL-friendly asset identifier |
+| `name` | string | Full asset name |
+| `symbol` | string | Trading symbol |
+| `code` | string | Asset code |
+| `is_supported` | boolean | Whether asset is supported |
+| `description` | string | Asset description |
+| `price` | number | Current price (if expanded) |
+| `market_cap` | number | Market capitalization (if expanded) |
+| `circulating_supply` | number | Circulating supply |
+| `total_supply` | number | Total supply |
+| `max_supply` | number | Maximum supply |
+| `sector` | string | Asset sector (if expanded) |
+| `tags` | array | Asset tags |
+| `addresses` | object | Contract addresses (if expanded) |
+| `markets` | array | Trading markets (if expanded) |
+| `price_history` | object | Historical prices (if expanded) |
+| `metrics` | object | Key metrics (if expanded) |
+| `last_updated` | string | Last update timestamp |
+
+### Common Use Cases
+
+#### Asset Overview Dashboard
+
+Get comprehensive asset information for a dashboard:
+
+```typescript
+async function getAssetOverview(slug: string) {
+  const response = await fetch(`https://rest.staging.blockworksresearch.com/v3/assets/${slug}?expand=price,market_cap,sector,metrics`, {
+    headers: { 'x-api-key': 'YOUR_API_KEY' }
+  });
+  
+  const data = await response.json();
+  const asset = data.data;
+  
+  return {
+    name: asset.name,
+    symbol: asset.symbol,
+    price: asset.price,
+    marketCap: asset.market_cap,
+    sector: asset.sector,
+    priceChange24h: asset.metrics.price_change_24h,
+    volume24h: asset.metrics.volume_24h,
+    rank: asset.metrics.market_cap_rank
+  };
+}
+
+// Usage
+const bitcoinOverview = await getAssetOverview('bitcoin');
+```
+
+#### Portfolio Asset Details
+
+Get detailed information for portfolio assets:
+
+```python
+def get_portfolio_asset_details(assets: list):
+    """Get detailed information for portfolio assets"""
+    portfolio_details = []
+    
+    for asset_slug in assets:
+        response = requests.get(
+            f'https://rest.staging.blockworksresearch.com/v3/assets/{asset_slug}',
+            headers={'x-api-key': 'YOUR_API_KEY'},
+            params={'expand': 'price,market_cap,metrics,addresses'}
+        )
+        
+        if response.status_code == 200:
+            asset_data = response.json()['data']
+            portfolio_details.append({
+                'name': asset_data['name'],
+                'symbol': asset_data['symbol'],
+                'price': asset_data['price'],
+                'market_cap': asset_data['market_cap'],
+                'volatility': asset_data['metrics']['volatility_30d'],
+                'addresses': asset_data['addresses']
+            })
+    
+    return portfolio_details
+
+# Usage
+portfolio_assets = ['bitcoin', 'ethereum', 'solana']
+details = get_portfolio_asset_details(portfolio_assets)
+```
+
+#### Cross-Chain Address Lookup
+
+Get contract addresses for cross-chain integrations:
+
+```typescript
+async function getAssetAddresses(slug: string) {
+  const response = await fetch(`https://rest.staging.blockworksresearch.com/v3/assets/${slug}?expand=addresses`, {
+    headers: { 'x-api-key': 'YOUR_API_KEY' }
+  });
+  
+  const data = await response.json();
+  return data.data.addresses;
+}
+
+// Usage
+const usdcAddresses = await getAssetAddresses('usd-coin');
+console.log('USDC Addresses:', usdcAddresses);
+// Output: { ethereum: '0x...', polygon: '0x...', arbitrum: '0x...' }
+```
+
+#### Market Data Analysis
+
+Analyze trading markets for an asset:
+
+```python
+def analyze_asset_markets(slug: str):
+    """Analyze trading markets for an asset"""
+    response = requests.get(
+        f'https://rest.staging.blockworksresearch.com/v3/assets/{slug}',
+        headers={'x-api-key': 'YOUR_API_KEY'},
+        params={'expand': 'markets,price,metrics'}
+    )
+    
+    if response.status_code == 200:
+        asset_data = response.json()['data']
+        
+        # Sort markets by volume
+        markets = sorted(asset_data['markets'], 
+                        key=lambda x: x['volume_24h'], 
+                        reverse=True)
+        
+        print(f"Top markets for {asset_data['name']}:")
+        for market in markets[:5]:
+            print(f"  {market['exchange']}: {market['pair']} - ${market['volume_24h']:,.0f}")
+        
+        return markets
+    
+    return None
+
+# Usage
+btc_markets = analyze_asset_markets('bitcoin')
+```
+
+### Rate Limiting
+
+This endpoint is subject to rate limiting. Check the response headers:
+
+```
+X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 999
+X-RateLimit-Reset: 1640995200
+```
+
+### Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="List Assets"
+    icon="list"
+    href="/api-reference/assets/list-assets"
+  >
+    Browse and filter the complete list of assets
+  </Card>
+  <Card
+    title="Python Examples"
+    icon="snake"
+    href="/examples/python"
+  >
+    See complete Python implementation examples
+  </Card>
+</CardGroup>

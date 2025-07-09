@@ -1,0 +1,637 @@
+---
+title: 'Query Metric Data'
+description: 'Retrieve time-series data for specific metrics'
+---
+
+## GET /v3/metrics/{identifier}
+
+Retrieve time-series data for a specific metric, with optional filtering by project and time range.
+
+### Request
+
+```bash
+GET https://rest.staging.blockworksresearch.com/v3/metrics/{identifier}
+```
+
+### Path Parameters
+
+| Parameter | Type | Description | Required |
+|-----------|------|-------------|----------|
+| `identifier` | string | Unique metric identifier | Yes |
+
+### Authentication
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://rest.staging.blockworksresearch.com/v3/metrics/tvl"
+```
+
+```typescript TypeScript
+const response = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics/tvl', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  }
+});
+```
+
+```python Python
+import requests
+
+headers = {
+    'x-api-key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/metrics/tvl',
+    headers=headers
+)
+```
+
+</CodeGroup>
+
+### Query Parameters
+
+| Parameter | Type | Description | Default |
+|-----------|------|-------------|---------|
+| `page` | integer | Page number (1-indexed) | 1 |
+| `limit` | integer | Items per page (max 1000) | 100 |
+| `project` | string | Filter by project identifier | - |
+| `start_date` | string | Start date (ISO 8601) | - |
+| `end_date` | string | End date (ISO 8601) | - |
+| `sort` | string | Sort order: `asc` or `desc` | `desc` |
+
+### Examples
+
+#### Basic Metric Query
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://rest.staging.blockworksresearch.com/v3/metrics/tvl?limit=30"
+```
+
+```typescript TypeScript
+const response = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics/tvl?limit=30', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  }
+});
+
+const data = await response.json();
+console.log(`Retrieved ${data.data.length} TVL data points`);
+
+data.data.forEach(point => {
+  console.log(`${point.timestamp}: $${point.value.toLocaleString()} (${point.project})`);
+});
+```
+
+```python Python
+import requests
+
+headers = {'x-api-key': 'YOUR_API_KEY'}
+params = {'limit': 30}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/metrics/tvl',
+    headers=headers,
+    params=params
+)
+
+data = response.json()
+print(f"Retrieved {len(data['data'])} TVL data points")
+
+for point in data['data']:
+    print(f"{point['timestamp']}: ${point['value']:,.2f} ({point['project']})")
+```
+
+</CodeGroup>
+
+#### Filter by Project
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://rest.staging.blockworksresearch.com/v3/metrics/tvl?project=uniswap&limit=50"
+```
+
+```typescript TypeScript
+const response = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics/tvl?project=uniswap&limit=50', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  }
+});
+
+const data = await response.json();
+console.log(`Retrieved ${data.data.length} TVL data points for Uniswap`);
+
+// Calculate average TVL
+const avgTVL = data.data.reduce((sum, point) => sum + point.value, 0) / data.data.length;
+console.log(`Average TVL: $${avgTVL.toLocaleString()}`);
+```
+
+```python Python
+import requests
+
+headers = {'x-api-key': 'YOUR_API_KEY'}
+params = {'project': 'uniswap', 'limit': 50}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/metrics/tvl',
+    headers=headers,
+    params=params
+)
+
+data = response.json()
+print(f"Retrieved {len(data['data'])} TVL data points for Uniswap")
+
+# Calculate average TVL
+avg_tvl = sum(point['value'] for point in data['data']) / len(data['data'])
+print(f"Average TVL: ${avg_tvl:,.2f}")
+```
+
+</CodeGroup>
+
+#### Date Range Query
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://rest.staging.blockworksresearch.com/v3/metrics/daily_active_users?project=ethereum&start_date=2024-01-01&end_date=2024-01-31"
+```
+
+```typescript TypeScript
+const response = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics/daily_active_users?project=ethereum&start_date=2024-01-01&end_date=2024-01-31', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  }
+});
+
+const data = await response.json();
+console.log(`Retrieved ${data.data.length} daily active user data points for Ethereum in January 2024`);
+
+// Find peak activity day
+const peakDay = data.data.reduce((max, point) => 
+  point.value > max.value ? point : max
+);
+console.log(`Peak activity: ${peakDay.value.toLocaleString()} users on ${peakDay.timestamp}`);
+```
+
+```python Python
+import requests
+from datetime import datetime
+
+headers = {'x-api-key': 'YOUR_API_KEY'}
+params = {
+    'project': 'ethereum',
+    'start_date': '2024-01-01',
+    'end_date': '2024-01-31'
+}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/metrics/daily_active_users',
+    headers=headers,
+    params=params
+)
+
+data = response.json()
+print(f"Retrieved {len(data['data'])} daily active user data points for Ethereum in January 2024")
+
+# Find peak activity day
+peak_day = max(data['data'], key=lambda x: x['value'])
+print(f"Peak activity: {peak_day['value']:,} users on {peak_day['timestamp']}")
+```
+
+</CodeGroup>
+
+#### Multiple Projects Comparison
+
+<CodeGroup>
+
+```bash cURL
+# Query each project separately
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://rest.staging.blockworksresearch.com/v3/metrics/volume_24h?project=uniswap&limit=7"
+```
+
+```typescript TypeScript
+async function compareProjects(metric: string, projects: string[]) {
+  const results = {};
+  
+  for (const project of projects) {
+    const response = await fetch(`https://rest.staging.blockworksresearch.com/v3/metrics/${metric}?project=${project}&limit=30`, {
+      headers: { 'x-api-key': 'YOUR_API_KEY' }
+    });
+    
+    const data = await response.json();
+    results[project] = data.data;
+  }
+  
+  return results;
+}
+
+// Usage
+const projects = ['uniswap', 'sushiswap', 'curve'];
+const volumeComparison = await compareProjects('volume_24h', projects);
+
+// Calculate average volume for each project
+Object.entries(volumeComparison).forEach(([project, data]) => {
+  const avgVolume = data.reduce((sum, point) => sum + point.value, 0) / data.length;
+  console.log(`${project}: Average 24h volume = $${avgVolume.toLocaleString()}`);
+});
+```
+
+```python Python
+import requests
+
+def compare_projects(metric: str, projects: list):
+    """Compare metric data across multiple projects"""
+    results = {}
+    
+    for project in projects:
+        headers = {'x-api-key': 'YOUR_API_KEY'}
+        params = {'project': project, 'limit': 30}
+        
+        response = requests.get(
+            f'https://rest.staging.blockworksresearch.com/v3/metrics/{metric}',
+            headers=headers,
+            params=params
+        )
+        
+        if response.status_code == 200:
+            data = response.json()
+            results[project] = data['data']
+    
+    return results
+
+# Usage
+projects = ['uniswap', 'sushiswap', 'curve']
+volume_comparison = compare_projects('volume_24h', projects)
+
+# Calculate average volume for each project
+for project, data in volume_comparison.items():
+    avg_volume = sum(point['value'] for point in data) / len(data)
+    print(f"{project}: Average 24h volume = ${avg_volume:,.2f}")
+```
+
+</CodeGroup>
+
+### Response
+
+#### Success Response (200 OK)
+
+```json
+{
+  "data": [
+    {
+      "timestamp": "2024-01-01T00:00:00Z",
+      "value": 1500000000,
+      "project": "uniswap",
+      "metadata": {
+        "version": "v3",
+        "chain": "ethereum"
+      }
+    },
+    {
+      "timestamp": "2023-12-31T00:00:00Z",
+      "value": 1480000000,
+      "project": "uniswap",
+      "metadata": {
+        "version": "v3",
+        "chain": "ethereum"
+      }
+    },
+    {
+      "timestamp": "2023-12-30T00:00:00Z",
+      "value": 1520000000,
+      "project": "uniswap",
+      "metadata": {
+        "version": "v3",
+        "chain": "ethereum"
+      }
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "limit": 100,
+    "total": 365,
+    "pages": 4
+  },
+  "metric_info": {
+    "identifier": "tvl",
+    "name": "Total Value Locked",
+    "unit": "USD",
+    "frequency": "daily",
+    "last_updated": "2024-01-01T12:00:00Z"
+  }
+}
+```
+
+#### Error Responses
+
+<AccordionGroup>
+  <Accordion title="404 Not Found">
+    ```json
+    {
+      "error": {
+        "code": "METRIC_NOT_FOUND",
+        "message": "Metric with identifier 'invalid-metric' not found"
+      }
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="400 Bad Request">
+    ```json
+    {
+      "error": {
+        "code": "INVALID_PARAMETER",
+        "message": "Invalid date format",
+        "details": {
+          "parameter": "start_date",
+          "expected_format": "YYYY-MM-DD"
+        }
+      }
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="401 Unauthorized">
+    ```json
+    {
+      "error": {
+        "code": "UNAUTHORIZED",
+        "message": "Invalid API key"
+      }
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Response Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `timestamp` | string | Data point timestamp (ISO 8601) |
+| `value` | number | Metric value |
+| `project` | string | Project identifier |
+| `metadata` | object | Additional context data |
+| `metric_info` | object | Metric metadata |
+
+### Common Use Cases
+
+#### Time Series Analysis
+
+Analyze metric trends over time:
+
+```typescript
+async function analyzeMetricTrend(metric: string, project: string, days: number = 30) {
+  const endDate = new Date();
+  const startDate = new Date(endDate);
+  startDate.setDate(startDate.getDate() - days);
+  
+  const response = await fetch(`https://rest.staging.blockworksresearch.com/v3/metrics/${metric}?project=${project}&start_date=${startDate.toISOString().split('T')[0]}&end_date=${endDate.toISOString().split('T')[0]}&sort=asc`, {
+    headers: { 'x-api-key': 'YOUR_API_KEY' }
+  });
+  
+  const data = await response.json();
+  const points = data.data;
+  
+  if (points.length < 2) return null;
+  
+  // Calculate trend
+  const firstValue = points[0].value;
+  const lastValue = points[points.length - 1].value;
+  const change = ((lastValue - firstValue) / firstValue) * 100;
+  
+  // Find min/max
+  const minPoint = points.reduce((min, point) => point.value < min.value ? point : min);
+  const maxPoint = points.reduce((max, point) => point.value > max.value ? point : max);
+  
+  return {
+    project,
+    metric,
+    period: `${days} days`,
+    change: `${change.toFixed(2)}%`,
+    current: lastValue,
+    min: { value: minPoint.value, date: minPoint.timestamp },
+    max: { value: maxPoint.value, date: maxPoint.timestamp }
+  };
+}
+
+// Usage
+const trend = await analyzeMetricTrend('tvl', 'uniswap', 30);
+console.log('Trend analysis:', trend);
+```
+
+#### Portfolio Metrics Dashboard
+
+Build a comprehensive metrics dashboard:
+
+```python
+import requests
+import pandas as pd
+from datetime import datetime, timedelta
+
+def build_portfolio_dashboard(projects: list, metrics: list):
+    """Build a comprehensive metrics dashboard"""
+    dashboard_data = {}
+    
+    for project in projects:
+        dashboard_data[project] = {}
+        
+        for metric in metrics:
+            try:
+                headers = {'x-api-key': 'YOUR_API_KEY'}
+                params = {'project': project, 'limit': 7}  # Last 7 days
+                
+                response = requests.get(
+                    f'https://rest.staging.blockworksresearch.com/v3/metrics/{metric}',
+                    headers=headers,
+                    params=params
+                )
+                
+                if response.status_code == 200:
+                    data = response.json()
+                    points = data['data']
+                    
+                    if points:
+                        # Calculate summary statistics
+                        values = [point['value'] for point in points]
+                        dashboard_data[project][metric] = {
+                            'current': values[0],  # Most recent
+                            'average': sum(values) / len(values),
+                            'min': min(values),
+                            'max': max(values),
+                            'trend': 'up' if values[0] > values[-1] else 'down',
+                            'data_points': len(values)
+                        }
+                
+            except Exception as e:
+                print(f"Error fetching {metric} for {project}: {e}")
+    
+    return dashboard_data
+
+# Usage
+projects = ['uniswap', 'aave', 'compound']
+metrics = ['tvl', 'volume_24h', 'daily_active_users']
+dashboard = build_portfolio_dashboard(projects, metrics)
+
+# Display dashboard
+for project, project_metrics in dashboard.items():
+    print(f"\n{project.upper()} METRICS:")
+    for metric, stats in project_metrics.items():
+        print(f"  {metric}:")
+        print(f"    Current: {stats['current']:,.2f}")
+        print(f"    Average: {stats['average']:,.2f}")
+        print(f"    Trend: {stats['trend']}")
+```
+
+#### Historical Data Analysis
+
+Analyze long-term historical trends:
+
+```typescript
+async function analyzeHistoricalData(metric: string, project: string, months: number = 12) {
+  const endDate = new Date();
+  const startDate = new Date(endDate);
+  startDate.setMonth(startDate.getMonth() - months);
+  
+  const response = await fetch(`https://rest.staging.blockworksresearch.com/v3/metrics/${metric}?project=${project}&start_date=${startDate.toISOString().split('T')[0]}&end_date=${endDate.toISOString().split('T')[0]}&limit=1000&sort=asc`, {
+    headers: { 'x-api-key': 'YOUR_API_KEY' }
+  });
+  
+  const data = await response.json();
+  const points = data.data;
+  
+  // Group by month
+  const monthlyData = {};
+  points.forEach(point => {
+    const month = point.timestamp.substring(0, 7); // YYYY-MM
+    if (!monthlyData[month]) {
+      monthlyData[month] = [];
+    }
+    monthlyData[month].push(point.value);
+  });
+  
+  // Calculate monthly averages
+  const monthlyAverages = Object.entries(monthlyData).map(([month, values]) => ({
+    month,
+    average: values.reduce((sum, val) => sum + val, 0) / values.length,
+    min: Math.min(...values),
+    max: Math.max(...values),
+    dataPoints: values.length
+  }));
+  
+  return {
+    project,
+    metric,
+    period: `${months} months`,
+    monthlyAverages,
+    totalDataPoints: points.length
+  };
+}
+
+// Usage
+const analysis = await analyzeHistoricalData('tvl', 'uniswap', 12);
+console.log('Historical analysis:', analysis);
+```
+
+#### Real-time Monitoring
+
+Set up real-time monitoring for key metrics:
+
+```python
+import requests
+import time
+from datetime import datetime
+
+def monitor_metrics(metrics_config: dict, interval: int = 300):
+    """Monitor metrics in real-time"""
+    while True:
+        print(f"\n=== METRICS MONITOR - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ===")
+        
+        for metric, projects in metrics_config.items():
+            print(f"\n{metric.upper()}:")
+            
+            for project in projects:
+                try:
+                    headers = {'x-api-key': 'YOUR_API_KEY'}
+                    params = {'project': project, 'limit': 1}
+                    
+                    response = requests.get(
+                        f'https://rest.staging.blockworksresearch.com/v3/metrics/{metric}',
+                        headers=headers,
+                        params=params
+                    )
+                    
+                    if response.status_code == 200:
+                        data = response.json()
+                        if data['data']:
+                            point = data['data'][0]
+                            print(f"  {project}: {point['value']:,.2f} ({point['timestamp']})")
+                
+                except Exception as e:
+                    print(f"  {project}: Error - {e}")
+        
+        time.sleep(interval)
+
+# Usage
+metrics_config = {
+    'tvl': ['uniswap', 'aave', 'compound'],
+    'volume_24h': ['uniswap', 'sushiswap'],
+    'daily_active_users': ['ethereum', 'polygon']
+}
+
+# Monitor every 5 minutes
+monitor_metrics(metrics_config, interval=300)
+```
+
+### Understanding Metric Frequencies
+
+Different metrics have different update frequencies:
+
+| Frequency | Description | Examples |
+|-----------|-------------|----------|
+| `real-time` | Updated continuously | Price feeds, trading volume |
+| `hourly` | Updated every hour | Gas prices, transaction counts |
+| `daily` | Updated once per day | TVL, daily active users |
+| `weekly` | Updated weekly | Governance metrics |
+
+### Rate Limiting
+
+This endpoint is subject to rate limiting. Check the response headers:
+
+```
+X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 999
+X-RateLimit-Reset: 1640995200
+```
+
+### Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="List Available Metrics"
+    icon="list"
+    href="/api-reference/metrics/list-metrics"
+  >
+    Browse all available metrics you can query
+  </Card>
+  <Card
+    title="Metric Catalog"
+    icon="book-open"
+    href="/metric-catalog"
+  >
+    Explore our comprehensive metric catalog
+  </Card>
+</CardGroup>

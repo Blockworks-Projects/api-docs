@@ -1,35 +1,41 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Blockworks Research API",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#545cf8",
+    "light": "#9297f6",
+    "dark": "#4349c7"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Documentation",
         "groups": [
           {
             "group": "Get Started",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "getting-started",
+              "api-key-management",
+              "pricing"
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Usage Examples",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "examples/typescript",
+              "examples/python",
+              "examples/common-use-cases"
+            ]
+          },
+          {
+            "group": "Resources",
+            "pages": [
+              "metric-catalog",
+              "rate-limits",
+              "support"
             ]
           }
         ]
@@ -38,18 +44,24 @@
         "tab": "API Reference",
         "groups": [
           {
-            "group": "API Documentation",
+            "group": "Introduction",
             "pages": [
-              "api-reference/introduction"
+              "api-reference/introduction",
+              "api-reference/authentication"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "Assets API",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/assets/list-assets",
+              "api-reference/assets/get-asset"
+            ]
+          },
+          {
+            "group": "Metrics API",
+            "pages": [
+              "api-reference/metrics/list-metrics",
+              "api-reference/metrics/query-metric"
             ]
           }
         ]
@@ -58,19 +70,19 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Blockworks Research",
+          "href": "https://www.blockworksresearch.com",
+          "icon": "chart-line"
         },
         {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
+          "anchor": "Twitter",
+          "href": "https://x.com/Blockworks_",
+          "icon": "twitter"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Pricing",
+          "href": "https://www.blockworksresearch.com/#pricing",
+          "icon": "credit-card"
         }
       ]
     }
@@ -83,20 +95,20 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@blockworksresearch.com"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Get API Key",
+      "href": "https://www.blockworksresearch.com/#pricing"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/Blockworks_",
+      "github": "https://github.com/blockworks-foundation",
+      "linkedin": "https://linkedin.com/company/blockworks-"
     }
   }
 }
