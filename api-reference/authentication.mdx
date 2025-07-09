@@ -22,12 +22,12 @@ curl -H "x-api-key: YOUR_API_KEY" \
 ```
 
 ```typescript TypeScript
-const response = await fetch('https://rest.staging.blockworksresearch.com/v3/assets', {
+const data = await fetch('https://rest.staging.blockworksresearch.com/v3/assets', {
   headers: {
-    'x-api-key': 'YOUR_API_KEY',
-    'Content-Type': 'application/json'
+    'x-api-key': 'YOUR_API_KEY'
   }
-});
+})
+.then(r => r.json());
 ```
 
 ```python Python
@@ -253,8 +253,7 @@ async function testAuth() {
   try {
     const response = await fetch('https://rest.staging.blockworksresearch.com/v3/assets?limit=1', {
       headers: {
-        'x-api-key': 'YOUR_API_KEY',
-        'Content-Type': 'application/json'
+        'x-api-key': 'YOUR_API_KEY'
       }
     });
     

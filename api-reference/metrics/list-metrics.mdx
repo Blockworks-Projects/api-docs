@@ -7,6 +7,28 @@ description: 'Retrieve available metrics for crypto assets and protocols'
 
 Retrieve a paginated list of available metrics that can be queried for crypto assets and protocols.
 
+### Response Structure
+
+The API returns a paginated response with the following structure:
+
+```json
+{
+  "data": [
+    {
+      "name": "Active Addresses",
+      "description": "Not a measure of user growth",
+      "identifier": "active-addresses",
+      "project": "Avax",
+      "source": "Blockworks",
+      "data_type": "timeseries_int",
+      "parameters": { /* available query parameters */ }
+    }
+  ],
+  "total": 12,
+  "page": 1
+}
+```
+
 ### Request
 
 ```bash
@@ -23,10 +45,9 @@ curl -H "x-api-key: YOUR_API_KEY" \
 ```
 
 ```typescript TypeScript
-const response = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics', {
+const data = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics', {
   headers: {
     'x-api-key': 'YOUR_API_KEY',
-    'Content-Type': 'application/json'
   }
 });
 ```
@@ -36,7 +57,6 @@ import requests
 
 headers = {
     'x-api-key': 'YOUR_API_KEY',
-    'Content-Type': 'application/json'
 }
 
 response = requests.get(
@@ -69,14 +89,12 @@ curl -H "x-api-key: YOUR_API_KEY" \
 ```
 
 ```typescript TypeScript
-const response = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics?limit=20', {
+const data = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics?limit=20', {
   headers: {
     'x-api-key': 'YOUR_API_KEY',
-    'Content-Type': 'application/json'
   }
-});
-
-const data = await response.json();
+})
+.then(r => r.json());
 console.log(`Found ${data.data.length} metrics`);
 
 data.data.forEach(metric => {
@@ -115,14 +133,12 @@ curl -H "x-api-key: YOUR_API_KEY" \
 ```
 
 ```typescript TypeScript
-const response = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics?project=uniswap', {
+const data = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics?project=uniswap', {
   headers: {
     'x-api-key': 'YOUR_API_KEY',
-    'Content-Type': 'application/json'
   }
-});
-
-const data = await response.json();
+})
+.then(r => r.json());
 console.log(`Found ${data.data.length} metrics for Uniswap`);
 
 data.data.forEach(metric => {
@@ -159,14 +175,12 @@ curl -H "x-api-key: YOUR_API_KEY" \
 ```
 
 ```typescript TypeScript
-const response = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics?search=volume', {
+const data = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics?search=volume', {
   headers: {
     'x-api-key': 'YOUR_API_KEY',
-    'Content-Type': 'application/json'
   }
-});
-
-const data = await response.json();
+})
+.then(r => r.json());
 console.log(`Found ${data.data.length} volume-related metrics`);
 
 data.data.forEach(metric => {
@@ -337,12 +351,11 @@ async function buildMetricDashboard() {
   const dashboardMetrics = {};
   
   for (const category of categories) {
-    const response = await fetch(`https://rest.staging.blockworksresearch.com/v3/metrics?category=${category}&limit=20`, {
+    const data = await fetch(`https://rest.staging.blockworksresearch.com/v3/metrics?category=${category}&limit=20`, {
       headers: { 'x-api-key': 'YOUR_API_KEY' }
     });
     
-    const data = await response.json();
-    dashboardMetrics[category] = data.data;
+      dashboardMetrics[category] = data.data;
   }
   
   return dashboardMetrics;
@@ -399,12 +412,11 @@ async function discoverMetrics(keywords: string[]) {
   const discoveredMetrics = [];
   
   for (const keyword of keywords) {
-    const response = await fetch(`https://rest.staging.blockworksresearch.com/v3/metrics?search=${keyword}`, {
+    const data = await fetch(`https://rest.staging.blockworksresearch.com/v3/metrics?search=${keyword}`, {
       headers: { 'x-api-key': 'YOUR_API_KEY' }
     });
     
-    const data = await response.json();
-    discoveredMetrics.push({
+      discoveredMetrics.push({
       keyword,
       metrics: data.data
     });
@@ -483,7 +495,7 @@ Once you've identified metrics of interest, use the [Query Metric endpoint](/api
 
 ```typescript
 // After finding metrics, query their data
-const response = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics/tvl?project=uniswap', {
+const data = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics/tvl?project=uniswap', {
   headers: { 'x-api-key': 'YOUR_API_KEY' }
 });
 ```
