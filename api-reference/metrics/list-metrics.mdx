@@ -205,54 +205,50 @@ for metric in data['data']:
 {
   "data": [
     {
-      "identifier": "tvl",
-      "name": "Total Value Locked",
-      "description": "Total value locked across DeFi protocols",
-      "unit": "USD",
-      "category": "defi",
-      "frequency": "daily",
-      "projects": ["uniswap", "aave", "compound", "makerdao"],
-      "data_availability": {
-        "start_date": "2020-01-01",
-        "end_date": "2024-01-01"
+      "name": "Active Addresses",
+      "description": "Not a measure of user growth",
+      "identifier": "active-addresses",
+      "project": "Avax",
+      "source": "Blockworks",
+      "data_type": "timeseries_int",
+      "parameters": {
+        "end_date": {
+          "type": "date",
+          "default": "3000-01-01",
+          "description": "End date (inclusive)"
+        },
+        "start_date": {
+          "type": "date",
+          "default": "2000-01-01",
+          "description": "Start date (inclusive)"
+        }
       },
-      "last_updated": "2024-01-01T12:00:00Z"
+      "updated_at": 1749503643
     },
     {
-      "identifier": "volume_24h",
-      "name": "24h Trading Volume",
-      "description": "Trading volume in the last 24 hours",
-      "unit": "USD",
-      "category": "trading",
-      "frequency": "hourly",
-      "projects": ["uniswap", "sushiswap", "curve", "balancer"],
-      "data_availability": {
-        "start_date": "2020-05-01",
-        "end_date": "2024-01-01"
+      "name": "Transaction Count",
+      "description": "Excludes system transactions",
+      "identifier": "txns",
+      "project": "Solana",
+      "source": "Blockworks",
+      "data_type": "timeseries_int",
+      "parameters": {
+        "end_date": {
+          "type": "date",
+          "default": "3000-01-01",
+          "description": "End date (inclusive)"
+        },
+        "start_date": {
+          "type": "date",
+          "default": "2000-01-01",
+          "description": "Start date (inclusive)"
+        }
       },
-      "last_updated": "2024-01-01T12:00:00Z"
-    },
-    {
-      "identifier": "daily_active_users",
-      "name": "Daily Active Users",
-      "description": "Number of unique addresses active in 24 hours",
-      "unit": "count",
-      "category": "network",
-      "frequency": "daily",
-      "projects": ["ethereum", "polygon", "arbitrum", "optimism"],
-      "data_availability": {
-        "start_date": "2020-01-01",
-        "end_date": "2024-01-01"
-      },
-      "last_updated": "2024-01-01T12:00:00Z"
+      "updated_at": 1749504693
     }
   ],
-  "pagination": {
-    "page": 1,
-    "limit": 10,
-    "total": 150,
-    "pages": 15
-  }
+  "total": 12,
+  "page": 1
 }
 ```
 
@@ -306,15 +302,16 @@ for metric in data['data']:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `identifier` | string | Unique metric identifier |
 | `name` | string | Human-readable metric name |
 | `description` | string | Detailed metric description |
-| `unit` | string | Unit of measurement |
-| `category` | string | Metric category |
-| `frequency` | string | Data update frequency |
-| `projects` | array | Supported projects |
-| `data_availability` | object | Data availability range |
-| `last_updated` | string | Last update timestamp |
+| `identifier` | string | Unique metric identifier |
+| `project` | string | Project this metric belongs to |
+| `source` | string | Data source (e.g., "Blockworks") |
+| `data_type` | string | Data type (e.g., "timeseries_int", "timeseries_usd") |
+| `parameters` | object | Available query parameters |
+| `updated_at` | number | Unix timestamp of last update |
+| `total` | number | Total number of metrics available |
+| `page` | number | Current page number |
 
 ### Metric Categories
 

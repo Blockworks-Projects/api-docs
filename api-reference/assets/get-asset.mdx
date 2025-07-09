@@ -206,53 +206,31 @@ print(f"{data['data']['name']} price: ${data['data']['price']}")
 
 ```json
 {
-  "data": {
-    "id": "bitcoin",
-    "slug": "bitcoin",
-    "name": "Bitcoin",
-    "symbol": "BTC",
-    "code": "BTC",
-    "is_supported": true,
-    "description": "Bitcoin is a decentralized cryptocurrency originally described in a 2008 whitepaper by Satoshi Nakamoto.",
-    "price": 45000.00,
-    "market_cap": 850000000000,
-    "circulating_supply": 19000000,
-    "total_supply": 21000000,
-    "max_supply": 21000000,
-    "sector": "Layer 1",
-    "tags": ["cryptocurrency", "digital-currency", "store-of-value"],
-    "addresses": {
-      "ethereum": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
-      "polygon": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6"
-    },
-    "markets": [
-      {
-        "exchange": "binance",
-        "pair": "BTC/USDT",
-        "volume_24h": 1000000000,
-        "last_updated": "2024-01-01T12:00:00Z"
-      },
-      {
-        "exchange": "coinbase",
-        "pair": "BTC/USD",
-        "volume_24h": 800000000,
-        "last_updated": "2024-01-01T12:00:00Z"
-      }
-    ],
-    "price_history": {
-      "1h": 44800.00,
-      "24h": 44000.00,
-      "7d": 43000.00,
-      "30d": 40000.00
-    },
-    "metrics": {
-      "volatility_30d": 0.045,
-      "volume_24h": 28000000000,
-      "market_cap_rank": 1,
-      "price_change_24h": 0.023,
-      "price_change_7d": 0.047
-    },
-    "last_updated": "2024-01-01T12:00:00Z"
+  "id": 2,
+  "code": "ETH",
+  "title": "Ethereum",
+  "slug": "ethereum",
+  "tag_line": "A decentralized computing platform",
+  "description": "Ethereum is a distributed blockchain computing platform for smart contracts and decentralized applications. Its native token is ether (ETH), which primarily serves as a means of payment for transaction fees and as collateral for borrowing specific ERC-20 tokens within the decentralized finance (DeFi) sector.",
+  "image_url": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
+  "legacy_sector": "Smart Contract Platforms",
+  "category": "Infrastructure",
+  "is_supported": true,
+  "updated_at": 1747346559,
+  "sector_id": 40,
+  "type": "Infrastructure",
+  "market_cap": {
+    "asset_id": 2,
+    "rank": 2,
+    "usd": 306241761675,
+    "dominance": 15.8501,
+    "percent_change_btc_1_h": 0.00124721,
+    "percent_change_btc_24_h": 3.09621,
+    "percent_change_usd_1_h": 0.0217678,
+    "percent_change_usd_24_h": -2.46807,
+    "percent_change_eth_1_h": 0,
+    "percent_change_eth_24_h": 0,
+    "updated_at": 1747346559
   }
 }
 ```

@@ -132,7 +132,7 @@ const response = await fetch('https://rest.staging.blockworksresearch.com/v3/ass
 
 const data = await response.json();
 data.data.forEach(asset => {
-  console.log(`${asset.name}: $${asset.price} (${asset.sector})`);
+  console.log(`${asset.title}: $${asset.price?.usd || 'N/A'} (${asset.sector?.title || 'N/A'})`);
 });
 ```
 
@@ -151,7 +151,9 @@ response = requests.get(
 
 data = response.json()
 for asset in data['data']:
-    print(f"{asset['name']}: ${asset['price']} ({asset['sector']})")
+    price = asset.get('price', {}).get('usd', 'N/A')
+    sector = asset.get('sector', {}).get('title', 'N/A')
+    print(f"{asset['title']}: ${price} ({sector})")
 ```
 
 </CodeGroup>
@@ -204,45 +206,47 @@ print(f"Found {len(data['data'])} DeFi assets")
 {
   "data": [
     {
-      "id": "bitcoin",
-      "slug": "bitcoin",
-      "name": "Bitcoin",
-      "symbol": "BTC",
-      "code": "BTC",
+      "id": 1,
+      "code": "NEAR",
+      "title": "NEAR Protocol",
+      "slug": "near-protocol",
+      "tag_line": "A scalable, developer-friendly blockchain",
+      "description": "NEAR is a decentralized development platform that uses a Proof-of-Stake (PoS) consensus mechanism...",
+      "image_url": "https://coin-images.coingecko.com/coins/images/10365/large/near.jpg?1696510367",
+      "legacy_sector": "Smart Contract Platforms",
+      "category": "Infrastructure",
       "is_supported": true,
-      "price": 45000.00,
-      "market_cap": 850000000000,
-      "sector": "Layer 1",
-      "addresses": {
-        "ethereum": "0x...",
-        "polygon": "0x..."
+      "updated_at": 1747346527,
+      "sector_id": 40,
+      "type": "Infrastructure",
+      "sector": {
+        "id": 40,
+        "title": "L1",
+        "created_at": 1698971397
       },
-      "markets": [
-        {
-          "exchange": "binance",
-          "pair": "BTC/USDT",
-          "volume_24h": 1000000000
-        }
-      ]
-    },
-    {
-      "id": "ethereum",
-      "slug": "ethereum",
-      "name": "Ethereum",
-      "symbol": "ETH",
-      "code": "ETH",
-      "is_supported": true,
-      "price": 2800.00,
-      "market_cap": 340000000000,
-      "sector": "Layer 1"
+      "market_cap": {
+        "asset_id": 1,
+        "rank": 40,
+        "usd": 3519747898,
+        "dominance": 0.285261,
+        "percent_change_btc_1_h": 0.0977395,
+        "percent_change_btc_24_h": 3.23624,
+        "percent_change_usd_1_h": -0.552975,
+        "percent_change_usd_24_h": -5.59772,
+        "updated_at": 1747346527
+      },
+      "price": {
+        "asset_id": 1,
+        "usd": 2.89,
+        "btc": 0.0001053774710807,
+        "eth": 0.0020572563705035,
+        "sparkline_7d": "[2.6113154693028338,2.6243590389934597,...]",
+        "updated_at": 1747346527
+      }
     }
   ],
-  "pagination": {
-    "page": 1,
-    "limit": 10,
-    "total": 2500,
-    "pages": 250
-  }
+  "total": 145309,
+  "page": 1
 }
 ```
 
@@ -295,17 +299,24 @@ print(f"Found {len(data['data'])} DeFi assets")
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | string | Unique asset identifier |
+| `id` | number | Unique asset identifier |
+| `code` | string | Asset code/symbol (e.g., "BTC", "ETH") |
+| `title` | string | Full asset name |
 | `slug` | string | URL-friendly asset identifier |
-| `name` | string | Full asset name |
-| `symbol` | string | Trading symbol |
-| `code` | string | Asset code |
+| `tag_line` | string | Brief description of the asset |
+| `description` | string | Detailed asset description |
+| `image_url` | string | URL to asset logo/image |
+| `legacy_sector` | string | Legacy sector classification |
+| `category` | string | Asset category (Infrastructure, Financial, etc.) |
 | `is_supported` | boolean | Whether asset is supported |
-| `price` | number | Current price (if expanded) |
-| `market_cap` | number | Market capitalization (if expanded) |
-| `sector` | string | Asset sector (if expanded) |
-| `addresses` | object | Contract addresses (if expanded) |
-| `markets` | array | Trading markets (if expanded) |
+| `updated_at` | number | Unix timestamp of last update |
+| `sector_id` | number | Sector identifier |
+| `type` | string | Asset type (Infrastructure, Application, etc.) |
+| `sector` | object | Sector information (if expanded) |
+| `market_cap` | object | Market cap data with USD value, rank, changes (if expanded) |
+| `price` | object | Price data in USD, BTC, ETH with sparkline (if expanded) |
+| `total` | number | Total number of assets available |
+| `page` | number | Current page number |
 
 ### Common Use Cases
 

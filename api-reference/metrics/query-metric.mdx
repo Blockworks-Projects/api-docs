@@ -57,12 +57,13 @@ response = requests.get(
 
 | Parameter | Type | Description | Default |
 |-----------|------|-------------|---------|
-| `page` | integer | Page number (1-indexed) | 1 |
-| `limit` | integer | Items per page (max 1000) | 100 |
 | `project` | string | Filter by project identifier | - |
-| `start_date` | string | Start date (ISO 8601) | - |
-| `end_date` | string | End date (ISO 8601) | - |
-| `sort` | string | Sort order: `asc` or `desc` | `desc` |
+| `start_date` | string | Start date (YYYY-MM-DD) | - |
+| `end_date` | string | End date (YYYY-MM-DD) | - |
+
+<Warning>
+**Note**: The `limit`, `page`, and `sort` parameters are NOT supported by the metrics query endpoint.
+</Warning>
 
 ### Examples
 
@@ -72,11 +73,11 @@ response = requests.get(
 
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \
-  "https://rest.staging.blockworksresearch.com/v3/metrics/tvl?limit=30"
+  "https://rest.staging.blockworksresearch.com/v3/metrics/active-addresses?project=Ethereum"
 ```
 
 ```typescript TypeScript
-const response = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics/tvl?limit=30', {
+const response = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics/active-addresses?project=Ethereum', {
   headers: {
     'x-api-key': 'YOUR_API_KEY',
     'Content-Type': 'application/json'
@@ -84,10 +85,11 @@ const response = await fetch('https://rest.staging.blockworksresearch.com/v3/met
 });
 
 const data = await response.json();
-console.log(`Retrieved ${data.data.length} TVL data points`);
+const ethereumData = data.Ethereum;
+console.log(`Retrieved ${ethereumData.length} data points`);
 
-data.data.forEach(point => {
-  console.log(`${point.timestamp}: $${point.value.toLocaleString()} (${point.project})`);
+ethereumData.slice(0, 5).forEach(point => {
+  console.log(`${point.date}: ${point.value.toLocaleString()} addresses`);
 });
 ```
 
@@ -95,19 +97,20 @@ data.data.forEach(point => {
 import requests
 
 headers = {'x-api-key': 'YOUR_API_KEY'}
-params = {'limit': 30}
+params = {'project': 'Ethereum'}
 
 response = requests.get(
-    'https://rest.staging.blockworksresearch.com/v3/metrics/tvl',
+    'https://rest.staging.blockworksresearch.com/v3/metrics/active-addresses',
     headers=headers,
     params=params
 )
 
 data = response.json()
-print(f"Retrieved {len(data['data'])} TVL data points")
+ethereum_data = data['Ethereum']
+print(f"Retrieved {len(ethereum_data)} data points")
 
-for point in data['data']:
-    print(f"{point['timestamp']}: ${point['value']:,.2f} ({point['project']})")
+for point in ethereum_data[:5]:
+    print(f"{point['date']}: {point['value']:,} addresses")
 ```
 
 </CodeGroup>
@@ -291,48 +294,28 @@ for project, data in volume_comparison.items():
 
 ```json
 {
-  "data": [
+  "Ethereum": [
     {
-      "timestamp": "2024-01-01T00:00:00Z",
-      "value": 1500000000,
-      "project": "uniswap",
-      "metadata": {
-        "version": "v3",
-        "chain": "ethereum"
-      }
+      "date": "2025-07-09",
+      "value": 116227
     },
     {
-      "timestamp": "2023-12-31T00:00:00Z",
-      "value": 1480000000,
-      "project": "uniswap",
-      "metadata": {
-        "version": "v3",
-        "chain": "ethereum"
-      }
+      "date": "2025-07-08",
+      "value": 472844
     },
     {
-      "timestamp": "2023-12-30T00:00:00Z",
-      "value": 1520000000,
-      "project": "uniswap",
-      "metadata": {
-        "version": "v3",
-        "chain": "ethereum"
-      }
+      "date": "2025-07-07",
+      "value": 454921
+    },
+    {
+      "date": "2025-07-06",
+      "value": 369568
+    },
+    {
+      "date": "2025-07-05",
+      "value": 385185
     }
-  ],
-  "pagination": {
-    "page": 1,
-    "limit": 100,
-    "total": 365,
-    "pages": 4
-  },
-  "metric_info": {
-    "identifier": "tvl",
-    "name": "Total Value Locked",
-    "unit": "USD",
-    "frequency": "daily",
-    "last_updated": "2024-01-01T12:00:00Z"
-  }
+  ]
 }
 ```
 
@@ -379,13 +362,17 @@ for project, data in volume_comparison.items():
 
 ### Response Fields
 
+The response is structured as a JSON object where the key is the project name and the value is an array of data points:
+
 | Field | Type | Description |
 |-------|------|-------------|
-| `timestamp` | string | Data point timestamp (ISO 8601) |
-| `value` | number | Metric value |
-| `project` | string | Project identifier |
-| `metadata` | object | Additional context data |
-| `metric_info` | object | Metric metadata |
+| `{ProjectName}` | array | Array of metric data points for the project |
+| `date` | string | Date in YYYY-MM-DD format |
+| `value` | number | Metric value for that date |
+
+<Note>
+The response does not include pagination information. All available data points are returned.
+</Note>
 
 ### Common Use Cases
 
