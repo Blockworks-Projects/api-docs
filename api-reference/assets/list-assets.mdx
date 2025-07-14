@@ -1,0 +1,570 @@
+---
+title: 'List Assets'
+description: 'Retrieve a list of crypto assets with comprehensive data'
+---
+
+## GET /v3/assets
+
+Retrieve a paginated list of crypto assets with optional filtering and expansion of related data.
+
+### Response Structure
+
+The API returns a paginated response with the following structure:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "code": "BTC",
+      "title": "Bitcoin",
+      "slug": "bitcoin",
+      "sector_id": 40,
+      // ... additional fields
+      // Expanded data appears here when requested
+    }
+  ],
+  "total": 145309,
+  "page": 1
+}
+```
+
+### Request
+
+```bash
+GET https://rest.staging.blockworksresearch.com/v3/assets
+```
+
+### Authentication
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://rest.staging.blockworksresearch.com/v3/assets"
+```
+
+```typescript TypeScript
+const response = await fetch('https://rest.staging.blockworksresearch.com/v3/assets', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY'
+  }
+})
+.then(r => r.json());
+```
+
+```python Python
+import requests
+
+headers = {
+    'x-api-key': 'YOUR_API_KEY',
+    'Content-Type': 'application/json'
+}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/assets',
+    headers=headers
+)
+```
+
+</CodeGroup>
+
+### Query Parameters
+
+| Parameter | Type | Description | Default |
+|-----------|------|-------------|---------|
+| `page` | integer | Page number (1-indexed) | 1 |
+| `limit` | integer | Items per page (max 100) | 10 |
+| `code` | string | Filter by asset code/symbol | - |
+| `slug` | string | Filter by asset slug | - |
+| `is_supported` | boolean | Filter by supported status | - |
+| `sector` | string | Filter by sector | - |
+| `expand` | array | Expand related data | - |
+| `sort` | string | Sort by field | - |
+
+### Expansion Options
+
+Use the `expand` parameter to include additional related data. Multiple fields can be expanded by separating them with commas:
+
+| Value | Description | Data Type |
+|-------|-------------|-----------|
+| `price` | Current price in USD, BTC, ETH with 7-day sparkline | Object |
+| `market_cap` | Market cap, rank, dominance, and percentage changes | Object |
+| `sector` | Sector classification with ID and title | Object |
+| `addresses` | Contract addresses across different chains | Array |
+| `markets` | Trading market data including volume and ATH | Array |
+| `supply` | Circulating, liquid, and total supply information | Object |
+| `ohlcv_last_24_h` | OHLCV (Open, High, Low, Close, Volume) data | Object |
+| `reference` | External references (CoinGecko, Messari, etc.) | Object |
+| `addresses.chain` | Address data with expanded chain information | Array |
+| `is_favorite` | Whether the asset is marked as favorite | Boolean |
+
+### Example Expansions
+
+#### Single Expansion
+```bash
+GET /v3/assets?expand=price&limit=2
+```
+
+#### Multiple Expansions
+```bash
+GET /v3/assets?expand=price,market_cap,sector,supply&limit=2
+```
+
+#### Nested Expansion
+```bash
+GET /v3/assets?expand=addresses.chain&limit=2
+```
+
+## Expanded Data Examples
+
+### Markets Expansion
+
+When you use `expand=markets`, you'll get detailed market information:
+
+```json
+{
+  "markets": [
+    {
+      "id": 23,
+      "asset_id": 1,
+      "volume_24_h": 304377000,
+      "ath": 20.44,
+      "ath_change_percentage": -85.9366,
+      "ath_date": 1642370985,
+      "updated_at": 1747346527
+    }
+  ]
+}
+```
+
+### Supply Expansion
+
+When you use `expand=supply`, you'll get supply information:
+
+```json
+{
+  "supply": {
+    "asset_id": 2,
+    "circulating": 120728282.24485,
+    "liquid": 0,
+    "total": 120728282.24485
+  }
+}
+```
+
+### OHLCV Expansion
+
+When you use `expand=ohlcv_last_24_h`, you'll get 24-hour OHLCV data:
+
+```json
+{
+  "ohlcv_last_24_h": {
+    "asset_id": 2,
+    "open": 2991.0164373997,
+    "high": 2638,
+    "low": 2498.01,
+    "close": 2972.9752699223,
+    "volume": 14018548707.668,
+    "updated_at": 1747346559
+  }
+}
+```
+
+### Reference Expansion
+
+When you use `expand=reference`, you'll get external references:
+
+```json
+{
+  "reference": {
+    "asset_id": 2,
+    "coingecko": "ethereum",
+    "messari": "21c795f5-1bfd-40c3-858e-e9d7e820c6d0",
+    "ghost_analyst_slug": "sam",
+    "trading_view": null
+  }
+}
+```
+
+### Examples
+
+#### Basic Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://rest.staging.blockworksresearch.com/v3/assets?limit=20"
+```
+
+```typescript TypeScript
+const data = await fetch('https://rest.staging.blockworksresearch.com/v3/assets?limit=20', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY'
+  }
+})
+.then(r => r.json());
+
+console.log(`Found ${data.data.length} assets`);
+```
+
+```python Python
+import requests
+
+headers = {'x-api-key': 'YOUR_API_KEY'}
+params = {'limit': 20}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/assets',
+    headers=headers,
+    params=params
+)
+
+data = response.json()
+print(f"Found {len(data['data'])} assets")
+```
+
+</CodeGroup>
+
+#### With Expanded Data
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://rest.staging.blockworksresearch.com/v3/assets?expand=price,market_cap,sector&limit=10"
+```
+
+```typescript TypeScript
+const data = await fetch('https://rest.staging.blockworksresearch.com/v3/assets?expand=price,market_cap,sector&limit=10', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY'
+  }
+})
+.then(r => r.json());
+
+data.data.forEach(asset => {
+  console.log(`${asset.title}: $${asset.price?.usd || 'N/A'} (${asset.sector?.title || 'N/A'})`);
+});
+```
+
+```python Python
+headers = {'x-api-key': 'YOUR_API_KEY'}
+params = {
+    'expand': 'price,market_cap,sector',
+    'limit': 10
+}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/assets',
+    headers=headers,
+    params=params
+)
+
+data = response.json()
+for asset in data['data']:
+    price = asset.get('price', {}).get('usd', 'N/A')
+    sector = asset.get('sector', {}).get('title', 'N/A')
+    print(f"{asset['title']}: ${price} ({sector})")
+```
+
+</CodeGroup>
+
+#### Trading Analysis with Markets Data
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://rest.staging.blockworksresearch.com/v3/assets?expand=markets,price,ohlcv_last_24_h&limit=5"
+```
+
+```typescript TypeScript
+const data = await fetch('https://rest.staging.blockworksresearch.com/v3/assets?expand=markets,price,ohlcv_last_24_h&limit=5', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY'
+  }
+})
+.then(r => r.json());
+data.data.forEach(asset => {
+  console.log(`${asset.title}:`);
+  console.log(`  Current Price: $${asset.price?.usd || 'N/A'}`);
+  console.log(`  24h High: $${asset.ohlcv_last_24_h?.high || 'N/A'}`);
+  console.log(`  24h Low: $${asset.ohlcv_last_24_h?.low || 'N/A'}`);
+  console.log(`  24h Volume: $${asset.ohlcv_last_24_h?.volume || 'N/A'}`);
+  
+  if (asset.markets && asset.markets.length > 0) {
+    const market = asset.markets[0];
+    console.log(`  ATH: $${market.ath || 'N/A'}`);
+    console.log(`  ATH Change: ${market.ath_change_percentage || 'N/A'}%`);
+  }
+});
+```
+
+```python Python
+headers = {'x-api-key': 'YOUR_API_KEY'}
+params = {
+    'expand': 'markets,price,ohlcv_last_24_h',
+    'limit': 5
+}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/assets',
+    headers=headers,
+    params=params
+)
+
+data = response.json()
+for asset in data['data']:
+    print(f"{asset['title']}:")
+    print(f"  Current Price: ${asset.get('price', {}).get('usd', 'N/A')}")
+    
+    ohlcv = asset.get('ohlcv_last_24_h', {})
+    print(f"  24h High: ${ohlcv.get('high', 'N/A')}")
+    print(f"  24h Low: ${ohlcv.get('low', 'N/A')}")
+    print(f"  24h Volume: ${ohlcv.get('volume', 'N/A')}")
+    
+    markets = asset.get('markets', [])
+    if markets:
+        market = markets[0]
+        print(f"  ATH: ${market.get('ath', 'N/A')}")
+        print(f"  ATH Change: {market.get('ath_change_percentage', 'N/A')}%")
+```
+
+</CodeGroup>
+
+#### Filter by Sector
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://rest.staging.blockworksresearch.com/v3/assets?sector=DeFi&expand=price,market_cap"
+```
+
+```typescript TypeScript
+const data = await fetch('https://rest.staging.blockworksresearch.com/v3/assets?sector=DeFi&expand=price,market_cap', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY'
+  }
+})
+.then(r => r.json());
+
+console.log(`Found ${data.data.length} DeFi assets`);
+```
+
+```python Python
+headers = {'x-api-key': 'YOUR_API_KEY'}
+params = {
+    'sector': 'DeFi',
+    'expand': 'price,market_cap'
+}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/assets',
+    headers=headers,
+    params=params
+)
+
+data = response.json()
+print(f"Found {len(data['data'])} DeFi assets")
+```
+
+</CodeGroup>
+
+### Response
+
+#### Success Response (200 OK)
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "code": "NEAR",
+      "title": "NEAR Protocol",
+      "slug": "near-protocol",
+      "tag_line": "A scalable, developer-friendly blockchain",
+      "description": "NEAR is a decentralized development platform that uses a Proof-of-Stake (PoS) consensus mechanism...",
+      "image_url": "https://coin-images.coingecko.com/coins/images/10365/large/near.jpg?1696510367",
+      "legacy_sector": "Smart Contract Platforms",
+      "category": "Infrastructure",
+      "is_supported": true,
+      "updated_at": 1747346527,
+      "sector_id": 40,
+      "type": "Infrastructure",
+      "sector": {
+        "id": 40,
+        "title": "L1",
+        "created_at": 1698971397
+      },
+      "market_cap": {
+        "asset_id": 1,
+        "rank": 40,
+        "usd": 3519747898,
+        "dominance": 0.285261,
+        "percent_change_btc_1_h": 0.0977395,
+        "percent_change_btc_24_h": 3.23624,
+        "percent_change_usd_1_h": -0.552975,
+        "percent_change_usd_24_h": -5.59772,
+        "updated_at": 1747346527
+      },
+      "price": {
+        "asset_id": 1,
+        "usd": 2.89,
+        "btc": 0.0001053774710807,
+        "eth": 0.0020572563705035,
+        "sparkline_7d": "[2.6113154693028338,2.6243590389934597,...]",
+        "updated_at": 1747346527
+      }
+    }
+  ],
+  "total": 145309,
+  "page": 1
+}
+```
+
+#### Error Responses
+
+<AccordionGroup>
+  <Accordion title="400 Bad Request">
+    ```json
+    {
+      "error": {
+        "code": "INVALID_PARAMETER",
+        "message": "Invalid expand parameter value",
+        "details": {
+          "invalid_values": ["invalid_field"]
+        }
+      }
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="401 Unauthorized">
+    ```json
+    {
+      "error": {
+        "code": "UNAUTHORIZED",
+        "message": "Invalid API key"
+      }
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="429 Too Many Requests">
+    ```json
+    {
+      "error": {
+        "code": "RATE_LIMIT_EXCEEDED",
+        "message": "Rate limit exceeded",
+        "details": {
+          "limit": 1000,
+          "remaining": 0,
+          "reset": 1640995200
+        }
+      }
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Response Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | number | Unique asset identifier |
+| `code` | string | Asset code/symbol (e.g., "BTC", "ETH") |
+| `title` | string | Full asset name |
+| `slug` | string | URL-friendly asset identifier |
+| `tag_line` | string | Brief description of the asset |
+| `description` | string | Detailed asset description |
+| `image_url` | string | URL to asset logo/image |
+| `legacy_sector` | string | Legacy sector classification |
+| `category` | string | Asset category (Infrastructure, Financial, etc.) |
+| `is_supported` | boolean | Whether asset is supported |
+| `updated_at` | number | Unix timestamp of last update |
+| `sector_id` | number | Sector identifier |
+| `type` | string | Asset type (Infrastructure, Application, etc.) |
+| `sector` | object | Sector information (if expanded) |
+| `market_cap` | object | Market cap data with USD value, rank, changes (if expanded) |
+| `price` | object | Price data in USD, BTC, ETH with sparkline (if expanded) |
+| `total` | number | Total number of assets available |
+| `page` | number | Current page number |
+
+### Common Use Cases
+
+#### Portfolio Tracking
+
+Get current prices for your portfolio assets:
+
+```typescript
+const portfolioSlugs = ['bitcoin', 'ethereum', 'solana'];
+const slugFilter = portfolioSlugs.join(',');
+
+const data = await fetch(`https://rest.staging.blockworksresearch.com/v3/assets?slug=${slugFilter}&expand=price,market_cap`, {
+  headers: { 'x-api-key': 'YOUR_API_KEY' }
+})
+.then(r => r.json());
+```
+
+#### Sector Analysis
+
+Analyze assets by sector:
+
+```python
+sectors = ['DeFi', 'Layer 1', 'Layer 2']
+sector_data = {}
+
+for sector in sectors:
+    response = requests.get(
+        'https://rest.staging.blockworksresearch.com/v3/assets',
+        headers={'x-api-key': 'YOUR_API_KEY'},
+        params={'sector': sector, 'expand': 'price,market_cap', 'limit': 50}
+    )
+    sector_data[sector] = response.json()['data']
+```
+
+#### Market Screening
+
+Screen for assets meeting specific criteria:
+
+```typescript
+// Find DeFi assets with market cap > $1B
+const data = await fetch('https://rest.staging.blockworksresearch.com/v3/assets?sector=DeFi&expand=market_cap&limit=100', {
+  headers: { 'x-api-key': 'YOUR_API_KEY' }
+})
+.then(r => r.json());
+
+const largeCap = data.data.filter(asset => asset.market_cap > 1000000000);
+```
+
+### Rate Limiting
+
+This endpoint is subject to rate limiting. Check the response headers:
+
+```
+X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 999
+X-RateLimit-Reset: 1640995200
+```
+
+### Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Get Single Asset"
+    icon="coin"
+    href="/api-reference/assets/get-asset"
+  >
+    Get detailed information about a specific asset
+  </Card>
+  <Card
+    title="TypeScript Examples"
+    icon="code"
+    href="/examples/typescript"
+  >
+    See complete TypeScript implementation examples
+  </Card>
+</CardGroup>

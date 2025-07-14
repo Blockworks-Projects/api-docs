@@ -1,0 +1,532 @@
+---
+title: Python Examples
+description: "Complete Python examples for the Blockworks Research API"
+---
+
+## Python SDK
+
+Here are comprehensive Python examples for integrating with the Blockworks Research API.
+
+## Installation
+
+First, install the required dependencies:
+
+```bash
+pip install requests python-dotenv pandas
+```
+
+## Basic Setup
+
+### Environment Configuration
+
+Create a `.env` file in your project root:
+
+```env
+BLOCKWORKS_API_KEY=your_api_key_here
+BLOCKWORKS_API_URL=https://rest.staging.blockworksresearch.com
+```
+
+### Base API Client
+
+```python
+import os
+import requests
+from typing import Dict, Any, Optional, List
+from dotenv import load_dotenv
+import json
+
+load_dotenv()
+
+class BlockworksAPI:
+    def __init__(self):
+        self.base_url = os.getenv('BLOCKWORKS_API_URL')
+        self.api_key = os.getenv('BLOCKWORKS_API_KEY')
+        
+        if not self.api_key:
+            raise ValueError("BLOCKWORKS_API_KEY environment variable is required")
+        
+        self.session = requests.Session()
+        self.session.headers.update({
+            'x-api-key': self.api_key,
+            'Content-Type': 'application/json'
+        })
+    
+    def get(self, endpoint: str, params: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """Make a GET request to the API"""
+        url = f"{self.base_url}{endpoint}"
+        
+        try:
+            response = self.session.get(url, params=params)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"API request failed: {e}")
+            raise
+```
+
+## Assets API Examples
+
+### List All Assets
+
+```python
+from dataclasses import dataclass
+from typing import List, Optional
+
+@dataclass
+class Asset:
+    id: str
+    slug: str
+    name: str
+    symbol: str
+    market_cap: Optional[float] = None
+    price: Optional[float] = None
+    sector: Optional[str] = None
+
+def list_assets(api: BlockworksAPI, limit: int = 50, page: int = 1) -> List[Asset]:
+    """Fetch a list of assets from the API"""
+    try:
+        params = {
+            'limit': limit,
+            'page': page,
+            'expand': ['price', 'market_cap', 'sector']
+        }
+        
+        response = api.get('/v3/assets', params=params)
+        
+        print(f"Found {len(response['data'])} assets")
+        
+        assets = []
+        for asset_data in response['data']:
+            asset = Asset(
+                id=asset_data['id'],
+                slug=asset_data['slug'],
+                name=asset_data['name'],
+                symbol=asset_data['symbol'],
+                market_cap=asset_data.get('market_cap'),
+                price=asset_data.get('price'),
+                sector=asset_data.get('sector')
+            )
+            assets.append(asset)
+            print(f"{asset.name} ({asset.symbol}): ${asset.price}")
+        
+        return assets
+    
+    except Exception as e:
+        print(f"Error fetching assets: {e}")
+        raise
+
+# Usage
+api = BlockworksAPI()
+assets = list_assets(api, limit=20)
+```
+
+### Get Specific Asset
+
+```python
+def get_asset(api: BlockworksAPI, id_or_slug: str) -> Asset:
+    """Fetch a specific asset by ID or slug"""
+    try:
+        params = {
+            'expand': ['price', 'market_cap', 'addresses', 'markets']
+        }
+        
+        response = api.get(f'/v3/assets/{id_or_slug}', params=params)
+        asset_data = response['data']
+        
+        asset = Asset(
+            id=asset_data['id'],
+            slug=asset_data['slug'],
+            name=asset_data['name'],
+            symbol=asset_data['symbol'],
+            market_cap=asset_data.get('market_cap'),
+            price=asset_data.get('price'),
+            sector=asset_data.get('sector')
+        )
+        
+        print(f"Asset: {asset.name}")
+        print(f"Symbol: {asset.symbol}")
+        print(f"Price: ${asset.price}")
+        print(f"Market Cap: ${asset.market_cap:,.2f}" if asset.market_cap else "N/A")
+        
+        return asset
+    
+    except Exception as e:
+        print(f"Error fetching asset {id_or_slug}: {e}")
+        raise
+
+# Usage
+bitcoin = get_asset(api, 'bitcoin')
+ethereum = get_asset(api, 'ethereum')
+```
+
+### Filter Assets by Sector
+
+```python
+def get_assets_by_sector(api: BlockworksAPI, sector: str, limit: int = 20) -> List[Asset]:
+    """Get assets filtered by sector"""
+    try:
+        params = {
+            'sector': sector,
+            'limit': limit,
+            'expand': ['price', 'market_cap']
+        }
+        
+        response = api.get('/v3/assets', params=params)
+        
+        print(f"Found {len(response['data'])} assets in {sector} sector")
+        
+        assets = []
+        for asset_data in response['data']:
+            asset = Asset(
+                id=asset_data['id'],
+                slug=asset_data['slug'],
+                name=asset_data['name'],
+                symbol=asset_data['symbol'],
+                market_cap=asset_data.get('market_cap'),
+                price=asset_data.get('price'),
+                sector=asset_data.get('sector')
+            )
+            assets.append(asset)
+        
+        # Sort by market cap (descending)
+        assets.sort(key=lambda x: x.market_cap or 0, reverse=True)
+        
+        return assets
+    
+    except Exception as e:
+        print(f"Error fetching {sector} assets: {e}")
+        raise
+
+# Usage
+defi_assets = get_assets_by_sector(api, 'DeFi')
+layer1_assets = get_assets_by_sector(api, 'Layer 1')
+```
+
+## Metrics API Examples
+
+### List Available Metrics
+
+```python
+@dataclass
+class Metric:
+    identifier: str
+    name: str
+    description: str
+    unit: str
+    projects: Optional[List[str]] = None
+
+def list_metrics(api: BlockworksAPI, limit: int = 50) -> List[Metric]:
+    """Fetch available metrics"""
+    try:
+        params = {'limit': limit}
+        response = api.get('/v3/metrics', params=params)
+        
+        print(f"Found {len(response['data'])} metrics")
+        
+        metrics = []
+        for metric_data in response['data']:
+            metric = Metric(
+                identifier=metric_data['identifier'],
+                name=metric_data['name'],
+                description=metric_data['description'],
+                unit=metric_data['unit'],
+                projects=metric_data.get('projects')
+            )
+            metrics.append(metric)
+            print(f"{metric.name}: {metric.description}")
+        
+        return metrics
+    
+    except Exception as e:
+        print(f"Error fetching metrics: {e}")
+        raise
+
+# Usage
+metrics = list_metrics(api)
+```
+
+### Query Specific Metric
+
+```python
+@dataclass
+class MetricDataPoint:
+    timestamp: str
+    value: float
+    project: str
+
+def query_metric(api: BlockworksAPI, identifier: str, project: Optional[str] = None, limit: int = 100) -> List[MetricDataPoint]:
+    """Query data for a specific metric"""
+    try:
+        params = {'limit': limit}
+        
+        if project:
+            params['project'] = project
+        
+        response = api.get(f'/v3/metrics/{identifier}', params=params)
+        
+        print(f"Retrieved {len(response['data'])} data points for {identifier}")
+        
+        data_points = []
+        for point_data in response['data']:
+            point = MetricDataPoint(
+                timestamp=point_data['timestamp'],
+                value=point_data['value'],
+                project=point_data['project']
+            )
+            data_points.append(point)
+        
+        # Show latest 5 data points
+        for point in data_points[:5]:
+            print(f"{point.timestamp}: {point.value} ({point.project})")
+        
+        return data_points
+    
+    except Exception as e:
+        print(f"Error querying metric {identifier}: {e}")
+        raise
+
+# Usage
+uniswap_tvl = query_metric(api, 'tvl', 'uniswap')
+daily_users = query_metric(api, 'daily_active_users')
+```
+
+## Advanced Examples
+
+### Using Pandas for Data Analysis
+
+```python
+import pandas as pd
+from datetime import datetime, timedelta
+
+def get_assets_dataframe(api: BlockworksAPI, limit: int = 100) -> pd.DataFrame:
+    """Get assets data as a pandas DataFrame"""
+    try:
+        params = {
+            'limit': limit,
+            'expand': ['price', 'market_cap', 'sector']
+        }
+        
+        response = api.get('/v3/assets', params=params)
+        
+        # Convert to DataFrame
+        df = pd.DataFrame(response['data'])
+        
+        # Clean and process data
+        df['price'] = pd.to_numeric(df['price'], errors='coerce')
+        df['market_cap'] = pd.to_numeric(df['market_cap'], errors='coerce')
+        
+        # Sort by market cap
+        df = df.sort_values('market_cap', ascending=False, na_last=True)
+        
+        print(f"Created DataFrame with {len(df)} assets")
+        print(f"Top 5 assets by market cap:")
+        print(df[['name', 'symbol', 'price', 'market_cap']].head())
+        
+        return df
+    
+    except Exception as e:
+        print(f"Error creating DataFrame: {e}")
+        raise
+
+# Usage
+assets_df = get_assets_dataframe(api)
+
+# Analyze by sector
+sector_analysis = assets_df.groupby('sector').agg({
+    'market_cap': ['count', 'sum', 'mean'],
+    'price': 'mean'
+}).round(2)
+
+print("\nSector Analysis:")
+print(sector_analysis)
+```
+
+### Portfolio Tracking
+
+```python
+@dataclass
+class PortfolioAsset:
+    slug: str
+    amount: float
+
+@dataclass
+class PortfolioValue:
+    asset: Asset
+    amount: float
+    value: float
+
+class PortfolioTracker:
+    def __init__(self, api: BlockworksAPI):
+        self.api = api
+    
+    def calculate_portfolio_value(self, portfolio: List[PortfolioAsset]) -> List[PortfolioValue]:
+        """Calculate the total value of a portfolio"""
+        portfolio_values = []
+        
+        for item in portfolio:
+            try:
+                # Get current asset price
+                asset = get_asset(self.api, item.slug)
+                
+                # Calculate value
+                value = (asset.price or 0) * item.amount
+                
+                portfolio_value = PortfolioValue(
+                    asset=asset,
+                    amount=item.amount,
+                    value=value
+                )
+                portfolio_values.append(portfolio_value)
+                
+                print(f"{asset.name}: {item.amount} × ${asset.price} = ${value:,.2f}")
+                
+            except Exception as e:
+                print(f"Error processing {item.slug}: {e}")
+        
+        total_value = sum(pv.value for pv in portfolio_values)
+        print(f"\nTotal portfolio value: ${total_value:,.2f}")
+        
+        return portfolio_values
+    
+    def get_portfolio_dataframe(self, portfolio: List[PortfolioAsset]) -> pd.DataFrame:
+        """Get portfolio data as a pandas DataFrame"""
+        portfolio_values = self.calculate_portfolio_value(portfolio)
+        
+        data = []
+        for pv in portfolio_values:
+            data.append({
+                'name': pv.asset.name,
+                'symbol': pv.asset.symbol,
+                'amount': pv.amount,
+                'price': pv.asset.price,
+                'value': pv.value,
+                'sector': pv.asset.sector
+            })
+        
+        df = pd.DataFrame(data)
+        df['percentage'] = (df['value'] / df['value'].sum()) * 100
+        
+        return df.sort_values('value', ascending=False)
+
+# Usage
+tracker = PortfolioTracker(api)
+my_portfolio = [
+    PortfolioAsset(slug='bitcoin', amount=0.5),
+    PortfolioAsset(slug='ethereum', amount=2.0),
+    PortfolioAsset(slug='solana', amount=10.0)
+]
+
+portfolio_df = tracker.get_portfolio_dataframe(my_portfolio)
+print("\nPortfolio breakdown:")
+print(portfolio_df[['name', 'amount', 'price', 'value', 'percentage']])
+```
+
+### Batch Processing
+
+```python
+from concurrent.futures import ThreadPoolExecutor
+import time
+
+def batch_get_assets(api: BlockworksAPI, slugs: List[str], max_workers: int = 5) -> List[Asset]:
+    """Fetch multiple assets concurrently"""
+    def fetch_asset(slug: str) -> Asset:
+        return get_asset(api, slug)
+    
+    print(f"Fetching {len(slugs)} assets concurrently...")
+    start_time = time.time()
+    
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        assets = list(executor.map(fetch_asset, slugs))
+    
+    end_time = time.time()
+    print(f"Completed in {end_time - start_time:.2f} seconds")
+    
+    return assets
+
+# Usage
+asset_slugs = ['bitcoin', 'ethereum', 'solana', 'cardano', 'polygon']
+batch_assets = batch_get_assets(api, asset_slugs)
+```
+
+### Error Handling and Retry Logic
+
+```python
+import time
+from functools import wraps
+
+def retry_on_failure(max_retries: int = 3, delay: float = 1.0):
+    """Decorator to retry API calls on failure"""
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            for attempt in range(max_retries):
+                try:
+                    return func(*args, **kwargs)
+                except requests.exceptions.RequestException as e:
+                    if attempt == max_retries - 1:
+                        raise
+                    
+                    if hasattr(e, 'response') and e.response is not None:
+                        if e.response.status_code == 429:  # Rate limit
+                            print(f"Rate limit hit, waiting {delay * (2 ** attempt)} seconds...")
+                            time.sleep(delay * (2 ** attempt))
+                        elif e.response.status_code >= 500:  # Server error
+                            print(f"Server error, retrying in {delay} seconds...")
+                            time.sleep(delay)
+                        else:
+                            raise
+                    else:
+                        print(f"Request failed, retrying in {delay} seconds...")
+                        time.sleep(delay)
+            
+            return None
+        return wrapper
+    return decorator
+
+@retry_on_failure(max_retries=3, delay=1.0)
+def get_asset_with_retry(api: BlockworksAPI, slug: str) -> Asset:
+    """Get asset with automatic retry on failure"""
+    return get_asset(api, slug)
+
+# Usage
+try:
+    asset = get_asset_with_retry(api, 'bitcoin')
+except Exception as e:
+    print(f"Failed to fetch asset after retries: {e}")
+```
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Use Environment Variables" icon="lock">
+    Store API keys in environment variables, never in code
+  </Card>
+  <Card title="Handle Rate Limits" icon="clock">
+    Implement retry logic with exponential backoff
+  </Card>
+  <Card title="Use Pandas" icon="chart-bar">
+    Leverage pandas for data analysis and processing
+  </Card>
+  <Card title="Concurrent Requests" icon="bolt">
+    Use ThreadPoolExecutor for batch operations
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="TypeScript Examples"
+    icon="code"
+    href="/examples/typescript"
+  >
+    See equivalent examples in TypeScript
+  </Card>
+  <Card
+    title="API Reference"
+    icon="book"
+    href="/api-reference/introduction"
+  >
+    Explore the complete API documentation
+  </Card>
+</CardGroup>
