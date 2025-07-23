@@ -14,11 +14,22 @@
         "tab": "Documentation",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Getting Started",
             "pages": [
-              "index",
               "getting-started",
-              "api-key-management",
+              {
+                "group": "Authentication",
+                "icon": "key",
+                "iconType": "solid",
+                "pages": [
+                  "using-your-api-key"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Pricing",
+            "pages": [
               "pricing"
             ]
           },
@@ -106,9 +117,8 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/Blockworks_",
-      "github": "https://github.com/blockworks-foundation",
-      "linkedin": "https://linkedin.com/company/blockworks-"
+      "x": "https://x.com/blockworksres",
+      "linkedin": "https://linkedin.com/showcase/blockworks-research/"
     }
   }
 }
