@@ -1,9 +1,9 @@
 ---
-title: API Key Management
+title: API Keys
 description: "Learn how to obtain, manage, and secure your Blockworks Research API keys"
 ---
 
-## API Key Overview
+---
 
 Your API key is your gateway to the Blockworks Research API. It authenticates your requests and determines your access level and rate limits.
 
@@ -60,7 +60,7 @@ curl -H "Authorization: Bearer YOUR_TOKEN" \
 
 <Warning>
   **API Key Management Dashboard Coming Soon**
-  
+
   We're building a comprehensive dashboard where you'll be able to:
   - View your API keys
   - Generate new keys
@@ -162,11 +162,11 @@ API keys come with different rate limits based on your plan:
   <Accordion title="401 Unauthorized">
     This usually means your API key is invalid or missing. Check that you're including the `x-api-key` header with your requests.
   </Accordion>
-  
+
   <Accordion title="429 Too Many Requests">
     You've exceeded your rate limit. Wait for the rate limit to reset or consider upgrading your plan.
   </Accordion>
-  
+
   <Accordion title="403 Forbidden">
     Your API key doesn't have permission to access this resource. Check your plan limits or contact support.
   </Accordion>

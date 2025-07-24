@@ -75,17 +75,17 @@ We're here to help you succeed with the Blockworks Research API. Whether you're 
 <AccordionGroup>
   <Accordion title="401 Unauthorized Error">
     **Problem**: Your API key is invalid or missing
-    
+
     **Solutions**:
     - Verify your API key is correct
     - Check you're including the `x-api-key` header
     - Ensure your API key hasn't expired
     - Try regenerating your API key
   </Accordion>
-  
+
   <Accordion title="403 Forbidden Error">
     **Problem**: Your plan doesn't have access to this resource
-    
+
     **Solutions**:
     - Check your current plan limits
     - Upgrade your plan if needed
@@ -98,25 +98,25 @@ We're here to help you succeed with the Blockworks Research API. Whether you're 
 <AccordionGroup>
   <Accordion title="429 Too Many Requests">
     **Problem**: You've exceeded your rate limit
-    
+
     **Solutions**:
     - Wait for the rate limit to reset
     - Implement exponential backoff
     - Consider upgrading your plan
     - Optimize your request patterns
-    
+
     **See**: [Rate Limits Guide](/rate-limits)
   </Accordion>
-  
+
   <Accordion title="Optimizing Request Volume">
     **Problem**: High API usage consuming your quota quickly
-    
+
     **Solutions**:
     - Implement caching for frequently accessed data
     - Batch requests where possible
     - Use appropriate pagination limits
     - Cache responses locally
-    
+
     **See**: [Best Practices](/examples/typescript#best-practices)
   </Accordion>
 </AccordionGroup>
@@ -126,17 +126,17 @@ We're here to help you succeed with the Blockworks Research API. Whether you're 
 <AccordionGroup>
   <Accordion title="Missing or Null Data">
     **Problem**: Some fields are returning null or missing
-    
+
     **Solutions**:
     - Check if you need to use the `expand` parameter
     - Verify the asset/metric supports the requested field
     - Some data may not be available for all assets
     - Check data availability dates
   </Accordion>
-  
+
   <Accordion title="Inconsistent Response Times">
     **Problem**: API responses are sometimes slow
-    
+
     **Solutions**:
     - Implement request timeouts
     - Use retry logic with exponential backoff
@@ -322,18 +322,18 @@ For enterprise customers, we offer enhanced support options:
   <Accordion title="What are your support hours?">
     Standard support is available Monday-Friday, 9 AM - 6 PM EST. Enterprise customers have access to 24/7 support options.
   </Accordion>
-  
+
   <Accordion title="How quickly will I get a response?">
     Response times depend on your plan:
     - Starter: 24-48 hours
-    - Professional: 12-24 hours  
+    - Professional: 12-24 hours
     - Enterprise: 4-8 hours (with 24/7 options)
   </Accordion>
-  
+
   <Accordion title="Do you offer phone support?">
     Phone support is available for Enterprise customers. Professional and Starter plans receive email support.
   </Accordion>
-  
+
   <Accordion title="Can you help with custom integrations?">
     Yes! We offer integration consulting for Professional and Enterprise customers. Contact our sales team for details.
   </Accordion>

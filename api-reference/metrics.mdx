@@ -1,5 +1,5 @@
 ---
-title: 'List Metrics'
+title: 'Metrics'
 description: 'Retrieve available metrics for crypto assets and protocols'
 ---
 
@@ -283,7 +283,7 @@ for metric in data['data']:
     }
     ```
   </Accordion>
-  
+
   <Accordion title="401 Unauthorized">
     ```json
     {
@@ -294,7 +294,7 @@ for metric in data['data']:
     }
     ```
   </Accordion>
-  
+
   <Accordion title="429 Too Many Requests">
     ```json
     {
@@ -349,15 +349,15 @@ Get metrics for a comprehensive dashboard:
 async function buildMetricDashboard() {
   const categories = ['defi', 'trading', 'network'];
   const dashboardMetrics = {};
-  
+
   for (const category of categories) {
     const data = await fetch(`https://rest.staging.blockworksresearch.com/v3/metrics?category=${category}&limit=20`, {
       headers: { 'x-api-key': 'YOUR_API_KEY' }
     });
-    
+
       dashboardMetrics[category] = data.data;
   }
-  
+
   return dashboardMetrics;
 }
 
@@ -375,17 +375,17 @@ def get_project_metrics(project_id: str):
     """Get all metrics available for a specific project"""
     headers = {'x-api-key': 'YOUR_API_KEY'}
     params = {'project': project_id, 'limit': 100}
-    
+
     response = requests.get(
         'https://rest.staging.blockworksresearch.com/v3/metrics',
         headers=headers,
         params=params
     )
-    
+
     if response.status_code == 200:
         data = response.json()
         metrics = data['data']
-        
+
         print(f"Available metrics for {project_id}:")
         for metric in metrics:
             print(f"  {metric['identifier']}: {metric['name']}")
@@ -393,9 +393,9 @@ def get_project_metrics(project_id: str):
             print(f"    Frequency: {metric['frequency']}")
             print(f"    Available from: {metric['data_availability']['start_date']}")
             print()
-        
+
         return metrics
-    
+
     return None
 
 # Usage
@@ -410,18 +410,18 @@ Discover relevant metrics based on keywords:
 ```typescript
 async function discoverMetrics(keywords: string[]) {
   const discoveredMetrics = [];
-  
+
   for (const keyword of keywords) {
     const data = await fetch(`https://rest.staging.blockworksresearch.com/v3/metrics?search=${keyword}`, {
       headers: { 'x-api-key': 'YOUR_API_KEY' }
     });
-    
+
       discoveredMetrics.push({
       keyword,
       metrics: data.data
     });
   }
-  
+
   return discoveredMetrics;
 }
 
@@ -446,17 +446,17 @@ def analyze_metric_availability():
     """Analyze data availability across all metrics"""
     headers = {'x-api-key': 'YOUR_API_KEY'}
     params = {'limit': 100}
-    
+
     response = requests.get(
         'https://rest.staging.blockworksresearch.com/v3/metrics',
         headers=headers,
         params=params
     )
-    
+
     if response.status_code == 200:
         data = response.json()
         metrics = data['data']
-        
+
         # Group by category
         categories = {}
         for metric in metrics:
@@ -464,25 +464,25 @@ def analyze_metric_availability():
             if category not in categories:
                 categories[category] = []
             categories[category].append(metric)
-        
+
         # Analyze each category
         for category, cat_metrics in categories.items():
             print(f"\n{category.upper()} METRICS:")
             print(f"  Count: {len(cat_metrics)}")
-            
+
             # Find date ranges
             start_dates = [m['data_availability']['start_date'] for m in cat_metrics]
             end_dates = [m['data_availability']['end_date'] for m in cat_metrics]
-            
+
             print(f"  Earliest data: {min(start_dates)}")
             print(f"  Latest data: {max(end_dates)}")
-            
+
             # Count projects
             all_projects = set()
             for metric in cat_metrics:
                 all_projects.update(metric['projects'])
             print(f"  Supported projects: {len(all_projects)}")
-    
+
     return None
 
 # Usage
