@@ -9,95 +9,57 @@
   },
   "favicon": "/favicon.ico",
   "navigation": {
-    "tabs": [
+    "groups": [
       {
-        "tab": "Documentation",
-        "groups": [
-          {
-            "group": "Get Started",
-            "pages": [
-              "index",
-              "getting-started",
-              "api-key-management",
-              "pricing"
-            ]
-          },
-          {
-            "group": "Usage Examples",
-            "pages": [
-              "examples/typescript",
-              "examples/python",
-              "examples/common-use-cases"
-            ]
-          },
-          {
-            "group": "Resources",
-            "pages": [
-              "metric-catalog",
-              "rate-limits",
-              "support"
-            ]
-          }
+        "group": "Introduction",
+        "pages": [
+          "getting-started"
         ]
       },
       {
-        "tab": "API Reference",
-        "groups": [
+        "group": "API Reference",
+        "pages": [
           {
-            "group": "Introduction",
+            "group": "Assets",
             "pages": [
-              "api-reference/introduction",
-              "api-reference/authentication"
+              "api-reference/assets/list",
+              "api-reference/assets/get-single"
             ]
           },
           {
-            "group": "Assets API",
+            "group": "Metrics",
             "pages": [
-              "api-reference/assets/list-assets",
-              "api-reference/assets/get-asset"
-            ]
-          },
-          {
-            "group": "Metrics API",
-            "pages": [
-              "api-reference/metrics/list-metrics",
-              "api-reference/metrics/query-metric"
+              "api-reference/metrics/list",
+              "api-reference/metrics/active-addresses",
+              "api-reference/metrics/l1-blockchain-issuance",
+              "api-reference/metrics/real-economic-value",
+              "api-reference/metrics/transaction-count"
+
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Blockworks Research",
-          "href": "https://www.blockworksresearch.com",
-          "icon": "chart-line"
-        },
-        {
-          "anchor": "Twitter",
-          "href": "https://x.com/Blockworks_",
-          "icon": "twitter"
-        },
-        {
-          "anchor": "Pricing",
-          "href": "https://www.blockworksresearch.com/#pricing",
-          "icon": "credit-card"
-        }
-      ]
-    }
+    ]
+  },
+  "global": {
+    "anchors": [
+      {
+        "anchor": "Blockworks Research",
+        "href": "https://www.blockworksresearch.com",
+        "icon": "chart-line"
+      },
+      {
+        "anchor": "Twitter",
+        "href": "https://x.com/Blockworks_",
+        "icon": "twitter"
+      }
+    ]
   },
   "logo": {
     "light": "/logo/light.png",
     "dark": "/logo/dark.png"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:support@blockworksresearch.com"
-      }
-    ],
     "primary": {
       "type": "button",
       "label": "Get API Key",
@@ -106,9 +68,18 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/Blockworks_",
-      "github": "https://github.com/blockworks-foundation",
-      "linkedin": "https://linkedin.com/company/blockworks-"
+      "x": "https://x.com/blockworksres",
+      "linkedin": "https://linkedin.com/showcase/blockworks-research/"
     }
-  }
+  },
+  "api": {
+    "playground": {
+      "display": "interactive"
+    },
+    "examples": {
+      "languages": ["curl", "python", "javascript"],
+      "defaults": "required"
+    }
+  },
+  "openapi": "api-reference/openapi.json"
 }

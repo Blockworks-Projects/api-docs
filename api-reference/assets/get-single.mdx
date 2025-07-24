@@ -1,0 +1,139 @@
+---
+title: 'Get Single Asset'
+description: 'Retrieve detailed information about a specific crypto asset'
+openapi: 'GET /v3/assets/{idOrSlug}'
+---
+
+import { Endpoint } from '/snippets/endpoint.mdx'
+
+<Endpoint method="GET" path="/v3/assets/{idOrSlug}" size="xl" />
+
+## Basic Example
+
+<CodeGroup>
+
+```typescript TypeScript
+const data = await fetch(
+  'https://api.blockworksresearch.com/v3/assets/bitcoin',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+
+const data = await response.json()
+```
+
+```python Python
+import requests
+
+response = requests.get(
+    'https://api.blockworksresearch.com/v3/assets/bitcoin',
+    headers = { 'x-api-key': 'YOUR_API_KEY' }
+)
+
+data = response.json()
+```
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  https://api.blockworksresearch.com/v3/assets/bitcoin
+```
+
+</CodeGroup>
+
+### Response Structure
+
+Returns a single asset object with the following structure:
+
+```json
+{
+  "id": 4,
+  "code": "BTC",
+  "title": "Bitcoin",
+  "slug": "bitcoin",
+  "tag_line": "A peer-to-peer electronic cash system",
+  "description": "Bitcoin is the first distributed consensus-based...",
+  "image_url": "https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
+  "legacy_sector": "Currencies",
+  "category": "Infrastructure",
+  "is_supported": true,
+  "updated_at": 1747346559,
+  "sector_id": 40,
+  "type": "Infrastructure",
+  "market_cap": {
+    "asset_id": 4,
+    "rank": 1,
+    "usd": 2049973602005,
+    "dominance": 49.9323,
+    "percent_change_btc_1_h": 0,
+    "percent_change_btc_24_h": 0,
+    "percent_change_usd_1_h": -0.147119,
+    "percent_change_usd_24_h": -0.373885,
+    "percent_change_eth_1_h": -0.00124721,
+    "percent_change_eth_24_h": -3.09621,
+    "updated_at": 1747346559
+  }
+}
+```
+
+## Configuration
+
+### Path Parameters
+
+| Parameter | Type | Description | Required |
+|-----------|------|-------------|----------|
+| `idOrSlug` | `string` | Asset ID or slug identifier | Yes |
+
+### Query Parameters
+
+| Parameter | Type | Description | Default |
+|-----------|------|-------------|---------|
+| `expand` | array | Expand related data | - |
+
+### Expansion Options
+
+Use the `expand` parameter to include additional related data. Multiple fields can be expanded by separating them with commas:
+
+| Value | Description | Data Type |
+|-------|-------------|-----------|
+| `price` | Current price in USD, BTC, ETH with 7-day sparkline | Object |
+| `market_cap` | Market cap, rank, dominance, and percentage changes | Object |
+| `sector` | Sector classification with ID and title | Object |
+| `addresses` | Contract addresses across different chains | Array |
+| `markets` | Trading market data including volume and ATH | Array |
+| `supply` | Circulating, liquid, and total supply information | Object |
+| `ohlcv_last_24_h` | OHLCV (Open, High, Low, Close, Volume) data | Object |
+| `reference` | External references (CoinGecko, Messari, etc.) | Object |
+| `addresses.chain` | Address data with expanded chain information | Array |
+| `is_favorite` | Whether the asset is marked as favorite | Boolean |
+
+## Examples
+
+### Adding supply and OHLCV data
+
+The following endpoint demonstrates the expansion of the `supply` and `ohlcv_last_24_h` fields.
+
+<Endpoint method="GET" path="/v3/assets/bitcoin?expand=supply,ohlcv_last_24_h" size="md" />
+
+```json
+{
+  "id": 4,
+  "code": "BTC",
+  "title": "Bitcoin",
+  ... // other fields
+  "ohlcv_last_24_h": {
+    "asset_id": 4,
+    "open": 60270.235008533,
+    "high": 104083,
+    "low": 101769,
+    "close": 58040.60631435,
+    "volume": 43062467389.346,
+    "updated_at": 1747346559
+  },
+  "supply": {
+    "asset_id": 4,
+    "circulating": 19865178,
+    "liquid": 0,
+    "total": 19865178
+  }
+}
+```

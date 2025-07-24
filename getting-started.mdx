@@ -1,176 +1,102 @@
 ---
 title: Getting Started
-description: "Get up and running with the Blockworks Research API in minutes"
+description: "Get up and running with the Blockworks Research API"
 ---
 
-## Welcome to Blockworks Research API
+## 1. Obtain an API Key
 
-The Blockworks Research API provides access to comprehensive crypto data and metrics that power institutional-grade research. This guide will help you get started with your first API call.
+<Accordion title="Complete Walkthrough">
+<Steps>
+  <Step title="Sign Up for a Blockworks Research Account">
+    <Card title="Log in to your account"
+      icon="key"
+      href="https://www.blockworksresearch.com/#pricing"
+    >
+      Choose your plan and log in to your account
+    </Card>
+  </Step>
+  <Step title="Navigate to the API Key Management page">
+    Profile > Account Management > API
 
-## Prerequisites
+    ![API Key Management](https://ity.sh/sZyPHMNP)
+  </Step>
+  <Step title="Create a New API Key">
+    Enter a new name for your API key and click "Create Key".
 
-Before you begin, you'll need:
-- An API key from Blockworks Research
-- Basic knowledge of HTTP requests
-- A development environment with your preferred language (TypeScript, Python, etc.)
+    ![API Key Management](https://ity.sh/EmdaDCCT)
+  </Step>
+  <Step title="Save It Somewhere Safe">
+    Once generated, you won't be able to access it again.
 
-## Get Your API Key
+    ![API Key Management](https://ity.sh/P6NB3fY4)
+  </Step>
+</Steps>
+</Accordion>
 
-<Card
-  title="Get API Access"
-  icon="key"
-  href="https://www.blockworksresearch.com/#pricing"
->
-  Choose your plan and get instant API access
-</Card>
+## 2. Use Your API Key to Make a Request
 
-Our API is available with different tiers to suit your needs:
-
-<CardGroup cols={2}>
-  <Card
-    title="Starter Plan"
-    icon="seedling"
-    href="https://www.blockworksresearch.com/#pricing"
-  >
-    Perfect for individual developers and small projects
-  </Card>
-  <Card
-    title="Professional Plan"
-    icon="briefcase"
-    href="https://www.blockworksresearch.com/#pricing"
-  >
-    Ideal for growing teams and applications
-  </Card>
-</CardGroup>
-
-## Quick Start
-
-### 1. Authentication
-
-All API requests require authentication using your API key. Include it in the `x-api-key` header:
-
-```bash
-curl -H "x-api-key: YOUR_API_KEY" \
-  https://rest.staging.blockworksresearch.com/v3/assets
-```
-
-### 2. Your First Request
-
-Let's fetch the list of available assets:
+Once we have our API key, we can make requests to the API.  Here's a simple example of how to fetch the list of available assets:
 
 <CodeGroup>
 
 ```typescript TypeScript
-const response = await fetch('https://rest.staging.blockworksresearch.com/v3/assets', {
-  headers: {
-    'x-api-key': 'YOUR_API_KEY',
-    'Content-Type': 'application/json'
-  }
-});
+const data = await fetch(
+  'https://api.blockworksresearch.com/v3/assets',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
 
-const data = await response.json();
-console.log(data);
+const data = await response.json()
 ```
 
 ```python Python
 import requests
 
-headers = {
-    'x-api-key': 'YOUR_API_KEY',
-    'Content-Type': 'application/json'
-}
-
 response = requests.get(
-    'https://rest.staging.blockworksresearch.com/v3/assets',
-    headers=headers
+    'https://api.blockworksresearch.com/v3/assets',
+    headers = { 'x-api-key': 'YOUR_API_KEY' }
 )
 
 data = response.json()
-print(data)
 ```
 
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
-  https://rest.staging.blockworksresearch.com/v3/assets
+  https://api.blockworksresearch.com/v3/assets
 ```
 
 </CodeGroup>
 
-### 3. Response Format
+### Example Response
 
-All API responses follow a consistent structure:
+Most API responses follow a consistent structure, with the `data` property containing an array of items,
+a `total` property indicating the total number of items,
+and a `page` property indicating the current page.
 
 ```json
 {
-  "data": [...],
-  "pagination": {
-    "page": 1,
-    "limit": 10,
-    "total": 1000,
-    "pages": 100
-  }
+  "data": [
+    {
+      "category": "Infrastructure",
+      "code": "ETH",
+      "description": "Ethereum is a distributed blockchain computing platform for smart...",
+      "id": 2,
+      "image_url": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
+      "is_supported": true,
+      "is_supported": true,
+      "legacy_sector": "Smart Contract Platforms",
+      "sector_id": 40,
+      "slug": "ethereum",
+      "tag_line": "A decentralized computing platform",
+      "title": "Ethereum",
+      "type": "Infrastructure",
+      "updated_at": 1747346559
+    },
+    ... // more assets
+  ],
+  "total": 12,
+  "page": 1
 }
 ```
 
-## Common Use Cases
-
-<CardGroup cols={2}>
-  <Card
-    title="Asset Information"
-    icon="coins"
-    href="/api-reference/assets/list-assets"
-  >
-    Get detailed information about crypto assets
-  </Card>
-  <Card
-    title="Market Metrics"
-    icon="chart-line"
-    href="/api-reference/metrics/list-metrics"
-  >
-    Access custom metrics and analytics
-  </Card>
-  <Card
-    title="Portfolio Tracking"
-    icon="wallet"
-    href="/examples/common-use-cases"
-  >
-    Track and analyze portfolio performance
-  </Card>
-  <Card
-    title="Research & Analysis"
-    icon="magnifying-glass"
-    href="/examples/common-use-cases"
-  >
-    Build research tools and dashboards
-  </Card>
-</CardGroup>
-
-## Next Steps
-
-<Steps>
-  <Step title="Set up your API key">
-    Visit our [pricing page](https://www.blockworksresearch.com/#pricing) to get your API key
-  </Step>
-  <Step title="Explore the API">
-    Browse our [API Reference](/api-reference/introduction) to understand available endpoints
-  </Step>
-  <Step title="Try Examples">
-    Check out our [TypeScript](/examples/typescript) and [Python](/examples/python) examples
-  </Step>
-  <Step title="Build Something Great">
-    Start building your application with our comprehensive data
-  </Step>
-</Steps>
-
-## Support
-
-Need help? We're here to assist you:
-
-- **Email**: [support@blockworksresearch.com](mailto:support@blockworksresearch.com)
-- **Documentation**: Browse our comprehensive guides and API reference
-- **Community**: Follow us on [Twitter](https://x.com/Blockworks_) for updates
-
-<Note>
-  The API is currently in staging. Production endpoints will be available soon.
-</Note>
+That's it!
