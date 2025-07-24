@@ -9,41 +9,35 @@
   },
   "favicon": "/favicon.ico",
   "navigation": {
-    "tabs": [
+    "groups": [
       {
-        "tab": "Documentation",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": [
-              "getting-started",
-              "api-keys"
-            ]
-          },
-          {
-            "group": "API Reference",
-            "pages": [
-              {
-                "group": "Assets",
-                "pages": [
-                  "api-reference/assets/list",
-                  "api-reference/assets/get-single"
-                ]
-              },
-              {
-                "group": "Metrics",
-                "pages": [
-                  "api-reference/metrics/list",
-                  "api-reference/metrics/get-single"
-                ]
-              }
-            ]
-          }
+        "group": "Introduction",
+        "pages": [
+          "getting-started"
         ]
       },
       {
-        "tab": "API Playground",
-        "openapi": "/openapi.json"
+        "group": "API Reference",
+        "pages": [
+          {
+            "group": "Assets",
+            "pages": [
+              "api-reference/assets/list",
+              "api-reference/assets/get-single"
+            ]
+          },
+          {
+            "group": "Metrics",
+            "pages": [
+              "api-reference/metrics/list",
+              "api-reference/metrics/active-addresses",
+              "api-reference/metrics/l1-blockchain-issuance",
+              "api-reference/metrics/real-economic-value",
+              "api-reference/metrics/transaction-count"
+
+            ]
+          }
+        ]
       }
     ]
   },
@@ -87,5 +81,5 @@
       "defaults": "required"
     }
   },
-  "openapi": "https://rest.staging.blockworksresearch.com/api-json"
+  "openapi": "api-reference/openapi.json"
 }

@@ -8,9 +8,41 @@ import { Endpoint } from '/snippets/endpoint.mdx'
 
 <Endpoint method="GET" path="/v3/assets/{idOrSlug}" size="xl" />
 
+## Basic Example
+
+<CodeGroup>
+
+```typescript TypeScript
+const data = await fetch(
+  'https://api.blockworksresearch.com/v3/assets/bitcoin',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+
+const data = await response.json()
+```
+
+```python Python
+import requests
+
+response = requests.get(
+    'https://api.blockworksresearch.com/v3/assets/bitcoin',
+    headers = { 'x-api-key': 'YOUR_API_KEY' }
+)
+
+data = response.json()
+```
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  https://api.blockworksresearch.com/v3/assets/bitcoin
+```
+
+</CodeGroup>
+
 ### Response Structure
 
-The API returns a single asset object with the following structure:
+Returns a single asset object with the following structure:
 
 ```json
 {
@@ -43,37 +75,7 @@ The API returns a single asset object with the following structure:
 }
 ```
 
-## Making a Request
-
-<CodeGroup>
-
-```typescript TypeScript
-const data = await fetch(
-  'https://api.blockworksresearch.com/v3/assets/bitcoin',
-  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
-)
-
-const data = await response.json()
-```
-
-```python Python
-import requests
-
-response = requests.get(
-    'https://api.blockworksresearch.com/v3/assets/bitcoin',
-    headers = { 'x-api-key': 'YOUR_API_KEY' }
-)
-
-data = response.json()
-```
-
-```bash cURL
-curl -H "x-api-key: YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  https://api.blockworksresearch.com/v3/assets/bitcoin
-```
-
-</CodeGroup>
+## Configuration
 
 ### Path Parameters
 
@@ -104,7 +106,9 @@ Use the `expand` parameter to include additional related data. Multiple fields c
 | `addresses.chain` | Address data with expanded chain information | Array |
 | `is_favorite` | Whether the asset is marked as favorite | Boolean |
 
-### Example: Adding supply and OHLCV data
+## Examples
+
+### Adding supply and OHLCV data
 
 The following endpoint demonstrates the expansion of the `supply` and `ohlcv_last_24_h` fields.
 
