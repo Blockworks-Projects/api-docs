@@ -15,9 +15,9 @@ import Request from '/snippets/request.mdx'
 
 ```typescript TypeScript
 const response = await fetch(
-  'https://rest.staging.blockworksresearch.com/v3/metrics/issuance?project=Ethereum',
-  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
-)
+  'https://rest.staging.blockworksresearch.com/v3/metrics/issuance?project=Ethereum', {
+  headers: { 'x-api-key': 'YOUR_API_KEY' }
+})
 
 const data = await response.json()
 ```
@@ -94,3 +94,4 @@ Returns a timeseries of active addresses for a project, grouped by date.
 | `end_date` | string | End date (YYYY-MM-DD) | Today |
 | `aggregation` | string | Data aggregation (daily, weekly, monthly) | daily |
 | `format` | string | Response format (json, csv) | json |
+yu

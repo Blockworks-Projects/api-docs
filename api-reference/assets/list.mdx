@@ -14,9 +14,9 @@ import { Endpoint } from '/snippets/endpoint.mdx'
 
 ```typescript TypeScript
 const response = await fetch(
-  'https://api.blockworksresearch.com/v3/assets?limit=20',
-  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
-)
+  'https://api.blockworksresearch.com/v3/assets?limit=20', {
+  headers: { 'x-api-key': 'YOUR_API_KEY' }
+})
 
 const data = await response.json()
 ```

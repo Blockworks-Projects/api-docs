@@ -15,9 +15,9 @@ import Request from '/snippets/request.mdx'
 
 ```typescript TypeScript
 const response = await fetch(
-  'https://rest.staging.blockworksresearch.com/v3/metrics/txns?project=Ethereum',
-  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
-)
+  'https://rest.staging.blockworksresearch.com/v3/metrics/txns?project=Ethereum', {
+  headers: { 'x-api-key': 'YOUR_API_KEY' }
+})
 
 const data = await response.json()
 ```
