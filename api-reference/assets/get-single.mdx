@@ -109,11 +109,40 @@ Use the `expand` parameter to include additional related data. Multiple fields c
 ## Examples
 
 ### Adding supply and OHLCV data
+To achieve this, we'll use the `expand` parameter to include the `supply` and `ohlcv_last_24_h` fields:
 
-The following endpoint demonstrates the expansion of the `supply` and `ohlcv_last_24_h` fields.
+```bash
+?expand=supply,ohlcv_last_24_h
+```
 
-<Endpoint method="GET" path="/v3/assets/bitcoin?expand=supply,ohlcv_last_24_h" size="md" />
+<CodeGroup>
 
+```typescript TypeScript
+const response = await fetch('https://api.blockworksresearch.com/v3/assets/bitcoin?expand=supply,ohlcv_last_24_h', {
+  headers: { 'x-api-key': 'YOUR_API_KEY' }
+})
+
+const data = await response.json()
+```
+
+```python Python
+response = requests.get(
+    'https://api.blockworksresearch.com/v3/assets/bitcoin',
+    headers={'x-api-key': 'YOUR_API_KEY'},
+    params={'expand': 'supply,ohlcv_last_24_h'}
+)
+
+data = response.json()
+```
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworksresearch.com/v3/assets/bitcoin?expand=supply,ohlcv_last_24_h"
+```
+
+</CodeGroup>
+
+<Accordion title="Response">
 ```json
 {
   "id": 4,
@@ -137,3 +166,4 @@ The following endpoint demonstrates the expansion of the `supply` and `ohlcv_las
   }
 }
 ```
+</Accordion>

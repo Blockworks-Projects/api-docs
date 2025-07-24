@@ -4,6 +4,17 @@ html {
   --radius-lg: 16px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .badge {
   background-color: #f0f0f0;
+}
+table {
+  table-layout: fixed;
+}
+
+table, thead, tbody {
+  width: 100%;
 }

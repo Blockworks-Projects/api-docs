@@ -66,13 +66,11 @@ Returns a list of metrics:
 
 ### Query Parameters
 
-| Parameter | Type | Description | Default |
-|-----------|------|-------------|---------|
-| `page` | integer | Page number (1-indexed) | 1 |
-| `limit` | integer | Items per page (max 100) | 10 |
-| `project` | string | Filter by project identifier | - |
-| `category` | string | Filter by metric category | - |
-| `search` | string | Search metrics by name or description | - |
+| Parameter | Required | Description | Example |
+| --- | :-: | --- | --- |
+| `page` | No | Page number (1-indexed) | 1 |
+| `limit` | No | Items per page (max 100) | 10 |
+| `project` | No | Filter by project identifier (comma-separated) | `Ethereum,Bitcoin` |
 
 ## Examples
 
@@ -82,12 +80,12 @@ Returns a list of metrics:
 
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworksresearch.com/v3/metrics?project=uniswap"
+  "https://api.blockworksresearch.com/v3/metrics?project=Avax"
 ```
 
 ```typescript TypeScript
 const response = await fetch(
-  'https://api.blockworksresearch.com/v3/metrics?project=uniswap', {
+  'https://api.blockworksresearch.com/v3/metrics?project=Avax', {
   headers: { 'x-api-key': 'YOUR_API_KEY' }
 })
 
@@ -98,7 +96,7 @@ const data = await response.json()
 response = requests.get(
     'https://api.blockworksresearch.com/v3/metrics',
     headers = { 'x-api-key': 'YOUR_API_KEY' },
-    params = { 'project': 'uniswap' }
+    params = { 'project': 'Avax' }
 )
 
 data = response.json()
@@ -106,33 +104,55 @@ data = response.json()
 
 </CodeGroup>
 
-### Search Metrics
-
-<CodeGroup>
-
-
-```typescript TypeScript
-const response = await fetch(
-  'https://api.blockworksresearch.com/v3/metrics?search=volume', {
-  headers: { 'x-api-key': 'YOUR_API_KEY' }
-})
-
-const data = await response.json()
+<Accordion title="Response">
+```json
+{
+  "data": [
+    {
+      "name": "Active Addresses",
+      "description": "Not a measure of user growth",
+      "identifier": "active-addresses",
+      "project": "Avax",
+      "source": "Blockworks",
+      "data_type": "timeseries_int",
+      "parameters": {
+        "end_date": {
+          "type": "date",
+          "default": "3000-01-01",
+          "description": "End date (inclusive)"
+        },
+        "start_date": {
+          "type": "date",
+          "default": "2000-01-01",
+          "description": "Start date (inclusive)"
+        }
+      },
+      "updated_at": 1749503643
+    },
+    {
+      "name": "Transaction Count",
+      "description": "Excludes system transactions",
+      "identifier": "txns",
+      "project": "Avax",
+      "source": "Blockworks",
+      "data_type": "timeseries_int",
+      "parameters": {
+        "end_date": {
+          "type": "date",
+          "default": "3000-01-01",
+          "description": "End date (inclusive)"
+        },
+        "start_date": {
+          "type": "date",
+          "default": "2000-01-01",
+          "description": "Start date (inclusive)"
+        }
+      },
+      "updated_at": 1749504846
+    }
+  ],
+  "total": 2,
+  "page": 1
+}
 ```
-
-```python Python
-response = requests.get(
-    'https://api.blockworksresearch.com/v3/metrics',
-    headers = { 'x-api-key': 'YOUR_API_KEY' },
-    params = { 'search': 'volume' }
-)
-
-data = response.json()
-```
-
-```bash cURL
-curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworksresearch.com/v3/metrics?search=volume"
-```
-
-</CodeGroup>
+</Accordion>
