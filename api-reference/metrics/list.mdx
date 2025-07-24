@@ -1,0 +1,360 @@
+---
+title: 'List Metrics'
+description: 'Retrieve available metrics for crypto assets and protocols'
+openapi: 'GET /v3/metrics'
+---
+
+## GET /v3/metrics
+
+Retrieve a paginated list of available metrics that can be queried for crypto assets and protocols.
+
+### Response Structure
+
+The API returns a paginated response with the following structure:
+
+```json
+{
+  "data": [
+    {
+      "name": "Active Addresses",
+      "description": "Not a measure of user growth",
+      "identifier": "active-addresses",
+      "project": "Avax",
+      "source": "Blockworks",
+      "data_type": "timeseries_int",
+      "parameters": { /* available query parameters */ }
+    }
+  ],
+  "total": 12,
+  "page": 1
+}
+```
+
+### Request
+
+```bash
+GET https://rest.staging.blockworksresearch.com/v3/metrics
+```
+
+### Authentication
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://rest.staging.blockworksresearch.com/v3/metrics"
+```
+
+```typescript TypeScript
+const data = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY',
+  }
+});
+```
+
+```python Python
+import requests
+
+headers = {
+    'x-api-key': 'YOUR_API_KEY',
+}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/metrics',
+    headers=headers
+)
+```
+
+</CodeGroup>
+
+### Query Parameters
+
+| Parameter | Type | Description | Default |
+|-----------|------|-------------|---------|
+| `page` | integer | Page number (1-indexed) | 1 |
+| `limit` | integer | Items per page (max 100) | 10 |
+| `project` | string | Filter by project identifier | - |
+| `category` | string | Filter by metric category | - |
+| `search` | string | Search metrics by name or description | - |
+
+### Examples
+
+#### Basic Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://rest.staging.blockworksresearch.com/v3/metrics?limit=20"
+```
+
+```typescript TypeScript
+const data = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics?limit=20', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY',
+  }
+})
+.then(r => r.json());
+console.log(`Found ${data.data.length} metrics`);
+
+data.data.forEach(metric => {
+  console.log(`${metric.name}: ${metric.description}`);
+});
+```
+
+```python Python
+import requests
+
+headers = {'x-api-key': 'YOUR_API_KEY'}
+params = {'limit': 20}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/metrics',
+    headers=headers,
+    params=params
+)
+
+data = response.json()
+print(f"Found {len(data['data'])} metrics")
+
+for metric in data['data']:
+    print(f"{metric['name']}: {metric['description']}")
+```
+
+</CodeGroup>
+
+#### Filter by Project
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://rest.staging.blockworksresearch.com/v3/metrics?project=uniswap"
+```
+
+```typescript TypeScript
+const data = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics?project=uniswap', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY',
+  }
+})
+.then(r => r.json());
+console.log(`Found ${data.data.length} metrics for Uniswap`);
+
+data.data.forEach(metric => {
+  console.log(`${metric.identifier}: ${metric.name}`);
+});
+```
+
+```python Python
+headers = {'x-api-key': 'YOUR_API_KEY'}
+params = {'project': 'uniswap'}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/metrics',
+    headers=headers,
+    params=params
+)
+
+data = response.json()
+print(f"Found {len(data['data'])} metrics for Uniswap")
+
+for metric in data['data']:
+    print(f"{metric['identifier']}: {metric['name']}")
+```
+
+</CodeGroup>
+
+#### Search Metrics
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://rest.staging.blockworksresearch.com/v3/metrics?search=volume"
+```
+
+```typescript TypeScript
+const data = await fetch('https://rest.staging.blockworksresearch.com/v3/metrics?search=volume', {
+  headers: {
+    'x-api-key': 'YOUR_API_KEY',
+  }
+})
+.then(r => r.json());
+console.log(`Found ${data.data.length} volume-related metrics`);
+
+data.data.forEach(metric => {
+  console.log(`${metric.identifier}: ${metric.name}`);
+  console.log(`  Unit: ${metric.unit}`);
+  console.log(`  Projects: ${metric.projects.join(', ')}`);
+});
+```
+
+```python Python
+headers = {'x-api-key': 'YOUR_API_KEY'}
+params = {'search': 'volume'}
+
+response = requests.get(
+    'https://rest.staging.blockworksresearch.com/v3/metrics',
+    headers=headers,
+    params=params
+)
+
+data = response.json()
+print(f"Found {len(data['data'])} volume-related metrics")
+
+for metric in data['data']:
+    print(f"{metric['identifier']}: {metric['name']}")
+    print(f"  Unit: {metric['unit']}")
+    print(f"  Projects: {', '.join(metric['projects'])}")
+```
+
+</CodeGroup>
+
+### Response
+
+#### Success Response (200 OK)
+
+```json
+{
+  "data": [
+    {
+      "name": "Active Addresses",
+      "description": "Not a measure of user growth",
+      "identifier": "active-addresses",
+      "project": "Avax",
+      "source": "Blockworks",
+      "data_type": "timeseries_int",
+      "parameters": {
+        "end_date": {
+          "type": "date",
+          "default": "3000-01-01",
+          "description": "End date (inclusive)"
+        },
+        "start_date": {
+          "type": "date",
+          "default": "2000-01-01",
+          "description": "Start date (inclusive)"
+        }
+      },
+      "updated_at": 1749503643
+    },
+    {
+      "name": "Transaction Count",
+      "description": "Excludes system transactions",
+      "identifier": "txns",
+      "project": "Solana",
+      "source": "Blockworks",
+      "data_type": "timeseries_int",
+      "parameters": {
+        "end_date": {
+          "type": "date",
+          "default": "3000-01-01",
+          "description": "End date (inclusive)"
+        },
+        "start_date": {
+          "type": "date",
+          "default": "2000-01-01",
+          "description": "Start date (inclusive)"
+        }
+      },
+      "updated_at": 1749504693
+    }
+  ],
+  "total": 12,
+  "page": 1
+}
+```
+
+#### Error Responses
+
+<AccordionGroup>
+  <Accordion title="400 Bad Request">
+    ```json
+    {
+      "error": {
+        "code": "INVALID_PARAMETER",
+        "message": "Invalid project parameter value",
+        "details": {
+          "parameter": "project",
+          "value": "invalid-project"
+        }
+      }
+    }
+    ```
+  </Accordion>
+
+  <Accordion title="401 Unauthorized">
+    ```json
+    {
+      "error": {
+        "code": "UNAUTHORIZED",
+        "message": "Invalid API key"
+      }
+    }
+    ```
+  </Accordion>
+
+  <Accordion title="429 Too Many Requests">
+    ```json
+    {
+      "error": {
+        "code": "RATE_LIMIT_EXCEEDED",
+        "message": "Rate limit exceeded",
+        "details": {
+          "limit": 1000,
+          "remaining": 0,
+          "reset": 1640995200
+        }
+      }
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+### Response Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | string | Human-readable metric name |
+| `description` | string | Detailed metric description |
+| `identifier` | string | Unique metric identifier |
+| `project` | string | Project this metric belongs to |
+| `source` | string | Data source (e.g., "Blockworks") |
+| `data_type` | string | Data type (e.g., "timeseries_int", "timeseries_usd") |
+| `parameters` | object | Available query parameters |
+| `updated_at` | number | Unix timestamp of last update |
+| `total` | number | Total number of metrics available |
+| `page` | number | Current page number |
+
+### Metric Categories
+
+The API organizes metrics into several categories:
+
+| Category | Description | Examples |
+|----------|-------------|----------|
+| `defi` | DeFi protocol metrics | TVL, fees, liquidity |
+| `trading` | Trading-related metrics | Volume, spreads, trades |
+| `network` | Network activity metrics | Users, transactions, gas |
+| `token` | Token-specific metrics | Supply, distribution, holders |
+| `governance` | Governance metrics | Proposals, voting, participation |
+
+### Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Query Metric Data"
+    icon="chart-line"
+    href="/api-reference/metrics/get-single"
+  >
+    Learn how to query specific metric data
+  </Card>
+  <Card
+    title="Metric Catalog"
+    icon="book-open"
+    href="/metric-catalog"
+  >
+    Browse our comprehensive metric catalog
+  </Card>
+</CardGroup>

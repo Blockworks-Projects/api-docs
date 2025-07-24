@@ -11,9 +11,6 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "API Reference"
-      },
-      {
         "tab": "Documentation",
         "groups": [
           {
@@ -26,11 +23,27 @@
           {
             "group": "API Reference",
             "pages": [
-              "api-reference/assets",
-              "api-reference/metrics"
+              {
+                "group": "Assets",
+                "pages": [
+                  "api-reference/assets/list",
+                  "api-reference/assets/get-single"
+                ]
+              },
+              {
+                "group": "Metrics",
+                "pages": [
+                  "api-reference/metrics/list",
+                  "api-reference/metrics/get-single"
+                ]
+              }
             ]
           }
         ]
+      },
+      {
+        "tab": "API Playground",
+        "openapi": "/openapi.json"
       }
     ]
   },
@@ -67,7 +80,12 @@
   },
   "api": {
     "playground": {
-      "display": "simple"
+      "display": "interactive"
+    },
+    "examples": {
+      "languages": ["curl", "python", "javascript"],
+      "defaults": "required"
     }
-  }
+  },
+  "openapi": "https://rest.staging.blockworksresearch.com/api-json"
 }
