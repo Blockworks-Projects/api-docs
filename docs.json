@@ -20,21 +20,26 @@
         "group": "API Reference",
         "pages": [
           {
-            "group": "Assets",
+            "group": "Assets API",
             "pages": [
               "api-reference/assets/list",
               "api-reference/assets/get-single"
             ]
           },
           {
-            "group": "Metrics",
+            "group": "Metrics API",
             "pages": [
               "api-reference/metrics/list",
-              "api-reference/metrics/active-addresses",
-              "api-reference/metrics/l1-blockchain-issuance",
-              "api-reference/metrics/real-economic-value",
-              "api-reference/metrics/transaction-count"
-
+              "api-reference/metrics/get-single",
+              {
+                "group": "Specific Metrics",
+                "pages": [
+                  "api-reference/metrics/active-addresses",
+                  "api-reference/metrics/issuance",
+                  "api-reference/metrics/rev",
+                  "api-reference/metrics/txns"
+                ]
+              }
             ]
           }
         ]
