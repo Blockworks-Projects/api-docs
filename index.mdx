@@ -1,24 +1,28 @@
 ---
 title: Blockworks Research API
-description: "The most powerful crypto research platform API"
+description: "Crypto assets and metrics API"
 ---
 
 <img
-  className="block dark:hidden"
+  className="block"
   src="/images/hero-light.png"
-  alt="Blockworks Research - Institutional-Grade Crypto Intelligence"
-  style={{ borderRadius: '8px', marginBottom: '2rem' }}
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.png"
-  alt="Blockworks Research - Institutional-Grade Crypto Intelligence"
+  alt="Blockworks Research API"
   style={{ borderRadius: '8px', marginBottom: '2rem' }}
 />
 
-## Welcome to Blockworks Research API
+REST API providing crypto asset data and blockchain metrics. Access fee structures, issuance data, revenue metrics, and comprehensive asset information for your applications and research.
 
-Access comprehensive crypto data and metrics through our powerful API. Get real-time and historical data on digital assets, protocols, and market metrics to power your applications and research.
+
+## Sample Request
+
+```bash
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworksresearch.com/v3/assets"
+```
+
+
+
+## Quick Start
 
 <CardGroup cols={2}>
   <Card
@@ -26,67 +30,32 @@ Access comprehensive crypto data and metrics through our powerful API. Get real-
     icon="rocket"
     href="/getting-started"
   >
-    Quick start guide to begin using the Blockworks Research API
+    Get your API key and make your first request
   </Card>
   <Card
-    title="API Key Management"
+    title="Get API Key"
     icon="key"
-    href="/api-key-management"
-  >
-    Learn how to obtain and manage your API keys
-  </Card>
-</CardGroup>
-
-## Core Features
-
-Access the data that powers institutional-grade crypto research.
-
-<CardGroup cols={2}>
-  <Card
-    title="Assets API"
-    icon="coins"
-    href="/api-reference/assets/list-assets"
-  >
-    Query comprehensive asset data including market cap, prices, and metadata
-  </Card>
-  <Card
-    title="Metrics API"
-    icon="chart-line"
-    href="/api-reference/metrics/list-metrics"
-  >
-    Access custom metrics and analytics for protocols and assets
-  </Card>
-  <Card
-    title="TypeScript Examples"
-    icon="code"
-    href="/examples/typescript"
-  >
-    Ready-to-use TypeScript examples and SDK usage
-  </Card>
-  <Card
-    title="Python Examples"
-    icon="snake"
-    href="/examples/python"
-  >
-    Python code examples and best practices
-  </Card>
-</CardGroup>
-
-## Resources
-
-<CardGroup cols={2}>
-  <Card
-    title="Metric Catalog"
-    icon="book-open"
-    href="/metric-catalog"
-  >
-    Browse our comprehensive catalog of available metrics
-  </Card>
-  <Card
-    title="Pricing"
-    icon="credit-card"
     href="https://www.blockworksresearch.com/#pricing"
   >
-    View API pricing plans and limits
+    Sign up and generate your API key
+  </Card>
+</CardGroup>
+
+## API Endpoints
+
+<CardGroup cols={2}>
+  <Card
+    title="Assets"
+    icon="coins"
+    href="/api-reference/assets/list"
+  >
+    Query asset data, metadata, and project information
+  </Card>
+  <Card
+    title="Metrics"
+    icon="chart-line"
+    href="/api-reference/metrics/list"
+  >
+    Access blockchain metrics: fees, issuance, revenue, burns
   </Card>
 </CardGroup>
