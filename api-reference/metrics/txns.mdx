@@ -1,7 +1,7 @@
 ---
 title: 'Transactions'
 description: 'Retrieve Transaction Metrics'
-openapi: 'GET /v3/metrics/txns'
+openapi: 'GET /v3/metrics/{identifier}'
 ---
 
 import { Endpoint } from '/snippets/endpoint.mdx'
@@ -9,7 +9,7 @@ import GenericResponse from '/snippets/metrics/generic-response.mdx'
 import QueryParams from '/snippets/metrics/query-params.mdx'
 import Request from '/snippets/request.mdx'
 
-<Endpoint method="GET" path="/v3/metrics/txns" size="xl" />
+<Endpoint method="GET" path="/v3/metrics/txns" />
 
 ## Basic Example
 

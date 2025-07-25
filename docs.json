@@ -35,8 +35,42 @@
                 "group": "Specific Metrics",
                 "pages": [
                   "api-reference/metrics/active-addresses",
+                  "api-reference/metrics/base-fees",
+                  "api-reference/metrics/base-fees-usd",
+                  "api-reference/metrics/blob-fees",
+                  "api-reference/metrics/blob-fees-usd",
+                  "api-reference/metrics/burn",
+                  "api-reference/metrics/burn-usd",
                   "api-reference/metrics/issuance",
+                  "api-reference/metrics/issuance-total",
+                  "api-reference/metrics/issuance-total-usd",
+                  "api-reference/metrics/operator-payment-issuance-miners",
+                  "api-reference/metrics/operator-payment-issuance-miners-usd",
+                  "api-reference/metrics/operator-payment-issuance-operators",
+                  "api-reference/metrics/operator-payment-issuance-operators-usd",
+                  "api-reference/metrics/operator-payment-priorityfees-builders",
+                  "api-reference/metrics/operator-payment-priorityfees-builders-usd",
+                  "api-reference/metrics/operator-payment-priorityfees-operators",
+                  "api-reference/metrics/operator-payment-priorityfees-operators-usd",
+                  "api-reference/metrics/operator-payment-tips-operators",
+                  "api-reference/metrics/operator-payment-tips-operators-usd",
+                  "api-reference/metrics/operator-payment-total",
+                  "api-reference/metrics/operator-payment-total-usd",
+                  "api-reference/metrics/operator-payment-txfees-miners",
+                  "api-reference/metrics/operator-payment-txfees-miners-usd",
+                  "api-reference/metrics/priority-fees",
+                  "api-reference/metrics/priority-fees-usd",
                   "api-reference/metrics/rev",
+                  "api-reference/metrics/rev-share-operators",
+                  "api-reference/metrics/rev-share-operators-usd",
+                  "api-reference/metrics/rev-share-token",
+                  "api-reference/metrics/rev-share-token-usd",
+                  "api-reference/metrics/rev-total",
+                  "api-reference/metrics/rev-total-usd",
+                  "api-reference/metrics/tips",
+                  "api-reference/metrics/tips-usd",
+                  "api-reference/metrics/token-income",
+                  "api-reference/metrics/token-income-usd",
                   "api-reference/metrics/txns"
                 ]
               }
@@ -86,5 +120,5 @@
       "defaults": "required"
     }
   },
-  "openapi": "api-reference/openapi.json"
+  "openapi": "openapi-fixed.json"
 }

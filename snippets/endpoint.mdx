@@ -1,22 +1,13 @@
-export const Endpoint = ({ method, path, size = 'lg' }) => {
-  const sizes = {
-    '3xl': 'text-3xl',
-    '2xl': 'text-2xl',
-    'xl': 'text-xl',
-    'lg': 'text-lg',
-    'md': 'text-md',
-    'sm': 'text-sm',
-  }
-
+export const Endpoint = ({ method, path }) => {
   return (
     <div className={`px-[0.5em] py-[0.5em] border border-black/10 dark:border-white/10 rounded-2xl flex
     items-center gap-3 font-medium text-black/100 dark:text-white/90 whitespace-nowrap`}>
       <span className="text-green-600/100 bg-green-200/50 dark:text-green-400/100 dark:bg-green-400/10 px-3 py-1 rounded-lg text-md font-bold">
         {method}
       </span>
-      <span className={`${sizes[size]}`}>
+      <span className="text-sm md:text-base lg:text-lg overflow-hidden text-ellipsis whitespace-nowrap">
         {path}
       </span>
     </div>
-  );
+  )
 }
