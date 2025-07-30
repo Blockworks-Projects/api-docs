@@ -80,8 +80,7 @@ Returns a paginated list of assets:
 | `limit` | integer | No | Items per page (max 100) | `10` |
 | `code` | string | No | Filter by asset code (e.g., "BTC") | `BTC` |
 | `slug` | string | No | Filter by asset slug | `bitcoin` |
-| `category` | string | No | Filter by asset category | `Infrastructure` |
-| `favorites` | `true, false, 0, 1` | No | Show only favorite assets | `false` |
+| `category` | string, comma-separated | No | Filter by asset category(s) | `Infrastructure,Services` |
 | `expand` | string | No | Expand related data | - |
 
 ### Expansion Options
@@ -95,7 +94,6 @@ Use the `expand` parameter to include additional related data for each asset:
 | `sector` | Sector classification |
 | `markets` | Trading market data |
 | `supply` | Supply information |
-| `is_favorite` | Favorite status |
 
 ## Examples
 

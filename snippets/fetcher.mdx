@@ -1,0 +1,22 @@
+export const Fetcher = ({ path = 'https://ittysockets.io/stats' }) => {
+  const [response, setResponse] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  useEffect(() => {
+    console.log('fetching', path)
+    setLoading(true)
+    fetch(path)
+      .then(res => res.json())
+      .then(setResponse)
+      .then(() => setLoading(false))
+  }, [path])
+
+  return (
+    <code className={`codeblock whitespace-pre-wrap border border-black/10 dark:border-white/10 rounded-2xl p-4 mb-8`}>
+      {loading ? (<span className="opacity-20">Loading...</span>) : (
+        JSON.stringify(response, null, 2)
+      )}
+    </code>
+  )
+}
