@@ -39,6 +39,12 @@ Once we have our API key, we can make requests to the API.  Here's a simple exam
 
 <CodeGroup>
 
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  https://api.blockworksresearch.com/v3/assets
+```
+
 ```typescript TypeScript
 const data = await fetch(
   'https://api.blockworksresearch.com/v3/assets',
@@ -57,12 +63,6 @@ response = requests.get(
 )
 
 data = response.json()
-```
-
-```bash cURL
-curl -H "x-api-key: YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  https://api.blockworksresearch.com/v3/assets
 ```
 
 </CodeGroup>

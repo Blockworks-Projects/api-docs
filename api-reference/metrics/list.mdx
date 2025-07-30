@@ -12,6 +12,11 @@ import { Endpoint } from '/snippets/endpoint.mdx'
 
 <CodeGroup>
 
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworksresearch.com/v3/metrics"
+```
+
 ```typescript TypeScript
 const response = await fetch(
   'https://api.blockworksresearch.com/v3/metrics', {
@@ -30,11 +35,6 @@ response = requests.get(
 )
 
 data = response.json()
-```
-
-```bash cURL
-curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworksresearch.com/v3/metrics"
 ```
 
 

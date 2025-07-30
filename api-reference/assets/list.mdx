@@ -12,6 +12,12 @@ import { Endpoint } from '/snippets/endpoint.mdx'
 
 <CodeGroup>
 
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  "https://api.blockworksresearch.com/v3/assets?limit=20"
+```
+
 ```typescript TypeScript
 const response = await fetch(
   'https://api.blockworksresearch.com/v3/assets?limit=20', {
@@ -31,12 +37,6 @@ response = requests.get(
 )
 
 data = response.json()
-```
-
-```bash cURL
-curl -H "x-api-key: YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  "https://api.blockworksresearch.com/v3/assets?limit=20"
 ```
 
 </CodeGroup>
@@ -101,6 +101,11 @@ Use the `expand` parameter to include additional related data for each asset:
 
 <CodeGroup>
 
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworksresearch.com/v3/assets?category=Infrastructure&limit=2"
+```
+
 ```typescript TypeScript
 const response = await fetch('https://api.blockworksresearch.com/v3/assets?category=Infrastructure&limit=2', {
   headers: { 'x-api-key': 'YOUR_API_KEY' }
@@ -115,11 +120,6 @@ response = requests.get(
     headers={'x-api-key': 'YOUR_API_KEY'},
     params={'category': 'Infrastructure', 'limit': 2}
 )
-```
-
-```bash cURL
-curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworksresearch.com/v3/assets?category=Infrastructure&limit=2"
 ```
 
 </CodeGroup>
@@ -169,6 +169,11 @@ curl -H "x-api-key: YOUR_API_KEY" \
 
 <CodeGroup>
 
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworksresearch.com/v3/assets?expand=price,market_cap&limit=2"
+```
+
 ```typescript TypeScript
 const response = await fetch('https://api.blockworksresearch.com/v3/assets?expand=price,market_cap&limit=2', {
   headers: { 'x-api-key': 'YOUR_API_KEY' }
@@ -183,11 +188,6 @@ response = requests.get(
     headers={'x-api-key': 'YOUR_API_KEY'},
     params={'expand': 'price,market_cap', 'limit': 2}
 )
-```
-
-```bash cURL
-curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworksresearch.com/v3/assets?expand=price,market_cap&limit=2"
 ```
 
 </CodeGroup>
