@@ -42,12 +42,12 @@ Once we have our API key, we can make requests to the API.  Here's a simple exam
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
-  https://api.blockworksresearch.com/v3/assets
+  https://api.blockworksresearch.com/v1/assets
 ```
 
 ```typescript TypeScript
 const data = await fetch(
-  'https://api.blockworksresearch.com/v3/assets',
+  'https://api.blockworksresearch.com/v1/assets',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 
@@ -58,7 +58,7 @@ const data = await response.json()
 import requests
 
 response = requests.get(
-    'https://api.blockworksresearch.com/v3/assets',
+    'https://api.blockworksresearch.com/v1/assets',
     headers = { 'x-api-key': 'YOUR_API_KEY' }
 )
 
