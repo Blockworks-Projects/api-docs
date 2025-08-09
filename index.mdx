@@ -1,25 +1,96 @@
 ---
-title: Blockworks Research API
-description: "Crypto assets and metrics API"
+title: Welcome
+description: "A high-signal crypto data API that ships curated, production‑ready metrics and chart datasets."
+icon: house
 ---
 
 <img
   className="block"
   src="/images/hero-light.png"
-  alt="Blockworks Research API"
+  alt="Blockworks Data API"
   style={{ borderRadius: '8px', marginBottom: '2rem' }}
 />
 
-REST API providing crypto asset data and blockchain metrics. Access fee structures, issuance data, revenue metrics, and comprehensive asset information for your applications and research.
+
+## Data API: Blockworks Data, Anywhere
+
+Even the best dashboard can only take you so far. Sometimes, you need direct access to the numbers in your own environment: feeding models, powering tools, automating the boring stuff.
+
+Your models, dashboards, and reporting pipelines are starving for rock-solid onchain data, yet you’re still babysitting CSVs and wrestling with unreliable sources.
+
+We’re unclogging that pipe today. Blockworks Data API connects our entire warehouse straight to your stack so you can build, ship, and iterate at lightning speed.
+
+### Why Data API?
+
+Earlier this year, we promised two flavors of access: customize inside, retrieve outside. Dashboard Builder nailed the first, Data API delivers the second.
+
+With the Blockworks Data API, you’ll be able to:
+
+- **Pull what you need, when you need it.** No copy-paste, no manual exports.
+- **Integrate anywhere.** Python notebooks, Excel models, BI dashboards, cron jobs, in-house apps.
+- **Trust the source.** Every call hits the same validated warehouse that powers Blockworks Research.
+- **Go deep when it matters.** Pull the complete onchain story in a single call, powered by proprietary metrics that reveal what really drives a protocol.
+
+From daily reporting to backtesting to automating investor updates, the possibilities are wide open.
+
+### Rollout Plan
+
+- **Private beta:** A select group of partners will get early access over the coming weeks.
+- **Waitlist now open:** We’ll expand access gradually as we scale infrastructure and refine endpoints. [Join the waitlist here](https://app.blockworksresearch.com/?modal=share-feedback).
+
+### The Bigger Picture
+
+Blockchain transparency should make rigorous analysis easier. Today, data collection and cleanup still waste too many hours.
+
+The Data API is our next step in removing that friction so you can spend less time wrangling and more time acting.
 
 
-## Sample Request
+<Note>To access Blockworks APIs, head over to [blockworksresearch.com](https://www.blockworksresearch.com)</Note>
 
-```bash
-curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworksresearch.com/v1/assets"
-```
 
+The Blockworks API gives you direct programmatic access to the same high-quality crypto datasets that power our editorial and research platforms.
+Our team of engineers, researchers, and analysts does the hard work of blockchain indexing, metric design, and data cleaning - so you can focus on building insights, charts, products, and tools.
+
+| What you get | Description
+| - | - |
+| Aggregated blockchain metrics | Consistent, documented time-series across chain activity, fees, issuance, stablecoins, DEX volumes, and more. Aggregated mostly to daily values for comparability.
+| Chart dataset exports | Programmatic access to 1,500+ datasets used in Blockworks Research dashboards.
+| Asset profiles & prices | Up-to-date market data (price, market cap, volume, supply) alongside curated asset profiles.
+
+## Why it’s different
+
+Most providers hand you raw events and leave modeling to you. We’re opinionated: crypto engineers, researchers, and analysts do the heavy lifting — indexing chains, cleaning anomalies, decoding events, and codifying methodology — so you consume stable, versioned metrics out of the box.
+
+- Curated metrics defined and maintained by subject-matter experts
+- Methodology-driven with explicit lineage and source references
+- Consistent schemas and naming across chains and assets
+- The exact datasets behind our editorial and research platforms
+
+## What to expect
+
+- Fast onboarding: metrics are ready to use with minimal transformation
+- Clear docs: each dataset includes definitions, units, and methodology notes
+- Reliable delivery: built for high availability and consistent updates
+- Scalable integration: suitable for investment memos, custom charts, dashboards, analytics tools, trading models, and research pipelines
+
+## Example metric categories
+
+These examples illustrate scope; see the metrics catalog for full definitions and methodology notes.
+
+- Price & supply: `token_price_usd`, `token_supply`, `token_fdv`
+- Economic value & fees: `rev_total`, `rev_total_usd`, `transaction_fees`, `base_fees`, `priority_fees`, `other_fees`, `mev_tips`, `burn`
+- Activity & costs: `transaction_total`, `transaction_success`, `transaction_fail`, `address_total`, `fee_average`, `fee_median` (and USD variants)
+- Stablecoins: `stablecoin_supply`, `stablecoin_circulating`
+- DEX: `spot_volume_usd`
+
+
+## Who it’s for
+
+- Institutional investors needing reliable, consistent metrics for due diligence & branded charting
+- Teams building executive dashboards or internal KPIs across chains
+- Quant researchers running screens and backtests
+- Analysts reproducing and extending Blockworks Research charts
+- Product teams enriching asset pages with reliable metrics
 
 
 ## Quick Start
@@ -30,32 +101,13 @@ curl -H "x-api-key: YOUR_API_KEY" \
     icon="rocket"
     href="/getting-started"
   >
-    Get your API key and make your first request
+    Learn how to get up and running with the API
   </Card>
   <Card
     title="Get API Key"
     icon="key"
-    href="https://www.blockworksresearch.com/#pricing"
+    href="https://app.blockworksresearch.com/settings/api-keys"
   >
-    Sign up and generate your API key
-  </Card>
-</CardGroup>
-
-## API Endpoints
-
-<CardGroup cols={2}>
-  <Card
-    title="Assets"
-    icon="coins"
-    href="/api-reference/assets/list"
-  >
-    Query asset data, metadata, and project information
-  </Card>
-  <Card
-    title="Metrics"
-    icon="chart-line"
-    href="/api-reference/metrics/list"
-  >
-    Access blockchain metrics: fees, issuance, revenue, burns
+    Sign up to research and generate your API key
   </Card>
 </CardGroup>

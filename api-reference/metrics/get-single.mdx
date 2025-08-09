@@ -1,27 +1,31 @@
 ---
 title: 'Get Single Metric'
 description: 'Retrieve a specific metric for specific projects'
-openapi: 'GET /v1/metrics/test'
+openapi: 'GET /v1/metrics/{identifier}'
 ---
 
 import Request from '/snippets/request.mdx'
 import QueryParams from '/snippets/metrics/query-params.mdx'
 import { Endpoint } from '/snippets/endpoint.mdx'
 
-<Endpoint method="GET" path="/v1/metrics/{identifier}" />
+## Overview
+
+The `GET /v1/metrics/{identifier}` endpoint returns a time series for a single metric across one or more projects.
+Metrics are curated, aggregated datasets (usually daily) such as network revenue, token supply, or DEX volume.
+Each metric has a stable identifier and consistent schema, with methodology documented in the [Metrics Catalog](/metrics).
 
 ## Basic Example
 
 <CodeGroup>
 
 ```bash cURL
-curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworksresearch.com/v1/metrics/txns?project=Ethereum"
+curl -H "x-api-key: YOUR_API_KEY" \\
+  "https://api.blockworks.com/v1/metrics/rev-usd?project=ethereum"
 ```
 
 ```typescript TypeScript
 const response = await fetch(
-  'https://api.blockworksresearch.com/v1/metrics/txns?project=Ethereum',
+  'https://api.blockworks.com/v1/metrics/rev-usd?project=ethereum',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 
@@ -32,9 +36,9 @@ const data = await response.json()
 import requests
 
 response = requests.get(
-    'https://api.blockworksresearch.com/v1/metrics/txns',
+    'https://api.blockworks.com/v1/metrics/rev-usd',
     headers={'x-api-key': 'YOUR_API_KEY'},
-    params={'project': 'Ethereum'}
+    params={'project': 'ethereum'}
 )
 
 data = response.json()
@@ -42,29 +46,41 @@ data = response.json()
 
 </CodeGroup>
 
+## Multiple Projects Example
 
-### Response Structure
+If supported, request multiple projects in a single call by separating them with commas:
 
-Returns a specific metric for a project:
+```bash
+curl -H "x-api-key: YOUR_API_KEY" \\
+  "https://api.blockworks.com/v1/metrics/rev-usd?project=ethereum,optimism,arbitrum"
+```
+
+## Response Structure
+
+Returns a JSON object where each key is a project identifier, and its value is an array of date/value pairs.
+
+Ethereum REV in USD example:
 
 ```json
 {
-  "Ethereum": [
-    {
-      "date": "2025-07-23",
-      "value": 106994
-    },
-    {
-      "date": "2025-07-22",
-      "value": 510353
-    },
-    {
-      "date": "2025-07-21",
-      "value": 493831
-    }
+  "ethereum": [
+    { "date": "2015-08-07", "value": 0 },
+    { "date": "2015-08-08", "value": 0 },
+    ...
+    { "date": "2025-08-06", "value": 948090.6293758566 },
+    { "date": "2025-08-07", "value": 1175055.4507596379 },
+    { "date": "2025-08-08", "value": 1370617.1360337874 }
   ]
 }
 ```
+
+### Response Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `<project>` | array | Top-level key matching the project slug |
+| `date` | string | ISO-8601 date for the data point |
+| `value` | number | Metric value for that date in the requested unit |
 
 ## Configuration
 
@@ -72,14 +88,29 @@ Returns a specific metric for a project:
 
 | Parameter | Type | Description | Required |
 |-----------|------|-------------|----------|
-| `identifier` | `string` | Metric identifier | Yes |
+| `identifier` | string | Metric identifier | Yes |
+
+Use the `identifier` from the [List Metrics](/api-reference/metrics/list) endpoint to specify which metric to retrieve.
 
 ### Query Parameters
 
 | Parameter | Type | Description | Default |
 |-----------|------|-------------|---------|
-| `project` | string | Project identifier | Required |
+| `project` | string | Project identifier (slug) | Required |
 | `start_date` | string | Start date (YYYY-MM-DD) | 30 days ago |
 | `end_date` | string | End date (YYYY-MM-DD) | Today |
-| `aggregation` | string | Data aggregation (daily, weekly, monthly) | daily |
-| `format` | string | Response format (json, csv) | json |
+| `aggregation` | string | Data aggregation (`daily`, `weekly`, `monthly`) | daily |
+
+## Error Example
+
+```json
+{
+  "error": {
+    "type": "not_found",
+    "message": "Metric identifier 'foo-bar' not found",
+    "request_id": "abcd1234"
+  }
+}
+```
+
+For details on valid metric identifiers and project slugs, see [List Metrics](/api-reference/metrics/list) and [Projects Supported](/projects-supported).

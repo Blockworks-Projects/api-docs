@@ -1,6 +1,7 @@
 ---
 title: Getting Started
-description: "Get up and running with the Blockworks Research API"
+description: "Get up and running with the Blockworks API"
+icon: rocket
 ---
 
 ## 1. Obtain an API Key
@@ -10,7 +11,7 @@ description: "Get up and running with the Blockworks Research API"
   <Step title="Sign Up for a Blockworks Research Account">
     <Card title="Log in to your account"
       icon="key"
-      href="https://www.blockworksresearch.com/#pricing"
+      href="https://app.blockworksresearch.com/settings/api-keys"
     >
       Choose your plan and log in to your account
     </Card>
@@ -18,17 +19,17 @@ description: "Get up and running with the Blockworks Research API"
   <Step title="Navigate to the API Key Management page">
     Profile > Account Management > API
 
-    ![API Key Management](https://ity.sh/sZyPHMNP)
+    ![API Key Management](/images/screenshots/user-dropdown.png)
   </Step>
   <Step title="Create a New API Key">
     Enter a new name for your API key and click "Create Key".
 
-    ![API Key Management](https://ity.sh/EmdaDCCT)
+    ![API Key Management](/images/screenshots/api-key-creation.png)
   </Step>
   <Step title="Save It Somewhere Safe">
-    Once generated, you won't be able to access it again.
+    Once generated, you won't be able to access it again. Copy the key to your clipboard and store it securely.
 
-    ![API Key Management](https://ity.sh/P6NB3fY4)
+    ![API Key Management](/images/screenshots/key-generated.png)
   </Step>
 </Steps>
 </Accordion>
@@ -42,12 +43,12 @@ Once we have our API key, we can make requests to the API.  Here's a simple exam
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \
   -H "Content-Type: application/json" \
-  https://api.blockworksresearch.com/v1/assets
+  https://api.blockworks.com/v1/assets
 ```
 
 ```typescript TypeScript
 const data = await fetch(
-  'https://api.blockworksresearch.com/v1/assets',
+  'https://api.blockworks.com/v1/assets',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 
@@ -58,7 +59,7 @@ const data = await response.json()
 import requests
 
 response = requests.get(
-    'https://api.blockworksresearch.com/v1/assets',
+    'https://api.blockworks.com/v1/assets',
     headers = { 'x-api-key': 'YOUR_API_KEY' }
 )
 

@@ -1,0 +1,30 @@
+---
+title: 'Stablecoin Circulating Supply'
+description: 'Supply tracked via transfers to/from the null address, as well as distinct issuance and redemption events for supported stablecoins. Circulating supply remove supply held in bridges, token treasuries, and known mint/burn addresses.'
+openapi: 'GET /v1/metrics/stablecoin-circulating-supply'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Aggregation:** daily
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "ethereum": [
+    { "date": "2025-08-01", "value": 592.3947 },
+    { "date": "2025-08-02", "value": 605.2811 },
+    { "date": "2025-08-03", "value": 618.0204 },
+    { "date": "2025-08-04", "value": 598.472 }
+  ]
+}
+```
+
+## Notes
+- Daily aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
