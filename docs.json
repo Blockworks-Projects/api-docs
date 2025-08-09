@@ -11,7 +11,7 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "API",
+        "tab": "Documentation",
         "groups": [
           {
             "group": "Introduction",
@@ -178,6 +178,10 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "API Reference",
+        "openapi": "/openapi.json"
       }
     ]
   },
