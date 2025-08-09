@@ -1,0 +1,117 @@
+---
+title: 'Authentication'
+description: 'How to authenticate with x-api-key and best practices for securing your integration'
+icon: key
+---
+
+## Overview
+
+All API requests must include your API key in the **`x-api-key`** HTTP header.  
+Keys are issued from your Blockworks Research account and are tied to your organization/plan.
+
+| Topic | TL;DR |
+| - | - |
+| Header | `x-api-key: YOUR_API_KEY` |
+| Where to get it | Project dashboard → API Keys |
+| Scope | Works across all documented endpoints unless noted otherwise |
+| Rotation | Create a new key, update your services, then revoke the old key |
+| Errors | Missing/invalid → `401 Unauthorized`, insufficient access → `403 Forbidden` |
+
+## Quick start
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY"   "https://api.blockworks.com/v1/metrics?project=ethereum&limit=1"
+```
+
+```typescript TypeScript
+const res = await fetch("https://api.blockworks.com/v1/metrics?project=ethereum&limit=1", {
+  headers: { "x-api-key": process.env.BWR_API_KEY! }
+})
+if (!res.ok) throw new Error(`HTTP ${res.status}`)
+const data = await res.json()
+```
+
+```python Python
+import os, requests
+
+resp = requests.get(
+  "https://api.blockworks.com/v1/metrics",
+  headers={"x-api-key": os.environ["BWR_API_KEY"]},
+  params={"project": "ethereum", "limit": 1},
+  timeout=30
+)
+resp.raise_for_status()
+data = resp.json()
+```
+
+</CodeGroup>
+
+## Sending the header
+
+- **Always** send `x-api-key` on every request.  
+- Use **HTTPS** only.  
+- Prefer environment variables or a secure secrets manager; **never** hardcode keys in code or commit history.
+
+### Example with Axios (Node)
+
+```typescript
+import axios from "axios"
+
+const api = axios.create({
+  baseURL: "https://api.blockworks.com",
+  headers: { "x-api-key": process.env.BWR_API_KEY! },
+  timeout: 30_000
+})
+
+const { data } = await api.get("/v1/assets", { params: { limit: 20 } })
+```
+
+## Key management best practices
+
+- **Least privilege** (if you use multiple keys per environment/team, give the narrowest access).  
+- **Separate keys per environment**: `dev`, `staging`, `prod`.  
+- **Rotate** regularly and on any suspected exposure. Safe rotation flow:  
+  1. Create a **new** key.  
+  2. Deploy config with the new key.  
+  3. Verify traffic and logs.  
+  4. **Revoke** the old key.  
+- **Store securely**: cloud secrets manager (e.g., AWS Secrets Manager, GCP Secret Manager, 1Password) or your CI/CD secret store.  
+- **Audit** usage from your account dashboard (failed requests, rate-limit spikes, unusual origins).
+
+## Common errors
+
+| Status | Type | Why it happens | How to fix |
+| - | - | - | - |
+| `401 Unauthorized` | `missing_api_key` | Header not present or malformed | Add `x-api-key` with a valid key |
+| `401 Unauthorized` | `invalid_api_key` | Unknown or revoked key | Use an active key or rotate |
+| `403 Forbidden` | `insufficient_scope` | Key lacks access to the requested resource | Request access or use a key with the right plan/scope |
+| `429 Too Many Requests` | `rate_limited` | Exceeded your plan limits | Backoff/retry with jitter, consider higher tier |
+| `5xx` | `internal_error` | Transient service issue | Retry with exponential backoff and idempotency where applicable |
+
+### Error body shape
+
+```json
+{
+    "message": "Unauthorized",
+    "statusCode": 401
+}
+```
+
+## Security checklist
+
+- Do not embed keys in client-side apps (browsers, mobile). Proxy through your backend.  
+- Restrict egress on your servers if possible (allowlist `api.blockworks.com`).  
+- Add **rate limiting** and **retries with jitter** to your client.  
+- Log **request_id** from responses for support/debugging.  
+- Consider **key per service** (ingesters, web, batch) to isolate exposure.
+
+## FAQ
+
+**Can I use multiple keys?**  
+Yes. Many teams keep separate keys per environment or workload. Api keys for the Blockworks API are team-scoped. Each user on your team will be able to generate and remove keys. Usage is aggregated across all keys on your team.
+
+**Where do I find or revoke keys?**  
+In your [blockworks research](https://www.blockworksresearch.com) settings under [**API Keys**](https://app.blockworksresearch.com/settings/api-keys).
+

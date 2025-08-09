@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Blockworks Research API",
+  "name": "Blockworks API",
   "colors": {
     "primary": "#545cf8",
     "light": "#9297f6",
@@ -9,69 +9,170 @@
   },
   "favicon": "/favicon.ico",
   "navigation": {
-    "groups": [
+    "tabs": [
       {
-        "group": "Introduction",
-        "pages": [
-          "getting-started"
-        ]
-      },
-      {
-        "group": "API Reference",
-        "pages": [
+        "tab": "API",
+        "groups": [
           {
-            "group": "Assets API",
+            "group": "Introduction",
             "pages": [
-              "api-reference/assets/list",
-              "api-reference/assets/get-single"
+              "index",
+              "projects-supported"
             ]
           },
           {
-            "group": "Metrics API",
+            "group": "Blockworks API",
             "pages": [
-              "api-reference/metrics/list",
-              "api-reference/metrics/get-single",
+              "getting-started",
+              "authentication",
+              "usage"
+            ]
+          },
+          {
+            "group": "API Reference",
+            "pages": [
               {
-                "group": "Specific Metrics",
+                "group": "Assets",
                 "pages": [
-                  "api-reference/metrics/active-addresses",
-                  "api-reference/metrics/base-fees",
-                  "api-reference/metrics/base-fees-usd",
-                  "api-reference/metrics/blob-fees",
-                  "api-reference/metrics/blob-fees-usd",
-                  "api-reference/metrics/burn",
-                  "api-reference/metrics/burn-usd",
-                  "api-reference/metrics/issuance",
-                  "api-reference/metrics/issuance-total",
-                  "api-reference/metrics/issuance-total-usd",
-                  "api-reference/metrics/operator-payment-issuance-miners",
-                  "api-reference/metrics/operator-payment-issuance-miners-usd",
-                  "api-reference/metrics/operator-payment-issuance-operators",
-                  "api-reference/metrics/operator-payment-issuance-operators-usd",
-                  "api-reference/metrics/operator-payment-priorityfees-builders",
-                  "api-reference/metrics/operator-payment-priorityfees-builders-usd",
-                  "api-reference/metrics/operator-payment-priorityfees-operators",
-                  "api-reference/metrics/operator-payment-priorityfees-operators-usd",
-                  "api-reference/metrics/operator-payment-tips-operators",
-                  "api-reference/metrics/operator-payment-tips-operators-usd",
-                  "api-reference/metrics/operator-payment-total",
-                  "api-reference/metrics/operator-payment-total-usd",
-                  "api-reference/metrics/operator-payment-txfees-miners",
-                  "api-reference/metrics/operator-payment-txfees-miners-usd",
-                  "api-reference/metrics/priority-fees",
-                  "api-reference/metrics/priority-fees-usd",
-                  "api-reference/metrics/rev",
-                  "api-reference/metrics/rev-share-operators",
-                  "api-reference/metrics/rev-share-operators-usd",
-                  "api-reference/metrics/rev-share-token",
-                  "api-reference/metrics/rev-share-token-usd",
-                  "api-reference/metrics/rev-total",
-                  "api-reference/metrics/rev-total-usd",
-                  "api-reference/metrics/tips",
-                  "api-reference/metrics/tips-usd",
-                  "api-reference/metrics/token-income",
-                  "api-reference/metrics/token-income-usd",
-                  "api-reference/metrics/txns"
+                  "api-reference/assets/list",
+                  "api-reference/assets/get-single",
+                  "api-reference/assets/ohlcv"
+                ]
+              },
+              {
+                "group": "Metrics",
+                "pages": [
+                  "api-reference/metrics/list",
+                  "api-reference/metrics/list-by-project",
+                  "api-reference/metrics/get-single"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Metrics",
+            "pages": [
+              "api-reference/metrics-catalog",
+              {
+                "group": "Ethereum",
+                "pages": [
+                  "api-reference/metrics/ethereum/address-total",
+                  "api-reference/metrics/ethereum/burn",
+                  "api-reference/metrics/ethereum/burn-usd",
+                  "api-reference/metrics/ethereum/dex-spot-volume",
+                  "api-reference/metrics/ethereum/fee-average",
+                  "api-reference/metrics/ethereum/fee-average-usd",
+                  "api-reference/metrics/ethereum/fee-median",
+                  "api-reference/metrics/ethereum/fee-median-usd",
+                  "api-reference/metrics/ethereum/fees-base",
+                  "api-reference/metrics/ethereum/fees-base-usd",
+                  "api-reference/metrics/ethereum/fees-mev-tips",
+                  "api-reference/metrics/ethereum/fees-mev-tips-usd",
+                  "api-reference/metrics/ethereum/fees-other",
+                  "api-reference/metrics/ethereum/fees-other-usd",
+                  "api-reference/metrics/ethereum/fees-priority",
+                  "api-reference/metrics/ethereum/fees-priority-usd",
+                  "api-reference/metrics/ethereum/fees-transaction",
+                  "api-reference/metrics/ethereum/fees-transaction-usd",
+                  "api-reference/metrics/ethereum/issuance",
+                  "api-reference/metrics/ethereum/issuance-usd",
+                  "api-reference/metrics/ethereum/native-token-fdv",
+                  "api-reference/metrics/ethereum/native-token-price",
+                  "api-reference/metrics/ethereum/native-token-supply",
+                  "api-reference/metrics/ethereum/rev",
+                  "api-reference/metrics/ethereum/rev-usd",
+                  "api-reference/metrics/ethereum/stablecoin-circulating-supply",
+                  "api-reference/metrics/ethereum/stablecoin-supply",
+                  "api-reference/metrics/ethereum/transaction-fail",
+                  "api-reference/metrics/ethereum/transaction-success",
+                  "api-reference/metrics/ethereum/transaction-total"
+                ]
+              },
+              {
+                "group": "Solana",
+                "pages": [
+                  "api-reference/metrics/solana/dex-spot-volume",
+                  "api-reference/metrics/solana/fee-average",
+                  "api-reference/metrics/solana/fee-average-usd",
+                  "api-reference/metrics/solana/fee-median",
+                  "api-reference/metrics/solana/fee-median-usd",
+                  "api-reference/metrics/solana/fees-transaction",
+                  "api-reference/metrics/solana/fees-transaction-usd",
+                  "api-reference/metrics/solana/issuance",
+                  "api-reference/metrics/solana/issuance-usd",
+                  "api-reference/metrics/solana/native-token-fdv",
+                  "api-reference/metrics/solana/native-token-price",
+                  "api-reference/metrics/solana/native-token-supply",
+                  "api-reference/metrics/solana/rev",
+                  "api-reference/metrics/solana/rev-usd",
+                  "api-reference/metrics/solana/stablecoin-circulating-supply",
+                  "api-reference/metrics/solana/stablecoin-supply",
+                  "api-reference/metrics/solana/transaction-fail",
+                  "api-reference/metrics/solana/transaction-success",
+                  "api-reference/metrics/solana/transaction-total"
+                ]
+              },
+              {
+                "group": "Arbitrum",
+                "pages": [
+                  "api-reference/metrics/arbitrum/address-total",
+                  "api-reference/metrics/arbitrum/dex-spot-volume",
+                  "api-reference/metrics/arbitrum/fee-average",
+                  "api-reference/metrics/arbitrum/fee-average-usd",
+                  "api-reference/metrics/arbitrum/fee-median",
+                  "api-reference/metrics/arbitrum/fee-median-usd",
+                  "api-reference/metrics/arbitrum/fees-base",
+                  "api-reference/metrics/arbitrum/fees-base-usd",
+                  "api-reference/metrics/arbitrum/fees-mev-tips",
+                  "api-reference/metrics/arbitrum/fees-mev-tips-usd",
+                  "api-reference/metrics/arbitrum/fees-other",
+                  "api-reference/metrics/arbitrum/fees-other-usd",
+                  "api-reference/metrics/arbitrum/fees-priority",
+                  "api-reference/metrics/arbitrum/fees-priority-usd",
+                  "api-reference/metrics/arbitrum/fees-transaction",
+                  "api-reference/metrics/arbitrum/fees-transaction-usd",
+                  "api-reference/metrics/arbitrum/issuance",
+                  "api-reference/metrics/arbitrum/issuance-usd",
+                  "api-reference/metrics/arbitrum/native-token-fdv",
+                  "api-reference/metrics/arbitrum/native-token-price",
+                  "api-reference/metrics/arbitrum/native-token-supply",
+                  "api-reference/metrics/arbitrum/rev",
+                  "api-reference/metrics/arbitrum/rev-usd",
+                  "api-reference/metrics/arbitrum/stablecoin-circulating-supply",
+                  "api-reference/metrics/arbitrum/stablecoin-supply",
+                  "api-reference/metrics/arbitrum/transaction-fail",
+                  "api-reference/metrics/arbitrum/transaction-success",
+                  "api-reference/metrics/arbitrum/transaction-total"
+                ]
+              },
+              {
+                "group": "Base",
+                "pages": [
+                  "api-reference/metrics/base/dex-spot-volume",
+                  "api-reference/metrics/base/fee-average",
+                  "api-reference/metrics/base/fee-average-usd",
+                  "api-reference/metrics/base/fee-median",
+                  "api-reference/metrics/base/fee-median-usd",
+                  "api-reference/metrics/base/fees-base",
+                  "api-reference/metrics/base/fees-base-usd",
+                  "api-reference/metrics/base/fees-mev-tips",
+                  "api-reference/metrics/base/fees-mev-tips-usd",
+                  "api-reference/metrics/base/fees-other",
+                  "api-reference/metrics/base/fees-other-usd",
+                  "api-reference/metrics/base/fees-priority",
+                  "api-reference/metrics/base/fees-priority-usd",
+                  "api-reference/metrics/base/fees-transaction",
+                  "api-reference/metrics/base/fees-transaction-usd",
+                  "api-reference/metrics/base/issuance",
+                  "api-reference/metrics/base/issuance-usd",
+                  "api-reference/metrics/base/native-token-price",
+                  "api-reference/metrics/base/rev",
+                  "api-reference/metrics/base/rev-usd",
+                  "api-reference/metrics/base/stablecoin-circulating-supply",
+                  "api-reference/metrics/base/stablecoin-supply",
+                  "api-reference/metrics/base/transaction-fail",
+                  "api-reference/metrics/base/transaction-success",
+                  "api-reference/metrics/base/transaction-total"
                 ]
               }
             ]
@@ -80,35 +181,20 @@
       }
     ]
   },
-  "global": {
-    "anchors": [
-      {
-        "anchor": "Blockworks Research",
-        "href": "https://www.blockworksresearch.com",
-        "icon": "chart-line"
-      },
-      {
-        "anchor": "Twitter",
-        "href": "https://x.com/Blockworks_",
-        "icon": "twitter"
-      }
-    ]
-  },
   "logo": {
-    "light": "/logo/light.png",
-    "dark": "/logo/dark.png"
+    "light": "/logo/blockworks-logo.svg",
+    "dark": "/logo/blockworks-logo-white.svg"
   },
   "navbar": {
     "primary": {
       "type": "button",
       "label": "Get API Key",
-      "href": "https://www.blockworksresearch.com/#pricing"
+      "href": "https://app.blockworksresearch.com/settings/api-keys"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/blockworksres",
-      "linkedin": "https://linkedin.com/showcase/blockworks-research/"
+      "x": "https://x.com/blockworksres"
     }
   },
   "api": {
@@ -116,9 +202,13 @@
       "display": "interactive"
     },
     "examples": {
-      "languages": ["curl", "python", "javascript"],
+      "languages": [
+        "curl",
+        "python",
+        "javascript"
+      ],
       "defaults": "required"
     }
   },
-  "openapi": "openapi-fixed.json"
+  "openapi": "openapi.json"
 }

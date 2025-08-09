@@ -1,0 +1,31 @@
+---
+title: 'Fees Other'
+description: 'There are no other fees for Base'
+openapi: 'GET /v1/metrics/fees-other'
+---
+
+## Overview
+
+- **Unit:** native units
+- **Aggregation:** daily
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "base": [
+    { "date": "2025-08-01", "value": 592.3947 },
+    { "date": "2025-08-02", "value": 605.2811 },
+    { "date": "2025-08-03", "value": 618.0204 },
+    { "date": "2025-08-04", "value": 598.472 }
+  ]
+}
+```
+
+## Notes
+- Daily aggregates unless otherwise noted.
+- Use USD conversion with [`fees-other-usd`](/api-reference/metrics/base/fees-other-usd) for fiat value.
+- Data is updated daily and may be revised after late-arriving data.

@@ -1,64 +1,6 @@
 {
   "openapi": "3.0.0",
   "paths": {
-    "/v1/studio/dashboards/{idOrSlug}": {},
-    "/v3/studio/dashboards/{idOrSlug}": {},
-    "/v1/studio/dashboards": {},
-    "/v3/studio/dashboards": {},
-    "/v1/studio/dashboards/{id}": {},
-    "/v3/studio/dashboards/{id}": {},
-    "/v1/studio/queries/executions/{executionId}/rows": {},
-    "/v3/studio/queries/executions/{executionId}/rows": {},
-    "/v1/studio/queries/executions/{executionId}": {},
-    "/v3/studio/queries/executions/{executionId}": {},
-    "/v1/studio/queries/executions": {},
-    "/v3/studio/queries/executions": {},
-    "/v1/studio/queries/{idOrSlug}": {},
-    "/v3/studio/queries/{idOrSlug}": {},
-    "/v1/studio/queries": {},
-    "/v3/studio/queries": {},
-    "/v1/studio/queries/clone": {},
-    "/v3/studio/queries/clone": {},
-    "/v1/studio/queries/{id}": {},
-    "/v3/studio/queries/{id}": {},
-    "/v1/studio/tags/{id}": {},
-    "/v3/studio/tags/{id}": {},
-    "/v1/studio/tags": {},
-    "/v3/studio/tags": {},
-    "/v1/studio/visualizations/{id}": {},
-    "/v3/studio/visualizations/{id}": {},
-    "/v1/studio/visualizations": {},
-    "/v3/studio/visualizations": {},
-    "/v1/trigger/youtube": {},
-    "/v3/trigger/youtube": {},
-    "/v1/trigger/vimeo": {},
-    "/v3/trigger/vimeo": {},
-    "/v1/trigger/transcripts": {},
-    "/v3/trigger/transcripts": {},
-    "/v1/media/channels/{idOrSlug}": {},
-    "/v3/media/channels/{idOrSlug}": {},
-    "/v1/media/channels": {},
-    "/v3/media/channels": {},
-    "/v1/media/channels/{id}": {},
-    "/v3/media/channels/{id}": {},
-    "/v1/media/files/{idOrSlug}": {},
-    "/v3/media/files/{idOrSlug}": {},
-    "/v1/media/files": {},
-    "/v3/media/files": {},
-    "/v1/media/files/{id}": {},
-    "/v3/media/files/{id}": {},
-    "/v1/media/speakers/{id}": {},
-    "/v3/media/speakers/{id}": {},
-    "/v1/media/speakers": {},
-    "/v3/media/speakers": {},
-    "/v1/assembly/webhook/transcript": {},
-    "/v3/assembly/webhook/transcript": {},
-    "/v1/api-keys/{id}": {},
-    "/v3/api-keys/{id}": {},
-    "/v1/api-keys": {},
-    "/v3/api-keys": {},
-    "/v1/clients/{id}": {},
-    "/v3/clients/{id}": {},
     "/v1/assets/{idOrSlug}": {
       "get": {
         "operationId": "AssetController_get_v1",
@@ -75,68 +17,6 @@
             "name": "expand",
             "required": false,
             "in": "query",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "addresses",
-                  "chains",
-                  "addresses.chain",
-                  "is_favorite",
-                  "markets",
-                  "market_cap",
-                  "ohlcv_last_24_h",
-                  "price",
-                  "reference",
-                  "sector",
-                  "supply"
-                ]
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AssetResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "tags": [
-          "assets"
-        ]
-      }
-    },
-    "/v3/assets/{idOrSlug}": {
-      "get": {
-        "operationId": "AssetController_get_v3",
-        "parameters": [
-          {
-            "name": "idOrSlug",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "expand",
-            "required": false,
-            "in": "query",
-            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -240,7 +120,6 @@
             "name": "category",
             "required": false,
             "in": "query",
-            "explode": false,
             "schema": {
               "maxLength": 255,
               "type": "array",
@@ -253,7 +132,6 @@
             "name": "ids_or_codes",
             "required": false,
             "in": "query",
-            "explode": false,
             "schema": {
               "maxLength": 255,
               "type": "array",
@@ -274,7 +152,6 @@
             "name": "expand",
             "required": false,
             "in": "query",
-            "explode": false,
             "schema": {
               "type": "array",
               "items": {
@@ -359,9 +236,50 @@
         ]
       }
     },
-    "/v3/assets": {
+    "/v1/glossary/{idOrSlug}": {
       "get": {
-        "operationId": "AssetController_list_v3",
+        "operationId": "GlossaryController_get_v1",
+        "parameters": [
+          {
+            "name": "idOrSlug",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GlossaryResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "glossary"
+        ]
+      }
+    },
+    "/v1/glossary": {
+      "get": {
+        "operationId": "GlossaryController_list_v1",
         "parameters": [
           {
             "name": "page",
@@ -381,18 +299,31 @@
             "schema": {
               "minimum": 1,
               "maximum": 1000,
-              "default": 100,
+              "default": 1000,
               "type": "integer"
             }
           },
           {
-            "name": "code",
+            "name": "status",
             "required": false,
             "in": "query",
             "schema": {
-              "maxLength": 20,
               "nullable": true,
-              "type": "string"
+              "default": true,
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "id",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "maximum": 4294967295,
+                "minimum": 0
+              }
             }
           },
           {
@@ -400,87 +331,11 @@
             "required": false,
             "in": "query",
             "schema": {
-              "maxLength": 100,
-              "nullable": true,
-              "type": "string"
-            }
-          },
-          {
-            "name": "is_supported",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "nullable": true,
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "category",
-            "required": false,
-            "in": "query",
-            "explode": false,
-            "schema": {
               "maxLength": 255,
               "type": "array",
               "items": {
                 "type": "string"
               }
-            }
-          },
-          {
-            "name": "ids_or_codes",
-            "required": false,
-            "in": "query",
-            "explode": false,
-            "schema": {
-              "maxLength": 255,
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          },
-          {
-            "name": "favorites",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            }
-          },
-          {
-            "name": "expand",
-            "required": false,
-            "in": "query",
-            "explode": false,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "addresses",
-                  "chains",
-                  "addresses.chain",
-                  "is_favorite",
-                  "markets",
-                  "market_cap",
-                  "ohlcv_last_24_h",
-                  "price",
-                  "reference",
-                  "sector",
-                  "supply"
-                ]
-              }
-            }
-          },
-          {
-            "name": "query",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "maxLength": 65535,
-              "format": "json",
-              "type": "string"
             }
           },
           {
@@ -488,17 +343,9 @@
             "required": false,
             "in": "query",
             "schema": {
+              "default": "slug",
               "enum": [
-                "code",
-                "slug",
-                "market_cap.rank",
-                "market_cap.percent_change_usd_1_h",
-                "market_cap.percent_change_usd_24_h",
-                "market_cap.usd",
-                "markets.volume_24_h",
-                "price.usd",
-                "sector.title",
-                "supply.total"
+                "slug"
               ],
               "type": "string"
             }
@@ -523,7 +370,141 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AssetPageResponse"
+                  "$ref": "#/components/schemas/GlossaryPageResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "glossary"
+        ]
+      }
+    },
+    "/v1/market-stats/{id}": {
+      "get": {
+        "operationId": "MarketStatsController_get_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketStatsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "market-stats"
+        ]
+      }
+    },
+    "/v1/market-stats": {
+      "get": {
+        "operationId": "MarketStatsController_list_v1",
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 1,
+              "maximum": 2147483647,
+              "default": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 1,
+              "maximum": 100,
+              "default": 100,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "group_by",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "enum": [
+                "day"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "query",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "maxLength": 65535,
+              "format": "json",
+              "type": "string"
+            }
+          },
+          {
+            "name": "order_by",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "default": "id",
+              "enum": [
+                "id"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "order_dir",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "default": "asc",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketStatsPageResponse"
                 }
               }
             }
@@ -533,18 +514,10 @@
           }
         },
         "tags": [
-          "assets"
+          "market-stats"
         ]
       }
     },
-    "/v1/stripe/webhook": {},
-    "/v1/subscriptions/{id}": {},
-    "/v3/subscriptions/{id}": {},
-    "/v1/glossary/{idOrSlug}": {},
-    "/v3/glossary/{idOrSlug}": {},
-    "/v1/glossary": {},
-    "/v3/glossary": {},
-    "/health": {},
     "/v1/metrics/{identifier}": {
       "get": {
         "operationId": "MetricController_getResults_v1",
@@ -560,7 +533,6 @@
           {
             "name": "project",
             "required": true,
-            "explode": false,
             "in": "query",
             "schema": {
               "minItems": 1,
@@ -607,81 +579,6 @@
         "security": [
           {
             "x-api-key": []
-          },
-          {
-            "x-research-session-token": []
-          }
-        ],
-        "tags": [
-          "metrics"
-        ]
-      }
-    },
-    "/v3/metrics/{identifier}": {
-      "get": {
-        "operationId": "MetricController_getResults_v3",
-        "parameters": [
-          {
-            "name": "identifier",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "project",
-            "required": true,
-            "explode": false,
-            "in": "query",
-            "schema": {
-              "minItems": 1,
-              "example": "Bitcoin,Ethereum"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "description": "key is project name",
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "additionalProperties": true
-                    }
-                  }
-                },
-                "example": {
-                  "Bitcoin": {
-                    "date": "2000-12-31",
-                    "value": 1
-                  },
-                  "Ethereum": {
-                    "date": "2000-12-31",
-                    "value": 2
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "security": [
-          {
-            "x-api-key": []
-          },
-          {
-            "x-research-session-token": []
           }
         ],
         "tags": [
@@ -719,7 +616,6 @@
             "name": "project",
             "required": false,
             "in": "query",
-            "explode": false,
             "schema": {
               "maxLength": 255,
               "example": "Bitcoin,Ethereum",
@@ -733,7 +629,6 @@
             "name": "identifier",
             "required": false,
             "in": "query",
-            "explode": false,
             "schema": {
               "maxLength": 255,
               "example": "txns,issuance",
@@ -762,9 +657,6 @@
         "security": [
           {
             "x-api-key": []
-          },
-          {
-            "x-research-session-token": []
           }
         ],
         "tags": [
@@ -772,82 +664,120 @@
         ]
       }
     },
-    "/v3/metrics": {
+    "/v1/metrics/address-total": {
       "get": {
-        "operationId": "MetricController_list_v3",
+        "operationId": "MetricController_getResults_v1_address_total",
+        "summary": "Get metric: address-total",
+        "description": "Retrieve the 'address-total' metric for supported projects.",
         "parameters": [
           {
-            "name": "page",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "minimum": 1,
-              "maximum": 2147483647,
-              "default": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "name": "limit",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "minimum": 1,
-              "maximum": 100,
-              "default": 100,
-              "type": "integer"
-            }
-          },
-          {
             "name": "project",
-            "required": false,
             "in": "query",
-            "explode": false,
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
             "schema": {
-              "maxLength": 255,
-              "example": "Bitcoin,Ethereum",
-              "type": "array",
-              "items": {
-                "type": "string"
+              "type": "string",
+              "enum": [
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "base"
+            },
+            "examples": {
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "base,ethereum",
+                "summary": "Base + Ethereum"
               }
             }
           },
           {
-            "name": "identifier",
-            "required": false,
+            "name": "start_date",
             "in": "query",
-            "explode": false,
+            "required": false,
             "schema": {
-              "maxLength": 255,
-              "example": "txns,issuance",
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
           }
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MetricPageResponse"
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
                 }
               }
             }
           },
           "400": {
             "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
           }
         },
         "security": [
           {
             "x-api-key": []
-          },
-          {
-            "x-research-session-token": []
           }
         ],
         "tags": [
@@ -855,13 +785,3737 @@
         ]
       }
     },
-    "/v1/mux/tokens/{fileId}": {},
-    "/v3/mux/tokens/{fileId}": {},
-    "/v1/mux/webhook": {},
-    "/v2/mux/webhook": {},
-    "/v3/mux/webhook": {},
-    "/v1/upload/screenshots/visualizations": {},
-    "/v3/upload/screenshots/visualizations": {}
+    "/v1/metrics/adress-total": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_adress_total",
+        "summary": "Get metric: adress-total",
+        "description": "Retrieve the 'adress-total' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/burn": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_burn",
+        "summary": "Get metric: burn",
+        "description": "Retrieve the 'burn' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ethereum",
+                "solana"
+              ],
+              "example": "ethereum"
+            },
+            "examples": {
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "ethereum,solana",
+                "summary": "Ethereum + Solana"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/burn-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_burn_usd",
+        "summary": "Get metric: burn-usd",
+        "description": "Retrieve the 'burn-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ethereum",
+                "solana"
+              ],
+              "example": "ethereum"
+            },
+            "examples": {
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "ethereum,solana",
+                "summary": "Ethereum + Solana"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/dex-spot-volume": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_dex_spot_volume",
+        "summary": "Get metric: dex-spot-volume",
+        "description": "Retrieve the 'dex-spot-volume' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/fee-average": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_fee_average",
+        "summary": "Get metric: fee-average",
+        "description": "Retrieve the 'fee-average' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/fee-average-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_fee_average_usd",
+        "summary": "Get metric: fee-average-usd",
+        "description": "Retrieve the 'fee-average-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/fee-median": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_fee_median",
+        "summary": "Get metric: fee-median",
+        "description": "Retrieve the 'fee-median' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/fee-median-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_fee_median_usd",
+        "summary": "Get metric: fee-median-usd",
+        "description": "Retrieve the 'fee-median-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/fees-base": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_fees_base",
+        "summary": "Get metric: fees-base",
+        "description": "Retrieve the 'fees-base' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/fees-base-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_fees_base_usd",
+        "summary": "Get metric: fees-base-usd",
+        "description": "Retrieve the 'fees-base-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/fees-mev-tips": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_fees_mev_tips",
+        "summary": "Get metric: fees-mev-tips",
+        "description": "Retrieve the 'fees-mev-tips' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/fees-mev-tips-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_fees_mev_tips_usd",
+        "summary": "Get metric: fees-mev-tips-usd",
+        "description": "Retrieve the 'fees-mev-tips-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/fees-other": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_fees_other",
+        "summary": "Get metric: fees-other",
+        "description": "Retrieve the 'fees-other' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/fees-other-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_fees_other_usd",
+        "summary": "Get metric: fees-other-usd",
+        "description": "Retrieve the 'fees-other-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/fees-priority": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_fees_priority",
+        "summary": "Get metric: fees-priority",
+        "description": "Retrieve the 'fees-priority' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/fees-priority-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_fees_priority_usd",
+        "summary": "Get metric: fees-priority-usd",
+        "description": "Retrieve the 'fees-priority-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/fees-transaction": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_fees_transaction",
+        "summary": "Get metric: fees-transaction",
+        "description": "Retrieve the 'fees-transaction' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/fees-transaction-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_fees_transaction_usd",
+        "summary": "Get metric: fees-transaction-usd",
+        "description": "Retrieve the 'fees-transaction-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/issuance": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_issuance",
+        "summary": "Get metric: issuance",
+        "description": "Retrieve the 'issuance' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/issuance-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_issuance_usd",
+        "summary": "Get metric: issuance-usd",
+        "description": "Retrieve the 'issuance-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/native-token-fdv": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_native_token_fdv",
+        "summary": "Get metric: native-token-fdv",
+        "description": "Retrieve the 'native-token-fdv' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,ethereum",
+                "summary": "Arbitrum + Ethereum"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/native-token-price": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_native_token_price",
+        "summary": "Get metric: native-token-price",
+        "description": "Retrieve the 'native-token-price' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/native-token-supply": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_native_token_supply",
+        "summary": "Get metric: native-token-supply",
+        "description": "Retrieve the 'native-token-supply' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,ethereum",
+                "summary": "Arbitrum + Ethereum"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/rev": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_rev",
+        "summary": "Get metric: rev",
+        "description": "Retrieve the 'rev' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/rev-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_rev_usd",
+        "summary": "Get metric: rev-usd",
+        "description": "Retrieve the 'rev-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/stablecoin-circulating-supply": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_stablecoin_circulating_supply",
+        "summary": "Get metric: stablecoin-circulating-supply",
+        "description": "Retrieve the 'stablecoin-circulating-supply' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/stablecoin-supply": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_stablecoin_supply",
+        "summary": "Get metric: stablecoin-supply",
+        "description": "Retrieve the 'stablecoin-supply' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/transaction-fail": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_transaction_fail",
+        "summary": "Get metric: transaction-fail",
+        "description": "Retrieve the 'transaction-fail' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/transaction-success": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_transaction_success",
+        "summary": "Get metric: transaction-success",
+        "description": "Retrieve the 'transaction-success' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/transaction-total": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_transaction_total",
+        "summary": "Get metric: transaction-total",
+        "description": "Retrieve the 'transaction-total' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          },
+          {
+            "name": "aggregation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "daily",
+                "weekly",
+                "monthly"
+              ]
+            },
+            "description": "Time aggregation"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "Ethereum": [
+                    {
+                      "date": "2025-08-06",
+                      "value": 948090.6294
+                    },
+                    {
+                      "date": "2025-08-07",
+                      "value": 1175055.4507
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "metrics"
+        ]
+      }
+    }
   },
   "info": {
     "title": "Blockworks API",
@@ -872,7 +4526,7 @@
   "tags": [],
   "servers": [
     {
-      "url": "https://rest.staging.blockworksresearch.com"
+      "url": "https://api.blockworks.com"
     }
   ],
   "components": {
@@ -1585,7 +5239,6 @@
           },
           "addresses": {
             "description": "Expandable relationship",
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AssetAddress"
@@ -1593,7 +5246,6 @@
           },
           "markets": {
             "description": "Expandable relationship",
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Market"
@@ -1657,7 +5309,8 @@
           },
           "metadata": {
             "type": "object",
-            "nullable": true
+            "nullable": true,
+            "additionalProperties": true
           },
           "error": {
             "type": "string",
@@ -1751,7 +5404,6 @@
           },
           "tag_ids": {
             "description": "Expandable relationship. Included if tags are expanded",
-            "explode": false,
             "type": "array",
             "items": {
               "type": "integer",
@@ -1761,7 +5413,6 @@
           },
           "tags": {
             "description": "Expandable relationship",
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/TagResponse"
@@ -1789,7 +5440,6 @@
           },
           "visualizations": {
             "description": "Expandable relationship",
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/VisualizationResponse"
@@ -1822,6 +5472,12 @@
             "maximum": 4294967295
           },
           "user_id": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "client_id": {
             "type": "integer",
             "nullable": true,
             "minimum": 0,
@@ -1894,7 +5550,6 @@
           },
           "tag_ids": {
             "description": "Expandable relationship. Included if tags are expanded",
-            "explode": false,
             "type": "array",
             "items": {
               "type": "integer",
@@ -1904,7 +5559,6 @@
           },
           "tags": {
             "description": "Expandable relationship",
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/TagResponse"
@@ -1931,6 +5585,7 @@
           "id",
           "query_id",
           "user_id",
+          "client_id",
           "type",
           "status",
           "scope",
@@ -2073,7 +5728,6 @@
           },
           "tag_ids": {
             "description": "Expandable relationship. Included if tags are expanded",
-            "explode": false,
             "type": "array",
             "items": {
               "type": "integer",
@@ -2083,7 +5737,6 @@
           },
           "tags": {
             "description": "Expandable relationship",
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/TagResponse"
@@ -2107,7 +5760,6 @@
           },
           "dashboard_visualizations": {
             "description": "Expandable relationship",
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/DashboardVisualizationResponse"
@@ -2145,7 +5797,6 @@
             "maximum": 100
           },
           "data": {
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/DashboardResponse"
@@ -2233,7 +5884,6 @@
             ]
           },
           "tag_ids": {
-            "explode": false,
             "type": "array",
             "items": {
               "type": "integer",
@@ -2242,7 +5892,6 @@
             }
           },
           "dashboard_visualizations": {
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/DashboardVisualizationCreateRequest"
@@ -2290,7 +5939,6 @@
             "maxLength": 16777215
           },
           "tag_ids": {
-            "explode": false,
             "type": "array",
             "items": {
               "type": "integer",
@@ -2299,7 +5947,6 @@
             }
           },
           "dashboard_visualizations": {
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/DashboardVisualizationCreateRequest"
@@ -2345,10 +5992,10 @@
             "maximum": 100
           },
           "data": {
-            "explode": false,
+            "additionalProperties": true,
             "type": "array",
             "items": {
-              "type": "array"
+              "type": "object"
             }
           },
           "metadata": {
@@ -2376,7 +6023,6 @@
             "maximum": 100
           },
           "data": {
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/QueryExecutionResponse"
@@ -2417,7 +6063,6 @@
             "maximum": 100
           },
           "data": {
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/QueryResponse"
@@ -2444,7 +6089,6 @@
             "maxLength": 16777215
           },
           "tag_ids": {
-            "explode": false,
             "type": "array",
             "items": {
               "type": "integer",
@@ -2472,7 +6116,6 @@
             "maxLength": 255
           },
           "visualization_ids": {
-            "explode": false,
             "type": "array",
             "items": {
               "type": "integer",
@@ -2500,7 +6143,6 @@
             "maxLength": 16777215
           },
           "tag_ids": {
-            "explode": false,
             "type": "array",
             "items": {
               "type": "integer",
@@ -2524,7 +6166,6 @@
             "maximum": 100
           },
           "data": {
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/TagResponse"
@@ -2581,7 +6222,6 @@
             "maximum": 100
           },
           "data": {
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/VisualizationResponse"
@@ -2597,12 +6237,6 @@
       "VisualizationCreateRequest": {
         "type": "object",
         "properties": {
-          "query_id": {
-            "type": "integer",
-            "nullable": true,
-            "minimum": 0,
-            "maximum": 4294967295
-          },
           "type": {
             "type": "string",
             "nullable": true,
@@ -2624,6 +6258,18 @@
             "type": "string",
             "nullable": true,
             "maxLength": 4294967295
+          },
+          "query_id": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "client_id": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0,
+            "maximum": 4294967295
           },
           "subtitle": {
             "type": "string",
@@ -2654,7 +6300,6 @@
             ]
           },
           "tag_ids": {
-            "explode": false,
             "type": "array",
             "items": {
               "type": "integer",
@@ -2664,10 +6309,11 @@
           }
         },
         "required": [
-          "query_id",
           "type",
           "title",
           "config",
+          "query_id",
+          "client_id",
           "subtitle",
           "description",
           "status",
@@ -2677,12 +6323,6 @@
       "VisualizationUpdateRequest": {
         "type": "object",
         "properties": {
-          "query_id": {
-            "type": "integer",
-            "nullable": true,
-            "minimum": 0,
-            "maximum": 4294967295
-          },
           "type": {
             "type": "string",
             "nullable": true,
@@ -2705,6 +6345,18 @@
             "nullable": true,
             "maxLength": 4294967295
           },
+          "query_id": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "client_id": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0,
+            "maximum": 4294967295
+          },
           "subtitle": {
             "type": "string",
             "nullable": true,
@@ -2716,7 +6368,6 @@
             "maxLength": 4294967295
           },
           "tag_ids": {
-            "explode": false,
             "type": "array",
             "items": {
               "type": "integer",
@@ -2846,7 +6497,8 @@
           },
           "metadata": {
             "type": "object",
-            "nullable": true
+            "nullable": true,
+            "additionalProperties": true
           },
           "created_at": {
             "type": "number",
@@ -2892,7 +6544,6 @@
             "maximum": 100
           },
           "data": {
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/MediaChannelResponse"
@@ -2986,7 +6637,8 @@
           },
           "metadata": {
             "type": "object",
-            "nullable": true
+            "nullable": true,
+            "additionalProperties": true
           }
         },
         "required": [
@@ -3065,7 +6717,8 @@
           },
           "metadata": {
             "type": "object",
-            "nullable": true
+            "nullable": true,
+            "additionalProperties": true
           }
         },
         "required": [
@@ -3241,7 +6894,6 @@
           },
           "speakers": {
             "description": "Expandable relationship",
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/MediaSpeakerResponse"
@@ -3286,7 +6938,6 @@
             "maximum": 100
           },
           "data": {
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/MediaFileResponse"
@@ -3379,7 +7030,6 @@
             "maxLength": 255
           },
           "speaker_ids": {
-            "explode": false,
             "type": "array",
             "items": {
               "type": "integer",
@@ -3470,7 +7120,6 @@
             "description": "Unix timestamp"
           },
           "speaker_ids": {
-            "explode": false,
             "type": "array",
             "items": {
               "type": "integer",
@@ -3509,7 +7158,6 @@
             "maximum": 100
           },
           "data": {
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/MediaSpeakerResponse"
@@ -3673,7 +7321,6 @@
             "maximum": 100
           },
           "data": {
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ApiKeyResponse"
@@ -3801,7 +7448,6 @@
         "type": "object",
         "properties": {
           "data": {
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SubscriptionItemData"
@@ -3930,6 +7576,11 @@
             "nullable": true,
             "maxLength": 65535
           },
+          "billing_email": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 255
+          },
           "onboarding_status": {
             "type": "integer",
             "nullable": true,
@@ -3946,7 +7597,6 @@
           },
           "users": {
             "description": "Expandable relationship",
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UserResponse"
@@ -3968,7 +7618,27 @@
           "slug",
           "name",
           "address",
+          "billing_email",
           "onboarding_status"
+        ]
+      },
+      "ClientCreateRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "billing_email": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 255
+          }
+        },
+        "required": [
+          "name",
+          "billing_email"
         ]
       },
       "AssetPageResponse": {
@@ -3985,7 +7655,6 @@
             "maximum": 100
           },
           "data": {
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AssetResponse"
@@ -4062,10 +7731,150 @@
             "maximum": 100
           },
           "data": {
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/GlossaryResponse"
+            }
+          }
+        },
+        "required": [
+          "page",
+          "total",
+          "data"
+        ]
+      },
+      "MarketStatsResponse": {
+        "type": "object",
+        "properties": {
+          "total_usd_market_cap": {
+            "type": "number",
+            "default": 0,
+            "format": "double",
+            "minimum": 2.2250738585072014e-308,
+            "maximum": 1.7976931348623157e+308
+          },
+          "total_usd_volume_24h": {
+            "type": "number",
+            "default": 0,
+            "format": "double",
+            "minimum": 2.2250738585072014e-308,
+            "maximum": 1.7976931348623157e+308
+          },
+          "altcoin_usd_market_cap": {
+            "type": "number",
+            "default": 0,
+            "format": "double",
+            "minimum": 2.2250738585072014e-308,
+            "maximum": 1.7976931348623157e+308
+          },
+          "altcoin_usd_volume_24h": {
+            "type": "number",
+            "default": 0,
+            "format": "double",
+            "minimum": 2.2250738585072014e-308,
+            "maximum": 1.7976931348623157e+308
+          },
+          "stablecoin_usd_volume_24h": {
+            "type": "number",
+            "default": 0,
+            "format": "double",
+            "minimum": 2.2250738585072014e-308,
+            "maximum": 1.7976931348623157e+308
+          },
+          "stablecoin_usd_change_24h": {
+            "type": "number",
+            "default": 0,
+            "format": "double",
+            "minimum": 2.2250738585072014e-308,
+            "maximum": 1.7976931348623157e+308
+          },
+          "defi_usd_volume_24h": {
+            "type": "number",
+            "default": 0,
+            "format": "double",
+            "minimum": 2.2250738585072014e-308,
+            "maximum": 1.7976931348623157e+308
+          },
+          "defi_usd_change_24h": {
+            "type": "number",
+            "default": 0,
+            "format": "double",
+            "minimum": 2.2250738585072014e-308,
+            "maximum": 1.7976931348623157e+308
+          },
+          "btc_dominance": {
+            "type": "number",
+            "default": 0,
+            "format": "double",
+            "minimum": 2.2250738585072014e-308,
+            "maximum": 1.7976931348623157e+308
+          },
+          "btc_dominance_change_24h": {
+            "type": "number",
+            "default": 0,
+            "format": "double",
+            "minimum": 2.2250738585072014e-308,
+            "maximum": 1.7976931348623157e+308
+          },
+          "eth_dominance": {
+            "type": "number",
+            "default": 0,
+            "format": "double",
+            "minimum": 2.2250738585072014e-308,
+            "maximum": 1.7976931348623157e+308
+          },
+          "eth_dominance_change_24h": {
+            "type": "number",
+            "default": 0,
+            "format": "double",
+            "minimum": 2.2250738585072014e-308,
+            "maximum": 1.7976931348623157e+308
+          },
+          "updated_at": {
+            "type": "number",
+            "default": 0,
+            "description": "Unix timestamp"
+          },
+          "day": {
+            "type": "string",
+            "description": "Date in YYYY-MM-DD format",
+            "maxLength": 255
+          }
+        },
+        "required": [
+          "total_usd_market_cap",
+          "total_usd_volume_24h",
+          "altcoin_usd_market_cap",
+          "altcoin_usd_volume_24h",
+          "stablecoin_usd_volume_24h",
+          "stablecoin_usd_change_24h",
+          "defi_usd_volume_24h",
+          "defi_usd_change_24h",
+          "btc_dominance",
+          "btc_dominance_change_24h",
+          "eth_dominance",
+          "eth_dominance_change_24h",
+          "updated_at",
+          "day"
+        ]
+      },
+      "MarketStatsPageResponse": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MarketStatsResponse"
             }
           }
         },
@@ -4159,7 +7968,6 @@
             "maximum": 100
           },
           "data": {
-            "explode": false,
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/MetricResponse"
@@ -4188,6 +7996,164 @@
           "playback_id",
           "token"
         ]
+      },
+      "TransparencyRatingResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "asset_id": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "project_team": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "token_allocation": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "market_structure": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "financial_disclosure": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "created_at": {
+            "type": "number",
+            "description": "Unix timestamp"
+          },
+          "updated_at": {
+            "type": "number",
+            "description": "Unix timestamp"
+          },
+          "asset": {
+            "description": "Expandable relationship",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AssetResponse"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "asset_id",
+          "project_team",
+          "token_allocation",
+          "market_structure",
+          "financial_disclosure",
+          "created_at",
+          "updated_at"
+        ]
+      },
+      "TransparencyRatingPageResponse": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransparencyRatingResponse"
+            }
+          }
+        },
+        "required": [
+          "page",
+          "total",
+          "data"
+        ]
+      },
+      "TransparencyRatingCreateRequest": {
+        "type": "object",
+        "properties": {
+          "asset_id": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "project_team": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "token_allocation": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "market_structure": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "financial_disclosure": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "file_url": {
+            "type": "string",
+            "maxLength": 255
+          }
+        },
+        "required": [
+          "asset_id",
+          "project_team",
+          "token_allocation",
+          "market_structure",
+          "financial_disclosure",
+          "file_url"
+        ]
+      },
+      "TransparencyRatingUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "project_team": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "token_allocation": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "market_structure": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "financial_disclosure": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "file_url": {
+            "type": "string",
+            "maxLength": 255
+          }
+        }
       },
       "FileUploadBody": {
         "type": "object",
@@ -4262,5 +8228,10 @@
         ]
       }
     }
-  }
+  },
+  "security": [
+    {
+      "x-api-key": []
+    }
+  ]
 }

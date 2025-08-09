@@ -1,169 +1,102 @@
 ---
 title: 'Get Single Asset'
-description: 'Retrieve detailed information about a specific crypto asset'
-openapi: 'GET /v1/assets/{idOrSlug}/x'
+description: 'Retrieve detailed information for one asset by ID or slug'
+openapi: 'GET /v1/assets/{idOrSlug}'
 ---
 
-import { Endpoint } from '/snippets/endpoint.mdx'
+import Request from '/snippets/request.mdx'
 
-<Endpoint method="GET" path="/v1/assets/{idOrSlug}" />
+## Overview
+
+Fetch a single asset by **ID** or **slug**. You can optionally expand related objects (e.g. supply) to avoid making multiple requests. Price and market cap are expanded by default.
+
+## Quick summary
+
+| What | Details |
+| - | - |
+| Path | `/v1/assets/{idOrSlug}` |
+| Auth | `x-api-key` header |
+| Expandable fields | `addresses`, `chains`, `addresses.chain`, `is_favorite`, `markets`, `market_cap`, `ohlcv_last_24_h`, `price`, `sector`, `supply` |
 
 ## Basic Example
 
 <CodeGroup>
 
 ```bash cURL
-curl -H "x-api-key: YOUR_API_KEY" \
-  -H "Content-Type: application/json" \
-  https://api.blockworksresearch.com/v1/assets/bitcoin
+curl -H "x-api-key: YOUR_API_KEY" \\
+  "https://api.blockworks.com/v1/assets/eth?expand=supply"
 ```
 
 ```typescript TypeScript
-const data = await fetch(
-  'https://api.blockworksresearch.com/v1/assets/bitcoin', {
-  headers: { 'x-api-key': 'YOUR_API_KEY' }
-})
-
-const data = await response.json()
+const res = await fetch(
+  'https://api.blockworks.com/v1/assets/eth?expand=supply',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
 ```
 
 ```python Python
 import requests
 
-response = requests.get(
-    'https://api.blockworksresearch.com/v1/assets/bitcoin',
-    headers = { 'x-api-key': 'YOUR_API_KEY' }
+r = requests.get(
+  'https://api.blockworks.com/v1/assets/eth',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'expand': 'supply'}
 )
-
-data = response.json()
+data = r.json()
 ```
 
 </CodeGroup>
 
-### Response Structure
-
-Returns a single asset object with the following structure:
+## Response example
 
 ```json
 {
-  "id": 4,
-  "code": "BTC",
-  "title": "Bitcoin",
-  "slug": "bitcoin",
-  "tag_line": "A peer-to-peer electronic cash system",
-  "description": "Bitcoin is the first distributed consensus-based...",
-  "image_url": "https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
-  "legacy_sector": "Currencies",
+  "id": 1027,
+  "code": "ETH",
+  "title": "Ethereum",
+  "slug": "ethereum",
+  "tag_line": "Programmable smart contract platform",
+  "description": "Ethereum is a decentralized platform for smart contracts...",
+  "image_url": "https://.../ethereum.png",
   "category": "Infrastructure",
-  "is_supported": true,
-  "updated_at": 1747346559,
-  "sector_id": 40,
   "type": "Infrastructure",
+  "updated_at": 1723180800,
+  "sector": {
+    "id": 12,
+    "title": "Smart Contracts",
+    "created_at": 1723000000
+  },
+  "price": {
+    "usd": 3450.12,
+    "btc": 0.051,
+    "eth": 1,
+    "updated_at": 1723180800
+  },
   "market_cap": {
-    "asset_id": 4,
-    "rank": 1,
-    "usd": 2049973602005,
-    "dominance": 49.9323,
-    "percent_change_btc_1_h": 0,
-    "percent_change_btc_24_h": 0,
-    "percent_change_usd_1_h": -0.147119,
-    "percent_change_usd_24_h": -0.373885,
-    "percent_change_eth_1_h": -0.00124721,
-    "percent_change_eth_24_h": -3.09621,
-    "updated_at": 1747346559
-  }
-}
-```
-
-## Configuration
-
-### Path Parameters
-
-| Parameter | Type | Description | Required |
-|-----------|------|-------------|----------|
-| `idOrSlug` | `string` | Asset ID or slug identifier | Yes |
-
-### Query Parameters
-
-| Parameter | Type | Description | Default |
-|-----------|------|-------------|---------|
-| `expand` | array | Expand related data | - |
-
-### Expansion Options
-
-Use the `expand` parameter to include additional related data. Multiple fields can be expanded by separating them with commas:
-
-| Value | Description | Data Type |
-|-------|-------------|-----------|
-| `price` | Current price in USD, BTC, ETH with 7-day sparkline | Object |
-| `market_cap` | Market cap, rank, dominance, and percentage changes | Object |
-| `sector` | Sector classification with ID and title | Object |
-| `addresses` | Contract addresses across different chains | Array |
-| `markets` | Trading market data including volume and ATH | Array |
-| `supply` | Circulating, liquid, and total supply information | Object |
-| `ohlcv_last_24_h` | OHLCV (Open, High, Low, Close, Volume) data | Object |
-| `reference` | External references (CoinGecko, Messari, etc.) | Object |
-| `addresses.chain` | Address data with expanded chain information | Array |
-| `is_favorite` | Whether the asset is marked as favorite | Boolean |
-
-## Examples
-
-### Adding supply and OHLCV data
-To achieve this, we'll use the `expand` parameter to include the `supply` and `ohlcv_last_24_h` fields:
-
-```bash
-?expand=supply,ohlcv_last_24_h
-```
-
-<CodeGroup>
-
-```bash cURL
-curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworksresearch.com/v1/assets/bitcoin?expand=supply,ohlcv_last_24_h"
-```
-
-```typescript TypeScript
-const response = await fetch('https://api.blockworksresearch.com/v1/assets/bitcoin?expand=supply,ohlcv_last_24_h', {
-  headers: { 'x-api-key': 'YOUR_API_KEY' }
-})
-
-const data = await response.json()
-```
-
-```python Python
-response = requests.get(
-    'https://api.blockworksresearch.com/v1/assets/bitcoin',
-    headers={'x-api-key': 'YOUR_API_KEY'},
-    params={'expand': 'supply,ohlcv_last_24_h'}
-)
-
-data = response.json()
-```
-
-</CodeGroup>
-
-<Accordion title="Response">
-```json
-{
-  "id": 4,
-  "code": "BTC",
-  "title": "Bitcoin",
-  ... // other fields
-  "ohlcv_last_24_h": {
-    "asset_id": 4,
-    "open": 60270.235008533,
-    "high": 104083,
-    "low": 101769,
-    "close": 58040.60631435,
-    "volume": 43062467389.346,
-    "updated_at": 1747346559
+    "rank": 2,
+    "usd": 414000000000,
+    "dominance": 0.18,
+    "percent_change_usd_24_h": 2.1,
+    "updated_at": 1723180800
   },
   "supply": {
-    "asset_id": 4,
-    "circulating": 19865178,
-    "liquid": 0,
-    "total": 19865178
+    "circulating": 120400000,
+    "liquid": 120200000,
+    "total": 122000000
   }
 }
 ```
-</Accordion>
+
+## Error example
+
+```json
+{
+    "status": 404,
+    "message": "Asset not found"
+}
+```
+
+## See also
+
+- [List Assets](/api-reference/assets/list)

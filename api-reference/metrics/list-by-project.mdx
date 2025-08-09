@@ -1,0 +1,129 @@
+---
+title: 'List Metrics by Project'
+description: 'Browse all available metrics for a specific project/chain'
+openapi: 'GET /v1/metrics'
+---
+
+import Request from '/snippets/request.mdx'
+
+## Overview
+
+Use this endpoint to **discover every metric available for a single project/chain** by applying the `project` query parameter. The response includes the metric name, description, stable `identifier` (used with [Get Single Metric](/api-reference/metrics/get)), default interval, data type, and data lineage source.
+
+## Quick summary
+
+| What | Details |
+| - | - |
+| Purpose | Discover metrics for a specific project/chain |
+| How to filter | Add `?project={project}` to the request URL |
+| Best next step | Copy the `identifier`, then query the series via `GET /v1/metrics/{identifier}` |
+| Typical filters | `identifier`, `search`, `interval`, `data_type` |
+| Pagination | Cursor-based via `limit` and `cursor` |
+
+## Basic Example
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \\
+  "https://api.blockworks.com/v1/metrics?project=ethereum"
+```
+
+```typescript TypeScript
+const res = await fetch('https://api.blockworks.com/v1/metrics?project=ethereum', {
+  headers: { 'x-api-key': 'YOUR_API_KEY' }
+})
+const data = await res.json()
+```
+
+```python Python
+import requests
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ethereum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Filtering
+
+Use query parameters to further narrow results for the chosen project:
+
+| Parameter | Type | Description | Example |
+|---|---|---|---|
+| `project` | string | Chain/project slug | `project=ethereum` |
+| `identifier` | string | Filter by exact metric identifier | `identifier=rev-usd` |
+| `search` | string | Full-text search across metric name & description | `search=stablecoin` |
+| `interval` | string | Filter by default interval (e.g., `daily`) | `interval=daily` |
+| `data_type` | string | Filter by data type (e.g., `timeseries_usd`, `timeseries_float`) | `data_type=timeseries_usd` |
+| `limit` | integer | Page size | `limit=100` |
+| `cursor` | string | Cursor for pagination | `cursor=eyJ...` |
+
+## Response Structure
+
+A successful response returns a paginated list of metric definitions for the specified project.
+
+```json
+{
+  "data": [
+    {
+      "name": "Native Token Price",
+      "description": "The average token price during the specified time period for the native asset of that chain.",
+      "identifier": "native-token-price",
+      "project": "ethereum",
+      "source": "Blockworks",
+      "interval": "daily",
+      "data_type": "timeseries_usd",
+      "parameters": {
+        "start_date": { "type": "date", "default": "2000-01-01", "description": "Start date (inclusive)" },
+        "end_date": { "type": "date", "default": "3000-01-01", "description": "End date (inclusive)" }
+      }
+    }
+  ],
+  "next": null,
+  "meta": { "request_id": "req_123" }
+}
+```
+
+### Field reference
+
+| Field | Type | Description |
+|---|---|---|
+| `name` | string | Human-readable metric name |
+| `description` | string | What the metric measures and how it’s intended to be used |
+| `identifier` | string | Stable key used with `GET /v1/metrics/{identifier}` |
+| `project` | string | Chain/project slug (e.g., `ethereum`, `base`) |
+| `source` | string | Data lineage owner (e.g., Blockworks) |
+| `interval` | string | Default interval for the series (e.g., `daily`) |
+| `data_type` | string | Series shape and units (e.g., `timeseries_usd`, `timeseries_float`) |
+| `parameters` | object | Supported query parameters when fetching this series |
+
+## Pagination
+
+This endpoint uses **cursor-based pagination**. Pass `limit` to set page size and `cursor` to fetch the next page.
+
+```bash
+curl -H "x-api-key: YOUR_API_KEY" \\
+  "https://api.blockworks.com/v1/metrics?project=ethereum&limit=100&cursor=eyJ..."
+```
+
+## Error Example
+
+If the specified project has no metrics, the response will return an empty list:
+
+```json
+{
+    "data": [],
+    "total": 0,
+    "page": 1
+}
+```
+
+## See also
+
+- [List Metrics](/api-reference/metrics/list)
+- [Get Single Metric](/api-reference/metrics/get)
+- [Welcome](/)

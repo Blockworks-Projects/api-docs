@@ -1,158 +1,138 @@
 ---
-title: 'All Metrics'
-description: 'Retrieve list of available metrics'
-openapi: 'GET /v1/metrics/x'
+title: 'List Metrics'
+description: 'Browse and filter available metrics'
+openapi: 'GET /v1/metrics'
 ---
 
-import { Endpoint } from '/snippets/endpoint.mdx'
+import Request from '/snippets/request.mdx'
 
-<Endpoint method="GET" path="/v1/metrics" />
+## Overview
+
+Use this endpoint to **discover available metrics** and their metadata. Results include the metric name, description, stable `identifier`, supported chains/projects, data type, default interval, and source information.
+This is the best place to find the correct `identifier` to use with [Get Single Metric](/api-reference/metrics/get-single).
 
 ## Basic Example
 
 <CodeGroup>
 
 ```bash cURL
-curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworksresearch.com/v1/metrics"
+curl -H "x-api-key: YOUR_API_KEY" \\
+  "https://api.blockworks.com/v1/metrics"
 ```
 
 ```typescript TypeScript
-const response = await fetch(
-  'https://api.blockworksresearch.com/v1/metrics', {
+const res = await fetch('https://api.blockworks.com/v1/metrics', {
   headers: { 'x-api-key': 'YOUR_API_KEY' }
 })
-
-const data = await response.json()
+const data = await res.json()
 ```
 
 ```python Python
 import requests
-
-response = requests.get(
-    'https://api.blockworksresearch.com/v1/metrics',
-    headers = { 'x-api-key': 'YOUR_API_KEY' }
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics',
+  headers={'x-api-key': 'YOUR_API_KEY'}
 )
-
-data = response.json()
+data = r.json()
 ```
-
 
 </CodeGroup>
 
-### Response Structure
+## Filtering
 
-Returns a paginated list of available metrics:
+Use query parameters to narrow results:
+
+| Parameter | Type | Description | Example |
+|---|---|---|---|
+| `project` | string | Filter by project/chain slug. Supports comma-separated list. | `project=ethereum,base` |
+| `identifier` | string | Filter by exact metric identifier. | `identifier=rev-usd` |
+| `search` | string | Full-text search across metric name & description. | `search=stablecoin` |
+| `interval` | string | Filter by default interval (e.g., `daily`). | `interval=daily` |
+| `data_type` | string | Filter by data type (e.g., `timeseries_usd`, `timeseries_float`). | `data_type=timeseries_usd` |
+| `limit` | integer | Page size. | `limit=100` |
+| `cursor` | string | Cursor for pagination. | `cursor=eyJ...` |
+
+### Examples
+
+- By project
+```bash
+curl -H "x-api-key: YOUR_API_KEY" \\
+  "https://api.blockworks.com/v1/metrics?project=ethereum"
+```
+
+- By identifier
+```bash
+curl -H "x-api-key: YOUR_API_KEY" \\
+  "https://api.blockworks.com/v1/metrics?identifier=rev-usd"
+```
+
+- Search by keyword
+```bash
+curl -H "x-api-key: YOUR_API_KEY" \\
+  "https://api.blockworks.com/v1/metrics?search=DEX%20volume"
+```
+
+## Response Structure
+
+A successful response returns a paginated list of metric definitions.
 
 ```json
 {
   "data": [
     {
-      "name": "Active Addresses",
-      "description": "Not a measure of user growth",
-      "identifier": "active-addresses",
-      "project": "Avax",
+      "name": "Native Token Price",
+      "description": "The average token price during the specified time period for the native asset of that chain.",
+      "identifier": "native-token-price",
+      "project": "ethereum",
       "source": "Blockworks",
-      "data_type": "timeseries_int",
-      "parameters": { /* available query parameters */ }
+      "interval": "daily",
+      "data_type": "timeseries_usd",
+      "parameters": {
+        "start_date": { "type": "date", "default": "2000-01-01", "description": "Start date (inclusive)" },
+        "end_date": { "type": "date", "default": "3000-01-01", "description": "End date (inclusive)" }
+      }
     }
   ],
-  "total": 12,
-  "page": 1
+  "next": null,
+  "meta": { "request_id": "req_123" }
 }
 ```
 
-## Configuration
+### Field reference
 
-### Query Parameters
+| Field | Type | Description |
+|---|---|---|
+| `name` | string | Human-readable metric name |
+| `description` | string | What the metric measures and how it’s intended to be used |
+| `identifier` | string | Stable key used with other endpoints (e.g., `GET /v1/metrics/{identifier}`) |
+| `project` | string | Chain/project slug this metric definition applies to |
+| `source` | string | Data lineage owner (e.g., Blockworks) |
+| `interval` | string | Default interval for the series (e.g., `daily`) |
+| `data_type` | string | Shape/units of the series (e.g., `timeseries_usd`, `timeseries_float`) |
+| `parameters` | object | Supported query parameters for retrieving the series |
 
-| Parameter | Required | Description | Example |
-| --- | :-: | --- | --- |
-| `page` | No | Page number (1-indexed) | 1 |
-| `limit` | No | Items per page (max 100) | 10 |
-| `project` | No | Filter by project identifier (comma-separated) | `Ethereum,Bitcoin` |
+## Pagination
 
-## Examples
+This endpoint uses **cursor-based pagination**. Pass `limit` to set page size and `cursor` to fetch the next page.
 
-### Filter by Project
-
-<CodeGroup>
-
-```bash cURL
-curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworksresearch.com/v1/metrics?project=Avax"
+```bash
+curl -H "x-api-key: YOUR_API_KEY" \\
+  "https://api.blockworks.com/v1/metrics?limit=100&cursor=eyJ..."
 ```
 
-```typescript TypeScript
-const response = await fetch(
-  'https://api.blockworksresearch.com/v1/metrics?project=Avax', {
-  headers: { 'x-api-key': 'YOUR_API_KEY' }
-})
+## Error Example
 
-const data = await response.json()
-```
-
-```python Python
-response = requests.get(
-    'https://api.blockworksresearch.com/v1/metrics',
-    headers = { 'x-api-key': 'YOUR_API_KEY' },
-    params = { 'project': 'Avax' }
-)
-
-data = response.json()
-```
-
-</CodeGroup>
-
-<Accordion title="Response">
 ```json
 {
-  "data": [
-    {
-      "name": "Active Addresses",
-      "description": "Not a measure of user growth",
-      "identifier": "active-addresses",
-      "project": "Avax",
-      "source": "Blockworks",
-      "data_type": "timeseries_int",
-      "parameters": {
-        "end_date": {
-          "type": "date",
-          "default": "3000-01-01",
-          "description": "End date (inclusive)"
-        },
-        "start_date": {
-          "type": "date",
-          "default": "2000-01-01",
-          "description": "Start date (inclusive)"
-        }
-      },
-      "updated_at": 1749503643
-    },
-    {
-      "name": "Transaction Count",
-      "description": "Excludes system transactions",
-      "identifier": "txns",
-      "project": "Avax",
-      "source": "Blockworks",
-      "data_type": "timeseries_int",
-      "parameters": {
-        "end_date": {
-          "type": "date",
-          "default": "3000-01-01",
-          "description": "End date (inclusive)"
-        },
-        "start_date": {
-          "type": "date",
-          "default": "2000-01-01",
-          "description": "Start date (inclusive)"
-        }
-      },
-      "updated_at": 1749504846
-    }
-  ],
-  "total": 2,
-  "page": 1
+  "error": {
+    "type": "validation_error",
+    "message": "Unsupported filter 'interval=hourly'",
+    "request_id": "abcd1234"
+  }
 }
 ```
-</Accordion>
+
+## See also
+
+- [Get Single Metric](/api-reference/metrics/get-single)
+- [Welcome](/)
