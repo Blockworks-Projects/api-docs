@@ -47,10 +47,9 @@ Use query parameters to narrow results:
 | `project` | string | Filter by project/chain slug. Supports comma-separated list. | `project=ethereum,base` |
 | `identifier` | string | Filter by exact metric identifier. | `identifier=rev-usd` |
 | `search` | string | Full-text search across metric name & description. | `search=stablecoin` |
-| `interval` | string | Filter by default interval (e.g., `daily`). | `interval=daily` |
 | `data_type` | string | Filter by data type (e.g., `timeseries_usd`, `timeseries_float`). | `data_type=timeseries_usd` |
 | `limit` | integer | Page size. | `limit=100` |
-| `cursor` | string | Cursor for pagination. | `cursor=eyJ...` |
+| `page` | string | Page for pagination. | `page=1` |
 
 ### Examples
 
@@ -107,17 +106,16 @@ A successful response returns a paginated list of metric definitions.
 | `identifier` | string | Stable key used with other endpoints (e.g., `GET /v1/metrics/{identifier}`) |
 | `project` | string | Chain/project slug this metric definition applies to |
 | `source` | string | Data lineage owner (e.g., Blockworks) |
-| `interval` | string | Default interval for the series (e.g., `daily`) |
 | `data_type` | string | Shape/units of the series (e.g., `timeseries_usd`, `timeseries_float`) |
 | `parameters` | object | Supported query parameters for retrieving the series |
 
 ## Pagination
 
-This endpoint uses **cursor-based pagination**. Pass `limit` to set page size and `cursor` to fetch the next page.
+This endpoint uses **page-based pagination**. Pass `limit` to set page size and `page` to fetch the next page.
 
 ```bash
 curl -H "x-api-key: YOUR_API_KEY" \\
-  "https://api.blockworks.com/v1/metrics?limit=100&cursor=eyJ..."
+  "https://api.blockworks.com/v1/metrics?limit=100&page=1"
 ```
 
 ## Error Example
