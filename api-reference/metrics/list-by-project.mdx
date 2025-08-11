@@ -8,7 +8,7 @@ import Request from '/snippets/request.mdx'
 
 ## Overview
 
-Use this endpoint to **discover every metric available for a single project/chain** by applying the `project` query parameter. The response includes the metric name, description, stable `identifier` (used with [Get Single Metric](/api-reference/metrics/get)), default interval, data type, and data lineage source.
+Use this endpoint to **discover every metric available for a single project/chain** by applying the `project` query parameter. The response includes the metric name, description, stable `identifier` (used with [Get Single Metric](/api-reference/metrics/get)), data type, and data lineage source.
 
 ## Quick summary
 
@@ -18,7 +18,7 @@ Use this endpoint to **discover every metric available for a single project/chai
 | How to filter | Add `?project={project}` to the request URL |
 | Best next step | Copy the `identifier`, then query the series via `GET /v1/metrics/{identifier}` |
 | Typical filters | `identifier`, `search`, `interval`, `data_type` |
-| Pagination | Cursor-based via `limit` and `cursor` |
+| Pagination | Page-based via `limit` and `page` |
 
 ## Basic Example
 
@@ -57,10 +57,9 @@ Use query parameters to further narrow results for the chosen project:
 | `project` | string | Chain/project slug | `project=ethereum` |
 | `identifier` | string | Filter by exact metric identifier | `identifier=rev-usd` |
 | `search` | string | Full-text search across metric name & description | `search=stablecoin` |
-| `interval` | string | Filter by default interval (e.g., `daily`) | `interval=daily` |
 | `data_type` | string | Filter by data type (e.g., `timeseries_usd`, `timeseries_float`) | `data_type=timeseries_usd` |
 | `limit` | integer | Page size | `limit=100` |
-| `cursor` | string | Cursor for pagination | `cursor=eyJ...` |
+| `page` | string | Page for pagination | `page=1` |
 
 ## Response Structure
 
@@ -97,17 +96,16 @@ A successful response returns a paginated list of metric definitions for the spe
 | `identifier` | string | Stable key used with `GET /v1/metrics/{identifier}` |
 | `project` | string | Chain/project slug (e.g., `ethereum`, `base`) |
 | `source` | string | Data lineage owner (e.g., Blockworks) |
-| `interval` | string | Default interval for the series (e.g., `daily`) |
 | `data_type` | string | Series shape and units (e.g., `timeseries_usd`, `timeseries_float`) |
 | `parameters` | object | Supported query parameters when fetching this series |
 
 ## Pagination
 
-This endpoint uses **cursor-based pagination**. Pass `limit` to set page size and `cursor` to fetch the next page.
+This endpoint uses **page-based pagination**. Pass `limit` to set page size and `page` to fetch the next page.
 
 ```bash
 curl -H "x-api-key: YOUR_API_KEY" \\
-  "https://api.blockworks.com/v1/metrics?project=ethereum&limit=100&cursor=eyJ..."
+  "https://api.blockworks.com/v1/metrics?project=ethereum&limit=100&page=1"
 ```
 
 ## Error Example
