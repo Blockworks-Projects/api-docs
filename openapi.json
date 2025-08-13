@@ -597,7 +597,7 @@
           "metrics"
         ],
         "summary": "Get Metric By Identifier",
-        "description": "Retrieve a metric time series by `identifier`. Required query: `project` (comma-separated to request multiple). Optional: `start_date`, `end_date` (YYYY-MM-DD), and `aggregation` (`daily` | `weekly` | `monthly`). Returns a time series per project key."
+        "description": "Retrieve a metric time series by `identifier`. Required query: `project` (comma-separated to request multiple). Optional: `start_date`, `end_date` (YYYY-MM-DD). Returns a time series per project key."
       }
     },
     "/v1/metrics": {
@@ -738,20 +738,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -845,20 +831,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -961,20 +933,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -1077,20 +1035,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -1203,20 +1147,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -1329,20 +1259,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -1455,20 +1371,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -1581,20 +1483,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -1707,20 +1595,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -1833,20 +1707,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -1959,20 +1819,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -2085,20 +1931,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -2211,20 +2043,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -2337,20 +2155,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -2463,20 +2267,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -2589,20 +2379,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -2715,20 +2491,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -2841,20 +2603,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -2967,20 +2715,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -3093,20 +2827,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -3219,20 +2939,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -3340,20 +3046,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -3466,20 +3158,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -3587,20 +3265,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -3713,20 +3377,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -3839,20 +3489,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -3965,20 +3601,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -4091,20 +3713,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -4217,20 +3825,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -4343,20 +3937,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
@@ -4469,20 +4049,6 @@
               "format": "date"
             },
             "description": "End date (YYYY-MM-DD)"
-          },
-          {
-            "name": "aggregation",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "daily",
-                "weekly",
-                "monthly"
-              ]
-            },
-            "description": "Time aggregation"
           }
         ],
         "responses": {
