@@ -44,7 +44,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AssetResponse"
+                  "$ref": "#/components/schemas/AssetResponseBase"
                 }
               }
             }
@@ -4854,6 +4854,110 @@
           "type"
         ]
       },
+      "AssetResponseBase": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "code": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 20
+          },
+          "title": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 100
+          },
+          "slug": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 100
+          },
+          "tag_line": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 255
+          },
+          "description": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 65535
+          },
+          "image_url": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 255
+          },
+          "legacy_sector": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 50
+          },
+          "category": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 25
+          },
+          "is_supported": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "updated_at": {
+            "type": "number",
+            "nullable": true,
+            "description": "Unix timestamp"
+          },
+          "sector_id": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "type": {
+            "type": "string",
+            "nullable": true,
+            "enum": [
+              "Infrastructure",
+              "Application"
+            ]
+          },
+          "market_cap": {
+            "description": "Expandable relationship",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MarketCap"
+              }
+            ]
+          },
+          "price": {
+            "description": "Expandable relationship",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Price"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "code",
+          "title",
+          "slug",
+          "tag_line",
+          "description",
+          "image_url",
+          "legacy_sector",
+          "category",
+          "is_supported",
+          "updated_at",
+          "sector_id",
+          "type"
+        ]
+      },
       "QueryExecutionResponse": {
         "type": "object",
         "properties": {
@@ -5336,7 +5440,7 @@
             "description": "Expandable relationship",
             "allOf": [
               {
-                "$ref": "#/components/schemas/AssetResponse"
+                "$ref": "#/components/schemas/AssetResponseBase"
               }
             ]
           },
@@ -7239,7 +7343,7 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AssetResponse"
+              "$ref": "#/components/schemas/AssetResponseBase"
             }
           }
         },
@@ -7624,7 +7728,7 @@
             "description": "Expandable relationship",
             "allOf": [
               {
-                "$ref": "#/components/schemas/AssetResponse"
+                "$ref": "#/components/schemas/AssetResponseBase"
               }
             ]
           }
