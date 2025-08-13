@@ -53,6 +53,7 @@
           {
             "group": "Metrics",
             "pages": [
+              "about-metrics",
               "api-reference/metrics-catalog",
               {
                 "group": "Ethereum",

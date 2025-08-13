@@ -32,6 +32,14 @@
 - Alt text on all images
 - Relative paths for internal links
 
+## Documentation style preferences
+- **Accuracy first**: Always verify technical details against actual API behavior rather than making assumptions
+- **Concise examples**: Show core functionality with simple, practical examples - avoid complex implementation patterns
+- **Essential information**: Include what users need to succeed, not every possible scenario or edge case
+- **Technical precision**: Verify API limits, parameters, and response structures before documenting
+- **Practical focus**: Help users understand concepts without overwhelming them with comprehensive programming examples
+- **Clean structure**: Keep sections focused and avoid feature creep in documentation
+
 ## Git workflow
 - NEVER use --no-verify when committing
 - Ask how to handle uncommitted changes before starting
