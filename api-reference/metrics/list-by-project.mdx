@@ -17,7 +17,7 @@ Use this endpoint to **discover every metric available for a single project/chai
 | Purpose | Discover metrics for a specific project/chain |
 | How to filter | Add `?project={project}` to the request URL |
 | Best next step | Copy the `identifier`, then query the series via `GET /v1/metrics/{identifier}` |
-| Typical filters | `identifier`, `search`, `interval`, `data_type` |
+| Typical filters | `identifier`, `limit`, `page` |
 | Pagination | Page-based via `limit` and `page` |
 
 ## Basic Example
@@ -56,8 +56,6 @@ Use query parameters to further narrow results for the chosen project:
 |---|---|---|---|
 | `project` | string | Chain/project slug | `project=ethereum` |
 | `identifier` | string | Filter by exact metric identifier | `identifier=rev-usd` |
-| `search` | string | Full-text search across metric name & description | `search=stablecoin` |
-| `data_type` | string | Filter by data type (e.g., `timeseries_usd`, `timeseries_float`) | `data_type=timeseries_usd` |
 | `limit` | integer | Page size | `limit=100` |
 | `page` | string | Page for pagination | `page=1` |
 
