@@ -46,33 +46,48 @@ print(data)
 
 ### Response Structure
 
-Example response:
+A successful response returns a paginated list of assets.  Each asset includes detailed `market_cap` and `price` information.
 
 ```json
 {
   "data": [
     {
-      "id": 4,
+     "id": 4,
       "code": "BTC",
       "title": "Bitcoin",
       "slug": "bitcoin",
-      "tag_line": "A decentralized digital currency",
-      "category": "cryptocurrency",
-      "sector": "Payments",
-      "image_url": "https://example.com/bitcoin.png",
-      "launched_on": "2009-01-03"
+      "tag_line": "A peer-to-peer electronic cash system",
+      "description": "Bitcoin is the first distributed consensus-based, censorship-resistant, permissionless, peer-to-peer payment settlement network with a provably scarce, programmable, native currency. Bitcoin (BTC), the native asset of the Bitcoin blockchain, is the world's first digital currency without a central bank or administrator. The Bitcoin network is an emergent decentralized monetary institution that exists through the interplay between full nodes, miners, and developers. It is set by a social contract that is created and opted into by the users of the network and hardened through game theory and cryptography. Bitcoin is the first, oldest, and largest cryptocurrency in the world.",
+      "image_url": "https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
+      "legacy_sector": "Currencies",
+      "category": "Infrastructure",
+      "is_supported": true,
+      "updated_at": 1755185437,
+      "sector_id": 40,
+      "type": "Infrastructure",
+      "market_cap": {
+        "asset_id": 4,
+        "rank": 1,
+        "usd": 2356205871209,
+        "dominance": 49.9323,
+        "percent_change_btc_1_h": 0,
+        "percent_change_btc_24_h": 0,
+        "percent_change_usd_1_h": -0.547265,
+        "percent_change_usd_24_h": -1.96267,
+        "percent_change_eth_1_h": -0.00124721,
+        "percent_change_eth_24_h": -3.09621,
+        "updated_at": 1755185437
+      },
+      "price": {
+        "asset_id": 2147483647,
+        "usd": 8.988465674311579e+307,
+        "btc": 8.988465674311579e+307,
+        "eth": 8.988465674311579e+307,
+        "sparkline_7d": "[116594.2851435067,116274.73753690078,116539.36847358629,116351.84111129945,120911.85757179689]",
+        "updated_at": 1755185437
+      }
     },
-    {
-      "id": 5,
-      "code": "ETH",
-      "title": "Ethereum",
-      "slug": "ethereum",
-      "tag_line": "A decentralized smart contract platform",
-      "category": "cryptocurrency",
-      "sector": "Smart Contracts",
-      "image_url": "https://example.com/ethereum.png",
-      "launched_on": "2015-07-30"
-    }
+    // ... other assets
   ],
   "total": 133505,
   "page": 1
