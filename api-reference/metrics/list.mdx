@@ -112,12 +112,16 @@ A successful response returns a paginated list of metric definitions, with the f
 | Field | Type | Description |
 |---|---|---|
 | `name` | string | Human-readable metric name |
-| `description` | string | What the metric measures and how it’s intended to be used |
+| `description` | string | What the metric measures and how it's intended to be used |
 | `identifier` | string | Stable key used with other endpoints (e.g., `GET /v1/metrics/{identifier}`) |
 | `project` | string | Chain/project slug this metric definition applies to |
 | `source` | string | Data lineage owner (e.g., Blockworks) |
 | `data_type` | string | Shape/units of the series (e.g., `timeseries_usd`, `timeseries_float`) |
 | `parameters` | object | Supported query parameters for retrieving the series |
+| `interval` | string | Data frequency (e.g., `daily`) |
+| `aggregation` | string | How values are aggregated (e.g., `SUM`) |
+| `category` | string | Metric classification (e.g., `Financials`) |
+| `updated_at` | integer | Unix timestamp of last update |
 
 ## Pagination
 

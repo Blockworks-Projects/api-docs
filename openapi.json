@@ -7627,6 +7627,24 @@
             "type": "number",
             "nullable": true,
             "description": "Unix timestamp"
+          },
+          "interval": {
+            "type": "string",
+            "nullable": true,
+            "example": "daily",
+            "maxLength": 65535
+          },
+          "aggregation": {
+            "type": "string",
+            "nullable": true,
+            "example": "SUM",
+            "maxLength": 65535
+          },
+          "category": {
+            "type": "string",
+            "nullable": true,
+            "example": "Financials",
+            "maxLength": 65535
           }
         },
         "required": [
@@ -7637,7 +7655,10 @@
           "source",
           "data_type",
           "parameters",
-          "updated_at"
+          "updated_at",
+          "interval",
+          "aggregation",
+          "category"
         ]
       },
       "MetricPageResponse": {
