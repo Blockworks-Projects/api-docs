@@ -56,6 +56,120 @@
               "api-reference/metrics/about",
               "api-reference/metrics/catalog",
               {
+                "group": "Arbitrum",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/arbitrum/activity/address-total",
+                      "api-reference/metrics/arbitrum/activity/fee-average",
+                      "api-reference/metrics/arbitrum/activity/fee-average-usd",
+                      "api-reference/metrics/arbitrum/activity/fee-median",
+                      "api-reference/metrics/arbitrum/activity/fee-median-usd",
+                      "api-reference/metrics/arbitrum/activity/transaction-fail",
+                      "api-reference/metrics/arbitrum/activity/transaction-success",
+                      "api-reference/metrics/arbitrum/activity/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/arbitrum/financials/fees-base",
+                      "api-reference/metrics/arbitrum/financials/fees-base-usd",
+                      "api-reference/metrics/arbitrum/financials/fees-mev-tips",
+                      "api-reference/metrics/arbitrum/financials/fees-mev-tips-usd",
+                      "api-reference/metrics/arbitrum/financials/fees-other",
+                      "api-reference/metrics/arbitrum/financials/fees-other-usd",
+                      "api-reference/metrics/arbitrum/financials/fees-priority",
+                      "api-reference/metrics/arbitrum/financials/fees-priority-usd",
+                      "api-reference/metrics/arbitrum/financials/fees-transaction",
+                      "api-reference/metrics/arbitrum/financials/fees-transaction-usd",
+                      "api-reference/metrics/arbitrum/financials/issuance",
+                      "api-reference/metrics/arbitrum/financials/issuance-usd",
+                      "api-reference/metrics/arbitrum/financials/rev",
+                      "api-reference/metrics/arbitrum/financials/rev-usd"
+                    ]
+                  },
+                  {
+                    "group": "Stablecoins",
+                    "pages": [
+                      "api-reference/metrics/arbitrum/stablecoins/stablecoin-circulating-supply",
+                      "api-reference/metrics/arbitrum/stablecoins/stablecoin-supply"
+                    ]
+                  },
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/arbitrum/token/native-token-fdv",
+                      "api-reference/metrics/arbitrum/token/native-token-price",
+                      "api-reference/metrics/arbitrum/token/native-token-supply"
+                    ]
+                  },
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/arbitrum/trading/dex-spot-volume"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Base",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/base/activity/address-total",
+                      "api-reference/metrics/base/activity/fee-average",
+                      "api-reference/metrics/base/activity/fee-average-usd",
+                      "api-reference/metrics/base/activity/fee-median",
+                      "api-reference/metrics/base/activity/fee-median-usd",
+                      "api-reference/metrics/base/activity/transaction-fail",
+                      "api-reference/metrics/base/activity/transaction-success",
+                      "api-reference/metrics/base/activity/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/base/financials/fees-base",
+                      "api-reference/metrics/base/financials/fees-base-usd",
+                      "api-reference/metrics/base/financials/fees-mev-tips",
+                      "api-reference/metrics/base/financials/fees-mev-tips-usd",
+                      "api-reference/metrics/base/financials/fees-other",
+                      "api-reference/metrics/base/financials/fees-other-usd",
+                      "api-reference/metrics/base/financials/fees-priority",
+                      "api-reference/metrics/base/financials/fees-priority-usd",
+                      "api-reference/metrics/base/financials/fees-transaction",
+                      "api-reference/metrics/base/financials/fees-transaction-usd",
+                      "api-reference/metrics/base/financials/issuance",
+                      "api-reference/metrics/base/financials/issuance-usd",
+                      "api-reference/metrics/base/financials/rev",
+                      "api-reference/metrics/base/financials/rev-usd"
+                    ]
+                  },
+                  {
+                    "group": "Stablecoins",
+                    "pages": [
+                      "api-reference/metrics/base/stablecoins/stablecoin-circulating-supply",
+                      "api-reference/metrics/base/stablecoins/stablecoin-supply"
+                    ]
+                  },
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/base/token/native-token-price"
+                    ]
+                  },
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/base/trading/dex-spot-volume"
+                    ]
+                  }
+                ]
+              },
+              {
                 "group": "Ethereum",
                 "pages": [
                   {
@@ -171,120 +285,6 @@
                     "group": "Trading",
                     "pages": [
                       "api-reference/metrics/solana/trading/dex-spot-volume"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Arbitrum",
-                "pages": [
-                  {
-                    "group": "Activity",
-                    "pages": [
-                      "api-reference/metrics/arbitrum/activity/address-total",
-                      "api-reference/metrics/arbitrum/activity/fee-average",
-                      "api-reference/metrics/arbitrum/activity/fee-average-usd",
-                      "api-reference/metrics/arbitrum/activity/fee-median",
-                      "api-reference/metrics/arbitrum/activity/fee-median-usd",
-                      "api-reference/metrics/arbitrum/activity/transaction-fail",
-                      "api-reference/metrics/arbitrum/activity/transaction-success",
-                      "api-reference/metrics/arbitrum/activity/transaction-total"
-                    ]
-                  },
-                  {
-                    "group": "Financials",
-                    "pages": [
-                      "api-reference/metrics/arbitrum/financials/fees-base",
-                      "api-reference/metrics/arbitrum/financials/fees-base-usd",
-                      "api-reference/metrics/arbitrum/financials/fees-mev-tips",
-                      "api-reference/metrics/arbitrum/financials/fees-mev-tips-usd",
-                      "api-reference/metrics/arbitrum/financials/fees-other",
-                      "api-reference/metrics/arbitrum/financials/fees-other-usd",
-                      "api-reference/metrics/arbitrum/financials/fees-priority",
-                      "api-reference/metrics/arbitrum/financials/fees-priority-usd",
-                      "api-reference/metrics/arbitrum/financials/fees-transaction",
-                      "api-reference/metrics/arbitrum/financials/fees-transaction-usd",
-                      "api-reference/metrics/arbitrum/financials/issuance",
-                      "api-reference/metrics/arbitrum/financials/issuance-usd",
-                      "api-reference/metrics/arbitrum/financials/rev",
-                      "api-reference/metrics/arbitrum/financials/rev-usd"
-                    ]
-                  },
-                  {
-                    "group": "Stablecoins",
-                    "pages": [
-                      "api-reference/metrics/arbitrum/stablecoins/stablecoin-circulating-supply",
-                      "api-reference/metrics/arbitrum/stablecoins/stablecoin-supply"
-                    ]
-                  },
-                  {
-                    "group": "Token",
-                    "pages": [
-                      "api-reference/metrics/arbitrum/token/native-token-fdv",
-                      "api-reference/metrics/arbitrum/token/native-token-price",
-                      "api-reference/metrics/arbitrum/token/native-token-supply"
-                    ]
-                  },
-                  {
-                    "group": "Trading",
-                    "pages": [
-                      "api-reference/metrics/arbitrum/trading/dex-spot-volume"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Base",
-                "pages": [
-                  {
-                    "group": "Activity",
-                    "pages": [
-                      "api-reference/metrics/base/activity/address-total",
-                      "api-reference/metrics/base/activity/fee-average",
-                      "api-reference/metrics/base/activity/fee-average-usd",
-                      "api-reference/metrics/base/activity/fee-median",
-                      "api-reference/metrics/base/activity/fee-median-usd",
-                      "api-reference/metrics/base/activity/transaction-fail",
-                      "api-reference/metrics/base/activity/transaction-success",
-                      "api-reference/metrics/base/activity/transaction-total"
-                    ]
-                  },
-                  {
-                    "group": "Financials",
-                    "pages": [
-                      "api-reference/metrics/base/financials/fees-base",
-                      "api-reference/metrics/base/financials/fees-base-usd",
-                      "api-reference/metrics/base/financials/fees-mev-tips",
-                      "api-reference/metrics/base/financials/fees-mev-tips-usd",
-                      "api-reference/metrics/base/financials/fees-other",
-                      "api-reference/metrics/base/financials/fees-other-usd",
-                      "api-reference/metrics/base/financials/fees-priority",
-                      "api-reference/metrics/base/financials/fees-priority-usd",
-                      "api-reference/metrics/base/financials/fees-transaction",
-                      "api-reference/metrics/base/financials/fees-transaction-usd",
-                      "api-reference/metrics/base/financials/issuance",
-                      "api-reference/metrics/base/financials/issuance-usd",
-                      "api-reference/metrics/base/financials/rev",
-                      "api-reference/metrics/base/financials/rev-usd"
-                    ]
-                  },
-                  {
-                    "group": "Stablecoins",
-                    "pages": [
-                      "api-reference/metrics/base/stablecoins/stablecoin-circulating-supply",
-                      "api-reference/metrics/base/stablecoins/stablecoin-supply"
-                    ]
-                  },
-                  {
-                    "group": "Token",
-                    "pages": [
-                      "api-reference/metrics/base/token/native-token-price"
-                    ]
-                  },
-                  {
-                    "group": "Trading",
-                    "pages": [
-                      "api-reference/metrics/base/trading/dex-spot-volume"
                     ]
                   }
                 ]

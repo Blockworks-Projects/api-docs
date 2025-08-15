@@ -8,6 +8,9 @@ const API_BASE_URL = 'https://api.blockworks.com/v1'
 const API_KEY = process.env.BWR_API_KEY || 'dba7d3f2f9fc4930975f0d5fe4465433'
 const OUTPUT_DIR = './api-reference/metrics'
 
+// Global error tracking
+const apiErrors: Array<{url: string, status: number, message: string}> = []
+
 // Helper function for API calls
 async function apiCall<T>(endpoint: string, params?: Record<string, string>): Promise<T> {
   const url = new URL(`${API_BASE_URL}${endpoint}`)
@@ -168,8 +171,19 @@ async function fetchMetricSampleData(identifier: string, project: string): Promi
     })
     
     return response
-  } catch (error) {
-    console.warn(`⚠️  Failed to fetch sample data for ${identifier} (${project}):`, error)
+  } catch (error: any) {
+    // Track API errors with full URL details
+    const url = new URL(`${API_BASE_URL}/metrics/${identifier}`)
+    url.searchParams.append('project', project)
+    url.searchParams.append('start_date', startDate)
+    
+    const status = error.message.match(/(\d{3})/)?.[1] || 'Unknown'
+    apiErrors.push({
+      url: url.toString(),
+      status: parseInt(status),
+      message: error.message
+    })
+    
     // Return mock data if API call fails
     return {
       [project]: [
@@ -211,7 +225,7 @@ async function generateMetricPage(metric: Metric): Promise<void> {
   const projectDir = join(OUTPUT_DIR, metric.project, categoryFolder)
   const filePath = join(projectDir, `${metric.identifier}.mdx`)
 
-  console.log(`   📄 Generating ${metric.project}/${categoryFolder}/${metric.identifier}.mdx`)
+  console.log(`   ✏️  Generating ${metric.project}/${categoryFolder}/${metric.identifier}.mdx`)
 
   // Ensure directory exists
   await mkdir(projectDir, { recursive: true })
@@ -289,8 +303,10 @@ async function updateDocsNavigation(metrics: Metric[]): Promise<void> {
   
   metricsGroup.pages = staticPages
   
-  // Generate navigation for each project
-  for (const [project, categoryMap] of projectGroups.entries()) {
+  // Generate navigation for each project (sorted alphabetically)
+  const sortedProjects = Array.from(projectGroups.entries()).sort(([a], [b]) => a.localeCompare(b))
+  
+  for (const [project, categoryMap] of sortedProjects) {
     const projectName = toTitleCase(project)
     console.log(`   🏗️  Processing ${projectName} project with ${categoryMap.size} categories`)
     
@@ -418,14 +434,8 @@ async function main() {
     console.log('📝 Generating metric pages...')
     
     // Generate individual metric pages
-    let completed = 0
     for (const metric of metrics) {
       await generateMetricPage(metric)
-      completed++
-      
-      if (completed % 20 === 0 || completed === metrics.length) {
-        console.log(`   ✏️  Generated ${completed}/${metrics.length} pages`)
-      }
     }
 
     console.log('📚 Generating metrics catalog...')
@@ -434,7 +444,31 @@ async function main() {
     console.log('📋 Updating docs.json navigation...')
     await updateDocsNavigation(metrics)
 
-    console.log(`✅ Sync complete! Generated ${metrics.length} metric pages, catalog, and navigation in ${OUTPUT_DIR}`)
+    console.log('') // Blank line before summary
+    
+    // Display API errors if any
+    if (apiErrors.length > 0) {
+      console.log('⚠️  Errors:')
+      apiErrors.forEach(error => {
+        console.log(`   ${error.status} ${error.message}`)
+        console.log(`   URL: ${error.url}`)
+      })
+      console.log('')
+    }
+    
+    // Summary table
+    console.log('📊 Sync Summary:')
+    console.log(`   📄 Metric pages: ${metrics.length}`)
+    console.log(`   📂 Projects: ${new Set(metrics.map(m => m.project)).size}`)
+    console.log(`   🏷️  Categories: ${new Set(metrics.map(m => m.category)).size}`)
+    console.log(`   📖 Catalog: Generated`)
+    console.log(`   🧭 Navigation: Updated`)
+    if (apiErrors.length > 0) {
+      console.log(`   ⚠️  API Errors: ${apiErrors.length}`)
+    }
+    console.log(`   📁 Output: ${OUTPUT_DIR}`)
+    
+    console.log(`\n✅ Sync complete!`)
     
   } catch (error) {
     console.error('❌ Sync failed:', error)
