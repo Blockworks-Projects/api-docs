@@ -1,0 +1,42 @@
+---
+title: "Base Fees USD"
+description: "The minimum transaction fee required for a transaction to be included in a block"
+openapi: 'GET /v1/metrics/fees-base-usd'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-08-10",
+      "value": 99660.0351524729
+    },
+    {
+      "date": "2025-08-11",
+      "value": 105453.19327911701
+    },
+    {
+      "date": "2025-08-12",
+      "value": 103472.13124021317
+    },
+    {
+      "date": "2025-08-13",
+      "value": 119506.56936854184
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

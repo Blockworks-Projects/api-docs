@@ -1,0 +1,46 @@
+---
+title: "Transaction Total"
+description: "Daily number of all transactions."
+openapi: 'GET /v1/metrics/transaction-total'
+---
+
+## Overview
+
+- **Unit:** Count
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-08-10",
+      "value": 93257604
+    },
+    {
+      "date": "2025-08-11",
+      "value": 100550129
+    },
+    {
+      "date": "2025-08-12",
+      "value": 100277614
+    },
+    {
+      "date": "2025-08-13",
+      "value": 104928209
+    },
+    {
+      "date": "2025-08-14",
+      "value": 22801971
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

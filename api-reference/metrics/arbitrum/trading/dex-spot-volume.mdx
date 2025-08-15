@@ -1,0 +1,46 @@
+---
+title: "DEX Spot Volume"
+description: "Calculates daily spot volume from major DEXs. Only includes volumes from fee-paying liquidity pools"
+openapi: 'GET /v1/metrics/dex-spot-volume'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "arbitrum": [
+    {
+      "date": "2025-08-10",
+      "value": 676841482.8897189
+    },
+    {
+      "date": "2025-08-11",
+      "value": 980662717.606335
+    },
+    {
+      "date": "2025-08-12",
+      "value": 795073439.7467188
+    },
+    {
+      "date": "2025-08-13",
+      "value": 875950302.8236145
+    },
+    {
+      "date": "2025-08-14",
+      "value": 50028079.49641213
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

@@ -7,9 +7,11 @@
     "example": "examples"
   },
   "scripts": {
-    "dev": "npx mintlify@latest dev --port 3333"
+    "dev": "npx mintlify@latest dev --port 3333",
+    "sync": "bun run sync.ts"
   },
   "dependencies": {
+    "itty-fetcher": "^1.0.10",
     "react": "^19.1.0"
   },
   "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"

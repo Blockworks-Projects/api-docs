@@ -1,0 +1,46 @@
+---
+title: "Transaction Success"
+description: "Daily number of successful transactions, excluding failed transactions."
+openapi: 'GET /v1/metrics/transaction-success'
+---
+
+## Overview
+
+- **Unit:** Count
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-08-10",
+      "value": 74044526
+    },
+    {
+      "date": "2025-08-11",
+      "value": 77416345
+    },
+    {
+      "date": "2025-08-12",
+      "value": 76942631
+    },
+    {
+      "date": "2025-08-13",
+      "value": 79019477
+    },
+    {
+      "date": "2025-08-14",
+      "value": 17007810
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

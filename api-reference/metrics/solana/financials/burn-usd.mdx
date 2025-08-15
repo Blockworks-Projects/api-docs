@@ -1,0 +1,42 @@
+---
+title: "Burn USD"
+description: "The total amount of burned transaction fees in USD."
+openapi: 'GET /v1/metrics/burn-usd'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-08-10",
+      "value": 157235.85647912908
+    },
+    {
+      "date": "2025-08-11",
+      "value": 159079.28812984782
+    },
+    {
+      "date": "2025-08-12",
+      "value": 156205.54362366057
+    },
+    {
+      "date": "2025-08-13",
+      "value": 173471.54143844752
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

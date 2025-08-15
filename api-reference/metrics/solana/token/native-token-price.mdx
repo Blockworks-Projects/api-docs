@@ -1,0 +1,42 @@
+---
+title: "Native Token Price"
+description: "The average token price during the specified time period for the native asset of that chain."
+openapi: 'GET /v1/metrics/native-token-price'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-08-10",
+      "value": 181.64354166666624
+    },
+    {
+      "date": "2025-08-11",
+      "value": 180.48857638888853
+    },
+    {
+      "date": "2025-08-12",
+      "value": 180.22184027777737
+    },
+    {
+      "date": "2025-08-13",
+      "value": 198.49486111111085
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

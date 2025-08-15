@@ -1,0 +1,46 @@
+---
+title: "Transaction Fees USD"
+description: "Total transaction fees paid converted to USD, does not include out-of-protocol tips or additional sources of revenue"
+openapi: 'GET /v1/metrics/fees-transaction-usd'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "ethereum": [
+    {
+      "date": "2025-08-10",
+      "value": 1222770.466195216
+    },
+    {
+      "date": "2025-08-11",
+      "value": 1631218.0110973667
+    },
+    {
+      "date": "2025-08-12",
+      "value": 2354370.4326849277
+    },
+    {
+      "date": "2025-08-13",
+      "value": 2942278.326540985
+    },
+    {
+      "date": "2025-08-14",
+      "value": null
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

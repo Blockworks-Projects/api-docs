@@ -1,0 +1,46 @@
+---
+title: "Issuance"
+description: "Newly issued tokens that are distributed to participants (such as validators, miners, or stakers) as compensation for participating in consensus."
+openapi: 'GET /v1/metrics/issuance'
+---
+
+## Overview
+
+- **Unit:** Native units
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "ethereum": [
+    {
+      "date": "2025-08-10",
+      "value": 2665.815122401
+    },
+    {
+      "date": "2025-08-11",
+      "value": 2661.709314959
+    },
+    {
+      "date": "2025-08-12",
+      "value": 2665.151125361
+    },
+    {
+      "date": "2025-08-13",
+      "value": 2665.151125361
+    },
+    {
+      "date": "2025-08-14",
+      "value": 2665.151125361
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

@@ -1,0 +1,46 @@
+---
+title: "Fee Median"
+description: "Median of the sum of the base fee and priority fee that day in native chain token"
+openapi: 'GET /v1/metrics/fee-median'
+---
+
+## Overview
+
+- **Unit:** Native units
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "arbitrum": [
+    {
+      "date": "2025-08-10",
+      "value": 6.790510520858414e-7
+    },
+    {
+      "date": "2025-08-11",
+      "value": 9.626273195461895e-7
+    },
+    {
+      "date": "2025-08-12",
+      "value": 0.000001023420117658798
+    },
+    {
+      "date": "2025-08-13",
+      "value": 0.0000011811675333727348
+    },
+    {
+      "date": "2025-08-14",
+      "value": 8.667649608363076e-7
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

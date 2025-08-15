@@ -1,0 +1,46 @@
+---
+title: "Burn USD"
+description: "The total amount of burned transaction fees in USD."
+openapi: 'GET /v1/metrics/burn-usd'
+---
+
+## Overview
+
+- **Unit:** Count
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "ethereum": [
+    {
+      "date": "2025-08-10",
+      "value": 300364.90440496174
+    },
+    {
+      "date": "2025-08-11",
+      "value": 529286.0658228018
+    },
+    {
+      "date": "2025-08-12",
+      "value": 951884.9304349141
+    },
+    {
+      "date": "2025-08-13",
+      "value": 1299266.366484875
+    },
+    {
+      "date": "2025-08-14",
+      "value": 63344.28557154548
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

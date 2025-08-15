@@ -1,0 +1,42 @@
+---
+title: "MEV Tips USD"
+description: "Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders or leaders for faster transaction execution, MEV capture, or MEV protection."
+openapi: 'GET /v1/metrics/fees-mev-tips-usd'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-08-10",
+      "value": 1090672.156126135
+    },
+    {
+      "date": "2025-08-11",
+      "value": 1580315.756084117
+    },
+    {
+      "date": "2025-08-12",
+      "value": 1790084.3035070791
+    },
+    {
+      "date": "2025-08-13",
+      "value": 1867505.9576855307
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

@@ -4,11 +4,14 @@
     "": {
       "name": "api-docs",
       "dependencies": {
+        "itty-fetcher": "^1.0.10",
         "react": "^19.1.0",
       },
     },
   },
   "packages": {
+    "itty-fetcher": ["itty-fetcher@1.0.10", "", {}, "sha512-sxNekddIHnYEiiBNZDfkZUYD05TNGWqVuZbVWxHvgp93VjYdDu/hOuM0ZTUkMQd8vzeCjrxwaOwqr2E8krI/yw=="],
+
     "react": ["react@19.1.0", "", {}, "sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg=="],
   }
 }

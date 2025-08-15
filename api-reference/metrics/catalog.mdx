@@ -1,0 +1,360 @@
+---
+title: 'Metrics Catalog'
+description: 'This catalog lists all available metrics, their descriptions, chains, identifiers, sources, data type, and frequency.'
+icon: scroll
+---
+
+## Address Total
+
+Total number of active addresses
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Ethereum | `address-total` | Blockworks | daily | timeseries_int |
+| Base | `address-total` | Blockworks | daily | timeseries_int |
+| Arbitrum | `address-total` | Blockworks | daily | timeseries_int |
+| Solana | `address-total` | Blockworks | daily | timeseries_int |
+
+## Burn
+
+The total amount of the native token burned transaction fees.
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Solana | `burn` | Blockworks | daily | timeseries_float |
+| Ethereum | `burn` | Blockworks | daily | timeseries_float |
+
+## Burn USD
+
+The total amount of burned transaction fees in USD.
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Ethereum | `burn-usd` | Blockworks | daily | timeseries_int |
+| Solana | `burn-usd` | Blockworks | daily | timeseries_usd |
+
+## DEX Spot Volume
+
+Calculates daily spot volume from major DEXs. Only includes volumes from fee-paying liquidity pools
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Base | `dex-spot-volume` | Blockworks | daily | timeseries_usd |
+| Arbitrum | `dex-spot-volume` | Blockworks | daily | timeseries_usd |
+| Ethereum | `dex-spot-volume` | Blockworks | daily | timeseries_usd |
+| Solana | `dex-spot-volume` | Blockworks | daily | timeseries_usd |
+
+## Fee Average
+
+Average of the sum of the base fee and priority fee that day in native chain token
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Solana | `fee-average` | Blockworks | daily | timeseries_float |
+| Ethereum | `fee-average` | Blockworks | daily | timeseries_usd |
+| Base | `fee-average` | Blockworks | daily | timeseries_float |
+| Arbitrum | `fee-average` | Blockworks | daily | timeseries_float |
+
+## Fee Average USD
+
+Average of the sum of the base fee and priority fee in USD that day
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Solana | `fee-average-usd` | Blockworks | daily | timeseries_usd |
+| Base | `fee-average-usd` | Blockworks | daily | timeseries_usd |
+| Ethereum | `fee-average-usd` | Blockworks | daily | timeseries_usd |
+| Arbitrum | `fee-average-usd` | Blockworks | daily | timeseries_usd |
+
+## Fee Median
+
+Median of the sum of the base fee and priority fee that day in native chain token
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Ethereum | `fee-median` | Blockworks | daily | timeseries_usd |
+| Solana | `fee-median` | Blockworks | daily | timeseries_float |
+| Arbitrum | `fee-median` | Blockworks | daily | timeseries_float |
+| Base | `fee-median` | Blockworks | daily | timeseries_float |
+
+## Fee Median USD
+
+Median of the sum of the base fee and priority fee in USD that day
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Arbitrum | `fee-median-usd` | Blockworks | daily | timeseries_usd |
+| Ethereum | `fee-median-usd` | Blockworks | daily | timeseries_usd |
+| Solana | `fee-median-usd` | Blockworks | daily | timeseries_usd |
+| Base | `fee-median-usd` | Blockworks | daily | timeseries_usd |
+
+## Base Fees
+
+The minimum transaction fee required for a transaction to be included in a block
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Ethereum | `fees-base` | Blockworks | daily | timeseries_float |
+| Solana | `fees-base` | Blockworks | daily | timeseries_float |
+| Base | `fees-base` | Blockworks | daily | timeseries_float |
+| Arbitrum | `fees-base` | Blockworks | daily | timeseries_float |
+
+## Base Fees USD
+
+The minimum transaction fee required for a transaction to be included in a block
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Solana | `fees-base-usd` | Blockworks | daily | timeseries_usd |
+| Ethereum | `fees-base-usd` | Blockworks | daily | timeseries_usd |
+| Base | `fees-base-usd` | Blockworks | daily | timeseries_usd |
+| Arbitrum | `fees-base-usd` | Blockworks | daily | timeseries_usd |
+
+## MEV Tips
+
+There are no MEV tips on Base
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Base | `fees-mev-tips` | Blockworks | daily | timeseries_float |
+| Solana | `fees-mev-tips` | Blockworks | daily | timeseries_float |
+| Ethereum | `fees-mev-tips` | Blockworks | daily | timeseries_float |
+| Arbitrum | `fees-mev-tips` | Blockworks | daily | timeseries_float |
+
+## MEV Tips USD
+
+There are no MEV tips on Base
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Base | `fees-mev-tips-usd` | Blockworks | daily | timeseries_usd |
+| Ethereum | `fees-mev-tips-usd` | Blockworks | daily | timeseries_usd |
+| Solana | `fees-mev-tips-usd` | Blockworks | daily | timeseries_usd |
+| Arbitrum | `fees-mev-tips-usd` | Blockworks | daily | timeseries_usd |
+
+## Other Fees
+
+For Arbitrum, other fees include the fee for Timeboost, an priroty auction for access to transactions with no delay compared to 200ms delay for the chain's sequencer
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Arbitrum | `fees-other` | Blockworks | daily | timeseries_float |
+| Base | `fees-other` | Blockworks | daily | timeseries_float |
+| Ethereum | `fees-other` | Blockworks | daily | timeseries_float |
+| Solana | `fees-other` | Blockworks | daily | timeseries_float |
+
+## Other Fees USD
+
+For Ethereum, this includes just blob fees: an additional fee for transactions that post data to "blobs," which are specialized data availability solutions for L2 blockchains.
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Ethereum | `fees-other-usd` | Blockworks | daily | timeseries_usd |
+| Arbitrum | `fees-other-usd` | Blockworks | daily | timeseries_usd |
+| Solana | `fees-other-usd` | Blockworks | daily | timeseries_float |
+| Base | `fees-other-usd` | Blockworks | daily | timeseries_usd |
+
+## Priority Fees
+
+An additional transaction fee to incentivize validators to prioritize and execute transactions.
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Solana | `fees-priority` | Blockworks | daily | timeseries_float |
+| Base | `fees-priority` | Blockworks | daily | timeseries_float |
+| Ethereum | `fees-priority` | Blockworks | daily | timeseries_float |
+| Arbitrum | `fees-priority` | Blockworks | daily | timeseries_float |
+
+## Priority Fees USD
+
+An additional transaction fee to incentivize validators to prioritize and execute transactions.
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Arbitrum | `fees-priority-usd` | Blockworks | daily | timeseries_usd |
+| Ethereum | `fees-priority-usd` | Blockworks | daily | timeseries_usd |
+| Solana | `fees-priority-usd` | Blockworks | daily | timeseries_usd |
+| Base | `fees-priority-usd` | Blockworks | daily | timeseries_usd |
+
+## Transaction Fees
+
+Total transaction fees paid, does not include blob fees, out-of-protocol tips, or additional sources of revenue
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Base | `fees-transaction` | Blockworks | daily | timeseries_float |
+| Ethereum | `fees-transaction` | Blockworks | daily | timeseries_float |
+| Solana | `fees-transaction` | Blockworks | daily | timeseries_float |
+| Arbitrum | `fees-transaction` | Blockworks | daily | timeseries_float |
+
+## Transaction Fees USD
+
+Total transaction fees paid converted to USD, does not include out-of-protocol tips or additional sources of revenue
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Base | `fees-transaction-usd` | Blockworks | daily | timeseries_usd |
+| Arbitrum | `fees-transaction-usd` | Blockworks | daily | timeseries_usd |
+| Solana | `fees-transaction-usd` | Blockworks | daily | timeseries_usd |
+| Ethereum | `fees-transaction-usd` | Blockworks | daily | timeseries_usd |
+
+## Issuance
+
+Newly issued tokens that are distributed to participants (such as validators, miners, or stakers) as compensation for participating in consensus.
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Ethereum | `issuance` | Blockworks | daily | timeseries_float |
+| Base | `issuance` | Blockworks | daily | timeseries_float |
+| Solana | `issuance` | Blockworks | daily | timeseries_float |
+| Arbitrum | `issuance` | Blockworks | daily | timeseries_float |
+
+## Issuance USD
+
+There is no issuance on Arbitrum
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Arbitrum | `issuance-usd` | Blockworks | daily | timeseries_usd |
+| Ethereum | `issuance-usd` | Blockworks | daily | timeseries_usd |
+| Solana | `issuance-usd` | Blockworks | daily | timeseries_usd |
+| Base | `issuance-usd` | Blockworks | daily | timeseries_usd |
+
+## Native Token FDV
+
+Fully diluted value of the native asset 
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Arbitrum | `native-token-fdv` | Blockworks | daily | timeseries_usd |
+| Ethereum | `native-token-fdv` | Blockworks | daily | timeseries_usd |
+| Solana | `native-token-fdv` | Blockworks | daily | timeseries_usd |
+
+## Native Token Price
+
+The average token price during the specified time period for the native asset of that chain.
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Solana | `native-token-price` | Blockworks | daily | timeseries_usd |
+| Base | `native-token-price` | Blockworks | daily | timeseries_usd |
+| Ethereum | `native-token-price` | Blockworks | daily | timeseries_usd |
+| Arbitrum | `native-token-price` | Blockworks | daily | timeseries_usd |
+
+## Native Token Supply
+
+The total token supply for the respective native asset of that chain. Inclusive of all locked tokens.
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Arbitrum | `native-token-supply` | Blockworks | daily | timeseries_float |
+| Ethereum | `native-token-supply` | Blockworks | daily | timeseries_float |
+| Solana | `native-token-supply` | Blockworks | daily | timeseries_float |
+
+## Real Economic Value
+
+Network REV (Real Economic Value) is a standardized metric that tracks blockchain value accrual generated by user activity. REV consists of both in-protocol transaction fees and out-of-protocol tips that users pay for transaction execution, so it measures the monetary demand to transact onchain.
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Solana | `rev` | Blockworks | daily | timeseries_float |
+| Arbitrum | `rev` | Blockworks | daily | timeseries_float |
+| Ethereum | `rev` | Blockworks | daily | timeseries_float |
+| Base | `rev` | Blockworks | daily | timeseries_float |
+
+## Real Economic Value USD
+
+Network REV (Real Economic Value) is a standardized metric that tracks blockchain value accrual generated by user activity. REV consists of both in-protocol transaction fees and out-of-protocol tips that users pay for transaction execution, so it measures the monetary demand to transact onchain.
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Ethereum | `rev-usd` | Blockworks | daily | timeseries_usd |
+| Solana | `rev-usd` | Blockworks | daily | timeseries_usd |
+| Base | `rev-usd` | Blockworks | daily | timeseries_usd |
+| Arbitrum | `rev-usd` | Blockworks | daily | timeseries_usd |
+
+## Stablecoin Circulating Supply
+
+Supply tracked via transfers to/from the null address, as well as distinct issuance and redemption events for supported stablecoins. Circulating supply remove supply held in bridges, token treasuries, and known mint/burn addresses.
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Solana | `stablecoin-circulating-supply` | Blockworks | daily | timeseries_usd |
+| Base | `stablecoin-circulating-supply` | Blockworks | daily | timeseries_usd |
+| Arbitrum | `stablecoin-circulating-supply` | Blockworks | daily | timeseries_usd |
+| Ethereum | `stablecoin-circulating-supply` | Blockworks | daily | timeseries_usd |
+
+## Stablecoin Supply
+
+Supply tracked via transfers to/from the null address, as well as distinct issuance and redemption events for supported stablecoins. Circulating supply remove supply held in bridges, token treasuries, and known mint/burn addresses.
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Arbitrum | `stablecoin-supply` | Blockworks | daily | timeseries_usd |
+| Solana | `stablecoin-supply` | Blockworks | daily | timeseries_usd |
+| Base | `stablecoin-supply` | Blockworks | daily | timeseries_usd |
+| Ethereum | `stablecoin-supply` | Blockworks | daily | timeseries_usd |
+
+## Transaction Fail
+
+Daily number of transactions where a failure occurred.
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Solana | `transaction-fail` | Blockworks | daily | timeseries_int |
+| Arbitrum | `transaction-fail` | Blockworks | daily | timeseries_int |
+| Base | `transaction-fail` | Blockworks | daily | timeseries_int |
+| Ethereum | `transaction-fail` | Blockworks | daily | timeseries_int |
+
+## Transaction Success
+
+Daily number of successful transactions, excluding failed transactions.
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Solana | `transaction-success` | Blockworks | daily | timeseries_int |
+| Base | `transaction-success` | Blockworks | daily | timeseries_int |
+| Arbitrum | `transaction-success` | Blockworks | daily | timeseries_int |
+| Ethereum | `transaction-success` | Blockworks | daily | timeseries_int |
+
+## Transaction Total
+
+ Daily number of all transactions.
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| Base | `transaction-total` | Blockworks | daily | timeseries_int |
+| Ethereum | `transaction-total` | Blockworks | daily | timeseries_int |
+| Solana | `transaction-total` | Blockworks | daily | timeseries_int |
+| Arbitrum | `transaction-total` | Blockworks | daily | timeseries_int |
+

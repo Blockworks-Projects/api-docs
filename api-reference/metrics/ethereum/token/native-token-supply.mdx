@@ -1,0 +1,46 @@
+---
+title: "Native Token Supply"
+description: "The total token supply for the respective native asset of that chain. Inclusive of all locked tokens."
+openapi: 'GET /v1/metrics/native-token-supply'
+---
+
+## Overview
+
+- **Unit:** Native units
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "ethereum": [
+    {
+      "date": "2025-08-10",
+      "value": 120930730.76377505
+    },
+    {
+      "date": "2025-08-11",
+      "value": 120933268.50641824
+    },
+    {
+      "date": "2025-08-12",
+      "value": 120935716.57919905
+    },
+    {
+      "date": "2025-08-13",
+      "value": 120935716.57919905
+    },
+    {
+      "date": "2025-08-14",
+      "value": 120935716.57919905
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

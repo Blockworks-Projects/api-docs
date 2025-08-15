@@ -1,0 +1,42 @@
+---
+title: "Issuance USD"
+description: "Newly issued tokens that are distributed to participants (such as validators, miners, or stakers) as compensation for participating in consensus."
+openapi: 'GET /v1/metrics/issuance-usd'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-08-10",
+      "value": 13434541.542783229
+    },
+    {
+      "date": "2025-08-11",
+      "value": 13349119.133252969
+    },
+    {
+      "date": "2025-08-12",
+      "value": 13328664.582315786
+    },
+    {
+      "date": "2025-08-13",
+      "value": 14671280.690915624
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

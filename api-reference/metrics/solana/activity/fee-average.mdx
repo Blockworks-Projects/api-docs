@@ -1,0 +1,46 @@
+---
+title: "Fee Average"
+description: "Average of the sum of the base fee and priority fee that day in native chain token"
+openapi: 'GET /v1/metrics/fee-average'
+---
+
+## Overview
+
+- **Unit:** Native units
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-08-10",
+      "value": 0.00006498759796876025
+    },
+    {
+      "date": "2025-08-11",
+      "value": 0.0000802257893168696
+    },
+    {
+      "date": "2025-08-12",
+      "value": 0.0000832884891496207
+    },
+    {
+      "date": "2025-08-13",
+      "value": 0.00008065849762305734
+    },
+    {
+      "date": "2025-08-14",
+      "value": null
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

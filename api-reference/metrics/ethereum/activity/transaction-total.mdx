@@ -1,0 +1,46 @@
+---
+title: "Transaction Total"
+description: "Daily number of all transactions."
+openapi: 'GET /v1/metrics/transaction-total'
+---
+
+## Overview
+
+- **Unit:** Count
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "ethereum": [
+    {
+      "date": "2025-08-10",
+      "value": 1670117
+    },
+    {
+      "date": "2025-08-11",
+      "value": 1723347
+    },
+    {
+      "date": "2025-08-12",
+      "value": 1740117
+    },
+    {
+      "date": "2025-08-13",
+      "value": 1798606
+    },
+    {
+      "date": "2025-08-14",
+      "value": 362834
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

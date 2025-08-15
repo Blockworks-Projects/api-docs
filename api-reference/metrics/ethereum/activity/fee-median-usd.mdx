@@ -1,0 +1,46 @@
+---
+title: "Fee Median USD"
+description: "Median transaction fee paid in USD."
+openapi: 'GET /v1/metrics/fee-median-usd'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "ethereum": [
+    {
+      "date": "2025-08-10",
+      "value": 0.18322669157724533
+    },
+    {
+      "date": "2025-08-11",
+      "value": 0.25879328821671665
+    },
+    {
+      "date": "2025-08-12",
+      "value": 0.3874280330434625
+    },
+    {
+      "date": "2025-08-13",
+      "value": 0.4994688257271872
+    },
+    {
+      "date": "2025-08-14",
+      "value": 0.28770691835995416
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

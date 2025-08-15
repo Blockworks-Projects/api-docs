@@ -1,0 +1,42 @@
+---
+title: "Base Fees USD"
+description: "The minimum transaction fee required for a transaction to be included in a block"
+openapi: 'GET /v1/metrics/fees-base-usd'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "arbitrum": [
+    {
+      "date": "2025-08-10",
+      "value": 18775.22274987373
+    },
+    {
+      "date": "2025-08-11",
+      "value": 23041.779836318095
+    },
+    {
+      "date": "2025-08-12",
+      "value": 23479.069026751524
+    },
+    {
+      "date": "2025-08-13",
+      "value": 28321.266275146805
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

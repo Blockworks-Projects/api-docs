@@ -1,0 +1,42 @@
+---
+title: "Priority Fees"
+description: "An additional transaction fee to incentivize validators to prioritize and execute transactions."
+openapi: 'GET /v1/metrics/fees-priority'
+---
+
+## Overview
+
+- **Unit:** Native units
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-08-10",
+      "value": 6004.464272732194
+    },
+    {
+      "date": "2025-08-11",
+      "value": 8755.76608586037
+    },
+    {
+      "date": "2025-08-12",
+      "value": 9932.671316675005
+    },
+    {
+      "date": "2025-08-13",
+      "value": 9408.334036138927
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

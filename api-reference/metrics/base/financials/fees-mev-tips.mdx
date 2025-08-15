@@ -1,0 +1,30 @@
+---
+title: "MEV Tips"
+description: "There are no MEV tips on Base"
+openapi: 'GET /v1/metrics/fees-mev-tips'
+---
+
+## Overview
+
+- **Unit:** Native units
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+
+
+## Example Response
+
+```json
+{
+  "base": [
+    {
+      "date": "2025-08-10",
+      "value": 0
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
