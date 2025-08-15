@@ -88,7 +88,7 @@ openapi: 'GET /v1/metrics/{metric_identifier}'
 `
 
 // Template for metrics catalog entry
-const CATALOG_ENTRY_TEMPLATE = `## {metric_name}
+const CATALOG_ENTRY_TEMPLATE = `### {metric_name}
 
 {metric_description}
 
@@ -299,12 +299,8 @@ async function updateDocsNavigation(metrics: Metric[]): Promise<void> {
       pages: []
     }
     
-    // Sort categories - Financials first, then alphabetical
-    const sortedCategories = Array.from(categoryMap.keys()).sort((a, b) => {
-      if (a === 'Financials' && b !== 'Financials') return -1
-      if (b === 'Financials' && a !== 'Financials') return 1
-      return a.localeCompare(b)
-    })
+    // Sort categories alphabetically 
+    const sortedCategories = Array.from(categoryMap.keys()).sort()
     
     console.log(`      Categories: ${sortedCategories.join(', ')}`)
     
@@ -339,18 +335,23 @@ async function updateDocsNavigation(metrics: Metric[]): Promise<void> {
 async function generateMetricsCatalog(metrics: Metric[]): Promise<void> {
   const catalogPath = join('./api-reference/metrics', 'catalog.mdx')
   
-  // Group metrics by identifier
-  const metricGroups = new Map<string, Metric[]>()
+  // Group metrics by category, then by identifier
+  const categoryGroups = new Map<string, Map<string, Metric[]>>()
   
   metrics.forEach(metric => {
+    if (!categoryGroups.has(metric.category)) {
+      categoryGroups.set(metric.category, new Map())
+    }
+    
+    const metricGroups = categoryGroups.get(metric.category)!
     if (!metricGroups.has(metric.identifier)) {
       metricGroups.set(metric.identifier, [])
     }
     metricGroups.get(metric.identifier)!.push(metric)
   })
 
-  // Sort metric groups by identifier
-  const sortedIdentifiers = Array.from(metricGroups.keys()).sort()
+  // Sort categories alphabetically
+  const sortedCategories = Array.from(categoryGroups.keys()).sort()
 
   let catalogContent = `---
 title: 'Metrics Catalog'
@@ -360,22 +361,35 @@ icon: scroll
 
 `
 
-  // Generate each metric entry
-  for (const identifier of sortedIdentifiers) {
-    const metricsForIdentifier = metricGroups.get(identifier)!
-    const firstMetric = metricsForIdentifier[0]
+  console.log('📖 Generating catalog with categories:', sortedCategories.join(', '))
 
-    // Generate table rows for each project
-    const catalogRows = metricsForIdentifier
-      .map(metric => `| ${toTitleCase(metric.project)} | \`${metric.identifier}\` | ${metric.source} | ${metric.interval} | ${metric.data_type} |`)
-      .join('\n')
+  // Generate each category section
+  for (const category of sortedCategories) {
+    catalogContent += `# ${category}\n\n`
+    
+    const metricGroups = categoryGroups.get(category)!
+    const sortedIdentifiers = Array.from(metricGroups.keys()).sort()
+    
+    console.log(`   📑 Category "${category}" has ${sortedIdentifiers.length} unique metrics`)
 
-    const entry = CATALOG_ENTRY_TEMPLATE
-      .replace('{metric_name}', firstMetric.name)
-      .replace('{metric_description}', firstMetric.description)
-      .replace('{catalog_rows}', catalogRows)
+    // Generate each metric entry within this category
+    for (const identifier of sortedIdentifiers) {
+      const metricsForIdentifier = metricGroups.get(identifier)!
+      const firstMetric = metricsForIdentifier[0]
 
-    catalogContent += entry + '\n'
+      // Generate table rows for each project, sorted by project name
+      const catalogRows = metricsForIdentifier
+        .sort((a, b) => a.project.localeCompare(b.project))
+        .map(metric => `| ${toTitleCase(metric.project)} | \`${metric.identifier}\` | ${metric.source} | ${metric.interval} | ${metric.data_type} |`)
+        .join('\n')
+
+      const entry = CATALOG_ENTRY_TEMPLATE
+        .replace('{metric_name}', firstMetric.name)
+        .replace('{metric_description}', firstMetric.description)
+        .replace('{catalog_rows}', catalogRows)
+
+      catalogContent += entry + '\n'
+    }
   }
 
   // Ensure directory exists

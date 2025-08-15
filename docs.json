@@ -59,6 +59,19 @@
                 "group": "Ethereum",
                 "pages": [
                   {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/ethereum/activity/address-total",
+                      "api-reference/metrics/ethereum/activity/fee-average",
+                      "api-reference/metrics/ethereum/activity/fee-average-usd",
+                      "api-reference/metrics/ethereum/activity/fee-median",
+                      "api-reference/metrics/ethereum/activity/fee-median-usd",
+                      "api-reference/metrics/ethereum/activity/transaction-fail",
+                      "api-reference/metrics/ethereum/activity/transaction-success",
+                      "api-reference/metrics/ethereum/activity/transaction-total"
+                    ]
+                  },
+                  {
                     "group": "Financials",
                     "pages": [
                       "api-reference/metrics/ethereum/financials/burn",
@@ -77,19 +90,6 @@
                       "api-reference/metrics/ethereum/financials/issuance-usd",
                       "api-reference/metrics/ethereum/financials/rev",
                       "api-reference/metrics/ethereum/financials/rev-usd"
-                    ]
-                  },
-                  {
-                    "group": "Activity",
-                    "pages": [
-                      "api-reference/metrics/ethereum/activity/address-total",
-                      "api-reference/metrics/ethereum/activity/fee-average",
-                      "api-reference/metrics/ethereum/activity/fee-average-usd",
-                      "api-reference/metrics/ethereum/activity/fee-median",
-                      "api-reference/metrics/ethereum/activity/fee-median-usd",
-                      "api-reference/metrics/ethereum/activity/transaction-fail",
-                      "api-reference/metrics/ethereum/activity/transaction-success",
-                      "api-reference/metrics/ethereum/activity/transaction-total"
                     ]
                   },
                   {
@@ -119,6 +119,19 @@
                 "group": "Solana",
                 "pages": [
                   {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/solana/activity/address-total",
+                      "api-reference/metrics/solana/activity/fee-average",
+                      "api-reference/metrics/solana/activity/fee-average-usd",
+                      "api-reference/metrics/solana/activity/fee-median",
+                      "api-reference/metrics/solana/activity/fee-median-usd",
+                      "api-reference/metrics/solana/activity/transaction-fail",
+                      "api-reference/metrics/solana/activity/transaction-success",
+                      "api-reference/metrics/solana/activity/transaction-total"
+                    ]
+                  },
+                  {
                     "group": "Financials",
                     "pages": [
                       "api-reference/metrics/solana/financials/burn",
@@ -137,19 +150,6 @@
                       "api-reference/metrics/solana/financials/issuance-usd",
                       "api-reference/metrics/solana/financials/rev",
                       "api-reference/metrics/solana/financials/rev-usd"
-                    ]
-                  },
-                  {
-                    "group": "Activity",
-                    "pages": [
-                      "api-reference/metrics/solana/activity/address-total",
-                      "api-reference/metrics/solana/activity/fee-average",
-                      "api-reference/metrics/solana/activity/fee-average-usd",
-                      "api-reference/metrics/solana/activity/fee-median",
-                      "api-reference/metrics/solana/activity/fee-median-usd",
-                      "api-reference/metrics/solana/activity/transaction-fail",
-                      "api-reference/metrics/solana/activity/transaction-success",
-                      "api-reference/metrics/solana/activity/transaction-total"
                     ]
                   },
                   {
@@ -179,6 +179,19 @@
                 "group": "Arbitrum",
                 "pages": [
                   {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/arbitrum/activity/address-total",
+                      "api-reference/metrics/arbitrum/activity/fee-average",
+                      "api-reference/metrics/arbitrum/activity/fee-average-usd",
+                      "api-reference/metrics/arbitrum/activity/fee-median",
+                      "api-reference/metrics/arbitrum/activity/fee-median-usd",
+                      "api-reference/metrics/arbitrum/activity/transaction-fail",
+                      "api-reference/metrics/arbitrum/activity/transaction-success",
+                      "api-reference/metrics/arbitrum/activity/transaction-total"
+                    ]
+                  },
+                  {
                     "group": "Financials",
                     "pages": [
                       "api-reference/metrics/arbitrum/financials/fees-base",
@@ -195,19 +208,6 @@
                       "api-reference/metrics/arbitrum/financials/issuance-usd",
                       "api-reference/metrics/arbitrum/financials/rev",
                       "api-reference/metrics/arbitrum/financials/rev-usd"
-                    ]
-                  },
-                  {
-                    "group": "Activity",
-                    "pages": [
-                      "api-reference/metrics/arbitrum/activity/address-total",
-                      "api-reference/metrics/arbitrum/activity/fee-average",
-                      "api-reference/metrics/arbitrum/activity/fee-average-usd",
-                      "api-reference/metrics/arbitrum/activity/fee-median",
-                      "api-reference/metrics/arbitrum/activity/fee-median-usd",
-                      "api-reference/metrics/arbitrum/activity/transaction-fail",
-                      "api-reference/metrics/arbitrum/activity/transaction-success",
-                      "api-reference/metrics/arbitrum/activity/transaction-total"
                     ]
                   },
                   {
@@ -237,6 +237,19 @@
                 "group": "Base",
                 "pages": [
                   {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/base/activity/address-total",
+                      "api-reference/metrics/base/activity/fee-average",
+                      "api-reference/metrics/base/activity/fee-average-usd",
+                      "api-reference/metrics/base/activity/fee-median",
+                      "api-reference/metrics/base/activity/fee-median-usd",
+                      "api-reference/metrics/base/activity/transaction-fail",
+                      "api-reference/metrics/base/activity/transaction-success",
+                      "api-reference/metrics/base/activity/transaction-total"
+                    ]
+                  },
+                  {
                     "group": "Financials",
                     "pages": [
                       "api-reference/metrics/base/financials/fees-base",
@@ -253,19 +266,6 @@
                       "api-reference/metrics/base/financials/issuance-usd",
                       "api-reference/metrics/base/financials/rev",
                       "api-reference/metrics/base/financials/rev-usd"
-                    ]
-                  },
-                  {
-                    "group": "Activity",
-                    "pages": [
-                      "api-reference/metrics/base/activity/address-total",
-                      "api-reference/metrics/base/activity/fee-average",
-                      "api-reference/metrics/base/activity/fee-average-usd",
-                      "api-reference/metrics/base/activity/fee-median",
-                      "api-reference/metrics/base/activity/fee-median-usd",
-                      "api-reference/metrics/base/activity/transaction-fail",
-                      "api-reference/metrics/base/activity/transaction-success",
-                      "api-reference/metrics/base/activity/transaction-total"
                     ]
                   },
                   {
