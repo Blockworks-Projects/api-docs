@@ -1,0 +1,40 @@
+---
+title: "Market Cap"
+description: "\"Market capitalization of the equity"
+openapi: 'GET /v1/metrics/market-cap'
+---
+
+## Overview
+
+- **Unit:** Native units
+- **Aggregation:** Last
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "bmnr": [
+    {
+      "date": "2025-08-14",
+      "value": 6801476213.6762
+    },
+    {
+      "date": "2025-08-13",
+      "value": 7424141746.6224
+    },
+    {
+      "date": "2025-08-12",
+      "value": 6946896991.0898
+    },
+    {
+      "date": "2025-08-11",
+      "value": 7078627011.0376005
+    }
+  ]
+}
+```
+
+## Notes
+- Last aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

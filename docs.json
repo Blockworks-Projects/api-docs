@@ -170,6 +170,28 @@
                 ]
               },
               {
+                "group": "BMNR",
+                "pages": [
+                  {
+                    "group": "Equity",
+                    "pages": [
+                      "api-reference/metrics/BMNR/equity/market-cap"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/BMNR/financials/enterprise-value-usd",
+                      "api-reference/metrics/BMNR/financials/treasury-crypto-asset",
+                      "api-reference/metrics/BMNR/financials/treasury-mnav",
+                      "api-reference/metrics/BMNR/financials/treasury-nav-usd",
+                      "api-reference/metrics/BMNR/financials/treasury-token-holdings",
+                      "api-reference/metrics/BMNR/financials/treasury-volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
                 "group": "Ethereum",
                 "pages": [
                   {
@@ -225,6 +247,45 @@
                     "group": "Trading",
                     "pages": [
                       "api-reference/metrics/ethereum/trading/dex-spot-volume"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "MSTR",
+                "pages": [
+                  {
+                    "group": "Equity",
+                    "pages": [
+                      "api-reference/metrics/MSTR/equity/market-cap"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/MSTR/financials/enterprise-value-usd",
+                      "api-reference/metrics/MSTR/financials/treasury-crypto-asset",
+                      "api-reference/metrics/MSTR/financials/treasury-mnav",
+                      "api-reference/metrics/MSTR/financials/treasury-nav-usd",
+                      "api-reference/metrics/MSTR/financials/treasury-token-holdings",
+                      "api-reference/metrics/MSTR/financials/treasury-volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "SBET",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/SBET/financials/enterprise-value-usd",
+                      "api-reference/metrics/SBET/financials/market-cap",
+                      "api-reference/metrics/SBET/financials/treasury-crypto-asset",
+                      "api-reference/metrics/SBET/financials/treasury-mnav",
+                      "api-reference/metrics/SBET/financials/treasury-nav-usd",
+                      "api-reference/metrics/SBET/financials/treasury-token-holdings",
+                      "api-reference/metrics/SBET/financials/treasury-volume-usd"
                     ]
                   }
                 ]

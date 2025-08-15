@@ -1,0 +1,40 @@
+---
+title: "Volume USD"
+description: "USD volume over the period"
+openapi: 'GET /v1/metrics/treasury-volume-usd'
+---
+
+## Overview
+
+- **Unit:** Native units
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "sbet": [
+    {
+      "date": "2025-08-14",
+      "value": 1034147063.898
+    },
+    {
+      "date": "2025-08-13",
+      "value": 1332092922.1192
+    },
+    {
+      "date": "2025-08-12",
+      "value": 1684124845.5327
+    },
+    {
+      "date": "2025-08-11",
+      "value": 2848910445.9168
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

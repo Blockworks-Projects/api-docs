@@ -1,0 +1,40 @@
+---
+title: "NAV USD"
+description: "Dollar value of crypto assets (does not include cash)"
+openapi: 'GET /v1/metrics/treasury-nav-usd'
+---
+
+## Overview
+
+- **Unit:** Native units
+- **Aggregation:** Last
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "sbet": [
+    {
+      "date": "2025-08-14",
+      "value": 2786385332.291661
+    },
+    {
+      "date": "2025-08-13",
+      "value": 2796248192.0416665
+    },
+    {
+      "date": "2025-08-12",
+      "value": 2625728040.791664
+    },
+    {
+      "date": "2025-08-11",
+      "value": 2556626645.541652
+    }
+  ]
+}
+```
+
+## Notes
+- Last aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

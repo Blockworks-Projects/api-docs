@@ -1,0 +1,40 @@
+---
+title: "Market Cap"
+description: "\"Market capitalization of the equity"
+openapi: 'GET /v1/metrics/market-cap'
+---
+
+## Overview
+
+- **Unit:** Native units
+- **Aggregation:** Last
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "mstr": [
+    {
+      "date": "2025-08-14",
+      "value": 105838604378.3889
+    },
+    {
+      "date": "2025-08-13",
+      "value": 110524912288.7526
+    },
+    {
+      "date": "2025-08-12",
+      "value": 112197392636.0427
+    },
+    {
+      "date": "2025-08-11",
+      "value": 115170984035.937
+    }
+  ]
+}
+```
+
+## Notes
+- Last aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

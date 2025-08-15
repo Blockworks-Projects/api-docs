@@ -1,0 +1,40 @@
+---
+title: "Treasury Holdings"
+description: "Number of tokens held by the company. See crypto-asset for asset indicator"
+openapi: 'GET /v1/metrics/treasury-token-holdings'
+---
+
+## Overview
+
+- **Unit:** Native units
+- **Aggregation:** Last
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "mstr": [
+    {
+      "date": "2025-08-14",
+      "value": 628946
+    },
+    {
+      "date": "2025-08-13",
+      "value": 628946
+    },
+    {
+      "date": "2025-08-12",
+      "value": 628946
+    },
+    {
+      "date": "2025-08-11",
+      "value": 628946
+    }
+  ]
+}
+```
+
+## Notes
+- Last aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
