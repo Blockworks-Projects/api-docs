@@ -37,7 +37,7 @@ async function main() {
 
     // Generate individual metric pages
     for (const metric of metrics) {
-      await generateMetricPage(metric)
+      await generateMetricPage(metric, metrics)
     }
 
     console.log(green('\n📖 Generating metrics catalog...'))
