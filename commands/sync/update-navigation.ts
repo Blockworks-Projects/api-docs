@@ -16,7 +16,7 @@ export const updateNavigation = async (metrics: Metric[]): Promise<void> => {
   // Group metrics by project and category
   const projectGroups = new Map<string, Map<string, Metric[]>>()
 
-  console.log(chalk.magentaBright.bold('\n1. Grouping metrics by project and category...'))
+  console.log(chalk.magentaBright.bold('\n  1. Grouping metrics by project and category...'))
 
   metrics.forEach(metric => {
     if (!projectGroups.has(metric.project)) {
@@ -54,7 +54,7 @@ export const updateNavigation = async (metrics: Metric[]): Promise<void> => {
 
   metricsGroup.pages = staticPages
 
-  console.log(chalk.magentaBright.bold('\n2. Processing projects...'))
+  console.log(chalk.magentaBright.bold('\n  2. Processing projects...'))
 
   // Generate navigation for each project (sorted alphabetically)
   const sortedProjects = Array.from(projectGroups.entries()).sort(([a], [b]) => a.localeCompare(b))

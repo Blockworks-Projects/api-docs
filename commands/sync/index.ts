@@ -8,5 +8,6 @@ export * from './generate-metrics-catalog'
 export * from './generate-metrics-page'
 export * from './templates'
 export * from './update-navigation'
+export * from './update-openapi-spec'
 export * from './utils'
 

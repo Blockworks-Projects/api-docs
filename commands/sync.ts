@@ -8,7 +8,8 @@ import {
   generateMetricPage,
   generateMetricsCatalog,
   OUTPUT_DIR,
-  updateNavigation
+  updateNavigation,
+  updateOpenApiSpec
 } from './sync/index'
 import chalk from 'chalk'
 
@@ -32,18 +33,21 @@ async function main() {
     // Create output directory
     await mkdir(OUTPUT_DIR, { recursive: true })
 
-    console.log(green('\n📝 Generating metric pages...'))
+    console.log(green('\n✏️ Generating metric pages...'))
 
     // Generate individual metric pages
     for (const metric of metrics) {
       await generateMetricPage(metric)
     }
 
-    console.log(green('\n✏️ Generating metrics catalog...'))
+    console.log(green('\n📖 Generating metrics catalog...'))
     await generateMetricsCatalog(metrics)
 
     console.log('\n📋 Updating docs.json navigation...')
     await updateNavigation(metrics)
+
+    console.log('\n🔧 Updating OpenAPI specification...')
+    await updateOpenApiSpec(metrics)
 
     // Display API errors if any
     if (apiErrors.length > 0) {
@@ -62,6 +66,7 @@ async function main() {
     console.log(green(`  🏷️ Categories:`), darkGreen(new Set(metrics.map(m => m.category)).size))
     console.log(green(`  ✅ Catalog generated`))
     console.log(green(`  ✅ Navigation updated`))
+    console.log(green(`  ✅ OpenAPI spec updated`))
     if (apiErrors.length > 0) {
       console.log(red.bold(`  ⚠️ API Errors: ${apiErrors.length}`))
     }
