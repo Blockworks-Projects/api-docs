@@ -1,0 +1,112 @@
+---
+title: 'Understanding Pagination'
+description: 'Learn how to efficiently page through large result sets using the metrics and assets endpoints'
+icon: book-open
+---
+
+## Overview
+
+The Blockworks API uses **page-based pagination** for endpoints that return large collections of data. This allows you to efficiently retrieve results in manageable chunks rather than loading everything at once.
+
+| Topic | Details |
+| - | - |
+| **Pagination style** | Page-based with `?page=` and `?limit=` query parameters. |
+| **Maximum limit size (results per page)** | 100 |
+| **Response structure** | `{ data: [], total: number, page: number }` |
+| **Affects these endpoints** | [List Assets](/api-reference/assets/list), [List Metrics](/api-reference/metrics/list) |
+
+## How It Works
+
+All paginated endpoints follow the same pattern:
+
+1. **Request**: Include `?page=` and (optionally) `?limit=` query parameters.
+2. **Response**: Contains `data` array, `total` count, and current `page`.
+3. **Navigation**: Increment `page` until you've retrieved all results.
+
+## Basic Example
+
+<CodeGroup>
+
+```bash cURL
+# Get the first page with 10 results
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/assets?limit=10&page=1"
+```
+
+```typescript TypeScript
+// Get the first page with 10 results
+const response = await fetch(
+  'https://api.blockworks.com/v1/assets?limit=10&page=1',
+  { headers: { 'x-api-key': process.env.BWR_API_KEY! } }
+)
+const data = await response.json()
+```
+
+```python Python
+import requests
+
+# Get the first page with 10 results
+response = requests.get(
+    'https://api.blockworks.com/v1/assets',
+    headers={'x-api-key': 'YOUR_API_KEY'},
+    params={'limit': 10, 'page': 1}
+)
+data = response.json()
+```
+
+</CodeGroup>
+
+### Response Structure
+
+```json
+{
+  "data": [
+    {
+      "id": 2,
+      "code": "ETH",
+      "title": "Ethereum",
+      "slug": "ethereum",
+      "category": "Infrastructure",
+      "sector_id": 40,
+      "is_supported": true
+    },
+    // ... 9 more assets
+  ],
+  "total": 1247,
+  "page": 1
+}
+```
+
+## Best Practices
+
+- **Respect rate limits** by adding delays between requests when paging through large datasets.
+- **Cache results** when possible to avoid re-fetching the same data.
+- **Use filters** (`project`, `category`, etc.) to reduce the total number of pages needed.
+
+## Example Output
+
+Here's what you might see when paging through assets with `limit=10`:
+
+```bash
+# Page 1 (10 items, total: 1247)
+GET /v1/assets?limit=10&page=1
+Response: { "data": [...], "total": 1247, "page": 1 }
+
+# Page 2 (10 items, total: 1247)
+GET /v1/assets?limit=10&page=2
+Response: { "data": [...], "total": 1247, "page": 2 }
+
+# Continue until page 125 (7 items remaining)
+GET /v1/assets?limit=10&page=125
+Response: { "data": [7 items], "total": 1247, "page": 125 }
+```
+
+You know you've reached the end when any of the following are true:
+- The current page number × limit ≥ total count
+- The `data` array is shorter than your `limit`
+- The `data` array is empty
+
+## Related Endpoints
+
+- [List Assets](/api-reference/assets/list) - Paginated asset directory
+- [List Metrics](/api-reference/metrics/list) - Paginated metrics catalog

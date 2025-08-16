@@ -1,0 +1,44 @@
+---
+title: "Transaction Fail"
+description: "Daily number of transactions where a failure occurred."
+openapi: 'GET /v1/metrics/transaction-fail'
+---
+
+## Overview
+
+- **Unit:** Count
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "base": [
+    {
+      "date": "2025-08-11",
+      "value": 1072659
+    },
+    {
+      "date": "2025-08-12",
+      "value": 920473
+    },
+    {
+      "date": "2025-08-13",
+      "value": 1076959
+    },
+    {
+      "date": "2025-08-14",
+      "value": 1150004
+    },
+    {
+      "date": "2025-08-15",
+      "value": 206910
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

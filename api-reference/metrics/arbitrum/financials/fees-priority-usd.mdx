@@ -1,0 +1,43 @@
+---
+title: "Priority Fees USD"
+description: "An additional transaction fee to incentivize validators to prioritize and execute transactions."
+openapi: 'GET /v1/metrics/fees-priority-usd'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "arbitrum": [
+    {
+      "date": "2025-08-11",
+      "value": 21649.658299738418
+    },
+    {
+      "date": "2025-08-12",
+      "value": 42954.06742781401
+    },
+    {
+      "date": "2025-08-13",
+      "value": 44476.08283119277
+    },
+    {
+      "date": "2025-08-14",
+      "value": 179928.48947518843
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
+
+
+<Note>For native values, see **[Priority Fees](./fees-priority)**.</Note>

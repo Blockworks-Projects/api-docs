@@ -1,0 +1,47 @@
+---
+title: "Fee Average USD"
+description: "Average of the sum of the base fee and priority fee in USD that day"
+openapi: 'GET /v1/metrics/fee-average-usd'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "base": [
+    {
+      "date": "2025-08-11",
+      "value": 0.040142195808597875
+    },
+    {
+      "date": "2025-08-12",
+      "value": 0.03677447348995687
+    },
+    {
+      "date": "2025-08-13",
+      "value": 0.037022552026146245
+    },
+    {
+      "date": "2025-08-14",
+      "value": 0.042729047157766736
+    },
+    {
+      "date": "2025-08-15",
+      "value": 0.012708857683091252
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
+
+
+<Note>For native values, see **[Fee Average](./fee-average)**.</Note>

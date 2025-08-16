@@ -1,0 +1,44 @@
+---
+title: "Address Total"
+description: "Total number of active addresses"
+openapi: 'GET /v1/metrics/address-total'
+---
+
+## Overview
+
+- **Unit:** Count
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-08-11",
+      "value": 2998834
+    },
+    {
+      "date": "2025-08-12",
+      "value": 2775609
+    },
+    {
+      "date": "2025-08-13",
+      "value": 3328826
+    },
+    {
+      "date": "2025-08-14",
+      "value": 2938305
+    },
+    {
+      "date": "2025-08-15",
+      "value": 675855
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

@@ -1,0 +1,120 @@
+---
+title: 'About Metrics'
+description: 'Understand how metrics work, payload structures, and the relationship between projects and assets'
+icon: chart-line
+---
+
+## Overview
+
+Metrics in the Blockworks API are curated, time-series datasets that track key blockchain network statistics like revenue, token supply, or DEX volume. Each metric provides historical data across multiple blockchain projects with consistent methodology and formatting.
+
+| Topic | Details |
+| - | - |
+| **What is a metric?** | Curated time-series data (usually daily) for blockchain networks |
+| **What is a project?** | An asset from the [assets collection](/api-reference/assets/list) - each represents a blockchain or protocol |
+| **Data structure** | JSON object keyed by project identifier, containing date/value arrays |
+| **Coverage** | Complete daily historical data available for each supported project |
+
+## Projects and Assets
+
+In the context of metrics, a **"project"** refers to an asset from the assets collection. When you request metrics data, you specify projects using their asset slugs (like `ethereum`, `bitcoin`, `solana`).
+
+## Payload Structure
+
+The response is a JSON object with the following structure:
+
+```json
+{
+  [project_slug1]: [
+    { "date": "2015-08-07", "value": 56324 },
+    { "date": "2015-08-08", "value": 123456 },
+    { "date": "2025-08-07", "value": 1175055.45 },
+    // ...
+    { "date": "2025-08-13", "value": 1175055.45 }
+  ],
+  [project_slug2]: [
+    { "date": "2015-08-07", "value": 56324 },
+    { "date": "2015-08-08", "value": 123456 },
+    { "date": "2025-08-07", "value": 1175055.45 },
+    // ...
+    { "date": "2025-08-13", "value": 1175055.45 }
+  ]
+}
+```
+
+
+Each project's data is an array of objects with two fields:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `date` | string | ISO-8601 date (YYYY-MM-DD) |
+| `value` | number | Metric value for that date in the specified unit |
+
+
+### Single Project
+
+To request data for a single project, use the `project` query parameter with the project slug.
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/rev-usd?project=ethereum"
+```
+
+When requesting data for one project, the response contains a single key-value pair:
+
+```json
+{
+  "ethereum": [
+    { "date": "2015-08-07", "value": 0 },
+    { "date": "2015-08-08", "value": 0 },
+    { "date": "2025-08-07", "value": 1175055.45 }
+  ]
+}
+```
+
+### Multiple Projects
+
+To request data for multiple projects, use the `project` query parameter with a comma-separated list of project slugs.
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/rev-usd?project=ethereum,arbitrum,optimism"
+```
+
+When requesting multiple projects, each project gets its own key in the response:
+
+```json Response
+{
+  "ethereum": [
+    { "date": "2015-08-07", "value": 0 },
+    { "date": "2025-08-07", "value": 1175055.45 }
+  ],
+  "arbitrum": [
+    { "date": "2021-05-28", "value": 0 },
+    { "date": "2025-08-07", "value": 45230.12 }
+  ],
+  "optimism": [
+    { "date": "2021-11-11", "value": 0 },
+    { "date": "2025-08-07", "value": 23450.67 }
+  ]
+}
+```
+
+## Historical Coverage
+
+Each metric provides the **complete historical dataset** for every supported project:
+
+- **Full history**: Data starts from the project's earliest available date
+- **Consistent methodology**: Same calculation method across all projects and time periods
+- **Daily granularity**: Most metrics provide daily data points
+- **Up-to-date**: Data is regularly updated with the latest values
+
+## Available Metrics
+
+See the [Metrics Catalog](/api-reference/metrics-catalog) for a complete list of available metrics.
+
+## Related Endpoints
+
+- [List Assets](/api-reference/assets/list) - Find available project identifiers
+- [List Metrics](/api-reference/metrics/list) - Browse available metrics
+- [Get Single Metric](/api-reference/metrics/get-single) - Retrieve metric data

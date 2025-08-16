@@ -1,0 +1,44 @@
+---
+title: "M NAV"
+description: "Market NAV value for that company. Calculated as enterprise value / NAV"
+openapi: 'GET /v1/metrics/treasury-mnav'
+---
+
+## Overview
+
+- **Unit:** Native units
+- **Aggregation:** Last
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "sbet": [
+    {
+      "date": "2025-08-15",
+      "value": 0.8663461663046601
+    },
+    {
+      "date": "2025-08-14",
+      "value": 1.1395570835732622
+    },
+    {
+      "date": "2025-08-13",
+      "value": 1.1649881576229764
+    },
+    {
+      "date": "2025-08-12",
+      "value": 1.1991015393119748
+    },
+    {
+      "date": "2025-08-11",
+      "value": 1.3682381025506722
+    }
+  ]
+}
+```
+
+## Notes
+- Last aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

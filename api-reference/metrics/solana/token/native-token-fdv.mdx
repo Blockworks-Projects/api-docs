@@ -1,0 +1,36 @@
+---
+title: "Native Token FDV"
+description: "Fully diluted value of the native asset "
+openapi: 'GET /v1/metrics/native-token-fdv'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Aggregation:** Sum
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-08-11",
+      "value": "111067609685.4129846095562461360142"
+    },
+    {
+      "date": "2025-08-12",
+      "value": "106303180554.50885039162498512343936"
+    },
+    {
+      "date": "2025-08-13",
+      "value": "116968403982.42983384828681641124064"
+    }
+  ]
+}
+```
+
+## Notes
+- Sum aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
