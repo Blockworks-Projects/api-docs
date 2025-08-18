@@ -173,31 +173,27 @@ The minimum transaction fee required for a transaction to be included in a block
 
 ### MEV Tips
 
-There are no MEV tips on Base
+Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders or leaders for faster transaction execution, MEV capture, or MEV protection.
 
 
 | Chain | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
-| Arbitrum | `fees-mev-tips` | Blockworks | daily | timeseries_float |
-| Base | `fees-mev-tips` | Blockworks | daily | timeseries_float |
 | Ethereum | `fees-mev-tips` | Blockworks | daily | timeseries_float |
 | Solana | `fees-mev-tips` | Blockworks | daily | timeseries_float |
 
 ### MEV Tips USD
 
-There are no MEV tips on Base
+Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders for faster transaction execution, MEV capture, or MEV protection.
 
 
 | Chain | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
-| Arbitrum | `fees-mev-tips-usd` | Blockworks | daily | timeseries_usd |
-| Base | `fees-mev-tips-usd` | Blockworks | daily | timeseries_usd |
 | Ethereum | `fees-mev-tips-usd` | Blockworks | daily | timeseries_usd |
 | Solana | `fees-mev-tips-usd` | Blockworks | daily | timeseries_usd |
 
 ### Other Fees
 
-For Arbitrum, other fees include the fee for Timeboost, an priroty auction for access to transactions with no delay compared to 200ms delay for the chain's sequencer
+For Ethereum, this includes just blob fees: an additional fee for transactions that post data to "blobs," which are specialized data availability solutions for L2 blockchains.
 
 
 | Chain | Identifier | Source | Interval | Data Type |
@@ -205,19 +201,16 @@ For Arbitrum, other fees include the fee for Timeboost, an priroty auction for a
 | Arbitrum | `fees-other` | Blockworks | daily | timeseries_float |
 | Base | `fees-other` | Blockworks | daily | timeseries_float |
 | Ethereum | `fees-other` | Blockworks | daily | timeseries_float |
-| Solana | `fees-other` | Blockworks | daily | timeseries_float |
 
 ### Other Fees USD
 
-For Ethereum, this includes just blob fees: an additional fee for transactions that post data to "blobs," which are specialized data availability solutions for L2 blockchains.
+For Arbitrum, other fees include the fee for Timeboost, an priroty auction for access to transactions with no delay compared to 200ms delay for the chain's sequencer
 
 
 | Chain | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | Arbitrum | `fees-other-usd` | Blockworks | daily | timeseries_usd |
-| Base | `fees-other-usd` | Blockworks | daily | timeseries_usd |
 | Ethereum | `fees-other-usd` | Blockworks | daily | timeseries_usd |
-| Solana | `fees-other-usd` | Blockworks | daily | timeseries_float |
 
 ### Priority Fees
 
@@ -274,20 +267,16 @@ Newly issued tokens that are distributed to participants (such as validators, mi
 
 | Chain | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
-| Arbitrum | `issuance` | Blockworks | daily | timeseries_float |
-| Base | `issuance` | Blockworks | daily | timeseries_float |
 | Ethereum | `issuance` | Blockworks | daily | timeseries_float |
 | Solana | `issuance` | Blockworks | daily | timeseries_float |
 
 ### Issuance USD
 
-There is no issuance on Arbitrum
+Newly issued tokens that are distributed to participants (such as validators, miners, or stakers) as compensation for participating in consensus.
 
 
 | Chain | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
-| Arbitrum | `issuance-usd` | Blockworks | daily | timeseries_usd |
-| Base | `issuance-usd` | Blockworks | daily | timeseries_usd |
 | Ethereum | `issuance-usd` | Blockworks | daily | timeseries_usd |
 | Solana | `issuance-usd` | Blockworks | daily | timeseries_usd |
 

@@ -24,7 +24,10 @@ async function main() {
   try {
     // Fetch all metrics first
     console.log(green('\n🔎 Fetching metrics from API...'))
-    const metrics = await fetchAllMetrics()
+    const allMetrics = await fetchAllMetrics()
+    
+    // Filter out metrics with bad descriptions
+    const { validMetrics: metrics, omittedMetrics } = filterMetrics(allMetrics)
 
     // Clean up existing content for projects found in metrics
     console.log(green(`\n🧹 Wiping existing metrics pages...`))
@@ -48,6 +51,14 @@ async function main() {
 
     console.log('\n🔧 Updating OpenAPI specification...')
     await updateOpenApiSpec(metrics)
+    
+    // Display omitted metrics if any
+    if (omittedMetrics.length > 0) {
+      console.log(chalk.yellowBright.bold.underline(`\n⚠️ ${omittedMetrics.length} Metrics Omitted (Bad Descriptions):`))
+      omittedMetrics.forEach(metric => {
+        console.log(chalk.yellow(`   ${metric.project}/${metric.identifier}: ${metric.description.substring(0, 60)}...`))
+      })
+    }
 
     // Display API errors if any
     if (apiErrors.length > 0) {
@@ -62,6 +73,9 @@ async function main() {
     console.log(green.underline('\n📊 Sync Summary:'))
     console.log(green(`\n  📁 Output:`), darkGreen(OUTPUT_DIR))
     console.log(green(`  📄 Metric Pages:`), darkGreen(metrics.length))
+    if (omittedMetrics.length > 0) {
+      console.log(green(`  ⚠️ Omitted Pages:`), darkGreen(omittedMetrics.length))
+    }
     console.log(green(`  📂 Projects:`), darkGreen(new Set(metrics.map(m => m.project)).size))
     console.log(green(`  🏷️ Categories:`), darkGreen(new Set(metrics.map(m => m.category)).size))
     console.log(green(`  ✅ Catalog generated`))
@@ -77,6 +91,29 @@ async function main() {
     console.error('❌ Sync failed:', error)
     process.exit(1)
   }
+}
+
+/**
+ * Filter metrics to exclude those with bad descriptions
+ */
+function filterMetrics(metrics: any[]) {
+  const validMetrics: any[] = []
+  const omittedMetrics: any[] = []
+  
+  metrics.forEach(metric => {
+    // Check if description matches bad patterns:
+    // "There is no {identifier} on {project}"
+    // "There are no {identifier} in {project}"
+    const badDescriptionPattern = new RegExp(`^There (are|is) no .+ (on|in) .+$`, 'i')
+    
+    if (badDescriptionPattern.test(metric.description)) {
+      omittedMetrics.push(metric)
+    } else {
+      validMetrics.push(metric)
+    }
+  })
+  
+  return { validMetrics, omittedMetrics }
 }
 
 // Run the sync
