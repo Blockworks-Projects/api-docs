@@ -1,6 +1,6 @@
 # Blockworks API Documentation
 
-A modern documentation site for Blockworks API metrics, built with [Mintlify](https://mintlify.com) and automated metric synchronization.
+Blockworks API documentation site, built with [Mintlify](https://mintlify.com), using automated metric synchronization.
 
 # Quick Start
 
