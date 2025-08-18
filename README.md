@@ -93,7 +93,9 @@ flowchart LR
 
 <img width="621" height="553" alt="image" src="https://github.com/user-attachments/assets/0a7d9eae-23dd-41e5-946b-597cf844759b" />
 
-## Why [Bun](https://bun.sh)?
+<br /><br />
+
+# Why [Bun](https://bun.sh)?
 
 - **Native TypeScript Support**: No additional transpilation setup required
 - **Built-in Package Manager**: Fast dependency installation and management
