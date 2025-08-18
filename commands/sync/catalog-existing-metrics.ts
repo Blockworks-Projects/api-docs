@@ -12,7 +12,7 @@ export const catalogExistingMetrics = async (outputDir: string): Promise<Set<str
     // Find all existing metric MDX files recursively
     const files = await findMdxFiles(outputDir)
 
-    console.log(c.muted(`   Found ${files.length} existing metric files`))
+    console.log(c.muted(`   Found ${c.number(files.length)} existing metric files`))
 
     for (const filePath of files) {
       try {
@@ -43,7 +43,7 @@ export const catalogExistingMetrics = async (outputDir: string): Promise<Set<str
       }
     }
 
-    console.log(c.muted(`   Cataloged ${existingMetrics.size} existing metrics`))
+    console.log(c.muted(`   Cataloged ${c.number(existingMetrics.size)} existing metrics`))
 
   } catch (error) {
     // If directory doesn't exist or other errors, return empty set

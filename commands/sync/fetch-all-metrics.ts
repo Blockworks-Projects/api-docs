@@ -1,6 +1,6 @@
-import chalk from 'chalk'
 import type { APIError, Metric, MetricsResponse } from '../sync.types'
 import { API } from './api'
+import { colors as c } from './const'
 
 /**
  * Fetch all metrics by paginating through the API
@@ -11,7 +11,7 @@ export const fetchAllMetrics = async (): Promise<Metric[]> => {
   let hasMore = true
 
   while (hasMore) {
-    console.log(chalk.grey(`   + page ${page}...`))
+    console.log(c.muted(`   + page ${page}...`))
 
     const [error, response] = await API.get<[APIError, MetricsResponse]>('/metrics', {
       query: {
@@ -32,6 +32,6 @@ export const fetchAllMetrics = async (): Promise<Metric[]> => {
     page++
   }
 
-  console.log(`\n✅ Found ${metrics.length} metrics`)
+  console.log(`\n✅ Found ${c.number(metrics.length)} metrics`)
   return metrics
 }

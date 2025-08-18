@@ -37,7 +37,7 @@ export const updateNavigation = async (metrics: Metric[]): Promise<void> => {
   for (const [project, categoryMap] of projectGroups.entries()) {
     console.log(c.warning(`\n   🔎 ${project.toUpperCase()}`))
     for (const [category, categoryMetrics] of categoryMap.entries()) {
-      console.log(c.white(`      + ${category}:`), c.number(categoryMetrics.length), 'metrics')
+      console.log(`      + ${category}:`, c.number(categoryMetrics.length), c.muted('metrics'))
     }
   }
 
@@ -78,7 +78,7 @@ export const updateNavigation = async (metrics: Metric[]): Promise<void> => {
       // Sort metrics alphabetically within category
       const sortedMetrics = categoryMetrics.sort((a, b) => a.identifier.localeCompare(b.identifier))
 
-      console.log(c.muted(`      + Creating ${category} subgroup with ${sortedMetrics.length} metrics`))
+      console.log(c.muted(`      + Creating ${category} subgroup with ${c.number(sortedMetrics.length)} metrics`))
 
       // Always create subgroup for categories (even single metrics)
       const categoryGroup = {

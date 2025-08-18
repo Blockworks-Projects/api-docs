@@ -39,9 +39,9 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
     if (openApiSpec.paths[endpointPath]) {
       existingEndpoints.add(identifier)
       endpointsToUpdate.add(identifier)
-      console.log(c.muted(`    ✓ ${identifier} (exists - will update examples)`))
+      console.log(c.muted(`     ✓ ${identifier} (exists)`))
     } else {
-      console.log(c.yellow(`    + ${identifier} (missing - will add)`))
+      console.log(c.adding(`     + ${identifier} (adding)`))
     }
   }
 
@@ -166,9 +166,9 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
   await writeFile(openApiPath, JSON.stringify(openApiSpec, null, 2), 'utf-8')
 
   console.log(`\n  ✅ OpenAPI spec updated:`)
-  console.log(c.muted(`     ✓ Added endpoints: ${addedEndpoints}`))
-  console.log(c.muted(`     ✓ Updated examples: ${updatedExamples}`))
-  console.log(c.muted(`     ✓ Total endpoints: ${Object.keys(openApiSpec.paths).filter(p => p.startsWith('/v1/metrics/')).length}`))
+  console.log(c.muted(`     ✓ Added endpoints: ${c.number(addedEndpoints)}`))
+  console.log(c.muted(`     ✓ Updated examples: ${c.number(updatedExamples)}`))
+  console.log(c.muted(`     ✓ Total endpoints: ${c.number(Object.keys(openApiSpec.paths).filter(p => p.startsWith('/v1/metrics/')).length)}`))
 }
 
 /**

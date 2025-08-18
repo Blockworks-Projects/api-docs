@@ -38,7 +38,7 @@ export const generateMetricsCatalog = async (metrics: Metric[]): Promise<void> =
     const metricGroups = categoryGroups.get(category)!
     const sortedIdentifiers = Array.from(metricGroups.keys()).sort()
 
-    console.log(c.muted(`   + Category "${category}" has ${sortedIdentifiers.length} unique metrics`))
+    console.log(c.muted(`   + Category "${category}" has ${c.number(sortedIdentifiers.length)} unique metrics`))
 
     // Generate each metric entry within this category
     for (const identifier of sortedIdentifiers) {

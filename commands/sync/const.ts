@@ -18,4 +18,5 @@ export const colors = {
   warning: chalk.yellowBright.bold,
   yellow: chalk.yellow,
   white: chalk.white.bold,
+  adding: chalk.hex('#33AA33'),
 }
