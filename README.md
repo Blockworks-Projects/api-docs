@@ -4,11 +4,11 @@ A modern documentation site for Blockworks API metrics, built with [Mintlify](ht
 
 # Quick Start
 
-### Prerequisites
+### 0. Prerequisites
 
 - [Bun](https://bun.sh) runtime.  _(see [explanation](#why-bun) for details)_
 
-### Installation
+### 1. Installation
 
 ```bash
 # Clone the repository
@@ -19,26 +19,19 @@ cd api-docs
 bun install
 ```
 
-### Development
+### 2. Create `.env.local`
+
+Follow the [guide](https://docs.blockworksresearch.com/getting-started#complete-walkthrough) to get a valid API key.
 
 ```bash
-# Start the development server
-bun dev
-```
-
-The documentation site will be available at `http://localhost:3333`.
-
-### Sync Metrics
-
-```bash
-# Synchronize metrics from API
-bun sync
+# .env.local
+BWR_API_KEY="valid-research-api-key"
 ```
 
 # Available Commands
 
 ### `bun dev`
-Starts the Mintlify development server on port 3333 (to avoid conflicting with other services on 3000). This provides live reloading and preview of documentation changes.
+Starts the Mintlify development server on port [3333](http://localhost:3333) (to avoid conflicting with other services on 3000). This provides live reloading and preview of documentation changes.
 
 ### `bun sync`
 Executes the complete metric synchronization process:
