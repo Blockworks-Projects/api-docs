@@ -22,10 +22,12 @@ const red = chalk.red
  */
 async function main() {
   try {
+    const start = performance.now()
+
     // Fetch all metrics first
     console.log(green('\n🔎 Fetching metrics from API...'))
     const allMetrics = await fetchAllMetrics()
-    
+
     // Filter out metrics with bad descriptions
     const { validMetrics: metrics, omittedMetrics } = filterMetrics(allMetrics)
 
@@ -38,10 +40,8 @@ async function main() {
 
     console.log(green('\n✏️ Generating metric pages...'))
 
-    // Generate individual metric pages
-    for (const metric of metrics) {
-      await generateMetricPage(metric, metrics)
-    }
+    // Generate individual metric pages in parallel
+    await Promise.all(metrics.map(metric => generateMetricPage(metric, metrics)))
 
     console.log(green('\n📖 Generating metrics catalog...'))
     await generateMetricsCatalog(metrics)
@@ -51,7 +51,7 @@ async function main() {
 
     console.log('\n🔧 Updating OpenAPI specification...')
     await updateOpenApiSpec(metrics)
-    
+
     // Display omitted metrics if any
     if (omittedMetrics.length > 0) {
       console.log(chalk.yellowBright.bold.underline(`\n⚠️ ${omittedMetrics.length} Metrics Omitted (Bad Descriptions):`))
@@ -85,7 +85,7 @@ async function main() {
       console.log(red.bold(`  ⚠️ API Errors: ${apiErrors.length}`))
     }
 
-    console.log(`\n✅ Sync complete!`)
+    console.log(`\n✅ Sync complete in`, chalk.hex('#0099FF')(`${((performance.now() - start) / 1000).toFixed(2)}s`), '!')
 
   } catch (error) {
     console.error('❌ Sync failed:', error)
@@ -99,20 +99,20 @@ async function main() {
 function filterMetrics(metrics: any[]) {
   const validMetrics: any[] = []
   const omittedMetrics: any[] = []
-  
+
   metrics.forEach(metric => {
     // Check if description matches bad patterns:
     // "There is no {identifier} on {project}"
     // "There are no {identifier} in {project}"
     const badDescriptionPattern = new RegExp(`^There (are|is) no .+ (on|in) .+$`, 'i')
-    
+
     if (badDescriptionPattern.test(metric.description)) {
       omittedMetrics.push(metric)
     } else {
       validMetrics.push(metric)
     }
   })
-  
+
   return { validMetrics, omittedMetrics }
 }
 
