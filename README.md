@@ -2,11 +2,7 @@
 
 A modern documentation site for Blockworks API metrics, built with [Mintlify](https://mintlify.com) and automated metric synchronization.
 
-## Overview
-
-This project provides comprehensive documentation for blockchain metrics across multiple networks including Ethereum, Solana, Arbitrum, Base, and more. The documentation is automatically generated and synchronized from live API data to ensure accuracy and completeness.
-
-## Quick Start
+# Quick Start
 
 ### Prerequisites
 
@@ -39,7 +35,7 @@ The documentation site will be available at `http://localhost:3333`.
 bun sync
 ```
 
-## Available Commands
+# Available Commands
 
 ### `bun dev`
 Starts the Mintlify development server on port 3333 (to avoid conflicting with other services on 3000). This provides live reloading and preview of documentation changes.
