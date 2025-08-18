@@ -51,7 +51,11 @@ export const generateMetricsCatalog = async (metrics: Metric[]): Promise<void> =
       // Generate table rows for each project, sorted by project name
       const catalogRows = metricsForIdentifier
         .sort((a, b) => a.project.localeCompare(b.project))
-        .map(metric => `| ${toTitleCase(metric.project)} | \`${metric.identifier}\` | ${metric.source} | ${metric.interval} | ${metric.data_type} |`)
+        .map(metric => {
+          const categoryFolder = metric.category.toLowerCase().replace(/\s+/g, '-')
+          const projectLink = `/api-reference/metrics/${metric.project}/${categoryFolder}/${metric.identifier}`
+          return `| [${toTitleCase(metric.project)}](${projectLink}) | \`${metric.identifier}\` | ${metric.source} | ${metric.interval} | ${metric.data_type} |`
+        })
         .join('\n')
 
       const entry = templates.CATALOG_ENTRY
