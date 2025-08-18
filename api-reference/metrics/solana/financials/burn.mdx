@@ -1,0 +1,43 @@
+---
+title: "Burn"
+description: "The total amount of the native token burned transaction fees."
+openapi: 'GET /v1/metrics/burn'
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-08-13",
+      "value": 873.9346725018162
+    },
+    {
+      "date": "2025-08-14",
+      "value": 886.3009925017946
+    },
+    {
+      "date": "2025-08-15",
+      "value": 855.7214150018217
+    },
+    {
+      "date": "2025-08-16",
+      "value": 824.4123800017517
+    }
+  ]
+}
+```
+
+## Notes
+- daily aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
+
+
+<Note>For fiat values, see **[Burn USD](./burn-usd)**.</Note>

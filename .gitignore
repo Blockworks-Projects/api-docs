@@ -1,3 +1,4 @@
 /.claude/settings.local.json
-/.idea/api-docs.iml
-/.idea/php.xml
+node_modules
+.env
+.env.local

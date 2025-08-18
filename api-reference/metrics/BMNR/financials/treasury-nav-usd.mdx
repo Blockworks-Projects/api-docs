@@ -1,0 +1,36 @@
+---
+title: "NAV USD"
+description: "Dollar value of crypto assets (does not include cash)"
+openapi: 'GET /v1/metrics/treasury-nav-usd'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "bmnr": [
+    {
+      "date": "2025-08-15",
+      "value": 5230932104.710644
+    },
+    {
+      "date": "2025-08-14",
+      "value": 5352498248.960926
+    },
+    {
+      "date": "2025-08-13",
+      "value": 5371444278.761562
+    }
+  ]
+}
+```
+
+## Notes
+- daily aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

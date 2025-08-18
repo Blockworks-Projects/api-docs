@@ -1,0 +1,47 @@
+---
+title: "Fee Average"
+description: "Average of the sum of the base fee and priority fee that day in native chain token"
+openapi: 'GET /v1/metrics/fee-average'
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "arbitrum": [
+    {
+      "date": "2025-08-13",
+      "value": 0.000004257713966220368
+    },
+    {
+      "date": "2025-08-14",
+      "value": 0.000012875990987316948
+    },
+    {
+      "date": "2025-08-15",
+      "value": 0.0000034668883926266
+    },
+    {
+      "date": "2025-08-16",
+      "value": 0.0000014741240165972835
+    },
+    {
+      "date": "2025-08-17",
+      "value": 0.0000013507318573829575
+    }
+  ]
+}
+```
+
+## Notes
+- daily aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
+
+
+<Note>For fiat values, see **[Fee Average USD](./fee-average-usd)**.</Note>

@@ -1,0 +1,43 @@
+---
+title: "Other Fees"
+description: "For Arbitrum, other fees include the fee for Timeboost, an priroty auction for access to transactions with no delay compared to 200ms delay for the chain's sequencer"
+openapi: 'GET /v1/metrics/fees-other'
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "arbitrum": [
+    {
+      "date": "2025-08-13",
+      "value": 4.835390926821649
+    },
+    {
+      "date": "2025-08-14",
+      "value": 7.953640659587883
+    },
+    {
+      "date": "2025-08-15",
+      "value": 5.407090551870603
+    },
+    {
+      "date": "2025-08-16",
+      "value": 2.4792090135987186
+    }
+  ]
+}
+```
+
+## Notes
+- daily aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
+
+
+<Note>For fiat values, see **[Other Fees USD](./fees-other-usd)**.</Note>

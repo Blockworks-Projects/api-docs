@@ -71,27 +71,39 @@ curl -H "x-api-key: YOUR_API_KEY" \\
 
 ## Response Structure
 
-A successful response returns a paginated list of metric definitions.
+A successful response returns a paginated list of metric definitions, with the following fields:
 
 ```json
 {
   "data": [
     {
-      "name": "Native Token Price",
-      "description": "The average token price during the specified time period for the native asset of that chain.",
-      "identifier": "native-token-price",
+      "name": "Issuance",
+      "description": "Newly issued tokens that are distributed to participants (such as validators, miners, or stakers) as compensation for participating in consensus.",
+      "identifier": "issuance",
       "project": "ethereum",
       "source": "Blockworks",
-      "interval": "daily",
-      "data_type": "timeseries_usd",
+      "data_type": "timeseries_float",
       "parameters": {
-        "start_date": { "type": "date", "default": "2000-01-01", "description": "Start date (inclusive)" },
-        "end_date": { "type": "date", "default": "3000-01-01", "description": "End date (inclusive)" }
-      }
-    }
+        "end_date": {
+          "type": "date",
+          "default": "3000-01-01",
+          "description": "End date (inclusive)"
+        },
+        "start_date": {
+          "type": "date",
+          "default": "2000-01-01",
+          "description": "Start date (inclusive)"
+        }
+      },
+      "interval": "daily",
+      "aggregation": "SUM",
+      "category": "Financials",
+      "updated_at": 1755151418
+    },
+    // ... 99 other metrics
   ],
-  "next": null,
-  "meta": { "request_id": "req_123" }
+  "total": 114,
+  "page": 1
 }
 ```
 
@@ -100,12 +112,16 @@ A successful response returns a paginated list of metric definitions.
 | Field | Type | Description |
 |---|---|---|
 | `name` | string | Human-readable metric name |
-| `description` | string | What the metric measures and how it’s intended to be used |
+| `description` | string | What the metric measures and how it's intended to be used |
 | `identifier` | string | Stable key used with other endpoints (e.g., `GET /v1/metrics/{identifier}`) |
 | `project` | string | Chain/project slug this metric definition applies to |
 | `source` | string | Data lineage owner (e.g., Blockworks) |
 | `data_type` | string | Shape/units of the series (e.g., `timeseries_usd`, `timeseries_float`) |
 | `parameters` | object | Supported query parameters for retrieving the series |
+| `interval` | string | Data frequency (e.g., `daily`) |
+| `aggregation` | string | How values are aggregated (e.g., `SUM`) |
+| `category` | string | Metric classification (e.g., `Financials`) |
+| `updated_at` | integer | Unix timestamp of last update |
 
 ## Pagination
 

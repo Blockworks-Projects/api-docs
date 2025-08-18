@@ -1,0 +1,36 @@
+---
+title: "Volume USD"
+description: "USD volume over the period"
+openapi: 'GET /v1/metrics/treasury-volume-usd'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "bmnr": [
+    {
+      "date": "2025-08-15",
+      "value": 3393715398.3068
+    },
+    {
+      "date": "2025-08-14",
+      "value": 4244870573.2314
+    },
+    {
+      "date": "2025-08-13",
+      "value": 7101141746.5656
+    }
+  ]
+}
+```
+
+## Notes
+- daily aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

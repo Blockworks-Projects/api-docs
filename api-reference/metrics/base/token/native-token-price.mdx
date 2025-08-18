@@ -1,0 +1,40 @@
+---
+title: "Native Token Price"
+description: "The average token price during the specified time period for the native asset of that chain."
+openapi: 'GET /v1/metrics/native-token-price'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "base": [
+    {
+      "date": "2025-08-13",
+      "value": 4669.782395833324
+    },
+    {
+      "date": "2025-08-14",
+      "value": 4653.077361111108
+    },
+    {
+      "date": "2025-08-15",
+      "value": 4547.574375000002
+    },
+    {
+      "date": "2025-08-16",
+      "value": 4430.384930555538
+    }
+  ]
+}
+```
+
+## Notes
+- daily aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

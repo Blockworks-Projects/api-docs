@@ -1,0 +1,44 @@
+---
+title: "Address Total"
+description: "Total number of active addresses"
+openapi: 'GET /v1/metrics/address-total'
+---
+
+## Overview
+
+- **Unit:** count
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "base": [
+    {
+      "date": "2025-08-13",
+      "value": 1081426
+    },
+    {
+      "date": "2025-08-14",
+      "value": 934295
+    },
+    {
+      "date": "2025-08-15",
+      "value": 1223643
+    },
+    {
+      "date": "2025-08-16",
+      "value": 1822877
+    },
+    {
+      "date": "2025-08-17",
+      "value": 431881
+    }
+  ]
+}
+```
+
+## Notes
+- daily aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

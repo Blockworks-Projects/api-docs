@@ -44,7 +44,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AssetResponse"
+                  "$ref": "#/components/schemas/AssetResponseBase"
                 }
               }
             }
@@ -756,14 +756,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678
                     }
                   ]
                 }
@@ -951,14 +955,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -1053,14 +1061,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678
                     }
                   ]
                 }
@@ -1165,14 +1177,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -1277,14 +1293,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -1389,14 +1409,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -1501,14 +1525,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -1613,14 +1641,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -1725,14 +1757,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -1837,14 +1873,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -1949,14 +1989,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -2061,14 +2105,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -2173,14 +2221,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -2285,14 +2337,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -2397,14 +2453,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -2509,14 +2569,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -2621,14 +2685,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -2733,14 +2801,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -2845,14 +2917,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -2957,14 +3033,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -3064,14 +3144,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -3176,14 +3260,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -3283,14 +3371,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -3395,14 +3487,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -3507,14 +3603,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -3619,14 +3719,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -3731,14 +3835,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456.789
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
                     }
                   ]
                 }
@@ -3843,14 +3951,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678
                     }
                   ]
                 }
@@ -3955,14 +4067,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678
                     }
                   ]
                 }
@@ -4067,14 +4183,18 @@
                   }
                 },
                 "example": {
-                  "Ethereum": [
+                  "projectName": [
                     {
-                      "date": "2025-08-06",
-                      "value": 948090.6294
+                      "date": "2025-08-10",
+                      "value": 123456
                     },
                     {
-                      "date": "2025-08-07",
-                      "value": 1175055.4507
+                      "date": "2025-08-11",
+                      "value": 234567
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678
                     }
                   ]
                 }
@@ -4095,6 +4215,762 @@
         ],
         "tags": [
           "metrics"
+        ]
+      }
+    },
+    "/v1/metrics/treasury-crypto-asset": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_treasury_crypto_asset",
+        "summary": "Treasury Crypto Asset",
+        "description": "Retrieve the 'treasury-crypto-asset' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "BMNR",
+                "MSTR",
+                "SBET"
+              ],
+              "example": "BMNR"
+            },
+            "examples": {
+              "BMNR": {
+                "value": "BMNR",
+                "summary": "BMNR"
+              },
+              "MSTR": {
+                "value": "MSTR",
+                "summary": "MSTR"
+              },
+              "SBET": {
+                "value": "SBET",
+                "summary": "SBET"
+              },
+              "multi": {
+                "value": "BMNR,MSTR",
+                "summary": "BMNR + MSTR"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/treasury-token-holdings": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_treasury_token_holdings",
+        "summary": "Treasury Token Holdings",
+        "description": "Retrieve the 'treasury-token-holdings' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "BMNR",
+                "MSTR",
+                "SBET"
+              ],
+              "example": "BMNR"
+            },
+            "examples": {
+              "BMNR": {
+                "value": "BMNR",
+                "summary": "BMNR"
+              },
+              "MSTR": {
+                "value": "MSTR",
+                "summary": "MSTR"
+              },
+              "SBET": {
+                "value": "SBET",
+                "summary": "SBET"
+              },
+              "multi": {
+                "value": "BMNR,MSTR",
+                "summary": "BMNR + MSTR"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/market-cap": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_market_cap",
+        "summary": "Market Cap",
+        "description": "Retrieve the 'market-cap' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "BMNR",
+                "MSTR",
+                "SBET"
+              ],
+              "example": "BMNR"
+            },
+            "examples": {
+              "BMNR": {
+                "value": "BMNR",
+                "summary": "BMNR"
+              },
+              "MSTR": {
+                "value": "MSTR",
+                "summary": "MSTR"
+              },
+              "SBET": {
+                "value": "SBET",
+                "summary": "SBET"
+              },
+              "multi": {
+                "value": "BMNR,MSTR",
+                "summary": "BMNR + MSTR"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/treasury-volume-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_treasury_volume_usd",
+        "summary": "Treasury Volume Usd",
+        "description": "Retrieve the 'treasury-volume-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "BMNR",
+                "MSTR",
+                "SBET"
+              ],
+              "example": "BMNR"
+            },
+            "examples": {
+              "BMNR": {
+                "value": "BMNR",
+                "summary": "BMNR"
+              },
+              "MSTR": {
+                "value": "MSTR",
+                "summary": "MSTR"
+              },
+              "SBET": {
+                "value": "SBET",
+                "summary": "SBET"
+              },
+              "multi": {
+                "value": "BMNR,MSTR",
+                "summary": "BMNR + MSTR"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/enterprise-value-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_enterprise_value_usd",
+        "summary": "Enterprise Value Usd",
+        "description": "Retrieve the 'enterprise-value-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "BMNR",
+                "MSTR",
+                "SBET"
+              ],
+              "example": "BMNR"
+            },
+            "examples": {
+              "BMNR": {
+                "value": "BMNR",
+                "summary": "BMNR"
+              },
+              "MSTR": {
+                "value": "MSTR",
+                "summary": "MSTR"
+              },
+              "SBET": {
+                "value": "SBET",
+                "summary": "SBET"
+              },
+              "multi": {
+                "value": "BMNR,MSTR",
+                "summary": "BMNR + MSTR"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/treasury-nav-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_treasury_nav_usd",
+        "summary": "Treasury Nav Usd",
+        "description": "Retrieve the 'treasury-nav-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "BMNR",
+                "MSTR",
+                "SBET"
+              ],
+              "example": "BMNR"
+            },
+            "examples": {
+              "BMNR": {
+                "value": "BMNR",
+                "summary": "BMNR"
+              },
+              "MSTR": {
+                "value": "MSTR",
+                "summary": "MSTR"
+              },
+              "SBET": {
+                "value": "SBET",
+                "summary": "SBET"
+              },
+              "multi": {
+                "value": "BMNR,MSTR",
+                "summary": "BMNR + MSTR"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/treasury-mnav": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_treasury_mnav",
+        "summary": "Treasury Mnav",
+        "description": "Retrieve the 'treasury-mnav' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "BMNR",
+                "MSTR",
+                "SBET"
+              ],
+              "example": "BMNR"
+            },
+            "examples": {
+              "BMNR": {
+                "value": "BMNR",
+                "summary": "BMNR"
+              },
+              "MSTR": {
+                "value": "MSTR",
+                "summary": "MSTR"
+              },
+              "SBET": {
+                "value": "SBET",
+                "summary": "SBET"
+              },
+              "multi": {
+                "value": "BMNR,MSTR",
+                "summary": "BMNR + MSTR"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
         ]
       }
     }
@@ -4854,6 +5730,110 @@
           "type"
         ]
       },
+      "AssetResponseBase": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "code": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 20
+          },
+          "title": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 100
+          },
+          "slug": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 100
+          },
+          "tag_line": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 255
+          },
+          "description": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 65535
+          },
+          "image_url": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 255
+          },
+          "legacy_sector": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 50
+          },
+          "category": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 25
+          },
+          "is_supported": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "updated_at": {
+            "type": "number",
+            "nullable": true,
+            "description": "Unix timestamp"
+          },
+          "sector_id": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "type": {
+            "type": "string",
+            "nullable": true,
+            "enum": [
+              "Infrastructure",
+              "Application"
+            ]
+          },
+          "market_cap": {
+            "description": "Expandable relationship",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/MarketCap"
+              }
+            ]
+          },
+          "price": {
+            "description": "Expandable relationship",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Price"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "code",
+          "title",
+          "slug",
+          "tag_line",
+          "description",
+          "image_url",
+          "legacy_sector",
+          "category",
+          "is_supported",
+          "updated_at",
+          "sector_id",
+          "type"
+        ]
+      },
       "QueryExecutionResponse": {
         "type": "object",
         "properties": {
@@ -5336,7 +6316,7 @@
             "description": "Expandable relationship",
             "allOf": [
               {
-                "$ref": "#/components/schemas/AssetResponse"
+                "$ref": "#/components/schemas/AssetResponseBase"
               }
             ]
           },
@@ -7239,7 +8219,7 @@
           "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AssetResponse"
+              "$ref": "#/components/schemas/AssetResponseBase"
             }
           }
         },
@@ -7523,6 +8503,24 @@
             "type": "number",
             "nullable": true,
             "description": "Unix timestamp"
+          },
+          "interval": {
+            "type": "string",
+            "nullable": true,
+            "example": "daily",
+            "maxLength": 65535
+          },
+          "aggregation": {
+            "type": "string",
+            "nullable": true,
+            "example": "SUM",
+            "maxLength": 65535
+          },
+          "category": {
+            "type": "string",
+            "nullable": true,
+            "example": "Financials",
+            "maxLength": 65535
           }
         },
         "required": [
@@ -7533,7 +8531,10 @@
           "source",
           "data_type",
           "parameters",
-          "updated_at"
+          "updated_at",
+          "interval",
+          "aggregation",
+          "category"
         ]
       },
       "MetricPageResponse": {
@@ -7624,7 +8625,7 @@
             "description": "Expandable relationship",
             "allOf": [
               {
-                "$ref": "#/components/schemas/AssetResponse"
+                "$ref": "#/components/schemas/AssetResponseBase"
               }
             ]
           }

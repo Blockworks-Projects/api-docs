@@ -1,0 +1,36 @@
+---
+title: "Enterprise Value USD"
+description: "Actual enterprise value for the equity. Calculated as market cap - liabilities + assets"
+openapi: 'GET /v1/metrics/enterprise-value-usd'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "sbet": [
+    {
+      "date": "2025-08-15",
+      "value": 2873548265.7588
+    },
+    {
+      "date": "2025-08-14",
+      "value": 3167125275.9776
+    },
+    {
+      "date": "2025-08-13",
+      "value": 3249476162.5031996
+    }
+  ]
+}
+```
+
+## Notes
+- daily aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

@@ -1,0 +1,47 @@
+---
+title: "Fee Median USD"
+description: "Median of the sum of the base fee and priority fee in USD that day"
+openapi: 'GET /v1/metrics/fee-median-usd'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "base": [
+    {
+      "date": "2025-08-13",
+      "value": 0.005574371646551151
+    },
+    {
+      "date": "2025-08-14",
+      "value": 0.00528219696577899
+    },
+    {
+      "date": "2025-08-15",
+      "value": 0.0016244603217247014
+    },
+    {
+      "date": "2025-08-16",
+      "value": 0.0007241247128680708
+    },
+    {
+      "date": "2025-08-17",
+      "value": 0.0005732838424496895
+    }
+  ]
+}
+```
+
+## Notes
+- daily aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
+
+
+<Note>For native values, see **[Fee Median](./fee-median)**.</Note>

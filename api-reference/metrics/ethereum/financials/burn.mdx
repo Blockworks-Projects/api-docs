@@ -1,0 +1,47 @@
+---
+title: "Burn"
+description: "The total amount of the native token burned transaction fees."
+openapi: 'GET /v1/metrics/burn'
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "ethereum": [
+    {
+      "date": "2025-08-13",
+      "value": 278.23020233520674
+    },
+    {
+      "date": "2025-08-14",
+      "value": 282.041808549432
+    },
+    {
+      "date": "2025-08-15",
+      "value": 116.91056444559102
+    },
+    {
+      "date": "2025-08-16",
+      "value": 38.80942818057962
+    },
+    {
+      "date": "2025-08-17",
+      "value": 2.3527712198913986
+    }
+  ]
+}
+```
+
+## Notes
+- daily aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
+
+
+<Note>For fiat values, see **[Burn USD](./burn-usd)**.</Note>

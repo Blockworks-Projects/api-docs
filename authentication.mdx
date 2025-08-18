@@ -6,13 +6,13 @@ icon: key
 
 ## Overview
 
-All API requests must include your API key in the **`x-api-key`** HTTP header.  
+All API requests must include your API key in the **`x-api-key`** HTTP header.
 Keys are issued from your Blockworks Research account and are tied to your organization/plan.
 
 | Topic | TL;DR |
 | - | - |
 | Header | `x-api-key: YOUR_API_KEY` |
-| Where to get it | Project dashboard → API Keys |
+| Where to get it | [Blockworks Research](https://app.blockworksresearch.com) → User Dropdown → Account Management → [API](https://app.blockworksresearch.com/settings/api-keys) |
 | Scope | Works across all documented endpoints unless noted otherwise |
 | Rotation | Create a new key, update your services, then revoke the old key |
 | Errors | Missing/invalid → `401 Unauthorized`, insufficient access → `403 Forbidden` |
@@ -50,8 +50,8 @@ data = resp.json()
 
 ## Sending the header
 
-- **Always** send `x-api-key` on every request.  
-- Use **HTTPS** only.  
+- **Always** send `x-api-key` on every request.
+- Use **HTTPS** only.
 - Prefer environment variables or a secure secrets manager; **never** hardcode keys in code or commit history.
 
 ### Example with Axios (Node)
@@ -70,14 +70,14 @@ const { data } = await api.get("/v1/assets", { params: { limit: 20 } })
 
 ## Key management best practices
 
-- **Least privilege** (if you use multiple keys per environment/team, give the narrowest access).  
-- **Separate keys per environment**: `dev`, `staging`, `prod`.  
-- **Rotate** regularly and on any suspected exposure. Safe rotation flow:  
-  1. Create a **new** key.  
-  2. Deploy config with the new key.  
-  3. Verify traffic and logs.  
-  4. **Revoke** the old key.  
-- **Store securely**: cloud secrets manager (e.g., AWS Secrets Manager, GCP Secret Manager, 1Password) or your CI/CD secret store.  
+- **Least privilege** (if you use multiple keys per environment/team, give the narrowest access).
+- **Separate keys per environment**: `dev`, `staging`, `prod`.
+- **Rotate** regularly and on any suspected exposure. Safe rotation flow:
+  1. Create a **new** key.
+  2. Deploy config with the new key.
+  3. Verify traffic and logs.
+  4. **Revoke** the old key.
+- **Store securely**: cloud secrets manager (e.g., AWS Secrets Manager, GCP Secret Manager, 1Password) or your CI/CD secret store.
 - **Audit** usage from your account dashboard (failed requests, rate-limit spikes, unusual origins).
 
 ## Common errors
@@ -101,17 +101,17 @@ const { data } = await api.get("/v1/assets", { params: { limit: 20 } })
 
 ## Security checklist
 
-- Do not embed keys in client-side apps (browsers, mobile). Proxy through your backend.  
-- Restrict egress on your servers if possible (allowlist `api.blockworks.com`).  
-- Add **rate limiting** and **retries with jitter** to your client.  
-- Log **request_id** from responses for support/debugging.  
+- Do not embed keys in client-side apps (browsers, mobile). Proxy through your backend.
+- Restrict egress on your servers if possible (allowlist `api.blockworks.com`).
+- Add **rate limiting** and **retries with jitter** to your client.
+- Log **request_id** from responses for support/debugging.
 - Consider **key per service** (ingesters, web, batch) to isolate exposure.
 
 ## FAQ
 
-**Can I use multiple keys?**  
+**Can I use multiple keys?**
 Yes. Many teams keep separate keys per environment or workload. Api keys for the Blockworks API are team-scoped. Each user on your team will be able to generate and remove keys. Usage is aggregated across all keys on your team.
 
-**Where do I find or revoke keys?**  
+**Where do I find or revoke keys?**
 In your [blockworks research](https://www.blockworksresearch.com) settings under [**API Keys**](https://app.blockworksresearch.com/settings/api-keys).
 

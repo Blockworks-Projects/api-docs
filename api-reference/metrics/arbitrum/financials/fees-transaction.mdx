@@ -1,0 +1,43 @@
+---
+title: "Transaction Fees"
+description: "Total transaction fees paid, does not include blob fees, out-of-protocol tips, or additional sources of revenue"
+openapi: 'GET /v1/metrics/fees-transaction'
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "arbitrum": [
+    {
+      "date": "2025-08-13",
+      "value": 15.554408392814098
+    },
+    {
+      "date": "2025-08-14",
+      "value": 45.0627237058818
+    },
+    {
+      "date": "2025-08-15",
+      "value": 11.616870427343448
+    },
+    {
+      "date": "2025-08-16",
+      "value": 4.211329084955764
+    }
+  ]
+}
+```
+
+## Notes
+- daily aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
+
+
+<Note>For fiat values, see **[Transaction Fees USD](./fees-transaction-usd)**.</Note>

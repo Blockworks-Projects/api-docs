@@ -1,0 +1,47 @@
+---
+title: "Other Fees"
+description: "For Ethereum, this includes just blob fees: an additional fee for transactions that post data to \"blobs,\" which are specialized data availability solutions for L2 blockchains."
+openapi: 'GET /v1/metrics/fees-other'
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "ethereum": [
+    {
+      "date": "2025-08-13",
+      "value": 3.8377881599999995e-9
+    },
+    {
+      "date": "2025-08-14",
+      "value": 4.060479487999988e-9
+    },
+    {
+      "date": "2025-08-15",
+      "value": 3.778150399999992e-9
+    },
+    {
+      "date": "2025-08-16",
+      "value": 3.767271423999992e-9
+    },
+    {
+      "date": "2025-08-17",
+      "value": 1.2425625599999998e-10
+    }
+  ]
+}
+```
+
+## Notes
+- daily aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
+
+
+<Note>For fiat values, see **[Other Fees USD](./fees-other-usd)**.</Note>

@@ -1,0 +1,47 @@
+---
+title: "Fee Median"
+description: "Median of the sum of the base fee and priority fee that day in native chain token"
+openapi: 'GET /v1/metrics/fee-median'
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-08-13",
+      "value": 0.00000703196233864652
+    },
+    {
+      "date": "2025-08-14",
+      "value": 0.0000070326814477777784
+    },
+    {
+      "date": "2025-08-15",
+      "value": 0.000006309327673280948
+    },
+    {
+      "date": "2025-08-16",
+      "value": 0.000006099192024177698
+    },
+    {
+      "date": "2025-08-17",
+      "value": null
+    }
+  ]
+}
+```
+
+## Notes
+- daily aggregates unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
+
+
+<Note>For fiat values, see **[Fee Median USD](./fee-median-usd)**.</Note>
