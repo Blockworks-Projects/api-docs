@@ -6,7 +6,7 @@ A modern documentation site for Blockworks API metrics, built with [Mintlify](ht
 
 ### Prerequisites
 
-- [Bun](https://bun.sh) runtime
+- [Bun](https://bun.sh) runtime.  _(see [explanation](#why-bun) for details)_
 
 ### Installation
 
