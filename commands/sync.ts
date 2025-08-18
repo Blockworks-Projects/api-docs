@@ -85,7 +85,7 @@ async function main() {
       console.log(red.bold(`  ⚠️ API Errors: ${apiErrors.length}`))
     }
 
-    console.log(`\n✅ Sync complete in`, chalk.hex('#0099FF')(`${((performance.now() - start) / 1000).toFixed(2)}s`), '!')
+    console.log(`\n✅ Sync complete in`, chalk.hex('#0099FF')(`${((performance.now() - start) / 1000).toFixed(2)}s`))
 
   } catch (error) {
     console.error('❌ Sync failed:', error)
