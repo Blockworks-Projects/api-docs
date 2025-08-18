@@ -7,7 +7,7 @@ openapi: 'GET /v1/metrics/{metric_identifier}'
 ## Overview
 
 - **Unit:** {metric_unit}
-- **Aggregation:** {metric_aggregation}
+- **Interval:** {metric_interval}
 - **Source:** {metric_source}
 
 ## Example Response
@@ -17,6 +17,6 @@ openapi: 'GET /v1/metrics/{metric_identifier}'
 \`\`\`
 
 ## Notes
-- {metric_aggregation} aggregates unless otherwise noted.
+- {metric_interval} aggregates unless otherwise noted.
 - Data is updated {metric_interval} and may be revised after late-arriving data.
 `

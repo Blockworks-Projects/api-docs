@@ -130,7 +130,6 @@
                     "pages": [
                       "api-reference/metrics/base/financials/fees-base",
                       "api-reference/metrics/base/financials/fees-base-usd",
-                      "api-reference/metrics/base/financials/fees-other",
                       "api-reference/metrics/base/financials/fees-priority",
                       "api-reference/metrics/base/financials/fees-priority-usd",
                       "api-reference/metrics/base/financials/fees-transaction",

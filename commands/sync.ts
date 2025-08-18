@@ -3,7 +3,9 @@
 import { mkdir } from 'node:fs/promises'
 import {
   apiErrors,
+  catalogExistingMetrics,
   cleanupExistingContent,
+  compareMetrics,
   fetchAllMetrics,
   generateMetricPage,
   generateMetricsCatalog,
@@ -12,6 +14,7 @@ import {
   updateOpenApiSpec
 } from './sync/index'
 import chalk from 'chalk'
+import { colors as c } from './sync/const'
 
 const green = chalk.greenBright.bold
 const darkGreen = chalk.green
@@ -24,33 +27,59 @@ async function main() {
   try {
     const start = performance.now()
 
+    // Catalog existing metrics before any changes
+    console.log(c.header('\n📂 Cataloging existing metrics...'))
+    const existingMetrics = await catalogExistingMetrics(OUTPUT_DIR)
+
     // Fetch all metrics first
-    console.log(green('\n🔎 Fetching metrics from API...'))
+    console.log(c.header('\n🔎 Fetching metrics from API...'))
     const allMetrics = await fetchAllMetrics()
 
     // Filter out metrics with bad descriptions
     const { validMetrics: metrics, omittedMetrics } = filterMetrics(allMetrics)
 
+    // Compare metrics to determine changes
+    const { added, removed } = compareMetrics(existingMetrics, metrics)
+
     // Clean up existing content for projects found in metrics
-    console.log(green(`\n🧹 Wiping existing metrics pages...`))
+    console.log(c.header(`\n🧹 Wiping existing metrics pages...`))
     await cleanupExistingContent(metrics, OUTPUT_DIR)
 
     // Create output directory
     await mkdir(OUTPUT_DIR, { recursive: true })
 
-    console.log(green('\n✏️ Generating metric pages...'))
+    console.log(c.header('\n✏️ Generating metric pages...'))
 
     // Generate individual metric pages in parallel
     await Promise.all(metrics.map(metric => generateMetricPage(metric, metrics)))
 
-    console.log(green('\n📖 Generating metrics catalog...'))
+    console.log(c.header('\n📖 Generating metrics catalog...'))
     await generateMetricsCatalog(metrics)
 
-    console.log('\n📋 Updating docs.json navigation...')
+    console.log(c.header('\n📋 Updating docs.json navigation...'))
     await updateNavigation(metrics)
 
-    console.log('\n🔧 Updating OpenAPI specification...')
+    console.log(c.header('\n🔧 Updating OpenAPI specification...'))
     await updateOpenApiSpec(metrics)
+
+    // Display added metrics if any
+    if (added.length > 0) {
+      console.log(chalk.bold.underline(`\n+ ${added.length} Metrics Added:`))
+      added.forEach(metricKey => {
+        const metric = metrics.find(m => `${m.project}/${m.identifier}` === metricKey)
+        if (metric) {
+          console.log(chalk.grey(`   ${metric.project}/${metric.identifier}`))
+        }
+      })
+    }
+
+    // Display removed metrics if any
+    if (removed.length > 0) {
+      console.log(chalk.hex('#FFA500').bold.underline(`\n- ${removed.length} Metrics Removed:`))
+      removed.forEach(metricKey => {
+        console.log(chalk.hex('#FFA500')(`   ${metricKey}`))
+      })
+    }
 
     // Display omitted metrics if any
     if (omittedMetrics.length > 0) {
@@ -70,17 +99,23 @@ async function main() {
     }
 
     // Summary table
-    console.log(green.underline('\n📊 Sync Summary:'))
-    console.log(green(`\n  📁 Output:`), darkGreen(OUTPUT_DIR))
-    console.log(green(`  📄 Metric Pages:`), darkGreen(metrics.length))
+    console.log(c.header.underline('\n📊 Sync Summary:'))
+    console.log(c.header(`\n  📁 Output:`), c.darkGreen(OUTPUT_DIR))
+    console.log(c.header(`  📄 Metric Pages:`), c.darkGreen(metrics.length))
     if (omittedMetrics.length > 0) {
-      console.log(green(`  ⚠️ Omitted Pages:`), darkGreen(omittedMetrics.length))
+      console.log(c.header(`  ⚠️ Omitted Pages:`), c.darkGreen(omittedMetrics.length))
     }
-    console.log(green(`  📂 Projects:`), darkGreen(new Set(metrics.map(m => m.project)).size))
-    console.log(green(`  🏷️ Categories:`), darkGreen(new Set(metrics.map(m => m.category)).size))
-    console.log(green(`  ✅ Catalog generated`))
-    console.log(green(`  ✅ Navigation updated`))
-    console.log(green(`  ✅ OpenAPI spec updated`))
+    console.log(c.header(`  📂 Projects:`), c.darkGreen(new Set(metrics.map(m => m.project)).size))
+    console.log(c.header(`  🏷️ Categories:`), c.darkGreen(new Set(metrics.map(m => m.category)).size))
+    console.log(c.header(`  ✅ Catalog generated`))
+    console.log(c.header(`  ✅ Navigation updated`))
+    console.log(c.header(`  ✅ OpenAPI spec updated`))
+    if (added.length > 0) {
+      console.log(c.header(`  ➕ Added Metrics:`), c.darkGreen(added.length))
+    }
+    if (removed.length > 0) {
+      console.log(c.header(`  ➖ Removed Metrics:`), c.darkGreen(removed.length))
+    }
     if (apiErrors.length > 0) {
       console.log(red.bold(`  ⚠️ API Errors: ${apiErrors.length}`))
     }

@@ -48,40 +48,56 @@ Executes the complete metric synchronization process:
 ## Sync Process Flow
 
 ```mermaid
-flowchart LR
-    B(🔎 Fetch All Metrics from API)
-    B --> C(🚫 Omit zero-value metrics)
-    C --> D(✏️ Generate Metric Pages)
-    C --> E(📖 Generate Metrics Catalog)
-    C --> F(📋 Update Navigation Structure)
-    C --> G(🔧 Update OpenAPI Specification)
-        
-
-    D --> D1(📝 Create MDX files with frontmatter)
-    D --> D2(🔗 Add USD/native cross-references)
-    D --> D3(📄 Fetch live sample data)
-    E --> E1(🏷️ Group by category & identifier)
-    E --> E2(🔗 Link chain names to pages)
-    F --> F1(📁 Organize by project/category)
-    F --> F2(🔤 Sort alphabetically)
-    G --> G1(➕ Add missing endpoints)
-    G --> G2(🔄 Update with placeholder examples)
-
+flowchart TD
+    A[📂 Catalog Existing Metrics] --> B[🔎 Fetch All Metrics from API]
+    B --> C[🚫 Filter Bad Descriptions]
+    C --> D[📊 Compare & Calculate Changes]
+    D --> E[🧹 Clean Existing Content]
+    E --> F[✏️ Generate Metric Pages]
+    F --> G[📖 Generate Metrics Catalog]
+    G --> H[📋 Update Navigation Structure]
+    H --> I[🔧 Update OpenAPI Specification]
+    I --> J[📊 Display Summary & Changelog]
+    
+    A --> A1[📁 Scan MDX files recursively]
+    A --> A2[🔍 Extract project/identifier pairs]
+    C --> C1[🚫 Omit "There is/are no..." patterns]
+    D --> D1[➕ Identify added metrics]
+    D --> D2[➖ Identify removed metrics]
+    F --> F1[📝 Create MDX files with frontmatter]
+    F --> F2[🔗 Add USD/native cross-references]
+    F --> F3[📄 Fetch live sample data]
+    G --> G1[🏷️ Group by category & identifier]
+    G --> G2[🔗 Link chain names to pages]
+    H --> H1[📁 Organize by project/category]
+    H --> H2[🔤 Sort alphabetically]
+    I --> I1[➕ Add missing endpoints]
+    I --> I2[🔄 Update with placeholder examples]
+    
+    style A fill:#e8f4f8
+    style A1 fill:#e8f4f8
+    style A2 fill:#e8f4f8
     style B fill:#f3e5f5
     style C fill:#ffeeee
-    style D fill:#eef5ff
-    style D1 fill:#eef5ff
-    style D2 fill:#eef5ff
-    style D3 fill:#eef5ff
-    style E fill:#fff8e1
-    style E1 fill:#fff8e1
-    style E2 fill:#fff8e1
-    style F fill:#f1f8e9
-    style F1 fill:#f1f8e9
-    style F2 fill:#f1f8e9
-    style G fill:#ffeedd
-    style G1 fill:#ffeedd
-    style G2 fill:#ffeedd
+    style C1 fill:#ffeeee
+    style D fill:#fff0f5
+    style D1 fill:#fff0f5
+    style D2 fill:#fff0f5
+    style E fill:#fff3e0
+    style F fill:#eef5ff
+    style F1 fill:#eef5ff
+    style F2 fill:#eef5ff
+    style F3 fill:#eef5ff
+    style G fill:#fff8e1
+    style G1 fill:#fff8e1
+    style G2 fill:#fff8e1
+    style H fill:#f1f8e9
+    style H1 fill:#f1f8e9
+    style H2 fill:#f1f8e9
+    style I fill:#ffeedd
+    style I1 fill:#ffeedd
+    style I2 fill:#ffeedd
+    style J fill:#fce4ec
 ```
 
 <img width="621" height="553" alt="image" src="https://github.com/user-attachments/assets/0a7d9eae-23dd-41e5-946b-597cf844759b" />

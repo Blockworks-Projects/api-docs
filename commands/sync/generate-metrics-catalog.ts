@@ -1,8 +1,7 @@
-import chalk from 'chalk'
 import { mkdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { Metric } from '../sync.types'
-import { OUTPUT_DIR } from './const'
+import { colors as c, OUTPUT_DIR } from './const'
 import * as templates from './templates'
 import { toTitleCase } from './utils'
 
@@ -32,8 +31,6 @@ export const generateMetricsCatalog = async (metrics: Metric[]): Promise<void> =
 
   let catalogContent = templates.CATALOG_HEADER
 
-  console.log('📖 Generating catalog with categories:', sortedCategories.join(', '))
-
   // Generate each category section
   for (const category of sortedCategories) {
     catalogContent += `# ${category}\n\n`
@@ -41,7 +38,7 @@ export const generateMetricsCatalog = async (metrics: Metric[]): Promise<void> =
     const metricGroups = categoryGroups.get(category)!
     const sortedIdentifiers = Array.from(metricGroups.keys()).sort()
 
-    console.log(chalk.grey(`   + Category "${category}" has ${sortedIdentifiers.length} unique metrics`))
+    console.log(c.muted(`   + Category "${category}" has ${sortedIdentifiers.length} unique metrics`))
 
     // Generate each metric entry within this category
     for (const identifier of sortedIdentifiers) {

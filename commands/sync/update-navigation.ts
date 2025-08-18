@@ -1,6 +1,6 @@
-import chalk from 'chalk'
 import { readFile, writeFile } from 'node:fs/promises'
 import type { Metric } from '../sync.types'
+import { colors as c } from './const'
 import { toTitleCase } from './utils'
 
 /**
@@ -16,7 +16,7 @@ export const updateNavigation = async (metrics: Metric[]): Promise<void> => {
   // Group metrics by project and category
   const projectGroups = new Map<string, Map<string, Metric[]>>()
 
-  console.log(chalk.magentaBright.bold('\n  1. Grouping metrics by project and category...'))
+  console.log(c.subHeader('\n  1. Grouping metrics by project and category...'))
 
   metrics.forEach(metric => {
     if (!projectGroups.has(metric.project)) {
@@ -35,9 +35,9 @@ export const updateNavigation = async (metrics: Metric[]): Promise<void> => {
 
   // Log the grouping results
   for (const [project, categoryMap] of projectGroups.entries()) {
-    console.log(chalk.yellowBright.bold(`\n   🔎 ${project.toUpperCase()}`))
+    console.log(c.warning(`\n   🔎 ${project.toUpperCase()}`))
     for (const [category, categoryMetrics] of categoryMap.entries()) {
-      console.log(chalk.yellow(`      + ${category}:`), chalk.white(categoryMetrics.length), 'metrics')
+      console.log(c.white(`      + ${category}:`), c.number(categoryMetrics.length), 'metrics')
     }
   }
 
@@ -54,14 +54,14 @@ export const updateNavigation = async (metrics: Metric[]): Promise<void> => {
 
   metricsGroup.pages = staticPages
 
-  console.log(chalk.magentaBright.bold('\n  2. Processing projects...'))
+  console.log(c.subHeader('\n  2. Processing projects...'))
 
   // Generate navigation for each project (sorted alphabetically)
   const sortedProjects = Array.from(projectGroups.entries()).sort(([a], [b]) => a.localeCompare(b))
 
   for (const [project, categoryMap] of sortedProjects) {
     const projectName = toTitleCase(project)
-    console.log(chalk.yellowBright.bold(`\n   🛠️ ${project.toUpperCase()}`))
+    console.log(c.warning(`\n   🛠️ ${project.toUpperCase()}`))
 
     const projectGroup: any = {
       group: projectName,
@@ -78,7 +78,7 @@ export const updateNavigation = async (metrics: Metric[]): Promise<void> => {
       // Sort metrics alphabetically within category
       const sortedMetrics = categoryMetrics.sort((a, b) => a.identifier.localeCompare(b.identifier))
 
-      console.log(chalk.grey(`      + Creating ${category} subgroup with ${sortedMetrics.length} metrics`))
+      console.log(c.muted(`      + Creating ${category} subgroup with ${sortedMetrics.length} metrics`))
 
       // Always create subgroup for categories (even single metrics)
       const categoryGroup = {
@@ -93,5 +93,5 @@ export const updateNavigation = async (metrics: Metric[]): Promise<void> => {
 
   // Write updated docs.json
   await writeFile(docsPath, JSON.stringify(docs, null, 2), 'utf-8')
-  console.log(chalk.greenBright('\n✅ Updated docs.json navigation structure'))
+  console.log('\n  ✅ Updated docs.json navigation structure')
 }

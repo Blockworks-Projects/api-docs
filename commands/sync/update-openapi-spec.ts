@@ -1,6 +1,6 @@
-import chalk from 'chalk'
 import { readFile, writeFile } from 'node:fs/promises'
 import type { Metric } from '../sync.types'
+import { colors as c } from './const'
 import { toTitleCase } from './utils'
 
 /**
@@ -9,7 +9,7 @@ import { toTitleCase } from './utils'
 export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
   const openApiPath = './openapi.json'
 
-  console.log(chalk.magentaBright.bold('\n  1. Reading OpenAPI specification...'))
+  console.log(c.subHeader('\n  1. Reading OpenAPI specification...'))
 
   // Read existing OpenAPI spec
   const openApiContent = await readFile(openApiPath, 'utf-8')
@@ -25,8 +25,8 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
     metricGroups.get(metric.identifier)!.push(metric)
   })
 
-  console.log(chalk.yellowBright.bold(`\n     Found ${metricGroups.size} unique metrics across ${metrics.length} project-metric combinations`))
-  console.log(chalk.magentaBright.bold('\n  2. Analyzing existing endpoints...'))
+  console.log(`\n     Found ${c.number(metricGroups.size)} unique metrics across ${c.number(metrics.length)} project-metric combinations`)
+  console.log(c.subHeader('\n  2. Analyzing existing endpoints...'))
 
   const existingEndpoints = new Set<string>()
   const endpointsToUpdate = new Set<string>()
@@ -39,13 +39,13 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
     if (openApiSpec.paths[endpointPath]) {
       existingEndpoints.add(identifier)
       endpointsToUpdate.add(identifier)
-      console.log(chalk.grey(`    ✓ ${identifier} (exists - will update examples)`))
+      console.log(c.muted(`    ✓ ${identifier} (exists - will update examples)`))
     } else {
-      console.log(chalk.yellow(`    + ${identifier} (missing - will add)`))
+      console.log(c.yellow(`    + ${identifier} (missing - will add)`))
     }
   }
 
-  console.log(chalk.magentaBright.bold('\n  3. Adding missing endpoints...'))
+  console.log(c.subHeader('\n  3. Adding missing endpoints...'))
 
   // Add missing endpoints
   for (const [identifier, metricsForIdentifier] of metricGroups) {
@@ -56,7 +56,7 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
       const firstMetric = metricsForIdentifier[0]
       const supportedProjects = [...new Set(metricsForIdentifier.map(m => m.project))].sort()
 
-      console.log(chalk.greenBright(`    + Adding ${identifier} (${supportedProjects.join(', ')})`))
+      console.log(c.green(`    + Adding ${identifier} (${supportedProjects.join(', ')})`))
 
       // Create endpoint structure
       openApiSpec.paths[endpointPath] = {
@@ -136,7 +136,7 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
     }
   }
 
-  console.log(chalk.magentaBright.bold('\n  4. Updating response examples with standardized placeholders...'))
+  console.log(c.subHeader('\n  4. Updating response examples with standardized placeholders...'))
 
   // Update examples with consistent placeholder data
   for (const [identifier, metricsForIdentifier] of metricGroups) {
@@ -156,19 +156,19 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
       endpoint.get.responses['200'].content['application/json'].example = placeholderData
       updatedExamples++
 
-      console.log(chalk.grey(`     ✓ Updated ${identifier} with ${isFloat ? 'float' : 'integer'} placeholder`))
+      console.log(c.muted(`     ✓ Updated ${identifier} with ${isFloat ? 'float' : 'integer'} placeholder`))
     }
   }
 
-  console.log(chalk.magentaBright.bold('\n  5. Writing updated OpenAPI specification...'))
+  console.log(c.subHeader('\n  5. Writing updated OpenAPI specification...'))
 
   // Write updated OpenAPI spec
   await writeFile(openApiPath, JSON.stringify(openApiSpec, null, 2), 'utf-8')
 
   console.log(`\n  ✅ OpenAPI spec updated:`)
-  console.log(chalk.grey(`     ✓ Added endpoints: ${addedEndpoints}`))
-  console.log(chalk.grey(`     ✓ Updated examples: ${updatedExamples}`))
-  console.log(chalk.grey(`     ✓ Total endpoints: ${Object.keys(openApiSpec.paths).filter(p => p.startsWith('/v1/metrics/')).length}`))
+  console.log(c.muted(`     ✓ Added endpoints: ${addedEndpoints}`))
+  console.log(c.muted(`     ✓ Updated examples: ${updatedExamples}`))
+  console.log(c.muted(`     ✓ Total endpoints: ${Object.keys(openApiSpec.paths).filter(p => p.startsWith('/v1/metrics/')).length}`))
 }
 
 /**

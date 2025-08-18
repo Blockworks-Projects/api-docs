@@ -1,11 +1,10 @@
-import chalk from 'chalk'
 import { mkdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import type { Metric } from '../sync.types'
-import { OUTPUT_DIR } from './const'
+import { colors as c, OUTPUT_DIR } from './const'
 import { fetchMetricSampleData } from './fetch-metric-sample-data'
 import * as templates from './templates'
-import { escapeYamlString, getUnitFromDataType, toTitleCase } from './utils'
+import { escapeYamlString, getUnit } from './utils'
 
 /**
  * Generate a single metric page
@@ -15,7 +14,7 @@ export const generateMetricPage = async (metric: Metric, allMetrics?: Metric[]):
   const projectDir = join(OUTPUT_DIR, metric.project, categoryFolder)
   const filePath = join(projectDir, `${metric.identifier}.mdx`)
 
-  console.log(chalk.grey(`   + ${metric.project}/${categoryFolder}/${metric.identifier}.mdx`))
+  console.log(c.muted(`   + ${metric.project}/${categoryFolder}/${metric.identifier}.mdx`))
 
   // Ensure directory exists
   await mkdir(projectDir, { recursive: true })
@@ -25,15 +24,15 @@ export const generateMetricPage = async (metric: Metric, allMetrics?: Metric[]):
 
   // Format the response
   const exampleResponse = JSON.stringify(sampleData, null, 2)
+  const unit = getUnit(metric)
 
   // Generate content from template
-  const aggregation = toTitleCase(metric.aggregation.toLowerCase())
   let content = templates.METRIC_PAGE
     .replace('{metric_name}', escapeYamlString(metric.name))
     .replace('{metric_description}', escapeYamlString(metric.description))
     .replace('{metric_identifier}', metric.identifier)
-    .replace('{metric_unit}', getUnitFromDataType(metric.data_type))
-    .replace(/\{metric_aggregation\}/g, aggregation)
+    .replace('{metric_unit}', unit)
+    .replace(/\{metric_interval\}/g, unit === 'string' ? 'N/A' : metric.interval)
     .replace('{metric_source}', metric.source)
     .replace('{metric_interval}', metric.interval)
     .replace('{example_response}', exampleResponse)

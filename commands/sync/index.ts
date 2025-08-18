@@ -10,4 +10,5 @@ export * from './templates'
 export * from './update-navigation'
 export * from './update-openapi-spec'
 export * from './utils'
+export * from './catalog-existing-metrics'
 
