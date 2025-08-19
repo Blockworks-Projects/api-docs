@@ -10,12 +10,11 @@ import Request from '/snippets/request.mdx'
 
 Fetch a single asset by **ID** or **slug**. You can optionally expand related objects (e.g. supply) to avoid making multiple requests. Price and market cap are expanded by default.
 
-## Quick summary
+## Options
 
 | What | Details |
 | - | - |
 | Path | `/v1/assets/{idOrSlug}` |
-| Auth | `x-api-key` header |
 | Expandable fields | `markets`, `ohlcv_last_24_h`, `sector`, `supply` |
 
 ## Basic Example

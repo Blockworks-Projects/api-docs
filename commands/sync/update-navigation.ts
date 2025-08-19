@@ -4,9 +4,9 @@ import { colors as c } from './const'
 import { toTitleCase } from './utils'
 
 /**
- * Generate docs.json navigation structure for metrics
+ * Generate docs.json navigation structure for metrics and assets
  */
-export const updateNavigation = async (metrics: Metric[]): Promise<void> => {
+export const updateNavigation = async (metrics: Metric[], expandOptions?: string[]): Promise<void> => {
   const docsPath = './docs.json'
 
   // Read existing docs.json
@@ -49,7 +49,7 @@ export const updateNavigation = async (metrics: Metric[]): Promise<void> => {
 
   // Clear existing project pages (keep about and catalog)
   const staticPages = metricsGroup.pages.filter((page: any) =>
-    typeof page === 'string' && (page.includes('/about') || page.includes('/catalog'))
+    typeof page === 'string'
   )
 
   metricsGroup.pages = staticPages
@@ -89,6 +89,35 @@ export const updateNavigation = async (metrics: Metric[]): Promise<void> => {
     }
 
     metricsGroup.pages.push(projectGroup)
+  }
+
+  // Update Assets navigation if expand options are provided
+  if (expandOptions && expandOptions.length > 0) {
+    console.log(c.subHeader('\n  3. Updating Assets navigation...'))
+
+    // Find the Assets group
+    const assetsGroup = docs.navigation.tabs[0].groups
+      .find((g: any) => g.group === 'API Reference')
+      ?.pages?.find((p: any) => p.group === 'Assets')
+
+    if (assetsGroup) {
+      // Remove existing OHLCV page and any existing Expand Options groups
+      assetsGroup.pages = assetsGroup.pages.filter((page: any) => {
+        return page !== 'api-reference/assets/ohlcv' &&
+               !(typeof page === 'object' && page.group === 'Expand Options')
+      })
+
+      // Create the Expand Options dropdown
+      const expandOptionsGroup = {
+        group: 'Expand Options',
+        pages: expandOptions.map(option => `api-reference/assets/expand/${option.replace(/\./g, '-')}`)
+      }
+
+      // Add the dropdown to the Assets group
+      assetsGroup.pages.push(expandOptionsGroup)
+
+      console.log(c.muted(`      ✓ Added Expand Options dropdown with ${c.number(expandOptions.length)} options`))
+    }
   }
 
   // Write updated docs.json

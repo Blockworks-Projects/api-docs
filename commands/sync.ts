@@ -11,7 +11,8 @@ import {
   generateMetricsCatalog,
   OUTPUT_DIR,
   updateNavigation,
-  updateOpenApiSpec
+  updateOpenApiSpec,
+  updateAssetExpansionOptions
 } from './sync/index'
 import chalk from 'chalk'
 import { colors as c } from './sync/const'
@@ -56,11 +57,14 @@ async function main() {
     console.log(c.header('\n📖 Generating metrics catalog...'))
     await generateMetricsCatalog(metrics)
 
-    console.log(c.header('\n📋 Updating docs.json navigation...'))
-    await updateNavigation(metrics)
-
     console.log(c.header('\n🔧 Updating OpenAPI specification...'))
     await updateOpenApiSpec(metrics)
+
+    console.log(c.header('\n🎯 Updating asset expansion options...'))
+    const expandOptions = await updateAssetExpansionOptions()
+
+    console.log(c.header('\n📋 Updating docs.json navigation...'))
+    await updateNavigation(metrics, expandOptions)
 
     // Display added metrics if any
     if (added.length > 0) {

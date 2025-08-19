@@ -1,0 +1,94 @@
+---
+title: "Sector"
+description: "Retrieve sector data for an asset using the expand parameter"
+openapi: 'GET /v1/assets/{idOrSlug}'
+---
+
+## Overview
+
+Add the `?expand=sector` flag to your `/assets` or `/assets/{idOrSlug}` page to include **sector** data in the response.
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/assets/ethereum?expand=sector"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/assets/ethereum?expand=sector',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+console.log(data.sector)
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/assets/ethereum',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'expand': 'sector'}
+)
+data = r.json()
+print(data.get('sector'))
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "id": 2,
+  "code": "ETH",
+  "title": "Ethereum",
+  "slug": "ethereum",
+  "tag_line": "A decentralized computing platform",
+  "description": "Ethereum is a distributed blockchain computing platform for smart contracts and decentralized applications. Its native token is ether (ETH), which primarily serves as a means of payment for transaction fees and as collateral for borrowing specific ERC-20 tokens within the decentralized finance (DeFi) sector.",
+  "image_url": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
+  "category": "Infrastructure",
+  "updated_at": 1755635202,
+  "type": "Infrastructure",
+  "sector": {
+    "id": 40,
+    "title": "L1",
+    "created_at": 1698971397
+  },
+  "market_cap": {
+    "asset_id": 2,
+    "rank": 2,
+    "usd": 499612789507,
+    "dominance": 15.8501,
+    "percent_change_btc_1_h": 0.00124721,
+    "percent_change_btc_24_h": 3.09621,
+    "percent_change_usd_1_h": -0.577932,
+    "percent_change_usd_24_h": -4.96923,
+    "percent_change_eth_1_h": 0,
+    "percent_change_eth_24_h": 0,
+    "updated_at": 1755635202
+  }
+}
+```
+
+### Field Reference
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | number | Unique sector identifier |
+| `name` | string | Sector name (e.g., Smart Contract Platform) |
+
+## Notes
+
+- Can be used with other expansion options by joining with a comma (e.g. `?expand=markets,ohlcv_last_24_h`).
+- Can be used on `/v1/assets/` or `/v1/assets/{idOrSlug}` endpoints.
+- `price` and `market_cap` are included by default in asset results.
+
+## See also
+
+- [Get Single Asset](/api-reference/assets/get-single)
+- [All Assets](/api-reference/assets/list)
