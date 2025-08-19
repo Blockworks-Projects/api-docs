@@ -52,30 +52,17 @@ print(data.get('markets'))
   "description": "Ethereum is a distributed blockchain computing platform for smart contracts and decentralized applications. Its native token is ether (ETH), which primarily serves as a means of payment for transaction fees and as collateral for borrowing specific ERC-20 tokens within the decentralized finance (DeFi) sector.",
   "image_url": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
   "category": "Infrastructure",
-  "updated_at": 1755635202,
+  "updated_at": 1755639518,
   "type": "Infrastructure",
-  "market_cap": {
-    "asset_id": 2,
-    "rank": 2,
-    "usd": 499612789507,
-    "dominance": 15.8501,
-    "percent_change_btc_1_h": 0.00124721,
-    "percent_change_btc_24_h": 3.09621,
-    "percent_change_usd_1_h": -0.577932,
-    "percent_change_usd_24_h": -4.96923,
-    "percent_change_eth_1_h": 0,
-    "percent_change_eth_24_h": 0,
-    "updated_at": 1755635202
-  },
   "markets": [
     {
       "id": 2,
       "asset_id": 2,
-      "volume_24_h": 42422100000,
+      "volume_24_h": 42320900000,
       "ath": 4878.26,
-      "ath_change_percentage": -15.1895,
+      "ath_change_percentage": -14.8577,
       "ath_date": 1636554259,
-      "updated_at": 1755635202
+      "updated_at": 1755639518
     }
   ]
 }
@@ -85,15 +72,19 @@ print(data.get('markets'))
 
 | Field | Type | Description |
 |---|---|---|
-| `exchange` | string | Exchange identifier where the asset is traded |
-| `pair` | string | Trading pair symbol (e.g., ETH/USDT) |
-| `volume_24h` | number | Trading volume in the last 24 hours |
+| `id` | number | Unique market identifier |
+| `asset_id` | number | Unique identifier for the asset |
+| `volume_24_h` | number | Trading volume in the last 24 hours |
+| `ath` | number | All-time high price |
+| `ath_change_percentage` | number | Percentage change from all-time high |
+| `ath_date` | number | Unix timestamp when all-time high was reached |
+| `updated_at` | number | Unix timestamp when market data was last updated |
 
 ## Notes
 
 - Can be used with other expansion options by joining with a comma (e.g. `?expand=markets,ohlcv_last_24_h`).
 - Can be used on `/v1/assets/` or `/v1/assets/{idOrSlug}` endpoints.
-- `price` and `market_cap` are included by default in asset results.
+- `price` and `market_cap` are expanded by default in `/assets/{idOrSlug}` results unless an explicit `?expand=` flag is provided.
 
 ## See also
 

@@ -8,14 +8,7 @@ import Request from '/snippets/request.mdx'
 
 ## Overview
 
-Fetch a single asset by **ID** or **slug**. You can optionally expand related objects (e.g. supply) to avoid making multiple requests. Price and market cap are expanded by default.
-
-## Options
-
-| What | Details |
-| - | - |
-| Path | `/v1/assets/{idOrSlug}` |
-| Expandable fields | `markets`, `ohlcv_last_24_h`, `sector`, `supply` |
+Fetch a single asset by **ID** or **slug**. You can optionally expand related objects (e.g. supply) to avoid making multiple requests. Single asset payloads include `price` and `market_cap` expansions by default, unless an explicit `?expand=` flag is provided.
 
 ## Basic Example
 
@@ -46,6 +39,13 @@ data = r.json()
 ```
 
 </CodeGroup>
+
+## Supported Options
+
+| Name | Type | Details |
+| - | - | - |
+| `idOrSlug` | path | The ID or slug of the asset to fetch |
+| `expand` | query | The fields to expand. See **Expand Options** for more details. |
 
 ## Response example
 

@@ -52,7 +52,7 @@ print(data.get('{expansion_option}'))
 
 - Can be used with other expansion options by joining with a comma (e.g. \`?expand=markets,ohlcv_last_24_h\`).
 - Can be used on \`/v1/assets/\` or \`/v1/assets/{idOrSlug}\` endpoints.
-- \`price\` and \`market_cap\` are included by default in asset results.
+- \`price\` and \`market_cap\` are expanded by default in \`/assets/{idOrSlug}\` results unless an explicit \`?expand=\` flag is provided.
 
 ## See also
 
@@ -81,15 +81,29 @@ export const FIELD_DEFINITIONS: Record<string, Array<{ field: string; type: stri
     { field: 'is_favorite', type: 'boolean', description: 'Whether this asset is marked as favorite by the user' }
   ],
   'markets': [
-    { field: 'exchange', type: 'string', description: 'Exchange identifier where the asset is traded' },
-    { field: 'pair', type: 'string', description: 'Trading pair symbol (e.g., ETH/USDT)' },
-    { field: 'volume_24h', type: 'number', description: 'Trading volume in the last 24 hours' }
+    { field: 'id', type: 'number', description: 'Unique market identifier' },
+    { field: 'asset_id', type: 'number', description: 'Unique identifier for the asset' },
+    { field: 'volume_24_h', type: 'number', description: 'Trading volume in the last 24 hours' },
+    { field: 'ath', type: 'number', description: 'All-time high price' },
+    { field: 'ath_change_percentage', type: 'number', description: 'Percentage change from all-time high' },
+    { field: 'ath_date', type: 'number', description: 'Unix timestamp when all-time high was reached' },
+    { field: 'updated_at', type: 'number', description: 'Unix timestamp when market data was last updated' }
   ],
   'market_cap': [
+    { field: 'asset_id', type: 'number', description: 'Unique identifier for the asset' },
+    { field: 'rank', type: 'number', description: 'Market capitalization rank' },
     { field: 'usd', type: 'number', description: 'Market capitalization in US dollars' },
+    { field: 'dominance', type: 'number', description: 'Market dominance percentage' },
+    { field: 'percent_change_btc_1_h', type: 'number', description: '1-hour percentage change vs Bitcoin' },
+    { field: 'percent_change_btc_24_h', type: 'number', description: '24-hour percentage change vs Bitcoin' },
+    { field: 'percent_change_usd_1_h', type: 'number', description: '1-hour percentage change in USD' },
+    { field: 'percent_change_usd_24_h', type: 'number', description: '24-hour percentage change in USD' },
+    { field: 'percent_change_eth_1_h', type: 'number', description: '1-hour percentage change vs Ethereum' },
+    { field: 'percent_change_eth_24_h', type: 'number', description: '24-hour percentage change vs Ethereum' },
     { field: 'updated_at', type: 'number', description: 'Unix timestamp when the market cap was last updated' }
   ],
   'ohlcv_last_24_h': [
+    { field: 'asset_id', type: 'number', description: 'Unique identifier for the asset' },
     { field: 'open', type: 'number', description: 'Price at the start of the trailing 24h window' },
     { field: 'high', type: 'number', description: 'Highest price during the trailing 24h window' },
     { field: 'low', type: 'number', description: 'Lowest price during the trailing 24h window' },
@@ -111,11 +125,13 @@ export const FIELD_DEFINITIONS: Record<string, Array<{ field: string; type: stri
   ],
   'sector': [
     { field: 'id', type: 'number', description: 'Unique sector identifier' },
-    { field: 'name', type: 'string', description: 'Sector name (e.g., Smart Contract Platform)' }
+    { field: 'title', type: 'string', description: 'Sector title (e.g., L1, DeFi)' },
+    { field: 'created_at', type: 'number', description: 'Unix timestamp when sector was created' }
   ],
   'supply': [
+    { field: 'asset_id', type: 'number', description: 'Unique identifier for the asset' },
     { field: 'circulating', type: 'number', description: 'Number of tokens currently in circulation' },
-    { field: 'total', type: 'number', description: 'Total token supply including locked tokens' },
-    { field: 'updated_at', type: 'number', description: 'Unix timestamp when supply data was last updated' }
+    { field: 'liquid', type: 'number', description: 'Liquid supply amount' },
+    { field: 'total', type: 'number', description: 'Total token supply including locked tokens' }
   ]
 }

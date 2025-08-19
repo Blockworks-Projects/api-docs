@@ -52,21 +52,8 @@ print(data.get('supply'))
   "description": "Ethereum is a distributed blockchain computing platform for smart contracts and decentralized applications. Its native token is ether (ETH), which primarily serves as a means of payment for transaction fees and as collateral for borrowing specific ERC-20 tokens within the decentralized finance (DeFi) sector.",
   "image_url": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
   "category": "Infrastructure",
-  "updated_at": 1755635202,
+  "updated_at": 1755639518,
   "type": "Infrastructure",
-  "market_cap": {
-    "asset_id": 2,
-    "rank": 2,
-    "usd": 499612789507,
-    "dominance": 15.8501,
-    "percent_change_btc_1_h": 0.00124721,
-    "percent_change_btc_24_h": 3.09621,
-    "percent_change_usd_1_h": -0.577932,
-    "percent_change_usd_24_h": -4.96923,
-    "percent_change_eth_1_h": 0,
-    "percent_change_eth_24_h": 0,
-    "updated_at": 1755635202
-  },
   "supply": {
     "asset_id": 2,
     "circulating": 120707769.31517,
@@ -80,15 +67,16 @@ print(data.get('supply'))
 
 | Field | Type | Description |
 |---|---|---|
+| `asset_id` | number | Unique identifier for the asset |
 | `circulating` | number | Number of tokens currently in circulation |
+| `liquid` | number | Liquid supply amount |
 | `total` | number | Total token supply including locked tokens |
-| `updated_at` | number | Unix timestamp when supply data was last updated |
 
 ## Notes
 
 - Can be used with other expansion options by joining with a comma (e.g. `?expand=markets,ohlcv_last_24_h`).
 - Can be used on `/v1/assets/` or `/v1/assets/{idOrSlug}` endpoints.
-- `price` and `market_cap` are included by default in asset results.
+- `price` and `market_cap` are expanded by default in `/assets/{idOrSlug}` results unless an explicit `?expand=` flag is provided.
 
 ## See also
 
