@@ -4,7 +4,7 @@ import type { Metric } from '../sync.types'
 import { colors as c } from './const'
 
 /**
- * Clean up existing asset folders for projects found in metrics
+ * Clean up existing asset folders for projects found in metrics and expand options
  */
 export const cleanupExistingContent = async (metrics: Metric[], outputDir: string): Promise<void> => {
   // Get unique project names from metrics
@@ -23,5 +23,16 @@ export const cleanupExistingContent = async (metrics: Metric[], outputDir: strin
     } catch (error) {
       console.warn(`⚠️  Failed to remove ${project}/ directory:`, error)
     }
+  }
+
+  // Clean up expand options directory
+  const expandDir = './api-reference/assets/expand'
+  try {
+    if (await exists(expandDir)) {
+      await rm(expandDir, { recursive: true, force: true })
+      console.log(c.muted(`   - Removed assets/expand/`))
+    }
+  } catch (error) {
+    console.warn(`⚠️  Failed to remove assets/expand/ directory:`, error)
   }
 }

@@ -15,7 +15,7 @@ export const getUnit = (metric: Metric): string => {
  * Capitalize first letter of each word
  */
 export const toTitleCase = (str: string): string => {
-  return str.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+  return str.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
 }
 
 /**

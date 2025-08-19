@@ -10,33 +10,67 @@ openapi: 'GET /v1/metrics/fees-transaction-usd'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/fees-transaction-usd?project=solana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/fees-transaction-usd?project=solana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/fees-transaction-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'solana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "solana": [
     {
-      "date": "2025-08-13",
-      "value": 1907368.3330464077
-    },
-    {
       "date": "2025-08-14",
-      "value": 1948914.5364164151
+      "value": 1948914.54
     },
     {
       "date": "2025-08-15",
-      "value": 1537879.2244612547
+      "value": 1537879.22
     },
     {
       "date": "2025-08-16",
-      "value": 1220896.8483832018
+      "value": 1220896.85
+    },
+    {
+      "date": "2025-08-17",
+      "value": 1098573.7
+    },
+    {
+      "date": "2025-08-18",
+      "value": 1361032.45
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.
 
 

@@ -40,8 +40,9 @@ Executes the complete metric synchronization process:
 - **Filters** out metrics with incomplete descriptions
 - **Generates** individual metric documentation pages
 - **Creates** a comprehensive metrics catalog
+- **Updates** OpenAPI specification with standardized examples
+- **Generates** asset expansion option pages with live examples
 - **Updates** navigation structure in `docs.json`
-- **Synchronizes** OpenAPI specification with standardized examples
 - **Links** USD and native currency metric pairs
 - **Reports** any API errors or omitted metrics
 
@@ -55,9 +56,10 @@ flowchart TD
     D --> E[🧹 Clean Existing Content]
     E --> F[✏️ Generate Metric Pages]
     F --> G[📖 Generate Metrics Catalog]
-    G --> H[📋 Update Navigation Structure]
-    H --> I[🔧 Update OpenAPI Specification]
-    I --> J[📊 Display Summary & Changelog]
+    G --> H[🔧 Update OpenAPI Specification]
+    H --> I[🎯 Update Asset Expansion Options]
+    I --> J[📋 Update Navigation Structure]
+    J --> K[📊 Display Summary & Changelog]
     
     A --> A1[📁 Scan MDX files recursively]
     A --> A2[🔍 Extract project/identifier pairs]
@@ -69,10 +71,13 @@ flowchart TD
     F --> F3[📄 Fetch live sample data]
     G --> G1[🏷️ Group by category & identifier]
     G --> G2[🔗 Link chain names to pages]
-    H --> H1[📁 Organize by project/category]
-    H --> H2[🔤 Sort alphabetically]
-    I --> I1[➕ Add missing endpoints]
-    I --> I2[🔄 Update with placeholder examples]
+    H --> H1[➕ Add missing endpoints]
+    H --> H2[🔄 Update with placeholder examples]
+    I --> I1[📝 Extract expand enum from OpenAPI]
+    I --> I2[📄 Generate pages with live API examples]
+    J --> J1[📁 Organize by project/category]
+    J --> J2[🔤 Sort alphabetically]
+    J --> J3[📂 Add Assets Expand Options dropdown]
     
     style A fill:#e8f4f8
     style A1 fill:#e8f4f8
@@ -97,7 +102,11 @@ flowchart TD
     style I fill:#ffeedd
     style I1 fill:#ffeedd
     style I2 fill:#ffeedd
-    style J fill:#fce4ec
+    style J fill:#e8f5e8
+    style J1 fill:#e8f5e8
+    style J2 fill:#e8f5e8
+    style J3 fill:#e8f5e8
+    style K fill:#fce4ec
 ```
 
 <img width="621" height="553" alt="image" src="https://github.com/user-attachments/assets/0a7d9eae-23dd-41e5-946b-597cf844759b" />

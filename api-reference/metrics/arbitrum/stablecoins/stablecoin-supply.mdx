@@ -10,35 +10,65 @@ openapi: 'GET /v1/metrics/stablecoin-supply'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/stablecoin-supply?project=arbitrum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply?project=arbitrum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'arbitrum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "arbitrum": [
     {
-      "date": "2025-08-13",
-      "value": 10052570662.771805
-    },
-    {
       "date": "2025-08-14",
-      "value": 10032827053.61968
+      "value": 10032827053.62
     },
     {
       "date": "2025-08-15",
-      "value": 10786310055.442938
+      "value": 10786310055.44
     },
     {
       "date": "2025-08-16",
-      "value": 10788101089.446514
+      "value": 10788102740.97
     },
     {
       "date": "2025-08-17",
-      "value": 10809063297.926573
+      "value": 10811280159.56
+    },
+    {
+      "date": "2025-08-18",
+      "value": 10837934131.22
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.

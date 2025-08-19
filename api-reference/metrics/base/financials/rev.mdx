@@ -10,37 +10,67 @@ openapi: 'GET /v1/metrics/rev'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/rev?project=base"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/rev?project=base',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/rev',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'base'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "base": [
     {
-      "date": "2025-08-13",
-      "value": 69.2347791927539
-    },
-    {
       "date": "2025-08-14",
-      "value": 84.3911678510003
+      "value": 84.39116785100052
     },
     {
       "date": "2025-08-15",
-      "value": 44.769981750512216
+      "value": 44.7699817505122
     },
     {
       "date": "2025-08-16",
-      "value": 24.799827292295788
+      "value": 24.799827292295767
     },
     {
       "date": "2025-08-17",
-      "value": 0.15333264924573897
+      "value": 31.166758858189862
+    },
+    {
+      "date": "2025-08-18",
+      "value": 42.96560476303419
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.
 
 

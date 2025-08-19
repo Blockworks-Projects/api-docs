@@ -10,37 +10,67 @@ openapi: 'GET /v1/metrics/fees-priority-usd'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/fees-priority-usd?project=base"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/fees-priority-usd?project=base',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/fees-priority-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'base'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "base": [
     {
-      "date": "2025-08-13",
-      "value": "230019.4948713834"
-    },
-    {
       "date": "2025-08-14",
-      "value": "244872.5198905502"
+      "value": 244872.52
     },
     {
       "date": "2025-08-15",
-      "value": "155088.81660863524"
+      "value": 155088.82
     },
     {
       "date": "2025-08-16",
-      "value": "103728.95805708508"
+      "value": 103728.96
     },
     {
       "date": "2025-08-17",
-      "value": "651.4505715463971"
+      "value": 129836.22
+    },
+    {
+      "date": "2025-08-18",
+      "value": 158964.71
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.
 
 

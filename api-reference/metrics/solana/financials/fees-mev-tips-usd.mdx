@@ -10,33 +10,67 @@ openapi: 'GET /v1/metrics/fees-mev-tips-usd'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/fees-mev-tips-usd?project=solana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/fees-mev-tips-usd?project=solana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/fees-mev-tips-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'solana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "solana": [
     {
-      "date": "2025-08-13",
-      "value": 1867505.957693302
-    },
-    {
       "date": "2025-08-14",
-      "value": 1894020.7640501205
+      "value": 1894020.76
     },
     {
       "date": "2025-08-15",
-      "value": 1097887.9169520654
+      "value": 1097887.92
     },
     {
       "date": "2025-08-16",
-      "value": 830296.9235549639
+      "value": 830296.92
+    },
+    {
+      "date": "2025-08-17",
+      "value": 655567.72
+    },
+    {
+      "date": "2025-08-18",
+      "value": 946225.6
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.
 
 

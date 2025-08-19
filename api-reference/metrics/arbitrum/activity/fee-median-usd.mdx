@@ -10,37 +10,67 @@ openapi: 'GET /v1/metrics/fee-median-usd'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/fee-median-usd?project=arbitrum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/fee-median-usd?project=arbitrum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/fee-median-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'arbitrum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "arbitrum": [
     {
-      "date": "2025-08-13",
-      "value": 0.005660292032477802
-    },
-    {
       "date": "2025-08-14",
-      "value": 0.006576757261089335
+      "value": 0.01
     },
     {
       "date": "2025-08-15",
-      "value": 0.004433028212262278
+      "value": 0
     },
     {
       "date": "2025-08-16",
-      "value": 0.0023355000568100475
+      "value": 0
     },
     {
       "date": "2025-08-17",
-      "value": 0.0022217091844791478
+      "value": 0
+    },
+    {
+      "date": "2025-08-18",
+      "value": 0
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.
 
 

@@ -30,7 +30,8 @@ export const generateMetricPage = async (metric: Metric, allMetrics?: Metric[]):
   let content = templates.METRIC_PAGE
     .replace('{metric_name}', escapeYamlString(metric.name))
     .replace('{metric_description}', escapeYamlString(metric.description))
-    .replace('{metric_identifier}', metric.identifier)
+    .replace(/\{metric_identifier\}/g, metric.identifier)
+    .replace(/\{metric_project\}/g, metric.project)
     .replace('{metric_unit}', unit)
     .replace(/\{metric_interval\}/g, unit === 'string' ? 'N/A' : metric.interval)
     .replace('{metric_source}', metric.source)

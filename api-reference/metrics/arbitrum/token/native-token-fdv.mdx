@@ -10,75 +10,101 @@ openapi: 'GET /v1/metrics/native-token-fdv'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/native-token-fdv?project=arbitrum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/native-token-fdv?project=arbitrum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/native-token-fdv',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'arbitrum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "arbitrum": [
     {
-      "date": "2025-08-13",
-      "value": 5118599268.356481
-    },
-    {
-      "date": "2025-08-13",
-      "value": 5118599268.356481
-    },
-    {
-      "date": "2025-08-13",
-      "value": 4778429801.3228035
-    },
-    {
-      "date": "2025-08-13",
-      "value": 5118599268.356481
-    },
-    {
-      "date": "2025-08-13",
-      "value": 5118599268.356481
+      "date": "2025-08-14",
+      "value": 5344094939.75
     },
     {
       "date": "2025-08-14",
-      "value": 5344094939.746937
+      "value": 5344094939.75
     },
     {
       "date": "2025-08-14",
-      "value": 5551468707.796881
-    },
-    {
-      "date": "2025-08-14",
-      "value": 5344094939.74694
-    },
-    {
-      "date": "2025-08-14",
-      "value": 5344094939.746937
+      "value": 5344094939.75
     },
     {
       "date": "2025-08-15",
-      "value": 5241151638.073486
+      "value": 5046330560.47
     },
     {
       "date": "2025-08-15",
-      "value": 5046330560.467245
+      "value": 5046330560.47
     },
     {
       "date": "2025-08-15",
-      "value": 5046330560.467245
+      "value": 5046330560.47
     },
     {
       "date": "2025-08-16",
-      "value": 4830027649.049666
+      "value": 4856009329.93
     },
     {
       "date": "2025-08-16",
-      "value": 4856009329.92512
+      "value": 4856009329.93
+    },
+    {
+      "date": "2025-08-16",
+      "value": 4856009329.93
     },
     {
       "date": "2025-08-17",
-      "value": 4968714777.727853
+      "value": 5248495921.74
+    },
+    {
+      "date": "2025-08-17",
+      "value": 4968714777.73
+    },
+    {
+      "date": "2025-08-17",
+      "value": 5248495921.74
+    },
+    {
+      "date": "2025-08-18",
+      "value": 5192054260.85
+    },
+    {
+      "date": "2025-08-18",
+      "value": 5279203317.41
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.

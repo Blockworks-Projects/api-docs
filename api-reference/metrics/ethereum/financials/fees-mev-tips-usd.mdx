@@ -10,29 +10,59 @@ openapi: 'GET /v1/metrics/fees-mev-tips-usd'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/fees-mev-tips-usd?project=ethereum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/fees-mev-tips-usd?project=ethereum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/fees-mev-tips-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ethereum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "ethereum": [
     {
-      "date": "2025-08-13",
-      "value": 533496.6444096151
-    },
-    {
       "date": "2025-08-14",
-      "value": 1119493.914785533
+      "value": 1119493.91
     },
     {
       "date": "2025-08-15",
-      "value": 285479.5202970733
+      "value": 285479.52
     },
     {
       "date": "2025-08-16",
-      "value": 285479.5202970733
+      "value": 113191.14
     },
     {
       "date": "2025-08-17",
+      "value": 113191.14
+    },
+    {
+      "date": "2025-08-18",
       "value": null
     }
   ]
@@ -40,7 +70,7 @@ openapi: 'GET /v1/metrics/fees-mev-tips-usd'
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.
 
 

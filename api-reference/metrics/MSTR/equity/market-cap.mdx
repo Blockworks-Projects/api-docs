@@ -10,11 +10,45 @@ openapi: 'GET /v1/metrics/market-cap'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/market-cap?project=MSTR"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/market-cap?project=MSTR',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/market-cap',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'MSTR'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "mstr": [
+    {
+      "date": "2025-08-18",
+      "value": 102971288623.0302
+    },
     {
       "date": "2025-08-15",
       "value": 103576418967.2229
@@ -22,15 +56,11 @@ openapi: 'GET /v1/metrics/market-cap'
     {
       "date": "2025-08-14",
       "value": 105867186515.4465
-    },
-    {
-      "date": "2025-08-13",
-      "value": 110524912288.7526
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.

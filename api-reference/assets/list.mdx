@@ -44,6 +44,14 @@ print(data)
 
 </CodeGroup>
 
+## Supported Options
+
+| Name | Type | Details |
+| - | - | - |
+| `expand` | query | The fields to expand. See **Expand Options** for more details. |
+| `limit` | query | The number of assets to return. |
+| `page` | query | The page number to return. |
+
 ### Response Structure
 
 A successful response returns a paginated list of assets.  Each asset includes detailed `market_cap` and `price` information.
@@ -98,7 +106,6 @@ A successful response returns a paginated list of assets.  Each asset includes d
 
 - Results are **paginated** — use `limit` and `page` query parameters to navigate.
 - Asset identifiers returned here can be used as `project` or `asset` parameters in other API endpoints.
-- Use this endpoint first when integrating to ensure correct identifiers.
 
 ## Related Endpoints
 

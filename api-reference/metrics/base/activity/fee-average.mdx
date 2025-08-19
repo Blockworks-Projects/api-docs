@@ -10,37 +10,67 @@ openapi: 'GET /v1/metrics/fee-average'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/fee-average?project=base"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/fee-average?project=base',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/fee-average',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'base'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "base": [
     {
-      "date": "2025-08-13",
-      "value": 0.00000793154314654007
-    },
-    {
       "date": "2025-08-14",
-      "value": 0.000009184091207982707
+      "value": 0.000009184091207982761
     },
     {
       "date": "2025-08-15",
-      "value": 0.00000541149189131077
+      "value": 0.000005411491891310759
     },
     {
       "date": "2025-08-16",
-      "value": 0.0000030710822230323233
+      "value": 0.000003071082223032328
     },
     {
       "date": "2025-08-17",
-      "value": 0.000002512458982987336
+      "value": 0.0000037373411021281735
+    },
+    {
+      "date": "2025-08-18",
+      "value": 0.000004845162220127754
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.
 
 

@@ -10,35 +10,65 @@ openapi: 'GET /v1/metrics/dex-spot-volume'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/dex-spot-volume?project=base"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/dex-spot-volume?project=base',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/dex-spot-volume',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'base'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "base": [
     {
-      "date": "2025-08-13",
-      "value": 2017850004.4249356
-    },
-    {
       "date": "2025-08-14",
-      "value": 2447619945.611775
+      "value": 2447619945.61
     },
     {
       "date": "2025-08-15",
-      "value": 1940608173.5746934
+      "value": 1940608173.57
     },
     {
       "date": "2025-08-16",
-      "value": 1183813030.4222121
+      "value": 1193726251.02
     },
     {
       "date": "2025-08-17",
-      "value": 32384755.63140758
+      "value": 1380910426.52
+    },
+    {
+      "date": "2025-08-18",
+      "value": 83020062.29
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.

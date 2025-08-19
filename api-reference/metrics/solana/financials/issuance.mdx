@@ -10,15 +10,41 @@ openapi: 'GET /v1/metrics/issuance'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/issuance?project=solana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/issuance?project=solana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/issuance',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'solana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "solana": [
-    {
-      "date": "2025-08-13",
-      "value": 73912.64745488834
-    },
     {
       "date": "2025-08-14",
       "value": 73912.64745488834
@@ -29,14 +55,22 @@ openapi: 'GET /v1/metrics/issuance'
     },
     {
       "date": "2025-08-16",
-      "value": 73714.24788582893
+      "value": 73815.96066658659
+    },
+    {
+      "date": "2025-08-17",
+      "value": 73815.96066658659
+    },
+    {
+      "date": "2025-08-18",
+      "value": 73815.96066658659
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.
 
 

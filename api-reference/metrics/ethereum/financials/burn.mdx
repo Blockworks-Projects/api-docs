@@ -10,37 +10,67 @@ openapi: 'GET /v1/metrics/burn'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/burn?project=ethereum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/burn?project=ethereum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/burn',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ethereum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "ethereum": [
     {
-      "date": "2025-08-13",
-      "value": 278.23020233520674
-    },
-    {
       "date": "2025-08-14",
-      "value": 282.041808549432
+      "value": 282.04180854943246
     },
     {
       "date": "2025-08-15",
-      "value": 116.91056444559102
+      "value": 116.91056444559106
     },
     {
       "date": "2025-08-16",
-      "value": 38.80942818057962
+      "value": 38.80942818057959
     },
     {
       "date": "2025-08-17",
-      "value": 2.3527712198913986
+      "value": 33.14592242991038
+    },
+    {
+      "date": "2025-08-18",
+      "value": 2.4145618120361023
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.
 
 

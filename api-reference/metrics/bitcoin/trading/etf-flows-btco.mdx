@@ -1,0 +1,66 @@
+---
+title: "BTCO ETF Flows"
+description: "ETF flows for Invesco Galaxy Bitcoin ETF (BTCO)"
+openapi: 'GET /v1/metrics/etf-flows-btco'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Farside UK
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/etf-flows-btco?project=bitcoin"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/etf-flows-btco?project=bitcoin',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/etf-flows-btco',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'bitcoin'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "bitcoin": [
+    {
+      "date": "2025-08-18",
+      "value": 0
+    },
+    {
+      "date": "2025-08-15",
+      "value": 0
+    },
+    {
+      "date": "2025-08-14",
+      "value": 0
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

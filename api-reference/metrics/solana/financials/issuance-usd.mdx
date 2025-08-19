@@ -10,33 +10,67 @@ openapi: 'GET /v1/metrics/issuance-usd'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/issuance-usd?project=solana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/issuance-usd?project=solana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/issuance-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'solana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "solana": [
     {
-      "date": "2025-08-13",
-      "value": 14671280.690912561
-    },
-    {
       "date": "2025-08-14",
-      "value": 14736157.00393393
+      "value": 14736157
     },
     {
       "date": "2025-08-15",
-      "value": 14135822.056272443
+      "value": 14135822.06
     },
     {
       "date": "2025-08-16",
-      "value": 13855532.234897537
+      "value": 13874650.45
+    },
+    {
+      "date": "2025-08-17",
+      "value": 14188952.66
+    },
+    {
+      "date": "2025-08-18",
+      "value": 13540212.89
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.
 
 

@@ -10,35 +10,61 @@ openapi: 'GET /v1/metrics/native-token-fdv'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/native-token-fdv?project=solana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/native-token-fdv?project=solana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/native-token-fdv',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'solana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "solana": [
     {
-      "date": "2025-08-13",
-      "value": "116976283516.17870812182521515863088"
-    },
-    {
       "date": "2025-08-14",
-      "value": "122591368088.0527793117277237283125"
+      "value": 122591368088.05
     },
     {
       "date": "2025-08-15",
-      "value": "117096978165.99293901921140340739152"
+      "value": 117102651297.26
     },
     {
       "date": "2025-08-16",
-      "value": "112754582164.0538722515221960309046"
+      "value": 112764689040.26
     },
     {
       "date": "2025-08-17",
-      "value": "115295979425.62610091655392140529567"
+      "value": 115305964817.95
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.

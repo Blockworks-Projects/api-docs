@@ -10,35 +10,65 @@ openapi: 'GET /v1/metrics/stablecoin-supply'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/stablecoin-supply?project=solana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply?project=solana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'solana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "solana": [
     {
-      "date": "2025-08-13",
-      "value": 13179462242.839947
-    },
-    {
       "date": "2025-08-14",
-      "value": 12815332695.847769
+      "value": 12815332695.85
     },
     {
       "date": "2025-08-15",
-      "value": 12396640282.681871
+      "value": 12396640282.68
     },
     {
       "date": "2025-08-16",
-      "value": 12331857163.142431
+      "value": 12330303700.31
     },
     {
       "date": "2025-08-17",
-      "value": 12328441051.36099
+      "value": 12294996941.27
+    },
+    {
+      "date": "2025-08-18",
+      "value": 12495157303.1
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.

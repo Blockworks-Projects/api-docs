@@ -10,33 +10,67 @@ openapi: 'GET /v1/metrics/fees-priority-usd'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/fees-priority-usd?project=arbitrum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/fees-priority-usd?project=arbitrum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/fees-priority-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'arbitrum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "arbitrum": [
     {
-      "date": "2025-08-13",
-      "value": 44476.08283119277
-    },
-    {
       "date": "2025-08-14",
-      "value": 179928.48947518953
+      "value": 179928.49
     },
     {
       "date": "2025-08-15",
-      "value": 28842.82819778419
+      "value": 28842.83
     },
     {
       "date": "2025-08-16",
-      "value": 1493.9535467609494
+      "value": 1493.95
+    },
+    {
+      "date": "2025-08-17",
+      "value": 7426.02
+    },
+    {
+      "date": "2025-08-18",
+      "value": 3232.28
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.
 
 

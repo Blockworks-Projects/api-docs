@@ -145,18 +145,29 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
 
     if (endpoint?.get?.responses?.['200']?.content?.['application/json']) {
 
-      // Determine if this is a float or integer metric based on data_type
+      // Determine the data type and generate appropriate placeholder
       const firstMetric = metricsForIdentifier[0]
-      const isFloat = firstMetric?.data_type.includes('float') || firstMetric?.data_type.includes('usd')
-
-      // Generate standardized placeholder data
-      const placeholderData = generatePlaceholderExample(isFloat ?? false)
+      const dataType = firstMetric?.data_type || ''
+      
+      let placeholderData
+      if (dataType === 'string') {
+        // Asset type response for treasury-crypto-asset and similar metrics
+        placeholderData = generateAssetTypeExample()
+      } else {
+        // Regular timeseries data
+        const isFloat = dataType.includes('float') || dataType.includes('usd')
+        placeholderData = generatePlaceholderExample(isFloat)
+      }
 
       // Update the example with placeholder data
       endpoint.get.responses['200'].content['application/json'].example = placeholderData
       updatedExamples++
 
-      console.log(c.muted(`     ✓ Updated ${identifier} with ${isFloat ? 'float' : 'integer'} placeholder`))
+      const exampleType = dataType === 'string' 
+        ? 'AssetType' 
+        : (dataType.includes('float') || dataType.includes('usd') ? 'float' : 'integer')
+      
+      console.log(c.muted(`     ✓ Updated ${identifier} with ${exampleType} placeholder`))
     }
   }
 
@@ -194,6 +205,17 @@ function generatePlaceholderExample(isFloat: boolean): Record<string, any[]> {
         "value": values[2]
       }
     ]
+  }
+}
+
+/**
+ * Generate AssetType example for string-based metrics
+ */
+function generateAssetTypeExample(): Record<string, any> {
+  return {
+    "projectName": {
+      "value": "BTC"
+    }
   }
 }
 

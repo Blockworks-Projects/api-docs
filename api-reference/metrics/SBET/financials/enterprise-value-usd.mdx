@@ -10,27 +10,57 @@ openapi: 'GET /v1/metrics/enterprise-value-usd'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/enterprise-value-usd?project=SBET"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/enterprise-value-usd?project=SBET',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/enterprise-value-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'SBET'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "sbet": [
     {
+      "date": "2025-08-18",
+      "value": 3417797569.4948
+    },
+    {
       "date": "2025-08-15",
-      "value": 2873548265.7588
+      "value": 3485327372.4224
     },
     {
       "date": "2025-08-14",
-      "value": 3167125275.9776
-    },
-    {
-      "date": "2025-08-13",
-      "value": 3249476162.5031996
+      "value": 3841230879.9248004
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.

@@ -10,15 +10,41 @@ openapi: 'GET /v1/metrics/transaction-total'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-total?project=arbitrum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-total?project=arbitrum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-total',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'arbitrum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "arbitrum": [
-    {
-      "date": "2025-08-13",
-      "value": 3305807
-    },
     {
       "date": "2025-08-14",
       "value": 3152355
@@ -33,12 +59,16 @@ openapi: 'GET /v1/metrics/transaction-total'
     },
     {
       "date": "2025-08-17",
-      "value": 582775
+      "value": 2618529
+    },
+    {
+      "date": "2025-08-18",
+      "value": 3238046
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.

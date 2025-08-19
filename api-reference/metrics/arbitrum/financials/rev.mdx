@@ -10,33 +10,67 @@ openapi: 'GET /v1/metrics/rev'
 - **Interval:** daily
 - **Source:** Blockworks
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/rev?project=arbitrum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/rev?project=arbitrum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/rev',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'arbitrum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
 {
   "arbitrum": [
     {
-      "date": "2025-08-13",
-      "value": 20.38979931963575
-    },
-    {
       "date": "2025-08-14",
-      "value": 53.016364365469684
+      "value": 53.01636436546949
     },
     {
       "date": "2025-08-15",
-      "value": 17.023960979214053
+      "value": 17.02396097921405
     },
     {
       "date": "2025-08-16",
-      "value": 6.690538098554483
+      "value": 6.690538098554487
+    },
+    {
+      "date": "2025-08-17",
+      "value": 8.650078793282496
+    },
+    {
+      "date": "2025-08-18",
+      "value": 1.8706934928779977
     }
   ]
 }
 ```
 
 ## Notes
-- daily aggregates unless otherwise noted.
+- Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.
 
 
