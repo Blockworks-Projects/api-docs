@@ -160,6 +160,17 @@
                 ]
               },
               {
+                "group": "Bitcoin",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/bitcoin/trading/etf-flows-ibit"
+                    ]
+                  }
+                ]
+              },
+              {
                 "group": "BMNR",
                 "pages": [
                   {

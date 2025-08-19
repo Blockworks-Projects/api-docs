@@ -1,12 +1,12 @@
 ---
-title: "Enterprise Value USD"
-description: "Actual enterprise value for the equity. Calculated as market cap - liabilities + assets"
-openapi: 'GET /v1/metrics/enterprise-value-usd'
+title: "ETF Flows"
+description: "ETF Flows"
+openapi: 'GET /v1/metrics/etf-flows-ibit'
 ---
 
 ## Overview
 
-- **Unit:** USD
+- **Unit:** native units
 - **Interval:** daily
 - **Source:** Blockworks
 
@@ -14,18 +14,18 @@ openapi: 'GET /v1/metrics/enterprise-value-usd'
 
 ```json
 {
-  "bmnr": [
+  "bitcoin": [
     {
       "date": "2025-08-18",
-      "value": 9558970607.505
+      "value": -68.7
     },
     {
       "date": "2025-08-15",
-      "value": 9835576794.89
+      "value": 114.4
     },
     {
       "date": "2025-08-14",
-      "value": 10499653720.710001
+      "value": 523.7
     }
   ]
 }
