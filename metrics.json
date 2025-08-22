@@ -184,6 +184,52 @@
     "category": "Activity"
   },
   {
+    "name": "ETH ETF Flows",
+    "description": "ETF flows for Grayscale Ethereum Mini Trust ETF (ETH)",
+    "identifier": "etf-flows-eth",
+    "project": "ethereum",
+    "source": "Farside UK",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Trading"
+  },
+  {
+    "name": "Transaction Fees USD",
+    "description": "Total transaction fees paid converted to USD, does not include out-of-protocol tips or additional sources of revenue",
+    "identifier": "fees-transaction-usd",
+    "project": "ethereum",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials"
+  },
+  {
     "name": "Transaction Success",
     "description": "Daily number of successful transactions, excluding failed transactions.",
     "identifier": "transaction-success",
@@ -1564,6 +1610,29 @@
     "category": "Financials"
   },
   {
+    "name": "Market Cap",
+    "description": "\"Market capitalization of the equity",
+    "identifier": "market-cap",
+    "project": "BMNR",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Equity"
+  },
+  {
     "name": "Stablecoin Circulating Supply",
     "description": "Supply tracked via transfers to/from the null address, as well as distinct issuance and redemption events for supported stablecoins. Circulating supply remove supply held in bridges, token treasuries, and known mint/burn addresses.",
     "identifier": "stablecoin-circulating-supply",
@@ -1886,29 +1955,6 @@
     "category": "Activity"
   },
   {
-    "name": "Market Cap",
-    "description": "\"Market capitalization of the equity",
-    "identifier": "market-cap",
-    "project": "BMNR",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Equity"
-  },
-  {
     "name": "FBTC ETF Flows",
     "description": "ETF flows for Fidelity Wise Origin Bitcoin Fund (FBTC)",
     "identifier": "etf-flows-fbtc",
@@ -1930,6 +1976,29 @@
     "interval": "daily",
     "aggregation": "SUM",
     "category": "Trading"
+  },
+  {
+    "name": "Volume USD",
+    "description": "USD volume over the period",
+    "identifier": "treasury-volume-usd",
+    "project": "BMNR",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials"
   },
   {
     "name": "Issuance",
@@ -2160,29 +2229,6 @@
     "interval": "daily",
     "aggregation": "SUM",
     "category": "Activity"
-  },
-  {
-    "name": "Volume USD",
-    "description": "USD volume over the period",
-    "identifier": "treasury-volume-usd",
-    "project": "BMNR",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials"
   },
   {
     "name": "EZBC ETF Flows",

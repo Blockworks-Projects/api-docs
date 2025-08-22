@@ -1,12 +1,12 @@
 ---
-title: "Transaction Fees"
-description: "Total transaction fees paid, does not include blob fees, out-of-protocol tips, or additional sources of revenue"
-openapi: 'GET /v1/metrics/fees-transaction'
+title: "Stablecoin Supply"
+description: "Supply tracked via transfers to/from the null address, as well as distinct issuance and redemption events for supported stablecoins. Circulating supply remove supply held in bridges, token treasuries, and known mint/burn addresses."
+openapi: 'GET /v1/metrics/stablecoin-supply'
 ---
 
 ## Overview
 
-- **Unit:** native units
+- **Unit:** USD
 - **Interval:** daily
 - **Source:** Blockworks
 
@@ -16,12 +16,12 @@ openapi: 'GET /v1/metrics/fees-transaction'
 
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworks.com/v1/metrics/fees-transaction?project=base"
+  "https://api.blockworks.com/v1/metrics/stablecoin-supply?project=ethereum"
 ```
 
 ```typescript TypeScript
 const res = await fetch(
-  'https://api.blockworks.com/v1/metrics/fees-transaction?project=base',
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply?project=ethereum',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
@@ -31,9 +31,9 @@ const data = await res.json()
 import requests
 
 r = requests.get(
-  'https://api.blockworks.com/v1/metrics/fees-transaction',
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply',
   headers={'x-api-key': 'YOUR_API_KEY'},
-  params={'project': 'base'}
+  params={'project': 'ethereum'}
 )
 data = r.json()
 ```
@@ -44,26 +44,26 @@ data = r.json()
 
 ```json
 {
-  "base": [
+  "ethereum": [
     {
       "date": "2025-08-17",
-      "value": 31.16675885818995
+      "value": 167383119777.66
     },
     {
       "date": "2025-08-18",
-      "value": 42.96560476303419
+      "value": 167582703040.48
     },
     {
       "date": "2025-08-19",
-      "value": 50.38817407822258
+      "value": 167385691273.01
     },
     {
       "date": "2025-08-20",
-      "value": 60.83220914024544
+      "value": 167890271993.46
     },
     {
       "date": "2025-08-21",
-      "value": 0.3278872924395782
+      "value": 167923552694.33
     }
   ]
 }
@@ -72,6 +72,3 @@ data = r.json()
 ## Notes
 - Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.
-
-
-<Note>For fiat values, see **[Transaction Fees USD](./fees-transaction-usd)**.</Note>
