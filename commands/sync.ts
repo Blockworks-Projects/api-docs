@@ -141,6 +141,18 @@ async function main() {
 
     console.log(`\n✅ Sync complete in`, chalk.hex('#0099FF')(`${((performance.now() - start) / 1000).toFixed(2)}s`))
 
+    // Exit with appropriate code for CI/CD detection
+    if (updateOnlyMode && !shouldContinue) {
+      // No changes detected in update-only mode
+      process.exit(0)
+    } else if (shouldContinue && (added.length > 0 || removed.length > 0)) {
+      // Changes were detected and processed
+      process.exit(2)
+    } else {
+      // Normal completion
+      process.exit(0)
+    }
+
   } catch (error) {
     console.error('❌ Sync failed:', error)
     process.exit(1)

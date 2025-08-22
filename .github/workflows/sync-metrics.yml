@@ -1,0 +1,87 @@
+name: Sync Metrics Documentation
+
+on:
+  schedule:
+    # Run every Tuesday and Thursday at 9:00 AM UTC
+    - cron: '0 9 * * 2,4'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  sync-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2.0.1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Run metrics sync
+        id: sync
+        env:
+          API_KEY: ${{ secrets.BLOCKWORKS_API_KEY }}
+        run: |
+          echo "Running metrics sync with update-only flag..."
+          if bun sync --update-only; then
+            sync_exit_code=$?
+            echo "sync_exit_code=$sync_exit_code" >> $GITHUB_OUTPUT
+            
+            if [ $sync_exit_code -eq 2 ]; then
+              echo "changes_detected=true" >> $GITHUB_OUTPUT
+              echo "Changes detected, will create PR"
+            else
+              echo "changes_detected=false" >> $GITHUB_OUTPUT
+              echo "No changes detected, skipping PR creation"
+            fi
+          else
+            echo "Sync failed with exit code $?"
+            exit 1
+          fi
+
+      - name: Create Pull Request
+        if: steps.sync.outputs.changes_detected == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: |
+            Update metrics documentation
+            
+            🤖 Generated with [Claude Code](https://claude.ai/code)
+            
+            Co-Authored-By: Claude <noreply@anthropic.com>
+          title: 'docs: Update metrics documentation'
+          body: |
+            ## Summary
+            
+            This PR updates the metrics documentation with the latest changes from the Blockworks API.
+            
+            ### Changes Made
+            - 📄 Updated metric pages with latest API responses
+            - 📖 Regenerated metrics catalog
+            - 🔧 Updated OpenAPI specification
+            - 📋 Updated navigation structure
+            
+            ### Test Plan
+            - [x] Metrics sync completed successfully
+            - [x] All documentation files generated
+            - [x] OpenAPI spec validation passed
+            
+            ---
+            
+            🤖 Generated with [Claude Code](https://claude.ai/code)
+          branch: metrics-sync-${{ github.run_number }}
+          delete-branch: true
+          labels: |
+            documentation
+            automated
