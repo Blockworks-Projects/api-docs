@@ -63,7 +63,7 @@ flowchart TD
     
     A --> A1[📁 Scan MDX files recursively]
     A --> A2[🔍 Extract project/identifier pairs]
-    C --> C1[🚫 Omit "There is/are no..." patterns]
+    C --> C1[🚫 Omit There is/are no... patterns]
     D --> D1[➕ Identify added metrics]
     D --> D2[➖ Identify removed metrics]
     F --> F1[📝 Create MDX files with frontmatter]
