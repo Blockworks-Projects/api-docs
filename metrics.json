@@ -184,6 +184,52 @@
     "category": "Activity"
   },
   {
+    "name": "ETH ETF Flows",
+    "description": "ETF flows for Grayscale Ethereum Mini Trust ETF (ETH)",
+    "identifier": "etf-flows-eth",
+    "project": "ethereum",
+    "source": "Farside UK",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Trading"
+  },
+  {
+    "name": "Transaction Fees USD",
+    "description": "Total transaction fees paid converted to USD, does not include out-of-protocol tips or additional sources of revenue",
+    "identifier": "fees-transaction-usd",
+    "project": "ethereum",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials"
+  },
+  {
     "name": "Transaction Success",
     "description": "Daily number of successful transactions, excluding failed transactions.",
     "identifier": "transaction-success",
