@@ -1,0 +1,145 @@
+name: Sync Metrics Documentation
+
+on:
+  schedule:
+    # Run every Tuesday and Thursday at 9:00 AM UTC
+    - cron: '0 9 * * 2,4'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  sync-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2.0.1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Run metrics sync
+        id: sync
+        env:
+          API_KEY: ${{ secrets.BLOCKWORKS_API_KEY }}
+        run: |
+          echo "Running metrics sync with update-only flag..."
+
+          # Capture sync output to both console and file
+          if bun sync --update-only 2>&1 | tee sync_output.txt; then
+            sync_exit_code=$?
+            echo "sync_exit_code=$sync_exit_code" >> $GITHUB_OUTPUT
+
+            if [ $sync_exit_code -eq 2 ]; then
+              echo "changes_detected=true" >> $GITHUB_OUTPUT
+              echo "Changes detected, will create PR"
+            else
+              echo "changes_detected=false" >> $GITHUB_OUTPUT
+              echo "No changes detected, skipping PR creation"
+            fi
+          else
+            echo "Sync failed with exit code $?"
+            exit 1
+          fi
+
+      - name: Parse sync output for PR body
+        if: steps.sync.outputs.changes_detected == 'true'
+        id: parse_output
+        run: |
+          # Extract sections from sync output
+          output_file="sync_output.txt"
+
+          # Extract added metrics
+          added_section=""
+          if grep -q "Metrics Added:" "$output_file"; then
+            added_section=$(sed -n '/+ [0-9]* Metrics Added:/,/^$/p' "$output_file" | head -20)
+          fi
+
+          # Extract removed metrics
+          removed_section=""
+          if grep -q "Metrics Removed:" "$output_file"; then
+            removed_section=$(sed -n '/- [0-9]* Metrics Removed:/,/^$/p' "$output_file" | head -20)
+          fi
+
+          # Extract API errors
+          errors_section=""
+          if grep -q "API Errors:" "$output_file"; then
+            errors_section=$(sed -n '/⚠️ [0-9]* API Errors:/,/^📊/p' "$output_file" | head -20)
+          fi
+
+          # Extract sync summary
+          summary_section=""
+          if grep -q "📊 Sync Summary:" "$output_file"; then
+            summary_section=$(sed -n '/📊 Sync Summary:/,/✅ Sync complete/p' "$output_file")
+          fi
+
+          # Create PR body with captured output
+          cat > pr_body.md << 'EOF'
+          ## Summary
+
+          This PR updates the metrics documentation with the latest changes from the Blockworks API.
+
+          EOF
+
+          if [ -n "$added_section" ]; then
+            echo "### ➕ Metrics Added" >> pr_body.md
+            echo '```' >> pr_body.md
+            echo "$added_section" >> pr_body.md
+            echo '```' >> pr_body.md
+            echo "" >> pr_body.md
+          fi
+
+          if [ -n "$removed_section" ]; then
+            echo "### ➖ Metrics Removed" >> pr_body.md
+            echo '```' >> pr_body.md
+            echo "$removed_section" >> pr_body.md
+            echo '```' >> pr_body.md
+            echo "" >> pr_body.md
+          fi
+
+          if [ -n "$errors_section" ]; then
+            echo "### ⚠️ API Errors" >> pr_body.md
+            echo '```' >> pr_body.md
+            echo "$errors_section" >> pr_body.md
+            echo '```' >> pr_body.md
+            echo "" >> pr_body.md
+          fi
+
+          if [ -n "$summary_section" ]; then
+            echo "### 📊 Sync Summary" >> pr_body.md
+            echo '```' >> pr_body.md
+            echo "$summary_section" >> pr_body.md
+            echo '```' >> pr_body.md
+            echo "" >> pr_body.md
+          fi
+
+          # End of PR body creation
+
+          # Output the PR body for use in next step
+          echo "pr_body<<EOF" >> $GITHUB_OUTPUT
+          cat pr_body.md >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request
+        if: steps.sync.outputs.changes_detected == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: |
+            Update metrics documentation
+          title: 'Autosync: Update metrics documentation'
+          body: ${{ steps.parse_output.outputs.pr_body }}
+          branch: metrics-sync-${{ github.run_number }}
+          delete-branch: true
+          labels: |
+            documentation
+            automated

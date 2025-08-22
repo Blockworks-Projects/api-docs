@@ -27,6 +27,10 @@ const red = chalk.red
 async function main() {
   try {
     const start = performance.now()
+    
+    // Parse CLI arguments
+    const args = process.argv.slice(2)
+    const updateOnlyMode = args.includes('--update-only')
 
     // Catalog existing metrics before any changes
     console.log(c.header('\n📂 Cataloging existing metrics...'))
@@ -34,37 +38,42 @@ async function main() {
 
     // Fetch all metrics first
     console.log(c.header('\n🔎 Fetching metrics from API...'))
-    const allMetrics = await fetchAllMetrics()
+    const { metrics: allMetrics, shouldContinue } = await fetchAllMetrics(updateOnlyMode)
 
     // Filter out metrics with bad descriptions
     const { validMetrics: metrics, omittedMetrics } = filterMetrics(allMetrics)
 
     // Compare metrics to determine changes
     const { added, removed } = compareMetrics(existingMetrics, metrics)
+    
+    let expandOptions: string[] = []
 
-    // Clean up existing content for projects found in metrics
-    console.log(c.header(`\n🧹 Wiping existing metrics pages...`))
-    await cleanupExistingContent(metrics, OUTPUT_DIR)
+    // Only continue with sync process if changes were detected (or not in update-only mode)
+    if (shouldContinue) {
+      // Clean up existing content for projects found in metrics
+      console.log(c.header(`\n🧹 Wiping existing metrics pages...`))
+      await cleanupExistingContent(metrics, OUTPUT_DIR)
 
-    // Create output directory
-    await mkdir(OUTPUT_DIR, { recursive: true })
+      // Create output directory
+      await mkdir(OUTPUT_DIR, { recursive: true })
 
-    console.log(c.header('\n✏️ Generating metric pages...'))
+      console.log(c.header('\n✏️ Generating metric pages...'))
 
-    // Generate individual metric pages in parallel
-    await Promise.all(metrics.map(metric => generateMetricPage(metric, metrics)))
+      // Generate individual metric pages in parallel
+      await Promise.all(metrics.map(metric => generateMetricPage(metric, metrics)))
 
-    console.log(c.header('\n📖 Generating metrics catalog...'))
-    await generateMetricsCatalog(metrics)
+      console.log(c.header('\n📖 Generating metrics catalog...'))
+      await generateMetricsCatalog(metrics)
 
-    console.log(c.header('\n🔧 Updating OpenAPI specification...'))
-    await updateOpenApiSpec(metrics)
+      console.log(c.header('\n🔧 Updating OpenAPI specification...'))
+      await updateOpenApiSpec(metrics)
 
-    console.log(c.header('\n🎯 Updating asset expansion options...'))
-    const expandOptions = await updateAssetExpansionOptions()
+      console.log(c.header('\n🎯 Updating asset expansion options...'))
+      expandOptions = await updateAssetExpansionOptions()
 
-    console.log(c.header('\n📋 Updating docs.json navigation...'))
-    await updateNavigation(metrics, expandOptions)
+      console.log(c.header('\n📋 Updating docs.json navigation...'))
+      await updateNavigation(metrics, expandOptions)
+    }
 
     // Display added metrics if any
     if (added.length > 0) {
@@ -111,20 +120,38 @@ async function main() {
     }
     console.log(c.header(`  📂 Projects:`), c.darkGreen(new Set(metrics.map(m => m.project)).size))
     console.log(c.header(`  🏷️ Categories:`), c.darkGreen(new Set(metrics.map(m => m.category)).size))
-    console.log(c.header(`  ✅ Catalog generated`))
-    console.log(c.header(`  ✅ Navigation updated`))
-    console.log(c.header(`  ✅ OpenAPI spec updated`))
-    if (added.length > 0) {
-      console.log(c.header(`  ➕ Added Metrics:`), c.darkGreen(added.length))
+    
+    if (shouldContinue) {
+      console.log(c.header(`  ✅ Catalog generated`))
+      console.log(c.header(`  ✅ Navigation updated`))
+      console.log(c.header(`  ✅ OpenAPI spec updated`))
+      if (added.length > 0) {
+        console.log(c.header(`  ➕ Added Metrics:`), c.darkGreen(added.length))
+      }
+      if (removed.length > 0) {
+        console.log(c.header(`  ➖ Removed Metrics:`), c.darkGreen(removed.length))
+      }
+    } else {
+      console.log(c.muted(`  ⚡ Sync skipped (no changes)`))
     }
-    if (removed.length > 0) {
-      console.log(c.header(`  ➖ Removed Metrics:`), c.darkGreen(removed.length))
-    }
+    
     if (apiErrors.length > 0) {
       console.log(red.bold(`  ⚠️ API Errors: ${apiErrors.length}`))
     }
 
     console.log(`\n✅ Sync complete in`, chalk.hex('#0099FF')(`${((performance.now() - start) / 1000).toFixed(2)}s`))
+
+    // Exit with appropriate code for CI/CD detection
+    if (updateOnlyMode && !shouldContinue) {
+      // No changes detected in update-only mode
+      process.exit(0)
+    } else if (shouldContinue && (added.length > 0 || removed.length > 0)) {
+      // Changes were detected and processed
+      process.exit(2)
+    } else {
+      // Normal completion
+      process.exit(0)
+    }
 
   } catch (error) {
     console.error('❌ Sync failed:', error)
