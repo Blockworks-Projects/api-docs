@@ -30,7 +30,7 @@ jobs:
       - name: Run metrics sync
         id: sync
         env:
-          API_KEY: ${{ secrets.BLOCKWORKS_API_KEY }}
+          BWR_API_KEY: ${{ secrets.BLOCKWORKS_API_KEY }}
         run: |
           echo "Running metrics sync with update-only flag..."
 
