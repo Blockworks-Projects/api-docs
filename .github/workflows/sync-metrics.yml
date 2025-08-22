@@ -34,20 +34,23 @@ jobs:
         run: |
           echo "Running metrics sync with update-only flag..."
 
-          # Capture sync output to both console and file
-          if bun sync --update-only 2>&1 | tee sync_output.txt; then
-            sync_exit_code=$?
-            echo "sync_exit_code=$sync_exit_code" >> $GITHUB_OUTPUT
+          # Capture sync output to both console and file, preserving exit code
+          set +e  # Don't exit on command failure
+          bun sync --update-only 2>&1 | tee sync_output.txt
+          sync_exit_code=${PIPESTATUS[0]}  # Get exit code of first command in pipe
+          set -e  # Re-enable exit on failure
+          
+          echo "sync_exit_code=$sync_exit_code" >> $GITHUB_OUTPUT
+          echo "Sync completed with exit code: $sync_exit_code"
 
-            if [ $sync_exit_code -eq 2 ]; then
-              echo "changes_detected=true" >> $GITHUB_OUTPUT
-              echo "Changes detected, will create PR"
-            else
-              echo "changes_detected=false" >> $GITHUB_OUTPUT
-              echo "No changes detected, skipping PR creation"
-            fi
+          if [ $sync_exit_code -eq 2 ]; then
+            echo "changes_detected=true" >> $GITHUB_OUTPUT
+            echo "Changes detected, will create PR"
+          elif [ $sync_exit_code -eq 0 ]; then
+            echo "changes_detected=false" >> $GITHUB_OUTPUT
+            echo "No changes detected, skipping PR creation"
           else
-            echo "Sync failed with exit code $?"
+            echo "Sync failed with exit code $sync_exit_code"
             exit 1
           fi
 
