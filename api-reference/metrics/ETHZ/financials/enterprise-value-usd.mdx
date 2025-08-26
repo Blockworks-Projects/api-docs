@@ -1,0 +1,66 @@
+---
+title: "Enterprise Value USD"
+description: "Actual enterprise value for the equity. Calculated as market cap - liabilities + assets"
+openapi: 'GET /v1/metrics/enterprise-value-usd'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/enterprise-value-usd?project=ETHZ"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/enterprise-value-usd?project=ETHZ',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/enterprise-value-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ETHZ'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "ethz": [
+    {
+      "date": "2025-08-25",
+      "enterprise_value_usd": 523323720
+    },
+    {
+      "date": "2025-08-22",
+      "enterprise_value_usd": 502883673.6
+    },
+    {
+      "date": "2025-08-21",
+      "enterprise_value_usd": 772085400
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
