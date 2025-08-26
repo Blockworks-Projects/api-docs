@@ -11,7 +11,7 @@ The Blockworks API uses **page-based pagination** for endpoints that return larg
 | Topic | Details |
 | - | - |
 | **Pagination style** | Page-based with `?page=` and `?limit=` query parameters. |
-| **Maximum limit size (results per page)** | 100 |
+| **Limit (results per page)** | Default is `100`, max is `1000` |
 | **Response structure** | `{ data: [], total: number, page: number }` |
 | **Affects these endpoints** | [List Assets](/api-reference/assets/list), [List Metrics](/api-reference/metrics/list) |
 
