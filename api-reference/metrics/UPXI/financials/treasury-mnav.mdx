@@ -1,0 +1,66 @@
+---
+title: "mNAV"
+description: "Market NAV value for that company. Calculated as enterprise value / NAV"
+openapi: 'GET /v1/metrics/treasury-mnav'
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/treasury-mnav?project=UPXI"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/treasury-mnav?project=UPXI',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/treasury-mnav',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'UPXI'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "upxi": [
+    {
+      "date": "2025-08-25",
+      "mnav": 1.2039116360481725
+    },
+    {
+      "date": "2025-08-22",
+      "mnav": 1.2862628509333502
+    },
+    {
+      "date": "2025-08-21",
+      "mnav": 1.1997516330836087
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
