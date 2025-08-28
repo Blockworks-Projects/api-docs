@@ -1,7 +1,9 @@
 ---
-title: "Priority Fees USD"
+title: "Base : Priority Fees USD"
+sidebarTitle: "Priority Fees USD"
 description: "An additional transaction fee to incentivize validators to prioritize and execute transactions."
-openapi: 'GET /v1/metrics/fees-priority-usd'
+openapi: "GET /v1/metrics/fees-priority-usd"
+mode: "wide"
 ---
 
 ## Overview
@@ -46,10 +48,6 @@ data = r.json()
 {
   "base": [
     {
-      "date": "2025-08-22",
-      "value": 221962.64
-    },
-    {
       "date": "2025-08-23",
       "value": 126274.58
     },
@@ -64,6 +62,10 @@ data = r.json()
     {
       "date": "2025-08-26",
       "value": 140761.69
+    },
+    {
+      "date": "2025-08-27",
+      "value": 195028.53
     }
   ]
 }

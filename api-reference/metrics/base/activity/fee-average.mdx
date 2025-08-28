@@ -1,7 +1,9 @@
 ---
-title: "Fee Average"
+title: "Base : Fee Average"
+sidebarTitle: "Fee Average"
 description: "Average of the sum of the base fee and priority fee that day in native chain token"
-openapi: 'GET /v1/metrics/fee-average'
+openapi: "GET /v1/metrics/fee-average"
+mode: "wide"
 ---
 
 ## Overview
@@ -46,12 +48,8 @@ data = r.json()
 {
   "base": [
     {
-      "date": "2025-08-22",
-      "value": 0.000007707127765020048
-    },
-    {
       "date": "2025-08-23",
-      "value": 0.000003192638412874421
+      "value": 0.0000031926384128744206
     },
     {
       "date": "2025-08-24",
@@ -59,11 +57,15 @@ data = r.json()
     },
     {
       "date": "2025-08-25",
-      "value": 0.000005419515447544724
+      "value": 0.000005419515447544746
     },
     {
       "date": "2025-08-26",
-      "value": 0.0000037955574098497516
+      "value": 0.000003795557409849771
+    },
+    {
+      "date": "2025-08-27",
+      "value": 0.000004841052519297194
     }
   ]
 }

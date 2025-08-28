@@ -1,7 +1,9 @@
 ---
-title: "DEX Spot Volume"
+title: "Arbitrum : DEX Spot Volume"
+sidebarTitle: "DEX Spot Volume"
 description: "Calculates daily spot volume from major DEXs. Only includes volumes from fee-paying liquidity pools"
-openapi: 'GET /v1/metrics/dex-spot-volume'
+openapi: "GET /v1/metrics/dex-spot-volume"
+mode: "wide"
 ---
 
 ## Overview
@@ -46,10 +48,6 @@ data = r.json()
 {
   "arbitrum": [
     {
-      "date": "2025-08-22",
-      "value": 1310095996.44
-    },
-    {
       "date": "2025-08-23",
       "value": 601528221.98
     },
@@ -63,7 +61,11 @@ data = r.json()
     },
     {
       "date": "2025-08-26",
-      "value": 993623053.38
+      "value": 993623053.39
+    },
+    {
+      "date": "2025-08-27",
+      "value": 848969380.23
     }
   ]
 }

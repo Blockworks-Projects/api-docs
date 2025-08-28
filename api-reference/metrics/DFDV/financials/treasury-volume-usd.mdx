@@ -1,7 +1,9 @@
 ---
-title: "Volume USD"
+title: "DFDV : Volume USD"
+sidebarTitle: "Volume USD"
 description: "USD volume over the period"
-openapi: 'GET /v1/metrics/treasury-volume-usd'
+openapi: "GET /v1/metrics/treasury-volume-usd"
+mode: "wide"
 ---
 
 ## Overview
@@ -46,16 +48,16 @@ data = r.json()
 {
   "dfdv": [
     {
+      "date": "2025-08-27",
+      "value": 55321327.23
+    },
+    {
       "date": "2025-08-26",
-      "value": 48871105.77
+      "value": 49252533.04
     },
     {
       "date": "2025-08-25",
       "value": 96864323.14
-    },
-    {
-      "date": "2025-08-22",
-      "value": 73854937.98
     }
   ]
 }

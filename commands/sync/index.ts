@@ -14,4 +14,5 @@ export * from './update-openapi-spec'
 export * from './update-asset-expansion-options'
 export * from './utils'
 export * from './catalog-existing-metrics'
+export * from './validate-metrics'
 

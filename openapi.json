@@ -694,13 +694,18 @@
             "schema": {
               "type": "string",
               "enum": [
+                "arbitrum",
                 "base",
                 "ethereum",
                 "solana"
               ],
-              "example": "base"
+              "example": "arbitrum"
             },
             "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
               "base": {
                 "value": "base",
                 "summary": "Base"
@@ -714,8 +719,8 @@
                 "summary": "Solana"
               },
               "multi": {
-                "value": "base,ethereum",
-                "summary": "Base + Ethereum"
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
               }
             }
           },
@@ -1922,22 +1927,12 @@
             "schema": {
               "type": "string",
               "enum": [
-                "arbitrum",
-                "base",
                 "ethereum",
                 "solana"
               ],
-              "example": "arbitrum"
+              "example": "ethereum"
             },
             "examples": {
-              "arbitrum": {
-                "value": "arbitrum",
-                "summary": "Arbitrum"
-              },
-              "base": {
-                "value": "base",
-                "summary": "Base"
-              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
@@ -1947,8 +1942,8 @@
                 "summary": "Solana"
               },
               "multi": {
-                "value": "arbitrum,base",
-                "summary": "Arbitrum + Base"
+                "value": "ethereum,solana",
+                "summary": "Ethereum + Solana"
               }
             }
           },
@@ -2038,22 +2033,12 @@
             "schema": {
               "type": "string",
               "enum": [
-                "arbitrum",
-                "base",
                 "ethereum",
                 "solana"
               ],
-              "example": "arbitrum"
+              "example": "ethereum"
             },
             "examples": {
-              "arbitrum": {
-                "value": "arbitrum",
-                "summary": "Arbitrum"
-              },
-              "base": {
-                "value": "base",
-                "summary": "Base"
-              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
@@ -2063,8 +2048,8 @@
                 "summary": "Solana"
               },
               "multi": {
-                "value": "arbitrum,base",
-                "summary": "Arbitrum + Base"
+                "value": "ethereum,solana",
+                "summary": "Ethereum + Solana"
               }
             }
           },
@@ -2155,9 +2140,7 @@
               "type": "string",
               "enum": [
                 "arbitrum",
-                "base",
-                "ethereum",
-                "solana"
+                "ethereum"
               ],
               "example": "arbitrum"
             },
@@ -2166,21 +2149,13 @@
                 "value": "arbitrum",
                 "summary": "Arbitrum"
               },
-              "base": {
-                "value": "base",
-                "summary": "Base"
-              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
               },
-              "solana": {
-                "value": "solana",
-                "summary": "Solana"
-              },
               "multi": {
-                "value": "arbitrum,base",
-                "summary": "Arbitrum + Base"
+                "value": "arbitrum,ethereum",
+                "summary": "Arbitrum + Ethereum"
               }
             }
           },
@@ -2271,9 +2246,7 @@
               "type": "string",
               "enum": [
                 "arbitrum",
-                "base",
-                "ethereum",
-                "solana"
+                "ethereum"
               ],
               "example": "arbitrum"
             },
@@ -2282,21 +2255,13 @@
                 "value": "arbitrum",
                 "summary": "Arbitrum"
               },
-              "base": {
-                "value": "base",
-                "summary": "Base"
-              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
               },
-              "solana": {
-                "value": "solana",
-                "summary": "Solana"
-              },
               "multi": {
-                "value": "arbitrum,base",
-                "summary": "Arbitrum + Base"
+                "value": "arbitrum,ethereum",
+                "summary": "Arbitrum + Ethereum"
               }
             }
           },
@@ -2850,22 +2815,12 @@
             "schema": {
               "type": "string",
               "enum": [
-                "arbitrum",
-                "base",
                 "ethereum",
                 "solana"
               ],
-              "example": "arbitrum"
+              "example": "ethereum"
             },
             "examples": {
-              "arbitrum": {
-                "value": "arbitrum",
-                "summary": "Arbitrum"
-              },
-              "base": {
-                "value": "base",
-                "summary": "Base"
-              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
@@ -2875,8 +2830,8 @@
                 "summary": "Solana"
               },
               "multi": {
-                "value": "arbitrum,base",
-                "summary": "Arbitrum + Base"
+                "value": "ethereum,solana",
+                "summary": "Ethereum + Solana"
               }
             }
           },
@@ -2966,22 +2921,12 @@
             "schema": {
               "type": "string",
               "enum": [
-                "arbitrum",
-                "base",
                 "ethereum",
                 "solana"
               ],
-              "example": "arbitrum"
+              "example": "ethereum"
             },
             "examples": {
-              "arbitrum": {
-                "value": "arbitrum",
-                "summary": "Arbitrum"
-              },
-              "base": {
-                "value": "base",
-                "summary": "Base"
-              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
@@ -2991,8 +2936,8 @@
                 "summary": "Solana"
               },
               "multi": {
-                "value": "arbitrum,base",
-                "summary": "Arbitrum + Base"
+                "value": "ethereum,solana",
+                "summary": "Ethereum + Solana"
               }
             }
           },
@@ -4233,8 +4178,22 @@
               "type": "string",
               "enum": [
                 "BMNR",
+                "BNC",
+                "BTBT",
+                "BTCS",
+                "CEP",
+                "CEPO",
+                "CYFRD",
+                "DFDV",
+                "ETHM",
+                "ETHZ",
+                "GAME",
+                "HYPD",
                 "MSTR",
-                "SBET"
+                "SBET",
+                "SMLR",
+                "SQNS",
+                "UPXI"
               ],
               "example": "BMNR"
             },
@@ -4242,6 +4201,50 @@
               "BMNR": {
                 "value": "BMNR",
                 "summary": "BMNR"
+              },
+              "BNC": {
+                "value": "BNC",
+                "summary": "BNC"
+              },
+              "BTBT": {
+                "value": "BTBT",
+                "summary": "BTBT"
+              },
+              "BTCS": {
+                "value": "BTCS",
+                "summary": "BTCS"
+              },
+              "CEP": {
+                "value": "CEP",
+                "summary": "CEP"
+              },
+              "CEPO": {
+                "value": "CEPO",
+                "summary": "CEPO"
+              },
+              "CYFRD": {
+                "value": "CYFRD",
+                "summary": "CYFRD"
+              },
+              "DFDV": {
+                "value": "DFDV",
+                "summary": "DFDV"
+              },
+              "ETHM": {
+                "value": "ETHM",
+                "summary": "ETHM"
+              },
+              "ETHZ": {
+                "value": "ETHZ",
+                "summary": "ETHZ"
+              },
+              "GAME": {
+                "value": "GAME",
+                "summary": "GAME"
+              },
+              "HYPD": {
+                "value": "HYPD",
+                "summary": "HYPD"
               },
               "MSTR": {
                 "value": "MSTR",
@@ -4251,9 +4254,21 @@
                 "value": "SBET",
                 "summary": "SBET"
               },
+              "SMLR": {
+                "value": "SMLR",
+                "summary": "SMLR"
+              },
+              "SQNS": {
+                "value": "SQNS",
+                "summary": "SQNS"
+              },
+              "UPXI": {
+                "value": "UPXI",
+                "summary": "UPXI"
+              },
               "multi": {
-                "value": "BMNR,MSTR",
-                "summary": "BMNR + MSTR"
+                "value": "BMNR,BNC",
+                "summary": "BMNR + BNC"
               }
             }
           },
@@ -4330,8 +4345,22 @@
               "type": "string",
               "enum": [
                 "BMNR",
+                "BNC",
+                "BTBT",
+                "BTCS",
+                "CEP",
+                "CEPO",
+                "CYFRD",
+                "DFDV",
+                "ETHM",
+                "ETHZ",
+                "GAME",
+                "HYPD",
                 "MSTR",
-                "SBET"
+                "SBET",
+                "SMLR",
+                "SQNS",
+                "UPXI"
               ],
               "example": "BMNR"
             },
@@ -4339,6 +4368,50 @@
               "BMNR": {
                 "value": "BMNR",
                 "summary": "BMNR"
+              },
+              "BNC": {
+                "value": "BNC",
+                "summary": "BNC"
+              },
+              "BTBT": {
+                "value": "BTBT",
+                "summary": "BTBT"
+              },
+              "BTCS": {
+                "value": "BTCS",
+                "summary": "BTCS"
+              },
+              "CEP": {
+                "value": "CEP",
+                "summary": "CEP"
+              },
+              "CEPO": {
+                "value": "CEPO",
+                "summary": "CEPO"
+              },
+              "CYFRD": {
+                "value": "CYFRD",
+                "summary": "CYFRD"
+              },
+              "DFDV": {
+                "value": "DFDV",
+                "summary": "DFDV"
+              },
+              "ETHM": {
+                "value": "ETHM",
+                "summary": "ETHM"
+              },
+              "ETHZ": {
+                "value": "ETHZ",
+                "summary": "ETHZ"
+              },
+              "GAME": {
+                "value": "GAME",
+                "summary": "GAME"
+              },
+              "HYPD": {
+                "value": "HYPD",
+                "summary": "HYPD"
               },
               "MSTR": {
                 "value": "MSTR",
@@ -4348,9 +4421,21 @@
                 "value": "SBET",
                 "summary": "SBET"
               },
+              "SMLR": {
+                "value": "SMLR",
+                "summary": "SMLR"
+              },
+              "SQNS": {
+                "value": "SQNS",
+                "summary": "SQNS"
+              },
+              "UPXI": {
+                "value": "UPXI",
+                "summary": "UPXI"
+              },
               "multi": {
-                "value": "BMNR,MSTR",
-                "summary": "BMNR + MSTR"
+                "value": "BMNR,BNC",
+                "summary": "BMNR + BNC"
               }
             }
           },
@@ -4438,8 +4523,22 @@
               "type": "string",
               "enum": [
                 "BMNR",
+                "BNC",
+                "BTBT",
+                "BTCS",
+                "CEP",
+                "CEPO",
+                "CYFRD",
+                "DFDV",
+                "ETHM",
+                "ETHZ",
+                "GAME",
+                "HYPD",
                 "MSTR",
-                "SBET"
+                "SBET",
+                "SMLR",
+                "SQNS",
+                "UPXI"
               ],
               "example": "BMNR"
             },
@@ -4447,6 +4546,50 @@
               "BMNR": {
                 "value": "BMNR",
                 "summary": "BMNR"
+              },
+              "BNC": {
+                "value": "BNC",
+                "summary": "BNC"
+              },
+              "BTBT": {
+                "value": "BTBT",
+                "summary": "BTBT"
+              },
+              "BTCS": {
+                "value": "BTCS",
+                "summary": "BTCS"
+              },
+              "CEP": {
+                "value": "CEP",
+                "summary": "CEP"
+              },
+              "CEPO": {
+                "value": "CEPO",
+                "summary": "CEPO"
+              },
+              "CYFRD": {
+                "value": "CYFRD",
+                "summary": "CYFRD"
+              },
+              "DFDV": {
+                "value": "DFDV",
+                "summary": "DFDV"
+              },
+              "ETHM": {
+                "value": "ETHM",
+                "summary": "ETHM"
+              },
+              "ETHZ": {
+                "value": "ETHZ",
+                "summary": "ETHZ"
+              },
+              "GAME": {
+                "value": "GAME",
+                "summary": "GAME"
+              },
+              "HYPD": {
+                "value": "HYPD",
+                "summary": "HYPD"
               },
               "MSTR": {
                 "value": "MSTR",
@@ -4456,9 +4599,21 @@
                 "value": "SBET",
                 "summary": "SBET"
               },
+              "SMLR": {
+                "value": "SMLR",
+                "summary": "SMLR"
+              },
+              "SQNS": {
+                "value": "SQNS",
+                "summary": "SQNS"
+              },
+              "UPXI": {
+                "value": "UPXI",
+                "summary": "UPXI"
+              },
               "multi": {
-                "value": "BMNR,MSTR",
-                "summary": "BMNR + MSTR"
+                "value": "BMNR,BNC",
+                "summary": "BMNR + BNC"
               }
             }
           },
@@ -4546,8 +4701,22 @@
               "type": "string",
               "enum": [
                 "BMNR",
+                "BNC",
+                "BTBT",
+                "BTCS",
+                "CEP",
+                "CEPO",
+                "CYFRD",
+                "DFDV",
+                "ETHM",
+                "ETHZ",
+                "GAME",
+                "HYPD",
                 "MSTR",
-                "SBET"
+                "SBET",
+                "SMLR",
+                "SQNS",
+                "UPXI"
               ],
               "example": "BMNR"
             },
@@ -4555,6 +4724,50 @@
               "BMNR": {
                 "value": "BMNR",
                 "summary": "BMNR"
+              },
+              "BNC": {
+                "value": "BNC",
+                "summary": "BNC"
+              },
+              "BTBT": {
+                "value": "BTBT",
+                "summary": "BTBT"
+              },
+              "BTCS": {
+                "value": "BTCS",
+                "summary": "BTCS"
+              },
+              "CEP": {
+                "value": "CEP",
+                "summary": "CEP"
+              },
+              "CEPO": {
+                "value": "CEPO",
+                "summary": "CEPO"
+              },
+              "CYFRD": {
+                "value": "CYFRD",
+                "summary": "CYFRD"
+              },
+              "DFDV": {
+                "value": "DFDV",
+                "summary": "DFDV"
+              },
+              "ETHM": {
+                "value": "ETHM",
+                "summary": "ETHM"
+              },
+              "ETHZ": {
+                "value": "ETHZ",
+                "summary": "ETHZ"
+              },
+              "GAME": {
+                "value": "GAME",
+                "summary": "GAME"
+              },
+              "HYPD": {
+                "value": "HYPD",
+                "summary": "HYPD"
               },
               "MSTR": {
                 "value": "MSTR",
@@ -4564,9 +4777,21 @@
                 "value": "SBET",
                 "summary": "SBET"
               },
+              "SMLR": {
+                "value": "SMLR",
+                "summary": "SMLR"
+              },
+              "SQNS": {
+                "value": "SQNS",
+                "summary": "SQNS"
+              },
+              "UPXI": {
+                "value": "UPXI",
+                "summary": "UPXI"
+              },
               "multi": {
-                "value": "BMNR,MSTR",
-                "summary": "BMNR + MSTR"
+                "value": "BMNR,BNC",
+                "summary": "BMNR + BNC"
               }
             }
           },
@@ -4654,8 +4879,22 @@
               "type": "string",
               "enum": [
                 "BMNR",
+                "BNC",
+                "BTBT",
+                "BTCS",
+                "CEP",
+                "CEPO",
+                "CYFRD",
+                "DFDV",
+                "ETHM",
+                "ETHZ",
+                "GAME",
+                "HYPD",
                 "MSTR",
-                "SBET"
+                "SBET",
+                "SMLR",
+                "SQNS",
+                "UPXI"
               ],
               "example": "BMNR"
             },
@@ -4663,6 +4902,50 @@
               "BMNR": {
                 "value": "BMNR",
                 "summary": "BMNR"
+              },
+              "BNC": {
+                "value": "BNC",
+                "summary": "BNC"
+              },
+              "BTBT": {
+                "value": "BTBT",
+                "summary": "BTBT"
+              },
+              "BTCS": {
+                "value": "BTCS",
+                "summary": "BTCS"
+              },
+              "CEP": {
+                "value": "CEP",
+                "summary": "CEP"
+              },
+              "CEPO": {
+                "value": "CEPO",
+                "summary": "CEPO"
+              },
+              "CYFRD": {
+                "value": "CYFRD",
+                "summary": "CYFRD"
+              },
+              "DFDV": {
+                "value": "DFDV",
+                "summary": "DFDV"
+              },
+              "ETHM": {
+                "value": "ETHM",
+                "summary": "ETHM"
+              },
+              "ETHZ": {
+                "value": "ETHZ",
+                "summary": "ETHZ"
+              },
+              "GAME": {
+                "value": "GAME",
+                "summary": "GAME"
+              },
+              "HYPD": {
+                "value": "HYPD",
+                "summary": "HYPD"
               },
               "MSTR": {
                 "value": "MSTR",
@@ -4672,9 +4955,21 @@
                 "value": "SBET",
                 "summary": "SBET"
               },
+              "SMLR": {
+                "value": "SMLR",
+                "summary": "SMLR"
+              },
+              "SQNS": {
+                "value": "SQNS",
+                "summary": "SQNS"
+              },
+              "UPXI": {
+                "value": "UPXI",
+                "summary": "UPXI"
+              },
               "multi": {
-                "value": "BMNR,MSTR",
-                "summary": "BMNR + MSTR"
+                "value": "BMNR,BNC",
+                "summary": "BMNR + BNC"
               }
             }
           },
@@ -4762,8 +5057,22 @@
               "type": "string",
               "enum": [
                 "BMNR",
+                "BNC",
+                "BTBT",
+                "BTCS",
+                "CEP",
+                "CEPO",
+                "CYFRD",
+                "DFDV",
+                "ETHM",
+                "ETHZ",
+                "GAME",
+                "HYPD",
                 "MSTR",
-                "SBET"
+                "SBET",
+                "SMLR",
+                "SQNS",
+                "UPXI"
               ],
               "example": "BMNR"
             },
@@ -4771,6 +5080,50 @@
               "BMNR": {
                 "value": "BMNR",
                 "summary": "BMNR"
+              },
+              "BNC": {
+                "value": "BNC",
+                "summary": "BNC"
+              },
+              "BTBT": {
+                "value": "BTBT",
+                "summary": "BTBT"
+              },
+              "BTCS": {
+                "value": "BTCS",
+                "summary": "BTCS"
+              },
+              "CEP": {
+                "value": "CEP",
+                "summary": "CEP"
+              },
+              "CEPO": {
+                "value": "CEPO",
+                "summary": "CEPO"
+              },
+              "CYFRD": {
+                "value": "CYFRD",
+                "summary": "CYFRD"
+              },
+              "DFDV": {
+                "value": "DFDV",
+                "summary": "DFDV"
+              },
+              "ETHM": {
+                "value": "ETHM",
+                "summary": "ETHM"
+              },
+              "ETHZ": {
+                "value": "ETHZ",
+                "summary": "ETHZ"
+              },
+              "GAME": {
+                "value": "GAME",
+                "summary": "GAME"
+              },
+              "HYPD": {
+                "value": "HYPD",
+                "summary": "HYPD"
               },
               "MSTR": {
                 "value": "MSTR",
@@ -4780,9 +5133,21 @@
                 "value": "SBET",
                 "summary": "SBET"
               },
+              "SMLR": {
+                "value": "SMLR",
+                "summary": "SMLR"
+              },
+              "SQNS": {
+                "value": "SQNS",
+                "summary": "SQNS"
+              },
+              "UPXI": {
+                "value": "UPXI",
+                "summary": "UPXI"
+              },
               "multi": {
-                "value": "BMNR,MSTR",
-                "summary": "BMNR + MSTR"
+                "value": "BMNR,BNC",
+                "summary": "BMNR + BNC"
               }
             }
           },
@@ -4870,8 +5235,22 @@
               "type": "string",
               "enum": [
                 "BMNR",
+                "BNC",
+                "BTBT",
+                "BTCS",
+                "CEP",
+                "CEPO",
+                "CYFRD",
+                "DFDV",
+                "ETHM",
+                "ETHZ",
+                "GAME",
+                "HYPD",
                 "MSTR",
-                "SBET"
+                "SBET",
+                "SMLR",
+                "SQNS",
+                "UPXI"
               ],
               "example": "BMNR"
             },
@@ -4879,6 +5258,50 @@
               "BMNR": {
                 "value": "BMNR",
                 "summary": "BMNR"
+              },
+              "BNC": {
+                "value": "BNC",
+                "summary": "BNC"
+              },
+              "BTBT": {
+                "value": "BTBT",
+                "summary": "BTBT"
+              },
+              "BTCS": {
+                "value": "BTCS",
+                "summary": "BTCS"
+              },
+              "CEP": {
+                "value": "CEP",
+                "summary": "CEP"
+              },
+              "CEPO": {
+                "value": "CEPO",
+                "summary": "CEPO"
+              },
+              "CYFRD": {
+                "value": "CYFRD",
+                "summary": "CYFRD"
+              },
+              "DFDV": {
+                "value": "DFDV",
+                "summary": "DFDV"
+              },
+              "ETHM": {
+                "value": "ETHM",
+                "summary": "ETHM"
+              },
+              "ETHZ": {
+                "value": "ETHZ",
+                "summary": "ETHZ"
+              },
+              "GAME": {
+                "value": "GAME",
+                "summary": "GAME"
+              },
+              "HYPD": {
+                "value": "HYPD",
+                "summary": "HYPD"
               },
               "MSTR": {
                 "value": "MSTR",
@@ -4888,9 +5311,21 @@
                 "value": "SBET",
                 "summary": "SBET"
               },
+              "SMLR": {
+                "value": "SMLR",
+                "summary": "SMLR"
+              },
+              "SQNS": {
+                "value": "SQNS",
+                "summary": "SQNS"
+              },
+              "UPXI": {
+                "value": "UPXI",
+                "summary": "UPXI"
+              },
               "multi": {
-                "value": "BMNR,MSTR",
-                "summary": "BMNR + MSTR"
+                "value": "BMNR,BNC",
+                "summary": "BMNR + BNC"
               }
             }
           },
@@ -6011,7 +6446,9 @@
             "schema": {
               "type": "string",
               "enum": [
-                "bitcoin"
+                "bitcoin",
+                "ethereum",
+                "solana"
               ],
               "example": "bitcoin"
             },
@@ -6019,6 +6456,18 @@
               "bitcoin": {
                 "value": "bitcoin",
                 "summary": "Bitcoin"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "bitcoin,ethereum",
+                "summary": "Bitcoin + Ethereum"
               }
             }
           },

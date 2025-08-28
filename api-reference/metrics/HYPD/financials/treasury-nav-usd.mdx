@@ -1,0 +1,68 @@
+---
+title: "HYPD : NAV USD"
+sidebarTitle: "NAV USD"
+description: "Dollar value of crypto assets (does not include cash)"
+openapi: "GET /v1/metrics/treasury-nav-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/treasury-nav-usd?project=HYPD"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/treasury-nav-usd?project=HYPD',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/treasury-nav-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'HYPD'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "hypd": [
+    {
+      "date": "2025-08-27",
+      "value": 75921528.73
+    },
+    {
+      "date": "2025-08-26",
+      "value": 70681133.38
+    },
+    {
+      "date": "2025-08-25",
+      "value": 69565725.64
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

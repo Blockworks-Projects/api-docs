@@ -1,7 +1,9 @@
 ---
-title: "DEX Spot Volume"
+title: "Base : DEX Spot Volume"
+sidebarTitle: "DEX Spot Volume"
 description: "Calculates daily spot volume from major DEXs. Only includes volumes from fee-paying liquidity pools"
-openapi: 'GET /v1/metrics/dex-spot-volume'
+openapi: "GET /v1/metrics/dex-spot-volume"
+mode: "wide"
 ---
 
 ## Overview
@@ -46,10 +48,6 @@ data = r.json()
 {
   "base": [
     {
-      "date": "2025-08-22",
-      "value": 2526231110.36
-    },
-    {
       "date": "2025-08-23",
       "value": 1297049885.82
     },
@@ -63,7 +61,11 @@ data = r.json()
     },
     {
       "date": "2025-08-26",
-      "value": 2054452833.07
+      "value": 2077628376.47
+    },
+    {
+      "date": "2025-08-27",
+      "value": 2058729958.8
     }
   ]
 }

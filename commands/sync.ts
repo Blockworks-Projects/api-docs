@@ -1,6 +1,6 @@
 #!/usr/bin/env bun
 
-import { mkdir } from 'node:fs/promises'
+import { mkdir, writeFile } from 'node:fs/promises'
 import {
   apiErrors,
   catalogExistingMetrics,
@@ -16,6 +16,8 @@ import {
 } from './sync/index'
 import chalk from 'chalk'
 import { colors as c } from './sync/const'
+import { validateMetrics, generateValidationReport } from './sync/validate-metrics'
+import { populateMetricDataCache } from './sync/metric-data-cache'
 
 const green = chalk.greenBright.bold
 const darkGreen = chalk.green
@@ -27,7 +29,7 @@ const red = chalk.red
 async function main() {
   try {
     const start = performance.now()
-    
+
     // Parse CLI arguments
     const args = process.argv.slice(2)
     const updateOnlyMode = args.includes('--update-only')
@@ -43,9 +45,16 @@ async function main() {
     // Filter out metrics with bad descriptions
     const { validMetrics: metrics, omittedMetrics } = filterMetrics(allMetrics)
 
+    // Always run validation, even if no content will be generated
+    console.log(c.header('\n🔍 Validating metric data feeds...'))
+    const validationResult = await validateMetrics(metrics)
+
+    // Populate the global cache with validated data
+    populateMetricDataCache(validationResult.metricDataCache)
+
     // Compare metrics to determine changes
     const { added, removed } = compareMetrics(existingMetrics, metrics)
-    
+
     let expandOptions: string[] = []
 
     // Only continue with sync process if changes were detected (or not in update-only mode)
@@ -77,11 +86,11 @@ async function main() {
 
     // Display added metrics if any
     if (added.length > 0) {
-      console.log(chalk.bold.underline(`\n+ ${added.length} Metrics Added:`))
+      console.log(chalk.green.bold.underline(`\n+ ${added.length} Metrics Added:`))
       added.forEach(metricKey => {
         const metric = metrics.find(m => `${m.project}/${m.identifier}` === metricKey)
         if (metric) {
-          console.log(chalk.grey(`   ${metric.project}/${metric.identifier}`))
+          console.log(chalk.green(`   ${metric.project}/${metric.identifier}`))
         }
       })
     }
@@ -111,6 +120,39 @@ async function main() {
       })
     }
 
+    // Display validation issues if any
+    if (validationResult.issues.length > 0) {
+      console.log(chalk.redBright.bold.underline(`\n🔍 ${validationResult.issues.length} Validation Issues:`))
+
+      // Group issues by type
+      const issueTypes = new Map<string, number>()
+      validationResult.issues.forEach(issue => {
+        const type = issue.issue.split(':')[0]
+        issueTypes.set(type || 'Unknown', (issueTypes.get(type || 'Unknown') || 0) + 1)
+      })
+
+      // Show issue type counts
+      issueTypes.forEach((count, type) => {
+        console.log(red(`   ${count}x ${type}`))
+      })
+
+      // Show ALL issues grouped by project
+      const issuesByProject = new Map<string, typeof validationResult.issues>()
+      validationResult.issues.forEach(issue => {
+        const list = issuesByProject.get(issue.metric.project) || []
+        list.push(issue)
+        issuesByProject.set(issue.metric.project, list)
+      })
+
+      issuesByProject.forEach((projectIssues, project) => {
+        console.log(chalk.gray(`\n   ${project}: ${projectIssues.length} issue${projectIssues.length > 1 ? 's' : ''}`))
+        projectIssues.forEach(issue => {
+          const displayName = `${issue.metric.category} > ${issue.metric.name}`
+          console.log(chalk.gray(`     - ${displayName}: ${issue.issue}`))
+        })
+      })
+    }
+
     // Summary table
     console.log(c.header.underline('\n📊 Sync Summary:'))
     console.log(c.header(`\n  📁 Output:`), c.darkGreen(OUTPUT_DIR))
@@ -120,7 +162,7 @@ async function main() {
     }
     console.log(c.header(`  📂 Projects:`), c.darkGreen(new Set(metrics.map(m => m.project)).size))
     console.log(c.header(`  🏷️ Categories:`), c.darkGreen(new Set(metrics.map(m => m.category)).size))
-    
+
     if (shouldContinue) {
       console.log(c.header(`  ✅ Catalog generated`))
       console.log(c.header(`  ✅ Navigation updated`))
@@ -134,12 +176,30 @@ async function main() {
     } else {
       console.log(c.muted(`  ⚡ Sync skipped (no changes)`))
     }
-    
+
     if (apiErrors.length > 0) {
       console.log(red.bold(`  ⚠️ API Errors: ${apiErrors.length}`))
     }
 
+    // Always show validation issues count
+    if (validationResult.issues.length > 0) {
+      console.log(red.bold(`  🔍 Validation Issues: ${validationResult.issues.length}`))
+    } else {
+      console.log(c.header(`  🔍 Validation Issues:`), c.darkGreen('0'))
+    }
+
     console.log(`\n✅ Sync complete in`, chalk.hex('#0099FF')(`${((performance.now() - start) / 1000).toFixed(2)}s`))
+
+    // Save validation report for GitHub Action if there are issues
+    if (validationResult.issues.length > 0) {
+      const validationReport = generateValidationReport(validationResult)
+      try {
+        await writeFile('./validation_report.md', validationReport, 'utf-8')
+        console.log(c.muted('\n📝 Validation report saved to validation_report.md'))
+      } catch (err) {
+        console.warn(c.warning('⚠️ Could not save validation report'))
+      }
+    }
 
     // Exit with appropriate code for CI/CD detection
     if (updateOnlyMode && !shouldContinue) {

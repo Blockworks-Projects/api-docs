@@ -1,7 +1,9 @@
 ---
-title: "M NAV"
+title: "ETHZ : M NAV"
+sidebarTitle: "M NAV"
 description: "Market NAV value for that company. Calculated as enterprise value / NAV"
-openapi: 'GET /v1/metrics/treasury-mnav'
+openapi: "GET /v1/metrics/treasury-mnav"
+mode: "wide"
 ---
 
 ## Overview
@@ -46,16 +48,16 @@ data = r.json()
 {
   "ethz": [
     {
+      "date": "2025-08-27",
+      "value": 0.9978458097094983
+    },
+    {
       "date": "2025-08-26",
-      "value": 1.0494488774401367
+      "value": 1.0499532746704743
     },
     {
       "date": "2025-08-25",
       "value": 1.1099842953929497
-    },
-    {
-      "date": "2025-08-22",
-      "value": 1.184008595642573
     }
   ]
 }

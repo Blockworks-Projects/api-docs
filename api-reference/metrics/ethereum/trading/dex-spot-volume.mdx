@@ -1,7 +1,9 @@
 ---
-title: "DEX Spot Volume"
+title: "Ethereum : DEX Spot Volume"
+sidebarTitle: "DEX Spot Volume"
 description: "Calculates daily spot volume from major DEXs. Only includes volumes from fee-paying liquidity pools."
-openapi: 'GET /v1/metrics/dex-spot-volume'
+openapi: "GET /v1/metrics/dex-spot-volume"
+mode: "wide"
 ---
 
 ## Overview
@@ -46,10 +48,6 @@ data = r.json()
 {
   "ethereum": [
     {
-      "date": "2025-08-22",
-      "value": 6043601818.28
-    },
-    {
       "date": "2025-08-23",
       "value": 3798414955.45
     },
@@ -64,6 +62,10 @@ data = r.json()
     {
       "date": "2025-08-26",
       "value": 72209992.14
+    },
+    {
+      "date": "2025-08-27",
+      "value": null
     }
   ]
 }

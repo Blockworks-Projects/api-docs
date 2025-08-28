@@ -1,7 +1,9 @@
 ---
-title: "Stablecoin Circulating Supply"
+title: "Base : Stablecoin Circulating Supply"
+sidebarTitle: "Stablecoin Circulating Supply"
 description: "Supply tracked via transfers to/from the null address, as well as distinct issuance and redemption events for supported stablecoins. Circulating supply remove supply held in bridges, token treasuries, and known mint/burn addresses."
-openapi: 'GET /v1/metrics/stablecoin-circulating-supply'
+openapi: "GET /v1/metrics/stablecoin-circulating-supply"
+mode: "wide"
 ---
 
 ## Overview
@@ -46,10 +48,6 @@ data = r.json()
 {
   "base": [
     {
-      "date": "2025-08-22",
-      "value": 4240561485.9
-    },
-    {
       "date": "2025-08-23",
       "value": 4327560546.16
     },
@@ -63,7 +61,11 @@ data = r.json()
     },
     {
       "date": "2025-08-26",
-      "value": 4428147487.31
+      "value": 4428152803.4
+    },
+    {
+      "date": "2025-08-27",
+      "value": 4421609492.69
     }
   ]
 }

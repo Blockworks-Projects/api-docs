@@ -1,7 +1,9 @@
 ---
-title: "Stablecoin Supply"
+title: "Arbitrum : Stablecoin Supply"
+sidebarTitle: "Stablecoin Supply"
 description: "Supply tracked via transfers to/from the null address, as well as distinct issuance and redemption events for supported stablecoins. Circulating supply remove supply held in bridges, token treasuries, and known mint/burn addresses."
-openapi: 'GET /v1/metrics/stablecoin-supply'
+openapi: "GET /v1/metrics/stablecoin-supply"
+mode: "wide"
 ---
 
 ## Overview
@@ -46,10 +48,6 @@ data = r.json()
 {
   "arbitrum": [
     {
-      "date": "2025-08-22",
-      "value": 10951823000.4
-    },
-    {
       "date": "2025-08-23",
       "value": 10869128644.13
     },
@@ -63,7 +61,11 @@ data = r.json()
     },
     {
       "date": "2025-08-26",
-      "value": 10748783602.65
+      "value": 10747997859.1
+    },
+    {
+      "date": "2025-08-27",
+      "value": 10693588012.88
     }
   ]
 }

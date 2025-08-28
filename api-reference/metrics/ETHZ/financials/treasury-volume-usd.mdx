@@ -1,7 +1,9 @@
 ---
-title: "Volume USD"
+title: "ETHZ : Volume USD"
+sidebarTitle: "Volume USD"
 description: "USD volume over the period"
-openapi: 'GET /v1/metrics/treasury-volume-usd'
+openapi: "GET /v1/metrics/treasury-volume-usd"
+mode: "wide"
 ---
 
 ## Overview
@@ -46,16 +48,16 @@ data = r.json()
 {
   "ethz": [
     {
+      "date": "2025-08-27",
+      "value": 38108756.06
+    },
+    {
       "date": "2025-08-26",
-      "value": 42158886.75
+      "value": 43074010.71
     },
     {
       "date": "2025-08-25",
       "value": 137825450.45
-    },
-    {
-      "date": "2025-08-22",
-      "value": 235145153.38
     }
   ]
 }

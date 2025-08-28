@@ -1,7 +1,9 @@
 ---
-title: "Fee Median USD"
+title: "Base : Fee Median USD"
+sidebarTitle: "Fee Median USD"
 description: "Median of the sum of the base fee and priority fee in USD that day"
-openapi: 'GET /v1/metrics/fee-median-usd'
+openapi: "GET /v1/metrics/fee-median-usd"
+mode: "wide"
 ---
 
 ## Overview
@@ -46,10 +48,6 @@ data = r.json()
 {
   "base": [
     {
-      "date": "2025-08-22",
-      "value": 0
-    },
-    {
       "date": "2025-08-23",
       "value": 0
     },
@@ -63,6 +61,10 @@ data = r.json()
     },
     {
       "date": "2025-08-26",
+      "value": 0
+    },
+    {
+      "date": "2025-08-27",
       "value": 0
     }
   ]

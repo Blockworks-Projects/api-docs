@@ -31,6 +31,7 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
   const existingEndpoints = new Set<string>()
   const endpointsToUpdate = new Set<string>()
   let addedEndpoints = 0
+  let updatedEndpoints = 0
   let updatedExamples = 0
 
   // Check which endpoints exist
@@ -45,16 +46,16 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
     }
   }
 
-  console.log(c.subHeader('\n  3. Adding missing endpoints...'))
+  console.log(c.subHeader('\n  3. Adding missing endpoints and updating project enums...'))
 
-  // Add missing endpoints
+  // Add missing endpoints and update existing ones
   for (const [identifier, metricsForIdentifier] of metricGroups) {
     const endpointPath = `/v1/metrics/${identifier}`
+    const supportedProjects = [...new Set(metricsForIdentifier.map(m => m.project))].sort()
 
     if (!openApiSpec.paths[endpointPath]) {
       addedEndpoints++
       const firstMetric = metricsForIdentifier[0]
-      const supportedProjects = [...new Set(metricsForIdentifier.map(m => m.project))].sort()
 
       console.log(c.green(`    + Adding ${identifier} (${supportedProjects.join(', ')})`))
 
@@ -133,6 +134,25 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
           ]
         }
       }
+    } else {
+      // Update existing endpoint with current project list
+      const existingEndpoint = openApiSpec.paths[endpointPath]
+      if (existingEndpoint?.get?.parameters) {
+        const projectParam = existingEndpoint.get.parameters.find((p: any) => p.name === 'project')
+        if (projectParam?.schema) {
+          const currentProjects = projectParam.schema.enum || []
+          const projectsChanged = JSON.stringify(currentProjects.sort()) !== JSON.stringify(supportedProjects)
+          
+          if (projectsChanged) {
+            projectParam.schema.enum = supportedProjects
+            projectParam.schema.example = supportedProjects[0]
+            projectParam.examples = generateProjectExamples(supportedProjects)
+            
+            console.log(c.darkGreen(`    ↻ Updated ${identifier} projects: ${supportedProjects.length} projects (was ${currentProjects.length})`))
+            updatedEndpoints++
+          }
+        }
+      }
     }
   }
 
@@ -178,6 +198,7 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
 
   console.log(`\n  ✅ OpenAPI spec updated:`)
   console.log(c.muted(`     ✓ Added endpoints: ${c.number(addedEndpoints)}`))
+  console.log(c.muted(`     ✓ Updated project enums: ${c.number(updatedEndpoints)}`))
   console.log(c.muted(`     ✓ Updated examples: ${c.number(updatedExamples)}`))
   console.log(c.muted(`     ✓ Total endpoints: ${c.number(Object.keys(openApiSpec.paths).filter(p => p.startsWith('/v1/metrics/')).length)}`))
 }

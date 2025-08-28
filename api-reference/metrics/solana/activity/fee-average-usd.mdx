@@ -1,7 +1,9 @@
 ---
-title: "Fee Average USD"
+title: "Solana : Fee Average USD"
+sidebarTitle: "Fee Average USD"
 description: "Average of the sum of the base fee and priority fee in USD that day"
-openapi: 'GET /v1/metrics/fee-average-usd'
+openapi: "GET /v1/metrics/fee-average-usd"
+mode: "wide"
 ---
 
 ## Overview
@@ -46,10 +48,6 @@ data = r.json()
 {
   "solana": [
     {
-      "date": "2025-08-22",
-      "value": 0.01
-    },
-    {
       "date": "2025-08-23",
       "value": 0.01
     },
@@ -64,6 +62,10 @@ data = r.json()
     {
       "date": "2025-08-26",
       "value": 0.01
+    },
+    {
+      "date": "2025-08-27",
+      "value": 0.02
     }
   ]
 }

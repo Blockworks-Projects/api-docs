@@ -1,0 +1,57 @@
+---
+title: "ETHM : Treasury Asset"
+sidebarTitle: "Treasury Asset"
+description: "Name of the crypto asset the treasury company is accumulating"
+openapi: "GET /v1/metrics/treasury-crypto-asset"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** string
+- **Interval:** N/A
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/treasury-crypto-asset?project=ETHM"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/treasury-crypto-asset?project=ETHM',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/treasury-crypto-asset',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ETHM'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "ethm": {
+    "value": "ETH"
+  }
+}
+```
+
+## Notes
+- Intervals are N/A unless otherwise noted.
+- Data is updated N/A and may be revised after late-arriving data.

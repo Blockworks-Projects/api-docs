@@ -1,7 +1,9 @@
 ---
-title: "Volume USD"
+title: "UPXI : Volume USD"
+sidebarTitle: "Volume USD"
 description: "USD volume over the period"
-openapi: 'GET /v1/metrics/treasury-volume-usd'
+openapi: "GET /v1/metrics/treasury-volume-usd"
+mode: "wide"
 ---
 
 ## Overview
@@ -46,16 +48,16 @@ data = r.json()
 {
   "upxi": [
     {
+      "date": "2025-08-27",
+      "value": 78489590.76
+    },
+    {
       "date": "2025-08-26",
-      "value": 53755694.71
+      "value": 54589429.05
     },
     {
       "date": "2025-08-25",
       "value": 46951423.1
-    },
-    {
-      "date": "2025-08-22",
-      "value": 63743543.48
     }
   ]
 }

@@ -1,7 +1,9 @@
 ---
-title: "Native Token Price"
+title: "Base : Native Token Price"
+sidebarTitle: "Native Token Price"
 description: "The average token price during the specified time period for the native asset of that chain."
-openapi: 'GET /v1/metrics/native-token-price'
+openapi: "GET /v1/metrics/native-token-price"
+mode: "wide"
 ---
 
 ## Overview
@@ -46,10 +48,6 @@ data = r.json()
 {
   "base": [
     {
-      "date": "2025-08-22",
-      "value": 4484.82
-    },
-    {
       "date": "2025-08-23",
       "value": 4739.22
     },
@@ -64,6 +62,10 @@ data = r.json()
     {
       "date": "2025-08-26",
       "value": 4480.14
+    },
+    {
+      "date": "2025-08-27",
+      "value": 4591.42
     }
   ]
 }

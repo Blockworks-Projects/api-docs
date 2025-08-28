@@ -4,7 +4,7 @@ import type { Metric } from '../sync.types'
 import { colors as c, OUTPUT_DIR } from './const'
 import { fetchMetricSampleData } from './fetch-metric-sample-data'
 import * as templates from './templates'
-import { escapeYamlString, getUnit } from './utils'
+import { escapeYamlString, getUnit, toTitleCase } from './utils'
 
 /**
  * Generate a single metric page
@@ -28,10 +28,11 @@ export const generateMetricPage = async (metric: Metric, allMetrics?: Metric[]):
 
   // Generate content from template
   let content = templates.METRIC_PAGE
-    .replace('{metric_name}', escapeYamlString(metric.name))
+    .replace(/\{metric_name\}/g, escapeYamlString(metric.name))
     .replace('{metric_description}', escapeYamlString(metric.description))
     .replace(/\{metric_identifier\}/g, metric.identifier)
     .replace(/\{metric_project\}/g, metric.project)
+    .replace('{metric_project_title}', toTitleCase(metric.project))
     .replace('{metric_unit}', unit)
     .replace(/\{metric_interval\}/g, unit === 'string' ? 'N/A' : metric.interval)
     .replace('{metric_source}', metric.source)

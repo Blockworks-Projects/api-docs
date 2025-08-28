@@ -57,9 +57,16 @@
               "api-reference/metrics/catalog",
               "api-reference/metrics/list",
               "api-reference/metrics/list-by-project",
-              "api-reference/metrics/get-single",
+              "api-reference/metrics/get-single"
+            ]
+          },
+          {
+            "group": "Metrics : Chains",
+            "tag": "5",
+            "pages": [
               {
                 "group": "Arbitrum",
+                "icon": "link",
                 "pages": [
                   {
                     "group": "Activity",
@@ -114,6 +121,7 @@
               },
               {
                 "group": "Base",
+                "icon": "link",
                 "pages": [
                   {
                     "group": "Activity",
@@ -164,6 +172,7 @@
               },
               {
                 "group": "Bitcoin",
+                "icon": "link",
                 "pages": [
                   {
                     "group": "Trading",
@@ -185,51 +194,8 @@
                 ]
               },
               {
-                "group": "BMNR",
-                "pages": [
-                  {
-                    "group": "Equity",
-                    "pages": [
-                      "api-reference/metrics/BMNR/equity/market-cap"
-                    ]
-                  },
-                  {
-                    "group": "Financials",
-                    "pages": [
-                      "api-reference/metrics/BMNR/financials/enterprise-value-usd",
-                      "api-reference/metrics/BMNR/financials/treasury-crypto-asset",
-                      "api-reference/metrics/BMNR/financials/treasury-mnav",
-                      "api-reference/metrics/BMNR/financials/treasury-nav-usd",
-                      "api-reference/metrics/BMNR/financials/treasury-token-holdings",
-                      "api-reference/metrics/BMNR/financials/treasury-volume-usd"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "DFDV",
-                "pages": [
-                  {
-                    "group": "Equity",
-                    "pages": [
-                      "api-reference/metrics/DFDV/equity/market-cap"
-                    ]
-                  },
-                  {
-                    "group": "Financials",
-                    "pages": [
-                      "api-reference/metrics/DFDV/financials/enterprise-value-usd",
-                      "api-reference/metrics/DFDV/financials/treasury-crypto-asset",
-                      "api-reference/metrics/DFDV/financials/treasury-mnav",
-                      "api-reference/metrics/DFDV/financials/treasury-nav-usd",
-                      "api-reference/metrics/DFDV/financials/treasury-token-holdings",
-                      "api-reference/metrics/DFDV/financials/treasury-volume-usd"
-                    ]
-                  }
-                ]
-              },
-              {
                 "group": "Ethereum",
+                "icon": "link",
                 "pages": [
                   {
                     "group": "Activity",
@@ -299,68 +265,8 @@
                 ]
               },
               {
-                "group": "ETHZ",
-                "pages": [
-                  {
-                    "group": "Equity",
-                    "pages": [
-                      "api-reference/metrics/ETHZ/equity/market-cap"
-                    ]
-                  },
-                  {
-                    "group": "Financials",
-                    "pages": [
-                      "api-reference/metrics/ETHZ/financials/enterprise-value-usd",
-                      "api-reference/metrics/ETHZ/financials/treasury-crypto-asset",
-                      "api-reference/metrics/ETHZ/financials/treasury-mnav",
-                      "api-reference/metrics/ETHZ/financials/treasury-nav-usd",
-                      "api-reference/metrics/ETHZ/financials/treasury-token-holdings",
-                      "api-reference/metrics/ETHZ/financials/treasury-volume-usd"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "MSTR",
-                "pages": [
-                  {
-                    "group": "Equity",
-                    "pages": [
-                      "api-reference/metrics/MSTR/equity/market-cap"
-                    ]
-                  },
-                  {
-                    "group": "Financials",
-                    "pages": [
-                      "api-reference/metrics/MSTR/financials/enterprise-value-usd",
-                      "api-reference/metrics/MSTR/financials/treasury-crypto-asset",
-                      "api-reference/metrics/MSTR/financials/treasury-mnav",
-                      "api-reference/metrics/MSTR/financials/treasury-nav-usd",
-                      "api-reference/metrics/MSTR/financials/treasury-token-holdings",
-                      "api-reference/metrics/MSTR/financials/treasury-volume-usd"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "SBET",
-                "pages": [
-                  {
-                    "group": "Financials",
-                    "pages": [
-                      "api-reference/metrics/SBET/financials/enterprise-value-usd",
-                      "api-reference/metrics/SBET/financials/market-cap",
-                      "api-reference/metrics/SBET/financials/treasury-crypto-asset",
-                      "api-reference/metrics/SBET/financials/treasury-mnav",
-                      "api-reference/metrics/SBET/financials/treasury-nav-usd",
-                      "api-reference/metrics/SBET/financials/treasury-token-holdings",
-                      "api-reference/metrics/SBET/financials/treasury-volume-usd"
-                    ]
-                  }
-                ]
-              },
-              {
                 "group": "Solana",
+                "icon": "link",
                 "pages": [
                   {
                     "group": "Activity",
@@ -418,9 +324,379 @@
                     ]
                   }
                 ]
+              }
+            ]
+          },
+          {
+            "group": "Metrics : Equities",
+            "tag": "17",
+            "pages": [
+              {
+                "group": "BMNR",
+                "icon": "chart-line",
+                "pages": [
+                  {
+                    "group": "Equity",
+                    "pages": [
+                      "api-reference/metrics/BMNR/equity/market-cap"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/BMNR/financials/enterprise-value-usd",
+                      "api-reference/metrics/BMNR/financials/treasury-crypto-asset",
+                      "api-reference/metrics/BMNR/financials/treasury-mnav",
+                      "api-reference/metrics/BMNR/financials/treasury-nav-usd",
+                      "api-reference/metrics/BMNR/financials/treasury-token-holdings",
+                      "api-reference/metrics/BMNR/financials/treasury-volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "BNC",
+                "icon": "chart-line",
+                "pages": [
+                  {
+                    "group": "Equity",
+                    "pages": [
+                      "api-reference/metrics/BNC/equity/market-cap"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/BNC/financials/enterprise-value-usd",
+                      "api-reference/metrics/BNC/financials/treasury-crypto-asset",
+                      "api-reference/metrics/BNC/financials/treasury-mnav",
+                      "api-reference/metrics/BNC/financials/treasury-nav-usd",
+                      "api-reference/metrics/BNC/financials/treasury-token-holdings",
+                      "api-reference/metrics/BNC/financials/treasury-volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "BTBT",
+                "icon": "chart-line",
+                "pages": [
+                  {
+                    "group": "Equity",
+                    "pages": [
+                      "api-reference/metrics/BTBT/equity/market-cap"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/BTBT/financials/enterprise-value-usd",
+                      "api-reference/metrics/BTBT/financials/treasury-crypto-asset",
+                      "api-reference/metrics/BTBT/financials/treasury-mnav",
+                      "api-reference/metrics/BTBT/financials/treasury-nav-usd",
+                      "api-reference/metrics/BTBT/financials/treasury-token-holdings",
+                      "api-reference/metrics/BTBT/financials/treasury-volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "BTCS",
+                "icon": "chart-line",
+                "pages": [
+                  {
+                    "group": "Equity",
+                    "pages": [
+                      "api-reference/metrics/BTCS/equity/market-cap"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/BTCS/financials/enterprise-value-usd",
+                      "api-reference/metrics/BTCS/financials/treasury-crypto-asset",
+                      "api-reference/metrics/BTCS/financials/treasury-mnav",
+                      "api-reference/metrics/BTCS/financials/treasury-nav-usd",
+                      "api-reference/metrics/BTCS/financials/treasury-token-holdings",
+                      "api-reference/metrics/BTCS/financials/treasury-volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "CEP",
+                "icon": "chart-line",
+                "pages": [
+                  {
+                    "group": "Equity",
+                    "pages": [
+                      "api-reference/metrics/CEP/equity/market-cap"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/CEP/financials/enterprise-value-usd",
+                      "api-reference/metrics/CEP/financials/treasury-crypto-asset",
+                      "api-reference/metrics/CEP/financials/treasury-mnav",
+                      "api-reference/metrics/CEP/financials/treasury-nav-usd",
+                      "api-reference/metrics/CEP/financials/treasury-token-holdings",
+                      "api-reference/metrics/CEP/financials/treasury-volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "CEPO",
+                "icon": "chart-line",
+                "pages": [
+                  {
+                    "group": "Equity",
+                    "pages": [
+                      "api-reference/metrics/CEPO/equity/market-cap"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/CEPO/financials/enterprise-value-usd",
+                      "api-reference/metrics/CEPO/financials/treasury-crypto-asset",
+                      "api-reference/metrics/CEPO/financials/treasury-mnav",
+                      "api-reference/metrics/CEPO/financials/treasury-nav-usd",
+                      "api-reference/metrics/CEPO/financials/treasury-token-holdings",
+                      "api-reference/metrics/CEPO/financials/treasury-volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "CYFRD",
+                "icon": "chart-line",
+                "pages": [
+                  {
+                    "group": "Equity",
+                    "pages": [
+                      "api-reference/metrics/CYFRD/equity/market-cap"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/CYFRD/financials/enterprise-value-usd",
+                      "api-reference/metrics/CYFRD/financials/treasury-crypto-asset",
+                      "api-reference/metrics/CYFRD/financials/treasury-mnav",
+                      "api-reference/metrics/CYFRD/financials/treasury-nav-usd",
+                      "api-reference/metrics/CYFRD/financials/treasury-token-holdings",
+                      "api-reference/metrics/CYFRD/financials/treasury-volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "DFDV",
+                "icon": "chart-line",
+                "pages": [
+                  {
+                    "group": "Equity",
+                    "pages": [
+                      "api-reference/metrics/DFDV/equity/market-cap"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/DFDV/financials/enterprise-value-usd",
+                      "api-reference/metrics/DFDV/financials/treasury-crypto-asset",
+                      "api-reference/metrics/DFDV/financials/treasury-mnav",
+                      "api-reference/metrics/DFDV/financials/treasury-nav-usd",
+                      "api-reference/metrics/DFDV/financials/treasury-token-holdings",
+                      "api-reference/metrics/DFDV/financials/treasury-volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "ETHM",
+                "icon": "chart-line",
+                "pages": [
+                  {
+                    "group": "Equity",
+                    "pages": [
+                      "api-reference/metrics/ETHM/equity/market-cap"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/ETHM/financials/enterprise-value-usd",
+                      "api-reference/metrics/ETHM/financials/treasury-crypto-asset",
+                      "api-reference/metrics/ETHM/financials/treasury-mnav",
+                      "api-reference/metrics/ETHM/financials/treasury-nav-usd",
+                      "api-reference/metrics/ETHM/financials/treasury-token-holdings",
+                      "api-reference/metrics/ETHM/financials/treasury-volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "ETHZ",
+                "icon": "chart-line",
+                "pages": [
+                  {
+                    "group": "Equity",
+                    "pages": [
+                      "api-reference/metrics/ETHZ/equity/market-cap"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/ETHZ/financials/enterprise-value-usd",
+                      "api-reference/metrics/ETHZ/financials/treasury-crypto-asset",
+                      "api-reference/metrics/ETHZ/financials/treasury-mnav",
+                      "api-reference/metrics/ETHZ/financials/treasury-nav-usd",
+                      "api-reference/metrics/ETHZ/financials/treasury-token-holdings",
+                      "api-reference/metrics/ETHZ/financials/treasury-volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "GAME",
+                "icon": "chart-line",
+                "pages": [
+                  {
+                    "group": "Equity",
+                    "pages": [
+                      "api-reference/metrics/GAME/equity/market-cap"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/GAME/financials/enterprise-value-usd",
+                      "api-reference/metrics/GAME/financials/treasury-crypto-asset",
+                      "api-reference/metrics/GAME/financials/treasury-mnav",
+                      "api-reference/metrics/GAME/financials/treasury-nav-usd",
+                      "api-reference/metrics/GAME/financials/treasury-token-holdings",
+                      "api-reference/metrics/GAME/financials/treasury-volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "HYPD",
+                "icon": "chart-line",
+                "pages": [
+                  {
+                    "group": "Equity",
+                    "pages": [
+                      "api-reference/metrics/HYPD/equity/market-cap"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/HYPD/financials/enterprise-value-usd",
+                      "api-reference/metrics/HYPD/financials/treasury-crypto-asset",
+                      "api-reference/metrics/HYPD/financials/treasury-mnav",
+                      "api-reference/metrics/HYPD/financials/treasury-nav-usd",
+                      "api-reference/metrics/HYPD/financials/treasury-token-holdings",
+                      "api-reference/metrics/HYPD/financials/treasury-volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "MSTR",
+                "icon": "chart-line",
+                "pages": [
+                  {
+                    "group": "Equity",
+                    "pages": [
+                      "api-reference/metrics/MSTR/equity/market-cap"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/MSTR/financials/enterprise-value-usd",
+                      "api-reference/metrics/MSTR/financials/treasury-crypto-asset",
+                      "api-reference/metrics/MSTR/financials/treasury-mnav",
+                      "api-reference/metrics/MSTR/financials/treasury-nav-usd",
+                      "api-reference/metrics/MSTR/financials/treasury-token-holdings",
+                      "api-reference/metrics/MSTR/financials/treasury-volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "SBET",
+                "icon": "chart-line",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/SBET/financials/enterprise-value-usd",
+                      "api-reference/metrics/SBET/financials/market-cap",
+                      "api-reference/metrics/SBET/financials/treasury-crypto-asset",
+                      "api-reference/metrics/SBET/financials/treasury-mnav",
+                      "api-reference/metrics/SBET/financials/treasury-nav-usd",
+                      "api-reference/metrics/SBET/financials/treasury-token-holdings",
+                      "api-reference/metrics/SBET/financials/treasury-volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "SMLR",
+                "icon": "chart-line",
+                "pages": [
+                  {
+                    "group": "Equity",
+                    "pages": [
+                      "api-reference/metrics/SMLR/equity/market-cap"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/SMLR/financials/enterprise-value-usd",
+                      "api-reference/metrics/SMLR/financials/treasury-crypto-asset",
+                      "api-reference/metrics/SMLR/financials/treasury-mnav",
+                      "api-reference/metrics/SMLR/financials/treasury-nav-usd",
+                      "api-reference/metrics/SMLR/financials/treasury-token-holdings",
+                      "api-reference/metrics/SMLR/financials/treasury-volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "SQNS",
+                "icon": "chart-line",
+                "pages": [
+                  {
+                    "group": "Equity",
+                    "pages": [
+                      "api-reference/metrics/SQNS/equity/market-cap"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/SQNS/financials/enterprise-value-usd",
+                      "api-reference/metrics/SQNS/financials/treasury-crypto-asset",
+                      "api-reference/metrics/SQNS/financials/treasury-mnav",
+                      "api-reference/metrics/SQNS/financials/treasury-nav-usd",
+                      "api-reference/metrics/SQNS/financials/treasury-token-holdings",
+                      "api-reference/metrics/SQNS/financials/treasury-volume-usd"
+                    ]
+                  }
+                ]
               },
               {
                 "group": "UPXI",
+                "icon": "chart-line",
                 "pages": [
                   {
                     "group": "Equity",

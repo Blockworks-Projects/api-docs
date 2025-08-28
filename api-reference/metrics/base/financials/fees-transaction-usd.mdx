@@ -1,7 +1,9 @@
 ---
-title: "Transaction Fees USD"
+title: "Base : Transaction Fees USD"
+sidebarTitle: "Transaction Fees USD"
 description: "Total transaction fees paid converted to USD, does not include out-of-protocol tips or additional sources of revenue"
-openapi: 'GET /v1/metrics/fees-transaction-usd'
+openapi: "GET /v1/metrics/fees-transaction-usd"
+mode: "wide"
 ---
 
 ## Overview
@@ -46,10 +48,6 @@ data = r.json()
 {
   "base": [
     {
-      "date": "2025-08-22",
-      "value": 320944.1
-    },
-    {
       "date": "2025-08-23",
       "value": 136650.99
     },
@@ -64,6 +62,10 @@ data = r.json()
     {
       "date": "2025-08-26",
       "value": 184773.49
+    },
+    {
+      "date": "2025-08-27",
+      "value": 292137.52
     }
   ]
 }

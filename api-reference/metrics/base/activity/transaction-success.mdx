@@ -1,7 +1,9 @@
 ---
-title: "Transaction Success"
+title: "Base : Transaction Success"
+sidebarTitle: "Transaction Success"
 description: "Daily number of successful transactions, excluding failed transactions."
-openapi: 'GET /v1/metrics/transaction-success'
+openapi: "GET /v1/metrics/transaction-success"
+mode: "wide"
 ---
 
 ## Overview
@@ -46,10 +48,6 @@ data = r.json()
 {
   "base": [
     {
-      "date": "2025-08-22",
-      "value": 8410791
-    },
-    {
       "date": "2025-08-23",
       "value": 8134173
     },
@@ -64,6 +62,10 @@ data = r.json()
     {
       "date": "2025-08-26",
       "value": 8892521
+    },
+    {
+      "date": "2025-08-27",
+      "value": 10832585
     }
   ]
 }

@@ -84,6 +84,12 @@ jobs:
           if grep -q "📊 Sync Summary:" "$output_file"; then
             summary_section=$(sed -n '/📊 Sync Summary:/,/✅ Sync complete/p' "$output_file")
           fi
+          
+          # Extract validation issues count
+          validation_count="0"
+          if grep -q "🔍 Validation Issues:" "$output_file"; then
+            validation_count=$(grep "🔍 Validation Issues:" "$output_file" | sed -n 's/.*🔍 Validation Issues: \([0-9]*\).*/\1/p')
+          fi
 
           # Create PR body with captured output
           cat > pr_body.md << 'EOF'
@@ -122,6 +128,12 @@ jobs:
             echo '```' >> pr_body.md
             echo "$summary_section" >> pr_body.md
             echo '```' >> pr_body.md
+            echo "" >> pr_body.md
+          fi
+          
+          # Include validation report if it exists
+          if [ -f "validation_report.md" ]; then
+            cat validation_report.md >> pr_body.md
             echo "" >> pr_body.md
           fi
 
