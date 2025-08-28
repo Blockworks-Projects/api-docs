@@ -1,6 +1,7 @@
 export * from './api'
 export * from './api-errors'
 export * from './cleanup-existing-content'
+export * from './cleanup-obsolete-content'
 export * from './const'
 export * from './fetch-all-metrics'
 export * from './fetch-metric-sample-data'

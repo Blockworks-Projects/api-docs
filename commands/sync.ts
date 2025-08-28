@@ -5,6 +5,7 @@ import {
   apiErrors,
   catalogExistingMetrics,
   cleanupExistingContent,
+  cleanupObsoleteContent,
   compareMetrics,
   fetchAllMetrics,
   generateMetricPage,
@@ -54,6 +55,10 @@ async function main() {
 
     // Compare metrics to determine changes
     const { added, removed } = compareMetrics(existingMetrics, metrics)
+
+    // Clean up obsolete content (always run this, even in update-only mode)
+    console.log(c.header(`\n🗑️ Cleaning up obsolete content...`))
+    const { removedFiles, removedDirs } = await cleanupObsoleteContent(existingMetrics, metrics, OUTPUT_DIR)
 
     let expandOptions: string[] = []
 
@@ -175,6 +180,14 @@ async function main() {
       }
     } else {
       console.log(c.muted(`  ⚡ Sync skipped (no changes)`))
+    }
+
+    // Always show cleanup results
+    if (removedFiles.length > 0) {
+      console.log(c.header(`  🗑️ Cleaned up files:`), c.darkGreen(removedFiles.length))
+    }
+    if (removedDirs.length > 0) {
+      console.log(c.header(`  📁 Removed empty dirs:`), c.darkGreen(removedDirs.length))
     }
 
     if (apiErrors.length > 0) {
