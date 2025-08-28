@@ -474,17 +474,9 @@
                 "icon": "chart-line",
                 "pages": [
                   {
-                    "group": "Equity",
-                    "pages": [
-                      "api-reference/metrics/CYFRD/equity/market-cap"
-                    ]
-                  },
-                  {
                     "group": "Financials",
                     "pages": [
-                      "api-reference/metrics/CYFRD/financials/enterprise-value-usd",
                       "api-reference/metrics/CYFRD/financials/treasury-crypto-asset",
-                      "api-reference/metrics/CYFRD/financials/treasury-mnav",
                       "api-reference/metrics/CYFRD/financials/treasury-nav-usd",
                       "api-reference/metrics/CYFRD/financials/treasury-token-holdings",
                       "api-reference/metrics/CYFRD/financials/treasury-volume-usd"

@@ -4528,7 +4528,6 @@
                 "BTCS",
                 "CEP",
                 "CEPO",
-                "CYFRD",
                 "DFDV",
                 "ETHM",
                 "ETHZ",
@@ -4566,10 +4565,6 @@
               "CEPO": {
                 "value": "CEPO",
                 "summary": "CEPO"
-              },
-              "CYFRD": {
-                "value": "CYFRD",
-                "summary": "CYFRD"
               },
               "DFDV": {
                 "value": "DFDV",
@@ -4884,7 +4879,6 @@
                 "BTCS",
                 "CEP",
                 "CEPO",
-                "CYFRD",
                 "DFDV",
                 "ETHM",
                 "ETHZ",
@@ -4922,10 +4916,6 @@
               "CEPO": {
                 "value": "CEPO",
                 "summary": "CEPO"
-              },
-              "CYFRD": {
-                "value": "CYFRD",
-                "summary": "CYFRD"
               },
               "DFDV": {
                 "value": "DFDV",
@@ -5240,7 +5230,6 @@
                 "BTCS",
                 "CEP",
                 "CEPO",
-                "CYFRD",
                 "DFDV",
                 "ETHM",
                 "ETHZ",
@@ -5278,10 +5267,6 @@
               "CEPO": {
                 "value": "CEPO",
                 "summary": "CEPO"
-              },
-              "CYFRD": {
-                "value": "CYFRD",
-                "summary": "CYFRD"
               },
               "DFDV": {
                 "value": "DFDV",

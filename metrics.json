@@ -161,6 +161,29 @@
     "category": "Trading"
   },
   {
+    "name": "NAV USD",
+    "description": "Dollar value of crypto assets (does not include cash)",
+    "identifier": "treasury-nav-usd",
+    "project": "CYFRD",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Financials"
+  },
+  {
     "name": "Native Token Price",
     "description": "The average token price during the specified time period for the native asset of that chain.",
     "identifier": "native-token-price",
@@ -305,6 +328,29 @@
     "project": "ethereum",
     "source": "Blockworks",
     "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials"
+  },
+  {
+    "name": "Volume USD",
+    "description": "USD volume over the period",
+    "identifier": "treasury-volume-usd",
+    "project": "CYFRD",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
     "parameters": {
       "end_date": {
         "type": "date",
@@ -5474,12 +5520,12 @@
     "category": "Financials"
   },
   {
-    "name": "Volume USD",
-    "description": "USD volume over the period",
-    "identifier": "treasury-volume-usd",
+    "name": "Treasury Asset",
+    "description": "Name of the crypto asset the treasury company is accumulating",
+    "identifier": "treasury-crypto-asset",
     "project": "CYFRD",
     "source": "Blockworks",
-    "data_type": "timeseries_usd",
+    "data_type": "string",
     "parameters": {
       "end_date": {
         "type": "date",
@@ -5494,75 +5540,6 @@
     },
     "interval": "daily",
     "aggregation": "SUM",
-    "category": "Financials"
-  },
-  {
-    "name": "Enterprise Value USD",
-    "description": "Actual enterprise value for the equity. Calculated as market cap - liabilities + assets",
-    "identifier": "enterprise-value-usd",
-    "project": "CYFRD",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Financials"
-  },
-  {
-    "name": "NAV USD",
-    "description": "Dollar value of crypto assets (does not include cash)",
-    "identifier": "treasury-nav-usd",
-    "project": "CYFRD",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Financials"
-  },
-  {
-    "name": "M NAV",
-    "description": "Market NAV value for that company. Calculated as enterprise value / NAV",
-    "identifier": "treasury-mnav",
-    "project": "CYFRD",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
     "category": "Financials"
   },
   {
@@ -5586,52 +5563,6 @@
     },
     "interval": "daily",
     "aggregation": "LAST",
-    "category": "Financials"
-  },
-  {
-    "name": "Market Cap",
-    "description": "Market capitalization of the equity",
-    "identifier": "market-cap",
-    "project": "CYFRD",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Equity"
-  },
-  {
-    "name": "Treasury Asset",
-    "description": "Name of the crypto asset the treasury company is accumulating",
-    "identifier": "treasury-crypto-asset",
-    "project": "CYFRD",
-    "source": "Blockworks",
-    "data_type": "string",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
     "category": "Financials"
   }
 ]
