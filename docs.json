@@ -66,6 +66,7 @@
             "pages": [
               {
                 "group": "Arbitrum",
+                "icon": "link",
                 "pages": [
                   {
                     "group": "Activity",
@@ -120,6 +121,7 @@
               },
               {
                 "group": "Base",
+                "icon": "link",
                 "pages": [
                   {
                     "group": "Activity",
@@ -170,6 +172,7 @@
               },
               {
                 "group": "Bitcoin",
+                "icon": "link",
                 "pages": [
                   {
                     "group": "Trading",
@@ -192,6 +195,7 @@
               },
               {
                 "group": "Ethereum",
+                "icon": "link",
                 "pages": [
                   {
                     "group": "Activity",
@@ -262,6 +266,7 @@
               },
               {
                 "group": "Solana",
+                "icon": "link",
                 "pages": [
                   {
                     "group": "Activity",
@@ -328,6 +333,7 @@
             "pages": [
               {
                 "group": "BMNR",
+                "icon": "chart-line",
                 "pages": [
                   {
                     "group": "Equity",
@@ -350,6 +356,7 @@
               },
               {
                 "group": "BNC",
+                "icon": "chart-line",
                 "pages": [
                   {
                     "group": "Equity",
@@ -372,6 +379,7 @@
               },
               {
                 "group": "BTBT",
+                "icon": "chart-line",
                 "pages": [
                   {
                     "group": "Equity",
@@ -394,6 +402,7 @@
               },
               {
                 "group": "BTCS",
+                "icon": "chart-line",
                 "pages": [
                   {
                     "group": "Equity",
@@ -416,6 +425,7 @@
               },
               {
                 "group": "CEP",
+                "icon": "chart-line",
                 "pages": [
                   {
                     "group": "Equity",
@@ -438,6 +448,7 @@
               },
               {
                 "group": "CEPO",
+                "icon": "chart-line",
                 "pages": [
                   {
                     "group": "Equity",
@@ -460,6 +471,7 @@
               },
               {
                 "group": "CYFRD",
+                "icon": "chart-line",
                 "pages": [
                   {
                     "group": "Equity",
@@ -482,6 +494,7 @@
               },
               {
                 "group": "DFDV",
+                "icon": "chart-line",
                 "pages": [
                   {
                     "group": "Equity",
@@ -504,6 +517,7 @@
               },
               {
                 "group": "ETHM",
+                "icon": "chart-line",
                 "pages": [
                   {
                     "group": "Equity",
@@ -526,6 +540,7 @@
               },
               {
                 "group": "ETHZ",
+                "icon": "chart-line",
                 "pages": [
                   {
                     "group": "Equity",
@@ -548,6 +563,7 @@
               },
               {
                 "group": "GAME",
+                "icon": "chart-line",
                 "pages": [
                   {
                     "group": "Equity",
@@ -570,6 +586,7 @@
               },
               {
                 "group": "HYPD",
+                "icon": "chart-line",
                 "pages": [
                   {
                     "group": "Equity",
@@ -592,6 +609,7 @@
               },
               {
                 "group": "MSTR",
+                "icon": "chart-line",
                 "pages": [
                   {
                     "group": "Equity",
@@ -614,6 +632,7 @@
               },
               {
                 "group": "SBET",
+                "icon": "chart-line",
                 "pages": [
                   {
                     "group": "Financials",
@@ -631,6 +650,7 @@
               },
               {
                 "group": "SMLR",
+                "icon": "chart-line",
                 "pages": [
                   {
                     "group": "Equity",
@@ -653,6 +673,7 @@
               },
               {
                 "group": "SQNS",
+                "icon": "chart-line",
                 "pages": [
                   {
                     "group": "Equity",
@@ -675,6 +696,7 @@
               },
               {
                 "group": "UPXI",
+                "icon": "chart-line",
                 "pages": [
                   {
                     "group": "Equity",

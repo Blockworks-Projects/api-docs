@@ -115,6 +115,7 @@ export const updateNavigation = async (metrics: Metric[], expandOptions?: string
 
     const projectGroup: any = {
       group: projectName,
+      icon: "link",
       pages: []
     }
 
@@ -152,6 +153,7 @@ export const updateNavigation = async (metrics: Metric[], expandOptions?: string
 
     const projectGroup: any = {
       group: projectName,
+      icon: "chart-line",
       pages: []
     }
 
