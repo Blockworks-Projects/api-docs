@@ -1,0 +1,66 @@
+---
+title: "NAV USD"
+description: "Dollar value of crypto assets (does not include cash)"
+openapi: 'GET /v1/metrics/treasury-nav-usd'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/treasury-nav-usd?project=CEP"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/treasury-nav-usd?project=CEP',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/treasury-nav-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'CEP'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "cep": [
+    {
+      "date": "2025-08-27",
+      "value": 4852634703.4
+    },
+    {
+      "date": "2025-08-26",
+      "value": 4802134483.86
+    },
+    {
+      "date": "2025-08-25",
+      "value": 4870503171.49
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

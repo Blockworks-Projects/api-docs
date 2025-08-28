@@ -1,0 +1,66 @@
+---
+title: "Market Cap"
+description: "Market capitalization of the equity"
+openapi: 'GET /v1/metrics/market-cap'
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/market-cap?project=ETHM"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/market-cap?project=ETHM',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/market-cap',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ETHM'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "ethm": [
+    {
+      "date": "2025-08-27",
+      "value": 246297516.29
+    },
+    {
+      "date": "2025-08-26",
+      "value": 246505569.62
+    },
+    {
+      "date": "2025-08-25",
+      "value": 239858929.72
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
