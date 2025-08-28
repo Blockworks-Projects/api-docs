@@ -57,7 +57,13 @@
               "api-reference/metrics/catalog",
               "api-reference/metrics/list",
               "api-reference/metrics/list-by-project",
-              "api-reference/metrics/get-single",
+              "api-reference/metrics/get-single"
+            ]
+          },
+          {
+            "group": "Metrics : Chains",
+            "tag": "5",
+            "pages": [
               {
                 "group": "Arbitrum",
                 "pages": [
@@ -184,6 +190,142 @@
                   }
                 ]
               },
+              {
+                "group": "Ethereum",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/ethereum/activity/address-total",
+                      "api-reference/metrics/ethereum/activity/fee-average",
+                      "api-reference/metrics/ethereum/activity/fee-average-usd",
+                      "api-reference/metrics/ethereum/activity/fee-median",
+                      "api-reference/metrics/ethereum/activity/fee-median-usd",
+                      "api-reference/metrics/ethereum/activity/transaction-fail",
+                      "api-reference/metrics/ethereum/activity/transaction-success",
+                      "api-reference/metrics/ethereum/activity/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/ethereum/financials/burn",
+                      "api-reference/metrics/ethereum/financials/burn-usd",
+                      "api-reference/metrics/ethereum/financials/fees-base",
+                      "api-reference/metrics/ethereum/financials/fees-base-usd",
+                      "api-reference/metrics/ethereum/financials/fees-mev-tips",
+                      "api-reference/metrics/ethereum/financials/fees-mev-tips-usd",
+                      "api-reference/metrics/ethereum/financials/fees-other",
+                      "api-reference/metrics/ethereum/financials/fees-other-usd",
+                      "api-reference/metrics/ethereum/financials/fees-priority",
+                      "api-reference/metrics/ethereum/financials/fees-priority-usd",
+                      "api-reference/metrics/ethereum/financials/fees-transaction",
+                      "api-reference/metrics/ethereum/financials/fees-transaction-usd",
+                      "api-reference/metrics/ethereum/financials/issuance",
+                      "api-reference/metrics/ethereum/financials/issuance-usd",
+                      "api-reference/metrics/ethereum/financials/rev",
+                      "api-reference/metrics/ethereum/financials/rev-usd"
+                    ]
+                  },
+                  {
+                    "group": "Stablecoins",
+                    "pages": [
+                      "api-reference/metrics/ethereum/stablecoins/stablecoin-circulating-supply",
+                      "api-reference/metrics/ethereum/stablecoins/stablecoin-supply"
+                    ]
+                  },
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/ethereum/token/native-token-fdv",
+                      "api-reference/metrics/ethereum/token/native-token-price",
+                      "api-reference/metrics/ethereum/token/native-token-supply"
+                    ]
+                  },
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/ethereum/trading/dex-spot-volume",
+                      "api-reference/metrics/ethereum/trading/etf-flows-ceth",
+                      "api-reference/metrics/ethereum/trading/etf-flows-eth",
+                      "api-reference/metrics/ethereum/trading/etf-flows-etha",
+                      "api-reference/metrics/ethereum/trading/etf-flows-ethe",
+                      "api-reference/metrics/ethereum/trading/etf-flows-ethv",
+                      "api-reference/metrics/ethereum/trading/etf-flows-ethw",
+                      "api-reference/metrics/ethereum/trading/etf-flows-ezet",
+                      "api-reference/metrics/ethereum/trading/etf-flows-feth",
+                      "api-reference/metrics/ethereum/trading/etf-flows-qeth",
+                      "api-reference/metrics/ethereum/trading/etf-flows-total"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Solana",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/solana/activity/address-total",
+                      "api-reference/metrics/solana/activity/fee-average",
+                      "api-reference/metrics/solana/activity/fee-average-usd",
+                      "api-reference/metrics/solana/activity/fee-median",
+                      "api-reference/metrics/solana/activity/fee-median-usd",
+                      "api-reference/metrics/solana/activity/transaction-fail",
+                      "api-reference/metrics/solana/activity/transaction-success",
+                      "api-reference/metrics/solana/activity/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/solana/financials/burn",
+                      "api-reference/metrics/solana/financials/burn-usd",
+                      "api-reference/metrics/solana/financials/fees-base",
+                      "api-reference/metrics/solana/financials/fees-base-usd",
+                      "api-reference/metrics/solana/financials/fees-mev-tips",
+                      "api-reference/metrics/solana/financials/fees-mev-tips-usd",
+                      "api-reference/metrics/solana/financials/fees-priority",
+                      "api-reference/metrics/solana/financials/fees-priority-usd",
+                      "api-reference/metrics/solana/financials/fees-transaction",
+                      "api-reference/metrics/solana/financials/fees-transaction-usd",
+                      "api-reference/metrics/solana/financials/issuance",
+                      "api-reference/metrics/solana/financials/issuance-usd",
+                      "api-reference/metrics/solana/financials/rev",
+                      "api-reference/metrics/solana/financials/rev-usd"
+                    ]
+                  },
+                  {
+                    "group": "Stablecoins",
+                    "pages": [
+                      "api-reference/metrics/solana/stablecoins/stablecoin-circulating-supply",
+                      "api-reference/metrics/solana/stablecoins/stablecoin-supply"
+                    ]
+                  },
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/solana/token/native-token-fdv",
+                      "api-reference/metrics/solana/token/native-token-price",
+                      "api-reference/metrics/solana/token/native-token-supply"
+                    ]
+                  },
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/solana/trading/dex-spot-volume",
+                      "api-reference/metrics/solana/trading/etf-flows-ssk",
+                      "api-reference/metrics/solana/trading/etf-flows-total"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Metrics : Equities",
+            "tag": "17",
+            "pages": [
               {
                 "group": "BMNR",
                 "pages": [
@@ -361,76 +503,6 @@
                 ]
               },
               {
-                "group": "Ethereum",
-                "pages": [
-                  {
-                    "group": "Activity",
-                    "pages": [
-                      "api-reference/metrics/ethereum/activity/address-total",
-                      "api-reference/metrics/ethereum/activity/fee-average",
-                      "api-reference/metrics/ethereum/activity/fee-average-usd",
-                      "api-reference/metrics/ethereum/activity/fee-median",
-                      "api-reference/metrics/ethereum/activity/fee-median-usd",
-                      "api-reference/metrics/ethereum/activity/transaction-fail",
-                      "api-reference/metrics/ethereum/activity/transaction-success",
-                      "api-reference/metrics/ethereum/activity/transaction-total"
-                    ]
-                  },
-                  {
-                    "group": "Financials",
-                    "pages": [
-                      "api-reference/metrics/ethereum/financials/burn",
-                      "api-reference/metrics/ethereum/financials/burn-usd",
-                      "api-reference/metrics/ethereum/financials/fees-base",
-                      "api-reference/metrics/ethereum/financials/fees-base-usd",
-                      "api-reference/metrics/ethereum/financials/fees-mev-tips",
-                      "api-reference/metrics/ethereum/financials/fees-mev-tips-usd",
-                      "api-reference/metrics/ethereum/financials/fees-other",
-                      "api-reference/metrics/ethereum/financials/fees-other-usd",
-                      "api-reference/metrics/ethereum/financials/fees-priority",
-                      "api-reference/metrics/ethereum/financials/fees-priority-usd",
-                      "api-reference/metrics/ethereum/financials/fees-transaction",
-                      "api-reference/metrics/ethereum/financials/fees-transaction-usd",
-                      "api-reference/metrics/ethereum/financials/issuance",
-                      "api-reference/metrics/ethereum/financials/issuance-usd",
-                      "api-reference/metrics/ethereum/financials/rev",
-                      "api-reference/metrics/ethereum/financials/rev-usd"
-                    ]
-                  },
-                  {
-                    "group": "Stablecoins",
-                    "pages": [
-                      "api-reference/metrics/ethereum/stablecoins/stablecoin-circulating-supply",
-                      "api-reference/metrics/ethereum/stablecoins/stablecoin-supply"
-                    ]
-                  },
-                  {
-                    "group": "Token",
-                    "pages": [
-                      "api-reference/metrics/ethereum/token/native-token-fdv",
-                      "api-reference/metrics/ethereum/token/native-token-price",
-                      "api-reference/metrics/ethereum/token/native-token-supply"
-                    ]
-                  },
-                  {
-                    "group": "Trading",
-                    "pages": [
-                      "api-reference/metrics/ethereum/trading/dex-spot-volume",
-                      "api-reference/metrics/ethereum/trading/etf-flows-ceth",
-                      "api-reference/metrics/ethereum/trading/etf-flows-eth",
-                      "api-reference/metrics/ethereum/trading/etf-flows-etha",
-                      "api-reference/metrics/ethereum/trading/etf-flows-ethe",
-                      "api-reference/metrics/ethereum/trading/etf-flows-ethv",
-                      "api-reference/metrics/ethereum/trading/etf-flows-ethw",
-                      "api-reference/metrics/ethereum/trading/etf-flows-ezet",
-                      "api-reference/metrics/ethereum/trading/etf-flows-feth",
-                      "api-reference/metrics/ethereum/trading/etf-flows-qeth",
-                      "api-reference/metrics/ethereum/trading/etf-flows-total"
-                    ]
-                  }
-                ]
-              },
-              {
                 "group": "ETHM",
                 "pages": [
                   {
@@ -575,66 +647,6 @@
                       "api-reference/metrics/SMLR/financials/treasury-nav-usd",
                       "api-reference/metrics/SMLR/financials/treasury-token-holdings",
                       "api-reference/metrics/SMLR/financials/treasury-volume-usd"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Solana",
-                "pages": [
-                  {
-                    "group": "Activity",
-                    "pages": [
-                      "api-reference/metrics/solana/activity/address-total",
-                      "api-reference/metrics/solana/activity/fee-average",
-                      "api-reference/metrics/solana/activity/fee-average-usd",
-                      "api-reference/metrics/solana/activity/fee-median",
-                      "api-reference/metrics/solana/activity/fee-median-usd",
-                      "api-reference/metrics/solana/activity/transaction-fail",
-                      "api-reference/metrics/solana/activity/transaction-success",
-                      "api-reference/metrics/solana/activity/transaction-total"
-                    ]
-                  },
-                  {
-                    "group": "Financials",
-                    "pages": [
-                      "api-reference/metrics/solana/financials/burn",
-                      "api-reference/metrics/solana/financials/burn-usd",
-                      "api-reference/metrics/solana/financials/fees-base",
-                      "api-reference/metrics/solana/financials/fees-base-usd",
-                      "api-reference/metrics/solana/financials/fees-mev-tips",
-                      "api-reference/metrics/solana/financials/fees-mev-tips-usd",
-                      "api-reference/metrics/solana/financials/fees-priority",
-                      "api-reference/metrics/solana/financials/fees-priority-usd",
-                      "api-reference/metrics/solana/financials/fees-transaction",
-                      "api-reference/metrics/solana/financials/fees-transaction-usd",
-                      "api-reference/metrics/solana/financials/issuance",
-                      "api-reference/metrics/solana/financials/issuance-usd",
-                      "api-reference/metrics/solana/financials/rev",
-                      "api-reference/metrics/solana/financials/rev-usd"
-                    ]
-                  },
-                  {
-                    "group": "Stablecoins",
-                    "pages": [
-                      "api-reference/metrics/solana/stablecoins/stablecoin-circulating-supply",
-                      "api-reference/metrics/solana/stablecoins/stablecoin-supply"
-                    ]
-                  },
-                  {
-                    "group": "Token",
-                    "pages": [
-                      "api-reference/metrics/solana/token/native-token-fdv",
-                      "api-reference/metrics/solana/token/native-token-price",
-                      "api-reference/metrics/solana/token/native-token-supply"
-                    ]
-                  },
-                  {
-                    "group": "Trading",
-                    "pages": [
-                      "api-reference/metrics/solana/trading/dex-spot-volume",
-                      "api-reference/metrics/solana/trading/etf-flows-ssk",
-                      "api-reference/metrics/solana/trading/etf-flows-total"
                     ]
                   }
                 ]
