@@ -128,7 +128,7 @@ async function main() {
       const issueTypes = new Map<string, number>()
       validationResult.issues.forEach(issue => {
         const type = issue.issue.split(':')[0]
-        issueTypes.set(type, (issueTypes.get(type) || 0) + 1)
+        issueTypes.set(type || 'Unknown', (issueTypes.get(type || 'Unknown') || 0) + 1)
       })
 
       // Show issue type counts
