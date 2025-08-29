@@ -2,6 +2,7 @@
 title: 'Get Single Asset'
 description: 'Retrieve detailed information for one asset by ID or slug'
 openapi: 'GET /v1/assets/{idOrSlug}'
+mode: 'wide'
 ---
 
 import Request from '/snippets/request.mdx'
@@ -62,19 +63,25 @@ data = r.json()
   "type": "Infrastructure",
   "updated_at": 1723180800,
   "sector_id": 40,
-  "price": {
-    "asset_id": 2,
-    "usd": 3450.12,
-    "btc": 0.051,
-    "eth": 1,
-    "updated_at": 1723180800
-  },
   "market_cap": {
     "asset_id": 2,
     "rank": 2,
     "usd": 414000000000,
     "dominance": 0.18,
+    "percent_change_btc_1_h": 1.0,
+    "percent_change_btc_24_h": 2.1,
+    "percent_change_usd_1_h": 1.0,
     "percent_change_usd_24_h": 2.1,
+    "percent_change_eth_1_h": 1.0,
+    "percent_change_eth_24_h": 2.1,
+    "updated_at": 1723180800
+  },
+  "price": {
+    "asset_id": 2,
+    "usd": 3450.12,
+    "btc": 0.051,
+    "eth": 1,
+    "sparkline_7d": [100, 101, 102, 103, 104, 105, 106],
     "updated_at": 1723180800
   },
 }

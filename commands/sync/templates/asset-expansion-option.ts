@@ -2,6 +2,7 @@ export const ASSET_EXPANSION_OPTION_PAGE = `---
 title: "{expansion_title}"
 description: "{expansion_description}"
 openapi: 'GET /v1/assets/{idOrSlug}'
+mode: "wide"
 ---
 
 ## Overview
