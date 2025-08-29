@@ -15,6 +15,7 @@ import {
   updateOpenApiSpec,
   updateAssetExpansionOptions
 } from './sync/index'
+import { syncMiscMetrics } from './sync/sync-misc-metrics'
 import chalk from 'chalk'
 import { colors as c } from './sync/const'
 import { validateMetrics, generateValidationReport } from './sync/validate-metrics'
@@ -84,6 +85,9 @@ async function main() {
 
       console.log(c.header('\n🎯 Updating asset expansion options...'))
       expandOptions = await updateAssetExpansionOptions()
+
+      console.log(c.header('\n🎯 Updating misc endpoints...'))
+      await syncMiscMetrics()
 
       console.log(c.header('\n📋 Updating docs.json navigation...'))
       await updateNavigation(metrics, expandOptions)
