@@ -190,22 +190,22 @@ export const updateNavigation = async (metrics: Metric[], expandOptions?: string
       ?.pages?.find((p: any) => p.group === 'Assets')
 
     if (assetsGroup) {
-      // Remove existing OHLCV page and any existing Expand Options groups
+      // Remove existing OHLCV page and any existing Add-On Information groups
       assetsGroup.pages = assetsGroup.pages.filter((page: any) => {
         return page !== 'api-reference/assets/ohlcv' &&
-               !(typeof page === 'object' && page.group === 'Expand Options')
+               !(typeof page === 'object' && (page.group === 'Expand Options' || page.group === 'Add-On Information'))
       })
 
-      // Create the Expand Options dropdown
+      // Create the Add-On Information dropdown
       const expandOptionsGroup = {
-        group: 'Expand Options',
+        group: 'Add-On Information',
         pages: expandOptions.map(option => `api-reference/assets/expand/${option.replace(/\./g, '-')}`)
       }
 
       // Add the dropdown to the Assets group
       assetsGroup.pages.push(expandOptionsGroup)
 
-      console.log(c.muted(`      ✓ Added Expand Options dropdown with ${c.number(expandOptions.length)} options`))
+      console.log(c.muted(`      ✓ Added Add-On Information dropdown with ${c.number(expandOptions.length)} options`))
     }
   }
 

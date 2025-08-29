@@ -17,16 +17,11 @@
             "group": "Introduction",
             "pages": [
               "index",
-              "projects-supported"
-            ]
-          },
-          {
-            "group": "Blockworks API",
-            "pages": [
               "getting-started",
               "authentication",
               "usage",
-              "understanding-pagination"
+              "understanding-pagination",
+              "projects-supported"
             ]
           },
           {
@@ -39,7 +34,7 @@
               "api-reference/assets/list",
               "api-reference/assets/get-single",
               {
-                "group": "Expand Options",
+                "group": "Add-On Information",
                 "pages": [
                   "api-reference/assets/expand/markets",
                   "api-reference/assets/expand/ohlcv_last_24_h",
@@ -48,6 +43,12 @@
                   "api-reference/assets/expand/supply"
                 ]
               }
+            ]
+          },
+          {
+            "group": "Misc",
+            "pages": [
+              "api-reference/misc/market-stats"
             ]
           },
           {
