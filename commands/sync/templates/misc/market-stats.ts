@@ -5,10 +5,10 @@ export const marketStatsTemplate = async () => {
   let exampleData = {}
   try {
     const response = await API.get('/market-stats?limit=1')
-    
+
     // Handle the API response structure [null, { data: [...] }]
     const actualResponse = Array.isArray(response) ? response[1] : response
-    
+
     if (actualResponse && actualResponse.data && actualResponse.data.length > 0) {
       // Use actual API response structure with real data
       exampleData = {
@@ -39,7 +39,7 @@ export const marketStatsTemplate = async () => {
         ]
       }
     }
-  } catch (error) {
+  } catch (error: any) {
     console.log('API call failed, using placeholder data:', error.message)
     // Use placeholder data if API call fails
     exampleData = {
@@ -78,15 +78,6 @@ Market statistics provide high-level aggregated metrics for the entire cryptocur
 - Bitcoin and stablecoin dominance percentages
 - DeFi and L1/L2 metrics
 
-## Parameters
-
-- **page** (optional): Page number for pagination (default: 1)
-- **limit** (optional): Number of results per page (max: 100, default: 100)
-- **group_by** (optional): Group results by time period (options: \`day\`)
-- **query** (optional): JSON filter query
-- **order_by** (optional): Field to order results by (default: \`id\`)
-- **order_dir** (optional): Order direction (\`asc\` or \`desc\`, default: \`asc\`)
-
 ## Example Request
 
 <CodeGroup>
@@ -122,6 +113,17 @@ data = r.json()
 \`\`\`json
 ${JSON.stringify(exampleData, null, 2)}
 \`\`\`
+
+## Supported Options
+
+| Name | Type | Description |
+|-------|------|-------------|
+| \`page\` | query | Page number for pagination (default: 1) |
+| \`limit\` | query | Number of results per page (max: 100, default: 100) |
+| \`group_by\` | query | Group results by time period (options: \`day\`) |
+| \`query\` | query | JSON filter query |
+| \`order_by\` | query | Field to order results by (default: \`id\`) |
+| \`order_dir\` | query | Order direction (\`asc\` or \`desc\`, default: \`asc\`) |
 
 ## Response Fields
 

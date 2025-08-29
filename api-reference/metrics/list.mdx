@@ -12,7 +12,7 @@ import Request from '/snippets/request.mdx'
 Use this endpoint to **discover available metrics** and their metadata. Results include the metric name, description, stable `identifier`, supported chains/projects, data type, default interval, and source information.
 This is the best place to find the correct `identifier` to use with [Get Single Metric](/api-reference/metrics/get-single).
 
-## Basic Example
+## Example Request
 
 <CodeGroup>
 
@@ -39,38 +39,7 @@ data = r.json()
 
 </CodeGroup>
 
-## Filtering
-
-Use query parameters to narrow results:
-
-| Parameter | Type | Description | Example |
-|---|---|---|---|
-| `project` | string | Filter by project/chain slug. Supports comma-separated list. | `project=ethereum,base` |
-| `identifier` | string | Filter by exact metric identifier. | `identifier=rev-usd` |
-| `limit` | integer | Page size. | `limit=100` |
-| `page` | string | Page for pagination. | `page=1` |
-
-### Examples
-
-- By project
-```bash
-curl -H "x-api-key: YOUR_API_KEY" \\
-  "https://api.blockworks.com/v1/metrics?project=ethereum"
-```
-
-- By identifier
-```bash
-curl -H "x-api-key: YOUR_API_KEY" \\
-  "https://api.blockworks.com/v1/metrics?identifier=rev-usd"
-```
-
-- Search by keyword
-```bash
-curl -H "x-api-key: YOUR_API_KEY" \\
-  "https://api.blockworks.com/v1/metrics?search=DEX%20volume"
-```
-
-## Response Structure
+## Example Response
 
 A successful response returns a paginated list of metric definitions, with the following fields:
 
@@ -108,7 +77,16 @@ A successful response returns a paginated list of metric definitions, with the f
 }
 ```
 
-### Field reference
+## Supported Options
+
+| Parameter | Type | Description | Example |
+|---|---|---|---|
+| `project` | string | Filter by project/chain slug. Supports comma-separated list. | `project=ethereum,base` |
+| `identifier` | string | Filter by exact metric identifier. | `identifier=rev-usd` |
+| `limit` | integer | Page size. | `limit=100` |
+| `page` | string | Page for pagination. | `page=1` |
+
+## Field reference
 
 | Field | Type | Description |
 |---|---|---|

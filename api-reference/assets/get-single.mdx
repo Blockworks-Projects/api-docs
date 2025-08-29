@@ -11,7 +11,7 @@ import Request from '/snippets/request.mdx'
 
 Fetch a single asset by **ID** or **slug**. You can optionally expand related objects (e.g. supply) to avoid making multiple requests. Single asset payloads include `price` and `market_cap` expansions by default, unless an explicit `?expand=` flag is provided.
 
-## Basic Example
+## Example Request
 
 <CodeGroup>
 
@@ -41,14 +41,7 @@ data = r.json()
 
 </CodeGroup>
 
-## Supported Options
-
-| Name | Type | Details |
-| - | - | - |
-| `idOrSlug` | path | The ID or slug of the asset to fetch |
-| `expand` | query | The fields to expand. See **Expand Options** for more details. |
-
-## Response example
+## Example Response
 
 ```json
 {
@@ -87,14 +80,12 @@ data = r.json()
 }
 ```
 
-## Error example
+## Supported Options
 
-```json
-{
-    "status": 404,
-    "message": "Asset not found"
-}
-```
+| Name | Type | Details |
+| - | - | - |
+| `idOrSlug` | path | The ID or slug of the asset to fetch |
+| `expand` | query | The fields to expand. See **Expand Options** for more details. |
 
 ## See also
 

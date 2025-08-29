@@ -11,7 +11,7 @@ This endpoint returns a **paginated list of crypto assets** supported by the API
 Each asset includes its identifier, symbol, slug, description, and other metadata used across API endpoints.
 Use this endpoint to **discover assets** before querying metrics, prices, or other detailed data.
 
-## Basic Example
+## Example Request
 
 <CodeGroup>
 
@@ -45,17 +45,9 @@ print(data)
 
 </CodeGroup>
 
-## Supported Options
+### Example Response
 
-| Name | Type | Details |
-| - | - | - |
-| `expand` | query | The fields to expand. See **Expand Options** for more details. |
-| `limit` | query | The number of assets to return. |
-| `page` | query | The page number to return. |
-
-### Response Structure
-
-A successful response returns a paginated list of assets.  Each asset includes detailed `market_cap` and `price` information.
+A successful response returns a paginated list of assets.
 
 ```json
 {
@@ -73,28 +65,7 @@ A successful response returns a paginated list of assets.  Each asset includes d
       "is_supported": true,
       "updated_at": 1755185437,
       "sector_id": 40,
-      "type": "Infrastructure",
-      "market_cap": {
-        "asset_id": 4,
-        "rank": 1,
-        "usd": 2356205871209,
-        "dominance": 49.9323,
-        "percent_change_btc_1_h": 0,
-        "percent_change_btc_24_h": 0,
-        "percent_change_usd_1_h": -0.547265,
-        "percent_change_usd_24_h": -1.96267,
-        "percent_change_eth_1_h": -0.00124721,
-        "percent_change_eth_24_h": -3.09621,
-        "updated_at": 1755185437
-      },
-      "price": {
-        "asset_id": 2147483647,
-        "usd": 8.988465674311579e+307,
-        "btc": 8.988465674311579e+307,
-        "eth": 8.988465674311579e+307,
-        "sparkline_7d": "[116594.2851435067,116274.73753690078,116539.36847358629,116351.84111129945,120911.85757179689]",
-        "updated_at": 1755185437
-      }
+      "type": "Infrastructure"
     },
     // ... 99 other assets
   ],
@@ -102,6 +73,14 @@ A successful response returns a paginated list of assets.  Each asset includes d
   "page": 1
 }
 ```
+
+## Supported Options
+
+| Name | Type | Details |
+| - | - | - |
+| `expand` | query | The fields to expand. See **Expand Options** for more details. |
+| `limit` | query | The number of assets to return. |
+| `page` | query | The page number to return. |
 
 ## Notes
 

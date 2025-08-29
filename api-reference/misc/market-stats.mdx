@@ -14,15 +14,6 @@ Market statistics provide high-level aggregated metrics for the entire cryptocur
 - Bitcoin and stablecoin dominance percentages
 - DeFi and L1/L2 metrics
 
-## Parameters
-
-- **page** (optional): Page number for pagination (default: 1)
-- **limit** (optional): Number of results per page (max: 100, default: 100)
-- **group_by** (optional): Group results by time period (options: `day`)
-- **query** (optional): JSON filter query
-- **order_by** (optional): Field to order results by (default: `id`)
-- **order_dir** (optional): Order direction (`asc` or `desc`, default: `asc`)
-
 ## Example Request
 
 <CodeGroup>
@@ -58,27 +49,38 @@ data = r.json()
 ```json
 {
   "page": 1,
-  "total": 240092,
+  "total": 240097,
   "data": [
     {
-      "total_usd_market_cap": 3756346747359.9,
-      "total_usd_volume_24h": 191864706435.67,
-      "altcoin_usd_market_cap": 1596380881339.3,
-      "altcoin_usd_volume_24h": 119927889276.52,
-      "stablecoin_usd_volume_24h": 184049284546.04,
-      "stablecoin_usd_change_24h": 9.107795739162,
-      "defi_usd_volume_24h": 42594988253.66,
+      "total_usd_market_cap": 3760172756775.8,
+      "total_usd_volume_24h": 192093840268.87,
+      "altcoin_usd_market_cap": 1598361676428.6,
+      "altcoin_usd_volume_24h": 120133230327.3,
+      "stablecoin_usd_volume_24h": 184456596228.87,
+      "stablecoin_usd_change_24h": 8.843244850933,
+      "defi_usd_volume_24h": 42729765089.896,
       "defi_usd_change_24h": 0,
-      "btc_dominance": 57.501769972079,
-      "btc_dominance_change_24h": -0.189421707921,
-      "eth_dominance": 13.906817726797,
-      "eth_dominance_change_24h": -0.030768433203,
-      "updated_at": 1756487402,
+      "btc_dominance": 57.492334001188,
+      "btc_dominance_change_24h": -0.177326828812,
+      "eth_dominance": 13.975752014458,
+      "eth_dominance_change_24h": 0.051390074458,
+      "updated_at": 1756488902,
       "day": "2025-08-29"
     }
   ]
 }
 ```
+
+## Supported Options
+
+| Name | Type | Description |
+|-------|------|-------------|
+| `page` | query | Page number for pagination (default: 1) |
+| `limit` | query | Number of results per page (max: 100, default: 100) |
+| `group_by` | query | Group results by time period (options: `day`) |
+| `query` | query | JSON filter query |
+| `order_by` | query | Field to order results by (default: `id`) |
+| `order_dir` | query | Order direction (`asc` or `desc`, default: `asc`) |
 
 ## Response Fields
 
