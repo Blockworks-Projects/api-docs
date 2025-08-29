@@ -72,6 +72,39 @@ const validateMetricData = (
 }
 
 /**
+ * Validate metric data_type consistency
+ */
+const validateDataType = (metric: Metric): ValidationIssue[] => {
+  const issues: ValidationIssue[] = []
+  const identifier = metric.identifier
+  const dataType = metric.data_type
+
+  // Check for -usd metrics that should have timeseries_usd data_type
+  if (identifier.endsWith('-usd')) {
+    if (dataType !== 'timeseries_usd') {
+      issues.push({
+        metric,
+        issue: `USD metric has wrong data_type: expected "timeseries_usd", got "${dataType}"`,
+        data: { identifier, data_type: dataType }
+      })
+    }
+  }
+
+  // Check for market-cap metrics that should consistently be USD
+  if (identifier === 'market-cap') {
+    if (dataType !== 'timeseries_usd') {
+      issues.push({
+        metric,
+        issue: `Market cap metric has inconsistent data_type: expected "timeseries_usd" for consistency, got "${dataType}"`,
+        data: { identifier, data_type: dataType }
+      })
+    }
+  }
+
+  return issues
+}
+
+/**
  * Validate a single data point (used for both array items and single value objects)
  */
 const validateDataPoint = (
@@ -198,6 +231,22 @@ export const validateMetrics = async (
   const metricDataCache = new Map<string, MetricDataResponse>()
 
   console.log(c.header('\n🔍 Validating metric data feeds...'))
+  
+  // First, validate data_type consistency (no API calls needed)
+  console.log(c.muted(`   Checking data_type consistency for ${totalChecked} metrics...`))
+  let dataTypeIssueCount = 0
+  for (const metric of metrics) {
+    const dataTypeIssues = validateDataType(metric)
+    issues.push(...dataTypeIssues)
+    dataTypeIssueCount += dataTypeIssues.length
+  }
+
+  if (dataTypeIssueCount > 0) {
+    console.log(c.warning(`   ⚠️ Found ${dataTypeIssueCount} data_type inconsistencies`))
+  } else {
+    console.log(c.green(`   ✓ All metrics have consistent data_type values`))
+  }
+
   console.log(c.muted(`   Fetching ${totalChecked} metrics in parallel...`))
 
   // Fetch all metrics in parallel using Promise.allSettled

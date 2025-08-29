@@ -3634,6 +3634,29 @@
     "category": "Financials"
   },
   {
+    "name": "Burn USD",
+    "description": "The total amount of burned transaction fees in USD.",
+    "identifier": "burn-usd",
+    "project": "ethereum",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials"
+  },
+  {
     "name": "Transaction Total",
     "description": "Daily number of all transactions.",
     "identifier": "transaction-total",
@@ -3663,29 +3686,6 @@
     "project": "BMNR",
     "source": "Blockworks",
     "data_type": "string",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials"
-  },
-  {
-    "name": "Burn USD",
-    "description": "The total amount of burned transaction fees in USD.",
-    "identifier": "burn-usd",
-    "project": "ethereum",
-    "source": "Blockworks",
-    "data_type": "timeseries_int",
     "parameters": {
       "end_date": {
         "type": "date",
