@@ -63,7 +63,7 @@
           },
           {
             "group": "Metrics : Chains",
-            "tag": "17",
+            "tag": "5",
             "pages": [
               {
                 "group": "Arbitrum",
@@ -195,18 +195,6 @@
                 ]
               },
               {
-                "group": "Byreal",
-                "icon": "link",
-                "pages": [
-                  {
-                    "group": "Trading",
-                    "pages": [
-                      "api-reference/metrics/Byreal/trading/volume-usd"
-                    ]
-                  }
-                ]
-              },
-              {
                 "group": "Ethereum",
                 "icon": "link",
                 "pages": [
@@ -278,90 +266,6 @@
                 ]
               },
               {
-                "group": "GoonFi",
-                "icon": "link",
-                "pages": [
-                  {
-                    "group": "Trading",
-                    "pages": [
-                      "api-reference/metrics/GoonFi/trading/volume-usd"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "HumidiFi",
-                "icon": "link",
-                "pages": [
-                  {
-                    "group": "Trading",
-                    "pages": [
-                      "api-reference/metrics/HumidiFi/trading/volume-usd"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Lifinity",
-                "icon": "link",
-                "pages": [
-                  {
-                    "group": "Trading",
-                    "pages": [
-                      "api-reference/metrics/Lifinity/trading/volume-usd"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Meteroa",
-                "icon": "link",
-                "pages": [
-                  {
-                    "group": "Trading",
-                    "pages": [
-                      "api-reference/metrics/Meteroa/trading/volume-usd"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Orca",
-                "icon": "link",
-                "pages": [
-                  {
-                    "group": "Trading",
-                    "pages": [
-                      "api-reference/metrics/Orca/trading/volume-usd"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Pump",
-                "icon": "link",
-                "pages": [
-                  {
-                    "group": "Trading",
-                    "pages": [
-                      "api-reference/metrics/Pump/trading/volume-usd"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Raydium",
-                "icon": "link",
-                "pages": [
-                  {
-                    "group": "Trading",
-                    "pages": [
-                      "api-reference/metrics/Raydium/trading/volume-usd"
-                    ]
-                  }
-                ]
-              },
-              {
                 "group": "Solana",
                 "icon": "link",
                 "pages": [
@@ -421,10 +325,111 @@
                     ]
                   }
                 ]
+              }
+            ]
+          },
+          {
+            "group": "Metrics : Projects",
+            "pages": [
+              {
+                "group": "Byreal",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/Byreal/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "GoonFi",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/GoonFi/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "HumidiFi",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/HumidiFi/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Lifinity",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/Lifinity/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Meteroa",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/Meteroa/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Orca",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/Orca/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Pump",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/Pump/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Raydium",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/Raydium/trading/volume-usd"
+                    ]
+                  }
+                ]
               },
               {
                 "group": "SolFi",
-                "icon": "link",
+                "icon": "cube",
                 "pages": [
                   {
                     "group": "Trading",
@@ -436,7 +441,7 @@
               },
               {
                 "group": "Stablble",
-                "icon": "link",
+                "icon": "cube",
                 "pages": [
                   {
                     "group": "Trading",
@@ -448,7 +453,7 @@
               },
               {
                 "group": "Tessera",
-                "icon": "link",
+                "icon": "cube",
                 "pages": [
                   {
                     "group": "Trading",
@@ -460,7 +465,7 @@
               },
               {
                 "group": "ZeroFi",
-                "icon": "link",
+                "icon": "cube",
                 "pages": [
                   {
                     "group": "Trading",
@@ -470,7 +475,8 @@
                   }
                 ]
               }
-            ]
+            ],
+            "tag": "12"
           },
           {
             "group": "Metrics : Equities",
