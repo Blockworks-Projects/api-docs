@@ -104,6 +104,15 @@ Daily number of successful transactions, excluding failed transactions.
 
 # Equity
 
+### Enterprise Value USD
+
+Actual enterprise value for the equity. Calculated as market cap - liabilities + assets
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [SBET](/api-reference/metrics/SBET/equity/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+
 ### Market Cap
 
 Market capitalization of the equity
@@ -111,7 +120,7 @@ Market capitalization of the equity
 
 | Chain | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
-| [BMNR](/api-reference/metrics/BMNR/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_float |
+| [BMNR](/api-reference/metrics/BMNR/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
 | [BNC](/api-reference/metrics/BNC/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
 | [BTBT](/api-reference/metrics/BTBT/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
 | [BTCS](/api-reference/metrics/BTCS/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
@@ -122,10 +131,56 @@ Market capitalization of the equity
 | [ETHZ](/api-reference/metrics/ETHZ/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
 | [GAME](/api-reference/metrics/GAME/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
 | [HYPD](/api-reference/metrics/HYPD/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
-| [MSTR](/api-reference/metrics/MSTR/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_float |
+| [MSTR](/api-reference/metrics/MSTR/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
+| [SBET](/api-reference/metrics/SBET/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
 | [SMLR](/api-reference/metrics/SMLR/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
 | [SQNS](/api-reference/metrics/SQNS/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
 | [UPXI](/api-reference/metrics/UPXI/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
+
+### Treasury Asset
+
+Name of the crypto asset the treasury company is accumulating
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [SBET](/api-reference/metrics/SBET/equity/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
+
+### M NAV
+
+Market NAV value for that company. Calculated as enterprise value / NAV
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [SBET](/api-reference/metrics/SBET/equity/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
+
+### NAV USD
+
+Dollar value of crypto assets (does not include cash)
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [SBET](/api-reference/metrics/SBET/equity/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
+
+### Treasury Holdings
+
+Number of tokens held by the company. See crypto-asset for asset indicator
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [SBET](/api-reference/metrics/SBET/equity/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
+
+### Volume USD
+
+USD volume over the period
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [SBET](/api-reference/metrics/SBET/equity/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
 
 # Financials
 
@@ -156,7 +211,7 @@ Actual enterprise value for the equity. Calculated as market cap - liabilities +
 
 | Chain | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
-| [BMNR](/api-reference/metrics/BMNR/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_float |
+| [BMNR](/api-reference/metrics/BMNR/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
 | [BNC](/api-reference/metrics/BNC/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
 | [BTBT](/api-reference/metrics/BTBT/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
 | [BTCS](/api-reference/metrics/BTCS/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
@@ -167,8 +222,7 @@ Actual enterprise value for the equity. Calculated as market cap - liabilities +
 | [ETHZ](/api-reference/metrics/ETHZ/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
 | [GAME](/api-reference/metrics/GAME/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
 | [HYPD](/api-reference/metrics/HYPD/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
-| [MSTR](/api-reference/metrics/MSTR/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_float |
-| [SBET](/api-reference/metrics/SBET/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_float |
+| [MSTR](/api-reference/metrics/MSTR/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
 | [SMLR](/api-reference/metrics/SMLR/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
 | [SQNS](/api-reference/metrics/SQNS/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
 | [UPXI](/api-reference/metrics/UPXI/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
@@ -305,15 +359,6 @@ Newly issued tokens that are distributed to participants (such as validators, mi
 | [Ethereum](/api-reference/metrics/ethereum/financials/issuance-usd) | `issuance-usd` | Blockworks | daily | timeseries_usd |
 | [Solana](/api-reference/metrics/solana/financials/issuance-usd) | `issuance-usd` | Blockworks | daily | timeseries_usd |
 
-### Market Cap
-
-Market capitalization of the equity
-
-
-| Chain | Identifier | Source | Interval | Data Type |
-|-------|------------|--------|----------|-----------|
-| [SBET](/api-reference/metrics/SBET/financials/market-cap) | `market-cap` | Blockworks | daily | timeseries_float |
-
 ### Real Economic Value
 
 Network REV (Real Economic Value) is a standardized metric that tracks blockchain value accrual generated by user activity. REV consists of both in-protocol transaction fees and out-of-protocol tips that users pay for transaction execution, so it measures the monetary demand to transact onchain.
@@ -358,7 +403,6 @@ Name of the crypto asset the treasury company is accumulating
 | [GAME](/api-reference/metrics/GAME/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
 | [HYPD](/api-reference/metrics/HYPD/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
 | [MSTR](/api-reference/metrics/MSTR/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
-| [SBET](/api-reference/metrics/SBET/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
 | [SMLR](/api-reference/metrics/SMLR/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
 | [SQNS](/api-reference/metrics/SQNS/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
 | [UPXI](/api-reference/metrics/UPXI/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
@@ -382,7 +426,6 @@ Market NAV value for that company. Calculated as enterprise value / NAV
 | [GAME](/api-reference/metrics/GAME/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
 | [HYPD](/api-reference/metrics/HYPD/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
 | [MSTR](/api-reference/metrics/MSTR/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [SBET](/api-reference/metrics/SBET/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
 | [SMLR](/api-reference/metrics/SMLR/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
 | [SQNS](/api-reference/metrics/SQNS/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
 | [UPXI](/api-reference/metrics/UPXI/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
@@ -394,7 +437,7 @@ Dollar value of crypto assets (does not include cash)
 
 | Chain | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
-| [BMNR](/api-reference/metrics/BMNR/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_float |
+| [BMNR](/api-reference/metrics/BMNR/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
 | [BNC](/api-reference/metrics/BNC/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
 | [BTBT](/api-reference/metrics/BTBT/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
 | [BTCS](/api-reference/metrics/BTCS/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
@@ -406,8 +449,7 @@ Dollar value of crypto assets (does not include cash)
 | [ETHZ](/api-reference/metrics/ETHZ/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
 | [GAME](/api-reference/metrics/GAME/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
 | [HYPD](/api-reference/metrics/HYPD/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
-| [MSTR](/api-reference/metrics/MSTR/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_float |
-| [SBET](/api-reference/metrics/SBET/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_float |
+| [MSTR](/api-reference/metrics/MSTR/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
 | [SMLR](/api-reference/metrics/SMLR/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
 | [SQNS](/api-reference/metrics/SQNS/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
 | [UPXI](/api-reference/metrics/UPXI/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
@@ -432,7 +474,6 @@ Number of tokens held by the company. See crypto-asset for asset indicator
 | [GAME](/api-reference/metrics/GAME/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
 | [HYPD](/api-reference/metrics/HYPD/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
 | [MSTR](/api-reference/metrics/MSTR/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
-| [SBET](/api-reference/metrics/SBET/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
 | [SMLR](/api-reference/metrics/SMLR/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
 | [SQNS](/api-reference/metrics/SQNS/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
 | [UPXI](/api-reference/metrics/UPXI/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
@@ -444,7 +485,7 @@ USD volume over the period
 
 | Chain | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
-| [BMNR](/api-reference/metrics/BMNR/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_float |
+| [BMNR](/api-reference/metrics/BMNR/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
 | [BNC](/api-reference/metrics/BNC/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
 | [BTBT](/api-reference/metrics/BTBT/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
 | [BTCS](/api-reference/metrics/BTCS/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
@@ -456,8 +497,7 @@ USD volume over the period
 | [ETHZ](/api-reference/metrics/ETHZ/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
 | [GAME](/api-reference/metrics/GAME/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
 | [HYPD](/api-reference/metrics/HYPD/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
-| [MSTR](/api-reference/metrics/MSTR/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_float |
-| [SBET](/api-reference/metrics/SBET/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_float |
+| [MSTR](/api-reference/metrics/MSTR/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
 | [SMLR](/api-reference/metrics/SMLR/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
 | [SQNS](/api-reference/metrics/SQNS/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
 | [UPXI](/api-reference/metrics/UPXI/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
@@ -737,4 +777,24 @@ Total ETF flows for Ether ETFs
 | [Bitcoin](/api-reference/metrics/bitcoin/trading/etf-flows-total) | `etf-flows-total` | Farside UK | daily | timeseries_usd |
 | [Ethereum](/api-reference/metrics/ethereum/trading/etf-flows-total) | `etf-flows-total` | Farside UK | daily | timeseries_usd |
 | [Solana](/api-reference/metrics/solana/trading/etf-flows-total) | `etf-flows-total` | Farside UK | daily | timeseries_usd |
+
+### Volume USD
+
+Amount of trading volume in USD
+
+
+| Chain | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [Byreal](/api-reference/metrics/Byreal/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
+| [GoonFi](/api-reference/metrics/GoonFi/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
+| [HumidiFi](/api-reference/metrics/HumidiFi/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
+| [Lifinity](/api-reference/metrics/Lifinity/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
+| [Meteroa](/api-reference/metrics/Meteroa/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
+| [Orca](/api-reference/metrics/Orca/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
+| [Pump](/api-reference/metrics/Pump/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
+| [Raydium](/api-reference/metrics/Raydium/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
+| [SolFi](/api-reference/metrics/SolFi/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
+| [Stablble](/api-reference/metrics/Stablble/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
+| [Tessera](/api-reference/metrics/Tessera/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
+| [ZeroFi](/api-reference/metrics/ZeroFi/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
 

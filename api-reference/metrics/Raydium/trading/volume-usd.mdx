@@ -1,8 +1,8 @@
 ---
-title: "BMNR : NAV USD"
-sidebarTitle: "NAV USD"
-description: "Dollar value of crypto assets (does not include cash)"
-openapi: "GET /v1/metrics/treasury-nav-usd"
+title: "Raydium : Volume USD"
+sidebarTitle: "Volume USD"
+description: "Amount of trading volume in USD"
+openapi: "GET /v1/metrics/volume-usd"
 mode: "wide"
 ---
 
@@ -18,12 +18,12 @@ mode: "wide"
 
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworks.com/v1/metrics/treasury-nav-usd?project=BMNR"
+  "https://api.blockworks.com/v1/metrics/volume-usd?project=Raydium"
 ```
 
 ```typescript TypeScript
 const res = await fetch(
-  'https://api.blockworks.com/v1/metrics/treasury-nav-usd?project=BMNR',
+  'https://api.blockworks.com/v1/metrics/volume-usd?project=Raydium',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
@@ -33,9 +33,9 @@ const data = await res.json()
 import requests
 
 r = requests.get(
-  'https://api.blockworks.com/v1/metrics/treasury-nav-usd',
+  'https://api.blockworks.com/v1/metrics/volume-usd',
   headers={'x-api-key': 'YOUR_API_KEY'},
-  params={'project': 'BMNR'}
+  params={'project': 'Raydium'}
 )
 data = r.json()
 ```
@@ -46,22 +46,26 @@ data = r.json()
 
 ```json
 {
-  "bmnr": [
+  "raydium": [
     {
-      "date": "2025-08-28",
-      "value": 8141662354.64
-    },
-    {
-      "date": "2025-08-27",
-      "value": 7868872370.16
-    },
-    {
-      "date": "2025-08-26",
-      "value": 7679035025.4
+      "date": "2025-08-24",
+      "value": 1837142966.68
     },
     {
       "date": "2025-08-25",
-      "value": 7892305832.77
+      "value": 1778977850.26
+    },
+    {
+      "date": "2025-08-26",
+      "value": 1052958604.93
+    },
+    {
+      "date": "2025-08-27",
+      "value": 1205735879.07
+    },
+    {
+      "date": "2025-08-28",
+      "value": 1149332688.9
     }
   ]
 }

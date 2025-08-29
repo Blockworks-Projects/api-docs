@@ -63,7 +63,7 @@
           },
           {
             "group": "Metrics : Chains",
-            "tag": "5",
+            "tag": "17",
             "pages": [
               {
                 "group": "Arbitrum",
@@ -195,6 +195,18 @@
                 ]
               },
               {
+                "group": "Byreal",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/Byreal/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
                 "group": "Ethereum",
                 "icon": "link",
                 "pages": [
@@ -266,6 +278,90 @@
                 ]
               },
               {
+                "group": "GoonFi",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/GoonFi/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "HumidiFi",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/HumidiFi/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Lifinity",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/Lifinity/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Meteroa",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/Meteroa/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Orca",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/Orca/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Pump",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/Pump/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Raydium",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/Raydium/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
                 "group": "Solana",
                 "icon": "link",
                 "pages": [
@@ -322,6 +418,54 @@
                       "api-reference/metrics/solana/trading/dex-spot-volume",
                       "api-reference/metrics/solana/trading/etf-flows-ssk",
                       "api-reference/metrics/solana/trading/etf-flows-total"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "SolFi",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/SolFi/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Stablble",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/Stablble/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Tessera",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/Tessera/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "ZeroFi",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/ZeroFi/trading/volume-usd"
                     ]
                   }
                 ]
@@ -628,15 +772,15 @@
                 "icon": "chart-line",
                 "pages": [
                   {
-                    "group": "Financials",
+                    "group": "Equity",
                     "pages": [
-                      "api-reference/metrics/SBET/financials/enterprise-value-usd",
-                      "api-reference/metrics/SBET/financials/market-cap",
-                      "api-reference/metrics/SBET/financials/treasury-crypto-asset",
-                      "api-reference/metrics/SBET/financials/treasury-mnav",
-                      "api-reference/metrics/SBET/financials/treasury-nav-usd",
-                      "api-reference/metrics/SBET/financials/treasury-token-holdings",
-                      "api-reference/metrics/SBET/financials/treasury-volume-usd"
+                      "api-reference/metrics/SBET/equity/enterprise-value-usd",
+                      "api-reference/metrics/SBET/equity/market-cap",
+                      "api-reference/metrics/SBET/equity/treasury-crypto-asset",
+                      "api-reference/metrics/SBET/equity/treasury-mnav",
+                      "api-reference/metrics/SBET/equity/treasury-nav-usd",
+                      "api-reference/metrics/SBET/equity/treasury-token-holdings",
+                      "api-reference/metrics/SBET/equity/treasury-volume-usd"
                     ]
                   }
                 ]

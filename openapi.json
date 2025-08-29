@@ -7464,6 +7464,159 @@
           }
         ]
       }
+    },
+    "/v1/metrics/volume-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_volume_usd",
+        "summary": "Volume Usd",
+        "description": "Retrieve the 'volume-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Byreal",
+                "GoonFi",
+                "HumidiFi",
+                "Lifinity",
+                "Meteroa",
+                "Orca",
+                "Pump",
+                "Raydium",
+                "SolFi",
+                "Stablble",
+                "Tessera",
+                "ZeroFi"
+              ],
+              "example": "Byreal"
+            },
+            "examples": {
+              "Byreal": {
+                "value": "Byreal",
+                "summary": "Byreal"
+              },
+              "GoonFi": {
+                "value": "GoonFi",
+                "summary": "GoonFi"
+              },
+              "HumidiFi": {
+                "value": "HumidiFi",
+                "summary": "HumidiFi"
+              },
+              "Lifinity": {
+                "value": "Lifinity",
+                "summary": "Lifinity"
+              },
+              "Meteroa": {
+                "value": "Meteroa",
+                "summary": "Meteroa"
+              },
+              "Orca": {
+                "value": "Orca",
+                "summary": "Orca"
+              },
+              "Pump": {
+                "value": "Pump",
+                "summary": "Pump"
+              },
+              "Raydium": {
+                "value": "Raydium",
+                "summary": "Raydium"
+              },
+              "SolFi": {
+                "value": "SolFi",
+                "summary": "SolFi"
+              },
+              "Stablble": {
+                "value": "Stablble",
+                "summary": "Stablble"
+              },
+              "Tessera": {
+                "value": "Tessera",
+                "summary": "Tessera"
+              },
+              "ZeroFi": {
+                "value": "ZeroFi",
+                "summary": "ZeroFi"
+              },
+              "multi": {
+                "value": "Byreal,GoonFi",
+                "summary": "Byreal + GoonFi"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
     }
   },
   "info": {

@@ -1,8 +1,8 @@
 ---
-title: "BMNR : NAV USD"
-sidebarTitle: "NAV USD"
-description: "Dollar value of crypto assets (does not include cash)"
-openapi: "GET /v1/metrics/treasury-nav-usd"
+title: "SBET : Volume USD"
+sidebarTitle: "Volume USD"
+description: "USD volume over the period"
+openapi: "GET /v1/metrics/treasury-volume-usd"
 mode: "wide"
 ---
 
@@ -18,12 +18,12 @@ mode: "wide"
 
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworks.com/v1/metrics/treasury-nav-usd?project=BMNR"
+  "https://api.blockworks.com/v1/metrics/treasury-volume-usd?project=SBET"
 ```
 
 ```typescript TypeScript
 const res = await fetch(
-  'https://api.blockworks.com/v1/metrics/treasury-nav-usd?project=BMNR',
+  'https://api.blockworks.com/v1/metrics/treasury-volume-usd?project=SBET',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
@@ -33,9 +33,9 @@ const data = await res.json()
 import requests
 
 r = requests.get(
-  'https://api.blockworks.com/v1/metrics/treasury-nav-usd',
+  'https://api.blockworks.com/v1/metrics/treasury-volume-usd',
   headers={'x-api-key': 'YOUR_API_KEY'},
-  params={'project': 'BMNR'}
+  params={'project': 'SBET'}
 )
 data = r.json()
 ```
@@ -46,22 +46,22 @@ data = r.json()
 
 ```json
 {
-  "bmnr": [
+  "sbet": [
     {
       "date": "2025-08-28",
-      "value": 8141662354.64
+      "value": 471183581.18
     },
     {
       "date": "2025-08-27",
-      "value": 7868872370.16
+      "value": 614598608.79
     },
     {
       "date": "2025-08-26",
-      "value": 7679035025.4
+      "value": 519113163.16
     },
     {
       "date": "2025-08-25",
-      "value": 7892305832.77
+      "value": 719375836.2
     }
   ]
 }
