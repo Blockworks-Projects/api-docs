@@ -170,7 +170,7 @@ async function main() {
       console.log(c.header(`  ⚠️ Omitted Pages:`), c.darkGreen(omittedMetrics.length))
     }
     console.log(c.header(`  📂 Projects:`), c.darkGreen(new Set(metrics.map(m => m.project)).size))
-    console.log(c.header(`  🏷️ Categories:`), c.darkGreen(new Set(metrics.map(m => m.category)).size))
+    console.log(c.header(`  📦 Categories:`), c.darkGreen(new Set(metrics.map(m => m.category)).size))
 
     if (shouldContinue) {
       console.log(c.header(`  ✅ Catalog generated`))
