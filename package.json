@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "npx mintlify@latest dev --port 3333",
-    "sync": "bun run commands/sync.ts"
+    "sync": "bun run commands/sync/index.ts"
   },
   "dependencies": {
     "itty-fetcher": "^1.0.10",
