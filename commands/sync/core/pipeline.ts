@@ -274,8 +274,11 @@ export function displaySummary(results: {
     console.log(c.header(`  📁 Removed empty dirs:`), c.darkGreen(removedDirs.length))
   }
 
+  // Show API errors count
   if (apiErrors.length > 0) {
     console.log(c.warning(`  ⚠️ API Errors: ${apiErrors.length}`))
+  } else {
+    console.log(c.header(`  ⚠️ API Errors:`), c.darkGreen('0'))
   }
 
   // Show validation issues count
