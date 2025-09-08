@@ -1,9 +1,9 @@
 import { mkdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import type { Metric } from '../sync.types'
-import { colors as c, OUTPUT_DIR } from './const'
-import * as templates from './templates'
-import { toTitleCase } from './utils'
+import type { Metric } from '../types'
+import { colors as c, OUTPUT_DIR } from '../lib/constants'
+import * as templates from '../templates'
+import { toTitleCase } from '../lib/utils'
 
 /**
  * Generate metrics catalog

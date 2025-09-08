@@ -1,4 +1,4 @@
-import type { Metric } from '../sync.types'
+import type { Metric } from '../types'
 
 /**
  * Determine unit from data_type

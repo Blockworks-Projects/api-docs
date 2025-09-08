@@ -1,8 +1,8 @@
 import { mkdir, writeFile } from 'node:fs/promises'
-import { colors as c } from './const'
-import { fetchAssetSampleData } from './fetch-asset-sample-data'
-import { ASSET_EXPANSION_OPTION_PAGE, FIELD_DEFINITIONS } from './templates'
-import { toTitleCase, escapeYamlString } from './utils'
+import { colors as c } from '../lib/constants'
+import { fetchAssetSampleData } from '../api/assets-api'
+import { ASSET_EXPANSION_OPTION_PAGE, FIELD_DEFINITIONS } from '../templates'
+import { toTitleCase, escapeYamlString } from '../lib/utils'
 
 /**
  * Generate a single asset expansion option page

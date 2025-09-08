@@ -1,5 +1,5 @@
-import type { APIError } from '../sync.types'
-import { API } from './api'
+import type { APIError } from '../types'
+import { API } from '../lib/api-client'
 import { apiErrors } from './api-errors'
 
 /**

@@ -1,4 +1,4 @@
-import type { MetricDataResponse } from '../sync.types'
+import type { MetricDataResponse } from '../types'
 
 /**
  * Global cache for metric data responses

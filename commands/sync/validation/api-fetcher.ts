@@ -1,5 +1,5 @@
 import type { Metric, MetricDataResponse } from '../types'
-import { API } from '../lib/api'
+import { API } from '../lib/api-client'
 import { getDateNDaysAgo } from '../lib/api-client'
 
 /**

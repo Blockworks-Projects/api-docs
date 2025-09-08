@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises'
-import type { Metric } from '../sync.types'
-import { colors as c } from './const'
-import { toTitleCase } from './utils'
+import type { Metric } from '../types'
+import { colors as c } from '../lib/constants'
+import { toTitleCase } from '../lib/utils'
 
 /**
  * Update OpenAPI spec with missing metrics and standardized placeholder examples

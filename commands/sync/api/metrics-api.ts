@@ -1,6 +1,7 @@
 import type { Metric, MetricsResponse, MetricDataResponse } from '../types'
 import { fetchWithErrorHandling, getDateNDaysAgo, generateMockMetricData } from '../lib/api-client'
 import { readJsonFile, writeJsonFile } from '../lib/file-operations'
+import { stripUpdatedFields, metricsEqual } from '../lib/utils'
 import { colors as c } from '../lib/constants'
 
 const LIMIT = 500
@@ -100,21 +101,3 @@ async function saveMetricsForComparison(metrics: Metric[]): Promise<void> {
   }
 }
 
-/**
- * Check if two metric arrays are equal (ignoring updated_at fields)
- */
-function metricsEqual(prev: Metric[], current: Metric[]): boolean {
-  if (prev.length !== current.length) return false
-  
-  const prevStripped = stripUpdatedFields(prev)
-  const currentStripped = stripUpdatedFields(current)
-  
-  return JSON.stringify(prevStripped) === JSON.stringify(currentStripped)
-}
-
-/**
- * Remove updated_at fields for comparison
- */
-function stripUpdatedFields(metrics: Metric[]): Omit<Metric, 'updated_at'>[] {
-  return metrics.map(({ updated_at, ...metric }) => metric)
-}

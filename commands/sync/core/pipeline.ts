@@ -9,6 +9,7 @@ import { catalogExistingMetrics, compareMetrics } from '../cleanup/metrics-catal
 import { cleanupObsoleteContent, cleanupExistingContent } from '../cleanup/content-cleaner'
 import { generateMetricPage } from '../generators/metric-page-generator'
 import { updateNavigation } from '../generators/navigation-generator'
+import { updateOpenApiSpec } from '../generators/openapi-generator'
 import { validateMetrics } from '../validation/validator'
 import { generateValidationReport } from '../validation/validation-reporter'
 import { populateMetricDataCache } from '../lib/cache'
@@ -100,23 +101,24 @@ export class SyncPipeline {
 
     // Generate metrics catalog (placeholder - would be implemented)
     console.log(c.header('\n📖 Generating metrics catalog...'))
-    // await generateMetricsCatalog(metrics)
+    console.log(c.muted('   Skipped - generator needs import path fixes'))
 
-    // Update OpenAPI spec (placeholder - would be implemented)
+    // Update OpenAPI spec
     console.log(c.header('\n🔧 Updating OpenAPI specification...'))
-    // await updateOpenApiSpec(metrics)
+    await updateOpenApiSpec(metrics)
 
     // Update asset expansion options (placeholder - would be implemented)
     console.log(c.header('\n🎯 Updating asset expansion options...'))
-    // const expandOptions = await updateAssetExpansionOptions()
+    console.log(c.muted('   Skipped - generator needs import path fixes'))
+    const expandOptions: string[] = []
 
     // Update misc endpoints (placeholder - would be implemented)
     console.log(c.header('\n🎯 Updating misc endpoints...'))
-    // await syncMiscMetrics()
+    console.log(c.muted('   Skipped - generator needs import path fixes'))
 
     // Update navigation
     console.log(c.header('\n📋 Updating docs.json navigation...'))
-    await updateNavigation(metrics, []) // expandOptions would go here
+    await updateNavigation(metrics, expandOptions)
   }
 
   /**
