@@ -15,6 +15,10 @@ type ValidationResult = {
   metricDataCache: Map<string, MetricDataResponse>
 }
 
+export const generateIssueEntry = (issue: ValidationIssue): string => {
+  return `{ project: '${issue.metric.project}', identifier: '${issue.metric.identifier}', issue: '${issue.issue}' }`
+}
+
 /**
  * Validate a single metric's data response
  */
@@ -231,7 +235,7 @@ export const validateMetrics = async (
   const metricDataCache = new Map<string, MetricDataResponse>()
 
   console.log(c.header('\n🔍 Validating metric data feeds...'))
-  
+
   // First, validate data_type consistency (no API calls needed)
   console.log(c.muted(`   Checking data_type consistency for ${totalChecked} metrics...`))
   let dataTypeIssueCount = 0
@@ -314,8 +318,8 @@ export const validateMetrics = async (
     issuesByProject.forEach((projectIssues, project) => {
       console.log(c.muted(`\n   ${project}:`))
       projectIssues.forEach(issue => {
-        const displayName = `${issue.metric.category} > ${issue.metric.name}`
-        console.log(c.muted(`     - ${displayName}: ${issue.issue}`))
+        const entry = generateIssueEntry(issue)
+        console.log(c.muted(`     - ${entry}`))
         if (issue.data && issue.issue.includes('Malformed')) {
           console.log(c.muted(`       Data: ${JSON.stringify(issue.data).substring(0, 100)}...`))
         }
@@ -362,8 +366,9 @@ export const generateValidationReport = (result: ValidationResult): string => {
 
     // List each metric and its issue
     projectIssues.forEach(issue => {
-      const displayName = `${issue.metric.category} > ${issue.metric.name}`
-      report += `  - ${displayName}: ${issue.issue}\n`
+      const entry = generateIssueEntry(issue)
+      // const displayName = `${issue.metric.category} > ${issue.metric.name}`
+      report += `  - ${entry}\n`
     })
   })
 

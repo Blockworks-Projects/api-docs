@@ -1,6 +1,6 @@
 ---
-title: "SolFi : Volume USD"
-sidebarTitle: "Volume USD"
+title: "Solfi : Volume (USD)"
+sidebarTitle: "Volume (USD)"
 description: "Amount of trading volume in USD"
 openapi: "GET /v1/metrics/volume-usd"
 mode: "wide"
@@ -18,12 +18,12 @@ mode: "wide"
 
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworks.com/v1/metrics/volume-usd?project=SolFi"
+  "https://api.blockworks.com/v1/metrics/volume-usd?project=solfi"
 ```
 
 ```typescript TypeScript
 const res = await fetch(
-  'https://api.blockworks.com/v1/metrics/volume-usd?project=SolFi',
+  'https://api.blockworks.com/v1/metrics/volume-usd?project=solfi',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
@@ -35,7 +35,7 @@ import requests
 r = requests.get(
   'https://api.blockworks.com/v1/metrics/volume-usd',
   headers={'x-api-key': 'YOUR_API_KEY'},
-  params={'project': 'SolFi'}
+  params={'project': 'solfi'}
 )
 data = r.json()
 ```
@@ -48,24 +48,24 @@ data = r.json()
 {
   "solfi": [
     {
-      "date": "2025-08-24",
-      "value": 246117664.41
+      "date": "2025-09-03",
+      "value": 267504434.56
     },
     {
-      "date": "2025-08-25",
-      "value": 221864174.36
+      "date": "2025-09-04",
+      "value": 273157330.26
     },
     {
-      "date": "2025-08-26",
-      "value": 150173894.09
+      "date": "2025-09-05",
+      "value": 287715442.97
     },
     {
-      "date": "2025-08-27",
-      "value": 217412063.19
+      "date": "2025-09-06",
+      "value": 239024358.27
     },
     {
-      "date": "2025-08-28",
-      "value": 176990735.77
+      "date": "2025-09-07",
+      "value": 208641108.71
     }
   ]
 }

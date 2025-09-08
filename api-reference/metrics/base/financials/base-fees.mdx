@@ -1,0 +1,79 @@
+---
+title: "Base : Base Fees"
+sidebarTitle: "Base Fees"
+description: "The minimum transaction fee required for a transaction to be included in a block"
+openapi: "GET /v1/metrics/base-fees"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/base-fees?project=base"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/base-fees?project=base',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/base-fees',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'base'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "base": [
+    {
+      "date": "2025-09-03",
+      "value": 1.9897759085574547
+    },
+    {
+      "date": "2025-09-04",
+      "value": 3.6428247030972867
+    },
+    {
+      "date": "2025-09-05",
+      "value": 5.532678046411918
+    },
+    {
+      "date": "2025-09-06",
+      "value": 3.350181318972436
+    },
+    {
+      "date": "2025-09-07",
+      "value": 1.0841716591902273
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
+
+
+<Note>For fiat values, see **[Base Fees (USD)](./base-fees-usd)**.</Note>

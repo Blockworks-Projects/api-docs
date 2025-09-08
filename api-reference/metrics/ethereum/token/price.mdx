@@ -1,0 +1,72 @@
+---
+title: "Ethereum : Price (USD)"
+sidebarTitle: "Price (USD)"
+description: "The average token price during the specified time period for the native asset of that chain."
+openapi: "GET /v1/metrics/price"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/price?project=ethereum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/price?project=ethereum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/price',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ethereum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "ethereum": [
+    {
+      "date": "2025-09-03",
+      "value": 4388.91
+    },
+    {
+      "date": "2025-09-04",
+      "value": 4369.25
+    },
+    {
+      "date": "2025-09-05",
+      "value": 4344.63
+    },
+    {
+      "date": "2025-09-06",
+      "value": 4296.11
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

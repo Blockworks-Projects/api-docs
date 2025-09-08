@@ -1,0 +1,76 @@
+---
+title: "Base : Transactions (Failed)"
+sidebarTitle: "Transactions (Failed)"
+description: "Daily number of transactions where a failure occurred."
+openapi: "GET /v1/metrics/transactions-failed"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** count
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transactions-failed?project=base"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transactions-failed?project=base',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transactions-failed',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'base'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "base": [
+    {
+      "date": "2025-09-03",
+      "value": 1141902
+    },
+    {
+      "date": "2025-09-04",
+      "value": 1247434
+    },
+    {
+      "date": "2025-09-05",
+      "value": 1113063
+    },
+    {
+      "date": "2025-09-06",
+      "value": 893780
+    },
+    {
+      "date": "2025-09-07",
+      "value": 174251
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

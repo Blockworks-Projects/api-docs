@@ -1,0 +1,76 @@
+---
+title: "Balancer : Revenue (USD)"
+sidebarTitle: "Revenue (USD)"
+description: "The revenue produced during the specified time period for given project."
+openapi: "GET /v1/metrics/revenue"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/revenue?project=balancer"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/revenue?project=balancer',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/revenue',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'balancer'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "balancer": [
+    {
+      "date": "2025-09-03",
+      "value": 1570.97
+    },
+    {
+      "date": "2025-09-04",
+      "value": 2043.53
+    },
+    {
+      "date": "2025-09-05",
+      "value": 9550.79
+    },
+    {
+      "date": "2025-09-06",
+      "value": 2596.51
+    },
+    {
+      "date": "2025-09-07",
+      "value": 375.6
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

@@ -72,29 +72,32 @@
                   {
                     "group": "Activity",
                     "pages": [
-                      "api-reference/metrics/arbitrum/activity/address-total",
+                      "api-reference/metrics/arbitrum/activity/active-addresses",
                       "api-reference/metrics/arbitrum/activity/fee-average",
                       "api-reference/metrics/arbitrum/activity/fee-average-usd",
                       "api-reference/metrics/arbitrum/activity/fee-median",
                       "api-reference/metrics/arbitrum/activity/fee-median-usd",
-                      "api-reference/metrics/arbitrum/activity/transaction-fail",
-                      "api-reference/metrics/arbitrum/activity/transaction-success",
-                      "api-reference/metrics/arbitrum/activity/transaction-total"
+                      "api-reference/metrics/arbitrum/activity/transactions-failed",
+                      "api-reference/metrics/arbitrum/activity/transactions-succeeded",
+                      "api-reference/metrics/arbitrum/activity/transactions-total"
                     ]
                   },
                   {
                     "group": "Financials",
                     "pages": [
-                      "api-reference/metrics/arbitrum/financials/fees-base",
-                      "api-reference/metrics/arbitrum/financials/fees-base-usd",
-                      "api-reference/metrics/arbitrum/financials/fees-other",
-                      "api-reference/metrics/arbitrum/financials/fees-other-usd",
-                      "api-reference/metrics/arbitrum/financials/fees-priority",
-                      "api-reference/metrics/arbitrum/financials/fees-priority-usd",
-                      "api-reference/metrics/arbitrum/financials/fees-transaction",
-                      "api-reference/metrics/arbitrum/financials/fees-transaction-usd",
+                      "api-reference/metrics/arbitrum/financials/app-revenue-total",
+                      "api-reference/metrics/arbitrum/financials/base-fees",
+                      "api-reference/metrics/arbitrum/financials/base-fees-usd",
+                      "api-reference/metrics/arbitrum/financials/costs-l2",
+                      "api-reference/metrics/arbitrum/financials/gross-profit-l2",
+                      "api-reference/metrics/arbitrum/financials/other-fees",
+                      "api-reference/metrics/arbitrum/financials/other-fees-usd",
+                      "api-reference/metrics/arbitrum/financials/priority-fees",
+                      "api-reference/metrics/arbitrum/financials/priority-fees-usd",
                       "api-reference/metrics/arbitrum/financials/rev",
-                      "api-reference/metrics/arbitrum/financials/rev-usd"
+                      "api-reference/metrics/arbitrum/financials/rev-usd",
+                      "api-reference/metrics/arbitrum/financials/transaction-fees",
+                      "api-reference/metrics/arbitrum/financials/transaction-fees-usd"
                     ]
                   },
                   {
@@ -108,8 +111,8 @@
                     "group": "Token",
                     "pages": [
                       "api-reference/metrics/arbitrum/token/native-token-fdv",
-                      "api-reference/metrics/arbitrum/token/native-token-price",
-                      "api-reference/metrics/arbitrum/token/native-token-supply"
+                      "api-reference/metrics/arbitrum/token/native-token-supply",
+                      "api-reference/metrics/arbitrum/token/price"
                     ]
                   },
                   {
@@ -127,27 +130,30 @@
                   {
                     "group": "Activity",
                     "pages": [
-                      "api-reference/metrics/base/activity/address-total",
+                      "api-reference/metrics/base/activity/active-addresses",
                       "api-reference/metrics/base/activity/fee-average",
                       "api-reference/metrics/base/activity/fee-average-usd",
                       "api-reference/metrics/base/activity/fee-median",
                       "api-reference/metrics/base/activity/fee-median-usd",
-                      "api-reference/metrics/base/activity/transaction-fail",
-                      "api-reference/metrics/base/activity/transaction-success",
-                      "api-reference/metrics/base/activity/transaction-total"
+                      "api-reference/metrics/base/activity/transactions-failed",
+                      "api-reference/metrics/base/activity/transactions-succeeded",
+                      "api-reference/metrics/base/activity/transactions-total"
                     ]
                   },
                   {
                     "group": "Financials",
                     "pages": [
-                      "api-reference/metrics/base/financials/fees-base",
-                      "api-reference/metrics/base/financials/fees-base-usd",
-                      "api-reference/metrics/base/financials/fees-priority",
-                      "api-reference/metrics/base/financials/fees-priority-usd",
-                      "api-reference/metrics/base/financials/fees-transaction",
-                      "api-reference/metrics/base/financials/fees-transaction-usd",
+                      "api-reference/metrics/base/financials/app-revenue-total",
+                      "api-reference/metrics/base/financials/base-fees",
+                      "api-reference/metrics/base/financials/base-fees-usd",
+                      "api-reference/metrics/base/financials/costs-l2",
+                      "api-reference/metrics/base/financials/gross-profit-l2",
+                      "api-reference/metrics/base/financials/priority-fees",
+                      "api-reference/metrics/base/financials/priority-fees-usd",
                       "api-reference/metrics/base/financials/rev",
-                      "api-reference/metrics/base/financials/rev-usd"
+                      "api-reference/metrics/base/financials/rev-usd",
+                      "api-reference/metrics/base/financials/transaction-fees",
+                      "api-reference/metrics/base/financials/transaction-fees-usd"
                     ]
                   },
                   {
@@ -155,12 +161,6 @@
                     "pages": [
                       "api-reference/metrics/base/stablecoins/stablecoin-circulating-supply",
                       "api-reference/metrics/base/stablecoins/stablecoin-supply"
-                    ]
-                  },
-                  {
-                    "group": "Token",
-                    "pages": [
-                      "api-reference/metrics/base/token/native-token-price"
                     ]
                   },
                   {
@@ -178,17 +178,6 @@
                   {
                     "group": "Trading",
                     "pages": [
-                      "api-reference/metrics/bitcoin/trading/etf-flows-arkb",
-                      "api-reference/metrics/bitcoin/trading/etf-flows-bitb",
-                      "api-reference/metrics/bitcoin/trading/etf-flows-brrr",
-                      "api-reference/metrics/bitcoin/trading/etf-flows-btc",
-                      "api-reference/metrics/bitcoin/trading/etf-flows-btco",
-                      "api-reference/metrics/bitcoin/trading/etf-flows-btcw",
-                      "api-reference/metrics/bitcoin/trading/etf-flows-ezbc",
-                      "api-reference/metrics/bitcoin/trading/etf-flows-fbtc",
-                      "api-reference/metrics/bitcoin/trading/etf-flows-gbtc",
-                      "api-reference/metrics/bitcoin/trading/etf-flows-hodl",
-                      "api-reference/metrics/bitcoin/trading/etf-flows-ibit",
                       "api-reference/metrics/bitcoin/trading/etf-flows-total"
                     ]
                   }
@@ -201,35 +190,37 @@
                   {
                     "group": "Activity",
                     "pages": [
-                      "api-reference/metrics/ethereum/activity/address-total",
+                      "api-reference/metrics/ethereum/activity/active-addresses",
                       "api-reference/metrics/ethereum/activity/fee-average",
                       "api-reference/metrics/ethereum/activity/fee-average-usd",
                       "api-reference/metrics/ethereum/activity/fee-median",
                       "api-reference/metrics/ethereum/activity/fee-median-usd",
-                      "api-reference/metrics/ethereum/activity/transaction-fail",
-                      "api-reference/metrics/ethereum/activity/transaction-success",
-                      "api-reference/metrics/ethereum/activity/transaction-total"
+                      "api-reference/metrics/ethereum/activity/transactions-failed",
+                      "api-reference/metrics/ethereum/activity/transactions-succeeded",
+                      "api-reference/metrics/ethereum/activity/transactions-total"
                     ]
                   },
                   {
                     "group": "Financials",
                     "pages": [
+                      "api-reference/metrics/ethereum/financials/app-revenue-total",
+                      "api-reference/metrics/ethereum/financials/base-fees",
+                      "api-reference/metrics/ethereum/financials/base-fees-usd",
                       "api-reference/metrics/ethereum/financials/burn",
                       "api-reference/metrics/ethereum/financials/burn-usd",
-                      "api-reference/metrics/ethereum/financials/fees-base",
-                      "api-reference/metrics/ethereum/financials/fees-base-usd",
-                      "api-reference/metrics/ethereum/financials/fees-mev-tips",
-                      "api-reference/metrics/ethereum/financials/fees-mev-tips-usd",
-                      "api-reference/metrics/ethereum/financials/fees-other",
-                      "api-reference/metrics/ethereum/financials/fees-other-usd",
-                      "api-reference/metrics/ethereum/financials/fees-priority",
-                      "api-reference/metrics/ethereum/financials/fees-priority-usd",
-                      "api-reference/metrics/ethereum/financials/fees-transaction",
-                      "api-reference/metrics/ethereum/financials/fees-transaction-usd",
                       "api-reference/metrics/ethereum/financials/issuance",
                       "api-reference/metrics/ethereum/financials/issuance-usd",
+                      "api-reference/metrics/ethereum/financials/mev-tips-fees",
+                      "api-reference/metrics/ethereum/financials/mev-tips-fees-usd",
+                      "api-reference/metrics/ethereum/financials/other-fees",
+                      "api-reference/metrics/ethereum/financials/other-fees-usd",
+                      "api-reference/metrics/ethereum/financials/priority-fees",
+                      "api-reference/metrics/ethereum/financials/priority-fees-usd",
                       "api-reference/metrics/ethereum/financials/rev",
-                      "api-reference/metrics/ethereum/financials/rev-usd"
+                      "api-reference/metrics/ethereum/financials/rev-usd",
+                      "api-reference/metrics/ethereum/financials/token-supply-staked",
+                      "api-reference/metrics/ethereum/financials/transaction-fees",
+                      "api-reference/metrics/ethereum/financials/transaction-fees-usd"
                     ]
                   },
                   {
@@ -243,23 +234,14 @@
                     "group": "Token",
                     "pages": [
                       "api-reference/metrics/ethereum/token/native-token-fdv",
-                      "api-reference/metrics/ethereum/token/native-token-price",
-                      "api-reference/metrics/ethereum/token/native-token-supply"
+                      "api-reference/metrics/ethereum/token/native-token-supply",
+                      "api-reference/metrics/ethereum/token/price"
                     ]
                   },
                   {
                     "group": "Trading",
                     "pages": [
                       "api-reference/metrics/ethereum/trading/dex-spot-volume",
-                      "api-reference/metrics/ethereum/trading/etf-flows-ceth",
-                      "api-reference/metrics/ethereum/trading/etf-flows-eth",
-                      "api-reference/metrics/ethereum/trading/etf-flows-etha",
-                      "api-reference/metrics/ethereum/trading/etf-flows-ethe",
-                      "api-reference/metrics/ethereum/trading/etf-flows-ethv",
-                      "api-reference/metrics/ethereum/trading/etf-flows-ethw",
-                      "api-reference/metrics/ethereum/trading/etf-flows-ezet",
-                      "api-reference/metrics/ethereum/trading/etf-flows-feth",
-                      "api-reference/metrics/ethereum/trading/etf-flows-qeth",
                       "api-reference/metrics/ethereum/trading/etf-flows-total"
                     ]
                   }
@@ -272,33 +254,35 @@
                   {
                     "group": "Activity",
                     "pages": [
-                      "api-reference/metrics/solana/activity/address-total",
+                      "api-reference/metrics/solana/activity/active-addresses",
                       "api-reference/metrics/solana/activity/fee-average",
                       "api-reference/metrics/solana/activity/fee-average-usd",
                       "api-reference/metrics/solana/activity/fee-median",
                       "api-reference/metrics/solana/activity/fee-median-usd",
-                      "api-reference/metrics/solana/activity/transaction-fail",
-                      "api-reference/metrics/solana/activity/transaction-success",
-                      "api-reference/metrics/solana/activity/transaction-total"
+                      "api-reference/metrics/solana/activity/transactions-failed",
+                      "api-reference/metrics/solana/activity/transactions-succeeded",
+                      "api-reference/metrics/solana/activity/transactions-total"
                     ]
                   },
                   {
                     "group": "Financials",
                     "pages": [
+                      "api-reference/metrics/solana/financials/app-revenue-total",
+                      "api-reference/metrics/solana/financials/base-fees",
+                      "api-reference/metrics/solana/financials/base-fees-usd",
                       "api-reference/metrics/solana/financials/burn",
                       "api-reference/metrics/solana/financials/burn-usd",
-                      "api-reference/metrics/solana/financials/fees-base",
-                      "api-reference/metrics/solana/financials/fees-base-usd",
-                      "api-reference/metrics/solana/financials/fees-mev-tips",
-                      "api-reference/metrics/solana/financials/fees-mev-tips-usd",
-                      "api-reference/metrics/solana/financials/fees-priority",
-                      "api-reference/metrics/solana/financials/fees-priority-usd",
-                      "api-reference/metrics/solana/financials/fees-transaction",
-                      "api-reference/metrics/solana/financials/fees-transaction-usd",
                       "api-reference/metrics/solana/financials/issuance",
                       "api-reference/metrics/solana/financials/issuance-usd",
+                      "api-reference/metrics/solana/financials/mev-tips-fees",
+                      "api-reference/metrics/solana/financials/mev-tips-fees-usd",
+                      "api-reference/metrics/solana/financials/priority-fees",
+                      "api-reference/metrics/solana/financials/priority-fees-usd",
                       "api-reference/metrics/solana/financials/rev",
-                      "api-reference/metrics/solana/financials/rev-usd"
+                      "api-reference/metrics/solana/financials/rev-usd",
+                      "api-reference/metrics/solana/financials/token-supply-staked",
+                      "api-reference/metrics/solana/financials/transaction-fees",
+                      "api-reference/metrics/solana/financials/transaction-fees-usd"
                     ]
                   },
                   {
@@ -312,15 +296,14 @@
                     "group": "Token",
                     "pages": [
                       "api-reference/metrics/solana/token/native-token-fdv",
-                      "api-reference/metrics/solana/token/native-token-price",
-                      "api-reference/metrics/solana/token/native-token-supply"
+                      "api-reference/metrics/solana/token/native-token-supply",
+                      "api-reference/metrics/solana/token/price"
                     ]
                   },
                   {
                     "group": "Trading",
                     "pages": [
                       "api-reference/metrics/solana/trading/dex-spot-volume",
-                      "api-reference/metrics/solana/trading/etf-flows-ssk",
                       "api-reference/metrics/solana/trading/etf-flows-total"
                     ]
                   }
@@ -332,37 +315,822 @@
             "group": "Metrics : Projects",
             "pages": [
               {
+                "group": "Aave",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/aave/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Aerodrome",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/aerodrome/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Apex",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/apex/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Aries",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/aries/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "ARKB",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/ARKB/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Aster",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/aster/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Axiom",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/axiom/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Bags",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/bags/token/launchpad-tokens-graduated"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Balancer",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/balancer/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Banana Gun",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/banana-gun/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Believe",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/believe/financials/revenue"
+                    ]
+                  },
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/believe/token/launchpad-bonding-volume",
+                      "api-reference/metrics/believe/token/launchpad-tokens-graduated",
+                      "api-reference/metrics/believe/token/tokens-launched-by-launchpad"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "BITB",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/BITB/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Bloom",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/bloom/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Bloxroute",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/bloxroute/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Bluefin",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/bluefin/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Bonk",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/bonk/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Boopfun",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/boopfun/token/launchpad-tokens-graduated",
+                      "api-reference/metrics/boopfun/token/tokens-launched-by-launchpad"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "BRRR",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/BRRR/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "BTC",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/BTC/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "BTCO",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/BTCO/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "BTCW",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/BTCW/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Bullx",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/bullx/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
                 "group": "Byreal",
                 "icon": "cube",
                 "pages": [
                   {
                     "group": "Trading",
                     "pages": [
-                      "api-reference/metrics/Byreal/trading/volume-usd"
+                      "api-reference/metrics/byreal/trading/volume-usd"
                     ]
                   }
                 ]
               },
               {
-                "group": "GoonFi",
+                "group": "CETH",
                 "icon": "cube",
                 "pages": [
                   {
                     "group": "Trading",
                     "pages": [
-                      "api-reference/metrics/GoonFi/trading/volume-usd"
+                      "api-reference/metrics/CETH/trading/etf-flows"
                     ]
                   }
                 ]
               },
               {
-                "group": "HumidiFi",
+                "group": "Cetus",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/cetus/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Clanker",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/clanker/financials/revenue"
+                    ]
+                  },
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/clanker/token/tokens-launched-by-launchpad"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Clipper",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/clipper/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Coinbase Wallet",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/coinbase-wallet/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Convex",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/convex/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Cookdotmeme",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/cookdotmeme/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Cookmeme",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/cookmeme/token/launchpad-bonding-volume",
+                      "api-reference/metrics/cookmeme/token/launchpad-tokens-graduated"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Dexscreener",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/dexscreener/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Dodo",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/dodo/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Drift",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/drift/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Dydx",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/dydx/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Eigenlayer",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/eigenlayer/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "ETH",
                 "icon": "cube",
                 "pages": [
                   {
                     "group": "Trading",
                     "pages": [
-                      "api-reference/metrics/HumidiFi/trading/volume-usd"
+                      "api-reference/metrics/ETH/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "ETHA",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/ETHA/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "ETHE",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/ETHE/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Ethena",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/ethena/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "ETHV",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/ETHV/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "ETHW",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/ETHW/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Euler",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/euler/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "EZBC",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/EZBC/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "EZET",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/EZET/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "FBTC",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/FBTC/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "FETH",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/FETH/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Flashbots",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/flashbots/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Fourmeme",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/fourmeme/token/tokens-launched-by-launchpad"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "GBTC",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/GBTC/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Gmgn",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/gmgn/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Gmx",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/gmx/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Goonfi",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/goonfi/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "HODL",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/HODL/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Humidifi",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/humidifi/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Hyperliquid",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/hyperliquid/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "IBIT",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/IBIT/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Ironbank",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/ironbank/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Jito",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/jito/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Jupstudio",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/jupstudio/token/launchpad-tokens-graduated"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Kamino",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/kamino/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Letsbonk",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/letsbonk/token/launchpad-tokens-graduated",
+                      "api-reference/metrics/letsbonk/token/tokens-launched-by-launchpad"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Letsbonkdotfun",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/letsbonkdotfun/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Letsbonkfun",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/letsbonkfun/token/launchpad-bonding-volume"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Level",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/level/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Lido",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/lido/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Lifi",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/lifi/financials/revenue"
                     ]
                   }
                 ]
@@ -372,9 +1140,51 @@
                 "icon": "cube",
                 "pages": [
                   {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/lifinity/financials/revenue"
+                    ]
+                  },
+                  {
                     "group": "Trading",
                     "pages": [
-                      "api-reference/metrics/Lifinity/trading/volume-usd"
+                      "api-reference/metrics/lifinity/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Looter",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/looter/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Maestro",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/maestro/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Metaplex",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/metaplex/financials/revenue"
                     ]
                   }
                 ]
@@ -392,25 +1202,246 @@
                 ]
               },
               {
-                "group": "Orca",
+                "group": "Meth Protocol",
                 "icon": "cube",
                 "pages": [
                   {
-                    "group": "Trading",
+                    "group": "Financials",
                     "pages": [
-                      "api-reference/metrics/Orca/trading/volume-usd"
+                      "api-reference/metrics/meth-protocol/financials/revenue"
                     ]
                   }
                 ]
               },
               {
-                "group": "Pump",
+                "group": "Mevx",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/mevx/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Moonshot",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/moonshot/financials/revenue"
+                    ]
+                  },
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/moonshot/token/launchpad-bonding-volume",
+                      "api-reference/metrics/moonshot/token/launchpad-tokens-graduated",
+                      "api-reference/metrics/moonshot/token/tokens-launched-by-launchpad"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Morpho",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/morpho/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Navi Protocol",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/navi-protocol/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Nova",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/nova/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Odos",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/odos/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Opensea",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/opensea/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Orca",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/orca/financials/revenue"
+                    ]
+                  },
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/orca/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Ostium",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/ostium/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Other Launchpads",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/other-launchpads/token/launchpad-tokens-graduated",
+                      "api-reference/metrics/other-launchpads/token/tokens-launched-by-launchpad"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Paal Ai",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/paal-ai/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Pancakeswap",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/pancakeswap/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Paradex",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/paradex/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Phantom",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/phantom/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Photon",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/photon/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Pumpfun",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/pumpfun/financials/revenue"
+                    ]
+                  },
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/pumpfun/token/launchpad-bonding-volume",
+                      "api-reference/metrics/pumpfun/token/launchpad-tokens-graduated",
+                      "api-reference/metrics/pumpfun/token/tokens-launched-by-launchpad"
+                    ]
+                  },
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/pumpfun/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "QETH",
                 "icon": "cube",
                 "pages": [
                   {
                     "group": "Trading",
                     "pages": [
-                      "api-reference/metrics/Pump/trading/volume-usd"
+                      "api-reference/metrics/QETH/trading/etf-flows"
                     ]
                   }
                 ]
@@ -420,33 +1451,166 @@
                 "icon": "cube",
                 "pages": [
                   {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/raydium/financials/revenue"
+                    ]
+                  },
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/raydium/token/launchpad-bonding-volume",
+                      "api-reference/metrics/raydium/token/launchpad-tokens-graduated"
+                    ]
+                  },
+                  {
                     "group": "Trading",
                     "pages": [
-                      "api-reference/metrics/Raydium/trading/volume-usd"
+                      "api-reference/metrics/raydium/trading/volume-usd"
                     ]
                   }
                 ]
               },
               {
-                "group": "SolFi",
+                "group": "Scallop",
                 "icon": "cube",
                 "pages": [
                   {
-                    "group": "Trading",
+                    "group": "Financials",
                     "pages": [
-                      "api-reference/metrics/SolFi/trading/volume-usd"
+                      "api-reference/metrics/scallop/financials/revenue"
                     ]
                   }
                 ]
               },
               {
-                "group": "Stablble",
+                "group": "Solfi",
                 "icon": "cube",
                 "pages": [
                   {
                     "group": "Trading",
                     "pages": [
-                      "api-reference/metrics/Stablble/trading/volume-usd"
+                      "api-reference/metrics/solfi/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Soltradingbot",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/soltradingbot/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Sosovalue",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/sosovalue/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Spark",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/spark/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "SSK",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/SSK/trading/etf-flows"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Stabble",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/stabble/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Stable Labs",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/stable-labs/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Stakewise",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/stakewise/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Sushiswap",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/sushiswap/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Syncswap",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/syncswap/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Tensor",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/tensor/financials/revenue"
                     ]
                   }
                 ]
@@ -458,7 +1622,115 @@
                   {
                     "group": "Trading",
                     "pages": [
-                      "api-reference/metrics/Tessera/trading/volume-usd"
+                      "api-reference/metrics/tessera/trading/volume-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Thearena",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/thearena/token/tokens-launched-by-launchpad"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Thorchain Dex",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/thorchain-dex/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Tornado",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/tornado/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Trojan",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/trojan/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Uniswap",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/uniswap/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Uniswap Labs",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/uniswap-labs/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Virtuals",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/virtuals/financials/revenue"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Wavebreak",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/wavebreak/token/launchpad-bonding-volume"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Wildcat",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/wildcat/financials/revenue"
                     ]
                   }
                 ]
@@ -474,9 +1746,21 @@
                     ]
                   }
                 ]
+              },
+              {
+                "group": "Zora",
+                "icon": "cube",
+                "pages": [
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/zora/token/tokens-launched-by-launchpad"
+                    ]
+                  }
+                ]
               }
             ],
-            "tag": "12"
+            "tag": "115"
           },
           {
             "group": "Metrics : Equities",

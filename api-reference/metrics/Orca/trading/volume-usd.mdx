@@ -1,6 +1,6 @@
 ---
-title: "Orca : Volume USD"
-sidebarTitle: "Volume USD"
+title: "Orca : Volume (USD)"
+sidebarTitle: "Volume (USD)"
 description: "Amount of trading volume in USD"
 openapi: "GET /v1/metrics/volume-usd"
 mode: "wide"
@@ -18,12 +18,12 @@ mode: "wide"
 
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworks.com/v1/metrics/volume-usd?project=Orca"
+  "https://api.blockworks.com/v1/metrics/volume-usd?project=orca"
 ```
 
 ```typescript TypeScript
 const res = await fetch(
-  'https://api.blockworks.com/v1/metrics/volume-usd?project=Orca',
+  'https://api.blockworks.com/v1/metrics/volume-usd?project=orca',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
@@ -35,7 +35,7 @@ import requests
 r = requests.get(
   'https://api.blockworks.com/v1/metrics/volume-usd',
   headers={'x-api-key': 'YOUR_API_KEY'},
-  params={'project': 'Orca'}
+  params={'project': 'orca'}
 )
 data = r.json()
 ```
@@ -48,24 +48,20 @@ data = r.json()
 {
   "orca": [
     {
-      "date": "2025-08-24",
-      "value": 1086837580.12
+      "date": "2025-09-03",
+      "value": 649915440.62
     },
     {
-      "date": "2025-08-25",
-      "value": 1162788802.82
+      "date": "2025-09-04",
+      "value": 623550398.83
     },
     {
-      "date": "2025-08-26",
-      "value": 757360653.68
+      "date": "2025-09-05",
+      "value": 919302771.46
     },
     {
-      "date": "2025-08-27",
-      "value": 1265579789.26
-    },
-    {
-      "date": "2025-08-28",
-      "value": 1111128613.76
+      "date": "2025-09-06",
+      "value": 279547897.02
     }
   ]
 }

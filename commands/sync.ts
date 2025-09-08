@@ -1,6 +1,8 @@
 #!/usr/bin/env bun
 
+import chalk from 'chalk'
 import { mkdir, writeFile } from 'node:fs/promises'
+import { colors as c } from './sync/const'
 import {
   apiErrors,
   catalogExistingMetrics,
@@ -11,15 +13,13 @@ import {
   generateMetricPage,
   generateMetricsCatalog,
   OUTPUT_DIR,
+  updateAssetExpansionOptions,
   updateNavigation,
-  updateOpenApiSpec,
-  updateAssetExpansionOptions
+  updateOpenApiSpec
 } from './sync/index'
-import { syncMiscMetrics } from './sync/sync-misc-metrics'
-import chalk from 'chalk'
-import { colors as c } from './sync/const'
-import { validateMetrics, generateValidationReport } from './sync/validate-metrics'
 import { populateMetricDataCache } from './sync/metric-data-cache'
+import { syncMiscMetrics } from './sync/sync-misc-metrics'
+import { generateIssueEntry, generateValidationReport, validateMetrics } from './sync/validate-metrics'
 
 const green = chalk.greenBright.bold
 const darkGreen = chalk.green
@@ -154,10 +154,8 @@ async function main() {
       })
 
       issuesByProject.forEach((projectIssues, project) => {
-        console.log(chalk.gray(`\n   ${project}: ${projectIssues.length} issue${projectIssues.length > 1 ? 's' : ''}`))
         projectIssues.forEach(issue => {
-          const displayName = `${issue.metric.category} > ${issue.metric.name}`
-          console.log(chalk.gray(`     - ${displayName}: ${issue.issue}`))
+          console.log(chalk.gray(`   ${generateIssueEntry(issue)}`))
         })
       })
     }

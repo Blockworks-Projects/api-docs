@@ -1,6 +1,6 @@
 ---
-title: "Lifinity : Volume USD"
-sidebarTitle: "Volume USD"
+title: "Lifinity : Volume (USD)"
+sidebarTitle: "Volume (USD)"
 description: "Amount of trading volume in USD"
 openapi: "GET /v1/metrics/volume-usd"
 mode: "wide"
@@ -18,12 +18,12 @@ mode: "wide"
 
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworks.com/v1/metrics/volume-usd?project=Lifinity"
+  "https://api.blockworks.com/v1/metrics/volume-usd?project=lifinity"
 ```
 
 ```typescript TypeScript
 const res = await fetch(
-  'https://api.blockworks.com/v1/metrics/volume-usd?project=Lifinity',
+  'https://api.blockworks.com/v1/metrics/volume-usd?project=lifinity',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
@@ -35,7 +35,7 @@ import requests
 r = requests.get(
   'https://api.blockworks.com/v1/metrics/volume-usd',
   headers={'x-api-key': 'YOUR_API_KEY'},
-  params={'project': 'Lifinity'}
+  params={'project': 'lifinity'}
 )
 data = r.json()
 ```
@@ -48,24 +48,20 @@ data = r.json()
 {
   "lifinity": [
     {
-      "date": "2025-08-24",
-      "value": 103968450.55
+      "date": "2025-09-03",
+      "value": 51014332.06
     },
     {
-      "date": "2025-08-25",
-      "value": 87672389.03
+      "date": "2025-09-04",
+      "value": 42498377.04
     },
     {
-      "date": "2025-08-26",
-      "value": 54440823.72
+      "date": "2025-09-05",
+      "value": 75387260.05
     },
     {
-      "date": "2025-08-27",
-      "value": 112056109.1
-    },
-    {
-      "date": "2025-08-28",
-      "value": 72745592.99
+      "date": "2025-09-06",
+      "value": 22637729.7
     }
   ]
 }

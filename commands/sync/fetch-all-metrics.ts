@@ -4,6 +4,8 @@ import { API } from './api'
 import { colors as c } from './const'
 import { metricsEqual, stripUpdatedFields } from './utils'
 
+const LIMIT = 500
+
 /**
  * Load previous metrics from saved file
  */
@@ -43,7 +45,7 @@ export const fetchAllMetrics = async (updateOnlyMode: boolean = false): Promise<
 
     const [error, response] = await API.get<[APIError, MetricsResponse]>('/metrics', {
       query: {
-        limit: '100',
+        limit: LIMIT,
         page: page.toString(),
       },
     })
@@ -55,7 +57,7 @@ export const fetchAllMetrics = async (updateOnlyMode: boolean = false): Promise<
 
     metrics.push(...response.data)
 
-    const totalPages = Math.ceil(response.total / 100)
+    const totalPages = Math.ceil(response.total / LIMIT)
     hasMore = page < totalPages
     page++
   }

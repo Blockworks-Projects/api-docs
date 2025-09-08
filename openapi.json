@@ -7479,73 +7479,73 @@
             "schema": {
               "type": "string",
               "enum": [
-                "Byreal",
-                "GoonFi",
-                "HumidiFi",
-                "Lifinity",
                 "Meteroa",
-                "Orca",
-                "Pump",
-                "Raydium",
-                "SolFi",
-                "Stablble",
-                "Tessera",
-                "ZeroFi"
+                "ZeroFi",
+                "byreal",
+                "goonfi",
+                "humidifi",
+                "lifinity",
+                "orca",
+                "pumpfun",
+                "raydium",
+                "solfi",
+                "stabble",
+                "tessera"
               ],
-              "example": "Byreal"
+              "example": "Meteroa"
             },
             "examples": {
-              "Byreal": {
-                "value": "Byreal",
-                "summary": "Byreal"
-              },
-              "GoonFi": {
-                "value": "GoonFi",
-                "summary": "GoonFi"
-              },
-              "HumidiFi": {
-                "value": "HumidiFi",
-                "summary": "HumidiFi"
-              },
-              "Lifinity": {
-                "value": "Lifinity",
-                "summary": "Lifinity"
-              },
               "Meteroa": {
                 "value": "Meteroa",
                 "summary": "Meteroa"
-              },
-              "Orca": {
-                "value": "Orca",
-                "summary": "Orca"
-              },
-              "Pump": {
-                "value": "Pump",
-                "summary": "Pump"
-              },
-              "Raydium": {
-                "value": "Raydium",
-                "summary": "Raydium"
-              },
-              "SolFi": {
-                "value": "SolFi",
-                "summary": "SolFi"
-              },
-              "Stablble": {
-                "value": "Stablble",
-                "summary": "Stablble"
-              },
-              "Tessera": {
-                "value": "Tessera",
-                "summary": "Tessera"
               },
               "ZeroFi": {
                 "value": "ZeroFi",
                 "summary": "ZeroFi"
               },
+              "byreal": {
+                "value": "byreal",
+                "summary": "Byreal"
+              },
+              "goonfi": {
+                "value": "goonfi",
+                "summary": "Goonfi"
+              },
+              "humidifi": {
+                "value": "humidifi",
+                "summary": "Humidifi"
+              },
+              "lifinity": {
+                "value": "lifinity",
+                "summary": "Lifinity"
+              },
+              "orca": {
+                "value": "orca",
+                "summary": "Orca"
+              },
+              "pumpfun": {
+                "value": "pumpfun",
+                "summary": "Pumpfun"
+              },
+              "raydium": {
+                "value": "raydium",
+                "summary": "Raydium"
+              },
+              "solfi": {
+                "value": "solfi",
+                "summary": "Solfi"
+              },
+              "stabble": {
+                "value": "stabble",
+                "summary": "Stabble"
+              },
+              "tessera": {
+                "value": "tessera",
+                "summary": "Tessera"
+              },
               "multi": {
-                "value": "Byreal,GoonFi",
-                "summary": "Byreal + GoonFi"
+                "value": "Meteroa,ZeroFi",
+                "summary": "Meteroa + ZeroFi"
               }
             }
           },
@@ -7598,6 +7598,3158 @@
                     {
                       "date": "2025-08-12",
                       "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/gross-profit-l2": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_gross_profit_l2",
+        "summary": "Gross Profit L2",
+        "description": "Retrieve the 'gross-profit-l2' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/transactions-failed": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_transactions_failed",
+        "summary": "Transactions Failed",
+        "description": "Retrieve the 'transactions-failed' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/costs-l2": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_costs_l2",
+        "summary": "Costs L2",
+        "description": "Retrieve the 'costs-l2' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/active-addresses": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_active_addresses",
+        "summary": "Active Addresses",
+        "description": "Retrieve the 'active-addresses' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/etf-flows": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_etf_flows",
+        "summary": "Etf Flows",
+        "description": "Retrieve the 'etf-flows' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ARKB",
+                "BITB",
+                "BRRR",
+                "BTC",
+                "BTCO",
+                "BTCW",
+                "CETH",
+                "ETH",
+                "ETHA",
+                "ETHE",
+                "ETHV",
+                "ETHW",
+                "EZBC",
+                "EZET",
+                "FBTC",
+                "FETH",
+                "GBTC",
+                "HODL",
+                "IBIT",
+                "QETH",
+                "SSK"
+              ],
+              "example": "ARKB"
+            },
+            "examples": {
+              "ARKB": {
+                "value": "ARKB",
+                "summary": "ARKB"
+              },
+              "BITB": {
+                "value": "BITB",
+                "summary": "BITB"
+              },
+              "BRRR": {
+                "value": "BRRR",
+                "summary": "BRRR"
+              },
+              "BTC": {
+                "value": "BTC",
+                "summary": "BTC"
+              },
+              "BTCO": {
+                "value": "BTCO",
+                "summary": "BTCO"
+              },
+              "BTCW": {
+                "value": "BTCW",
+                "summary": "BTCW"
+              },
+              "CETH": {
+                "value": "CETH",
+                "summary": "CETH"
+              },
+              "ETH": {
+                "value": "ETH",
+                "summary": "ETH"
+              },
+              "ETHA": {
+                "value": "ETHA",
+                "summary": "ETHA"
+              },
+              "ETHE": {
+                "value": "ETHE",
+                "summary": "ETHE"
+              },
+              "ETHV": {
+                "value": "ETHV",
+                "summary": "ETHV"
+              },
+              "ETHW": {
+                "value": "ETHW",
+                "summary": "ETHW"
+              },
+              "EZBC": {
+                "value": "EZBC",
+                "summary": "EZBC"
+              },
+              "EZET": {
+                "value": "EZET",
+                "summary": "EZET"
+              },
+              "FBTC": {
+                "value": "FBTC",
+                "summary": "FBTC"
+              },
+              "FETH": {
+                "value": "FETH",
+                "summary": "FETH"
+              },
+              "GBTC": {
+                "value": "GBTC",
+                "summary": "GBTC"
+              },
+              "HODL": {
+                "value": "HODL",
+                "summary": "HODL"
+              },
+              "IBIT": {
+                "value": "IBIT",
+                "summary": "IBIT"
+              },
+              "QETH": {
+                "value": "QETH",
+                "summary": "QETH"
+              },
+              "SSK": {
+                "value": "SSK",
+                "summary": "SSK"
+              },
+              "multi": {
+                "value": "ARKB,BITB",
+                "summary": "ARKB + BITB"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/price": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_price",
+        "summary": "Price",
+        "description": "Retrieve the 'price' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,ethereum",
+                "summary": "Arbitrum + Ethereum"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/base-fees-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_base_fees_usd",
+        "summary": "Base Fees Usd",
+        "description": "Retrieve the 'base-fees-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/mev-tips-fees": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_mev_tips_fees",
+        "summary": "Mev Tips Fees",
+        "description": "Retrieve the 'mev-tips-fees' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ethereum",
+                "solana"
+              ],
+              "example": "ethereum"
+            },
+            "examples": {
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "ethereum,solana",
+                "summary": "Ethereum + Solana"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/priority-fees-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_priority_fees_usd",
+        "summary": "Priority Fees Usd",
+        "description": "Retrieve the 'priority-fees-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/transactions-succeeded": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_transactions_succeeded",
+        "summary": "Transactions Succeeded",
+        "description": "Retrieve the 'transactions-succeeded' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/base-fees": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_base_fees",
+        "summary": "Base Fees",
+        "description": "Retrieve the 'base-fees' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/transaction-fees-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_transaction_fees_usd",
+        "summary": "Transaction Fees Usd",
+        "description": "Retrieve the 'transaction-fees-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/other-fees-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_other_fees_usd",
+        "summary": "Other Fees Usd",
+        "description": "Retrieve the 'other-fees-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "ethereum"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "multi": {
+                "value": "arbitrum,ethereum",
+                "summary": "Arbitrum + Ethereum"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/transaction-fees": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_transaction_fees",
+        "summary": "Transaction Fees",
+        "description": "Retrieve the 'transaction-fees' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/priority-fees": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_priority_fees",
+        "summary": "Priority Fees",
+        "description": "Retrieve the 'priority-fees' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/other-fees": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_other_fees",
+        "summary": "Other Fees",
+        "description": "Retrieve the 'other-fees' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "ethereum"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "multi": {
+                "value": "arbitrum,ethereum",
+                "summary": "Arbitrum + Ethereum"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/transactions-total": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_transactions_total",
+        "summary": "Transactions Total",
+        "description": "Retrieve the 'transactions-total' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/mev-tips-fees-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_mev_tips_fees_usd",
+        "summary": "Mev Tips Fees Usd",
+        "description": "Retrieve the 'mev-tips-fees-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ethereum",
+                "solana"
+              ],
+              "example": "ethereum"
+            },
+            "examples": {
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "ethereum,solana",
+                "summary": "Ethereum + Solana"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/app-revenue-total": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_app_revenue_total",
+        "summary": "App Revenue Total",
+        "description": "Retrieve the 'app-revenue-total' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "arbitrum",
+                "base",
+                "ethereum",
+                "solana"
+              ],
+              "example": "arbitrum"
+            },
+            "examples": {
+              "arbitrum": {
+                "value": "arbitrum",
+                "summary": "Arbitrum"
+              },
+              "base": {
+                "value": "base",
+                "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "arbitrum,base",
+                "summary": "Arbitrum + Base"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/revenue": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_revenue",
+        "summary": "Revenue",
+        "description": "Retrieve the 'revenue' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "aave",
+                "aerodrome",
+                "apex",
+                "aries",
+                "aster",
+                "axiom",
+                "balancer",
+                "banana-gun",
+                "believe",
+                "bloom",
+                "bloxroute",
+                "bluefin",
+                "bonk",
+                "bullx",
+                "cetus",
+                "clanker",
+                "clipper",
+                "coinbase-wallet",
+                "convex",
+                "cookdotmeme",
+                "dexscreener",
+                "dodo",
+                "drift",
+                "dydx",
+                "eigenlayer",
+                "ethena",
+                "euler",
+                "flashbots",
+                "gmgn",
+                "gmx",
+                "hyperliquid",
+                "ironbank",
+                "jito",
+                "kamino",
+                "letsbonkdotfun",
+                "level",
+                "lido",
+                "lifi",
+                "lifinity",
+                "looter",
+                "maestro",
+                "metaplex",
+                "meth-protocol",
+                "mevx",
+                "moonshot",
+                "morpho",
+                "navi-protocol",
+                "nova",
+                "odos",
+                "opensea",
+                "orca",
+                "ostium",
+                "paal-ai",
+                "pancakeswap",
+                "paradex",
+                "phantom",
+                "photon",
+                "pumpfun",
+                "raydium",
+                "scallop",
+                "soltradingbot",
+                "sosovalue",
+                "spark",
+                "stable-labs",
+                "stakewise",
+                "sushiswap",
+                "syncswap",
+                "tensor",
+                "thorchain-dex",
+                "tornado",
+                "trojan",
+                "uniswap",
+                "uniswap-labs",
+                "virtuals",
+                "wildcat"
+              ],
+              "example": "aave"
+            },
+            "examples": {
+              "aave": {
+                "value": "aave",
+                "summary": "Aave"
+              },
+              "aerodrome": {
+                "value": "aerodrome",
+                "summary": "Aerodrome"
+              },
+              "apex": {
+                "value": "apex",
+                "summary": "Apex"
+              },
+              "aries": {
+                "value": "aries",
+                "summary": "Aries"
+              },
+              "aster": {
+                "value": "aster",
+                "summary": "Aster"
+              },
+              "axiom": {
+                "value": "axiom",
+                "summary": "Axiom"
+              },
+              "balancer": {
+                "value": "balancer",
+                "summary": "Balancer"
+              },
+              "banana-gun": {
+                "value": "banana-gun",
+                "summary": "Banana Gun"
+              },
+              "believe": {
+                "value": "believe",
+                "summary": "Believe"
+              },
+              "bloom": {
+                "value": "bloom",
+                "summary": "Bloom"
+              },
+              "bloxroute": {
+                "value": "bloxroute",
+                "summary": "Bloxroute"
+              },
+              "bluefin": {
+                "value": "bluefin",
+                "summary": "Bluefin"
+              },
+              "bonk": {
+                "value": "bonk",
+                "summary": "Bonk"
+              },
+              "bullx": {
+                "value": "bullx",
+                "summary": "Bullx"
+              },
+              "cetus": {
+                "value": "cetus",
+                "summary": "Cetus"
+              },
+              "clanker": {
+                "value": "clanker",
+                "summary": "Clanker"
+              },
+              "clipper": {
+                "value": "clipper",
+                "summary": "Clipper"
+              },
+              "coinbase-wallet": {
+                "value": "coinbase-wallet",
+                "summary": "Coinbase Wallet"
+              },
+              "convex": {
+                "value": "convex",
+                "summary": "Convex"
+              },
+              "cookdotmeme": {
+                "value": "cookdotmeme",
+                "summary": "Cookdotmeme"
+              },
+              "dexscreener": {
+                "value": "dexscreener",
+                "summary": "Dexscreener"
+              },
+              "dodo": {
+                "value": "dodo",
+                "summary": "Dodo"
+              },
+              "drift": {
+                "value": "drift",
+                "summary": "Drift"
+              },
+              "dydx": {
+                "value": "dydx",
+                "summary": "Dydx"
+              },
+              "eigenlayer": {
+                "value": "eigenlayer",
+                "summary": "Eigenlayer"
+              },
+              "ethena": {
+                "value": "ethena",
+                "summary": "Ethena"
+              },
+              "euler": {
+                "value": "euler",
+                "summary": "Euler"
+              },
+              "flashbots": {
+                "value": "flashbots",
+                "summary": "Flashbots"
+              },
+              "gmgn": {
+                "value": "gmgn",
+                "summary": "Gmgn"
+              },
+              "gmx": {
+                "value": "gmx",
+                "summary": "Gmx"
+              },
+              "hyperliquid": {
+                "value": "hyperliquid",
+                "summary": "Hyperliquid"
+              },
+              "ironbank": {
+                "value": "ironbank",
+                "summary": "Ironbank"
+              },
+              "jito": {
+                "value": "jito",
+                "summary": "Jito"
+              },
+              "kamino": {
+                "value": "kamino",
+                "summary": "Kamino"
+              },
+              "letsbonkdotfun": {
+                "value": "letsbonkdotfun",
+                "summary": "Letsbonkdotfun"
+              },
+              "level": {
+                "value": "level",
+                "summary": "Level"
+              },
+              "lido": {
+                "value": "lido",
+                "summary": "Lido"
+              },
+              "lifi": {
+                "value": "lifi",
+                "summary": "Lifi"
+              },
+              "lifinity": {
+                "value": "lifinity",
+                "summary": "Lifinity"
+              },
+              "looter": {
+                "value": "looter",
+                "summary": "Looter"
+              },
+              "maestro": {
+                "value": "maestro",
+                "summary": "Maestro"
+              },
+              "metaplex": {
+                "value": "metaplex",
+                "summary": "Metaplex"
+              },
+              "meth-protocol": {
+                "value": "meth-protocol",
+                "summary": "Meth Protocol"
+              },
+              "mevx": {
+                "value": "mevx",
+                "summary": "Mevx"
+              },
+              "moonshot": {
+                "value": "moonshot",
+                "summary": "Moonshot"
+              },
+              "morpho": {
+                "value": "morpho",
+                "summary": "Morpho"
+              },
+              "navi-protocol": {
+                "value": "navi-protocol",
+                "summary": "Navi Protocol"
+              },
+              "nova": {
+                "value": "nova",
+                "summary": "Nova"
+              },
+              "odos": {
+                "value": "odos",
+                "summary": "Odos"
+              },
+              "opensea": {
+                "value": "opensea",
+                "summary": "Opensea"
+              },
+              "orca": {
+                "value": "orca",
+                "summary": "Orca"
+              },
+              "ostium": {
+                "value": "ostium",
+                "summary": "Ostium"
+              },
+              "paal-ai": {
+                "value": "paal-ai",
+                "summary": "Paal Ai"
+              },
+              "pancakeswap": {
+                "value": "pancakeswap",
+                "summary": "Pancakeswap"
+              },
+              "paradex": {
+                "value": "paradex",
+                "summary": "Paradex"
+              },
+              "phantom": {
+                "value": "phantom",
+                "summary": "Phantom"
+              },
+              "photon": {
+                "value": "photon",
+                "summary": "Photon"
+              },
+              "pumpfun": {
+                "value": "pumpfun",
+                "summary": "Pumpfun"
+              },
+              "raydium": {
+                "value": "raydium",
+                "summary": "Raydium"
+              },
+              "scallop": {
+                "value": "scallop",
+                "summary": "Scallop"
+              },
+              "soltradingbot": {
+                "value": "soltradingbot",
+                "summary": "Soltradingbot"
+              },
+              "sosovalue": {
+                "value": "sosovalue",
+                "summary": "Sosovalue"
+              },
+              "spark": {
+                "value": "spark",
+                "summary": "Spark"
+              },
+              "stable-labs": {
+                "value": "stable-labs",
+                "summary": "Stable Labs"
+              },
+              "stakewise": {
+                "value": "stakewise",
+                "summary": "Stakewise"
+              },
+              "sushiswap": {
+                "value": "sushiswap",
+                "summary": "Sushiswap"
+              },
+              "syncswap": {
+                "value": "syncswap",
+                "summary": "Syncswap"
+              },
+              "tensor": {
+                "value": "tensor",
+                "summary": "Tensor"
+              },
+              "thorchain-dex": {
+                "value": "thorchain-dex",
+                "summary": "Thorchain Dex"
+              },
+              "tornado": {
+                "value": "tornado",
+                "summary": "Tornado"
+              },
+              "trojan": {
+                "value": "trojan",
+                "summary": "Trojan"
+              },
+              "uniswap": {
+                "value": "uniswap",
+                "summary": "Uniswap"
+              },
+              "uniswap-labs": {
+                "value": "uniswap-labs",
+                "summary": "Uniswap Labs"
+              },
+              "virtuals": {
+                "value": "virtuals",
+                "summary": "Virtuals"
+              },
+              "wildcat": {
+                "value": "wildcat",
+                "summary": "Wildcat"
+              },
+              "multi": {
+                "value": "aave,aerodrome",
+                "summary": "Aave + Aerodrome"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/tokens-launched-by-launchpad": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_tokens_launched_by_launchpad",
+        "summary": "Tokens Launched By Launchpad",
+        "description": "Retrieve the 'tokens-launched-by-launchpad' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "believe",
+                "boopfun",
+                "clanker",
+                "fourmeme",
+                "letsbonk",
+                "moonshot",
+                "other-launchpads",
+                "pumpfun",
+                "thearena",
+                "zora"
+              ],
+              "example": "believe"
+            },
+            "examples": {
+              "believe": {
+                "value": "believe",
+                "summary": "Believe"
+              },
+              "boopfun": {
+                "value": "boopfun",
+                "summary": "Boopfun"
+              },
+              "clanker": {
+                "value": "clanker",
+                "summary": "Clanker"
+              },
+              "fourmeme": {
+                "value": "fourmeme",
+                "summary": "Fourmeme"
+              },
+              "letsbonk": {
+                "value": "letsbonk",
+                "summary": "Letsbonk"
+              },
+              "moonshot": {
+                "value": "moonshot",
+                "summary": "Moonshot"
+              },
+              "other-launchpads": {
+                "value": "other-launchpads",
+                "summary": "Other Launchpads"
+              },
+              "pumpfun": {
+                "value": "pumpfun",
+                "summary": "Pumpfun"
+              },
+              "thearena": {
+                "value": "thearena",
+                "summary": "Thearena"
+              },
+              "zora": {
+                "value": "zora",
+                "summary": "Zora"
+              },
+              "multi": {
+                "value": "believe,boopfun",
+                "summary": "Believe + Boopfun"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/token-supply-staked": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_token_supply_staked",
+        "summary": "Token Supply Staked",
+        "description": "Retrieve the 'token-supply-staked' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ethereum",
+                "solana"
+              ],
+              "example": "ethereum"
+            },
+            "examples": {
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
+              },
+              "solana": {
+                "value": "solana",
+                "summary": "Solana"
+              },
+              "multi": {
+                "value": "ethereum,solana",
+                "summary": "Ethereum + Solana"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/launchpad-bonding-volume": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_launchpad_bonding_volume",
+        "summary": "Launchpad Bonding Volume",
+        "description": "Retrieve the 'launchpad-bonding-volume' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "believe",
+                "cookmeme",
+                "letsbonkfun",
+                "moonshot",
+                "pumpfun",
+                "raydium",
+                "wavebreak"
+              ],
+              "example": "believe"
+            },
+            "examples": {
+              "believe": {
+                "value": "believe",
+                "summary": "Believe"
+              },
+              "cookmeme": {
+                "value": "cookmeme",
+                "summary": "Cookmeme"
+              },
+              "letsbonkfun": {
+                "value": "letsbonkfun",
+                "summary": "Letsbonkfun"
+              },
+              "moonshot": {
+                "value": "moonshot",
+                "summary": "Moonshot"
+              },
+              "pumpfun": {
+                "value": "pumpfun",
+                "summary": "Pumpfun"
+              },
+              "raydium": {
+                "value": "raydium",
+                "summary": "Raydium"
+              },
+              "wavebreak": {
+                "value": "wavebreak",
+                "summary": "Wavebreak"
+              },
+              "multi": {
+                "value": "believe,cookmeme",
+                "summary": "Believe + Cookmeme"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/launchpad-tokens-graduated": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_launchpad_tokens_graduated",
+        "summary": "Launchpad Tokens Graduated",
+        "description": "Retrieve the 'launchpad-tokens-graduated' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "bags",
+                "believe",
+                "boopfun",
+                "cookmeme",
+                "jupstudio",
+                "letsbonk",
+                "moonshot",
+                "other-launchpads",
+                "pumpfun",
+                "raydium"
+              ],
+              "example": "bags"
+            },
+            "examples": {
+              "bags": {
+                "value": "bags",
+                "summary": "Bags"
+              },
+              "believe": {
+                "value": "believe",
+                "summary": "Believe"
+              },
+              "boopfun": {
+                "value": "boopfun",
+                "summary": "Boopfun"
+              },
+              "cookmeme": {
+                "value": "cookmeme",
+                "summary": "Cookmeme"
+              },
+              "jupstudio": {
+                "value": "jupstudio",
+                "summary": "Jupstudio"
+              },
+              "letsbonk": {
+                "value": "letsbonk",
+                "summary": "Letsbonk"
+              },
+              "moonshot": {
+                "value": "moonshot",
+                "summary": "Moonshot"
+              },
+              "other-launchpads": {
+                "value": "other-launchpads",
+                "summary": "Other Launchpads"
+              },
+              "pumpfun": {
+                "value": "pumpfun",
+                "summary": "Pumpfun"
+              },
+              "raydium": {
+                "value": "raydium",
+                "summary": "Raydium"
+              },
+              "multi": {
+                "value": "bags,believe",
+                "summary": "Bags + Believe"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678
                     }
                   ]
                 }

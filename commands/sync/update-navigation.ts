@@ -37,25 +37,25 @@ export const updateNavigation = async (metrics: Metric[], expandOptions?: string
   const chainProjects = new Map<string, Map<string, Metric[]>>()
   const projectProjects = new Map<string, Map<string, Metric[]>>()
   const equityProjects = new Map<string, Map<string, Metric[]>>()
-  
+
   console.log(c.subHeader('\n  2. Categorizing projects into Chains, Projects, and Equities...'))
 
   for (const [project, categoryMap] of projectGroups.entries()) {
     // Check if this project has a treasury-crypto-asset metric (Equity)
-    const hasTreasuryAsset = Array.from(categoryMap.values())
+    const isEquity = Array.from(categoryMap.values())
       .flat()
       .some(metric => metric.identifier === 'treasury-crypto-asset')
-    
+
     // Check if this project has native-token-price metric OR is Bitcoin (Chain)
-    const hasNativeTokenPrice = Array.from(categoryMap.values())
+    const isChain = Array.from(categoryMap.values())
       .flat()
-      .some(metric => metric.identifier === 'native-token-price')
+      .some(metric => metric.identifier === 'transactions-failed')
     const isBitcoin = project.toLowerCase() === 'bitcoin'
-    
-    if (hasTreasuryAsset) {
+
+    if (isEquity) {
       equityProjects.set(project, categoryMap)
       console.log(c.muted(`   📈 ${project.toUpperCase()} -> Equities (has treasury-crypto-asset)`))
-    } else if (hasNativeTokenPrice || isBitcoin) {
+    } else if (isChain || isBitcoin) {
       chainProjects.set(project, categoryMap)
       console.log(c.muted(`   🔗 ${project.toUpperCase()} -> Chains (${isBitcoin ? 'hardcoded Bitcoin' : 'has native-token-price'})`))
     } else {
@@ -72,14 +72,14 @@ export const updateNavigation = async (metrics: Metric[], expandOptions?: string
       console.log(`      + ${project}/${category}:`, c.number(categoryMetrics.length), c.muted('metrics'))
     }
   }
-  
+
   console.log(c.warning(`   Projects: ${projectProjects.size} projects`))
   for (const [project, categoryMap] of projectProjects.entries()) {
     for (const [category, categoryMetrics] of categoryMap.entries()) {
       console.log(`      + ${project}/${category}:`, c.number(categoryMetrics.length), c.muted('metrics'))
     }
   }
-  
+
   console.log(c.warning(`   Equities: ${equityProjects.size} projects`))
   for (const [project, categoryMap] of equityProjects.entries()) {
     for (const [category, categoryMetrics] of categoryMap.entries()) {
@@ -119,14 +119,14 @@ export const updateNavigation = async (metrics: Metric[], expandOptions?: string
   }
 
   // Remove existing metric groups and add them back in the correct order
-  docs.navigation.tabs[0].groups = docs.navigation.tabs[0].groups.filter((g: any) => 
+  docs.navigation.tabs[0].groups = docs.navigation.tabs[0].groups.filter((g: any) =>
     !['Metrics : Chains', 'Chains', 'Metrics : Projects', 'Projects', 'Metrics : Equities', 'Equities'].includes(g.group)
   )
-  
+
   // Find the index after the main Metrics group to insert the new groups
   const metricsIndex = docs.navigation.tabs[0].groups.findIndex((g: any) => g.group === 'Metrics')
   const insertIndex = metricsIndex >= 0 ? metricsIndex + 1 : docs.navigation.tabs[0].groups.length
-  
+
   // Insert groups in the correct order: Chains, Projects, Equities
   docs.navigation.tabs[0].groups.splice(insertIndex, 0, chainsGroup, projectsGroup, equitiesGroup)
 
@@ -143,7 +143,7 @@ export const updateNavigation = async (metrics: Metric[], expandOptions?: string
 
   // Generate navigation for Chain projects
   const sortedChainProjects = Array.from(chainProjects.entries()).sort(([a], [b]) => a.localeCompare(b))
-  
+
   for (const [project, categoryMap] of sortedChainProjects) {
     const projectName = toTitleCase(project)
     console.log(c.warning(`\n   🔗 ${project.toUpperCase()}`))
@@ -181,7 +181,7 @@ export const updateNavigation = async (metrics: Metric[], expandOptions?: string
 
   // Generate navigation for Project projects
   const sortedProjectProjects = Array.from(projectProjects.entries()).sort(([a], [b]) => a.localeCompare(b))
-  
+
   for (const [project, categoryMap] of sortedProjectProjects) {
     const projectName = toTitleCase(project)
     console.log(c.warning(`\n   📊 ${project.toUpperCase()}`))
@@ -219,7 +219,7 @@ export const updateNavigation = async (metrics: Metric[], expandOptions?: string
 
   // Generate navigation for Equity projects
   const sortedEquityProjects = Array.from(equityProjects.entries()).sort(([a], [b]) => a.localeCompare(b))
-  
+
   for (const [project, categoryMap] of sortedEquityProjects) {
     const projectName = toTitleCase(project)
     console.log(c.warning(`\n   📈 ${project.toUpperCase()}`))

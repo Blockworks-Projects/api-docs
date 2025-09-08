@@ -1,0 +1,68 @@
+---
+title: "EZBC : ETF Flows"
+sidebarTitle: "ETF Flows"
+description: "ETF flows for Franklin Bitcoin ETF (EZBC)"
+openapi: "GET /v1/metrics/etf-flows"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Farside UK
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/etf-flows?project=EZBC"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/etf-flows?project=EZBC',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/etf-flows',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'EZBC'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "ezbc": [
+    {
+      "date": "2025-09-05",
+      "value": 0
+    },
+    {
+      "date": "2025-09-04",
+      "value": -3200000
+    },
+    {
+      "date": "2025-09-03",
+      "value": 0
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

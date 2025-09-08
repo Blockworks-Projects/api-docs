@@ -1,0 +1,76 @@
+---
+title: "Believe : Launchpad Tokens Graduated"
+sidebarTitle: "Launchpad Tokens Graduated"
+description: "Token graduated during the specified time period for given launchpad."
+openapi: "GET /v1/metrics/launchpad-tokens-graduated"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** count
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/launchpad-tokens-graduated?project=believe"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/launchpad-tokens-graduated?project=believe',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/launchpad-tokens-graduated',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'believe'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "believe": [
+    {
+      "date": "2025-09-03",
+      "value": "4"
+    },
+    {
+      "date": "2025-09-04",
+      "value": "0"
+    },
+    {
+      "date": "2025-09-05",
+      "value": "2"
+    },
+    {
+      "date": "2025-09-06",
+      "value": "0"
+    },
+    {
+      "date": "2025-09-07",
+      "value": "0"
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
