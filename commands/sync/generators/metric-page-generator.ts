@@ -14,8 +14,6 @@ export async function generateMetricPage(metric: Metric, allMetrics?: Metric[]):
   const projectDir = join(OUTPUT_DIR, metric.project)
   const filePath = join(projectDir, `${metric.identifier}.mdx`)
 
-  console.log(c.muted(`   + ${metric.project}/${metric.identifier}.mdx`))
-
   // Ensure directory exists
   await ensureDirectory(projectDir)
 

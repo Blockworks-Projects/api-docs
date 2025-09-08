@@ -2,6 +2,7 @@ import type { Metric } from '../types'
 import { colors as c, OUTPUT_DIR } from '../lib/constants'
 import { apiErrors } from '../lib/api-errors'
 import { ensureDirectory } from '../lib/file-operations'
+import * as cliProgress from 'cli-progress'
 
 // Import stage functions
 import { fetchAllMetrics } from '../api/metrics-api'
@@ -97,7 +98,25 @@ export class SyncPipeline {
 
     // Generate individual metric pages
     console.log(c.header('\n✏️ Generating metric pages...'))
-    await Promise.all(metrics.map(metric => generateMetricPage(metric, metrics)))
+    
+    const progressBar = new cliProgress.SingleBar({
+      format: '   Progress |{bar}| {percentage}% || {value}/{total} pages || ETA: {eta}s',
+      barCompleteChar: '\u2588',
+      barIncompleteChar: '\u2591',
+      hideCursor: true
+    })
+    
+    progressBar.start(metrics.length, 0)
+    
+    let completed = 0
+    const promises = metrics.map(async (metric) => {
+      await generateMetricPage(metric, metrics)
+      completed++
+      progressBar.update(completed)
+    })
+    
+    await Promise.all(promises)
+    progressBar.stop()
 
     // Generate metrics catalog (placeholder - would be implemented)
     console.log(c.header('\n📖 Generating metrics catalog...'))
@@ -176,28 +195,73 @@ export function displaySummary(results: {
   // Display added metrics
   if (added.length > 0) {
     console.log(c.header(`\n+ ${added.length} Metrics Added:`))
+    
+    // Group metrics by project
+    const metricsByProject = new Map<string, string[]>()
+    
     added.forEach(metricKey => {
       const metric = metrics.find(m => `${m.project}/${m.identifier}` === metricKey)
       if (metric) {
-        console.log(c.darkGreen(`   ${metric.project}/${metric.identifier}`))
+        const identifiers = metricsByProject.get(metric.project) || []
+        identifiers.push(metric.identifier)
+        metricsByProject.set(metric.project, identifiers)
       }
     })
+    
+    // Sort projects alphabetically and display
+    Array.from(metricsByProject.keys())
+      .sort()
+      .forEach(project => {
+        const identifiers = metricsByProject.get(project)!.sort()
+        console.log(c.darkGreen(`   ${project} > ${identifiers.join(', ')}`))
+      })
   }
 
   // Display removed metrics
   if (removed.length > 0) {
     console.log(c.warning(`\n- ${removed.length} Metrics Removed:`))
+    
+    // Group removed metrics by project
+    const removedByProject = new Map<string, string[]>()
+    
     removed.forEach(metricKey => {
-      console.log(c.warning(`   ${metricKey}`))
+      const [project, identifier] = metricKey.split('/')
+      const identifiers = removedByProject.get(project) || []
+      identifiers.push(identifier)
+      removedByProject.set(project, identifiers)
     })
+    
+    // Sort projects alphabetically and display
+    Array.from(removedByProject.keys())
+      .sort()
+      .forEach(project => {
+        const identifiers = removedByProject.get(project)!.sort()
+        console.log(c.warning(`   ${project} > ${identifiers.join(', ')}`))
+      })
   }
 
   // Display omitted metrics
   if (omittedMetrics.length > 0) {
     console.log(c.warning(`\n⚠️ ${omittedMetrics.length} Metrics Omitted (Bad Descriptions):`))
+    
+    // Group omitted metrics by project
+    const omittedByProject = new Map<string, Array<{identifier: string, description: string}>>()
+    
     omittedMetrics.forEach(metric => {
-      console.log(c.warning(`   ${metric.project}/${metric.identifier}: ${metric.description.substring(0, 60)}...`))
+      const items = omittedByProject.get(metric.project) || []
+      items.push({identifier: metric.identifier, description: metric.description})
+      omittedByProject.set(metric.project, items)
     })
+    
+    // Sort projects alphabetically and display
+    Array.from(omittedByProject.keys())
+      .sort()
+      .forEach(project => {
+        const items = omittedByProject.get(project)!.sort((a, b) => a.identifier.localeCompare(b.identifier))
+        items.forEach(item => {
+          console.log(c.warning(`   ${project}/${item.identifier}: ${item.description.substring(0, 60)}...`))
+        })
+      })
   }
 
   // Display API errors
