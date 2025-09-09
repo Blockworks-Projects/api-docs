@@ -38,7 +38,7 @@ export function displayValidationResults(
   })
 
   issueTypes.forEach((count, type) => {
-    text.detail(text.withCount(`${count}x ${type}`, count))
+    text.warnDetail(text.withCount(`${count}x ${type}`, count))
   })
 
   // Show ALL issues grouped by project
@@ -50,12 +50,11 @@ export function displayValidationResults(
   })
 
   issuesByProject.forEach((projectIssues, project) => {
-    text.subheader(`${project}:`)
     projectIssues.forEach(issue => {
       const entry = generateIssueEntry(issue)
-      text.detail(`- ${entry}`)
+      text.warnDetail(`- ${entry}`)
       if (issue.data && issue.issue.includes('Malformed')) {
-        text.detail(`Data: ${JSON.stringify(issue.data).substring(0, 100)}...`)
+        text.warnDetail(`Data: ${JSON.stringify(issue.data).substring(0, 100)}...`)
       }
     })
   })

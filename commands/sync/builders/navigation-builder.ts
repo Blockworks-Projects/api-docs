@@ -1,5 +1,5 @@
-import * as cliProgress from 'cli-progress'
 import type { ProjectCategories } from '../categorizers/project-categorizer'
+import { createProgressBar } from '../lib/createProgressBar'
 import { sortMetricsAlphabetically } from '../lib/metric-utils'
 import * as text from '../lib/text'
 import { toTitleCase } from '../lib/utils'
@@ -24,7 +24,7 @@ export function buildNavigationStructure(
   equitiesGroup: NavigationGroup
   assetsUpdate?: any
 } {
-  text.subheader('  Building navigation structure...')
+  text.detail('Building navigation structure...')
 
   // Create navigation groups
   const chainsGroup = buildChainsNavigation(categories.chains)
@@ -41,7 +41,7 @@ export function buildNavigationStructure(
  * Build navigation for Chain projects (with categories)
  */
 function buildChainsNavigation(chains: Map<string, Map<string, Metric[]>>): NavigationGroup {
-  text.detail('Processing Chain projects...')
+  text.subheader('Processing Chains...')
 
   const chainsGroup: NavigationGroup = {
     group: 'Metrics : Chains',
@@ -52,7 +52,7 @@ function buildChainsNavigation(chains: Map<string, Map<string, Metric[]>>): Navi
   const sortedChains = Array.from(chains.entries()).sort(([a], [b]) => a.localeCompare(b))
 
   for (const [project, categoryMap] of sortedChains) {
-    text.detail(`🔗 ${project.toUpperCase()}`)
+    text.subheader(`${project.toUpperCase()} (chain)`)
 
     const projectGroup: any = {
       group: toTitleCase(project),
@@ -67,7 +67,9 @@ function buildChainsNavigation(chains: Map<string, Map<string, Metric[]>>): Navi
       const categoryMetrics = categoryMap.get(category)!
       const sortedMetrics = sortMetricsAlphabetically(categoryMetrics)
 
-      text.detail(text.withCount(`Creating {count} subgroup with {count} metrics`, sortedMetrics.length))
+      // console.log({ category, categoryMetrics, sortedMetrics })
+
+      text.detail(text.withCount(`Creating ${category} category with {count} metrics`, categoryMetrics.length))
 
       // Chains keep category subgroups in navigation
       const categoryGroup = {
@@ -87,7 +89,7 @@ function buildChainsNavigation(chains: Map<string, Map<string, Metric[]>>): Navi
  * Build navigation for Project projects (flat list)
  */
 function buildProjectsNavigation(projects: Map<string, Map<string, Metric[]>>): NavigationGroup {
-  text.detail('Processing Project projects...')
+  text.subheader('Processing Projects...')
 
   const projectsGroup: NavigationGroup = {
     group: 'Metrics : Projects',
@@ -97,12 +99,7 @@ function buildProjectsNavigation(projects: Map<string, Map<string, Metric[]>>): 
 
   const sortedProjects = Array.from(projects.entries()).sort(([a], [b]) => a.localeCompare(b))
 
-  const progressBar = new cliProgress.SingleBar({
-    format: '   Progress |{bar}| {percentage}% || {value}/{total} projects',
-    barCompleteChar: '\u2588',
-    barIncompleteChar: '\u2591',
-    hideCursor: true
-  }, cliProgress.Presets.legacy)
+  const progressBar = createProgressBar()
 
   progressBar.start(sortedProjects.length, 0)
 
@@ -138,7 +135,7 @@ function buildProjectsNavigation(projects: Map<string, Map<string, Metric[]>>): 
  * Build navigation for Equity projects (flat list)
  */
 function buildEquitiesNavigation(equities: Map<string, Map<string, Metric[]>>): NavigationGroup {
-  text.subheader('Processing Equity projects...')
+  text.subheader('Processing Equities...')
 
   const equitiesGroup: NavigationGroup = {
     group: 'Metrics : Equities',
@@ -148,12 +145,7 @@ function buildEquitiesNavigation(equities: Map<string, Map<string, Metric[]>>): 
 
   const sortedEquities = Array.from(equities.entries()).sort(([a], [b]) => a.localeCompare(b))
 
-  const progressBar = new cliProgress.SingleBar({
-    format: '   Progress |{bar}| {percentage}% || {value}/{total} equities',
-    barCompleteChar: '\u2588',
-    barIncompleteChar: '\u2591',
-    hideCursor: true
-  })
+  const progressBar = createProgressBar()
 
   progressBar.start(sortedEquities.length, 0)
 

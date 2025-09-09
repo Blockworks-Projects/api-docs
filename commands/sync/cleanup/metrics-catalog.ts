@@ -1,6 +1,5 @@
 import { readdir, stat } from 'node:fs/promises'
 import { join } from 'node:path'
-import { colors as c } from '../lib/constants'
 import * as text from '../lib/text'
 
 /**
@@ -8,12 +7,12 @@ import * as text from '../lib/text'
  */
 export async function catalogExistingMetrics(outputDir: string): Promise<Set<string>> {
   text.header('📂 Cataloging existing metrics...')
-  
+
   const existingMetrics = new Set<string>()
 
   try {
     const files = await findMdxFiles(outputDir)
-    console.log(c.muted(`   Found ${c.number(files.length)} existing metric files`))
+    text.detail(text.withCount(`Found {count} existing metric files`, files.length))
 
     for (const filePath of files) {
       try {
@@ -27,10 +26,10 @@ export async function catalogExistingMetrics(outputDir: string): Promise<Set<str
       }
     }
 
-    console.log(c.muted(`   Cataloged ${c.number(existingMetrics.size)} existing metrics`))
+    text.pass(text.withCount(`Cataloged {count} existing metrics`, existingMetrics.size))
 
   } catch (error) {
-    console.log(c.muted(`   No existing metrics found (${error instanceof Error ? error.message : 'unknown error'})`))
+    text.warn(`No existing metrics found (${error instanceof Error ? error.message : 'unknown error'})`)
   }
 
   return existingMetrics
@@ -43,7 +42,7 @@ export function compareMetrics(
   existing: Set<string>,
   incoming: { project: string; identifier: string }[]
 ): { added: string[]; removed: string[] } {
-  
+
   // Create set of incoming metrics
   const incomingSet = new Set(
     incoming.map(metric => `${metric.project}/${metric.identifier}`)
@@ -63,11 +62,11 @@ export function compareMetrics(
  */
 function extractMetricKeyFromPath(filePath: string): string | null {
   let relativePath: string | undefined = filePath
-  
+
   if (filePath.includes('api-reference/metrics/')) {
     relativePath = filePath.split('api-reference/metrics/')[1]
   }
-  
+
   const parts = relativePath?.split('/')
 
   // Handle both 2-level (new) and 3-level (old) directory structures

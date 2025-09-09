@@ -1,4 +1,3 @@
-import * as cliProgress from 'cli-progress'
 import * as text from '../lib/text'
 import type { Metric } from '../types'
 import { fetchMetricDataWithTimeout } from './api-fetcher'
@@ -6,6 +5,7 @@ import { validateDataType } from './data-type-validator'
 import { validateMetricData } from './metric-data-validator'
 import type { ValidationIssue, ValidationResult } from './types'
 import { displayValidationResults } from './validation-reporter'
+import { createProgressBar } from '../lib/createProgressBar'
 
 /**
  * Main validation orchestrator - validates all metrics by fetching their sample data in parallel
@@ -38,12 +38,7 @@ export async function validateMetrics(metrics: Metric[]): Promise<ValidationResu
 
   text.detail(text.withCount(`Fetching {count} metrics in {count} batches of up to 100 each...`, totalChecked, batches.length))
 
-  const progressBar = new cliProgress.SingleBar({
-    format: '   Progress |{bar}| {percentage}% || {value}/{total} batches || ETA: {eta}s',
-    barCompleteChar: '\u2588',
-    barIncompleteChar: '\u2591',
-    hideCursor: true
-  })
+  const progressBar = createProgressBar()
 
   progressBar.start(batches.length, 0)
 

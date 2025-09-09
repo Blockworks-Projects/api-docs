@@ -72,10 +72,10 @@ export async function cleanupObsoleteContent(
     const [project, identifier] = metricKey.split('/')
 
     // Find the file by scanning the project directory
-    const projectDir = join(outputDir, project)
+    const projectDir = join(outputDir, project!)
     try {
       if (await exists(projectDir)) {
-        const foundFile = await findMetricFile(projectDir, identifier)
+        const foundFile = await findMetricFile(projectDir, identifier!)
         if (foundFile) {
           await rm(foundFile, { force: true })
           const relativePath = foundFile.replace(outputDir + '/', '')

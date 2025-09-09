@@ -22,10 +22,9 @@ export const fail = (...args: any[]): void => console.log(c.fail('   ✗', ...ar
 // warning message
 export const warn = (...args: any[]): void => console.log(chalk.yellowBright.bold('\n   ⚠️', ...args))
 
-export const warnDetail = (...args: any[]): void => console.log(chalk.yellow.bold('   ', ...args))
+// warning detail message
+export const warnDetail = (...args: any[]): void => console.log(chalk.yellowBright('   ', ...args))
 
 // helper function to replace {count} with the count
-// export const withCount = (text: string, count: number): string => text.replace('{count}', c.number(count))
-
 export const withCount = (text: string, ...values: number[]): string =>
   text.replace(/\{[^}]+\}/g, () => chalk.yellowBright.bold(values.shift() ?? ''))

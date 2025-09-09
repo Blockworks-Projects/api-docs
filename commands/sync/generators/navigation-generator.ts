@@ -1,37 +1,36 @@
-import type { Metric } from '../types'
-import { readJsonFile, writeJsonFile } from '../lib/file-operations'
-import { categorizeProjects, getCategorySummary } from '../categorizers/project-categorizer'
 import { buildNavigationStructure } from '../builders/navigation-builder'
-import { colors as c } from '../lib/constants'
+import { categorizeProjects, getCategorySummary } from '../categorizers/project-categorizer'
+import { readJsonFile, writeJsonFile } from '../lib/file-operations'
 import * as text from '../lib/text'
+import type { Metric } from '../types'
 
 /**
  * Generate and update docs.json navigation structure for metrics and assets
  */
 export async function updateNavigation(metrics: Metric[], expandOptions?: string[]): Promise<void> {
   text.header('📋 Updating docs.json navigation...')
-  
+
   const docsPath = './docs.json'
 
-  text.subheader('1. Categorizing projects...')
-  
+  text.subheader('Categorizing projects...')
+
   // Categorize projects
   const categories = categorizeProjects(metrics)
   const summary = getCategorySummary(categories)
-  
-  console.log(c.warning(`   Chains: ${summary.chainCount} projects`))
-  console.log(c.warning(`   Projects: ${summary.projectCount} projects`))
-  console.log(c.warning(`   Equities: ${summary.equityCount} projects`))
+
+  text.detail(text.withCount(`Chains: {count} projects`, summary.chainCount))
+  text.detail(text.withCount(`Projects: {count} projects`, summary.projectCount))
+  text.detail(text.withCount(`Equities: {count} projects`, summary.equityCount))
 
   // Build navigation structure
   const { chainsGroup, projectsGroup, equitiesGroup, assetsUpdate } = buildNavigationStructure(
-    categories, 
+    categories,
     expandOptions
   )
 
   // Read and update docs.json
   const docs = await readJsonFile<any>(docsPath)
-  
+
   // Find the main metrics group
   const metricsGroup = docs.navigation.tabs[0].groups.find((g: any) => g.group === 'Metrics')
   if (!metricsGroup) {
@@ -48,7 +47,7 @@ export async function updateNavigation(metrics: Metric[], expandOptions?: string
 
   // Write updated docs.json
   await writeJsonFile(docsPath, docs)
-  console.log('\n  ✅ Updated docs.json navigation structure')
+  text.pass('Updated docs.json navigation structure')
 }
 
 /**
@@ -62,14 +61,14 @@ function updateNavigationGroups(
   metricsGroup: any
 ): void {
   // Remove existing metric groups and add them back in the correct order
-  docs.navigation.tabs[0].groups = docs.navigation.tabs[0].groups.filter((g: any) => 
+  docs.navigation.tabs[0].groups = docs.navigation.tabs[0].groups.filter((g: any) =>
     !['Metrics : Chains', 'Chains', 'Metrics : Projects', 'Projects', 'Metrics : Equities', 'Equities'].includes(g.group)
   )
-  
+
   // Find the index after the main Metrics group to insert the new groups
   const metricsIndex = docs.navigation.tabs[0].groups.findIndex((g: any) => g.group === 'Metrics')
   const insertIndex = metricsIndex >= 0 ? metricsIndex + 1 : docs.navigation.tabs[0].groups.length
-  
+
   // Insert groups in the correct order: Chains, Projects, Equities
   docs.navigation.tabs[0].groups.splice(insertIndex, 0, chainsGroup, projectsGroup, equitiesGroup)
 
