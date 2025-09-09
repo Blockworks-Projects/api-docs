@@ -213,7 +213,7 @@ export function displaySummary(results: {
 
   // Display validation issues if any
   if (validationResult && validationResult.issues.length > 0) {
-    text.warn(`${validationResult.issues.length} Validation Issues:`)
+    text.warnHeader(`${validationResult.issues.length} Validation Issues:`)
 
     // Group issues by type
     const issueTypes = new Map<string, number>()
@@ -224,7 +224,7 @@ export function displaySummary(results: {
 
     // Show issue type counts
     issueTypes.forEach((count, type) => {
-      text.warnDetail(`${count}x ${type}`)
+      text.warn(`${count}x ${type}`)
     })
 
     // Show ALL issues grouped by project
@@ -238,8 +238,9 @@ export function displaySummary(results: {
     issuesByProject.forEach((projectIssues, project) => {
       projectIssues.forEach(issue => {
         // Import generateIssueEntry inline to avoid circular dependency
-        const issueEntry = `{ project: '${issue.metric.project}', identifier: '${issue.metric.identifier}', issue: '${issue.issue}' }`
-        text.detail(`${issueEntry}`)
+        // const issueEntry = `{ project: '${issue.metric.project}', identifier: '${issue.metric.identifier}', issue: '${issue.issue}' }`
+        // text.detail(text.withCount(`project: {project}  identifier: {identifier}  issue: {issue}`, issue.metric.project, issue.metric.identifier, issue.issue))
+        text.warnDetail(`{ project: ${issue.metric.project}, identifier: ${issue.metric.identifier} }`)
       })
     })
   }

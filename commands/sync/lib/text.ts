@@ -22,8 +22,11 @@ export const fail = (...args: any[]): void => console.log(c.fail('   ✗', ...ar
 // warning message
 export const warn = (...args: any[]): void => console.log(chalk.yellowBright.bold('\n  ', ...args))
 
+// warning header
+export const warnHeader = (...args: any[]): void => console.log('\n', chalk.yellowBright.bold.underline(...args))
+
 // warning detail message
-export const warnDetail = (...args: any[]): void => console.log(chalk.yellow.bold('  ', ...args))
+export const warnDetail = (...args: any[]): void => console.log(chalk.yellow('  ', ...args))
 
 // helper function to replace {count} with the count
 export const withCount = (text: string, ...values: number[]): string =>
@@ -36,5 +39,6 @@ export const summaryHeader = (text: string): void => console.log('\n', c.header.
 export const summarySuccess = (text: string, ...details: (number | string)[]): void =>
   console.log('  ', c.green(text.replace(/\{[^}]+\}/g, () => c.darkGreen(details.shift() ?? ''))))
 
+// summary warning
 export const summaryWarn = (text: string, ...details: (number | string)[]): void =>
   console.log('  ', chalk.yellowBright.bold(text.replace(/\{[^}]+\}/g, () => chalk.yellow(details.shift() ?? ''))))

@@ -28,30 +28,36 @@ export function displayValidationResults(
     return
   }
 
-  text.warn(`Found ${issues.length} validation issues:`)
+  text.warn(`Found ${issues.length} validation issues`)
 
-  // Group issues by type
-  const issuesByType = new Map<string, ValidationIssue[]>()
-  issues.forEach(issue => {
-    const list = issuesByType.get(issue.issue) || []
-    list.push(issue)
-    issuesByType.set(issue.issue, list)
-  })
+  // // Group issues by type for summary
+  // const issueTypes = new Map<string, number>()
+  // issues.forEach(issue => {
+  //   const type = issue.issue.split(':')[0]
+  //   issueTypes.set(type || 'Unknown', (issueTypes.get(type || 'Unknown') || 0) + 1)
+  // })
 
-  // Display each type with its issues
-  issuesByType.forEach((typeIssues, type) => {
-    // Show summary count for this type
-    text.warnDetail(text.withCount(`${typeIssues.length}x ${type}`, typeIssues.length))
-    
-    // Show all issues for this type
-    typeIssues.forEach(issue => {
-      const entry = generateIssueEntry(issue)
-      text.warnDetail(`- ${entry}`)
-      if (issue.data && issue.issue.includes('Malformed')) {
-        text.warnDetail(`Data: ${JSON.stringify(issue.data).substring(0, 100)}...`)
-      }
-    })
-  })
+  // issueTypes.forEach((count, type) => {
+  //   text.warnDetail(text.withCount(`${count}x ${type}`, count))
+  // })
+
+  // // Show ALL issues grouped by project
+  // const issuesByProject = new Map<string, ValidationIssue[]>()
+  // issues.forEach(issue => {
+  //   const list = issuesByProject.get(issue.metric.project) || []
+  //   list.push(issue)
+  //   issuesByProject.set(issue.metric.project, list)
+  // })
+
+  // issuesByProject.forEach((projectIssues, project) => {
+  //   projectIssues.forEach(issue => {
+  //     const entry = generateIssueEntry(issue)
+  //     text.warnDetail(`- ${entry}`)
+  //     if (issue.data && issue.issue.includes('Malformed')) {
+  //       text.warnDetail(`Data: ${JSON.stringify(issue.data).substring(0, 100)}...`)
+  //     }
+  //   })
+  // })
 }
 
 /**
