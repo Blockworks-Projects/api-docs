@@ -2,10 +2,13 @@ import { Metric } from '../classes'
 
 type MetricPageConfig = { metric: Metric; sampleData: any }
 
+const escapeYamlString = (str: string): string => 
+  str.replace(/"/g, '\\"')
+
 export const getMetricPage = ({ metric, sampleData }: MetricPageConfig) => `---
-title: "${metric.pageTitle}"
-sidebarTitle: "${metric.title}"
-description: "${metric.description}"
+title: "${escapeYamlString(metric.pageTitle)}"
+sidebarTitle: "${escapeYamlString(metric.title)}"
+description: "${escapeYamlString(metric.description)}"
 openapi: "GET /v1/metrics/${metric.identifier}"
 mode: "wide"
 ---
