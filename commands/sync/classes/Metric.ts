@@ -1,4 +1,5 @@
 import { toTitleCase } from '../lib/utils'
+import { type ValidationError } from './ValidationError'
 import { type Project } from './Project'
 
 export class Metric {
@@ -13,6 +14,8 @@ export class Metric {
   aggregation: string
   category: string
   updated_at: number
+  validationErrors: ValidationError[] = []
+  parent: Project
 
   constructor(config: Metric) {
     this.name = config.name
@@ -26,13 +29,20 @@ export class Metric {
     this.aggregation = config.aggregation
     this.category = config.category
     this.updated_at = config.updated_at
+
+    // TODO: Add parent project
+    // this.parent =
   }
 
   get title() {
     return toTitleCase(this.name)
   }
 
+  addValidationError(error: ValidationError) {
+    this.validationErrors.push(error)
+  }
+
   get pageTitle() {
-    return this.project.isChain ? this.title : `${this.title}: `
+    return this.parent.isChain ? this.title : `${this.parent.title}: ${this.title}`
   }
 }
