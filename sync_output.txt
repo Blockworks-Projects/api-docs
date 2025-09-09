@@ -1,342 +1,707 @@
 $ bun run commands/sync.ts --update-only
 
 📂 Cataloging existing metrics...
-   Found 152 existing metric files
-   Cataloged 147 existing metrics
+   Found 370 existing metric files
+   Cataloged 365 existing metrics
 
 🔎 Fetching metrics from API...
    + page 1...
-   + page 2...
 
-✅ Found 168 metrics
+✅ Found 365 metrics
 
 🔄 Changes detected, continuing with sync
 
+🔍 Validating metric data feeds...
+
+🔍 Validating metric data feeds...
+   Checking data_type consistency for 365 metrics...
+   ✓ All metrics have consistent data_type values
+   Fetching 365 metrics in parallel...
+   ✓ Fetched 363/365 metrics successfully
+
+⚠️ Found 6 validation issues:
+   4x No data returned (empty array)
+   2x Failed to fetch
+
+   All issues by project:
+
+   nova:
+     - { project: 'nova', identifier: 'revenue', issue: 'No data returned (empty array)' }
+
+   scallop:
+     - { project: 'scallop', identifier: 'revenue', issue: 'No data returned (empty array)' }
+
+   coinbase-wallet:
+     - { project: 'coinbase-wallet', identifier: 'revenue', issue: 'No data returned (empty array)' }
+
+   metaplex:
+     - { project: 'metaplex', identifier: 'revenue', issue: 'No data returned (empty array)' }
+
+   solana:
+     - { project: 'solana', identifier: 'native-token-fdv', issue: 'Failed to fetch: Request timeout' }
+     - { project: 'solana', identifier: 'native-token-supply', issue: 'Failed to fetch: Request timeout' }
+
+🗑️ Cleaning up obsolete content...
+
+  Removing obsolete metric files...
+   - Removed api-reference/metrics/HumidiFi/trading/volume-usd.mdx
+   - Removed api-reference/metrics/Lifinity/trading/volume-usd.mdx
+   - Removed api-reference/metrics/Lifinity/financials/revenue.mdx
+   - Removed api-reference/metrics/Byreal/trading/volume-usd.mdx
+   - Removed api-reference/metrics/Tessera/trading/volume-usd.mdx
+   - Removed api-reference/metrics/GoonFi/trading/volume-usd.mdx
+   - Removed api-reference/metrics/Orca/trading/volume-usd.mdx
+   - Removed api-reference/metrics/Orca/financials/revenue.mdx
+   - Removed api-reference/metrics/Raydium/trading/volume-usd.mdx
+   - Removed api-reference/metrics/Raydium/financials/revenue.mdx
+   - Removed api-reference/metrics/Raydium/token/launchpad-bonding-volume.mdx
+   - Removed api-reference/metrics/Raydium/token/launchpad-tokens-graduated.mdx
+   - Removed api-reference/metrics/SolFi/trading/volume-usd.mdx
+
+  Cleaning up empty directories...
+   - Removed empty directory api-reference/metrics/HumidiFi/trading/
+   - Removed empty directory api-reference/metrics/HumidiFi/
+   - Removed empty directory api-reference/metrics/Lifinity/trading/
+   - Removed empty directory api-reference/metrics/Lifinity/financials/
+   - Removed empty directory api-reference/metrics/Lifinity/
+   - Removed empty directory api-reference/metrics/Byreal/trading/
+   - Removed empty directory api-reference/metrics/Byreal/
+   - Removed empty directory api-reference/metrics/Tessera/trading/
+   - Removed empty directory api-reference/metrics/Tessera/
+   - Removed empty directory api-reference/metrics/GoonFi/trading/
+   - Removed empty directory api-reference/metrics/GoonFi/
+   - Removed empty directory api-reference/metrics/Orca/trading/
+   - Removed empty directory api-reference/metrics/Orca/financials/
+   - Removed empty directory api-reference/metrics/Orca/
+   - Removed empty directory api-reference/metrics/Raydium/trading/
+   - Removed empty directory api-reference/metrics/Raydium/financials/
+   - Removed empty directory api-reference/metrics/Raydium/token/
+   - Removed empty directory api-reference/metrics/Raydium/
+   - Removed empty directory api-reference/metrics/SolFi/trading/
+   - Removed empty directory api-reference/metrics/SolFi/
+
 🧹 Wiping existing metrics pages...
+   - Removed pumpfun/
+   - Removed BTCS/
+   - Removed UPXI/
+   - Removed BNC/
+   - Removed CYFRD/
+   - Removed ETHM/
+   - Removed DFDV/
+   - Removed GAME/
+   - Removed BTBT/
+   - Removed SBET/
+   - Removed MSTR/
+   - Removed CEPO/
    - Removed base/
    - Removed solana/
-   - Removed ethereum/
-   - Removed arbitrum/
-   - Removed MSTR/
-   - Removed bitcoin/
-   - Removed SBET/
    - Removed BMNR/
+   - Removed CETH/
+   - Removed ethereum/
+   - Removed Meteroa/
+   - Removed arbitrum/
+   - Removed EZBC/
+   - Removed FETH/
+   - Removed SMLR/
+   - Removed ETHZ/
+   - Removed GBTC/
+   - Removed SQNS/
+   - Removed HYPD/
+   - Removed opensea/
+   - Removed fourmeme/
+   - Removed banana-gun/
+   - Removed coinbase-wallet/
+   - Removed convex/
+   - Removed moonshot/
+   - Removed CEP/
+   - Removed other-launchpads/
+   - Removed ZeroFi/
+   - Removed bitcoin/
+   - Removed bags/
+   - Removed ARKB/
+   - Removed EZET/
+   - Removed BTCW/
+   - Removed ETH/
+   - Removed FBTC/
+   - Removed ETHE/
+   - Removed SSK/
+   - Removed BITB/
+   - Removed ETHA/
+   - Removed BTC/
+   - Removed HODL/
+   - Removed ETHW/
+   - Removed BTCO/
+   - Removed IBIT/
+   - Removed BRRR/
+   - Removed QETH/
+   - Removed ETHV/
+   - Removed believe/
+   - Removed bluefin/
+   - Removed bloom/
+   - Removed bloxroute/
+   - Removed bonk/
+   - Removed bullx/
+   - Removed cetus/
+   - Removed clanker/
+   - Removed clipper/
+   - Removed dexscreener/
+   - Removed dodo/
+   - Removed drift/
+   - Removed dydx/
+   - Removed eigenlayer/
+   - Removed ethena/
+   - Removed euler/
+   - Removed flashbots/
+   - Removed gmgn/
+   - Removed gmx/
+   - Removed hyperliquid/
+   - Removed ironbank/
+   - Removed jito/
+   - Removed kamino/
+   - Removed letsbonkdotfun/
+   - Removed level/
+   - Removed lido/
+   - Removed lifi/
+   - Removed looter/
+   - Removed maestro/
+   - Removed metaplex/
+   - Removed meth-protocol/
+   - Removed mevx/
+   - Removed nova/
+   - Removed ostium/
+   - Removed paal-ai/
+   - Removed pancakeswap/
+   - Removed paradex/
+   - Removed phantom/
+   - Removed photon/
+   - Removed scallop/
+   - Removed morpho/
+   - Removed navi-protocol/
+   - Removed odos/
+   - Removed soltradingbot/
+   - Removed sosovalue/
+   - Removed spark/
+   - Removed stable-labs/
+   - Removed stakewise/
+   - Removed sushiswap/
+   - Removed syncswap/
+   - Removed tensor/
+   - Removed thorchain-dex/
+   - Removed tornado/
+   - Removed trojan/
+   - Removed uniswap/
+   - Removed uniswap-labs/
+   - Removed virtuals/
+   - Removed wildcat/
+   - Removed boopfun/
+   - Removed zora/
+   - Removed thearena/
+   - Removed cookmeme/
+   - Removed letsbonkfun/
+   - Removed wavebreak/
+   - Removed aave/
+   - Removed aerodrome/
+   - Removed aries/
+   - Removed aster/
+   - Removed balancer/
+   - Removed cookdotmeme/
+   - Removed apex/
+   - Removed axiom/
+   - Removed letsbonk/
+   - Removed stabble/
+   - Removed jupstudio/
    - Removed assets/expand/
 
 ✏️ Generating metric pages...
+   + pumpfun/financials/revenue.mdx
+   + BTCS/financials/treasury-volume-usd.mdx
    + UPXI/financials/treasury-volume-usd.mdx
+   + BNC/financials/treasury-volume-usd.mdx
+   + CYFRD/financials/treasury-volume-usd.mdx
+   + ETHM/financials/treasury-volume-usd.mdx
+   + DFDV/financials/treasury-volume-usd.mdx
+   + GAME/financials/treasury-volume-usd.mdx
+   + BTBT/financials/treasury-volume-usd.mdx
+   + SBET/equity/treasury-volume-usd.mdx
+   + MSTR/financials/treasury-volume-usd.mdx
+   + CEPO/financials/treasury-volume-usd.mdx
+   + base/activity/transactions-failed.mdx
+   + ETHM/equity/market-cap.mdx
+   + solana/activity/active-addresses.mdx
+   + BMNR/equity/market-cap.mdx
+   + CETH/trading/etf-flows.mdx
+   + ethereum/financials/burn.mdx
+   + base/activity/transactions-succeeded.mdx
+   + Meteroa/trading/volume-usd.mdx
+   + solana/trading/etf-flows-total.mdx
+   + BMNR/financials/treasury-token-holdings.mdx
+   + arbitrum/financials/transaction-fees-usd.mdx
+   + EZBC/trading/etf-flows.mdx
+   + solana/financials/issuance-usd.mdx
+   + base/activity/transactions-total.mdx
+   + FETH/trading/etf-flows.mdx
+   + SMLR/financials/treasury-crypto-asset.mdx
+   + ETHZ/financials/treasury-nav-usd.mdx
+   + solana/activity/fee-median.mdx
+   + GBTC/trading/etf-flows.mdx
+   + SQNS/financials/treasury-crypto-asset.mdx
+   + ETHM/financials/treasury-nav-usd.mdx
+   + GAME/financials/treasury-token-holdings.mdx
+   + HYPD/financials/treasury-volume-usd.mdx
+   + opensea/financials/revenue.mdx
+   + fourmeme/token/tokens-launched-by-launchpad.mdx
+   + banana-gun/financials/revenue.mdx
+   + coinbase-wallet/financials/revenue.mdx
+   + convex/financials/revenue.mdx
+   + raydium/token/launchpad-tokens-graduated.mdx
+   + moonshot/token/launchpad-tokens-graduated.mdx
+   + raydium/trading/volume-usd.mdx
+   + SMLR/financials/treasury-volume-usd.mdx
+   + SQNS/financials/treasury-volume-usd.mdx
+   + CEP/financials/treasury-volume-usd.mdx
+   + arbitrum/financials/costs-l2.mdx
+   + other-launchpads/token/launchpad-tokens-graduated.mdx
+   + DFDV/financials/treasury-token-holdings.mdx
+   + ETHZ/equity/market-cap.mdx
+   + ZeroFi/trading/volume-usd.mdx
+   + bitcoin/trading/etf-flows-total.mdx
+   + CYFRD/financials/treasury-nav-usd.mdx
+   + base/activity/active-addresses.mdx
+   + ETHZ/financials/treasury-mnav.mdx
+   + DFDV/financials/treasury-mnav.mdx
+   + ethereum/trading/etf-flows-total.mdx
+   + base/financials/costs-l2.mdx
+   + arbitrum/token/price.mdx
+   + bags/token/launchpad-tokens-graduated.mdx
+   + solana/financials/base-fees-usd.mdx
    + ETHZ/financials/treasury-crypto-asset.mdx
+   + UPXI/financials/treasury-mnav.mdx
+   + solana/financials/mev-tips-fees.mdx
+   + base/financials/priority-fees-usd.mdx
+   + arbitrum/financials/gross-profit-l2.mdx
+   + arbitrum/token/native-token-fdv.mdx
    + ETHZ/financials/treasury-token-holdings.mdx
-   + base/activity/transaction-fail.mdx
-   + base/activity/transaction-success.mdx
-   + solana/activity/fee-average-usd.mdx
-   + ethereum/financials/fees-other-usd.mdx
-   + arbitrum/activity/fee-median-usd.mdx
-   + solana/activity/fee-average.mdx
-   + base/stablecoins/stablecoin-supply.mdx
-   + ethereum/trading/etf-flows-ezet.mdx
+   + DFDV/financials/treasury-crypto-asset.mdx
+   + ethereum/token/native-token-supply.mdx
    + solana/token/native-token-fdv.mdx
+   + ethereum/financials/base-fees.mdx
+   + arbitrum/token/native-token-supply.mdx
+   + MSTR/financials/treasury-crypto-asset.mdx
+   + solana/activity/fee-average.mdx
+   + UPXI/financials/treasury-crypto-asset.mdx
    + solana/trading/dex-spot-volume.mdx
-   + solana/financials/rev.mdx
-   + ethereum/financials/fees-transaction.mdx
-   + ethereum/financials/fees-priority-usd.mdx
-   + MSTR/financials/treasury-nav-usd.mdx
+   + ethereum/financials/transaction-fees-usd.mdx
+   + solana/activity/fee-average-usd.mdx
+   + BTCS/financials/treasury-crypto-asset.mdx
+   + SQNS/financials/treasury-mnav.mdx
+   + base/activity/fee-average-usd.mdx
+   + pumpfun/trading/volume-usd.mdx
+   + base/stablecoins/stablecoin-supply.mdx
+   + ethereum/financials/mev-tips-fees.mdx
+   + ARKB/trading/etf-flows.mdx
+   + ethereum/financials/other-fees-usd.mdx
+   + solana/financials/issuance.mdx
+   + ethereum/financials/priority-fees-usd.mdx
+   + base/activity/fee-average.mdx
+   + arbitrum/stablecoins/stablecoin-circulating-supply.mdx
+   + solana/token/price.mdx
+   + other-launchpads/token/tokens-launched-by-launchpad.mdx
+   + arbitrum/activity/transactions-failed.mdx
+   + ethereum/financials/transaction-fees.mdx
+   + ETHZ/financials/enterprise-value-usd.mdx
+   + solana/financials/priority-fees-usd.mdx
+   + EZET/trading/etf-flows.mdx
+   + arbitrum/activity/fee-average.mdx
+   + arbitrum/activity/active-addresses.mdx
+   + UPXI/financials/treasury-token-holdings.mdx
+   + SBET/equity/treasury-nav-usd.mdx
+   + arbitrum/financials/rev-usd.mdx
+   + BTCW/trading/etf-flows.mdx
+   + ETH/trading/etf-flows.mdx
+   + ethereum/financials/issuance.mdx
+   + UPXI/financials/treasury-nav-usd.mdx
+   + MSTR/equity/market-cap.mdx
+   + arbitrum/activity/fee-average-usd.mdx
+   + UPXI/financials/enterprise-value-usd.mdx
+   + ethereum/financials/issuance-usd.mdx
+   + SBET/equity/market-cap.mdx
+   + ethereum/activity/active-addresses.mdx
+   + base/financials/priority-fees.mdx
+   + BNC/equity/market-cap.mdx
+   + ethereum/financials/other-fees.mdx
+   + SMLR/equity/market-cap.mdx
+   + arbitrum/activity/fee-median-usd.mdx
+   + BMNR/financials/treasury-mnav.mdx
+   + solana/stablecoins/stablecoin-supply.mdx
+   + FBTC/trading/etf-flows.mdx
+   + ETHE/trading/etf-flows.mdx
+   + SSK/trading/etf-flows.mdx
+   + arbitrum/financials/priority-fees.mdx
+   + SQNS/financials/treasury-nav-usd.mdx
+   + ethereum/activity/transactions-total.mdx
+   + BITB/trading/etf-flows.mdx
+   + ETHA/trading/etf-flows.mdx
    + ethereum/activity/fee-median.mdx
    + ethereum/activity/fee-median-usd.mdx
-   + bitcoin/trading/etf-flows-ibit.mdx
-   + bitcoin/trading/etf-flows-btco.mdx
-   + arbitrum/activity/transaction-success.mdx
-   + UPXI/financials/treasury-mnav.mdx
-   + solana/financials/fees-mev-tips.mdx
-   + MSTR/financials/treasury-crypto-asset.mdx
-   + ethereum/financials/issuance.mdx
-   + ethereum/financials/rev-usd.mdx
-   + SBET/financials/treasury-nav-usd.mdx
-   + base/activity/address-total.mdx
-   + ethereum/financials/fees-mev-tips.mdx
-   + ethereum/financials/fees-base.mdx
-   + UPXI/financials/enterprise-value-usd.mdx
-   + UPXI/financials/treasury-token-holdings.mdx
-   + bitcoin/trading/etf-flows-btcw.mdx
-   + ETHZ/financials/treasury-mnav.mdx
-   + arbitrum/activity/address-total.mdx
-   + arbitrum/activity/fee-average.mdx
-   + solana/token/native-token-price.mdx
-   + ETHZ/equity/market-cap.mdx
-   + ethereum/trading/etf-flows-eth.mdx
-   + ethereum/financials/fees-transaction-usd.mdx
-   + solana/financials/burn-usd.mdx
-   + arbitrum/financials/fees-other-usd.mdx
-   + ethereum/activity/transaction-success.mdx
-   + MSTR/financials/treasury-mnav.mdx
-   + bitcoin/trading/etf-flows-btc.mdx
-   + arbitrum/activity/fee-average-usd.mdx
-   + bitcoin/trading/etf-flows-fbtc.mdx
-   + DFDV/financials/treasury-mnav.mdx
-   + DFDV/financials/treasury-crypto-asset.mdx
-   + ETHZ/financials/treasury-volume-usd.mdx
-   + ethereum/token/native-token-fdv.mdx
-   + ethereum/trading/etf-flows-feth.mdx
-   + BMNR/financials/treasury-volume-usd.mdx
-   + ethereum/activity/transaction-fail.mdx
-   + MSTR/financials/treasury-token-holdings.mdx
-   + base/activity/transaction-total.mdx
-   + ethereum/financials/issuance-usd.mdx
-   + arbitrum/token/native-token-fdv.mdx
-   + arbitrum/token/native-token-price.mdx
-   + arbitrum/financials/fees-base.mdx
-   + DFDV/financials/treasury-token-holdings.mdx
-   + ETHZ/financials/enterprise-value-usd.mdx
-   + ethereum/token/native-token-supply.mdx
-   + base/financials/fees-priority-usd.mdx
-   + ethereum/trading/etf-flows-ethv.mdx
-   + ethereum/financials/burn.mdx
-   + solana/financials/fees-base.mdx
-   + bitcoin/trading/etf-flows-brrr.mdx
-   + ETHZ/financials/treasury-nav-usd.mdx
-   + arbitrum/financials/fees-other.mdx
-   + base/token/native-token-price.mdx
-   + base/trading/dex-spot-volume.mdx
-   + ethereum/financials/fees-base-usd.mdx
-   + solana/activity/transaction-success.mdx
-   + arbitrum/financials/rev.mdx
-   + solana/financials/rev-usd.mdx
-   + arbitrum/trading/dex-spot-volume.mdx
-   + base/financials/fees-transaction-usd.mdx
-   + DFDV/financials/treasury-nav-usd.mdx
-   + DFDV/equity/market-cap.mdx
-   + SBET/financials/treasury-token-holdings.mdx
-   + SBET/financials/treasury-volume-usd.mdx
-   + ethereum/activity/fee-average-usd.mdx
-   + bitcoin/trading/etf-flows-arkb.mdx
-   + solana/trading/etf-flows-ssk.mdx
+   + arbitrum/activity/transactions-succeeded.mdx
+   + CEPO/equity/market-cap.mdx
+   + CEPO/financials/treasury-token-holdings.mdx
+   + CEPO/financials/treasury-crypto-asset.mdx
+   + BNC/financials/treasury-token-holdings.mdx
+   + arbitrum/financials/base-fees.mdx
+   + MSTR/financials/treasury-nav-usd.mdx
    + ethereum/trading/dex-spot-volume.mdx
-   + bitcoin/trading/etf-flows-bitb.mdx
-   + solana/trading/etf-flows-total.mdx
-   + BMNR/financials/treasury-mnav.mdx
-   + UPXI/financials/treasury-crypto-asset.mdx
-   + DFDV/financials/enterprise-value-usd.mdx
-   + MSTR/equity/market-cap.mdx
-   + BMNR/equity/market-cap.mdx
-   + UPXI/financials/treasury-nav-usd.mdx
-   + solana/financials/fees-base-usd.mdx
-   + solana/financials/burn.mdx
-   + UPXI/equity/market-cap.mdx
-   + SBET/financials/enterprise-value-usd.mdx
-   + solana/activity/transaction-total.mdx
-   + BMNR/financials/treasury-crypto-asset.mdx
-   + ethereum/financials/burn-usd.mdx
-   + base/financials/fees-base.mdx
-   + DFDV/financials/treasury-volume-usd.mdx
-   + solana/financials/fees-priority.mdx
-   + arbitrum/financials/fees-priority-usd.mdx
-   + MSTR/financials/treasury-volume-usd.mdx
-   + BMNR/financials/treasury-nav-usd.mdx
-   + base/financials/fees-base-usd.mdx
-   + arbitrum/stablecoins/stablecoin-supply.mdx
-   + solana/stablecoins/stablecoin-circulating-supply.mdx
-   + solana/activity/transaction-fail.mdx
-   + base/financials/fees-transaction.mdx
-   + ethereum/financials/fees-priority.mdx
-   + ethereum/trading/etf-flows-ceth.mdx
-   + solana/financials/fees-transaction.mdx
-   + ethereum/stablecoins/stablecoin-circulating-supply.mdx
-   + solana/financials/fees-transaction-usd.mdx
-   + ethereum/trading/etf-flows-qeth.mdx
-   + arbitrum/stablecoins/stablecoin-circulating-supply.mdx
-   + bitcoin/trading/etf-flows-gbtc.mdx
-   + arbitrum/financials/fees-transaction-usd.mdx
-   + arbitrum/token/native-token-supply.mdx
-   + base/financials/rev-usd.mdx
-   + solana/financials/issuance-usd.mdx
-   + solana/financials/issuance.mdx
-   + arbitrum/activity/fee-median.mdx
-   + solana/financials/fees-priority-usd.mdx
-   + base/activity/fee-average.mdx
-   + BMNR/financials/treasury-token-holdings.mdx
-   + SBET/financials/market-cap.mdx
-   + ethereum/activity/address-total.mdx
-   + bitcoin/trading/etf-flows-ezbc.mdx
-   + MSTR/financials/enterprise-value-usd.mdx
-   + base/financials/fees-priority.mdx
-   + base/activity/fee-average-usd.mdx
-   + solana/stablecoins/stablecoin-supply.mdx
-   + base/stablecoins/stablecoin-circulating-supply.mdx
-   + ethereum/financials/fees-other.mdx
-   + arbitrum/activity/transaction-fail.mdx
-   + ethereum/stablecoins/stablecoin-supply.mdx
-   + bitcoin/trading/etf-flows-hodl.mdx
-   + ethereum/token/native-token-price.mdx
-   + BMNR/financials/enterprise-value-usd.mdx
-   + ethereum/financials/fees-mev-tips-usd.mdx
-   + base/financials/rev.mdx
-   + bitcoin/trading/etf-flows-total.mdx
-   + solana/activity/fee-median-usd.mdx
-   + arbitrum/financials/fees-priority.mdx
-   + arbitrum/activity/transaction-total.mdx
-   + SBET/financials/treasury-mnav.mdx
-   + ethereum/trading/etf-flows-etha.mdx
-   + arbitrum/financials/rev-usd.mdx
-   + ethereum/financials/rev.mdx
-   + ethereum/activity/fee-average.mdx
+   + SBET/equity/enterprise-value-usd.mdx
+   + solana/financials/base-fees.mdx
    + solana/token/native-token-supply.mdx
-   + ethereum/trading/etf-flows-ethw.mdx
-   + solana/financials/fees-mev-tips-usd.mdx
-   + arbitrum/financials/fees-base-usd.mdx
-   + SBET/financials/treasury-crypto-asset.mdx
-   + arbitrum/financials/fees-transaction.mdx
-   + ethereum/activity/transaction-total.mdx
-   + ethereum/trading/etf-flows-ethe.mdx
-   + solana/activity/fee-median.mdx
+   + BTC/trading/etf-flows.mdx
+   + HODL/trading/etf-flows.mdx
+   + ETHW/trading/etf-flows.mdx
+   + base/financials/transaction-fees-usd.mdx
+   + BTCS/equity/market-cap.mdx
+   + base/financials/base-fees.mdx
+   + BTCO/trading/etf-flows.mdx
+   + IBIT/trading/etf-flows.mdx
+   + SMLR/financials/treasury-token-holdings.mdx
+   + BTCS/financials/treasury-token-holdings.mdx
+   + GAME/financials/treasury-crypto-asset.mdx
+   + HYPD/financials/treasury-mnav.mdx
+   + HYPD/financials/enterprise-value-usd.mdx
+   + CYFRD/financials/treasury-token-holdings.mdx
+   + DFDV/equity/market-cap.mdx
+   + ETHM/financials/enterprise-value-usd.mdx
+   + ethereum/token/native-token-fdv.mdx
+   + MSTR/financials/enterprise-value-usd.mdx
+   + arbitrum/financials/other-fees-usd.mdx
+   + ethereum/activity/transactions-failed.mdx
+   + MSTR/financials/treasury-token-holdings.mdx
+   + CEP/equity/market-cap.mdx
+   + solana/financials/mev-tips-fees-usd.mdx
+   + BNC/financials/treasury-crypto-asset.mdx
+   + solfi/trading/volume-usd.mdx
+   + BTCS/financials/treasury-mnav.mdx
+   + solana/financials/priority-fees.mdx
+   + arbitrum/financials/other-fees.mdx
+   + BTCS/financials/treasury-nav-usd.mdx
+   + solana/financials/burn.mdx
+   + BTBT/financials/treasury-crypto-asset.mdx
+   + ethereum/financials/mev-tips-fees-usd.mdx
+   + ethereum/stablecoins/stablecoin-supply.mdx
+   + ETHM/financials/treasury-token-holdings.mdx
+   + ethereum/activity/transactions-succeeded.mdx
    + base/activity/fee-median-usd.mdx
-   + ethereum/trading/etf-flows-total.mdx
-   + solana/activity/address-total.mdx
+   + SMLR/financials/treasury-mnav.mdx
+   + arbitrum/financials/priority-fees-usd.mdx
+   + CEP/financials/treasury-token-holdings.mdx
+   + BTBT/financials/enterprise-value-usd.mdx
+   + base/financials/transaction-fees.mdx
+   + ethereum/financials/burn-usd.mdx
+   + DFDV/financials/enterprise-value-usd.mdx
+   + UPXI/equity/market-cap.mdx
+   + ethereum/financials/priority-fees.mdx
+   + BTBT/financials/treasury-nav-usd.mdx
+   + base/stablecoins/stablecoin-circulating-supply.mdx
+   + ETHM/financials/treasury-mnav.mdx
+   + MSTR/financials/treasury-mnav.mdx
+   + arbitrum/financials/base-fees-usd.mdx
+   + arbitrum/financials/transaction-fees.mdx
+   + BRRR/trading/etf-flows.mdx
+   + SMLR/financials/enterprise-value-usd.mdx
+   + ethereum/activity/fee-average-usd.mdx
+   + SQNS/equity/market-cap.mdx
+   + SQNS/financials/treasury-token-holdings.mdx
+   + ethereum/stablecoins/stablecoin-circulating-supply.mdx
+   + BNC/financials/treasury-nav-usd.mdx
+   + BNC/financials/enterprise-value-usd.mdx
+   + ethereum/activity/fee-average.mdx
+   + CEP/financials/treasury-crypto-asset.mdx
    + base/activity/fee-median.mdx
+   + arbitrum/trading/dex-spot-volume.mdx
+   + ETHM/financials/treasury-crypto-asset.mdx
+   + SBET/equity/treasury-token-holdings.mdx
+   + BTBT/financials/treasury-mnav.mdx
+   + QETH/trading/etf-flows.mdx
+   + arbitrum/activity/transactions-total.mdx
+   + DFDV/financials/treasury-nav-usd.mdx
+   + GAME/financials/enterprise-value-usd.mdx
+   + SMLR/financials/treasury-nav-usd.mdx
+   + HYPD/equity/market-cap.mdx
+   + BMNR/financials/enterprise-value-usd.mdx
+   + GAME/financials/treasury-mnav.mdx
+   + GAME/equity/market-cap.mdx
+   + CYFRD/financials/treasury-crypto-asset.mdx
+   + SBET/equity/treasury-mnav.mdx
+   + solana/stablecoins/stablecoin-circulating-supply.mdx
+   + solana/activity/fee-median-usd.mdx
+   + solana/financials/transaction-fees-usd.mdx
+   + base/trading/dex-spot-volume.mdx
+   + BTCS/financials/enterprise-value-usd.mdx
+   + BMNR/financials/treasury-nav-usd.mdx
+   + base/financials/base-fees-usd.mdx
+   + ethereum/financials/base-fees-usd.mdx
+   + arbitrum/stablecoins/stablecoin-supply.mdx
+   + solana/activity/transactions-failed.mdx
+   + ETHV/trading/etf-flows.mdx
+   + solana/activity/transactions-total.mdx
+   + BMNR/financials/treasury-crypto-asset.mdx
+   + solana/financials/transaction-fees.mdx
+   + SQNS/financials/enterprise-value-usd.mdx
+   + arbitrum/activity/fee-median.mdx
+   + SBET/equity/treasury-crypto-asset.mdx
+   + HYPD/financials/treasury-nav-usd.mdx
+   + solana/financials/app-revenue-total.mdx
+   + solana/activity/transactions-succeeded.mdx
+   + CEPO/financials/treasury-mnav.mdx
+   + CEPO/financials/enterprise-value-usd.mdx
+   + CEP/financials/treasury-mnav.mdx
+   + CEP/financials/treasury-nav-usd.mdx
+   + CEP/financials/enterprise-value-usd.mdx
+   + BTBT/equity/market-cap.mdx
+   + BTBT/financials/treasury-token-holdings.mdx
+   + HYPD/financials/treasury-token-holdings.mdx
+   + BNC/financials/treasury-mnav.mdx
+   + HYPD/financials/treasury-crypto-asset.mdx
+   + GAME/financials/treasury-nav-usd.mdx
+   + believe/financials/revenue.mdx
+   + bluefin/financials/revenue.mdx
+   + bloom/financials/revenue.mdx
+   + bloxroute/financials/revenue.mdx
+   + bonk/financials/revenue.mdx
+   + bullx/financials/revenue.mdx
+   + cetus/financials/revenue.mdx
+   + clanker/financials/revenue.mdx
+   + humidifi/trading/volume-usd.mdx
+   + clipper/financials/revenue.mdx
+   + dexscreener/financials/revenue.mdx
+   + dodo/financials/revenue.mdx
+   + drift/financials/revenue.mdx
+   + dydx/financials/revenue.mdx
+   + eigenlayer/financials/revenue.mdx
+   + ethena/financials/revenue.mdx
+   + euler/financials/revenue.mdx
+   + flashbots/financials/revenue.mdx
+   + gmgn/financials/revenue.mdx
+   + gmx/financials/revenue.mdx
+   + hyperliquid/financials/revenue.mdx
+   + ironbank/financials/revenue.mdx
+   + jito/financials/revenue.mdx
+   + kamino/financials/revenue.mdx
+   + letsbonkdotfun/financials/revenue.mdx
+   + level/financials/revenue.mdx
+   + lido/financials/revenue.mdx
+   + lifi/financials/revenue.mdx
+   + lifinity/financials/revenue.mdx
+   + looter/financials/revenue.mdx
+   + maestro/financials/revenue.mdx
+   + metaplex/financials/revenue.mdx
+   + meth-protocol/financials/revenue.mdx
+   + mevx/financials/revenue.mdx
+   + nova/financials/revenue.mdx
+   + orca/financials/revenue.mdx
+   + ostium/financials/revenue.mdx
+   + paal-ai/financials/revenue.mdx
+   + pancakeswap/financials/revenue.mdx
+   + paradex/financials/revenue.mdx
+   + phantom/financials/revenue.mdx
+   + photon/financials/revenue.mdx
+   + raydium/financials/revenue.mdx
+   + scallop/financials/revenue.mdx
+   + moonshot/financials/revenue.mdx
+   + morpho/financials/revenue.mdx
+   + navi-protocol/financials/revenue.mdx
+   + odos/financials/revenue.mdx
+   + soltradingbot/financials/revenue.mdx
+   + sosovalue/financials/revenue.mdx
+   + spark/financials/revenue.mdx
+   + stable-labs/financials/revenue.mdx
+   + stakewise/financials/revenue.mdx
+   + sushiswap/financials/revenue.mdx
+   + syncswap/financials/revenue.mdx
+   + tensor/financials/revenue.mdx
+   + thorchain-dex/financials/revenue.mdx
+   + tornado/financials/revenue.mdx
+   + trojan/financials/revenue.mdx
+   + uniswap/financials/revenue.mdx
+   + uniswap-labs/financials/revenue.mdx
+   + virtuals/financials/revenue.mdx
+   + wildcat/financials/revenue.mdx
+   + ethereum/financials/token-supply-staked.mdx
+   + solana/financials/token-supply-staked.mdx
+   + pumpfun/token/tokens-launched-by-launchpad.mdx
+   + clanker/token/tokens-launched-by-launchpad.mdx
+   + moonshot/token/tokens-launched-by-launchpad.mdx
+   + boopfun/token/tokens-launched-by-launchpad.mdx
+   + zora/token/tokens-launched-by-launchpad.mdx
+   + believe/token/tokens-launched-by-launchpad.mdx
+   + thearena/token/tokens-launched-by-launchpad.mdx
+   + cookmeme/token/launchpad-bonding-volume.mdx
+   + letsbonkfun/token/launchpad-bonding-volume.mdx
+   + moonshot/token/launchpad-bonding-volume.mdx
+   + pumpfun/token/launchpad-bonding-volume.mdx
+   + raydium/token/launchpad-bonding-volume.mdx
+   + wavebreak/token/launchpad-bonding-volume.mdx
+   + aave/financials/revenue.mdx
+   + aerodrome/financials/revenue.mdx
+   + aries/financials/revenue.mdx
+   + aster/financials/revenue.mdx
+   + balancer/financials/revenue.mdx
+   + cookdotmeme/financials/revenue.mdx
+   + arbitrum/financials/app-revenue-total.mdx
+   + ethereum/financials/app-revenue-total.mdx
+   + base/financials/app-revenue-total.mdx
+   + apex/financials/revenue.mdx
+   + axiom/financials/revenue.mdx
+   + letsbonk/token/tokens-launched-by-launchpad.mdx
+   + ethereum/financials/rev.mdx
+   + cookmeme/token/launchpad-tokens-graduated.mdx
+   + base/financials/rev.mdx
+   + solana/financials/rev.mdx
+   + letsbonk/token/launchpad-tokens-graduated.mdx
+   + arbitrum/financials/rev.mdx
+   + ethereum/financials/rev-usd.mdx
+   + solana/financials/rev-usd.mdx
+   + base/financials/rev-usd.mdx
+   + stabble/trading/volume-usd.mdx
+   + orca/trading/volume-usd.mdx
+   + lifinity/trading/volume-usd.mdx
+   + goonfi/trading/volume-usd.mdx
+   + tessera/trading/volume-usd.mdx
+   + byreal/trading/volume-usd.mdx
+   + ETHZ/financials/treasury-volume-usd.mdx
+   + BMNR/financials/treasury-volume-usd.mdx
+   + solana/financials/burn-usd.mdx
+   + CEPO/financials/treasury-nav-usd.mdx
+   + base/financials/gross-profit-l2.mdx
+   + ethereum/token/price.mdx
+   + believe/token/launchpad-bonding-volume.mdx
+   + jupstudio/token/launchpad-tokens-graduated.mdx
+   + believe/token/launchpad-tokens-graduated.mdx
+   + pumpfun/token/launchpad-tokens-graduated.mdx
+   + boopfun/token/launchpad-tokens-graduated.mdx
 
 📖 Generating metrics catalog...
    + Category "Activity" has 8 unique metrics
-   + Category "Equity" has 1 unique metrics
-   + Category "Financials" has 23 unique metrics
+   + Category "Equity" has 7 unique metrics
+   + Category "Financials" has 27 unique metrics
    + Category "Stablecoins" has 2 unique metrics
-   + Category "Token" has 3 unique metrics
-   + Category "Trading" has 23 unique metrics
+   + Category "Token" has 6 unique metrics
+   + Category "Trading" has 4 unique metrics
 
 🔧 Updating OpenAPI specification...
 
   1. Reading OpenAPI specification...
 
-     Found 59 unique metrics across 168 project-metric combinations
+     Found 48 unique metrics across 365 project-metric combinations
 
   2. Analyzing existing endpoints...
+     ✓ revenue (exists)
      ✓ treasury-volume-usd (exists)
-     ✓ treasury-crypto-asset (exists)
+     ✓ transactions-failed (exists)
+     ✓ market-cap (exists)
+     ✓ active-addresses (exists)
+     ✓ etf-flows (exists)
+     ✓ burn (exists)
+     ✓ transactions-succeeded (exists)
+     ✓ volume-usd (exists)
+     ✓ etf-flows-total (exists)
      ✓ treasury-token-holdings (exists)
-     ✓ transaction-fail (exists)
-     ✓ transaction-success (exists)
-     ✓ fee-average-usd (exists)
-     ✓ fees-other-usd (exists)
-     ✓ fee-median-usd (exists)
-     ✓ fee-average (exists)
-     ✓ stablecoin-supply (exists)
-     ✓ etf-flows-ezet (exists)
-     ✓ native-token-fdv (exists)
-     ✓ dex-spot-volume (exists)
-     ✓ rev (exists)
-     ✓ fees-transaction (exists)
-     ✓ fees-priority-usd (exists)
+     ✓ transaction-fees-usd (exists)
+     ✓ issuance-usd (exists)
+     ✓ transactions-total (exists)
+     ✓ treasury-crypto-asset (exists)
      ✓ treasury-nav-usd (exists)
      ✓ fee-median (exists)
-     ✓ etf-flows-ibit (exists)
-     ✓ etf-flows-btco (exists)
+     ✓ tokens-launched-by-launchpad (exists)
+     ✓ launchpad-tokens-graduated (exists)
+     ✓ costs-l2 (exists)
      ✓ treasury-mnav (exists)
-     ✓ fees-mev-tips (exists)
-     ✓ issuance (exists)
-     ✓ rev-usd (exists)
-     ✓ address-total (exists)
-     ✓ fees-base (exists)
-     ✓ enterprise-value-usd (exists)
-     ✓ etf-flows-btcw (exists)
-     ✓ native-token-price (exists)
-     ✓ market-cap (exists)
-     ✓ etf-flows-eth (exists)
-     ✓ fees-transaction-usd (exists)
-     ✓ burn-usd (exists)
-     ✓ etf-flows-btc (exists)
-     ✓ etf-flows-fbtc (exists)
-     ✓ etf-flows-feth (exists)
-     ✓ transaction-total (exists)
-     ✓ issuance-usd (exists)
+     ✓ price (exists)
+     ✓ base-fees-usd (exists)
+     ✓ mev-tips-fees (exists)
+     ✓ priority-fees-usd (exists)
+     ✓ gross-profit-l2 (exists)
+     ✓ native-token-fdv (exists)
      ✓ native-token-supply (exists)
-     ✓ etf-flows-ethv (exists)
-     ✓ burn (exists)
-     ✓ etf-flows-brrr (exists)
-     ✓ fees-other (exists)
-     ✓ fees-base-usd (exists)
-     ✓ etf-flows-arkb (exists)
-     ✓ etf-flows-ssk (exists)
-     ✓ etf-flows-bitb (exists)
-     ✓ etf-flows-total (exists)
-     ✓ fees-priority (exists)
+     ✓ base-fees (exists)
+     ✓ fee-average (exists)
+     ✓ dex-spot-volume (exists)
+     ✓ fee-average-usd (exists)
+     ✓ stablecoin-supply (exists)
+     ✓ other-fees-usd (exists)
+     ✓ issuance (exists)
      ✓ stablecoin-circulating-supply (exists)
-     ✓ etf-flows-ceth (exists)
-     ✓ etf-flows-qeth (exists)
-     ✓ etf-flows-gbtc (exists)
-     ✓ etf-flows-ezbc (exists)
-     ✓ etf-flows-hodl (exists)
-     ✓ fees-mev-tips-usd (exists)
-     ✓ etf-flows-etha (exists)
-     ✓ etf-flows-ethw (exists)
-     ✓ etf-flows-ethe (exists)
+     ✓ transaction-fees (exists)
+     ✓ enterprise-value-usd (exists)
+     ✓ rev-usd (exists)
+     ✓ priority-fees (exists)
+     ✓ other-fees (exists)
+     ✓ fee-median-usd (exists)
+     ✓ mev-tips-fees-usd (exists)
+     ✓ burn-usd (exists)
+     ✓ app-revenue-total (exists)
+     ✓ token-supply-staked (exists)
+     ✓ launchpad-bonding-volume (exists)
+     ✓ rev (exists)
 
-  3. Adding missing endpoints...
+  3. Adding missing endpoints and updating project enums...
 
   4. Updating response examples with standardized placeholders...
+     ✓ Updated revenue with float placeholder
      ✓ Updated treasury-volume-usd with float placeholder
-     ✓ Updated treasury-crypto-asset with AssetType placeholder
+     ✓ Updated transactions-failed with integer placeholder
+     ✓ Updated market-cap with float placeholder
+     ✓ Updated active-addresses with integer placeholder
+     ✓ Updated etf-flows with float placeholder
+     ✓ Updated burn with float placeholder
+     ✓ Updated transactions-succeeded with integer placeholder
+     ✓ Updated volume-usd with float placeholder
+     ✓ Updated etf-flows-total with float placeholder
      ✓ Updated treasury-token-holdings with float placeholder
-     ✓ Updated transaction-fail with integer placeholder
-     ✓ Updated transaction-success with integer placeholder
-     ✓ Updated fee-average-usd with float placeholder
-     ✓ Updated fees-other-usd with float placeholder
-     ✓ Updated fee-median-usd with float placeholder
-     ✓ Updated fee-average with float placeholder
-     ✓ Updated stablecoin-supply with float placeholder
-     ✓ Updated etf-flows-ezet with float placeholder
-     ✓ Updated native-token-fdv with float placeholder
-     ✓ Updated dex-spot-volume with float placeholder
-     ✓ Updated rev with float placeholder
-     ✓ Updated fees-transaction with float placeholder
-     ✓ Updated fees-priority-usd with float placeholder
+     ✓ Updated transaction-fees-usd with float placeholder
+     ✓ Updated issuance-usd with float placeholder
+     ✓ Updated transactions-total with integer placeholder
+     ✓ Updated treasury-crypto-asset with AssetType placeholder
      ✓ Updated treasury-nav-usd with float placeholder
      ✓ Updated fee-median with float placeholder
-     ✓ Updated etf-flows-ibit with float placeholder
-     ✓ Updated etf-flows-btco with float placeholder
+     ✓ Updated tokens-launched-by-launchpad with integer placeholder
+     ✓ Updated launchpad-tokens-graduated with integer placeholder
+     ✓ Updated costs-l2 with float placeholder
      ✓ Updated treasury-mnav with float placeholder
-     ✓ Updated fees-mev-tips with float placeholder
-     ✓ Updated issuance with float placeholder
-     ✓ Updated rev-usd with float placeholder
-     ✓ Updated address-total with integer placeholder
-     ✓ Updated fees-base with float placeholder
-     ✓ Updated enterprise-value-usd with float placeholder
-     ✓ Updated etf-flows-btcw with float placeholder
-     ✓ Updated native-token-price with float placeholder
-     ✓ Updated market-cap with float placeholder
-     ✓ Updated etf-flows-eth with float placeholder
-     ✓ Updated fees-transaction-usd with float placeholder
-     ✓ Updated burn-usd with float placeholder
-     ✓ Updated etf-flows-btc with float placeholder
-     ✓ Updated etf-flows-fbtc with float placeholder
-     ✓ Updated etf-flows-feth with float placeholder
-     ✓ Updated transaction-total with integer placeholder
-     ✓ Updated issuance-usd with float placeholder
+     ✓ Updated price with float placeholder
+     ✓ Updated base-fees-usd with float placeholder
+     ✓ Updated mev-tips-fees with float placeholder
+     ✓ Updated priority-fees-usd with float placeholder
+     ✓ Updated gross-profit-l2 with float placeholder
+     ✓ Updated native-token-fdv with float placeholder
      ✓ Updated native-token-supply with float placeholder
-     ✓ Updated etf-flows-ethv with float placeholder
-     ✓ Updated burn with float placeholder
-     ✓ Updated etf-flows-brrr with float placeholder
-     ✓ Updated fees-other with float placeholder
-     ✓ Updated fees-base-usd with float placeholder
-     ✓ Updated etf-flows-arkb with float placeholder
-     ✓ Updated etf-flows-ssk with float placeholder
-     ✓ Updated etf-flows-bitb with float placeholder
-     ✓ Updated etf-flows-total with float placeholder
-     ✓ Updated fees-priority with float placeholder
+     ✓ Updated base-fees with float placeholder
+     ✓ Updated fee-average with float placeholder
+     ✓ Updated dex-spot-volume with float placeholder
+     ✓ Updated fee-average-usd with float placeholder
+     ✓ Updated stablecoin-supply with float placeholder
+     ✓ Updated other-fees-usd with float placeholder
+     ✓ Updated issuance with float placeholder
      ✓ Updated stablecoin-circulating-supply with float placeholder
-     ✓ Updated etf-flows-ceth with float placeholder
-     ✓ Updated etf-flows-qeth with float placeholder
-     ✓ Updated etf-flows-gbtc with float placeholder
-     ✓ Updated etf-flows-ezbc with float placeholder
-     ✓ Updated etf-flows-hodl with float placeholder
-     ✓ Updated fees-mev-tips-usd with float placeholder
-     ✓ Updated etf-flows-etha with float placeholder
-     ✓ Updated etf-flows-ethw with float placeholder
-     ✓ Updated etf-flows-ethe with float placeholder
+     ✓ Updated transaction-fees with float placeholder
+     ✓ Updated enterprise-value-usd with float placeholder
+     ✓ Updated rev-usd with float placeholder
+     ✓ Updated priority-fees with float placeholder
+     ✓ Updated other-fees with float placeholder
+     ✓ Updated fee-median-usd with float placeholder
+     ✓ Updated mev-tips-fees-usd with float placeholder
+     ✓ Updated burn-usd with float placeholder
+     ✓ Updated app-revenue-total with float placeholder
+     ✓ Updated token-supply-staked with float placeholder
+     ✓ Updated launchpad-bonding-volume with float placeholder
+     ✓ Updated rev with float placeholder
 
   5. Writing updated OpenAPI specification...
 
   ✅ OpenAPI spec updated:
      ✓ Added endpoints: 0
-     ✓ Updated examples: 59
-     ✓ Total endpoints: 61
+     ✓ Updated project enums: 0
+     ✓ Updated examples: 48
+     ✓ Total endpoints: 86
 
 🎯 Updating asset expansion options...
 
@@ -359,156 +724,855 @@ $ bun run commands/sync.ts --update-only
      ✓ Created pages: 5
      ✓ Options processed: 5
 
+🎯 Updating misc endpoints...
+
+🎯 Updating misc endpoints...
+
+  1. Generating market-stats page...
+Using real API data for market-stats
+     + market-stats.mdx
+
+  ✅ Misc endpoints updated successfully
+
 📋 Updating docs.json navigation...
 
   1. Grouping metrics by project and category...
 
-   🔎 UPXI
-      + Financials: 6 metrics
-      + Equity: 1 metrics
+  2. Categorizing projects into Chains, Projects, and Equities...
+   📊 PUMPFUN -> Projects
+   📈 BTCS -> Equities (has treasury-crypto-asset)
+   📈 UPXI -> Equities (has treasury-crypto-asset)
+   📈 BNC -> Equities (has treasury-crypto-asset)
+   📈 CYFRD -> Equities (has treasury-crypto-asset)
+   📈 ETHM -> Equities (has treasury-crypto-asset)
+   📈 DFDV -> Equities (has treasury-crypto-asset)
+   📈 GAME -> Equities (has treasury-crypto-asset)
+   📈 BTBT -> Equities (has treasury-crypto-asset)
+   📈 SBET -> Equities (has treasury-crypto-asset)
+   📈 MSTR -> Equities (has treasury-crypto-asset)
+   📈 CEPO -> Equities (has treasury-crypto-asset)
+   🔗 BASE -> Chains (has native-token-price)
+   🔗 SOLANA -> Chains (has native-token-price)
+   📈 BMNR -> Equities (has treasury-crypto-asset)
+   📊 CETH -> Projects
+   🔗 ETHEREUM -> Chains (has native-token-price)
+   📊 METEROA -> Projects
+   🔗 ARBITRUM -> Chains (has native-token-price)
+   📊 EZBC -> Projects
+   📊 FETH -> Projects
+   📈 SMLR -> Equities (has treasury-crypto-asset)
+   📈 ETHZ -> Equities (has treasury-crypto-asset)
+   📊 GBTC -> Projects
+   📈 SQNS -> Equities (has treasury-crypto-asset)
+   📈 HYPD -> Equities (has treasury-crypto-asset)
+   📊 OPENSEA -> Projects
+   📊 FOURMEME -> Projects
+   📊 BANANA-GUN -> Projects
+   📊 COINBASE-WALLET -> Projects
+   📊 CONVEX -> Projects
+   📊 RAYDIUM -> Projects
+   📊 MOONSHOT -> Projects
+   📈 CEP -> Equities (has treasury-crypto-asset)
+   📊 OTHER-LAUNCHPADS -> Projects
+   📊 ZEROFI -> Projects
+   🔗 BITCOIN -> Chains (hardcoded Bitcoin)
+   📊 BAGS -> Projects
+   📊 ARKB -> Projects
+   📊 EZET -> Projects
+   📊 BTCW -> Projects
+   📊 ETH -> Projects
+   📊 FBTC -> Projects
+   📊 ETHE -> Projects
+   📊 SSK -> Projects
+   📊 BITB -> Projects
+   📊 ETHA -> Projects
+   📊 BTC -> Projects
+   📊 HODL -> Projects
+   📊 ETHW -> Projects
+   📊 BTCO -> Projects
+   📊 IBIT -> Projects
+   📊 SOLFI -> Projects
+   📊 BRRR -> Projects
+   📊 QETH -> Projects
+   📊 ETHV -> Projects
+   📊 BELIEVE -> Projects
+   📊 BLUEFIN -> Projects
+   📊 BLOOM -> Projects
+   📊 BLOXROUTE -> Projects
+   📊 BONK -> Projects
+   📊 BULLX -> Projects
+   📊 CETUS -> Projects
+   📊 CLANKER -> Projects
+   📊 HUMIDIFI -> Projects
+   📊 CLIPPER -> Projects
+   📊 DEXSCREENER -> Projects
+   📊 DODO -> Projects
+   📊 DRIFT -> Projects
+   📊 DYDX -> Projects
+   📊 EIGENLAYER -> Projects
+   📊 ETHENA -> Projects
+   📊 EULER -> Projects
+   📊 FLASHBOTS -> Projects
+   📊 GMGN -> Projects
+   📊 GMX -> Projects
+   📊 HYPERLIQUID -> Projects
+   📊 IRONBANK -> Projects
+   📊 JITO -> Projects
+   📊 KAMINO -> Projects
+   📊 LETSBONKDOTFUN -> Projects
+   📊 LEVEL -> Projects
+   📊 LIDO -> Projects
+   📊 LIFI -> Projects
+   📊 LIFINITY -> Projects
+   📊 LOOTER -> Projects
+   📊 MAESTRO -> Projects
+   📊 METAPLEX -> Projects
+   📊 METH-PROTOCOL -> Projects
+   📊 MEVX -> Projects
+   📊 NOVA -> Projects
+   📊 ORCA -> Projects
+   📊 OSTIUM -> Projects
+   📊 PAAL-AI -> Projects
+   📊 PANCAKESWAP -> Projects
+   📊 PARADEX -> Projects
+   📊 PHANTOM -> Projects
+   📊 PHOTON -> Projects
+   📊 SCALLOP -> Projects
+   📊 MORPHO -> Projects
+   📊 NAVI-PROTOCOL -> Projects
+   📊 ODOS -> Projects
+   📊 SOLTRADINGBOT -> Projects
+   📊 SOSOVALUE -> Projects
+   📊 SPARK -> Projects
+   📊 STABLE-LABS -> Projects
+   📊 STAKEWISE -> Projects
+   📊 SUSHISWAP -> Projects
+   📊 SYNCSWAP -> Projects
+   📊 TENSOR -> Projects
+   📊 THORCHAIN-DEX -> Projects
+   📊 TORNADO -> Projects
+   📊 TROJAN -> Projects
+   📊 UNISWAP -> Projects
+   📊 UNISWAP-LABS -> Projects
+   📊 VIRTUALS -> Projects
+   📊 WILDCAT -> Projects
+   📊 BOOPFUN -> Projects
+   📊 ZORA -> Projects
+   📊 THEARENA -> Projects
+   📊 COOKMEME -> Projects
+   📊 LETSBONKFUN -> Projects
+   📊 WAVEBREAK -> Projects
+   📊 AAVE -> Projects
+   📊 AERODROME -> Projects
+   📊 ARIES -> Projects
+   📊 ASTER -> Projects
+   📊 BALANCER -> Projects
+   📊 COOKDOTMEME -> Projects
+   📊 APEX -> Projects
+   📊 AXIOM -> Projects
+   📊 LETSBONK -> Projects
+   📊 STABBLE -> Projects
+   📊 GOONFI -> Projects
+   📊 TESSERA -> Projects
+   📊 BYREAL -> Projects
+   📊 JUPSTUDIO -> Projects
 
-   🔎 ETHZ
-      + Financials: 6 metrics
-      + Equity: 1 metrics
+  3. Project categorization summary:
+   Chains: 5 projects
+      + base/Activity: 8 metrics
+      + base/Financials: 11 metrics
+      + base/Stablecoins: 2 metrics
+      + base/Trading: 1 metrics
+      + solana/Activity: 8 metrics
+      + solana/Trading: 2 metrics
+      + solana/Financials: 16 metrics
+      + solana/Token: 3 metrics
+      + solana/Stablecoins: 2 metrics
+      + ethereum/Financials: 18 metrics
+      + ethereum/Trading: 2 metrics
+      + ethereum/Token: 3 metrics
+      + ethereum/Activity: 8 metrics
+      + ethereum/Stablecoins: 2 metrics
+      + arbitrum/Financials: 13 metrics
+      + arbitrum/Token: 3 metrics
+      + arbitrum/Stablecoins: 2 metrics
+      + arbitrum/Activity: 8 metrics
+      + arbitrum/Trading: 1 metrics
+      + bitcoin/Trading: 1 metrics
+   Projects: 115 projects
+      + pumpfun/Financials: 1 metrics
+      + pumpfun/Trading: 1 metrics
+      + pumpfun/Token: 3 metrics
+      + CETH/Trading: 1 metrics
+      + Meteroa/Trading: 1 metrics
+      + EZBC/Trading: 1 metrics
+      + FETH/Trading: 1 metrics
+      + GBTC/Trading: 1 metrics
+      + opensea/Financials: 1 metrics
+      + fourmeme/Token: 1 metrics
+      + banana-gun/Financials: 1 metrics
+      + coinbase-wallet/Financials: 1 metrics
+      + convex/Financials: 1 metrics
+      + raydium/Token: 2 metrics
+      + raydium/Trading: 1 metrics
+      + raydium/Financials: 1 metrics
+      + moonshot/Token: 3 metrics
+      + moonshot/Financials: 1 metrics
+      + other-launchpads/Token: 2 metrics
+      + ZeroFi/Trading: 1 metrics
+      + bags/Token: 1 metrics
+      + ARKB/Trading: 1 metrics
+      + EZET/Trading: 1 metrics
+      + BTCW/Trading: 1 metrics
+      + ETH/Trading: 1 metrics
+      + FBTC/Trading: 1 metrics
+      + ETHE/Trading: 1 metrics
+      + SSK/Trading: 1 metrics
+      + BITB/Trading: 1 metrics
+      + ETHA/Trading: 1 metrics
+      + BTC/Trading: 1 metrics
+      + HODL/Trading: 1 metrics
+      + ETHW/Trading: 1 metrics
+      + BTCO/Trading: 1 metrics
+      + IBIT/Trading: 1 metrics
+      + solfi/Trading: 1 metrics
+      + BRRR/Trading: 1 metrics
+      + QETH/Trading: 1 metrics
+      + ETHV/Trading: 1 metrics
+      + believe/Financials: 1 metrics
+      + believe/Token: 3 metrics
+      + bluefin/Financials: 1 metrics
+      + bloom/Financials: 1 metrics
+      + bloxroute/Financials: 1 metrics
+      + bonk/Financials: 1 metrics
+      + bullx/Financials: 1 metrics
+      + cetus/Financials: 1 metrics
+      + clanker/Financials: 1 metrics
+      + clanker/Token: 1 metrics
+      + humidifi/Trading: 1 metrics
+      + clipper/Financials: 1 metrics
+      + dexscreener/Financials: 1 metrics
+      + dodo/Financials: 1 metrics
+      + drift/Financials: 1 metrics
+      + dydx/Financials: 1 metrics
+      + eigenlayer/Financials: 1 metrics
+      + ethena/Financials: 1 metrics
+      + euler/Financials: 1 metrics
+      + flashbots/Financials: 1 metrics
+      + gmgn/Financials: 1 metrics
+      + gmx/Financials: 1 metrics
+      + hyperliquid/Financials: 1 metrics
+      + ironbank/Financials: 1 metrics
+      + jito/Financials: 1 metrics
+      + kamino/Financials: 1 metrics
+      + letsbonkdotfun/Financials: 1 metrics
+      + level/Financials: 1 metrics
+      + lido/Financials: 1 metrics
+      + lifi/Financials: 1 metrics
+      + lifinity/Financials: 1 metrics
+      + lifinity/Trading: 1 metrics
+      + looter/Financials: 1 metrics
+      + maestro/Financials: 1 metrics
+      + metaplex/Financials: 1 metrics
+      + meth-protocol/Financials: 1 metrics
+      + mevx/Financials: 1 metrics
+      + nova/Financials: 1 metrics
+      + orca/Financials: 1 metrics
+      + orca/Trading: 1 metrics
+      + ostium/Financials: 1 metrics
+      + paal-ai/Financials: 1 metrics
+      + pancakeswap/Financials: 1 metrics
+      + paradex/Financials: 1 metrics
+      + phantom/Financials: 1 metrics
+      + photon/Financials: 1 metrics
+      + scallop/Financials: 1 metrics
+      + morpho/Financials: 1 metrics
+      + navi-protocol/Financials: 1 metrics
+      + odos/Financials: 1 metrics
+      + soltradingbot/Financials: 1 metrics
+      + sosovalue/Financials: 1 metrics
+      + spark/Financials: 1 metrics
+      + stable-labs/Financials: 1 metrics
+      + stakewise/Financials: 1 metrics
+      + sushiswap/Financials: 1 metrics
+      + syncswap/Financials: 1 metrics
+      + tensor/Financials: 1 metrics
+      + thorchain-dex/Financials: 1 metrics
+      + tornado/Financials: 1 metrics
+      + trojan/Financials: 1 metrics
+      + uniswap/Financials: 1 metrics
+      + uniswap-labs/Financials: 1 metrics
+      + virtuals/Financials: 1 metrics
+      + wildcat/Financials: 1 metrics
+      + boopfun/Token: 2 metrics
+      + zora/Token: 1 metrics
+      + thearena/Token: 1 metrics
+      + cookmeme/Token: 2 metrics
+      + letsbonkfun/Token: 1 metrics
+      + wavebreak/Token: 1 metrics
+      + aave/Financials: 1 metrics
+      + aerodrome/Financials: 1 metrics
+      + aries/Financials: 1 metrics
+      + aster/Financials: 1 metrics
+      + balancer/Financials: 1 metrics
+      + cookdotmeme/Financials: 1 metrics
+      + apex/Financials: 1 metrics
+      + axiom/Financials: 1 metrics
+      + letsbonk/Token: 2 metrics
+      + stabble/Trading: 1 metrics
+      + goonfi/Trading: 1 metrics
+      + tessera/Trading: 1 metrics
+      + byreal/Trading: 1 metrics
+      + jupstudio/Token: 1 metrics
+   Equities: 17 projects
+      + BTCS/Financials: 6 metrics
+      + BTCS/Equity: 1 metrics
+      + UPXI/Financials: 6 metrics
+      + UPXI/Equity: 1 metrics
+      + BNC/Financials: 6 metrics
+      + BNC/Equity: 1 metrics
+      + CYFRD/Financials: 4 metrics
+      + ETHM/Financials: 6 metrics
+      + ETHM/Equity: 1 metrics
+      + DFDV/Financials: 6 metrics
+      + DFDV/Equity: 1 metrics
+      + GAME/Financials: 6 metrics
+      + GAME/Equity: 1 metrics
+      + BTBT/Financials: 6 metrics
+      + BTBT/Equity: 1 metrics
+      + SBET/Equity: 7 metrics
+      + MSTR/Financials: 6 metrics
+      + MSTR/Equity: 1 metrics
+      + CEPO/Financials: 6 metrics
+      + CEPO/Equity: 1 metrics
+      + BMNR/Equity: 1 metrics
+      + BMNR/Financials: 6 metrics
+      + SMLR/Financials: 6 metrics
+      + SMLR/Equity: 1 metrics
+      + ETHZ/Financials: 6 metrics
+      + ETHZ/Equity: 1 metrics
+      + SQNS/Financials: 6 metrics
+      + SQNS/Equity: 1 metrics
+      + HYPD/Financials: 6 metrics
+      + HYPD/Equity: 1 metrics
+      + CEP/Financials: 6 metrics
+      + CEP/Equity: 1 metrics
 
-   🔎 BASE
-      + Activity: 8 metrics
-      + Stablecoins: 2 metrics
-      + Financials: 8 metrics
-      + Token: 1 metrics
-      + Trading: 1 metrics
+  4. Processing Chain projects...
 
-   🔎 SOLANA
-      + Activity: 8 metrics
-      + Token: 3 metrics
-      + Trading: 3 metrics
-      + Financials: 14 metrics
-      + Stablecoins: 2 metrics
-
-   🔎 ETHEREUM
-      + Financials: 16 metrics
-      + Trading: 11 metrics
-      + Activity: 8 metrics
-      + Token: 3 metrics
-      + Stablecoins: 2 metrics
-
-   🔎 ARBITRUM
-      + Activity: 8 metrics
-      + Financials: 10 metrics
-      + Token: 3 metrics
-      + Trading: 1 metrics
-      + Stablecoins: 2 metrics
-
-   🔎 MSTR
-      + Financials: 6 metrics
-      + Equity: 1 metrics
-
-   🔎 BITCOIN
-      + Trading: 12 metrics
-
-   🔎 SBET
-      + Financials: 7 metrics
-
-   🔎 DFDV
-      + Financials: 6 metrics
-      + Equity: 1 metrics
-
-   🔎 BMNR
-      + Financials: 6 metrics
-      + Equity: 1 metrics
-
-  2. Processing projects...
-
-   🛠️ ARBITRUM
+   🔗 ARBITRUM
       + Creating Activity subgroup with 8 metrics
-      + Creating Financials subgroup with 10 metrics
+      + Creating Financials subgroup with 13 metrics
       + Creating Stablecoins subgroup with 2 metrics
       + Creating Token subgroup with 3 metrics
       + Creating Trading subgroup with 1 metrics
 
-   🛠️ BASE
+   🔗 BASE
       + Creating Activity subgroup with 8 metrics
-      + Creating Financials subgroup with 8 metrics
+      + Creating Financials subgroup with 11 metrics
       + Creating Stablecoins subgroup with 2 metrics
-      + Creating Token subgroup with 1 metrics
       + Creating Trading subgroup with 1 metrics
 
-   🛠️ BITCOIN
-      + Creating Trading subgroup with 12 metrics
+   🔗 BITCOIN
+      + Creating Trading subgroup with 1 metrics
 
-   🛠️ BMNR
-      + Creating Equity subgroup with 1 metrics
-      + Creating Financials subgroup with 6 metrics
+   🔗 ETHEREUM
+      + Creating Activity subgroup with 8 metrics
+      + Creating Financials subgroup with 18 metrics
+      + Creating Stablecoins subgroup with 2 metrics
+      + Creating Token subgroup with 3 metrics
+      + Creating Trading subgroup with 2 metrics
 
-   🛠️ DFDV
-      + Creating Equity subgroup with 1 metrics
-      + Creating Financials subgroup with 6 metrics
-
-   🛠️ ETHEREUM
+   🔗 SOLANA
       + Creating Activity subgroup with 8 metrics
       + Creating Financials subgroup with 16 metrics
       + Creating Stablecoins subgroup with 2 metrics
       + Creating Token subgroup with 3 metrics
-      + Creating Trading subgroup with 11 metrics
+      + Creating Trading subgroup with 2 metrics
 
-   🛠️ ETHZ
-      + Creating Equity subgroup with 1 metrics
-      + Creating Financials subgroup with 6 metrics
+  5. Processing Project projects...
 
-   🛠️ MSTR
-      + Creating Equity subgroup with 1 metrics
-      + Creating Financials subgroup with 6 metrics
+   📊 AAVE
+      + Creating Financials subgroup with 1 metrics
 
-   🛠️ SBET
-      + Creating Financials subgroup with 7 metrics
+   📊 AERODROME
+      + Creating Financials subgroup with 1 metrics
 
-   🛠️ SOLANA
-      + Creating Activity subgroup with 8 metrics
-      + Creating Financials subgroup with 14 metrics
-      + Creating Stablecoins subgroup with 2 metrics
+   📊 APEX
+      + Creating Financials subgroup with 1 metrics
+
+   📊 ARIES
+      + Creating Financials subgroup with 1 metrics
+
+   📊 ARKB
+      + Creating Trading subgroup with 1 metrics
+
+   📊 ASTER
+      + Creating Financials subgroup with 1 metrics
+
+   📊 AXIOM
+      + Creating Financials subgroup with 1 metrics
+
+   📊 BAGS
+      + Creating Token subgroup with 1 metrics
+
+   📊 BALANCER
+      + Creating Financials subgroup with 1 metrics
+
+   📊 BANANA-GUN
+      + Creating Financials subgroup with 1 metrics
+
+   📊 BELIEVE
+      + Creating Financials subgroup with 1 metrics
       + Creating Token subgroup with 3 metrics
-      + Creating Trading subgroup with 3 metrics
 
-   🛠️ UPXI
+   📊 BITB
+      + Creating Trading subgroup with 1 metrics
+
+   📊 BLOOM
+      + Creating Financials subgroup with 1 metrics
+
+   📊 BLOXROUTE
+      + Creating Financials subgroup with 1 metrics
+
+   📊 BLUEFIN
+      + Creating Financials subgroup with 1 metrics
+
+   📊 BONK
+      + Creating Financials subgroup with 1 metrics
+
+   📊 BOOPFUN
+      + Creating Token subgroup with 2 metrics
+
+   📊 BRRR
+      + Creating Trading subgroup with 1 metrics
+
+   📊 BTC
+      + Creating Trading subgroup with 1 metrics
+
+   📊 BTCO
+      + Creating Trading subgroup with 1 metrics
+
+   📊 BTCW
+      + Creating Trading subgroup with 1 metrics
+
+   📊 BULLX
+      + Creating Financials subgroup with 1 metrics
+
+   📊 BYREAL
+      + Creating Trading subgroup with 1 metrics
+
+   📊 CETH
+      + Creating Trading subgroup with 1 metrics
+
+   📊 CETUS
+      + Creating Financials subgroup with 1 metrics
+
+   📊 CLANKER
+      + Creating Financials subgroup with 1 metrics
+      + Creating Token subgroup with 1 metrics
+
+   📊 CLIPPER
+      + Creating Financials subgroup with 1 metrics
+
+   📊 COINBASE-WALLET
+      + Creating Financials subgroup with 1 metrics
+
+   📊 CONVEX
+      + Creating Financials subgroup with 1 metrics
+
+   📊 COOKDOTMEME
+      + Creating Financials subgroup with 1 metrics
+
+   📊 COOKMEME
+      + Creating Token subgroup with 2 metrics
+
+   📊 DEXSCREENER
+      + Creating Financials subgroup with 1 metrics
+
+   📊 DODO
+      + Creating Financials subgroup with 1 metrics
+
+   📊 DRIFT
+      + Creating Financials subgroup with 1 metrics
+
+   📊 DYDX
+      + Creating Financials subgroup with 1 metrics
+
+   📊 EIGENLAYER
+      + Creating Financials subgroup with 1 metrics
+
+   📊 ETH
+      + Creating Trading subgroup with 1 metrics
+
+   📊 ETHA
+      + Creating Trading subgroup with 1 metrics
+
+   📊 ETHE
+      + Creating Trading subgroup with 1 metrics
+
+   📊 ETHENA
+      + Creating Financials subgroup with 1 metrics
+
+   📊 ETHV
+      + Creating Trading subgroup with 1 metrics
+
+   📊 ETHW
+      + Creating Trading subgroup with 1 metrics
+
+   📊 EULER
+      + Creating Financials subgroup with 1 metrics
+
+   📊 EZBC
+      + Creating Trading subgroup with 1 metrics
+
+   📊 EZET
+      + Creating Trading subgroup with 1 metrics
+
+   📊 FBTC
+      + Creating Trading subgroup with 1 metrics
+
+   📊 FETH
+      + Creating Trading subgroup with 1 metrics
+
+   📊 FLASHBOTS
+      + Creating Financials subgroup with 1 metrics
+
+   📊 FOURMEME
+      + Creating Token subgroup with 1 metrics
+
+   📊 GBTC
+      + Creating Trading subgroup with 1 metrics
+
+   📊 GMGN
+      + Creating Financials subgroup with 1 metrics
+
+   📊 GMX
+      + Creating Financials subgroup with 1 metrics
+
+   📊 GOONFI
+      + Creating Trading subgroup with 1 metrics
+
+   📊 HODL
+      + Creating Trading subgroup with 1 metrics
+
+   📊 HUMIDIFI
+      + Creating Trading subgroup with 1 metrics
+
+   📊 HYPERLIQUID
+      + Creating Financials subgroup with 1 metrics
+
+   📊 IBIT
+      + Creating Trading subgroup with 1 metrics
+
+   📊 IRONBANK
+      + Creating Financials subgroup with 1 metrics
+
+   📊 JITO
+      + Creating Financials subgroup with 1 metrics
+
+   📊 JUPSTUDIO
+      + Creating Token subgroup with 1 metrics
+
+   📊 KAMINO
+      + Creating Financials subgroup with 1 metrics
+
+   📊 LETSBONK
+      + Creating Token subgroup with 2 metrics
+
+   📊 LETSBONKDOTFUN
+      + Creating Financials subgroup with 1 metrics
+
+   📊 LETSBONKFUN
+      + Creating Token subgroup with 1 metrics
+
+   📊 LEVEL
+      + Creating Financials subgroup with 1 metrics
+
+   📊 LIDO
+      + Creating Financials subgroup with 1 metrics
+
+   📊 LIFI
+      + Creating Financials subgroup with 1 metrics
+
+   📊 LIFINITY
+      + Creating Financials subgroup with 1 metrics
+      + Creating Trading subgroup with 1 metrics
+
+   📊 LOOTER
+      + Creating Financials subgroup with 1 metrics
+
+   📊 MAESTRO
+      + Creating Financials subgroup with 1 metrics
+
+   📊 METAPLEX
+      + Creating Financials subgroup with 1 metrics
+
+   📊 METEROA
+      + Creating Trading subgroup with 1 metrics
+
+   📊 METH-PROTOCOL
+      + Creating Financials subgroup with 1 metrics
+
+   📊 MEVX
+      + Creating Financials subgroup with 1 metrics
+
+   📊 MOONSHOT
+      + Creating Financials subgroup with 1 metrics
+      + Creating Token subgroup with 3 metrics
+
+   📊 MORPHO
+      + Creating Financials subgroup with 1 metrics
+
+   📊 NAVI-PROTOCOL
+      + Creating Financials subgroup with 1 metrics
+
+   📊 NOVA
+      + Creating Financials subgroup with 1 metrics
+
+   📊 ODOS
+      + Creating Financials subgroup with 1 metrics
+
+   📊 OPENSEA
+      + Creating Financials subgroup with 1 metrics
+
+   📊 ORCA
+      + Creating Financials subgroup with 1 metrics
+      + Creating Trading subgroup with 1 metrics
+
+   📊 OSTIUM
+      + Creating Financials subgroup with 1 metrics
+
+   📊 OTHER-LAUNCHPADS
+      + Creating Token subgroup with 2 metrics
+
+   📊 PAAL-AI
+      + Creating Financials subgroup with 1 metrics
+
+   📊 PANCAKESWAP
+      + Creating Financials subgroup with 1 metrics
+
+   📊 PARADEX
+      + Creating Financials subgroup with 1 metrics
+
+   📊 PHANTOM
+      + Creating Financials subgroup with 1 metrics
+
+   📊 PHOTON
+      + Creating Financials subgroup with 1 metrics
+
+   📊 PUMPFUN
+      + Creating Financials subgroup with 1 metrics
+      + Creating Token subgroup with 3 metrics
+      + Creating Trading subgroup with 1 metrics
+
+   📊 QETH
+      + Creating Trading subgroup with 1 metrics
+
+   📊 RAYDIUM
+      + Creating Financials subgroup with 1 metrics
+      + Creating Token subgroup with 2 metrics
+      + Creating Trading subgroup with 1 metrics
+
+   📊 SCALLOP
+      + Creating Financials subgroup with 1 metrics
+
+   📊 SOLFI
+      + Creating Trading subgroup with 1 metrics
+
+   📊 SOLTRADINGBOT
+      + Creating Financials subgroup with 1 metrics
+
+   📊 SOSOVALUE
+      + Creating Financials subgroup with 1 metrics
+
+   📊 SPARK
+      + Creating Financials subgroup with 1 metrics
+
+   📊 SSK
+      + Creating Trading subgroup with 1 metrics
+
+   📊 STABBLE
+      + Creating Trading subgroup with 1 metrics
+
+   📊 STABLE-LABS
+      + Creating Financials subgroup with 1 metrics
+
+   📊 STAKEWISE
+      + Creating Financials subgroup with 1 metrics
+
+   📊 SUSHISWAP
+      + Creating Financials subgroup with 1 metrics
+
+   📊 SYNCSWAP
+      + Creating Financials subgroup with 1 metrics
+
+   📊 TENSOR
+      + Creating Financials subgroup with 1 metrics
+
+   📊 TESSERA
+      + Creating Trading subgroup with 1 metrics
+
+   📊 THEARENA
+      + Creating Token subgroup with 1 metrics
+
+   📊 THORCHAIN-DEX
+      + Creating Financials subgroup with 1 metrics
+
+   📊 TORNADO
+      + Creating Financials subgroup with 1 metrics
+
+   📊 TROJAN
+      + Creating Financials subgroup with 1 metrics
+
+   📊 UNISWAP
+      + Creating Financials subgroup with 1 metrics
+
+   📊 UNISWAP-LABS
+      + Creating Financials subgroup with 1 metrics
+
+   📊 VIRTUALS
+      + Creating Financials subgroup with 1 metrics
+
+   📊 WAVEBREAK
+      + Creating Token subgroup with 1 metrics
+
+   📊 WILDCAT
+      + Creating Financials subgroup with 1 metrics
+
+   📊 ZEROFI
+      + Creating Trading subgroup with 1 metrics
+
+   📊 ZORA
+      + Creating Token subgroup with 1 metrics
+
+  6. Processing Equity projects...
+
+   📈 BMNR
       + Creating Equity subgroup with 1 metrics
       + Creating Financials subgroup with 6 metrics
 
-  3. Updating Assets navigation...
+   📈 BNC
+      + Creating Equity subgroup with 1 metrics
+      + Creating Financials subgroup with 6 metrics
+
+   📈 BTBT
+      + Creating Equity subgroup with 1 metrics
+      + Creating Financials subgroup with 6 metrics
+
+   📈 BTCS
+      + Creating Equity subgroup with 1 metrics
+      + Creating Financials subgroup with 6 metrics
+
+   📈 CEP
+      + Creating Equity subgroup with 1 metrics
+      + Creating Financials subgroup with 6 metrics
+
+   📈 CEPO
+      + Creating Equity subgroup with 1 metrics
+      + Creating Financials subgroup with 6 metrics
+
+   📈 CYFRD
+      + Creating Financials subgroup with 4 metrics
+
+   📈 DFDV
+      + Creating Equity subgroup with 1 metrics
+      + Creating Financials subgroup with 6 metrics
+
+   📈 ETHM
+      + Creating Equity subgroup with 1 metrics
+      + Creating Financials subgroup with 6 metrics
+
+   📈 ETHZ
+      + Creating Equity subgroup with 1 metrics
+      + Creating Financials subgroup with 6 metrics
+
+   📈 GAME
+      + Creating Equity subgroup with 1 metrics
+      + Creating Financials subgroup with 6 metrics
+
+   📈 HYPD
+      + Creating Equity subgroup with 1 metrics
+      + Creating Financials subgroup with 6 metrics
+
+   📈 MSTR
+      + Creating Equity subgroup with 1 metrics
+      + Creating Financials subgroup with 6 metrics
+
+   📈 SBET
+      + Creating Equity subgroup with 7 metrics
+
+   📈 SMLR
+      + Creating Equity subgroup with 1 metrics
+      + Creating Financials subgroup with 6 metrics
+
+   📈 SQNS
+      + Creating Equity subgroup with 1 metrics
+      + Creating Financials subgroup with 6 metrics
+
+   📈 UPXI
+      + Creating Equity subgroup with 1 metrics
+      + Creating Financials subgroup with 6 metrics
+
+  7. Updating Assets navigation...
 
   ✅ Updated docs.json navigation structure
 
-+ 21 Metrics Added:
-   UPXI/treasury-volume-usd
-   ETHZ/treasury-crypto-asset
-   ETHZ/treasury-token-holdings
-   UPXI/treasury-mnav
-   UPXI/enterprise-value-usd
-   UPXI/treasury-token-holdings
-   ETHZ/treasury-mnav
-   ETHZ/market-cap
-   DFDV/treasury-mnav
-   DFDV/treasury-crypto-asset
-   ETHZ/treasury-volume-usd
-   DFDV/treasury-token-holdings
-   ETHZ/enterprise-value-usd
-   ETHZ/treasury-nav-usd
-   DFDV/treasury-nav-usd
-   DFDV/market-cap
-   UPXI/treasury-crypto-asset
-   DFDV/enterprise-value-usd
-   UPXI/treasury-nav-usd
-   UPXI/market-cap
-   DFDV/treasury-volume-usd
++ 13 Metrics Added:
+   raydium/launchpad-tokens-graduated
+   raydium/volume-usd
+   solfi/volume-usd
+   humidifi/volume-usd
+   lifinity/revenue
+   orca/revenue
+   raydium/revenue
+   raydium/launchpad-bonding-volume
+   orca/volume-usd
+   lifinity/volume-usd
+   goonfi/volume-usd
+   tessera/volume-usd
+   byreal/volume-usd
+
+- 13 Metrics Removed:
+   HumidiFi/volume-usd
+   Lifinity/volume-usd
+   Lifinity/revenue
+   Byreal/volume-usd
+   Tessera/volume-usd
+   GoonFi/volume-usd
+   Orca/volume-usd
+   Orca/revenue
+   Raydium/volume-usd
+   Raydium/revenue
+   Raydium/launchpad-bonding-volume
+   Raydium/launchpad-tokens-graduated
+   SolFi/volume-usd
+
+🔍 6 Validation Issues:
+   4x No data returned (empty array)
+   2x Failed to fetch
+   { project: 'nova', identifier: 'revenue', issue: 'No data returned (empty array)' }
+   { project: 'scallop', identifier: 'revenue', issue: 'No data returned (empty array)' }
+   { project: 'coinbase-wallet', identifier: 'revenue', issue: 'No data returned (empty array)' }
+   { project: 'metaplex', identifier: 'revenue', issue: 'No data returned (empty array)' }
+   { project: 'solana', identifier: 'native-token-fdv', issue: 'Failed to fetch: Request timeout' }
+   { project: 'solana', identifier: 'native-token-supply', issue: 'Failed to fetch: Request timeout' }
 
 📊 Sync Summary:
 
   📁 Output: ./api-reference/metrics
-  📄 Metric Pages: 168
-  📂 Projects: 11
-  🏷️ Categories: 6
+  📄 Metric Pages: 365
+  📂 Projects: 137
+  📦 Categories: 6
   ✅ Catalog generated
   ✅ Navigation updated
   ✅ OpenAPI spec updated
-  ➕ Added Metrics: 21
+  ➕ Added Metrics: 13
+  ➖ Removed Metrics: 13
+  🗑️ Cleaned up files: 13
+  📁 Removed empty dirs: 20
+  🔍 Validation Issues: 6
 
-✅ Sync complete in 2.48s
+✅ Sync complete in 8.90s
+
+📝 Validation report saved to validation_report.md
