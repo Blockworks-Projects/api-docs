@@ -1,5 +1,5 @@
 import { buildNavigationStructure } from '../builders/navigation-builder'
-import { categorizeProjects, getCategorySummary } from '../categorizers/project-categorizer'
+import { categorizeMetrics } from '../categorizers/project-categorizer'
 import { readJsonFile, writeJsonFile } from '../lib/file-operations'
 import * as text from '../lib/text'
 import type { Metric } from '../types'
@@ -14,9 +14,16 @@ export async function updateNavigation(metrics: Metric[], expandOptions?: string
 
   text.subheader('Categorizing projects...')
 
-  // Categorize projects
-  const categories = categorizeProjects(metrics)
-  const summary = getCategorySummary(categories)
+  // Use legacy categorization until we pass projects
+  const categories = categorizeMetrics(metrics)
+  
+  // Calculate summary
+  const summary = {
+    chainCount: categories.chains.size,
+    projectCount: categories.projects.size,
+    etfCount: categories.etfs.size,
+    treasuryCount: categories.treasuries.size
+  }
 
   text.detail(text.withCount(`Chains: {count} projects`, summary.chainCount))
   text.detail(text.withCount(`Projects: {count} projects`, summary.projectCount))

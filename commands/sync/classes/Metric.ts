@@ -2,6 +2,20 @@ import { toTitleCase } from '../lib/utils'
 import { type ValidationError } from './ValidationError'
 import { type Project } from './Project'
 
+type MetricConfig = {
+  name: string
+  description: string
+  identifier: string
+  project: string
+  source: string
+  data_type: string
+  parameters: Record<string, any>
+  interval: string
+  aggregation: string
+  category: string
+  updated_at: number
+}
+
 export class Metric {
   name: string
   description: string
@@ -17,7 +31,7 @@ export class Metric {
   validationErrors: ValidationError[] = []
   parent: Project
 
-  constructor(config: Metric) {
+  constructor(config: MetricConfig) {
     this.name = config.name
     this.description = config.description
     this.identifier = config.identifier
@@ -44,5 +58,22 @@ export class Metric {
 
   get pageTitle() {
     return this.parent.isChain ? `${this.parent.title}: ${this.title}` : this.title
+  }
+
+  get unit(): string {
+    if (this.data_type === 'string') return 'string'
+    if (this.identifier.includes('-usd') || this.data_type.includes('usd')) return 'USD'
+    if (this.data_type.includes('float')) return 'native units'
+    if (this.data_type.includes('int')) return 'count'
+    return 'Various'
+  }
+
+  get hasValidationErrors(): boolean {
+    return this.validationErrors.length > 0
+  }
+
+  get validationSummary(): string {
+    if (!this.hasValidationErrors) return ''
+    return this.validationErrors.map(e => e.message).join(', ')
   }
 }

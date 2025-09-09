@@ -1,9 +1,11 @@
-import type { ProjectCategories } from '../categorizers/project-categorizer'
 import { createProgressBar } from '../lib/createProgressBar'
 import { sortMetricsAlphabetically } from '../lib/metric-utils'
 import * as text from '../lib/text'
 import { toTitleCase } from '../lib/utils'
 import type { Metric } from '../types'
+
+// Legacy type for backward compatibility
+type LegacyCategories = Record<'chains' | 'projects' | 'etfs' | 'treasuries', Map<string, Map<string, Metric[]>>>
 
 interface NavigationGroup {
   group: string
@@ -16,7 +18,7 @@ interface NavigationGroup {
  * Build navigation structure for all project categories
  */
 export function buildNavigationStructure(
-  categories: ProjectCategories,
+  categories: LegacyCategories,
   expandOptions?: string[]
 ): {
   chainsGroup: NavigationGroup

@@ -5,7 +5,7 @@ import { fetchMetricSampleData } from '../api/metrics-api'
 import { ensureDirectory, writeTextFile } from '../lib/file-operations'
 import { findMetric } from '../lib/metric-utils'
 import * as templates from '../templates'
-import { escapeYamlString, getUnit } from '../lib/utils'
+import { escapeYamlString } from '../lib/utils'
 
 /**
  * Generate a single metric page
@@ -22,7 +22,6 @@ export async function generateMetricPage(metric: Metric, allMetrics?: Metric[]):
 
   // Format the response
   const exampleResponse = JSON.stringify(sampleData, null, 2)
-  const unit = getUnit(metric)
 
   // Generate content from template
   let content = templates.METRIC_PAGE
@@ -31,8 +30,8 @@ export async function generateMetricPage(metric: Metric, allMetrics?: Metric[]):
     .replace('{metric_description}', escapeYamlString(metric.description))
     .replace(/\{metric_identifier\}/g, metric.identifier)
     .replace(/\{metric_project\}/g, metric.project)
-    .replace('{metric_unit}', unit)
-    .replace(/\{metric_interval\}/g, unit === 'string' ? 'N/A' : metric.interval)
+    .replace('{metric_unit}', metric.unit)
+    .replace(/\{metric_interval\}/g, metric.unit === 'string' ? 'N/A' : metric.interval)
     .replace('{metric_source}', metric.source)
     .replace('{example_response}', exampleResponse)
 
