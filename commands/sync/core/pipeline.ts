@@ -1,27 +1,24 @@
-import type { Metric } from '../types'
-import { colors as c, OUTPUT_DIR } from '../lib/constants'
 import { apiErrors } from '../lib/api-errors'
-import { ensureDirectory } from '../lib/file-operations'
-import * as cliProgress from 'cli-progress'
+import { OUTPUT_DIR } from '../lib/constants'
+import type { Metric } from '../types'
 
-// Import stage functions
-import { fetchAllMetrics } from '../api/metrics-api'
-import { catalogExistingMetrics, compareMetrics } from '../cleanup/metrics-catalog'
-import { cleanupObsoleteContent, cleanupExistingContent } from '../cleanup/content-cleaner'
-import { generateMetricPage } from '../generators/metric-page-generator'
-import { updateNavigation } from '../generators/navigation-generator'
-import { updateOpenApiSpec } from '../generators/openapi-generator'
-import { validateMetrics } from '../validation/validator'
-import { generateValidationReport } from '../validation/validation-reporter'
+// Import stage orchestrators
+import { runApiStage } from '../api'
+import { runCleanupStage } from '../cleanup'
+import { compareMetrics } from '../cleanup/metrics-catalog'
+import { runGeneratorsStage } from '../generators'
 import { populateMetricDataCache } from '../lib/cache'
 import { writeTextFile } from '../lib/file-operations'
+import { runValidationStage } from '../validation'
+import { generateValidationReport } from '../validation/validation-reporter'
+import { colors as c } from '../lib/constants'
 
 /**
  * Main sync pipeline orchestrator
  */
 export class SyncPipeline {
   private updateOnlyMode: boolean
-  
+
   constructor(updateOnlyMode: boolean = false) {
     this.updateOnlyMode = updateOnlyMode
   }
@@ -39,36 +36,30 @@ export class SyncPipeline {
     shouldContinue: boolean
     validationResult?: any
   }> {
-    // Stage 1: Catalog existing metrics
-    console.log(c.header('\n📂 Cataloging existing metrics...'))
-    const existingMetrics = await catalogExistingMetrics(OUTPUT_DIR)
+    // Stage 1: API operations (catalog + fetch)
+    const { existingMetrics, metrics: allMetrics, shouldContinue } = await runApiStage(OUTPUT_DIR, this.updateOnlyMode)
 
-    // Stage 2: Fetch metrics from API
-    console.log(c.header('\n🔎 Fetching metrics from API...'))
-    const { metrics: allMetrics, shouldContinue } = await fetchAllMetrics(this.updateOnlyMode)
-
-    // Stage 3: Filter metrics
+    // Stage 2: Filter metrics
     const { validMetrics: metrics, omittedMetrics } = this.filterMetrics(allMetrics)
 
-    // Stage 4: Validate metrics (always run this, even if no content will be generated)
-    const validationResult = await validateMetrics(metrics)
+    // Stage 3: Validation
+    const validationResult = await runValidationStage(metrics)
 
-    // Stage 5: Populate the global cache with validated data
+    // Stage 4: Populate global cache with validated data
     populateMetricDataCache(validationResult.metricDataCache)
 
-    // Stage 6: Compare metrics to determine changes
+    // Stage 5: Compare metrics to determine changes
     const { added, removed } = compareMetrics(existingMetrics, metrics)
 
-    // Stage 7: Clean up obsolete content (always run this)
-    console.log(c.header(`\n🗑️ Cleaning up obsolete content...`))
-    const { removedFiles, removedDirs } = await cleanupObsoleteContent(existingMetrics, metrics, OUTPUT_DIR)
+    // Stage 6: Cleanup operations
+    const { removedFiles, removedDirs } = await runCleanupStage(existingMetrics, metrics, OUTPUT_DIR)
 
-    // Stage 8: Generate new content if needed
+    // Stage 7: Generate content if needed
     if (shouldContinue) {
-      await this.generateContent(metrics)
+      await runGeneratorsStage(metrics)
     }
 
-    // Stage 9: Save validation report if there are issues
+    // Stage 8: Save validation report if there are issues
     if (validationResult.issues.length > 0) {
       await this.saveValidationReport(validationResult)
     }
@@ -85,60 +76,6 @@ export class SyncPipeline {
     }
   }
 
-  /**
-   * Generate all content (metrics pages, catalog, navigation, etc.)
-   */
-  private async generateContent(metrics: Metric[]): Promise<void> {
-    // Clean up existing content
-    console.log(c.header(`\n🧹 Wiping existing metrics pages...`))
-    await cleanupExistingContent(metrics, OUTPUT_DIR)
-
-    // Create output directory
-    await ensureDirectory(OUTPUT_DIR)
-
-    // Generate individual metric pages
-    console.log(c.header('\n✏️ Generating metric pages...'))
-    
-    const progressBar = new cliProgress.SingleBar({
-      format: '   Progress |{bar}| {percentage}% || {value}/{total} pages || ETA: {eta}s',
-      barCompleteChar: '\u2588',
-      barIncompleteChar: '\u2591',
-      hideCursor: true
-    })
-    
-    progressBar.start(metrics.length, 0)
-    
-    let completed = 0
-    const promises = metrics.map(async (metric) => {
-      await generateMetricPage(metric, metrics)
-      completed++
-      progressBar.update(completed)
-    })
-    
-    await Promise.all(promises)
-    progressBar.stop()
-
-    // Generate metrics catalog (placeholder - would be implemented)
-    console.log(c.header('\n📖 Generating metrics catalog...'))
-    console.log(c.muted('   Skipped - generator needs import path fixes'))
-
-    // Update OpenAPI spec
-    console.log(c.header('\n🔧 Updating OpenAPI specification...'))
-    await updateOpenApiSpec(metrics)
-
-    // Update asset expansion options (placeholder - would be implemented)
-    console.log(c.header('\n🎯 Updating asset expansion options...'))
-    console.log(c.muted('   Skipped - generator needs import path fixes'))
-    const expandOptions: string[] = []
-
-    // Update misc endpoints (placeholder - would be implemented)
-    console.log(c.header('\n🎯 Updating misc endpoints...'))
-    console.log(c.muted('   Skipped - generator needs import path fixes'))
-
-    // Update navigation
-    console.log(c.header('\n📋 Updating docs.json navigation...'))
-    await updateNavigation(metrics, expandOptions)
-  }
 
   /**
    * Filter metrics to exclude those with bad descriptions
@@ -195,10 +132,10 @@ export function displaySummary(results: {
   // Display added metrics
   if (added.length > 0) {
     console.log(c.header(`\n+ ${added.length} Metrics Added:`))
-    
+
     // Group metrics by project
     const metricsByProject = new Map<string, string[]>()
-    
+
     added.forEach(metricKey => {
       const metric = metrics.find(m => `${m.project}/${m.identifier}` === metricKey)
       if (metric) {
@@ -207,7 +144,7 @@ export function displaySummary(results: {
         metricsByProject.set(metric.project, identifiers)
       }
     })
-    
+
     // Sort projects alphabetically and display
     Array.from(metricsByProject.keys())
       .sort()
@@ -220,17 +157,17 @@ export function displaySummary(results: {
   // Display removed metrics
   if (removed.length > 0) {
     console.log(c.warning(`\n- ${removed.length} Metrics Removed:`))
-    
+
     // Group removed metrics by project
     const removedByProject = new Map<string, string[]>()
-    
+
     removed.forEach(metricKey => {
       const [project, identifier] = metricKey.split('/')
       const identifiers = removedByProject.get(project) || []
       identifiers.push(identifier)
       removedByProject.set(project, identifiers)
     })
-    
+
     // Sort projects alphabetically and display
     Array.from(removedByProject.keys())
       .sort()
@@ -243,16 +180,16 @@ export function displaySummary(results: {
   // Display omitted metrics
   if (omittedMetrics.length > 0) {
     console.log(c.warning(`\n⚠️ ${omittedMetrics.length} Metrics Omitted (Bad Descriptions):`))
-    
+
     // Group omitted metrics by project
     const omittedByProject = new Map<string, Array<{identifier: string, description: string}>>()
-    
+
     omittedMetrics.forEach(metric => {
       const items = omittedByProject.get(metric.project) || []
       items.push({identifier: metric.identifier, description: metric.description})
       omittedByProject.set(metric.project, items)
     })
-    
+
     // Sort projects alphabetically and display
     Array.from(omittedByProject.keys())
       .sort()
@@ -310,7 +247,7 @@ export function displaySummary(results: {
   console.log(c.header.underline('\n📊 Sync Summary:'))
   console.log(c.header(`\n  📁 Output:`), c.darkGreen(OUTPUT_DIR))
   console.log(c.header(`  📄 Metric Pages:`), c.darkGreen(metrics.length))
-  
+
   if (omittedMetrics.length > 0) {
     console.log(c.header(`  ⚠️ Omitted Pages:`), c.darkGreen(omittedMetrics.length))
   }

@@ -11,7 +11,7 @@ export const colors = {
   number: chalk.yellowBright.bold,
   duration: chalk.hex('#0099FF'),
   header: chalk.greenBright.bold,
-  subHeader: chalk.magentaBright.bold,
+  subHeader: chalk,
   muted: chalk.grey,
   bold: chalk.bold,
   error: chalk.red,
@@ -19,4 +19,5 @@ export const colors = {
   yellow: chalk.yellow,
   white: chalk.white.bold,
   adding: chalk.hex('#33AA33'),
+  fail: chalk.redBright,
 }

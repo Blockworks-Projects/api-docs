@@ -1,11 +1,14 @@
 import { readdir, stat } from 'node:fs/promises'
 import { join } from 'node:path'
 import { colors as c } from '../lib/constants'
+import * as text from '../lib/text'
 
 /**
  * Catalog existing metrics from current documentation files
  */
 export async function catalogExistingMetrics(outputDir: string): Promise<Set<string>> {
+  text.header('📂 Cataloging existing metrics...')
+  
   const existingMetrics = new Set<string>()
 
   try {

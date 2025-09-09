@@ -1,5 +1,6 @@
-import type { ValidationIssue, ValidationResult } from './types'
 import { colors as c } from '../lib/constants'
+import * as text from '../lib/text'
+import type { ValidationIssue, ValidationResult } from './types'
 
 /**
  * Generate issue entry string for reporting
@@ -17,17 +18,17 @@ export function displayValidationResults(
   dataTypeIssueCount: number
 ): void {
   if (dataTypeIssueCount > 0) {
-    console.log(c.warning(`   ⚠️ Found ${dataTypeIssueCount} data_type inconsistencies`))
+    text.warn(`Found ${dataTypeIssueCount} data_type inconsistencies`)
   } else {
-    console.log(c.green(`   ✓ All metrics have consistent data_type values`))
+    text.pass(`All metrics have consistent data_type values`)
   }
 
   if (issues.length === 0) {
-    console.log(c.green(`✅ All ${totalChecked} metrics passed validation`))
+    text.pass(`All ${totalChecked} metrics passed validation`)
     return
   }
 
-  console.log(c.warning(`\n⚠️ Found ${issues.length} validation issues:`))
+  text.warn(`Found ${issues.length} validation issues:`)
 
   // Group issues by type for summary
   const issueTypes = new Map<string, number>()
@@ -37,11 +38,10 @@ export function displayValidationResults(
   })
 
   issueTypes.forEach((count, type) => {
-    console.log(c.warning(`   ${count}x ${type}`))
+    text.detail(text.withCount(`${count}x ${type}`, count))
   })
 
   // Show ALL issues grouped by project
-  console.log(c.muted('\n   All issues by project:'))
   const issuesByProject = new Map<string, ValidationIssue[]>()
   issues.forEach(issue => {
     const list = issuesByProject.get(issue.metric.project) || []
@@ -50,12 +50,12 @@ export function displayValidationResults(
   })
 
   issuesByProject.forEach((projectIssues, project) => {
-    console.log(c.muted(`\n   ${project}:`))
+    text.subheader(`${project}:`)
     projectIssues.forEach(issue => {
       const entry = generateIssueEntry(issue)
-      console.log(c.muted(`     - ${entry}`))
+      text.detail(`- ${entry}`)
       if (issue.data && issue.issue.includes('Malformed')) {
-        console.log(c.muted(`       Data: ${JSON.stringify(issue.data).substring(0, 100)}...`))
+        text.detail(`Data: ${JSON.stringify(issue.data).substring(0, 100)}...`)
       }
     })
   })

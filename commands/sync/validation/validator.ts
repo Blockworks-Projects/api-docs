@@ -1,9 +1,10 @@
+import * as cliProgress from 'cli-progress'
+import * as text from '../lib/text'
 import type { Metric } from '../types'
-import type { ValidationIssue, ValidationResult } from './types'
-import { colors as c } from '../lib/constants'
+import { fetchMetricDataWithTimeout } from './api-fetcher'
 import { validateDataType } from './data-type-validator'
 import { validateMetricData } from './metric-data-validator'
-import { fetchMetricDataWithTimeout } from './api-fetcher'
+import type { ValidationIssue, ValidationResult } from './types'
 import { displayValidationResults } from './validation-reporter'
 
 /**
@@ -15,10 +16,10 @@ export async function validateMetrics(metrics: Metric[]): Promise<ValidationResu
   const totalChecked = metrics.length
   const metricDataCache = new Map<string, any>()
 
-  console.log(c.header('\n🔍 Validating metric data feeds...'))
+  text.header('🔍 Validating metric data feeds...')
 
   // Stage 1: Validate data_type consistency (no API calls needed)
-  console.log(c.muted(`   Checking data_type consistency for ${totalChecked} metrics...`))
+  text.detail(text.withCount(`Checking data_type consistency for {count} metrics`, totalChecked))
   let dataTypeIssueCount = 0
   for (const metric of metrics) {
     const dataTypeIssues = validateDataType(metric)
@@ -29,22 +30,30 @@ export async function validateMetrics(metrics: Metric[]): Promise<ValidationResu
   // Stage 2: Fetch and validate metric data in batches
   const BATCH_SIZE = 100
   const batches = []
-  
+
   // Create batches of metrics
   for (let i = 0; i < metrics.length; i += BATCH_SIZE) {
     batches.push(metrics.slice(i, i + BATCH_SIZE))
   }
-  
-  console.log(c.muted(`   Fetching ${totalChecked} metrics in ${batches.length} batches of up to ${BATCH_SIZE} each...`))
+
+  text.detail(text.withCount(`Fetching {count} metrics in {count} batches of up to 100 each...`, totalChecked, batches.length))
+
+  const progressBar = new cliProgress.SingleBar({
+    format: '   Progress |{bar}| {percentage}% || {value}/{total} batches || ETA: {eta}s',
+    barCompleteChar: '\u2588',
+    barIncompleteChar: '\u2591',
+    hideCursor: true
+  })
+
+  progressBar.start(batches.length, 0)
 
   const allResults = []
-  
+
   // Process each batch sequentially
   for (let batchIndex = 0; batchIndex < batches.length; batchIndex++) {
     const batch = batches[batchIndex]
-    console.log(c.muted(`   Processing batch ${batchIndex + 1}/${batches.length} (${batch.length} metrics)...`))
-    
-    const fetchPromises = batch.map(async (metric) => {
+
+    const fetchPromises = batch?.map(async (metric) => {
       const { response, error } = await fetchMetricDataWithTimeout(metric)
       const cacheKey = `${metric.project}/${metric.identifier}`
 
@@ -71,13 +80,16 @@ export async function validateMetrics(metrics: Metric[]): Promise<ValidationResu
     })
 
     // Wait for this batch to complete before moving to next batch
-    const batchResults = await Promise.allSettled(fetchPromises)
+    const batchResults = await Promise.allSettled(fetchPromises || [])
     allResults.push(...batchResults)
+
+    progressBar.update(batchIndex + 1)
   }
+
+  progressBar.stop()
 
   // Count successful fetches
   const successfulFetches = allResults.filter(r => r.status === 'fulfilled' && r.value?.response).length
-  console.log(c.muted(`   ✓ Fetched ${successfulFetches}/${totalChecked} metrics successfully`))
 
   // Display results
   displayValidationResults(issues, totalChecked, dataTypeIssueCount)

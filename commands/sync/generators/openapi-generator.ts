@@ -1,15 +1,17 @@
 import { readFile, writeFile } from 'node:fs/promises'
 import type { Metric } from '../types'
-import { colors as c } from '../lib/constants'
 import { toTitleCase } from '../lib/utils'
+import * as text from '../lib/text'
 
 /**
  * Update OpenAPI spec with missing metrics and standardized placeholder examples
  */
 export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
+  text.header('🔧 Updating OpenAPI specification...')
+
   const openApiPath = './openapi.json'
 
-  console.log(c.subHeader('\n  1. Reading OpenAPI specification...'))
+  text.detail('Reading OpenAPI specification...')
 
   // Read existing OpenAPI spec
   const openApiContent = await readFile(openApiPath, 'utf-8')
@@ -25,14 +27,16 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
     metricGroups.get(metric.identifier)!.push(metric)
   })
 
-  console.log(`\n     Found ${c.number(metricGroups.size)} unique metrics across ${c.number(metrics.length)} project-metric combinations`)
-  console.log(c.subHeader('\n  2. Analyzing existing endpoints...'))
+  text.detail(text.withCount(`Found {count} unique metrics across {count} project-metric combinations`, metricGroups.size, metrics.length))
+  text.detail('Analyzing existing endpoints...')
 
   const existingEndpoints = new Set<string>()
   const endpointsToUpdate = new Set<string>()
   let addedEndpoints = 0
   let updatedEndpoints = 0
   let updatedExamples = 0
+  let existingCount = 0
+  let newCount = 0
 
   // Check which endpoints exist
   for (const [identifier] of metricGroups) {
@@ -40,13 +44,14 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
     if (openApiSpec.paths[endpointPath]) {
       existingEndpoints.add(identifier)
       endpointsToUpdate.add(identifier)
-      console.log(c.muted(`     ✓ ${identifier} (exists)`))
+      existingCount++
     } else {
-      console.log(c.adding(`     + ${identifier} (adding)`))
+      newCount++
     }
   }
 
-  console.log(c.subHeader('\n  3. Adding missing endpoints and updating project enums...'))
+  text.pass(text.withCount('{count} existing endpoints analyzed', existingCount))
+  text.detail('Adding missing endpoints and updating project enums')
 
   // Add missing endpoints and update existing ones
   for (const [identifier, metricsForIdentifier] of metricGroups) {
@@ -57,7 +62,7 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
       addedEndpoints++
       const firstMetric = metricsForIdentifier[0]
 
-      console.log(c.green(`    + Adding ${identifier} (${supportedProjects.join(', ')})`))
+      text.detail(`+ Adding ${identifier} (${supportedProjects.join(', ')})`)
 
       // Create endpoint structure
       openApiSpec.paths[endpointPath] = {
@@ -142,13 +147,13 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
         if (projectParam?.schema) {
           const currentProjects = projectParam.schema.enum || []
           const projectsChanged = JSON.stringify(currentProjects.sort()) !== JSON.stringify(supportedProjects)
-          
+
           if (projectsChanged) {
             projectParam.schema.enum = supportedProjects
             projectParam.schema.example = supportedProjects[0]
             projectParam.examples = generateProjectExamples(supportedProjects)
-            
-            console.log(c.darkGreen(`    ↻ Updated ${identifier} projects: ${supportedProjects.length} projects (was ${currentProjects.length})`))
+
+            text.detail(`Updated ${identifier} projects: ${supportedProjects.length} projects (was ${currentProjects.length})`)
             updatedEndpoints++
           }
         }
@@ -156,7 +161,7 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
     }
   }
 
-  console.log(c.subHeader('\n  4. Updating response examples with standardized placeholders...'))
+  text.detail('Updating response examples with standardized placeholders...')
 
   // Update examples with consistent placeholder data
   for (const [identifier, metricsForIdentifier] of metricGroups) {
@@ -168,7 +173,7 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
       // Determine the data type and generate appropriate placeholder
       const firstMetric = metricsForIdentifier[0]
       const dataType = firstMetric?.data_type || ''
-      
+
       let placeholderData
       if (dataType === 'string') {
         // Asset type response for treasury-crypto-asset and similar metrics
@@ -182,25 +187,21 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
       // Update the example with placeholder data
       endpoint.get.responses['200'].content['application/json'].example = placeholderData
       updatedExamples++
-
-      const exampleType = dataType === 'string' 
-        ? 'AssetType' 
-        : (dataType.includes('float') || dataType.includes('usd') ? 'float' : 'integer')
-      
-      console.log(c.muted(`     ✓ Updated ${identifier} with ${exampleType} placeholder`))
     }
   }
 
-  console.log(c.subHeader('\n  5. Writing updated OpenAPI specification...'))
+  text.pass(text.withCount('Updated {count} response examples with standardized placeholders', updatedExamples))
+
+  text.detail('Writing updated OpenAPI specification...')
 
   // Write updated OpenAPI spec
   await writeFile(openApiPath, JSON.stringify(openApiSpec, null, 2), 'utf-8')
 
-  console.log(`\n  ✅ OpenAPI spec updated:`)
-  console.log(c.muted(`     ✓ Added endpoints: ${c.number(addedEndpoints)}`))
-  console.log(c.muted(`     ✓ Updated project enums: ${c.number(updatedEndpoints)}`))
-  console.log(c.muted(`     ✓ Updated examples: ${c.number(updatedExamples)}`))
-  console.log(c.muted(`     ✓ Total endpoints: ${c.number(Object.keys(openApiSpec.paths).filter(p => p.startsWith('/v1/metrics/')).length)}`))
+  text.subheader('OpenAPI spec updated:')
+  text.pass(text.withCount('Added endpoints: {count}', addedEndpoints))
+  text.pass(text.withCount('Updated project enums: {count}', updatedEndpoints))
+  text.pass(text.withCount('Updated examples: {count}', updatedExamples))
+  text.pass(text.withCount('Total endpoints: {count}', Object.keys(openApiSpec.paths).filter(p => p.startsWith('/v1/metrics/')).length))
 }
 
 /**

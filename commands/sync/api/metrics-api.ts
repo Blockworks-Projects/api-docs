@@ -2,7 +2,7 @@ import type { Metric, MetricsResponse, MetricDataResponse } from '../types'
 import { fetchWithErrorHandling, getDateNDaysAgo, generateMockMetricData } from '../lib/api-client'
 import { readJsonFile, writeJsonFile } from '../lib/file-operations'
 import { stripUpdatedFields, metricsEqual } from '../lib/utils'
-import { colors as c } from '../lib/constants'
+import * as text from '../lib/text'
 
 const LIMIT = 500
 
@@ -10,6 +10,8 @@ const LIMIT = 500
  * Fetch all metrics by paginating through the API
  */
 export async function fetchAllMetrics(updateOnlyMode: boolean = false): Promise<{ metrics: Metric[], shouldContinue: boolean }> {
+  text.header('🔎 Fetching metrics from API...')
+
   // Load previous metrics if in update-only mode
   const previousMetrics = updateOnlyMode ? await loadPreviousMetrics() : null
   const metrics: Metric[] = []
@@ -17,7 +19,7 @@ export async function fetchAllMetrics(updateOnlyMode: boolean = false): Promise<
   let hasMore = true
 
   while (hasMore) {
-    console.log(c.muted(`   + page ${page}...`))
+    text.detail(`fetching page ${page}...`)
 
     const [error, response] = await fetchWithErrorHandling<MetricsResponse>('/metrics', {
       limit: LIMIT,
@@ -25,7 +27,7 @@ export async function fetchAllMetrics(updateOnlyMode: boolean = false): Promise<
     })
 
     if (error) {
-      console.error('Error fetching metrics:', error)
+      text.fail('Error fetching metrics:', error)
       break
     }
 
@@ -36,20 +38,20 @@ export async function fetchAllMetrics(updateOnlyMode: boolean = false): Promise<
     } else {
       hasMore = false
     }
-    
+
     page++
   }
 
-  console.log(`\n✅ Found ${c.number(metrics.length)} metrics`)
+  text.detail(text.withCount(`Found {count} metrics`, metrics.length))
 
   // Check if metrics have changed when in update-only mode
   let shouldContinue = true
   if (updateOnlyMode && previousMetrics) {
     if (metricsEqual(previousMetrics, metrics)) {
-      console.log(c.muted(`\n⚡ No changes detected, skipping sync process`))
+      text.detail(`\n⚡ No changes detected, skipping sync process`)
       shouldContinue = false
     } else {
-      console.log(c.muted(`\n🔄 Changes detected, continuing with sync`))
+      text.detail(`\n🔄 Changes detected, continuing with sync`)
     }
   }
 
@@ -64,7 +66,7 @@ export async function fetchAllMetrics(updateOnlyMode: boolean = false): Promise<
  */
 export async function fetchMetricSampleData(identifier: string, project: string): Promise<MetricDataResponse> {
   const startDate = getDateNDaysAgo(5)
-  
+
   const [error, response] = await fetchWithErrorHandling<MetricDataResponse>(`/metrics/${identifier}`, {
     project,
     start_date: startDate,
@@ -97,7 +99,7 @@ async function saveMetricsForComparison(metrics: Metric[]): Promise<void> {
     const strippedMetrics = stripUpdatedFields(metrics)
     await writeJsonFile('./metrics.json', strippedMetrics)
   } catch (error) {
-    console.warn(c.warning('⚠️ Could not save metrics.json for future comparison'))
+    text.warn('⚠️ Could not save metrics.json for future comparison')
   }
 }
 

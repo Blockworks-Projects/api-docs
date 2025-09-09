@@ -1,14 +1,17 @@
-import { exists, rm, readdir, stat } from 'node:fs/promises'
+import { exists, readdir, rm, stat } from 'node:fs/promises'
 import { join } from 'node:path'
-import type { Metric } from '../types'
-import { colors as c } from '../lib/constants'
 import { getUniqueProjects } from '../lib/metric-utils'
+import * as text from '../lib/text'
+import type { Metric } from '../types'
 
 /**
  * Clean up existing content for projects found in metrics
  */
 export async function cleanupExistingContent(metrics: Metric[], outputDir: string): Promise<void> {
+  text.header('🧹 Wiping existing metrics pages...')
+
   const projects = getUniqueProjects(metrics)
+  let removedCount = 0
 
   for (const project of projects) {
     const projectDir = join(outputDir, project)
@@ -16,7 +19,7 @@ export async function cleanupExistingContent(metrics: Metric[], outputDir: strin
     try {
       if (await exists(projectDir)) {
         await rm(projectDir, { recursive: true, force: true })
-        console.log(c.muted(`   - Removed ${project}/`))
+        removedCount++
       }
     } catch (error) {
       console.warn(`⚠️  Failed to remove ${project}/ directory:`, error)
@@ -28,10 +31,14 @@ export async function cleanupExistingContent(metrics: Metric[], outputDir: strin
   try {
     if (await exists(expandDir)) {
       await rm(expandDir, { recursive: true, force: true })
-      console.log(c.muted(`   - Removed assets/expand/`))
+      removedCount++
     }
   } catch (error) {
-    console.warn(`⚠️  Failed to remove assets/expand/ directory:`, error)
+    console.warn(`Failed to remove assets/expand/ directory:`, error)
+  }
+
+  if (removedCount > 0) {
+    text.pass(text.withCount('Removed {count} existing directories', removedCount))
   }
 }
 
@@ -43,25 +50,27 @@ export async function cleanupObsoleteContent(
   currentMetrics: Metric[],
   outputDir: string
 ): Promise<{ removedFiles: string[], removedDirs: string[] }> {
+  text.header('🗑️ Cleaning up obsolete content...')
+
   const removedFiles: string[] = []
   const removedDirs: string[] = []
 
   // Create a set of current metric keys for quick lookup
-  const currentMetricKeys = new Set(currentMetrics.map(metric => 
+  const currentMetricKeys = new Set(currentMetrics.map(metric =>
     `${metric.project}/${metric.identifier}`
   ))
 
   // Find metrics that exist on disk but not in current API response
-  const obsoleteMetrics = Array.from(existingMetrics).filter(metricKey => 
+  const obsoleteMetrics = Array.from(existingMetrics).filter(metricKey =>
     !currentMetricKeys.has(metricKey)
   )
 
-  console.log(c.subHeader('\n  Removing obsolete metric files...'))
-  
+  text.detail('Removing obsolete metric files...')
+
   // Remove obsolete metric files
   for (const metricKey of obsoleteMetrics) {
     const [project, identifier] = metricKey.split('/')
-    
+
     // Find the file by scanning the project directory
     const projectDir = join(outputDir, project)
     try {
@@ -70,19 +79,26 @@ export async function cleanupObsoleteContent(
         if (foundFile) {
           await rm(foundFile, { force: true })
           const relativePath = foundFile.replace(outputDir + '/', '')
-          console.log(c.muted(`   - Removed ${relativePath}`))
           removedFiles.push(relativePath)
         }
       }
     } catch (error) {
-      console.warn(`⚠️  Failed to remove metric ${metricKey}:`, error)
+      text.warn(`Failed to remove metric ${metricKey}:`, error)
     }
   }
 
-  console.log(c.subHeader('\n  Cleaning up empty directories...'))
+  if (removedFiles.length > 0) {
+    text.pass(text.withCount('Removed {count} obsolete metric files', removedFiles.length))
+  }
+
+  text.detail('Cleaning up empty directories...')
 
   // Clean up empty directories
   await cleanupEmptyDirectories(outputDir, removedDirs)
+
+  if (removedDirs.length > 0) {
+    text.pass(text.withCount('Removed {count} empty directories', removedDirs.length))
+  }
 
   return { removedFiles, removedDirs }
 }
@@ -94,22 +110,22 @@ async function findMetricFile(projectDir: string, identifier: string): Promise<s
   try {
     const targetFile = `${identifier}.mdx`
     const directPath = join(projectDir, targetFile)
-    
+
     // First check if file exists directly in project directory (new structure)
     if (await exists(directPath)) {
       return directPath
     }
-    
+
     // Fall back to checking subdirectories (old structure) for cleanup
     const entries = await readdir(projectDir)
-    
+
     for (const entry of entries) {
       const entryPath = join(projectDir, entry)
       const stats = await stat(entryPath)
-      
+
       if (stats.isDirectory()) {
         const subEntries = await readdir(entryPath)
-        
+
         if (subEntries.includes(targetFile)) {
           return join(entryPath, targetFile)
         }
@@ -118,7 +134,7 @@ async function findMetricFile(projectDir: string, identifier: string): Promise<s
   } catch (error) {
     // Ignore errors
   }
-  
+
   return null
 }
 
@@ -126,20 +142,20 @@ async function findMetricFile(projectDir: string, identifier: string): Promise<s
  * Recursively remove empty directories
  */
 async function cleanupEmptyDirectories(
-  dir: string, 
-  removedDirs: string[], 
+  dir: string,
+  removedDirs: string[],
   baseDir: string = dir
 ): Promise<void> {
   try {
     if (!(await exists(dir))) return
 
     const entries = await readdir(dir)
-    
+
     // Recursively check subdirectories first
     for (const entry of entries) {
       const entryPath = join(dir, entry)
       const stats = await stat(entryPath)
-      
+
       if (stats.isDirectory()) {
         await cleanupEmptyDirectories(entryPath, removedDirs, baseDir)
       }
@@ -152,11 +168,10 @@ async function cleanupEmptyDirectories(
       if (dir !== baseDir) {
         await rm(dir, { recursive: true, force: true })
         const relativePath = dir.replace(baseDir + '/', '')
-        console.log(c.muted(`   - Removed empty directory ${relativePath}/`))
         removedDirs.push(relativePath)
       }
     }
   } catch (error) {
-    console.warn(`⚠️  Failed to clean up directory ${dir}:`, error)
+    text.warn(`Failed to clean up directory ${dir}:`, error)
   }
 }

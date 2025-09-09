@@ -3,14 +3,17 @@ import { readJsonFile, writeJsonFile } from '../lib/file-operations'
 import { categorizeProjects, getCategorySummary } from '../categorizers/project-categorizer'
 import { buildNavigationStructure } from '../builders/navigation-builder'
 import { colors as c } from '../lib/constants'
+import * as text from '../lib/text'
 
 /**
  * Generate and update docs.json navigation structure for metrics and assets
  */
 export async function updateNavigation(metrics: Metric[], expandOptions?: string[]): Promise<void> {
+  text.header('📋 Updating docs.json navigation...')
+  
   const docsPath = './docs.json'
 
-  console.log(c.subHeader('\n  1. Categorizing projects...'))
+  text.subheader('1. Categorizing projects...')
   
   // Categorize projects
   const categories = categorizeProjects(metrics)
