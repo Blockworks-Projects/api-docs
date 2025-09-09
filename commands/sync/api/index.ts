@@ -1,4 +1,4 @@
-import type { Metric } from '../types'
+import { Project } from '../classes'
 import { fetchAllMetrics } from './metrics-api'
 import { catalogExistingMetrics } from '../cleanup/metrics-catalog'
 
@@ -10,14 +10,14 @@ export async function runApiStage(
   updateOnlyMode: boolean = false
 ): Promise<{ 
   existingMetrics: Set<string>
-  metrics: Metric[]
+  projects: Map<string, Project>
   shouldContinue: boolean 
 }> {
   // Stage 1: Catalog existing metrics
   const existingMetrics = await catalogExistingMetrics(outputDir)
   
   // Stage 2: Fetch metrics from API
-  const { metrics, shouldContinue } = await fetchAllMetrics(updateOnlyMode)
+  const { projects, shouldContinue } = await fetchAllMetrics(updateOnlyMode)
   
-  return { existingMetrics, metrics, shouldContinue }
+  return { existingMetrics, projects, shouldContinue }
 }

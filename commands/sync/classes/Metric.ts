@@ -43,6 +43,6 @@ export class Metric {
   }
 
   get pageTitle() {
-    return this.parent.isChain ? this.title : `${this.parent.title}: ${this.title}`
+    return this.parent.isChain ? `${this.parent.title}: ${this.title}` : this.title
   }
 }

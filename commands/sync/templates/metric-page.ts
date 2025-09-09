@@ -1,6 +1,6 @@
 export const METRIC_PAGE = `---
-title: "{metric_project_title}{metric_name}"
-sidebarTitle: "{metric_name}"
+title: "{metric_page_title}"
+sidebarTitle: "{metric_sidebar_title}"
 description: "{metric_description}"
 openapi: "GET /v1/metrics/{metric_identifier}"
 mode: "wide"

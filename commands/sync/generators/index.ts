@@ -1,4 +1,5 @@
-import type { Metric } from '../types'
+import { Metric } from '../classes'
+import type { Metric as MetricType } from '../types'
 import { generateMetricPage } from './metric-page-generator'
 import { updateOpenApiSpec } from './openapi-generator'
 import { updateNavigation } from './navigation-generator'
@@ -18,10 +19,10 @@ export async function runGeneratorsStage(metrics: Metric[]): Promise<void> {
 
   // Stage 2: Generate metrics catalog
   text.header('📖 Generating metrics catalog...')
-  await generateMetricsCatalog(metrics)
+  await generateMetricsCatalog(metrics as any)
 
   // Stage 3: Update OpenAPI spec
-  await updateOpenApiSpec(metrics)
+  await updateOpenApiSpec(metrics as any)
 
   // Stage 4: Update asset expansion options
   const expandOptions = await updateAssetExpansionOptions()
@@ -30,7 +31,7 @@ export async function runGeneratorsStage(metrics: Metric[]): Promise<void> {
   await syncMiscMetrics()
 
   // Stage 6: Update navigation
-  await updateNavigation(metrics, expandOptions)
+  await updateNavigation(metrics as any, expandOptions)
 }
 
 /**

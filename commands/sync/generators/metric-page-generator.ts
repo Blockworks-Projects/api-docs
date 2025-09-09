@@ -1,11 +1,11 @@
 import { join } from 'node:path'
-import type { Metric } from '../types'
+import { Metric } from '../classes'
 import { colors as c, OUTPUT_DIR } from '../lib/constants'
 import { fetchMetricSampleData } from '../api/metrics-api'
 import { ensureDirectory, writeTextFile } from '../lib/file-operations'
 import { findMetric } from '../lib/metric-utils'
 import * as templates from '../templates'
-import { escapeYamlString, getUnit, toTitleCase } from '../lib/utils'
+import { escapeYamlString, getUnit } from '../lib/utils'
 
 /**
  * Generate a single metric page
@@ -26,15 +26,14 @@ export async function generateMetricPage(metric: Metric, allMetrics?: Metric[]):
 
   // Generate content from template
   let content = templates.METRIC_PAGE
-    .replace(/\{metric_name\}/g, escapeYamlString(metric.name))
+    .replace('{metric_page_title}', escapeYamlString(metric.pageTitle))
+    .replace('{metric_sidebar_title}', escapeYamlString(metric.title))
     .replace('{metric_description}', escapeYamlString(metric.description))
     .replace(/\{metric_identifier\}/g, metric.identifier)
     .replace(/\{metric_project\}/g, metric.project)
-    .replace('{metric_project_title}', toTitleCase(metric.project))
     .replace('{metric_unit}', unit)
     .replace(/\{metric_interval\}/g, unit === 'string' ? 'N/A' : metric.interval)
     .replace('{metric_source}', metric.source)
-    .replace('{metric_interval}', metric.interval)
     .replace('{example_response}', exampleResponse)
 
   // Add USD/non-USD cross-references if allMetrics provided

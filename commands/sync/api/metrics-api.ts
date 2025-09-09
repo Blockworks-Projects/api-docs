@@ -1,4 +1,5 @@
-import type { Metric, MetricsResponse, MetricDataResponse } from '../types'
+import type { MetricsResponse, MetricDataResponse } from '../types'
+import { Metric, Project } from '../classes'
 import { fetchWithErrorHandling, getDateNDaysAgo, generateMockMetricData } from '../lib/api-client'
 import { readJsonFile, writeJsonFile } from '../lib/file-operations'
 import { stripUpdatedFields, metricsEqual } from '../lib/utils'
@@ -7,14 +8,14 @@ import * as text from '../lib/text'
 const LIMIT = 500
 
 /**
- * Fetch all metrics by paginating through the API
+ * Fetch all metrics by paginating through the API and create Projects/Metrics instances
  */
-export async function fetchAllMetrics(updateOnlyMode: boolean = false): Promise<{ metrics: Metric[], shouldContinue: boolean }> {
+export async function fetchAllMetrics(updateOnlyMode: boolean = false): Promise<{ projects: Map<string, Project>, shouldContinue: boolean }> {
   text.header('🔎 Fetching metrics from API...')
 
   // Load previous metrics if in update-only mode
   const previousMetrics = updateOnlyMode ? await loadPreviousMetrics() : null
-  const metrics: Metric[] = []
+  const rawMetrics: any[] = []
   let page = 1
   let hasMore = true
 
@@ -32,7 +33,7 @@ export async function fetchAllMetrics(updateOnlyMode: boolean = false): Promise<
     }
 
     if (response) {
-      metrics.push(...response.data)
+      rawMetrics.push(...response.data)
       const totalPages = Math.ceil(response.total / LIMIT)
       hasMore = page < totalPages
     } else {
@@ -42,12 +43,12 @@ export async function fetchAllMetrics(updateOnlyMode: boolean = false): Promise<
     page++
   }
 
-  text.detail(text.withCount(`Found {count} metrics`, metrics.length))
+  text.detail(text.withCount(`Found {count} metrics`, rawMetrics.length))
 
   // Check if metrics have changed when in update-only mode
   let shouldContinue = true
   if (updateOnlyMode && previousMetrics) {
-    if (metricsEqual(previousMetrics, metrics)) {
+    if (metricsEqual(previousMetrics, rawMetrics)) {
       text.detail(`\n⚡ No changes detected, skipping sync process`)
       shouldContinue = false
     } else {
@@ -56,9 +57,38 @@ export async function fetchAllMetrics(updateOnlyMode: boolean = false): Promise<
   }
 
   // Always save metrics for next comparison (after fetch completes)
-  await saveMetricsForComparison(metrics)
+  await saveMetricsForComparison(rawMetrics)
 
-  return { metrics, shouldContinue }
+  // Convert raw metrics to Project/Metric instances
+  const projects = createProjectsFromMetrics(rawMetrics)
+
+  return { projects, shouldContinue }
+}
+
+/**
+ * Create Project instances with their Metrics from raw API data
+ */
+function createProjectsFromMetrics(rawMetrics: any[]): Map<string, Project> {
+  const projects = new Map<string, Project>()
+
+  for (const rawMetric of rawMetrics) {
+    let project = projects.get(rawMetric.project)
+    
+    if (!project) {
+      project = new Project({
+        name: rawMetric.project,
+        slug: rawMetric.project,
+        metrics: []
+      })
+      projects.set(rawMetric.project, project)
+    }
+
+    const metric = new Metric(rawMetric)
+    metric.parent = project
+    project.addMetric(metric)
+  }
+
+  return projects
 }
 
 /**

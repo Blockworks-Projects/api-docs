@@ -1,6 +1,7 @@
 import { apiErrors } from '../lib/api-errors'
 import { OUTPUT_DIR } from '../lib/constants'
-import type { Metric } from '../types'
+import { Metric, Project } from '../classes'
+import type { Metric as MetricType } from '../types'
 
 // Import stage orchestrators
 import { runApiStage } from '../api'
@@ -28,6 +29,7 @@ export class SyncPipeline {
    * Execute the complete sync pipeline
    */
   async execute(): Promise<{
+    projects: Map<string, Project>
     metrics: Metric[]
     added: string[]
     removed: string[]
@@ -38,22 +40,25 @@ export class SyncPipeline {
     validationResult?: any
   }> {
     // Stage 1: API operations (catalog + fetch)
-    const { existingMetrics, metrics: allMetrics, shouldContinue } = await runApiStage(OUTPUT_DIR, this.updateOnlyMode)
+    const { existingMetrics, projects, shouldContinue } = await runApiStage(OUTPUT_DIR, this.updateOnlyMode)
 
-    // Stage 2: Filter metrics
-    const { validMetrics: metrics, omittedMetrics } = this.filterMetrics(allMetrics)
+    // Stage 2: Filter projects and their metrics
+    const { filteredProjects, omittedMetrics } = this.filterProjects(projects)
 
-    // Stage 3: Validation
+    // Extract all metrics from projects for compatibility
+    const metrics = this.extractMetricsFromProjects(filteredProjects)
+
+    // Stage 3: Validation (add validation errors to metric instances)
     const validationResult = await runValidationStage(metrics)
 
     // Stage 4: Populate global cache with validated data
     populateMetricDataCache(validationResult.metricDataCache)
 
     // Stage 5: Compare metrics to determine changes
-    const { added, removed } = compareMetrics(existingMetrics, metrics)
+    const { added, removed } = compareMetrics(existingMetrics, metrics as any)
 
     // Stage 6: Cleanup operations
-    const { removedFiles, removedDirs } = await runCleanupStage(existingMetrics, metrics, OUTPUT_DIR)
+    const { removedFiles, removedDirs } = await runCleanupStage(existingMetrics, metrics as any, OUTPUT_DIR)
 
     // Stage 7: Generate content if needed
     if (shouldContinue) {
@@ -66,6 +71,7 @@ export class SyncPipeline {
     }
 
     return {
+      projects: filteredProjects,
       metrics,
       added,
       removed,
@@ -79,27 +85,51 @@ export class SyncPipeline {
 
 
   /**
-   * Filter metrics to exclude those with bad descriptions
+   * Filter projects and their metrics to exclude those with bad descriptions
    */
-  private filterMetrics(metrics: Metric[]): { validMetrics: Metric[], omittedMetrics: Metric[] } {
-    const validMetrics: Metric[] = []
+  private filterProjects(projects: Map<string, Project>): {
+    filteredProjects: Map<string, Project>,
+    omittedMetrics: Metric[]
+  } {
+    const filteredProjects = new Map<string, Project>()
     const omittedMetrics: Metric[] = []
+    const badDescriptionPattern = new RegExp(`^There (are|is) no .+ (on|in) .+$`, 'i')
 
-    metrics.forEach(metric => {
-      // Check if description matches bad patterns:
-      // "There is no {identifier} on {project}"
-      // "There are no {identifier} in {project}"
-      const badDescriptionPattern = new RegExp(`^There (are|is) no .+ (on|in) .+$`, 'i')
+    for (const [name, project] of projects) {
+      const filteredProject = new Project({
+        name: project.name,
+        slug: project.slug,
+        metrics: []
+      })
 
-      if (badDescriptionPattern.test(metric.description)) {
-        omittedMetrics.push(metric)
-      } else {
-        validMetrics.push(metric)
+      for (const metric of project.metrics) {
+        if (badDescriptionPattern.test(metric.description)) {
+          omittedMetrics.push(metric)
+        } else {
+          metric.parent = filteredProject
+          filteredProject.addMetric(metric)
+        }
       }
-    })
 
-    return { validMetrics, omittedMetrics }
+      if (filteredProject.metrics.length > 0) {
+        filteredProjects.set(name, filteredProject)
+      }
+    }
+
+    return { filteredProjects, omittedMetrics }
   }
+
+  /**
+   * Extract all metrics from projects
+   */
+  private extractMetricsFromProjects(projects: Map<string, Project>): Metric[] {
+    const metrics: Metric[] = []
+    for (const project of projects.values()) {
+      metrics.push(...project.metrics)
+    }
+    return metrics
+  }
+
 
   /**
    * Save validation report for GitHub Action if there are issues
