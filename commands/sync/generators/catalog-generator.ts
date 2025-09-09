@@ -1,9 +1,10 @@
-import { mkdir, writeFile } from 'node:fs/promises'
+import { ensureDirectory, writeTextFile } from '../lib/file-operations'
 import { join } from 'node:path'
-import type { Metric } from '../types'
-import { colors as c, OUTPUT_DIR } from '../lib/constants'
-import * as templates from '../templates'
+import { OUTPUT_DIR } from '../lib/constants'
+import * as text from '../lib/text'
 import { toTitleCase } from '../lib/utils'
+import * as templates from '../templates'
+import type { Metric } from '../classes'
 
 /**
  * Generate metrics catalog
@@ -38,7 +39,7 @@ export const generateMetricsCatalog = async (metrics: Metric[]): Promise<void> =
     const metricGroups = categoryGroups.get(category)!
     const sortedIdentifiers = Array.from(metricGroups.keys()).sort()
 
-    console.log(c.muted(`   + Category "${category}" has ${c.number(sortedIdentifiers.length)} unique metrics`))
+    text.detail(text.withCount(`Category ${category} has {count} unique metrics`, sortedIdentifiers.length))
 
     // Generate each metric entry within this category
     for (const identifier of sortedIdentifiers) {
@@ -65,8 +66,8 @@ export const generateMetricsCatalog = async (metrics: Metric[]): Promise<void> =
   }
 
   // Ensure directory exists
-  await mkdir(OUTPUT_DIR, { recursive: true })
+  await ensureDirectory(OUTPUT_DIR)
 
   // Write catalog
-  await writeFile(catalogPath, catalogContent, 'utf-8')
+  await writeTextFile(catalogPath, catalogContent)
 }

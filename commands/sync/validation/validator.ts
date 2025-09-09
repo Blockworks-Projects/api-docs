@@ -1,16 +1,11 @@
 import * as text from '../lib/text'
-import type { Metric } from '../types'
+import { Metric, ValidationError } from '../classes'
 import { fetchMetricDataWithTimeout } from './api-fetcher'
-import { validateDataType } from './data-type-validator'
-import { validateMetricData } from './metric-data-validator'
 import type { ValidationIssue, ValidationResult } from './types'
 import { displayValidationResults } from './validation-reporter'
 import { createProgressBar } from '../lib/createProgressBar'
 
-/**
- * Main validation orchestrator - validates all metrics by fetching their sample data in parallel
- */
-export async function validateMetrics(metrics: Metric[]): Promise<ValidationResult> {
+export const validateMetrics = async (metrics: Metric[]): Promise<ValidationResult> => {
   const issues: ValidationIssue[] = []
   let failedFetches = 0
   const totalChecked = metrics.length
@@ -22,9 +17,10 @@ export async function validateMetrics(metrics: Metric[]): Promise<ValidationResu
   text.detail(text.withCount(`Checking data_type consistency for {count} metrics`, totalChecked))
   let dataTypeIssueCount = 0
   for (const metric of metrics) {
-    const dataTypeIssues = validateDataType(metric)
-    issues.push(...dataTypeIssues)
-    dataTypeIssueCount += dataTypeIssues.length
+    const dataTypeErrors = metric.validateDataType()
+    dataTypeIssueCount += dataTypeErrors.length
+    
+    dataTypeIssueCount += dataTypeErrors.length
   }
 
   // Stage 2: Fetch and validate metric data in batches
@@ -54,11 +50,20 @@ export async function validateMetrics(metrics: Metric[]): Promise<ValidationResu
 
       if (error) {
         failedFetches++
-        issues.push({
-          metric: metric,
+        const issue = {
+          metric,
           issue: `Failed to fetch: ${error}`,
           data: null
-        })
+        }
+        issues.push(issue)
+        
+        // Add validation error to metric instance
+        metric.addValidationError(new ValidationError({
+          type: 'fetch_error',
+          message: `Failed to fetch: ${error}`,
+          endpoint: `/metrics/${metric.identifier}?project=${metric.project}`
+        }))
+        
         return { metric, response: null, error }
       }
 
@@ -66,8 +71,10 @@ export async function validateMetrics(metrics: Metric[]): Promise<ValidationResu
         // Cache the successful response
         metricDataCache.set(cacheKey, response)
 
-        const validationIssues = validateMetricData(metric, response)
-        issues.push(...validationIssues)
+        const dataValidationErrors = metric.validateData(response)
+        
+        // Track errors for display
+        
         return { metric, response, error: null }
       }
 

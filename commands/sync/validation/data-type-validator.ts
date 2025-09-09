@@ -1,4 +1,4 @@
-import type { Metric } from '../types'
+import type { Metric } from '../classes'
 import type { ValidationIssue } from './types'
 
 /**

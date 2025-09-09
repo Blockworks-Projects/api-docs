@@ -21,7 +21,7 @@ export const generateMiscMetricPage = (metric: {
   const paramSection = metric.parameters?.length ? `
 ## Parameters
 
-${metric.parameters.map(p => 
+${metric.parameters.map(p =>
   `- **${p.name}** ${p.required ? '(required)' : '(optional)'}: ${p.description}${p.default ? ` (default: ${p.default})` : ''}${p.options ? ` (options: ${p.options.map(o => `\`${o}\``).join(', ')})` : ''}`
 ).join('\n')}
 ` : ''
@@ -31,7 +31,7 @@ ${metric.parameters.map(p =>
 
 | Field | Type | Description |
 |-------|------|-------------|
-${metric.responseFields.map(f => 
+${metric.responseFields.map(f =>
   `| \`${f.name}\` | ${f.type} | ${f.description} |`
 ).join('\n')}
 ` : ''

@@ -1,6 +1,6 @@
 #!/usr/bin/env bun
 import chalk from 'chalk'
-import { SyncPipeline, displaySummary } from './core/pipeline'
+import { runSyncPipeline, displaySummary } from './core/pipeline'
 
 // Core functionality
 export { fetchAllMetrics, fetchMetricSampleData } from './api/metrics-api'
@@ -8,14 +8,13 @@ export { buildNavigationStructure } from './builders/navigation-builder'
 export { categorizeProjects, getCategorySummary } from './categorizers/project-categorizer'
 export { cleanupExistingContent, cleanupObsoleteContent } from './cleanup/content-cleaner'
 export { catalogExistingMetrics, compareMetrics } from './cleanup/metrics-catalog'
-export { SyncPipeline } from './core/pipeline'
+export { runSyncPipeline } from './core/pipeline'
 export { generateMetricPage } from './generators/metric-page-generator'
 export { updateNavigation } from './generators/navigation-generator'
 export {
   API,
   apiErrors,
   ensureDirectory,
-  fetchWithErrorHandling,
   findMetric,
   generateMockMetricData,
   getDateNDaysAgo,
@@ -49,9 +48,8 @@ export async function main(): Promise<void> {
     const args = process.argv.slice(2)
     const updateOnlyMode = args.includes('--update-only')
 
-    // Create and execute pipeline
-    const pipeline = new SyncPipeline(updateOnlyMode)
-    const results = await pipeline.execute()
+    // Execute pipeline
+    const results = await runSyncPipeline({ updateOnlyMode })
 
     // Display comprehensive summary
     displaySummary(results)

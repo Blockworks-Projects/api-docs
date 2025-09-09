@@ -1,14 +1,12 @@
-import { API } from '../../lib/api-client'
+import { fetch } from '../../lib/api-client'
 import * as text from '../../lib/text'
 
 export const marketStatsTemplate = async () => {
   // Fetch real data for the response
   let exampleData = {}
   try {
-    const response = await API.get('/market-stats?limit=1')
-
-    // Handle the API response structure [null, { data: [...] }]
-    const actualResponse = Array.isArray(response) ? response[1] : response
+    const response = await fetch('/market-stats', { limit: '1' })
+    const actualResponse = response
 
     if (actualResponse && actualResponse.data && actualResponse.data.length > 0) {
       // Use actual API response structure with real data

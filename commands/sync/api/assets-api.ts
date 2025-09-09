@@ -1,29 +1,27 @@
 import type { APIError } from '../types'
-import { API } from '../lib/api-client'
+import { fetch } from '../lib/api-client'
 import { apiErrors } from '../lib/api-errors'
 
 /**
  * Fetch sample data for an asset expansion option
  */
 export const fetchAssetSampleData = async (expandOption: string): Promise<any> => {
-  const [error, asset] = await API.get<[APIError, any]>(`/assets/ethereum`, {
-    query: {
-      expand: expandOption,
-    },
-  })
+  try {
+    return await fetch(`/assets/ethereum`, { expand: expandOption })
+  } catch (error: any) {
+    // Track API errors with full URL details
+    const url = `/assets/ethereum?expand=${expandOption}`
+    
+    apiErrors.push({
+      status: error.status || 500,
+      error: error.name || 'Unknown Error',
+      message: [error.message || 'Unknown error'],
+      url,
+    })
 
-  if (!error) return asset
-
-  // Track API errors with full URL details
-  const url = `/assets/ethereum?expand=${expandOption}`
-
-  apiErrors.push({
-    ...error,
-    url,
-  })
-
-  // Return mock data if API call fails
-  return getMockAssetData(expandOption)
+    // Return mock data if API call fails
+    return getMockAssetData(expandOption)
+  }
 }
 
 /**

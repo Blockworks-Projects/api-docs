@@ -175,7 +175,7 @@
                 "icon": "link",
                 "pages": [
                   {
-                    "group": "Trading",
+                    "group": "ETF",
                     "pages": [
                       "api-reference/metrics/bitcoin/etf-flows-total"
                     ]
@@ -197,6 +197,12 @@
                       "api-reference/metrics/ethereum/transactions-failed",
                       "api-reference/metrics/ethereum/transactions-succeeded",
                       "api-reference/metrics/ethereum/transactions-total"
+                    ]
+                  },
+                  {
+                    "group": "ETF",
+                    "pages": [
+                      "api-reference/metrics/ethereum/etf-flows-total"
                     ]
                   },
                   {
@@ -240,8 +246,7 @@
                   {
                     "group": "Trading",
                     "pages": [
-                      "api-reference/metrics/ethereum/dex-spot-volume",
-                      "api-reference/metrics/ethereum/etf-flows-total"
+                      "api-reference/metrics/ethereum/dex-spot-volume"
                     ]
                   }
                 ]
@@ -261,6 +266,12 @@
                       "api-reference/metrics/solana/transactions-failed",
                       "api-reference/metrics/solana/transactions-succeeded",
                       "api-reference/metrics/solana/transactions-total"
+                    ]
+                  },
+                  {
+                    "group": "ETF",
+                    "pages": [
+                      "api-reference/metrics/solana/etf-flows-total"
                     ]
                   },
                   {
@@ -302,8 +313,7 @@
                   {
                     "group": "Trading",
                     "pages": [
-                      "api-reference/metrics/solana/dex-spot-volume",
-                      "api-reference/metrics/solana/etf-flows-total"
+                      "api-reference/metrics/solana/dex-spot-volume"
                     ]
                   }
                 ]
@@ -340,13 +350,6 @@
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/aries/revenue"
-                ]
-              },
-              {
-                "group": "ARKB",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/ARKB/etf-flows"
                 ]
               },
               {
@@ -395,13 +398,6 @@
                 ]
               },
               {
-                "group": "BITB",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/BITB/etf-flows"
-                ]
-              },
-              {
                 "group": "Bloom",
                 "icon": "cube",
                 "pages": [
@@ -438,34 +434,6 @@
                 ]
               },
               {
-                "group": "BRRR",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/BRRR/etf-flows"
-                ]
-              },
-              {
-                "group": "BTC",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/BTC/etf-flows"
-                ]
-              },
-              {
-                "group": "BTCO",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/BTCO/etf-flows"
-                ]
-              },
-              {
-                "group": "BTCW",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/BTCW/etf-flows"
-                ]
-              },
-              {
                 "group": "Bullx",
                 "icon": "cube",
                 "pages": [
@@ -477,13 +445,6 @@
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/byreal/volume-usd"
-                ]
-              },
-              {
-                "group": "CETH",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/CETH/etf-flows"
                 ]
               },
               {
@@ -538,6 +499,16 @@
                 ]
               },
               {
+                "group": "CYFRD",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/CYFRD/treasury-crypto-asset",
+                  "api-reference/metrics/CYFRD/treasury-nav-usd",
+                  "api-reference/metrics/CYFRD/treasury-token-holdings",
+                  "api-reference/metrics/CYFRD/treasury-volume-usd"
+                ]
+              },
+              {
                 "group": "Dexscreener",
                 "icon": "cube",
                 "pages": [
@@ -573,27 +544,6 @@
                 ]
               },
               {
-                "group": "ETH",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/ETH/etf-flows"
-                ]
-              },
-              {
-                "group": "ETHA",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/ETHA/etf-flows"
-                ]
-              },
-              {
-                "group": "ETHE",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/ETHE/etf-flows"
-                ]
-              },
-              {
                 "group": "Ethena",
                 "icon": "cube",
                 "pages": [
@@ -601,52 +551,10 @@
                 ]
               },
               {
-                "group": "ETHV",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/ETHV/etf-flows"
-                ]
-              },
-              {
-                "group": "ETHW",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/ETHW/etf-flows"
-                ]
-              },
-              {
                 "group": "Euler",
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/euler/revenue"
-                ]
-              },
-              {
-                "group": "EZBC",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/EZBC/etf-flows"
-                ]
-              },
-              {
-                "group": "EZET",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/EZET/etf-flows"
-                ]
-              },
-              {
-                "group": "FBTC",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/FBTC/etf-flows"
-                ]
-              },
-              {
-                "group": "FETH",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/FETH/etf-flows"
                 ]
               },
               {
@@ -661,13 +569,6 @@
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/fourmeme/tokens-launched-by-launchpad"
-                ]
-              },
-              {
-                "group": "GBTC",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/GBTC/etf-flows"
                 ]
               },
               {
@@ -692,13 +593,6 @@
                 ]
               },
               {
-                "group": "HODL",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/HODL/etf-flows"
-                ]
-              },
-              {
                 "group": "Humidifi",
                 "icon": "cube",
                 "pages": [
@@ -710,13 +604,6 @@
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/hyperliquid/revenue"
-                ]
-              },
-              {
-                "group": "IBIT",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/IBIT/etf-flows"
                 ]
               },
               {
@@ -955,13 +842,6 @@
                 ]
               },
               {
-                "group": "QETH",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/QETH/etf-flows"
-                ]
-              },
-              {
                 "group": "Raydium",
                 "icon": "cube",
                 "pages": [
@@ -1004,13 +884,6 @@
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/spark/revenue"
-                ]
-              },
-              {
-                "group": "SSK",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/SSK/etf-flows"
                 ]
               },
               {
@@ -1140,14 +1013,167 @@
                 ]
               }
             ],
-            "tag": "115"
+            "tag": "95"
           },
           {
-            "group": "Metrics : Equities",
+            "group": "Metrics : ETFs",
+            "pages": [
+              {
+                "group": "ARKB",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/ARKB/etf-flows"
+                ]
+              },
+              {
+                "group": "BITB",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/BITB/etf-flows"
+                ]
+              },
+              {
+                "group": "BRRR",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/BRRR/etf-flows"
+                ]
+              },
+              {
+                "group": "BTC",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/BTC/etf-flows"
+                ]
+              },
+              {
+                "group": "BTCO",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/BTCO/etf-flows"
+                ]
+              },
+              {
+                "group": "BTCW",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/BTCW/etf-flows"
+                ]
+              },
+              {
+                "group": "CETH",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/CETH/etf-flows"
+                ]
+              },
+              {
+                "group": "ETH",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/ETH/etf-flows"
+                ]
+              },
+              {
+                "group": "ETHA",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/ETHA/etf-flows"
+                ]
+              },
+              {
+                "group": "ETHE",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/ETHE/etf-flows"
+                ]
+              },
+              {
+                "group": "ETHV",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/ETHV/etf-flows"
+                ]
+              },
+              {
+                "group": "ETHW",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/ETHW/etf-flows"
+                ]
+              },
+              {
+                "group": "EZBC",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/EZBC/etf-flows"
+                ]
+              },
+              {
+                "group": "EZET",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/EZET/etf-flows"
+                ]
+              },
+              {
+                "group": "FBTC",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/FBTC/etf-flows"
+                ]
+              },
+              {
+                "group": "FETH",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/FETH/etf-flows"
+                ]
+              },
+              {
+                "group": "GBTC",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/GBTC/etf-flows"
+                ]
+              },
+              {
+                "group": "HODL",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/HODL/etf-flows"
+                ]
+              },
+              {
+                "group": "IBIT",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/IBIT/etf-flows"
+                ]
+              },
+              {
+                "group": "QETH",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/QETH/etf-flows"
+                ]
+              },
+              {
+                "group": "SSK",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/SSK/etf-flows"
+                ]
+              }
+            ],
+            "tag": "21"
+          },
+          {
+            "group": "Metrics : Treasuries",
             "pages": [
               {
                 "group": "BMNR",
-                "icon": "chart-line",
+                "icon": "building-columns",
                 "pages": [
                   "api-reference/metrics/BMNR/enterprise-value-usd",
                   "api-reference/metrics/BMNR/market-cap",
@@ -1160,7 +1186,7 @@
               },
               {
                 "group": "BNC",
-                "icon": "chart-line",
+                "icon": "building-columns",
                 "pages": [
                   "api-reference/metrics/BNC/enterprise-value-usd",
                   "api-reference/metrics/BNC/market-cap",
@@ -1173,7 +1199,7 @@
               },
               {
                 "group": "BTBT",
-                "icon": "chart-line",
+                "icon": "building-columns",
                 "pages": [
                   "api-reference/metrics/BTBT/enterprise-value-usd",
                   "api-reference/metrics/BTBT/market-cap",
@@ -1186,7 +1212,7 @@
               },
               {
                 "group": "BTCS",
-                "icon": "chart-line",
+                "icon": "building-columns",
                 "pages": [
                   "api-reference/metrics/BTCS/enterprise-value-usd",
                   "api-reference/metrics/BTCS/market-cap",
@@ -1199,7 +1225,7 @@
               },
               {
                 "group": "CEP",
-                "icon": "chart-line",
+                "icon": "building-columns",
                 "pages": [
                   "api-reference/metrics/CEP/enterprise-value-usd",
                   "api-reference/metrics/CEP/market-cap",
@@ -1212,7 +1238,7 @@
               },
               {
                 "group": "CEPO",
-                "icon": "chart-line",
+                "icon": "building-columns",
                 "pages": [
                   "api-reference/metrics/CEPO/enterprise-value-usd",
                   "api-reference/metrics/CEPO/market-cap",
@@ -1224,18 +1250,8 @@
                 ]
               },
               {
-                "group": "CYFRD",
-                "icon": "chart-line",
-                "pages": [
-                  "api-reference/metrics/CYFRD/treasury-crypto-asset",
-                  "api-reference/metrics/CYFRD/treasury-nav-usd",
-                  "api-reference/metrics/CYFRD/treasury-token-holdings",
-                  "api-reference/metrics/CYFRD/treasury-volume-usd"
-                ]
-              },
-              {
                 "group": "DFDV",
-                "icon": "chart-line",
+                "icon": "building-columns",
                 "pages": [
                   "api-reference/metrics/DFDV/enterprise-value-usd",
                   "api-reference/metrics/DFDV/market-cap",
@@ -1248,7 +1264,7 @@
               },
               {
                 "group": "ETHM",
-                "icon": "chart-line",
+                "icon": "building-columns",
                 "pages": [
                   "api-reference/metrics/ETHM/enterprise-value-usd",
                   "api-reference/metrics/ETHM/market-cap",
@@ -1261,7 +1277,7 @@
               },
               {
                 "group": "ETHZ",
-                "icon": "chart-line",
+                "icon": "building-columns",
                 "pages": [
                   "api-reference/metrics/ETHZ/enterprise-value-usd",
                   "api-reference/metrics/ETHZ/market-cap",
@@ -1274,7 +1290,7 @@
               },
               {
                 "group": "GAME",
-                "icon": "chart-line",
+                "icon": "building-columns",
                 "pages": [
                   "api-reference/metrics/GAME/enterprise-value-usd",
                   "api-reference/metrics/GAME/market-cap",
@@ -1287,7 +1303,7 @@
               },
               {
                 "group": "HYPD",
-                "icon": "chart-line",
+                "icon": "building-columns",
                 "pages": [
                   "api-reference/metrics/HYPD/enterprise-value-usd",
                   "api-reference/metrics/HYPD/market-cap",
@@ -1300,7 +1316,7 @@
               },
               {
                 "group": "MSTR",
-                "icon": "chart-line",
+                "icon": "building-columns",
                 "pages": [
                   "api-reference/metrics/MSTR/enterprise-value-usd",
                   "api-reference/metrics/MSTR/market-cap",
@@ -1313,7 +1329,7 @@
               },
               {
                 "group": "SBET",
-                "icon": "chart-line",
+                "icon": "building-columns",
                 "pages": [
                   "api-reference/metrics/SBET/enterprise-value-usd",
                   "api-reference/metrics/SBET/market-cap",
@@ -1326,7 +1342,7 @@
               },
               {
                 "group": "SMLR",
-                "icon": "chart-line",
+                "icon": "building-columns",
                 "pages": [
                   "api-reference/metrics/SMLR/enterprise-value-usd",
                   "api-reference/metrics/SMLR/market-cap",
@@ -1339,7 +1355,7 @@
               },
               {
                 "group": "SQNS",
-                "icon": "chart-line",
+                "icon": "building-columns",
                 "pages": [
                   "api-reference/metrics/SQNS/enterprise-value-usd",
                   "api-reference/metrics/SQNS/market-cap",
@@ -1352,7 +1368,7 @@
               },
               {
                 "group": "UPXI",
-                "icon": "chart-line",
+                "icon": "building-columns",
                 "pages": [
                   "api-reference/metrics/UPXI/enterprise-value-usd",
                   "api-reference/metrics/UPXI/market-cap",
@@ -1364,7 +1380,7 @@
                 ]
               }
             ],
-            "tag": "17"
+            "tag": "16"
           }
         ]
       },

@@ -1,4 +1,4 @@
-import type { Metric } from '../types'
+import { Metric } from '../classes'
 import type { ValidationResult } from './types'
 import { validateMetrics } from './validator'
 

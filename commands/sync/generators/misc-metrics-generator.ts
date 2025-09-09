@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from 'node:fs/promises'
+import { ensureDirectory, writeTextFile, readTextFile } from '../lib/file-operations'
 import { join } from 'node:path'
 import { marketStatsTemplate } from '../templates/misc/market-stats'
 import * as text from '../lib/text'
@@ -12,7 +12,7 @@ export const syncMiscMetrics = async () => {
   const miscDir = join('./api-reference', 'misc')
 
   // Ensure misc directory exists
-  await mkdir(miscDir, { recursive: true })
+  await ensureDirectory(miscDir)
 
   text.header('📈 Generating market-stats page...')
 
@@ -20,13 +20,13 @@ export const syncMiscMetrics = async () => {
     // Generate market-stats page
     const marketStatsContent = await marketStatsTemplate()
     const marketStatsPath = join(miscDir, 'market-stats.mdx')
-    await writeFile(marketStatsPath, marketStatsContent)
+    await writeTextFile(marketStatsPath, marketStatsContent)
     text.detail(`Created market-stats.mdx`)
 
     // Add more misc endpoints here as needed
     // Example:
     // const anotherEndpointContent = await anotherEndpointTemplate()
-    // await writeFile(join(miscDir, 'another-endpoint.mdx'), anotherEndpointContent)
+    // await writeTextFile(join(miscDir, 'another-endpoint.mdx'), anotherEndpointContent)
 
     text.detail('Misc endpoints updated successfully')
 
@@ -44,10 +44,10 @@ export const syncMiscMetrics = async () => {
  * Update navigation for misc metrics
  */
 export const updateMiscNavigation = async (docsPath: string = './docs.json') => {
-  const { readFile, writeFile } = await import('node:fs/promises')
+  // File operations already imported at top
 
   // Read existing docs.json
-  const docsContent = await readFile(docsPath, 'utf-8')
+  const docsContent = await readTextFile(docsPath)
   const docs = JSON.parse(docsContent)
 
   // Find the navigation tab
@@ -82,6 +82,6 @@ export const updateMiscNavigation = async (docsPath: string = './docs.json') => 
   ]
 
   // Write back to docs.json
-  await writeFile(docsPath, JSON.stringify(docs, null, 2))
+  await writeTextFile(docsPath, JSON.stringify(docs, null, 2))
   text.pass('Updated docs.json navigation for misc metrics')
 }

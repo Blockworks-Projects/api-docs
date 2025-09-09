@@ -11,7 +11,7 @@ icon: scroll
 Total number of active addresses
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/activity/active-addresses) | `active-addresses` | Blockworks | daily | timeseries_int |
 | [Base](/api-reference/metrics/base/activity/active-addresses) | `active-addresses` | Blockworks | daily | timeseries_int |
@@ -23,7 +23,7 @@ Total number of active addresses
 Average of the sum of the base fee and priority fee that day in native chain token
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/activity/fee-average) | `fee-average` | Blockworks | daily | timeseries_float |
 | [Base](/api-reference/metrics/base/activity/fee-average) | `fee-average` | Blockworks | daily | timeseries_float |
@@ -35,7 +35,7 @@ Average of the sum of the base fee and priority fee that day in native chain tok
 Average of the sum of the base fee and priority fee in USD that day
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/activity/fee-average-usd) | `fee-average-usd` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/activity/fee-average-usd) | `fee-average-usd` | Blockworks | daily | timeseries_usd |
@@ -47,7 +47,7 @@ Average of the sum of the base fee and priority fee in USD that day
 Median of the sum of the base fee and priority fee that day in native chain token
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/activity/fee-median) | `fee-median` | Blockworks | daily | timeseries_float |
 | [Base](/api-reference/metrics/base/activity/fee-median) | `fee-median` | Blockworks | daily | timeseries_float |
@@ -59,7 +59,7 @@ Median of the sum of the base fee and priority fee that day in native chain toke
 Median of the sum of the base fee and priority fee in USD that day
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/activity/fee-median-usd) | `fee-median-usd` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/activity/fee-median-usd) | `fee-median-usd` | Blockworks | daily | timeseries_usd |
@@ -71,7 +71,7 @@ Median of the sum of the base fee and priority fee in USD that day
 Daily number of transactions where a failure occurred.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/activity/transactions-failed) | `transactions-failed` | Blockworks | daily | timeseries_int |
 | [Base](/api-reference/metrics/base/activity/transactions-failed) | `transactions-failed` | Blockworks | daily | timeseries_int |
@@ -83,7 +83,7 @@ Daily number of transactions where a failure occurred.
 Daily number of successful transactions, excluding failed transactions.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/activity/transactions-succeeded) | `transactions-succeeded` | Blockworks | daily | timeseries_int |
 | [Base](/api-reference/metrics/base/activity/transactions-succeeded) | `transactions-succeeded` | Blockworks | daily | timeseries_int |
@@ -95,92 +95,54 @@ Daily number of successful transactions, excluding failed transactions.
 Daily number of all transactions.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/activity/transactions-total) | `transactions-total` | Blockworks | daily | timeseries_int |
 | [Base](/api-reference/metrics/base/activity/transactions-total) | `transactions-total` | Blockworks | daily | timeseries_int |
 | [Ethereum](/api-reference/metrics/ethereum/activity/transactions-total) | `transactions-total` | Blockworks | daily | timeseries_int |
 | [Solana](/api-reference/metrics/solana/activity/transactions-total) | `transactions-total` | Blockworks | daily | timeseries_int |
 
-# Equity
+# ETF
 
-### Enterprise Value (USD)
+### ETF Flows
 
-Actual enterprise value for the equity. Calculated as market cap - liabilities + assets
+ETF flows for 21shares Core Ethereum ETF (CETH)
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
-| [SBET](/api-reference/metrics/SBET/equity/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+| [ARKB](/api-reference/metrics/ARKB/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [BITB](/api-reference/metrics/BITB/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [BRRR](/api-reference/metrics/BRRR/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [BTC](/api-reference/metrics/BTC/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [BTCO](/api-reference/metrics/BTCO/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [BTCW](/api-reference/metrics/BTCW/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [CETH](/api-reference/metrics/CETH/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [ETH](/api-reference/metrics/ETH/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [ETHA](/api-reference/metrics/ETHA/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [ETHE](/api-reference/metrics/ETHE/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [ETHV](/api-reference/metrics/ETHV/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [ETHW](/api-reference/metrics/ETHW/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [EZBC](/api-reference/metrics/EZBC/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [EZET](/api-reference/metrics/EZET/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [FBTC](/api-reference/metrics/FBTC/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [FETH](/api-reference/metrics/FETH/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [GBTC](/api-reference/metrics/GBTC/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [HODL](/api-reference/metrics/HODL/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [IBIT](/api-reference/metrics/IBIT/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [QETH](/api-reference/metrics/QETH/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
+| [SSK](/api-reference/metrics/SSK/etf/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
 
-### Market Cap
+### Total ETF Flows
 
-Market capitalization of the equity
+Total ETF flows for Solana ETFs
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
-| [BMNR](/api-reference/metrics/BMNR/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
-| [BNC](/api-reference/metrics/BNC/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
-| [BTBT](/api-reference/metrics/BTBT/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
-| [BTCS](/api-reference/metrics/BTCS/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
-| [CEP](/api-reference/metrics/CEP/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
-| [CEPO](/api-reference/metrics/CEPO/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
-| [DFDV](/api-reference/metrics/DFDV/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
-| [ETHM](/api-reference/metrics/ETHM/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
-| [ETHZ](/api-reference/metrics/ETHZ/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
-| [GAME](/api-reference/metrics/GAME/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
-| [HYPD](/api-reference/metrics/HYPD/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
-| [MSTR](/api-reference/metrics/MSTR/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
-| [SBET](/api-reference/metrics/SBET/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
-| [SMLR](/api-reference/metrics/SMLR/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
-| [SQNS](/api-reference/metrics/SQNS/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
-| [UPXI](/api-reference/metrics/UPXI/equity/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
-
-### Treasury Asset
-
-Name of the crypto asset the treasury company is accumulating
-
-
-| Chain | Identifier | Source | Interval | Data Type |
-|-------|------------|--------|----------|-----------|
-| [SBET](/api-reference/metrics/SBET/equity/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
-
-### mNAV
-
-Market NAV value for that company. Calculated as enterprise value / NAV
-
-
-| Chain | Identifier | Source | Interval | Data Type |
-|-------|------------|--------|----------|-----------|
-| [SBET](/api-reference/metrics/SBET/equity/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-
-### NAV (USD)
-
-Dollar value of crypto assets (does not include cash)
-
-
-| Chain | Identifier | Source | Interval | Data Type |
-|-------|------------|--------|----------|-----------|
-| [SBET](/api-reference/metrics/SBET/equity/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
-
-### Treasury Holdings
-
-Number of tokens held by the company. See crypto-asset for asset indicator
-
-
-| Chain | Identifier | Source | Interval | Data Type |
-|-------|------------|--------|----------|-----------|
-| [SBET](/api-reference/metrics/SBET/equity/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
-
-### Treasury Volume (USD)
-
-USD volume over the period
-
-
-| Chain | Identifier | Source | Interval | Data Type |
-|-------|------------|--------|----------|-----------|
-| [SBET](/api-reference/metrics/SBET/equity/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
+| [Bitcoin](/api-reference/metrics/bitcoin/etf/etf-flows-total) | `etf-flows-total` | Farside UK | daily | timeseries_usd |
+| [Ethereum](/api-reference/metrics/ethereum/etf/etf-flows-total) | `etf-flows-total` | Farside UK | daily | timeseries_usd |
+| [Solana](/api-reference/metrics/solana/etf/etf-flows-total) | `etf-flows-total` | Farside UK | daily | timeseries_usd |
 
 # Financials
 
@@ -189,7 +151,7 @@ USD volume over the period
 The revenue produced during the specified time period for given blockchain.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/app-revenue-total) | `app-revenue-total` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/financials/app-revenue-total) | `app-revenue-total` | Blockworks | daily | timeseries_usd |
@@ -201,7 +163,7 @@ The revenue produced during the specified time period for given blockchain.
 The minimum transaction fee required for a transaction to be included in a block
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/base-fees) | `base-fees` | Blockworks | daily | timeseries_float |
 | [Base](/api-reference/metrics/base/financials/base-fees) | `base-fees` | Blockworks | daily | timeseries_float |
@@ -213,7 +175,7 @@ The minimum transaction fee required for a transaction to be included in a block
 The minimum transaction fee required for a transaction to be included in a block
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/base-fees-usd) | `base-fees-usd` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/financials/base-fees-usd) | `base-fees-usd` | Blockworks | daily | timeseries_usd |
@@ -225,7 +187,7 @@ The minimum transaction fee required for a transaction to be included in a block
 The total amount of the native token burned transaction fees.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Ethereum](/api-reference/metrics/ethereum/financials/burn) | `burn` | Blockworks | daily | timeseries_float |
 | [Solana](/api-reference/metrics/solana/financials/burn) | `burn` | Blockworks | daily | timeseries_float |
@@ -235,7 +197,7 @@ The total amount of the native token burned transaction fees.
 The total amount of burned transaction fees in USD.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Ethereum](/api-reference/metrics/ethereum/financials/burn-usd) | `burn-usd` | Blockworks | daily | timeseries_usd |
 | [Solana](/api-reference/metrics/solana/financials/burn-usd) | `burn-usd` | Blockworks | daily | timeseries_usd |
@@ -245,40 +207,17 @@ The total amount of burned transaction fees in USD.
 Data costs during the specified time period for given blockchain.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/costs-l2) | `costs-l2` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/financials/costs-l2) | `costs-l2` | Blockworks | daily | timeseries_usd |
-
-### Enterprise Value (USD)
-
-Actual enterprise value for the equity. Calculated as market cap - liabilities + assets
-
-
-| Chain | Identifier | Source | Interval | Data Type |
-|-------|------------|--------|----------|-----------|
-| [BMNR](/api-reference/metrics/BMNR/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
-| [BNC](/api-reference/metrics/BNC/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
-| [BTBT](/api-reference/metrics/BTBT/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
-| [BTCS](/api-reference/metrics/BTCS/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
-| [CEP](/api-reference/metrics/CEP/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
-| [CEPO](/api-reference/metrics/CEPO/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
-| [DFDV](/api-reference/metrics/DFDV/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
-| [ETHM](/api-reference/metrics/ETHM/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
-| [ETHZ](/api-reference/metrics/ETHZ/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
-| [GAME](/api-reference/metrics/GAME/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
-| [HYPD](/api-reference/metrics/HYPD/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
-| [MSTR](/api-reference/metrics/MSTR/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
-| [SMLR](/api-reference/metrics/SMLR/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
-| [SQNS](/api-reference/metrics/SQNS/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
-| [UPXI](/api-reference/metrics/UPXI/financials/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
 
 ### Gross Profit
 
 Gross L2 profit during the specified time period for given blockchain.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/gross-profit-l2) | `gross-profit-l2` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/financials/gross-profit-l2) | `gross-profit-l2` | Blockworks | daily | timeseries_usd |
@@ -288,7 +227,7 @@ Gross L2 profit during the specified time period for given blockchain.
 Newly issued tokens that are distributed to participants (such as validators, miners, or stakers) as compensation for participating in consensus.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Ethereum](/api-reference/metrics/ethereum/financials/issuance) | `issuance` | Blockworks | daily | timeseries_float |
 | [Solana](/api-reference/metrics/solana/financials/issuance) | `issuance` | Blockworks | daily | timeseries_float |
@@ -298,7 +237,7 @@ Newly issued tokens that are distributed to participants (such as validators, mi
 Newly issued tokens that are distributed to participants (such as validators, miners, or stakers) as compensation for participating in consensus.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Ethereum](/api-reference/metrics/ethereum/financials/issuance-usd) | `issuance-usd` | Blockworks | daily | timeseries_usd |
 | [Solana](/api-reference/metrics/solana/financials/issuance-usd) | `issuance-usd` | Blockworks | daily | timeseries_usd |
@@ -308,7 +247,7 @@ Newly issued tokens that are distributed to participants (such as validators, mi
 Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders or leaders for faster transaction execution, MEV capture, or MEV protection.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Ethereum](/api-reference/metrics/ethereum/financials/mev-tips-fees) | `mev-tips-fees` | Blockworks | daily | timeseries_float |
 | [Solana](/api-reference/metrics/solana/financials/mev-tips-fees) | `mev-tips-fees` | Blockworks | daily | timeseries_float |
@@ -318,7 +257,7 @@ Additional fees for using out-of-protocol systems that enables users to send tra
 Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders or leaders for faster transaction execution, MEV capture, or MEV protection.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Ethereum](/api-reference/metrics/ethereum/financials/mev-tips-fees-usd) | `mev-tips-fees-usd` | Blockworks | daily | timeseries_usd |
 | [Solana](/api-reference/metrics/solana/financials/mev-tips-fees-usd) | `mev-tips-fees-usd` | Blockworks | daily | timeseries_usd |
@@ -328,7 +267,7 @@ Additional fees for using out-of-protocol systems that enables users to send tra
 For Ethereum, this includes just blob fees: an additional fee for transactions that post data to "blobs," which are specialized data availability solutions for L2 blockchains.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/other-fees) | `other-fees` | Blockworks | daily | timeseries_float |
 | [Ethereum](/api-reference/metrics/ethereum/financials/other-fees) | `other-fees` | Blockworks | daily | timeseries_float |
@@ -338,7 +277,7 @@ For Ethereum, this includes just blob fees: an additional fee for transactions t
 For Ethereum, this includes just blob fees: an additional fee for transactions that post data to "blobs," which are specialized data availability solutions for L2 blockchains.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/other-fees-usd) | `other-fees-usd` | Blockworks | daily | timeseries_usd |
 | [Ethereum](/api-reference/metrics/ethereum/financials/other-fees-usd) | `other-fees-usd` | Blockworks | daily | timeseries_usd |
@@ -348,7 +287,7 @@ For Ethereum, this includes just blob fees: an additional fee for transactions t
 An additional transaction fee to incentivize validators to prioritize and execute transactions.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/priority-fees) | `priority-fees` | Blockworks | daily | timeseries_float |
 | [Base](/api-reference/metrics/base/financials/priority-fees) | `priority-fees` | Blockworks | daily | timeseries_float |
@@ -360,7 +299,7 @@ An additional transaction fee to incentivize validators to prioritize and execut
 An additional transaction fee to incentivize validators to prioritize and execute transactions.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/priority-fees-usd) | `priority-fees-usd` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/financials/priority-fees-usd) | `priority-fees-usd` | Blockworks | daily | timeseries_usd |
@@ -372,7 +311,7 @@ An additional transaction fee to incentivize validators to prioritize and execut
 Network REV (Real Economic Value) is a standardized metric that tracks blockchain value accrual generated by user activity. REV consists of both in-protocol transaction fees and out-of-protocol tips that users pay for transaction execution, so it measures the monetary demand to transact onchain.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/rev) | `rev` | Blockworks | daily | timeseries_float |
 | [Base](/api-reference/metrics/base/financials/rev) | `rev` | Blockworks | daily | timeseries_float |
@@ -384,7 +323,7 @@ Network REV (Real Economic Value) is a standardized metric that tracks blockchai
 Network REV (Real Economic Value) is a standardized metric that tracks blockchain value accrual generated by user activity. REV consists of both in-protocol transaction fees and out-of-protocol tips that users pay for transaction execution, so it measures the monetary demand to transact onchain.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/rev-usd) | `rev-usd` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/financials/rev-usd) | `rev-usd` | Blockworks | daily | timeseries_usd |
@@ -396,7 +335,7 @@ Network REV (Real Economic Value) is a standardized metric that tracks blockchai
 The revenue produced during the specified time period for given project.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Aave](/api-reference/metrics/aave/financials/revenue) | `revenue` | Blockworks | daily | timeseries_usd |
 | [Aerodrome](/api-reference/metrics/aerodrome/financials/revenue) | `revenue` | Blockworks | daily | timeseries_usd |
@@ -479,7 +418,7 @@ The revenue produced during the specified time period for given project.
 The native token supply staked during the specified time period for given blockchain.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Ethereum](/api-reference/metrics/ethereum/financials/token-supply-staked) | `token-supply-staked` | Blockworks | daily | timeseries_usd |
 | [Solana](/api-reference/metrics/solana/financials/token-supply-staked) | `token-supply-staked` | Blockworks | daily | timeseries_usd |
@@ -489,7 +428,7 @@ The native token supply staked during the specified time period for given blockc
 Total transaction fees paid, does not include blob fees, out-of-protocol tips, or additional sources of revenue
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/transaction-fees) | `transaction-fees` | Blockworks | daily | timeseries_float |
 | [Base](/api-reference/metrics/base/financials/transaction-fees) | `transaction-fees` | Blockworks | daily | timeseries_float |
@@ -501,7 +440,7 @@ Total transaction fees paid, does not include blob fees, out-of-protocol tips, o
 Total transaction fees paid converted to USD, does not include out-of-protocol tips or additional sources of revenue
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/transaction-fees-usd) | `transaction-fees-usd` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/financials/transaction-fees-usd) | `transaction-fees-usd` | Blockworks | daily | timeseries_usd |
@@ -513,119 +452,36 @@ Total transaction fees paid converted to USD, does not include out-of-protocol t
 Name of the crypto asset the treasury company is accumulating
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
-| [BMNR](/api-reference/metrics/BMNR/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
-| [BNC](/api-reference/metrics/BNC/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
-| [BTBT](/api-reference/metrics/BTBT/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
-| [BTCS](/api-reference/metrics/BTCS/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
-| [CEP](/api-reference/metrics/CEP/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
-| [CEPO](/api-reference/metrics/CEPO/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
 | [CYFRD](/api-reference/metrics/CYFRD/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
-| [DFDV](/api-reference/metrics/DFDV/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
-| [ETHM](/api-reference/metrics/ETHM/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
-| [ETHZ](/api-reference/metrics/ETHZ/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
-| [GAME](/api-reference/metrics/GAME/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
-| [HYPD](/api-reference/metrics/HYPD/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
-| [MSTR](/api-reference/metrics/MSTR/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
-| [SMLR](/api-reference/metrics/SMLR/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
-| [SQNS](/api-reference/metrics/SQNS/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
-| [UPXI](/api-reference/metrics/UPXI/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
-
-### mNAV
-
-Market NAV value for that company. Calculated as enterprise value / NAV
-
-
-| Chain | Identifier | Source | Interval | Data Type |
-|-------|------------|--------|----------|-----------|
-| [BMNR](/api-reference/metrics/BMNR/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [BNC](/api-reference/metrics/BNC/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [BTBT](/api-reference/metrics/BTBT/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [BTCS](/api-reference/metrics/BTCS/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [CEP](/api-reference/metrics/CEP/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [CEPO](/api-reference/metrics/CEPO/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [DFDV](/api-reference/metrics/DFDV/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [ETHM](/api-reference/metrics/ETHM/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [ETHZ](/api-reference/metrics/ETHZ/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [GAME](/api-reference/metrics/GAME/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [HYPD](/api-reference/metrics/HYPD/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [MSTR](/api-reference/metrics/MSTR/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [SMLR](/api-reference/metrics/SMLR/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [SQNS](/api-reference/metrics/SQNS/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [UPXI](/api-reference/metrics/UPXI/financials/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
 
 ### NAV (USD)
 
 Dollar value of crypto assets (does not include cash)
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
-| [BMNR](/api-reference/metrics/BMNR/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
-| [BNC](/api-reference/metrics/BNC/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
-| [BTBT](/api-reference/metrics/BTBT/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
-| [BTCS](/api-reference/metrics/BTCS/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
-| [CEP](/api-reference/metrics/CEP/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
-| [CEPO](/api-reference/metrics/CEPO/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
 | [CYFRD](/api-reference/metrics/CYFRD/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
-| [DFDV](/api-reference/metrics/DFDV/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
-| [ETHM](/api-reference/metrics/ETHM/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
-| [ETHZ](/api-reference/metrics/ETHZ/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
-| [GAME](/api-reference/metrics/GAME/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
-| [HYPD](/api-reference/metrics/HYPD/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
-| [MSTR](/api-reference/metrics/MSTR/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
-| [SMLR](/api-reference/metrics/SMLR/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
-| [SQNS](/api-reference/metrics/SQNS/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
-| [UPXI](/api-reference/metrics/UPXI/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
 
 ### Treasury Holdings
 
 Number of tokens held by the company. See crypto-asset for asset indicator
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
-| [BMNR](/api-reference/metrics/BMNR/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
-| [BNC](/api-reference/metrics/BNC/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
-| [BTBT](/api-reference/metrics/BTBT/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
-| [BTCS](/api-reference/metrics/BTCS/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
-| [CEP](/api-reference/metrics/CEP/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
-| [CEPO](/api-reference/metrics/CEPO/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
 | [CYFRD](/api-reference/metrics/CYFRD/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
-| [DFDV](/api-reference/metrics/DFDV/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
-| [ETHM](/api-reference/metrics/ETHM/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
-| [ETHZ](/api-reference/metrics/ETHZ/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
-| [GAME](/api-reference/metrics/GAME/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
-| [HYPD](/api-reference/metrics/HYPD/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
-| [MSTR](/api-reference/metrics/MSTR/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
-| [SMLR](/api-reference/metrics/SMLR/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
-| [SQNS](/api-reference/metrics/SQNS/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
-| [UPXI](/api-reference/metrics/UPXI/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
 
 ### Treasury Volume (USD)
 
 USD volume over the period
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
-| [BMNR](/api-reference/metrics/BMNR/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
-| [BNC](/api-reference/metrics/BNC/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
-| [BTBT](/api-reference/metrics/BTBT/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
-| [BTCS](/api-reference/metrics/BTCS/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
-| [CEP](/api-reference/metrics/CEP/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
-| [CEPO](/api-reference/metrics/CEPO/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
 | [CYFRD](/api-reference/metrics/CYFRD/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
-| [DFDV](/api-reference/metrics/DFDV/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
-| [ETHM](/api-reference/metrics/ETHM/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
-| [ETHZ](/api-reference/metrics/ETHZ/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
-| [GAME](/api-reference/metrics/GAME/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
-| [HYPD](/api-reference/metrics/HYPD/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
-| [MSTR](/api-reference/metrics/MSTR/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
-| [SMLR](/api-reference/metrics/SMLR/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
-| [SQNS](/api-reference/metrics/SQNS/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
-| [UPXI](/api-reference/metrics/UPXI/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
 
 # Stablecoins
 
@@ -634,7 +490,7 @@ USD volume over the period
 Supply tracked via transfers to/from the null address, as well as distinct issuance and redemption events for supported stablecoins. Circulating supply remove supply held in bridges, token treasuries, and known mint/burn addresses.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/stablecoins/stablecoin-circulating-supply) | `stablecoin-circulating-supply` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/stablecoins/stablecoin-circulating-supply) | `stablecoin-circulating-supply` | Blockworks | daily | timeseries_usd |
@@ -646,7 +502,7 @@ Supply tracked via transfers to/from the null address, as well as distinct issua
 Supply tracked via transfers to/from the null address, as well as distinct issuance and redemption events for supported stablecoins. Circulating supply remove supply held in bridges, token treasuries, and known mint/burn addresses.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/stablecoins/stablecoin-supply) | `stablecoin-supply` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/stablecoins/stablecoin-supply) | `stablecoin-supply` | Blockworks | daily | timeseries_usd |
@@ -660,7 +516,7 @@ Supply tracked via transfers to/from the null address, as well as distinct issua
 Token bonding trading volume during the specified time period for given launchpad.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Believe](/api-reference/metrics/believe/token/launchpad-bonding-volume) | `launchpad-bonding-volume` | Blockworks | daily | timeseries_usd |
 | [Cookmeme](/api-reference/metrics/cookmeme/token/launchpad-bonding-volume) | `launchpad-bonding-volume` | Blockworks | daily | timeseries_usd |
@@ -675,7 +531,7 @@ Token bonding trading volume during the specified time period for given launchpa
 Token graduated during the specified time period for given launchpad.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Bags](/api-reference/metrics/bags/token/launchpad-tokens-graduated) | `launchpad-tokens-graduated` | Blockworks | daily | timeseries_int |
 | [Believe](/api-reference/metrics/believe/token/launchpad-tokens-graduated) | `launchpad-tokens-graduated` | Blockworks | daily | timeseries_int |
@@ -693,7 +549,7 @@ Token graduated during the specified time period for given launchpad.
 Fully diluted value of the native asset 
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/token/native-token-fdv) | `native-token-fdv` | Blockworks | daily | timeseries_usd |
 | [Ethereum](/api-reference/metrics/ethereum/token/native-token-fdv) | `native-token-fdv` | Blockworks | daily | timeseries_usd |
@@ -704,7 +560,7 @@ Fully diluted value of the native asset
 The total token supply for the respective native asset of that chain. Inclusive of all locked tokens.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/token/native-token-supply) | `native-token-supply` | Blockworks | daily | timeseries_float |
 | [Ethereum](/api-reference/metrics/ethereum/token/native-token-supply) | `native-token-supply` | Blockworks | daily | timeseries_float |
@@ -715,7 +571,7 @@ The total token supply for the respective native asset of that chain. Inclusive 
 The average token price during the specified time period for the native asset of that chain.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/token/price) | `price` | Blockworks | daily | timeseries_usd |
 | [Ethereum](/api-reference/metrics/ethereum/token/price) | `price` | Blockworks | daily | timeseries_usd |
@@ -726,7 +582,7 @@ The average token price during the specified time period for the native asset of
 Tokens Launched during the specified time period for given launchpad.
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Believe](/api-reference/metrics/believe/token/tokens-launched-by-launchpad) | `tokens-launched-by-launchpad` | Blockworks | daily | timeseries_int |
 | [Boopfun](/api-reference/metrics/boopfun/token/tokens-launched-by-launchpad) | `tokens-launched-by-launchpad` | Blockworks | daily | timeseries_int |
@@ -746,65 +602,25 @@ Tokens Launched during the specified time period for given launchpad.
 Calculates daily spot volume from major DEXs. Only includes volumes from fee-paying liquidity pools
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/trading/dex-spot-volume) | `dex-spot-volume` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/trading/dex-spot-volume) | `dex-spot-volume` | Blockworks | daily | timeseries_usd |
 | [Ethereum](/api-reference/metrics/ethereum/trading/dex-spot-volume) | `dex-spot-volume` | Blockworks | daily | timeseries_usd |
 | [Solana](/api-reference/metrics/solana/trading/dex-spot-volume) | `dex-spot-volume` | Blockworks | daily | timeseries_usd |
 
-### ETF Flows
-
-ETF flows for 21shares Core Ethereum ETF (CETH)
-
-
-| Chain | Identifier | Source | Interval | Data Type |
-|-------|------------|--------|----------|-----------|
-| [ARKB](/api-reference/metrics/ARKB/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [BITB](/api-reference/metrics/BITB/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [BRRR](/api-reference/metrics/BRRR/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [BTC](/api-reference/metrics/BTC/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [BTCO](/api-reference/metrics/BTCO/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [BTCW](/api-reference/metrics/BTCW/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [CETH](/api-reference/metrics/CETH/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [ETH](/api-reference/metrics/ETH/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [ETHA](/api-reference/metrics/ETHA/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [ETHE](/api-reference/metrics/ETHE/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [ETHV](/api-reference/metrics/ETHV/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [ETHW](/api-reference/metrics/ETHW/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [EZBC](/api-reference/metrics/EZBC/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [EZET](/api-reference/metrics/EZET/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [FBTC](/api-reference/metrics/FBTC/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [FETH](/api-reference/metrics/FETH/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [GBTC](/api-reference/metrics/GBTC/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [HODL](/api-reference/metrics/HODL/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [IBIT](/api-reference/metrics/IBIT/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [QETH](/api-reference/metrics/QETH/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-| [SSK](/api-reference/metrics/SSK/trading/etf-flows) | `etf-flows` | Farside UK | daily | timeseries_usd |
-
-### Total ETF Flows
-
-Total ETF flows for Bitcoin ETFs
-
-
-| Chain | Identifier | Source | Interval | Data Type |
-|-------|------------|--------|----------|-----------|
-| [Bitcoin](/api-reference/metrics/bitcoin/trading/etf-flows-total) | `etf-flows-total` | Farside UK | daily | timeseries_usd |
-| [Ethereum](/api-reference/metrics/ethereum/trading/etf-flows-total) | `etf-flows-total` | Farside UK | daily | timeseries_usd |
-| [Solana](/api-reference/metrics/solana/trading/etf-flows-total) | `etf-flows-total` | Farside UK | daily | timeseries_usd |
-
 ### Volume (USD)
 
 Amount of trading volume in USD
 
 
-| Chain | Identifier | Source | Interval | Data Type |
+| Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Byreal](/api-reference/metrics/byreal/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
 | [Goonfi](/api-reference/metrics/goonfi/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
 | [Humidifi](/api-reference/metrics/humidifi/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
 | [Lifinity](/api-reference/metrics/lifinity/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
-| [Meteroa](/api-reference/metrics/Meteroa/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
+| [Meteroa](/api-reference/metrics/meteroa/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
 | [Orca](/api-reference/metrics/orca/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
 | [Pumpfun](/api-reference/metrics/pumpfun/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
 | [Raydium](/api-reference/metrics/raydium/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
@@ -812,4 +628,174 @@ Amount of trading volume in USD
 | [Stabble](/api-reference/metrics/stabble/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
 | [Tessera](/api-reference/metrics/tessera/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
 | [ZeroFi](/api-reference/metrics/ZeroFi/trading/volume-usd) | `volume-usd` | Blockworks | daily | timeseries_usd |
+
+# Treasury
+
+### Enterprise Value (USD)
+
+Actual enterprise value for the equity. Calculated as market cap - liabilities + assets
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [BMNR](/api-reference/metrics/BMNR/treasury/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+| [BNC](/api-reference/metrics/BNC/treasury/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+| [BTBT](/api-reference/metrics/BTBT/treasury/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+| [BTCS](/api-reference/metrics/BTCS/treasury/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+| [CEP](/api-reference/metrics/CEP/treasury/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+| [CEPO](/api-reference/metrics/CEPO/treasury/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+| [DFDV](/api-reference/metrics/DFDV/treasury/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+| [ETHM](/api-reference/metrics/ETHM/treasury/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+| [ETHZ](/api-reference/metrics/ETHZ/treasury/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+| [GAME](/api-reference/metrics/GAME/treasury/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+| [HYPD](/api-reference/metrics/HYPD/treasury/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+| [MSTR](/api-reference/metrics/MSTR/treasury/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+| [SBET](/api-reference/metrics/SBET/treasury/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+| [SMLR](/api-reference/metrics/SMLR/treasury/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+| [SQNS](/api-reference/metrics/SQNS/treasury/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+| [UPXI](/api-reference/metrics/UPXI/treasury/enterprise-value-usd) | `enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+
+### Market Cap
+
+Market capitalization of the equity
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [BMNR](/api-reference/metrics/BMNR/treasury/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
+| [BNC](/api-reference/metrics/BNC/treasury/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
+| [BTBT](/api-reference/metrics/BTBT/treasury/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
+| [BTCS](/api-reference/metrics/BTCS/treasury/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
+| [CEP](/api-reference/metrics/CEP/treasury/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
+| [CEPO](/api-reference/metrics/CEPO/treasury/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
+| [DFDV](/api-reference/metrics/DFDV/treasury/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
+| [ETHM](/api-reference/metrics/ETHM/treasury/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
+| [ETHZ](/api-reference/metrics/ETHZ/treasury/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
+| [GAME](/api-reference/metrics/GAME/treasury/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
+| [HYPD](/api-reference/metrics/HYPD/treasury/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
+| [MSTR](/api-reference/metrics/MSTR/treasury/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
+| [SBET](/api-reference/metrics/SBET/treasury/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
+| [SMLR](/api-reference/metrics/SMLR/treasury/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
+| [SQNS](/api-reference/metrics/SQNS/treasury/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
+| [UPXI](/api-reference/metrics/UPXI/treasury/market-cap) | `market-cap` | Blockworks | daily | timeseries_usd |
+
+### Treasury Asset
+
+Name of the crypto asset the treasury company is accumulating
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [BMNR](/api-reference/metrics/BMNR/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
+| [BNC](/api-reference/metrics/BNC/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
+| [BTBT](/api-reference/metrics/BTBT/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
+| [BTCS](/api-reference/metrics/BTCS/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
+| [CEP](/api-reference/metrics/CEP/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
+| [CEPO](/api-reference/metrics/CEPO/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
+| [DFDV](/api-reference/metrics/DFDV/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
+| [ETHM](/api-reference/metrics/ETHM/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
+| [ETHZ](/api-reference/metrics/ETHZ/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
+| [GAME](/api-reference/metrics/GAME/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
+| [HYPD](/api-reference/metrics/HYPD/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
+| [MSTR](/api-reference/metrics/MSTR/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
+| [SBET](/api-reference/metrics/SBET/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
+| [SMLR](/api-reference/metrics/SMLR/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
+| [SQNS](/api-reference/metrics/SQNS/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
+| [UPXI](/api-reference/metrics/UPXI/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
+
+### mNAV
+
+Market NAV value for that company. Calculated as enterprise value / NAV
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [BMNR](/api-reference/metrics/BMNR/treasury/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
+| [BNC](/api-reference/metrics/BNC/treasury/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
+| [BTBT](/api-reference/metrics/BTBT/treasury/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
+| [BTCS](/api-reference/metrics/BTCS/treasury/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
+| [CEP](/api-reference/metrics/CEP/treasury/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
+| [CEPO](/api-reference/metrics/CEPO/treasury/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
+| [DFDV](/api-reference/metrics/DFDV/treasury/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
+| [ETHM](/api-reference/metrics/ETHM/treasury/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
+| [ETHZ](/api-reference/metrics/ETHZ/treasury/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
+| [GAME](/api-reference/metrics/GAME/treasury/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
+| [HYPD](/api-reference/metrics/HYPD/treasury/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
+| [MSTR](/api-reference/metrics/MSTR/treasury/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
+| [SBET](/api-reference/metrics/SBET/treasury/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
+| [SMLR](/api-reference/metrics/SMLR/treasury/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
+| [SQNS](/api-reference/metrics/SQNS/treasury/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
+| [UPXI](/api-reference/metrics/UPXI/treasury/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
+
+### NAV (USD)
+
+Dollar value of crypto assets (does not include cash)
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [BMNR](/api-reference/metrics/BMNR/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
+| [BNC](/api-reference/metrics/BNC/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
+| [BTBT](/api-reference/metrics/BTBT/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
+| [BTCS](/api-reference/metrics/BTCS/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
+| [CEP](/api-reference/metrics/CEP/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
+| [CEPO](/api-reference/metrics/CEPO/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
+| [DFDV](/api-reference/metrics/DFDV/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
+| [ETHM](/api-reference/metrics/ETHM/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
+| [ETHZ](/api-reference/metrics/ETHZ/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
+| [GAME](/api-reference/metrics/GAME/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
+| [HYPD](/api-reference/metrics/HYPD/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
+| [MSTR](/api-reference/metrics/MSTR/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
+| [SBET](/api-reference/metrics/SBET/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
+| [SMLR](/api-reference/metrics/SMLR/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
+| [SQNS](/api-reference/metrics/SQNS/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
+| [UPXI](/api-reference/metrics/UPXI/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
+
+### Treasury Holdings
+
+Number of tokens held by the company. See crypto-asset for asset indicator
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [BMNR](/api-reference/metrics/BMNR/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
+| [BNC](/api-reference/metrics/BNC/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
+| [BTBT](/api-reference/metrics/BTBT/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
+| [BTCS](/api-reference/metrics/BTCS/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
+| [CEP](/api-reference/metrics/CEP/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
+| [CEPO](/api-reference/metrics/CEPO/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
+| [DFDV](/api-reference/metrics/DFDV/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
+| [ETHM](/api-reference/metrics/ETHM/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
+| [ETHZ](/api-reference/metrics/ETHZ/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
+| [GAME](/api-reference/metrics/GAME/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
+| [HYPD](/api-reference/metrics/HYPD/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
+| [MSTR](/api-reference/metrics/MSTR/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
+| [SBET](/api-reference/metrics/SBET/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
+| [SMLR](/api-reference/metrics/SMLR/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
+| [SQNS](/api-reference/metrics/SQNS/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
+| [UPXI](/api-reference/metrics/UPXI/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
+
+### Treasury Volume (USD)
+
+USD volume over the period
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [BMNR](/api-reference/metrics/BMNR/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
+| [BNC](/api-reference/metrics/BNC/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
+| [BTBT](/api-reference/metrics/BTBT/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
+| [BTCS](/api-reference/metrics/BTCS/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
+| [CEP](/api-reference/metrics/CEP/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
+| [CEPO](/api-reference/metrics/CEPO/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
+| [DFDV](/api-reference/metrics/DFDV/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
+| [ETHM](/api-reference/metrics/ETHM/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
+| [ETHZ](/api-reference/metrics/ETHZ/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
+| [GAME](/api-reference/metrics/GAME/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
+| [HYPD](/api-reference/metrics/HYPD/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
+| [MSTR](/api-reference/metrics/MSTR/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
+| [SBET](/api-reference/metrics/SBET/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
+| [SMLR](/api-reference/metrics/SMLR/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
+| [SQNS](/api-reference/metrics/SQNS/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
+| [UPXI](/api-reference/metrics/UPXI/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
 

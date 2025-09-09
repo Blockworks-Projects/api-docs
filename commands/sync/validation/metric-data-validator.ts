@@ -1,4 +1,5 @@
-import type { Metric, MetricDataResponse } from '../types'
+import type { Metric } from '../classes'
+import type { MetricDataResponse } from '../types'
 import type { ValidationIssue } from './types'
 import { validateDataPoint } from './data-point-validator'
 
