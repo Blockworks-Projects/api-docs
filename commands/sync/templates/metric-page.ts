@@ -1,9 +1,7 @@
 import { Metric } from '../classes'
+import { escapeYamlString } from '../lib/utils'
 
 type MetricPageConfig = { metric: Metric; sampleData: any }
-
-const escapeYamlString = (str: string): string => 
-  str.replace(/"/g, '\\"')
 
 export const getMetricPage = ({ metric, sampleData }: MetricPageConfig) => `---
 title: "${escapeYamlString(metric.pageTitle)}"

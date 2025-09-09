@@ -1,9 +1,9 @@
-import type { MetricsResponse, MetricDataResponse } from '../types'
 import { Metric, Project } from '../classes'
-import { fetch, getDateNDaysAgo, generateMockMetricData } from '../lib/api-client'
+import { fetch, generateMockMetricData, getDateNDaysAgo } from '../lib/api-client'
 import { readJsonFile, writeJsonFile } from '../lib/file-operations'
-import { stripUpdatedFields, metricsEqual } from '../lib/utils'
 import * as text from '../lib/text'
+import { metricsEqual, stripUpdatedFields } from '../lib/utils'
+import type { MetricDataResponse, MetricsResponse } from '../types'
 
 const LIMIT = 500
 
@@ -68,7 +68,7 @@ function createProjectsFromMetrics(rawMetrics: any[]): Map<string, Project> {
 
   for (const rawMetric of rawMetrics) {
     let project = projects.get(rawMetric.project)
-    
+
     if (!project) {
       project = new Project({
         name: rawMetric.project,

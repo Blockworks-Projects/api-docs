@@ -29,7 +29,7 @@ export class Metric {
   category: string
   updated_at: number
   validationErrors: ValidationError[] = []
-  parent: Project
+  parent: Project | null = null
 
   constructor(config: MetricConfig) {
     this.name = config.name
@@ -43,9 +43,6 @@ export class Metric {
     this.aggregation = config.aggregation
     this.category = config.category
     this.updated_at = config.updated_at
-
-    // TODO: Add parent project
-    // this.parent =
   }
 
   get title() {
@@ -57,7 +54,7 @@ export class Metric {
   }
 
   get pageTitle() {
-    return this.parent.isChain ? `${this.parent.title}: ${this.title}` : this.title
+    return this.parent?.isChain ? `${this.parent.title}: ${this.title}` : this.title
   }
 
   get unit(): string {
@@ -79,7 +76,7 @@ export class Metric {
 
   validateDataType(): ValidationError[] {
     const issues: ValidationError[] = []
-    
+
     // Check for -usd metrics that should have timeseries_usd data_type
     if (this.identifier.endsWith('-usd') && this.data_type !== 'timeseries_usd') {
       issues.push(new ValidationError({
@@ -88,7 +85,7 @@ export class Metric {
         endpoint: `/metrics/${this.identifier}?project=${this.project}`
       }))
     }
-    
+
     // Check for market-cap metrics that should consistently be USD
     if (this.identifier === 'market-cap' && this.data_type !== 'timeseries_usd') {
       issues.push(new ValidationError({
@@ -97,14 +94,14 @@ export class Metric {
         endpoint: `/metrics/${this.identifier}?project=${this.project}`
       }))
     }
-    
+
     return issues
   }
 
   validateData(response: any): ValidationError[] {
     const issues: ValidationError[] = []
     const projectData = response[this.project]
-    
+
     if (!projectData || !Array.isArray(projectData)) {
       issues.push(new ValidationError({
         type: 'data_validation',
@@ -113,7 +110,7 @@ export class Metric {
       }))
       return issues
     }
-    
+
     // Validate each data point
     projectData.forEach((point: any, index: number) => {
       if (!point.date) {
@@ -123,33 +120,33 @@ export class Metric {
           endpoint: `/metrics/${this.identifier}?project=${this.project}`
         }))
       }
-      
+
       if (point.value === null || point.value === undefined) {
         issues.push(new ValidationError({
-          type: 'data_validation', 
+          type: 'data_validation',
           message: `Missing value at index ${index}`,
           endpoint: `/metrics/${this.identifier}?project=${this.project}`
         }))
       }
     })
-    
+
     return issues
   }
 
   validate(response?: any): ValidationError[] {
     const issues: ValidationError[] = []
-    
+
     // Always run data type validation
     issues.push(...this.validateDataType())
-    
+
     // Run data validation if response provided
     if (response) {
       issues.push(...this.validateData(response))
     }
-    
+
     // Add issues to the metric's validation errors
     issues.forEach(issue => this.addValidationError(issue))
-    
+
     return issues
   }
 }
