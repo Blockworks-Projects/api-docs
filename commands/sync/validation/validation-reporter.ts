@@ -30,27 +30,21 @@ export function displayValidationResults(
 
   text.warn(`Found ${issues.length} validation issues:`)
 
-  // Group issues by type for summary
-  const issueTypes = new Map<string, number>()
+  // Group issues by type
+  const issuesByType = new Map<string, ValidationIssue[]>()
   issues.forEach(issue => {
-    const type = issue.issue.split(':')[0]
-    issueTypes.set(type || 'Unknown', (issueTypes.get(type || 'Unknown') || 0) + 1)
-  })
-
-  issueTypes.forEach((count, type) => {
-    text.warnDetail(text.withCount(`${count}x ${type}`, count))
-  })
-
-  // Show ALL issues grouped by project
-  const issuesByProject = new Map<string, ValidationIssue[]>()
-  issues.forEach(issue => {
-    const list = issuesByProject.get(issue.metric.project) || []
+    const list = issuesByType.get(issue.issue) || []
     list.push(issue)
-    issuesByProject.set(issue.metric.project, list)
+    issuesByType.set(issue.issue, list)
   })
 
-  issuesByProject.forEach((projectIssues, project) => {
-    projectIssues.forEach(issue => {
+  // Display each type with its issues
+  issuesByType.forEach((typeIssues, type) => {
+    // Show summary count for this type
+    text.warnDetail(text.withCount(`${typeIssues.length}x ${type}`, typeIssues.length))
+    
+    // Show all issues for this type
+    typeIssues.forEach(issue => {
       const entry = generateIssueEntry(issue)
       text.warnDetail(`- ${entry}`)
       if (issue.data && issue.issue.includes('Malformed')) {

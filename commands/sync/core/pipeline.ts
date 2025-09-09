@@ -11,6 +11,7 @@ import { populateMetricDataCache } from '../lib/cache'
 import { writeTextFile } from '../lib/file-operations'
 import { runValidationStage } from '../validation'
 import { generateValidationReport } from '../validation/validation-reporter'
+import * as text from '../lib/text'
 import { colors as c } from '../lib/constants'
 
 /**
@@ -107,9 +108,9 @@ export class SyncPipeline {
     const validationReport = generateValidationReport(validationResult)
     try {
       await writeTextFile('./validation_report.md', validationReport)
-      console.log(c.muted('\n📝 Validation report saved to validation_report.md'))
+      text.pass('Validation report saved to validation_report.md')
     } catch (err) {
-      console.warn(c.warning('⚠️ Could not save validation report'))
+      text.warn('Could not save validation report')
     }
   }
 }
@@ -131,7 +132,7 @@ export function displaySummary(results: {
 
   // Display added metrics
   if (added.length > 0) {
-    console.log(c.header(`\n+ ${added.length} Metrics Added:`))
+    text.subheader(`+ ${added.length} Metrics Added:`)
 
     // Group metrics by project
     const metricsByProject = new Map<string, string[]>()
@@ -150,22 +151,22 @@ export function displaySummary(results: {
       .sort()
       .forEach(project => {
         const identifiers = metricsByProject.get(project)!.sort()
-        console.log(c.darkGreen(`   ${project} > ${identifiers.join(', ')}`))
+        text.detail(`${project} > ${identifiers.join(', ')}`)
       })
   }
 
   // Display removed metrics
   if (removed.length > 0) {
-    console.log(c.warning(`\n- ${removed.length} Metrics Removed:`))
+    text.warn(`- ${removed.length} Metrics Removed:`)
 
     // Group removed metrics by project
     const removedByProject = new Map<string, string[]>()
 
     removed.forEach(metricKey => {
       const [project, identifier] = metricKey.split('/')
-      const identifiers = removedByProject.get(project) || []
-      identifiers.push(identifier)
-      removedByProject.set(project, identifiers)
+      const identifiers = removedByProject.get(project!) || []
+      identifiers.push(identifier!)
+      removedByProject.set(project!, identifiers)
     })
 
     // Sort projects alphabetically and display
@@ -173,13 +174,13 @@ export function displaySummary(results: {
       .sort()
       .forEach(project => {
         const identifiers = removedByProject.get(project)!.sort()
-        console.log(c.warning(`   ${project} > ${identifiers.join(', ')}`))
+        text.warnDetail(`${project} > ${identifiers.join(', ')}`)
       })
   }
 
   // Display omitted metrics
   if (omittedMetrics.length > 0) {
-    console.log(c.warning(`\n⚠️ ${omittedMetrics.length} Metrics Omitted (Bad Descriptions):`))
+    text.warn(`${omittedMetrics.length} Metrics Omitted (Bad Descriptions):`)
 
     // Group omitted metrics by project
     const omittedByProject = new Map<string, Array<{identifier: string, description: string}>>()
@@ -196,23 +197,23 @@ export function displaySummary(results: {
       .forEach(project => {
         const items = omittedByProject.get(project)!.sort((a, b) => a.identifier.localeCompare(b.identifier))
         items.forEach(item => {
-          console.log(c.warning(`   ${project}/${item.identifier}: ${item.description.substring(0, 60)}...`))
+          text.warnDetail(`${project}/${item.identifier}: ${item.description.substring(0, 60)}`)
         })
       })
   }
 
   // Display API errors
   if (apiErrors.length > 0) {
-    console.log(c.warning(`\n⚠️ ${apiErrors.length} API Errors:`))
+    text.warn(`${apiErrors.length} API Errors:`)
     apiErrors.forEach(error => {
-      console.log(`   URL: ${error.url}`)
-      console.log(c.warning(`   ${error.status} ${error.message}\n`))
+      text.warnDetail(`URL: ${error.url}`)
+      text.warnDetail(`${error.status} ${error.message}`)
     })
   }
 
   // Display validation issues if any
   if (validationResult && validationResult.issues.length > 0) {
-    console.log(c.warning(`\n🔍 ${validationResult.issues.length} Validation Issues:`))
+    text.warn(`${validationResult.issues.length} Validation Issues:`)
 
     // Group issues by type
     const issueTypes = new Map<string, number>()
@@ -223,7 +224,7 @@ export function displaySummary(results: {
 
     // Show issue type counts
     issueTypes.forEach((count, type) => {
-      console.log(c.warning(`   ${count}x ${type}`))
+      text.warnDetail(`${count}x ${type}`)
     })
 
     // Show ALL issues grouped by project
@@ -238,58 +239,58 @@ export function displaySummary(results: {
       projectIssues.forEach(issue => {
         // Import generateIssueEntry inline to avoid circular dependency
         const issueEntry = `{ project: '${issue.metric.project}', identifier: '${issue.metric.identifier}', issue: '${issue.issue}' }`
-        console.log(c.muted(`   ${issueEntry}`))
+        text.detail(`${issueEntry}`)
       })
     })
   }
 
   // Summary statistics
-  console.log(c.header.underline('\n📊 Sync Summary:'))
-  console.log(c.header(`\n  📁 Output:`), c.darkGreen(OUTPUT_DIR))
-  console.log(c.header(`  📄 Metric Pages:`), c.darkGreen(metrics.length))
+  text.summaryHeader('Sync Summary:')
+  text.summarySuccess(`Output Folder: {dir}`, OUTPUT_DIR)
+  text.summarySuccess(`Metric Pages: {count}`, metrics.length)
 
   if (omittedMetrics.length > 0) {
-    console.log(c.header(`  ⚠️ Omitted Pages:`), c.darkGreen(omittedMetrics.length))
+    text.summaryWarn(`Omitted Pages: {count}`, omittedMetrics.length)
   }
 
   const uniqueProjects = new Set(metrics.map(m => m.project)).size
   const uniqueCategories = new Set(metrics.map(m => m.category)).size
-  console.log(c.header(`  📂 Projects:`), c.darkGreen(uniqueProjects))
-  console.log(c.header(`  📦 Categories:`), c.darkGreen(uniqueCategories))
+  text.summarySuccess(`Projects: {count}`, uniqueProjects)
+  text.summarySuccess(`Categories: {count}`, uniqueCategories)
 
   if (shouldContinue) {
-    console.log(c.header(`  ✅ Navigation updated`))
+    text.summarySuccess(`Navigation updated`)
     if (added.length > 0) {
-      console.log(c.header(`  ➕ Added Metrics:`), c.darkGreen(added.length))
+      text.summarySuccess(`Added Metrics: {count}`, added.length)
     }
     if (removed.length > 0) {
-      console.log(c.header(`  ➖ Removed Metrics:`), c.darkGreen(removed.length))
+      text.summarySuccess(`Removed Metrics: {count}`, removed.length)
     }
   } else {
-    console.log(c.muted(`  ⚡ Sync skipped (no changes)`))
+    text.summaryWarn(`Sync skipped (no changes)`)
   }
 
   // Cleanup results
   if (removedFiles.length > 0) {
-    console.log(c.header(`  🗑️ Cleaned up files:`), c.darkGreen(removedFiles.length))
+    text.summarySuccess(`Cleaned up files: {count}`, removedFiles.length)
   }
   if (removedDirs.length > 0) {
-    console.log(c.header(`  📁 Removed empty dirs:`), c.darkGreen(removedDirs.length))
+    text.summarySuccess(`Removed empty dirs: {count}`, removedDirs.length)
   }
 
   // Show API errors count
   if (apiErrors.length > 0) {
-    console.log(c.warning(`  ⚠️ API Errors: ${apiErrors.length}`))
+    text.summaryWarn(`API Errors: ${apiErrors.length}`)
   } else {
-    console.log(c.header(`  ⚠️ API Errors:`), c.darkGreen('0'))
+    text.summarySuccess(`API Errors: {count}`, 0)
   }
 
   // Show validation issues count
   if (validationResult) {
     if (validationResult.issues.length > 0) {
-      console.log(c.warning(`  🔍 Validation Issues: ${validationResult.issues.length}`))
+      text.summaryWarn(`Validation Issues: ${validationResult.issues.length}`)
     } else {
-      console.log(c.header(`  🔍 Validation Issues:`), c.darkGreen('0'))
+      text.summarySuccess(`Validation Issues: {count}`, 0)
     }
   }
 }

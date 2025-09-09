@@ -823,7 +823,7 @@
                 "group": "Meteroa",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/Meteroa/volume-usd"
+                  "api-reference/metrics/meteroa/volume-usd"
                 ]
               },
               {

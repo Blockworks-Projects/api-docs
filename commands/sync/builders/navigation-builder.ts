@@ -181,7 +181,7 @@ function buildEquitiesNavigation(equities: Map<string, Map<string, Metric[]>>): 
  * Build assets navigation with expand options
  */
 function buildAssetsNavigation(expandOptions: string[]): any {
-  text.detail('Building Assets navigation...')
+  text.subheader('Building Assets navigation...')
 
   const expandOptionsGroup = {
     group: 'Add-On Information',
