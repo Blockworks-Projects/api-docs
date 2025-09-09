@@ -1,0 +1,68 @@
+---
+title: "GAME : Enterprise Value (USD)"
+sidebarTitle: "Enterprise Value (USD)"
+description: "Actual enterprise value for the equity. Calculated as market cap - liabilities + assets"
+openapi: "GET /v1/metrics/enterprise-value-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/enterprise-value-usd?project=GAME"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/enterprise-value-usd?project=GAME',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/enterprise-value-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'GAME'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "game": [
+    {
+      "date": "2025-09-08",
+      "value": 72001678.87
+    },
+    {
+      "date": "2025-09-05",
+      "value": 69497014.39
+    },
+    {
+      "date": "2025-09-04",
+      "value": 74011350.37
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

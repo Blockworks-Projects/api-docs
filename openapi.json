@@ -7479,12 +7479,12 @@
             "schema": {
               "type": "string",
               "enum": [
-                "Meteroa",
                 "ZeroFi",
                 "byreal",
                 "goonfi",
                 "humidifi",
                 "lifinity",
+                "meteroa",
                 "orca",
                 "pumpfun",
                 "raydium",
@@ -7492,13 +7492,9 @@
                 "stabble",
                 "tessera"
               ],
-              "example": "Meteroa"
+              "example": "ZeroFi"
             },
             "examples": {
-              "Meteroa": {
-                "value": "Meteroa",
-                "summary": "Meteroa"
-              },
               "ZeroFi": {
                 "value": "ZeroFi",
                 "summary": "ZeroFi"
@@ -7518,6 +7514,10 @@
               "lifinity": {
                 "value": "lifinity",
                 "summary": "Lifinity"
+              },
+              "meteroa": {
+                "value": "meteroa",
+                "summary": "Meteroa"
               },
               "orca": {
                 "value": "orca",
@@ -7544,8 +7544,8 @@
                 "summary": "Tessera"
               },
               "multi": {
-                "value": "Meteroa,ZeroFi",
-                "summary": "Meteroa + ZeroFi"
+                "value": "ZeroFi,byreal",
+                "summary": "ZeroFi + Byreal"
               }
             }
           },

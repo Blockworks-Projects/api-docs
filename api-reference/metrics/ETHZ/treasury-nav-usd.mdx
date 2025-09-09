@@ -1,0 +1,68 @@
+---
+title: "ETHZ : NAV (USD)"
+sidebarTitle: "NAV (USD)"
+description: "Dollar value of crypto assets (does not include cash)"
+openapi: "GET /v1/metrics/treasury-nav-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/treasury-nav-usd?project=ETHZ"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/treasury-nav-usd?project=ETHZ',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/treasury-nav-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ETHZ'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "ethz": [
+    {
+      "date": "2025-09-08",
+      "value": 441225626.66
+    },
+    {
+      "date": "2025-09-05",
+      "value": 444228000.76
+    },
+    {
+      "date": "2025-09-04",
+      "value": 446746690.9
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

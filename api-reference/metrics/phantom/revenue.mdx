@@ -1,0 +1,76 @@
+---
+title: "Phantom : Revenue (USD)"
+sidebarTitle: "Revenue (USD)"
+description: "The revenue produced during the specified time period for given project."
+openapi: "GET /v1/metrics/revenue"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/revenue?project=phantom"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/revenue?project=phantom',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/revenue',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'phantom'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "phantom": [
+    {
+      "date": "2025-09-08",
+      "value": 365388.66
+    },
+    {
+      "date": "2025-09-07",
+      "value": 467129.93
+    },
+    {
+      "date": "2025-09-06",
+      "value": 279555.84
+    },
+    {
+      "date": "2025-09-05",
+      "value": 340025.87
+    },
+    {
+      "date": "2025-09-04",
+      "value": 327517.86
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

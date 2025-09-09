@@ -1,0 +1,79 @@
+---
+title: "Base : Transaction Fees"
+sidebarTitle: "Transaction Fees"
+description: "Total transaction fees paid, does not include blob fees, out-of-protocol tips, or additional sources of revenue"
+openapi: "GET /v1/metrics/transaction-fees"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-fees?project=base"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-fees?project=base',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-fees',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'base'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "base": [
+    {
+      "date": "2025-09-08",
+      "value": 46.65572070794324
+    },
+    {
+      "date": "2025-09-07",
+      "value": 15.795663600823534
+    },
+    {
+      "date": "2025-09-06",
+      "value": 25.272321820699013
+    },
+    {
+      "date": "2025-09-05",
+      "value": 61.07121178329793
+    },
+    {
+      "date": "2025-09-04",
+      "value": 26.07090922081314
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
+
+
+<Note>For fiat values, see **[Transaction Fees (USD)](./transaction-fees-usd)**.</Note>

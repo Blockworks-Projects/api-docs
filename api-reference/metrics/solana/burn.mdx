@@ -1,0 +1,79 @@
+---
+title: "Solana : Burn"
+sidebarTitle: "Burn"
+description: "The total amount of the native token burned transaction fees."
+openapi: "GET /v1/metrics/burn"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/burn?project=solana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/burn?project=solana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/burn',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'solana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-09-08",
+      "value": 746.4430775015408
+    },
+    {
+      "date": "2025-09-07",
+      "value": 722.7731475015139
+    },
+    {
+      "date": "2025-09-06",
+      "value": 725.6399650015704
+    },
+    {
+      "date": "2025-09-05",
+      "value": 753.4240025015902
+    },
+    {
+      "date": "2025-09-04",
+      "value": 755.5594525016246
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
+
+
+<Note>For fiat values, see **[Burn (USD)](./burn-usd)**.</Note>

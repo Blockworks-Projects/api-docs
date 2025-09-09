@@ -8,9 +8,10 @@
   },
   "scripts": {
     "dev": "npx mintlify@latest dev --port 3333",
-    "sync": "bun run commands/sync.ts"
+    "sync": "bun run commands/sync/index.ts"
   },
   "dependencies": {
+    "cli-progress": "^3.12.0",
     "itty-fetcher": "^1.0.10",
     "react": "^19.1.0"
   },

@@ -1,0 +1,68 @@
+---
+title: "BTCS : NAV (USD)"
+sidebarTitle: "NAV (USD)"
+description: "Dollar value of crypto assets (does not include cash)"
+openapi: "GET /v1/metrics/treasury-nav-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/treasury-nav-usd?project=BTCS"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/treasury-nav-usd?project=BTCS',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/treasury-nav-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'BTCS'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "btcs": [
+    {
+      "date": "2025-09-08",
+      "value": 302220802.48
+    },
+    {
+      "date": "2025-09-05",
+      "value": 304277301.14
+    },
+    {
+      "date": "2025-09-04",
+      "value": 306002496.85
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

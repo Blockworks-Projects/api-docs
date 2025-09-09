@@ -1,0 +1,68 @@
+---
+title: "SBET : Market Cap"
+sidebarTitle: "Market Cap"
+description: "Market capitalization of the equity"
+openapi: "GET /v1/metrics/market-cap"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/market-cap?project=SBET"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/market-cap?project=SBET',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/market-cap',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'SBET'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "sbet": [
+    {
+      "date": "2025-09-08",
+      "value": 3068044008.66
+    },
+    {
+      "date": "2025-09-05",
+      "value": 2927884647.75
+    },
+    {
+      "date": "2025-09-04",
+      "value": 3033957032.04
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

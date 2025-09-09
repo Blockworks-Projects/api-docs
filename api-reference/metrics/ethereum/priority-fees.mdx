@@ -1,0 +1,79 @@
+---
+title: "Ethereum : Priority Fees"
+sidebarTitle: "Priority Fees"
+description: "An additional transaction fee to incentivize validators to prioritize and execute transactions."
+openapi: "GET /v1/metrics/priority-fees"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/priority-fees?project=ethereum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/priority-fees?project=ethereum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/priority-fees',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ethereum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "ethereum": [
+    {
+      "date": "2025-09-08",
+      "value": 124.92547082163831
+    },
+    {
+      "date": "2025-09-07",
+      "value": 86.50794950412977
+    },
+    {
+      "date": "2025-09-06",
+      "value": 102.12998828721592
+    },
+    {
+      "date": "2025-09-05",
+      "value": 163.05485706010347
+    },
+    {
+      "date": "2025-09-04",
+      "value": 153.82077994686728
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
+
+
+<Note>For fiat values, see **[Priority Fees (USD)](./priority-fees-usd)**.</Note>

@@ -1,0 +1,76 @@
+---
+title: "Arbitrum : Transactions (Total)"
+sidebarTitle: "Transactions (Total)"
+description: "Daily number of all transactions."
+openapi: "GET /v1/metrics/transactions-total"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** count
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transactions-total?project=arbitrum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transactions-total?project=arbitrum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transactions-total',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'arbitrum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "arbitrum": [
+    {
+      "date": "2025-09-08",
+      "value": 2537654
+    },
+    {
+      "date": "2025-09-07",
+      "value": 2081627
+    },
+    {
+      "date": "2025-09-06",
+      "value": 1877972
+    },
+    {
+      "date": "2025-09-05",
+      "value": 2674259
+    },
+    {
+      "date": "2025-09-04",
+      "value": 2629388
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

@@ -1,0 +1,68 @@
+---
+title: "SQNS : Market Cap"
+sidebarTitle: "Market Cap"
+description: "Market capitalization of the equity"
+openapi: "GET /v1/metrics/market-cap"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/market-cap?project=SQNS"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/market-cap?project=SQNS',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/market-cap',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'SQNS'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "sqns": [
+    {
+      "date": "2025-09-08",
+      "value": 122599706.3
+    },
+    {
+      "date": "2025-09-05",
+      "value": 123015347.11
+    },
+    {
+      "date": "2025-09-04",
+      "value": 111305742.24
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

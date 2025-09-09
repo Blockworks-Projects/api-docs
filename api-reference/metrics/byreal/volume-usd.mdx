@@ -1,0 +1,92 @@
+---
+title: "Byreal : Volume (USD)"
+sidebarTitle: "Volume (USD)"
+description: "Amount of trading volume in USD"
+openapi: "GET /v1/metrics/volume-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/volume-usd?project=byreal"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/volume-usd?project=byreal',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/volume-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'byreal'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "byreal": [
+    {
+      "date": "2025-09-08",
+      "value": 82819613.64
+    },
+    {
+      "date": "2025-09-07",
+      "value": 28102605.85
+    },
+    {
+      "date": "2025-09-07",
+      "value": 28102584.2
+    },
+    {
+      "date": "2025-09-06",
+      "value": 1631309.22
+    },
+    {
+      "date": "2025-09-06",
+      "value": 1631309.22
+    },
+    {
+      "date": "2025-09-05",
+      "value": 72070010.5
+    },
+    {
+      "date": "2025-09-05",
+      "value": 72070010.5
+    },
+    {
+      "date": "2025-09-04",
+      "value": 97117083.69
+    },
+    {
+      "date": "2025-09-04",
+      "value": 97117083.69
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

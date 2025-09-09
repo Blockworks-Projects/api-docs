@@ -1,0 +1,79 @@
+---
+title: "Ethereum : Other Fees"
+sidebarTitle: "Other Fees"
+description: "For Ethereum, this includes just blob fees: an additional fee for transactions that post data to \"blobs,\" which are specialized data availability solutions for L2 blockchains."
+openapi: "GET /v1/metrics/other-fees"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/other-fees?project=ethereum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/other-fees?project=ethereum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/other-fees',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ethereum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "ethereum": [
+    {
+      "date": "2025-09-08",
+      "value": 4.477943807999993e-9
+    },
+    {
+      "date": "2025-09-07",
+      "value": 4.224581631999984e-9
+    },
+    {
+      "date": "2025-09-06",
+      "value": 3.8805176319999885e-9
+    },
+    {
+      "date": "2025-09-05",
+      "value": 4.118020095999988e-9
+    },
+    {
+      "date": "2025-09-04",
+      "value": 4.15904563199998e-9
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
+
+
+<Note>For fiat values, see **[Other Fees (USD)](./other-fees-usd)**.</Note>

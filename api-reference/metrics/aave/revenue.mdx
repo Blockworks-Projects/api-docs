@@ -1,0 +1,76 @@
+---
+title: "Aave : Revenue (USD)"
+sidebarTitle: "Revenue (USD)"
+description: "The revenue produced during the specified time period for given project."
+openapi: "GET /v1/metrics/revenue"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/revenue?project=aave"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/revenue?project=aave',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/revenue',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'aave'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "aave": [
+    {
+      "date": "2025-09-08",
+      "value": 397055.89
+    },
+    {
+      "date": "2025-09-07",
+      "value": 450415.84
+    },
+    {
+      "date": "2025-09-06",
+      "value": 452888.21
+    },
+    {
+      "date": "2025-09-05",
+      "value": 452198.03
+    },
+    {
+      "date": "2025-09-04",
+      "value": 448443.09
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

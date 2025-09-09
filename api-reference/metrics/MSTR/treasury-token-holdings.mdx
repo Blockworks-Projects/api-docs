@@ -1,0 +1,68 @@
+---
+title: "MSTR : Treasury Holdings"
+sidebarTitle: "Treasury Holdings"
+description: "Number of tokens held by the company. See crypto-asset for asset indicator"
+openapi: "GET /v1/metrics/treasury-token-holdings"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/treasury-token-holdings?project=MSTR"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/treasury-token-holdings?project=MSTR',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/treasury-token-holdings',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'MSTR'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "mstr": [
+    {
+      "date": "2025-09-08",
+      "value": 638460
+    },
+    {
+      "date": "2025-09-05",
+      "value": 636505
+    },
+    {
+      "date": "2025-09-04",
+      "value": 636505
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

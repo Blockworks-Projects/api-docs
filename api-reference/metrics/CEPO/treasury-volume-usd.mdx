@@ -1,0 +1,68 @@
+---
+title: "CEPO : Treasury Volume (USD)"
+sidebarTitle: "Treasury Volume (USD)"
+description: "USD volume over the period"
+openapi: "GET /v1/metrics/treasury-volume-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/treasury-volume-usd?project=CEPO"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/treasury-volume-usd?project=CEPO',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/treasury-volume-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'CEPO'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "cepo": [
+    {
+      "date": "2025-09-08",
+      "value": 2799203.02
+    },
+    {
+      "date": "2025-09-05",
+      "value": 4041562.73
+    },
+    {
+      "date": "2025-09-04",
+      "value": 4941642.75
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
