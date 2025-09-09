@@ -26,7 +26,7 @@ export async function catalogExistingMetrics(outputDir: string): Promise<Set<str
       }
     }
 
-    text.pass(text.withCount(`Cataloged {count} existing metrics`, existingMetrics.size))
+    text.detail(text.withCount(`Cataloged {count} existing metrics`, existingMetrics.size))
 
   } catch (error) {
     text.warn(`No existing metrics found (${error instanceof Error ? error.message : 'unknown error'})`)

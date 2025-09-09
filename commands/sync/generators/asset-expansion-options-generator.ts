@@ -40,7 +40,7 @@ const getValidExpandOptions = async (): Promise<string[]> => {
 export const updateAssetExpansionOptions = async (): Promise<string[]> => {
   const openApiPath = './openapi.json'
 
-  text.header('🔧 Updating asset expansion options...')
+  text.header('🔧 Creating /assets Add-On (expand) pages...')
 
   text.detail('Reading OpenAPI specification...')
 

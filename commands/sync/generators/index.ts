@@ -4,6 +4,7 @@ import { updateOpenApiSpec } from './openapi-generator'
 import { updateNavigation } from './navigation-generator'
 import { updateAssetExpansionOptions } from './asset-expansion-options-generator'
 import { syncMiscMetrics } from './misc-metrics-generator'
+import { generateMetricsCatalog } from './catalog-generator'
 import { colors as c } from '../lib/constants'
 import * as text from '../lib/text'
 import { createProgressBar } from '../lib/createProgressBar'
@@ -15,15 +16,14 @@ export async function runGeneratorsStage(metrics: Metric[]): Promise<void> {
   // Stage 1: Generate individual metric pages
   await generateMetricPages(metrics)
 
-  // Stage 2: Generate metrics catalog (placeholder - would be implemented)
+  // Stage 2: Generate metrics catalog
   text.header('📖 Generating metrics catalog...')
-  text.skip('Skipped - generator needs import path fixes')
+  await generateMetricsCatalog(metrics)
 
   // Stage 3: Update OpenAPI spec
   await updateOpenApiSpec(metrics)
 
   // Stage 4: Update asset expansion options
-  text.header('🎯 Updating asset expansion options...')
   const expandOptions = await updateAssetExpansionOptions()
 
   // Stage 5: Update misc endpoints

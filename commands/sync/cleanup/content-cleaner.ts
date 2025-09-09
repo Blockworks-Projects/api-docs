@@ -38,7 +38,7 @@ export async function cleanupExistingContent(metrics: Metric[], outputDir: strin
   }
 
   if (removedCount > 0) {
-    text.pass(text.withCount('Removed {count} existing directories', removedCount))
+    text.detail(text.withCount('Removed {count} existing directories', removedCount))
   }
 }
 
@@ -88,7 +88,7 @@ export async function cleanupObsoleteContent(
   }
 
   if (removedFiles.length > 0) {
-    text.pass(text.withCount('Removed {count} obsolete metric files', removedFiles.length))
+    text.detail(text.withCount('Removed {count} obsolete metric files', removedFiles.length))
   }
 
   text.detail('Cleaning up empty directories...')
@@ -97,7 +97,7 @@ export async function cleanupObsoleteContent(
   await cleanupEmptyDirectories(outputDir, removedDirs)
 
   if (removedDirs.length > 0) {
-    text.pass(text.withCount('Removed {count} empty directories', removedDirs.length))
+    text.detail(text.withCount('Removed {count} empty directories', removedDirs.length))
   }
 
   return { removedFiles, removedDirs }

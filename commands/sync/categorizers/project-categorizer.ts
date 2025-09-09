@@ -1,69 +1,54 @@
 import type { Metric } from '../types'
 import { groupMetricsByProjectAndCategory } from '../lib/metric-utils'
 
-export interface ProjectCategories {
-  chains: Map<string, Map<string, Metric[]>>
-  projects: Map<string, Map<string, Metric[]>>
-  equities: Map<string, Map<string, Metric[]>>
-}
+export type ProjectCategories = Record<'chains' | 'projects' | 'etfs' | 'treasuries', Map<string, Map<string, Metric[]>>>
 
 /**
  * Categorize projects into Chains, Projects, and Equities based on their metrics
  */
 export function categorizeProjects(metrics: Metric[]): ProjectCategories {
   const projectGroups = groupMetricsByProjectAndCategory(metrics)
-  
-  const chains = new Map<string, Map<string, Metric[]>>()
-  const projects = new Map<string, Map<string, Metric[]>>()
-  const equities = new Map<string, Map<string, Metric[]>>()
+
+  const output: ProjectCategories = {
+    chains: new Map(),
+    projects: new Map(),
+    etfs: new Map(),
+    treasuries: new Map()
+  }
+
+  const lut = {
+    'chain': 'chains',
+    'project': 'projects',
+    'etf': 'etfs',
+    'treasury': 'treasuries'
+  }
 
   for (const [project, categoryMap] of projectGroups.entries()) {
     const category = determineProjectCategory(project, categoryMap)
-    
-    switch (category) {
-      case 'chain':
-        chains.set(project, categoryMap)
-        break
-      case 'equity':
-        equities.set(project, categoryMap)
-        break
-      default:
-        projects.set(project, categoryMap)
-        break
-    }
+    output[lut[category] as keyof ProjectCategories].set(project, categoryMap)
   }
 
-  return { chains, projects, equities }
+  return output
 }
 
 /**
  * Determine if a project is a Chain, Project, or Equity
  */
 function determineProjectCategory(
-  project: string, 
+  project: string,
   categoryMap: Map<string, Metric[]>
-): 'chain' | 'project' | 'equity' {
+): 'chain' | 'project' | 'etf' | 'treasury' {
   const allMetrics = Array.from(categoryMap.values()).flat()
-  
-  // Check if this project has a treasury-crypto-asset metric (Equity)
-  const hasEquityMetric = allMetrics.some(metric => 
-    metric.identifier === 'treasury-crypto-asset'
-  )
-  
-  if (hasEquityMetric) {
-    return 'equity'
-  }
-  
-  // Check if this project has chain-specific metrics OR is Bitcoin (Chain)
-  const hasChainMetric = allMetrics.some(metric => 
-    metric.identifier === 'transactions-failed'
-  )
-  const isBitcoin = project.toLowerCase() === 'bitcoin'
-  
-  if (hasChainMetric || isBitcoin) {
+
+  if (allMetrics.some(metric => metric.category === 'ETF'))
+    return 'etf'
+
+  if (allMetrics.some(metric => metric.category === 'Treasury'))
+    return 'treasury'
+
+  if (allMetrics.some(metric => metric.identifier === 'transactions-failed') || project.toLowerCase() === 'bitcoin')
     return 'chain'
-  }
-  
+
   return 'project'
 }
 
@@ -79,7 +64,7 @@ export function getCategorySummary(categories: ProjectCategories): {
   const chainCount = categories.chains.size
   const projectCount = categories.projects.size
   const equityCount = categories.equities.size
-  
+
   const totalMetrics = [
     ...categories.chains.values(),
     ...categories.projects.values(),
@@ -87,6 +72,6 @@ export function getCategorySummary(categories: ProjectCategories): {
   ].reduce((total, categoryMap) => {
     return total + Array.from(categoryMap.values()).flat().length
   }, 0)
-  
+
   return { chainCount, projectCount, equityCount, totalMetrics }
 }

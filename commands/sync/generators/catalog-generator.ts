@@ -1,9 +1,10 @@
 import { mkdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import type { Metric } from '../types'
-import { colors as c, OUTPUT_DIR } from '../lib/constants'
-import * as templates from '../templates'
+import { OUTPUT_DIR } from '../lib/constants'
+import * as text from '../lib/text'
 import { toTitleCase } from '../lib/utils'
+import * as templates from '../templates'
+import type { Metric } from '../types'
 
 /**
  * Generate metrics catalog
@@ -38,7 +39,7 @@ export const generateMetricsCatalog = async (metrics: Metric[]): Promise<void> =
     const metricGroups = categoryGroups.get(category)!
     const sortedIdentifiers = Array.from(metricGroups.keys()).sort()
 
-    console.log(c.muted(`   + Category "${category}" has ${c.number(sortedIdentifiers.length)} unique metrics`))
+    text.detail(text.withCount(`Category ${category} has {count} unique metrics`, sortedIdentifiers.length))
 
     // Generate each metric entry within this category
     for (const identifier of sortedIdentifiers) {
