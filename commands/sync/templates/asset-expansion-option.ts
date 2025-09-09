@@ -1,13 +1,33 @@
-export const ASSET_EXPANSION_OPTION_PAGE = `---
-title: "{expansion_title}"
-description: "{expansion_description}"
+type AssetExpansionConfig = { 
+  option: string
+  sampleData: any
+  title: string
+  description: string
+  accessor: string
+  article: string
+  objectType: string
+  fieldReference: string
+}
+
+export const getAssetExpansionPage = ({ 
+  option, 
+  sampleData, 
+  title, 
+  description, 
+  accessor, 
+  article, 
+  objectType, 
+  fieldReference 
+}: AssetExpansionConfig) => `---
+title: "${title}"
+description: "${description}"
 openapi: 'GET /v1/assets/{idOrSlug}'
 mode: "wide"
 ---
 
 ## Overview
 
-Add the \`?expand={expansion_option}\` flag to your \`/assets\` or \`/assets/{idOrSlug}\` page to include **{expansion_option}** data in the response.
+Add the \`?expand=${option}\` flag to your \`/assets\` or \`/assets/{idOrSlug}\` page to include **${option}** data in the response.
 
 ## Example Request
 
@@ -15,16 +35,16 @@ Add the \`?expand={expansion_option}\` flag to your \`/assets\` or \`/assets/{id
 
 \`\`\`bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \\
-  "https://api.blockworks.com/v1/assets/ethereum?expand={expansion_option}"
+  "https://api.blockworks.com/v1/assets/ethereum?expand=${option}"
 \`\`\`
 
 \`\`\`typescript TypeScript
 const res = await fetch(
-  'https://api.blockworks.com/v1/assets/ethereum?expand={expansion_option}',
+  'https://api.blockworks.com/v1/assets/ethereum?expand=${option}',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
-console.log(data.{expansion_accessor})
+console.log(data.${accessor})
 \`\`\`
 
 \`\`\`python Python
@@ -33,10 +53,10 @@ import requests
 r = requests.get(
   'https://api.blockworks.com/v1/assets/ethereum',
   headers={'x-api-key': 'YOUR_API_KEY'},
-  params={'expand': '{expansion_option}'}
+  params={'expand': '${option}'}
 )
 data = r.json()
-print(data.get('{expansion_option}'))
+print(data.get('${option}'))
 \`\`\`
 
 </CodeGroup>
@@ -44,10 +64,10 @@ print(data.get('{expansion_option}'))
 ## Example Response
 
 \`\`\`json
-{example_response}
+${JSON.stringify(sampleData, null, 2)}
 \`\`\`
 
-{field_reference}
+${fieldReference}
 
 ## Notes
 
@@ -58,11 +78,9 @@ print(data.get('{expansion_option}'))
 ## See also
 
 - [Get Single Asset](/api-reference/assets/get-single)
-- [All Assets](/api-reference/assets/list)
-`
+- [All Assets](/api-reference/assets/list)`
 
-// Field definitions for expansion options
-export const FIELD_DEFINITIONS: Record<string, Array<{ field: string; type: string; description: string }>> = {
+const fieldDefinitions: Record<string, Array<{ field: string; type: string; description: string }>> = {
   'addresses': [
     { field: 'address', type: 'string', description: 'Contract address or native identifier for the asset' },
     { field: 'chain', type: 'object', description: 'Chain information where this address exists' }
@@ -135,4 +153,19 @@ export const FIELD_DEFINITIONS: Record<string, Array<{ field: string; type: stri
     { field: 'liquid', type: 'number', description: 'Liquid supply amount' },
     { field: 'total', type: 'number', description: 'Total token supply including locked tokens' }
   ]
+}
+
+export const getFieldReference = (option: string): string => {
+  const fields = fieldDefinitions[option]
+  if (!fields || fields.length === 0) return ''
+  
+  const tableRows = fields.map(field =>
+    `| \`${field.field}\` | ${field.type} | ${field.description} |`
+  ).join('\n')
+
+  return `### Field Reference
+
+| Field | Type | Description |
+|---|---|---|
+${tableRows}`
 }

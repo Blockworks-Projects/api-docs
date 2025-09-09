@@ -1,4 +1,4 @@
-import { readdir, stat } from 'node:fs/promises'
+import { readDirectory, getStats } from '../lib/file-operations'
 import { join } from 'node:path'
 import * as text from '../lib/text'
 
@@ -92,11 +92,11 @@ async function findMdxFiles(dir: string): Promise<string[]> {
   const files: string[] = []
 
   try {
-    const entries = await readdir(dir)
+    const entries = await readDirectory(dir)
 
     for (const entry of entries) {
       const fullPath = join(dir, entry)
-      const stats = await stat(fullPath)
+      const stats = await getStats(fullPath)
 
       if (stats.isDirectory()) {
         const subFiles = await findMdxFiles(fullPath)

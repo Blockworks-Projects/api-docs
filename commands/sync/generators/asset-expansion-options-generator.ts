@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises'
 import type { APIError } from '../types'
-import { API } from '../lib/api-client'
+import { fetchWithoutLogging } from '../lib/api-client'
 import { colors as c } from '../lib/constants'
 import { generateAssetExpansionOption } from './asset-expansion-generator'
 import * as text from '../lib/text'
@@ -9,29 +9,38 @@ import * as text from '../lib/text'
  * Get valid expand options by calling API with invalid expand value
  */
 const getValidExpandOptions = async (): Promise<string[]> => {
-  const [error] = await API.get<[APIError, any]>(`/assets`, {
-    query: {
-      expand: 'missing',
-    },
-  })
-
-  if (!error?.message) {
-    text.warn('Could not fetch valid expand options from API, using OpenAPI spec')
+  try {
+    // This should fail with a 400 error that contains the valid options
+    await fetchWithoutLogging(`/assets`, { expand: 'missing' })
+    // If it doesn't fail, we can't detect the options this way
+    text.warn('API did not return expected error for invalid expand option')
     return []
-  }
+  } catch (error: any) {
+    // Extract the error message from the thrown error
+    let errorMessage = ''
+    
+    if (error.message && error.message.includes('API Error:')) {
+      // Our API client wraps the error, so extract the original message
+      errorMessage = error.message
+    } else if (typeof error === 'string') {
+      errorMessage = error
+    } else {
+      errorMessage = JSON.stringify(error)
+    }
 
-  // Parse error message: "each value in 'expand' must be one of the following values: markets, market_cap, ohlcv_last_24_h, price, sector, supply"
-  const errorMessage = typeof error.message === 'string' ? error.message : JSON.stringify(error.message)
-  const match = errorMessage.match(/must be one of the following values:\s*(.+)$/i)
-  if (!match) {
-    text.warn('Could not parse expand options from error message, using OpenAPI spec')
-    return []
-  }
+    // Try to parse the error response for the valid options
+    // Look for patterns like: "each value in 'expand' must be one of the following values: option1, option2"
+    const match = errorMessage.match(/must be one of the following values:\s*(.+?)(?:\s*at\s|"|$)/i)
+    if (!match) {
+      text.warn('Could not parse expand options from error message, using OpenAPI spec')
+      return []
+    }
 
-  let options = match[1]?.split(',').map(opt => opt.trim().replace(/[^\w_]+$/, '')) || []
-  options = options.filter((option: string) => option !== 'market_cap')
-  text.detail(text.withCount('Detected {count} valid expand options from API: {options}', options.length, options.join(', ')))
-  return options
+    let options = match[1]?.split(',').map(opt => opt.trim().replace(/[^\w_]+$/, '')) || []
+    options = options.filter((option: string) => option !== 'market_cap')
+    text.detail(text.withCount('Detected {count} valid expand options from API: {options}', options.length, options.join(', ')))
+    return options
+  }
 }
 
 /**

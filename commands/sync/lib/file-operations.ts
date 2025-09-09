@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir } from 'node:fs/promises'
+import { readFile, writeFile, mkdir, readdir, stat, rm, access } from 'node:fs/promises'
 
 /**
  * Read and parse a JSON file
@@ -40,3 +40,37 @@ export function safeJsonParse<T>(content: string): T | null {
     return null
   }
 }
+
+/**
+ * Read directory contents
+ */
+export const readDirectory = async (dirPath: string) => readdir(dirPath)
+
+/**
+ * Get file/directory stats
+ */
+export const getStats = async (path: string) => stat(path)
+
+/**
+ * Remove file or directory
+ */
+export const remove = async (path: string, options?: { recursive?: boolean }) => 
+  rm(path, { recursive: options?.recursive || false })
+
+/**
+ * Check if file/directory exists
+ */
+export const fileExists = async (path: string): Promise<boolean> => {
+  try {
+    await access(path)
+    return true
+  } catch {
+    return false
+  }
+}
+
+/**
+ * Read text file
+ */
+export const readTextFile = async (filePath: string): Promise<string> =>
+  readFile(filePath, 'utf-8')

@@ -1,4 +1,4 @@
-import type { Metric } from '../types'
+import type { Metric } from '../classes'
 import { cleanupObsoleteContent, cleanupExistingContent } from './content-cleaner'
 import { ensureDirectory } from '../lib/file-operations'
 

@@ -1,10 +1,10 @@
-import { mkdir, writeFile } from 'node:fs/promises'
+import { ensureDirectory, writeTextFile } from '../lib/file-operations'
 import { join } from 'node:path'
 import { OUTPUT_DIR } from '../lib/constants'
 import * as text from '../lib/text'
 import { toTitleCase } from '../lib/utils'
 import * as templates from '../templates'
-import type { Metric } from '../types'
+import type { Metric } from '../classes'
 
 /**
  * Generate metrics catalog
@@ -66,8 +66,8 @@ export const generateMetricsCatalog = async (metrics: Metric[]): Promise<void> =
   }
 
   // Ensure directory exists
-  await mkdir(OUTPUT_DIR, { recursive: true })
+  await ensureDirectory(OUTPUT_DIR)
 
   // Write catalog
-  await writeFile(catalogPath, catalogContent, 'utf-8')
+  await writeTextFile(catalogPath, catalogContent)
 }

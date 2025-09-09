@@ -1,6 +1,6 @@
 import type { MetricsResponse, MetricDataResponse } from '../types'
 import { Metric, Project } from '../classes'
-import { fetchWithErrorHandling, getDateNDaysAgo, generateMockMetricData } from '../lib/api-client'
+import { fetch, getDateNDaysAgo, generateMockMetricData } from '../lib/api-client'
 import { readJsonFile, writeJsonFile } from '../lib/file-operations'
 import { stripUpdatedFields, metricsEqual } from '../lib/utils'
 import * as text from '../lib/text'
@@ -22,25 +22,20 @@ export async function fetchAllMetrics(updateOnlyMode: boolean = false): Promise<
   while (hasMore) {
     text.detail(`fetching page ${page}...`)
 
-    const [error, response] = await fetchWithErrorHandling<MetricsResponse>('/metrics', {
-      limit: LIMIT,
-      page: page.toString(),
-    })
+    try {
+      const response = await fetch<MetricsResponse>('/metrics', {
+        limit: LIMIT,
+        page: page.toString(),
+      })
 
-    if (error) {
-      text.fail('Error fetching metrics:', error)
-      break
-    }
-
-    if (response) {
       rawMetrics.push(...response.data)
       const totalPages = Math.ceil(response.total / LIMIT)
       hasMore = page < totalPages
-    } else {
-      hasMore = false
+      page++
+    } catch (error: any) {
+      text.fail('Error fetching metrics:', error.message)
+      break
     }
-
-    page++
   }
 
   text.detail(text.withCount(`Found {count} metrics`, rawMetrics.length))
@@ -94,20 +89,17 @@ function createProjectsFromMetrics(rawMetrics: any[]): Map<string, Project> {
 /**
  * Fetch sample data for a specific metric
  */
-export async function fetchMetricSampleData(identifier: string, project: string): Promise<MetricDataResponse> {
+export const fetchMetricSampleData = async (identifier: string, project: string): Promise<MetricDataResponse> => {
   const startDate = getDateNDaysAgo(5)
 
-  const [error, response] = await fetchWithErrorHandling<MetricDataResponse>(`/metrics/${identifier}`, {
-    project,
-    start_date: startDate,
-  })
-
-  if (error || !response) {
-    // Generate mock data if API fails
+  try {
+    return await fetch<MetricDataResponse>(`/metrics/${identifier}`, {
+      project,
+      start_date: startDate,
+    })
+  } catch {
     return generateMockMetricData(project, identifier)
   }
-
-  return response
 }
 
 /**

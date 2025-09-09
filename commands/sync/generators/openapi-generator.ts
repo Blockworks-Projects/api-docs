@@ -1,5 +1,5 @@
 import { readFile, writeFile } from 'node:fs/promises'
-import type { Metric } from '../types'
+import type { Metric } from '../classes'
 import { toTitleCase } from '../lib/utils'
 import * as text from '../lib/text'
 

@@ -11,26 +11,30 @@ if (!API_KEY) {
 }
 
 // Define API client
-export const API = fetcher(API_BASE_URL, {
-  array: true,
+export const api = fetcher(API_BASE_URL, {
   headers: { 'x-api-key': API_KEY },
 })
 
-/**
- * Fetch data with standardized error handling
- */
-export async function fetchWithErrorHandling<T>(
-  endpoint: string,
-  params?: Record<string, any>
-): Promise<[APIError | null, T | null]> {
-  const [error, response] = await API.get<[APIError, T]>(endpoint, { query: params })
-  
-  if (error) {
-    apiErrors.push({ ...error, url: `${endpoint}${params ? '?' + new URLSearchParams(params).toString() : ''}` })
-    return [error, null]
+export const fetch = async <T>(endpoint: string, params?: Record<string, any>): Promise<T> => {
+  try {
+    return await api.get<T>(endpoint, { query: params })
+  } catch (error: any) {
+    const url = `${endpoint}${params ? '?' + new URLSearchParams(params).toString() : ''}`
+    apiErrors.push({ ...error, url })
+    throw new Error(`API Error: ${error.message || 'Unknown error'} at ${url}`)
   }
-  
-  return [null, response]
+}
+
+/**
+ * Fetch without logging errors - used for intentional error cases like expand options detection
+ */
+export const fetchWithoutLogging = async <T>(endpoint: string, params?: Record<string, any>): Promise<T> => {
+  try {
+    return await api.get<T>(endpoint, { query: params })
+  } catch (error: any) {
+    const url = `${endpoint}${params ? '?' + new URLSearchParams(params).toString() : ''}`
+    throw new Error(`API Error: ${error.message || 'Unknown error'} at ${url}`)
+  }
 }
 
 /**

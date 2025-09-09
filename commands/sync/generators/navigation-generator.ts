@@ -2,7 +2,7 @@ import { buildNavigationStructure } from '../builders/navigation-builder'
 import { categorizeMetrics } from '../categorizers/project-categorizer'
 import { readJsonFile, writeJsonFile } from '../lib/file-operations'
 import * as text from '../lib/text'
-import type { Metric } from '../types'
+import type { Metric } from '../classes'
 
 /**
  * Generate and update docs.json navigation structure for metrics and assets
