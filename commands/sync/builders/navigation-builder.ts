@@ -21,7 +21,8 @@ export function buildNavigationStructure(
 ): {
   chainsGroup: NavigationGroup
   projectsGroup: NavigationGroup
-  equitiesGroup: NavigationGroup
+  etfsGroup: NavigationGroup
+  treasuriesGroup: NavigationGroup
   assetsUpdate?: any
 } {
   text.detail('Building navigation structure...')
@@ -29,12 +30,13 @@ export function buildNavigationStructure(
   // Create navigation groups
   const chainsGroup = buildChainsNavigation(categories.chains)
   const projectsGroup = buildProjectsNavigation(categories.projects)
-  const equitiesGroup = buildEquitiesNavigation(categories.equities)
+  const etfsGroup = buildETFsNavigation(categories.etfs)
+  const treasuriesGroup = buildTreasuriesNavigation(categories.treasuries)
 
   // Build assets navigation if expand options provided
   const assetsUpdate = expandOptions ? buildAssetsNavigation(expandOptions) : undefined
 
-  return { chainsGroup, projectsGroup, equitiesGroup, assetsUpdate }
+  return { chainsGroup, projectsGroup, etfsGroup, treasuriesGroup, assetsUpdate }
 }
 
 /**
@@ -132,25 +134,25 @@ function buildProjectsNavigation(projects: Map<string, Map<string, Metric[]>>): 
 }
 
 /**
- * Build navigation for Equity projects (flat list)
+ * Build navigation for ETF projects (flat list)
  */
-function buildEquitiesNavigation(equities: Map<string, Map<string, Metric[]>>): NavigationGroup {
-  text.subheader('Processing Equities...')
+function buildETFsNavigation(etfs: Map<string, Map<string, Metric[]>>): NavigationGroup {
+  text.subheader('Processing ETFs...')
 
-  const equitiesGroup: NavigationGroup = {
-    group: 'Metrics : Equities',
+  const etfsGroup: NavigationGroup = {
+    group: 'Metrics : ETFs',
     pages: [],
-    tag: `${equities.size}`
+    tag: `${etfs.size}`
   }
 
-  const sortedEquities = Array.from(equities.entries()).sort(([a], [b]) => a.localeCompare(b))
+  const sortedETFs = Array.from(etfs.entries()).sort(([a], [b]) => a.localeCompare(b))
 
   const progressBar = createProgressBar()
 
-  progressBar.start(sortedEquities.length, 0)
+  progressBar.start(sortedETFs.length, 0)
 
-  for (let i = 0; i < sortedEquities.length; i++) {
-    const [project, categoryMap] = sortedEquities[i]!
+  for (let i = 0; i < sortedETFs.length; i++) {
+    const [project, categoryMap] = sortedETFs[i]!
 
     const projectGroup: any = {
       group: toTitleCase(project),
@@ -165,16 +167,62 @@ function buildEquitiesNavigation(equities: Map<string, Map<string, Metric[]>>): 
     }
     const sortedMetrics = sortMetricsAlphabetically(allMetrics)
 
-    // Equities don't have category subgroups - flat list of metrics
+    // ETFs don't have category subgroups - flat list of metrics
     projectGroup.pages = sortedMetrics.map(metric => `api-reference/metrics/${project}/${metric.identifier}`)
 
-    equitiesGroup.pages.push(projectGroup)
+    etfsGroup.pages.push(projectGroup)
     progressBar.update(i + 1)
   }
 
   progressBar.stop()
 
-  return equitiesGroup
+  return etfsGroup
+}
+
+/**
+ * Build navigation for Treasury projects (flat list)
+ */
+function buildTreasuriesNavigation(treasuries: Map<string, Map<string, Metric[]>>): NavigationGroup {
+  text.subheader('Processing Treasuries...')
+
+  const treasuriesGroup: NavigationGroup = {
+    group: 'Metrics : Treasuries',
+    pages: [],
+    tag: `${treasuries.size}`
+  }
+
+  const sortedTreasuries = Array.from(treasuries.entries()).sort(([a], [b]) => a.localeCompare(b))
+
+  const progressBar = createProgressBar()
+
+  progressBar.start(sortedTreasuries.length, 0)
+
+  for (let i = 0; i < sortedTreasuries.length; i++) {
+    const [project, categoryMap] = sortedTreasuries[i]!
+
+    const projectGroup: any = {
+      group: toTitleCase(project),
+      icon: "building-columns",
+      pages: []
+    }
+
+    // Collect all metrics from all categories and sort alphabetically
+    const allMetrics: Metric[] = []
+    for (const categoryMetrics of categoryMap.values()) {
+      allMetrics.push(...categoryMetrics)
+    }
+    const sortedMetrics = sortMetricsAlphabetically(allMetrics)
+
+    // Treasuries don't have category subgroups - flat list of metrics
+    projectGroup.pages = sortedMetrics.map(metric => `api-reference/metrics/${project}/${metric.identifier}`)
+
+    treasuriesGroup.pages.push(projectGroup)
+    progressBar.update(i + 1)
+  }
+
+  progressBar.stop()
+
+  return treasuriesGroup
 }
 
 /**

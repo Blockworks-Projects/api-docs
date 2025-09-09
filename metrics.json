@@ -1472,6 +1472,29 @@
     "category": "Financials"
   },
   {
+    "name": "Price (USD)",
+    "description": "The average token price during the specified time period for the native asset of that chain.",
+    "identifier": "price",
+    "project": "ethereum",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Token"
+  },
+  {
     "name": "Tokens Launched by Launchpad",
     "description": "Tokens Launched during the specified time period for given launchpad.",
     "identifier": "tokens-launched-by-launchpad",
@@ -8255,29 +8278,6 @@
     "interval": "daily",
     "aggregation": "SUM",
     "category": "Treasury"
-  },
-  {
-    "name": "Price (USD)",
-    "description": "The average token price during the specified time period for the native asset of that chain.",
-    "identifier": "price",
-    "project": "ethereum",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Token"
   },
   {
     "name": "Launchpad Tokens Graduated",

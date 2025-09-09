@@ -40,14 +40,14 @@ function determineProjectCategory(
 ): 'chain' | 'project' | 'etf' | 'treasury' {
   const allMetrics = Array.from(categoryMap.values()).flat()
 
-  if (allMetrics.some(metric => metric.category === 'ETF'))
-    return 'etf'
+  if (allMetrics.some(metric => metric.identifier === 'transactions-failed') || project.toLowerCase() === 'bitcoin')
+    return 'chain'
 
   if (allMetrics.some(metric => metric.category === 'Treasury'))
     return 'treasury'
 
-  if (allMetrics.some(metric => metric.identifier === 'transactions-failed') || project.toLowerCase() === 'bitcoin')
-    return 'chain'
+  if (allMetrics.some(metric => metric.category === 'ETF'))
+    return 'etf'
 
   return 'project'
 }
@@ -58,20 +58,23 @@ function determineProjectCategory(
 export function getCategorySummary(categories: ProjectCategories): {
   chainCount: number
   projectCount: number
-  equityCount: number
+  etfCount: number
+  treasuryCount: number
   totalMetrics: number
 } {
   const chainCount = categories.chains.size
   const projectCount = categories.projects.size
-  const equityCount = categories.equities.size
+  const etfCount = categories.etfs.size
+  const treasuryCount = categories.treasuries.size
 
   const totalMetrics = [
     ...categories.chains.values(),
     ...categories.projects.values(),
-    ...categories.equities.values()
+    ...categories.etfs.values(),
+    ...categories.treasuries.values()
   ].reduce((total, categoryMap) => {
     return total + Array.from(categoryMap.values()).flat().length
   }, 0)
 
-  return { chainCount, projectCount, equityCount, totalMetrics }
+  return { chainCount, projectCount, etfCount, treasuryCount, totalMetrics }
 }

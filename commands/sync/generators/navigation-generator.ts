@@ -20,10 +20,11 @@ export async function updateNavigation(metrics: Metric[], expandOptions?: string
 
   text.detail(text.withCount(`Chains: {count} projects`, summary.chainCount))
   text.detail(text.withCount(`Projects: {count} projects`, summary.projectCount))
-  text.detail(text.withCount(`Equities: {count} projects`, summary.equityCount))
+  text.detail(text.withCount(`ETFs: {count} projects`, summary.etfCount))
+  text.detail(text.withCount(`Treasuries: {count} projects`, summary.treasuryCount))
 
   // Build navigation structure
-  const { chainsGroup, projectsGroup, equitiesGroup, assetsUpdate } = buildNavigationStructure(
+  const { chainsGroup, projectsGroup, etfsGroup, treasuriesGroup, assetsUpdate } = buildNavigationStructure(
     categories,
     expandOptions
   )
@@ -38,7 +39,7 @@ export async function updateNavigation(metrics: Metric[], expandOptions?: string
   }
 
   // Update or create category groups
-  updateNavigationGroups(docs, chainsGroup, projectsGroup, equitiesGroup, metricsGroup)
+  updateNavigationGroups(docs, chainsGroup, projectsGroup, etfsGroup, treasuriesGroup, metricsGroup)
 
   // Update assets navigation if provided
   if (assetsUpdate && expandOptions) {
@@ -57,20 +58,21 @@ function updateNavigationGroups(
   docs: any,
   chainsGroup: any,
   projectsGroup: any,
-  equitiesGroup: any,
+  etfsGroup: any,
+  treasuriesGroup: any,
   metricsGroup: any
 ): void {
   // Remove existing metric groups and add them back in the correct order
   docs.navigation.tabs[0].groups = docs.navigation.tabs[0].groups.filter((g: any) =>
-    !['Metrics : Chains', 'Chains', 'Metrics : Projects', 'Projects', 'Metrics : Equities', 'Equities'].includes(g.group)
+    !['Metrics : Chains', 'Chains', 'Metrics : Projects', 'Projects', 'Metrics : ETFs', 'ETFs', 'Metrics : Treasuries', 'Treasuries', 'Metrics : Equities', 'Equities'].includes(g.group)
   )
 
   // Find the index after the main Metrics group to insert the new groups
   const metricsIndex = docs.navigation.tabs[0].groups.findIndex((g: any) => g.group === 'Metrics')
   const insertIndex = metricsIndex >= 0 ? metricsIndex + 1 : docs.navigation.tabs[0].groups.length
 
-  // Insert groups in the correct order: Chains, Projects, Equities
-  docs.navigation.tabs[0].groups.splice(insertIndex, 0, chainsGroup, projectsGroup, equitiesGroup)
+  // Insert groups in the correct order: Chains, Projects, ETFs, Treasuries
+  docs.navigation.tabs[0].groups.splice(insertIndex, 0, chainsGroup, projectsGroup, etfsGroup, treasuriesGroup)
 
   // Clear existing project pages in metrics group (keep static pages)
   const staticPages = metricsGroup.pages.filter((page: any) => typeof page === 'string')

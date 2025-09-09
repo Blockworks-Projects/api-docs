@@ -1,5 +1,5 @@
 export const METRIC_PAGE = `---
-title: "{metric_project_title} : {metric_name}"
+title: "{metric_project_title}{metric_name}"
 sidebarTitle: "{metric_name}"
 description: "{metric_description}"
 openapi: "GET /v1/metrics/{metric_identifier}"
