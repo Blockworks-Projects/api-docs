@@ -50,7 +50,7 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
     }
   }
 
-  text.pass(text.withCount('{count} existing endpoints analyzed', existingCount))
+  text.detail(text.withCount('Analyzed {count} existing endpoints', existingCount))
   text.detail('Adding missing endpoints and updating project enums')
 
   // Add missing endpoints and update existing ones
@@ -190,8 +190,7 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
     }
   }
 
-  text.pass(text.withCount('Updated {count} response examples with standardized placeholders', updatedExamples))
-
+  text.detail(text.withCount('Updated {count} response examples with standardized placeholders', updatedExamples))
   text.detail('Writing updated OpenAPI specification...')
 
   // Write updated OpenAPI spec

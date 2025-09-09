@@ -1,6 +1,6 @@
 import type { APIError } from '../types'
 import { API } from '../lib/api-client'
-import { apiErrors } from './api-errors'
+import { apiErrors } from '../lib/api-errors'
 
 /**
  * Fetch sample data for an asset expansion option

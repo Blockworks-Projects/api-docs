@@ -1,8 +1,9 @@
 import { readFile } from 'node:fs/promises'
 import type { APIError } from '../types'
 import { API } from '../lib/api-client'
-import { colors as c } from './const'
-import { generateAssetExpansionOption } from './generate-asset-expansion-option'
+import { colors as c } from '../lib/constants'
+import { generateAssetExpansionOption } from './asset-expansion-generator'
+import * as text from '../lib/text'
 
 /**
  * Get valid expand options by calling API with invalid expand value
@@ -15,7 +16,7 @@ const getValidExpandOptions = async (): Promise<string[]> => {
   })
 
   if (!error?.message) {
-    console.log(c.warning('\n     ⚠️ Could not fetch valid expand options from API, using OpenAPI spec'))
+    text.warn('Could not fetch valid expand options from API, using OpenAPI spec')
     return []
   }
 
@@ -23,13 +24,13 @@ const getValidExpandOptions = async (): Promise<string[]> => {
   const errorMessage = typeof error.message === 'string' ? error.message : JSON.stringify(error.message)
   const match = errorMessage.match(/must be one of the following values:\s*(.+)$/i)
   if (!match) {
-    console.log(c.warning('\n     ⚠️ Could not parse expand options from error message, using OpenAPI spec'))
+    text.warn('Could not parse expand options from error message, using OpenAPI spec')
     return []
   }
 
   let options = match[1]?.split(',').map(opt => opt.trim().replace(/[^\w_]+$/, '')) || []
   options = options.filter((option: string) => option !== 'market_cap')
-  console.log(`\n     Detected ${c.number(options.length)} valid expand options from API: ${options.join(', ')}`)
+  text.detail(text.withCount('Detected {count} valid expand options from API: {options}', options.length, options.join(', ')))
   return options
 }
 
@@ -39,15 +40,15 @@ const getValidExpandOptions = async (): Promise<string[]> => {
 export const updateAssetExpansionOptions = async (): Promise<string[]> => {
   const openApiPath = './openapi.json'
 
-  console.log(c.subHeader('\n🔧 Updating asset expansion options...'))
+  text.header('🔧 Updating asset expansion options...')
 
-  console.log(c.subHeader('\n  1. Reading OpenAPI specification...'))
+  text.detail('Reading OpenAPI specification...')
 
   // Read existing OpenAPI spec
   const openApiContent = await readFile(openApiPath, 'utf-8')
   const openApiSpec = JSON.parse(openApiContent)
 
-  console.log(c.subHeader('\n  2. Detecting valid expand options from API...'))
+  text.detail('Detecting valid expand options from API...')
 
   // Try to get valid expand options from API first
   let expandOptions = await getValidExpandOptions()
@@ -63,19 +64,15 @@ export const updateAssetExpansionOptions = async (): Promise<string[]> => {
     console.log(`\n     Found ${c.number(allExpandOptions.length)} expand options from OpenAPI spec: ${expandOptions.join(', ')}`)
   }
 
-  console.log(c.subHeader('\n  3. Creating expansion option pages...'))
+  text.subheader(text.withCount('Creating {count} expansion option pages...', expandOptions.length))
 
   const apiKey = process.env.BWR_API_KEY
   if (!apiKey) {
-    console.log(c.warning('\n     ⚠️ No BWR_API_KEY found, using placeholder examples'))
+    text.warn('No BWR_API_KEY found, using placeholder examples')
   }
 
   // Generate pages in parallel like metrics
   await Promise.all(expandOptions.map(option => generateAssetExpansionOption(option)))
-
-  console.log(`\n  ✅ Asset expansion options updated:`)
-  console.log(c.muted(`     ✓ Created pages: ${c.number(expandOptions.length)}`))
-  console.log(c.muted(`     ✓ Options processed: ${c.number(expandOptions.length)}`))
 
   return expandOptions
 }

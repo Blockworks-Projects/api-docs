@@ -17,6 +17,8 @@ export function displayValidationResults(
   totalChecked: number,
   dataTypeIssueCount: number
 ): void {
+  text.subheader('Validation Results:')
+
   if (dataTypeIssueCount > 0) {
     text.warn(`Found ${dataTypeIssueCount} data_type inconsistencies`)
   } else {

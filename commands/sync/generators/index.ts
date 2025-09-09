@@ -2,6 +2,7 @@ import type { Metric } from '../types'
 import { generateMetricPage } from './metric-page-generator'
 import { updateOpenApiSpec } from './openapi-generator'
 import { updateNavigation } from './navigation-generator'
+import { updateAssetExpansionOptions } from './asset-expansion-options-generator'
 import { colors as c } from '../lib/constants'
 import * as text from '../lib/text'
 import { createProgressBar } from '../lib/createProgressBar'
@@ -20,10 +21,9 @@ export async function runGeneratorsStage(metrics: Metric[]): Promise<void> {
   // Stage 3: Update OpenAPI spec
   await updateOpenApiSpec(metrics)
 
-  // Stage 4: Update asset expansion options (placeholder - would be implemented)
+  // Stage 4: Update asset expansion options
   text.header('🎯 Updating asset expansion options...')
-  text.skip('Skipped - generator needs import path fixes')
-  const expandOptions: string[] = []
+  const expandOptions = await updateAssetExpansionOptions()
 
   // Stage 5: Update misc endpoints (placeholder - would be implemented)
   text.header('🎯 Updating misc endpoints...')
