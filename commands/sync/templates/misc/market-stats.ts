@@ -1,4 +1,5 @@
-import { API } from '../../api'
+import { API } from '../../lib/api-client'
+import * as text from '../../lib/text'
 
 export const marketStatsTemplate = async () => {
   // Fetch real data for the response
@@ -16,9 +17,9 @@ export const marketStatsTemplate = async () => {
         total: actualResponse.total || actualResponse.data.length,
         data: actualResponse.data
       }
-      console.log('Using real API data for market-stats')
+      text.pass('Using real API data for market-stats')
     } else {
-      console.log('API returned empty data, using placeholder')
+      text.fail('API returned empty data, using placeholder')
       // Use realistic placeholder data when API returns empty
       exampleData = {
         page: 1,
@@ -40,7 +41,7 @@ export const marketStatsTemplate = async () => {
       }
     }
   } catch (error: any) {
-    console.log('API call failed, using placeholder data:', error.message)
+    text.fail('API call failed, using placeholder data:', error.message)
     // Use placeholder data if API call fails
     exampleData = {
       page: 1,

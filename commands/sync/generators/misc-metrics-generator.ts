@@ -1,6 +1,6 @@
 import { mkdir, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { marketStatsTemplate } from './templates/misc/market-stats'
+import { marketStatsTemplate } from '../templates/misc/market-stats'
 import * as text from '../lib/text'
 
 /**
@@ -14,21 +14,21 @@ export const syncMiscMetrics = async () => {
   // Ensure misc directory exists
   await mkdir(miscDir, { recursive: true })
 
-  text.detail('Generating market-stats page...')
+  text.header('📈 Generating market-stats page...')
 
   try {
     // Generate market-stats page
     const marketStatsContent = await marketStatsTemplate()
     const marketStatsPath = join(miscDir, 'market-stats.mdx')
     await writeFile(marketStatsPath, marketStatsContent)
-    text.detail(`+ market-stats.mdx`)
+    text.detail(`Created market-stats.mdx`)
 
     // Add more misc endpoints here as needed
     // Example:
     // const anotherEndpointContent = await anotherEndpointTemplate()
     // await writeFile(join(miscDir, 'another-endpoint.mdx'), anotherEndpointContent)
 
-    text.pass('Misc endpoints updated successfully')
+    text.detail('Misc endpoints updated successfully')
 
     return {
       generated: ['market-stats'],

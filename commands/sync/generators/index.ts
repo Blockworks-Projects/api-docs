@@ -3,6 +3,7 @@ import { generateMetricPage } from './metric-page-generator'
 import { updateOpenApiSpec } from './openapi-generator'
 import { updateNavigation } from './navigation-generator'
 import { updateAssetExpansionOptions } from './asset-expansion-options-generator'
+import { syncMiscMetrics } from './misc-metrics-generator'
 import { colors as c } from '../lib/constants'
 import * as text from '../lib/text'
 import { createProgressBar } from '../lib/createProgressBar'
@@ -25,9 +26,8 @@ export async function runGeneratorsStage(metrics: Metric[]): Promise<void> {
   text.header('🎯 Updating asset expansion options...')
   const expandOptions = await updateAssetExpansionOptions()
 
-  // Stage 5: Update misc endpoints (placeholder - would be implemented)
-  text.header('🎯 Updating misc endpoints...')
-  text.skip('Skipped - generator needs import path fixes')
+  // Stage 5: Update misc endpoints
+  await syncMiscMetrics()
 
   // Stage 6: Update navigation
   await updateNavigation(metrics, expandOptions)
