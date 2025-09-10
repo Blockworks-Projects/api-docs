@@ -18,12 +18,12 @@ mode: "wide"
 
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworks.com/v1/metrics/treasury-token-holdings?project=CYFRD"
+  "https://api.blockworks.com/v1/metrics/treasury-token-holdings?project=STKE"
 ```
 
 ```typescript TypeScript
 const res = await fetch(
-  'https://api.blockworks.com/v1/metrics/treasury-token-holdings?project=CYFRD',
+  'https://api.blockworks.com/v1/metrics/treasury-token-holdings?project=STKE',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
@@ -35,7 +35,7 @@ import requests
 r = requests.get(
   'https://api.blockworks.com/v1/metrics/treasury-token-holdings',
   headers={'x-api-key': 'YOUR_API_KEY'},
-  params={'project': 'CYFRD'}
+  params={'project': 'STKE'}
 )
 data = r.json()
 ```
@@ -46,7 +46,24 @@ data = r.json()
 
 ```json
 {
-  "cyfrd": []
+  "stke": [
+    {
+      "date": "2025-09-10",
+      "value": 432429.5077738531
+    },
+    {
+      "date": "2025-09-09",
+      "value": 432429.5077738531
+    },
+    {
+      "date": "2025-09-08",
+      "value": 432429.5077738531
+    },
+    {
+      "date": "2025-09-05",
+      "value": 400984.21278549597
+    }
+  ]
 }
 ```
 

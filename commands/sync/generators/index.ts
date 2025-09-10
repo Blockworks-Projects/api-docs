@@ -1,12 +1,10 @@
 import { Metric } from '../classes'
-import type { Metric as MetricType } from '../types'
 import { generateMetricPage } from './metric-page-generator'
 import { updateOpenApiSpec } from './openapi-generator'
 import { updateNavigation } from './navigation-generator'
 import { updateAssetExpansionOptions } from './asset-expansion-options-generator'
 import { syncMiscMetrics } from './misc-metrics-generator'
 import { generateMetricsCatalog } from './catalog-generator'
-import { colors as c } from '../lib/constants'
 import * as text from '../lib/text'
 import { createProgressBar } from '../lib/createProgressBar'
 

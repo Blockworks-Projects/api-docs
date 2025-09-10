@@ -51,7 +51,7 @@ Median of the sum of the base fee and priority fee that day in native chain toke
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/activity/fee-median) | `fee-median` | Blockworks | daily | timeseries_float |
 | [Base](/api-reference/metrics/base/activity/fee-median) | `fee-median` | Blockworks | daily | timeseries_float |
-| [Ethereum](/api-reference/metrics/ethereum/activity/fee-median) | `fee-median` | Blockworks | daily | timeseries_usd |
+| [Ethereum](/api-reference/metrics/ethereum/activity/fee-median) | `fee-median` | Blockworks | daily | timeseries_float |
 | [Solana](/api-reference/metrics/solana/activity/fee-median) | `fee-median` | Blockworks | daily | timeseries_float |
 
 ### Fee Median (USD)
@@ -447,42 +447,6 @@ Total transaction fees paid converted to USD, does not include out-of-protocol t
 | [Ethereum](/api-reference/metrics/ethereum/financials/transaction-fees-usd) | `transaction-fees-usd` | Blockworks | daily | timeseries_usd |
 | [Solana](/api-reference/metrics/solana/financials/transaction-fees-usd) | `transaction-fees-usd` | Blockworks | daily | timeseries_usd |
 
-### Treasury Asset
-
-Name of the crypto asset the treasury company is accumulating
-
-
-| Project | Identifier | Source | Interval | Data Type |
-|-------|------------|--------|----------|-----------|
-| [CYFRD](/api-reference/metrics/CYFRD/financials/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
-
-### NAV (USD)
-
-Dollar value of crypto assets (does not include cash)
-
-
-| Project | Identifier | Source | Interval | Data Type |
-|-------|------------|--------|----------|-----------|
-| [CYFRD](/api-reference/metrics/CYFRD/financials/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
-
-### Treasury Holdings
-
-Number of tokens held by the company. See crypto-asset for asset indicator
-
-
-| Project | Identifier | Source | Interval | Data Type |
-|-------|------------|--------|----------|-----------|
-| [CYFRD](/api-reference/metrics/CYFRD/financials/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
-
-### Treasury Volume (USD)
-
-USD volume over the period
-
-
-| Project | Identifier | Source | Interval | Data Type |
-|-------|------------|--------|----------|-----------|
-| [CYFRD](/api-reference/metrics/CYFRD/financials/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
-
 # Stablecoins
 
 ### Stablecoin Circulating Supply
@@ -701,6 +665,7 @@ Name of the crypto asset the treasury company is accumulating
 | [SBET](/api-reference/metrics/SBET/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
 | [SMLR](/api-reference/metrics/SMLR/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
 | [SQNS](/api-reference/metrics/SQNS/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
+| [STKE](/api-reference/metrics/STKE/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
 | [UPXI](/api-reference/metrics/UPXI/treasury/treasury-crypto-asset) | `treasury-crypto-asset` | Blockworks | daily | string |
 
 ### mNAV
@@ -749,6 +714,7 @@ Dollar value of crypto assets (does not include cash)
 | [SBET](/api-reference/metrics/SBET/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
 | [SMLR](/api-reference/metrics/SMLR/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
 | [SQNS](/api-reference/metrics/SQNS/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
+| [STKE](/api-reference/metrics/STKE/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
 | [UPXI](/api-reference/metrics/UPXI/treasury/treasury-nav-usd) | `treasury-nav-usd` | Blockworks | daily | timeseries_usd |
 
 ### Treasury Holdings
@@ -773,6 +739,7 @@ Number of tokens held by the company. See crypto-asset for asset indicator
 | [SBET](/api-reference/metrics/SBET/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
 | [SMLR](/api-reference/metrics/SMLR/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
 | [SQNS](/api-reference/metrics/SQNS/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
+| [STKE](/api-reference/metrics/STKE/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
 | [UPXI](/api-reference/metrics/UPXI/treasury/treasury-token-holdings) | `treasury-token-holdings` | Blockworks | daily | timeseries_float |
 
 ### Treasury Volume (USD)
@@ -797,5 +764,6 @@ USD volume over the period
 | [SBET](/api-reference/metrics/SBET/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
 | [SMLR](/api-reference/metrics/SMLR/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
 | [SQNS](/api-reference/metrics/SQNS/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
+| [STKE](/api-reference/metrics/STKE/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
 | [UPXI](/api-reference/metrics/UPXI/treasury/treasury-volume-usd) | `treasury-volume-usd` | Blockworks | daily | timeseries_usd |
 

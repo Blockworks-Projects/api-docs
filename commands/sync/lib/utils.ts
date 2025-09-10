@@ -1,15 +1,3 @@
-import type { Metric } from '../types'
-
-/**
- * Determine unit from data_type
- */
-export const getUnit = (metric: Metric): string => {
-  if (metric.data_type === 'string') return 'string'
-  if (metric.identifier.includes('-usd') || metric.data_type.includes('usd')) return 'USD'
-  if (metric.data_type.includes('float')) return 'native units'
-  if (metric.data_type.includes('int')) return 'count'
-  return 'Various'
-}
 
 /**
  * Capitalize first letter of each word

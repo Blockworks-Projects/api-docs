@@ -499,16 +499,6 @@
                 ]
               },
               {
-                "group": "CYFRD",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/CYFRD/treasury-crypto-asset",
-                  "api-reference/metrics/CYFRD/treasury-nav-usd",
-                  "api-reference/metrics/CYFRD/treasury-token-holdings",
-                  "api-reference/metrics/CYFRD/treasury-volume-usd"
-                ]
-              },
-              {
                 "group": "Dexscreener",
                 "icon": "cube",
                 "pages": [
@@ -1013,7 +1003,7 @@
                 ]
               }
             ],
-            "tag": "95"
+            "tag": "94"
           },
           {
             "group": "Metrics : ETFs",
@@ -1367,6 +1357,16 @@
                 ]
               },
               {
+                "group": "STKE",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/STKE/treasury-crypto-asset",
+                  "api-reference/metrics/STKE/treasury-nav-usd",
+                  "api-reference/metrics/STKE/treasury-token-holdings",
+                  "api-reference/metrics/STKE/treasury-volume-usd"
+                ]
+              },
+              {
                 "group": "UPXI",
                 "icon": "building-columns",
                 "pages": [
@@ -1380,7 +1380,7 @@
                 ]
               }
             ],
-            "tag": "16"
+            "tag": "17"
           }
         ]
       },
