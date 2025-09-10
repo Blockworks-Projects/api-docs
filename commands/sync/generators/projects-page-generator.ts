@@ -21,19 +21,19 @@ import { useState, useMemo } from 'react'
 export const ProjectsTable = () => {
   const [search, setSearch] = useState('')
   const [typeFilter, setTypeFilter] = useState('all')
-  
+
   const projects = ${JSON.stringify(projects, null, 2)}
-  
+
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
-      const matchesSearch = search === '' || 
+      const matchesSearch = search === '' ||
         project.name.toLowerCase().includes(search.toLowerCase()) ||
         project.categories.some(cat => cat.toLowerCase().includes(search.toLowerCase()))
       const matchesType = typeFilter === 'all' || project.type === typeFilter
       return matchesSearch && matchesType
     })
   }, [search, typeFilter])
-  
+
   const stats = useMemo(() => ({
     chains: projects.filter(p => p.type === 'Chain').length,
     projects: projects.filter(p => p.type === 'Project').length,
@@ -41,7 +41,7 @@ export const ProjectsTable = () => {
     treasuries: projects.filter(p => p.type === 'Treasury').length,
     total: projects.length
   }), [])
-  
+
   return (
     <div>
       <div className="mb-6 grid grid-cols-5 gap-4">
@@ -66,7 +66,7 @@ export const ProjectsTable = () => {
           <div className="text-sm text-gray-600 dark:text-gray-400">Total</div>
         </div>
       </div>
-      
+
       <div className="mb-4 flex gap-4">
         <input
           type="text"
@@ -87,11 +87,11 @@ export const ProjectsTable = () => {
           <option value="Treasury">Treasuries</option>
         </select>
       </div>
-      
+
       <div className="text-sm text-gray-500 dark:text-gray-400 mb-4">
         Showing {filteredProjects.length} of {projects.length} projects
       </div>
-      
+
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
@@ -142,42 +142,40 @@ export const ProjectsTable = () => {
 
 ## About This Page
 
-This page is automatically generated during the sync process and contains all ${projects.length} projects currently supported by the Blockworks Data API.
+This page is automatically generated and contains all ${projects.length} projects currently supported by the Blockworks Data API.
 
 - **Chains**: Blockchain networks with transaction and activity metrics
 - **Projects**: DeFi protocols, applications, and platforms
-- **ETFs**: Exchange-traded funds with price and flow metrics  
+- **ETFs**: Exchange-traded funds with price and flow metrics
 - **Treasuries**: Corporate and protocol treasury holdings
-
-> Don't see your project? Contact us via the in-app feedback form or reach out to Sales/Support.
 `
 
 export const generateProjectsPage = async (projects: Project[]): Promise<void> => {
   text.header('📋 Generating projects supported page...')
-  
+
   // Transform projects into simplified data structure
   const projectData: ProjectData[] = projects
     .map(project => ({
-      name: project.name,
-      type: project.type === 'chain' ? 'Chain' : 
+      name: project.title,
+      type: project.type === 'chain' ? 'Chain' :
             project.type === 'etf' ? 'ETF' :
-            project.type === 'treasury' ? 'Treasury' : 'Project',
+            project.type === 'treasury' ? 'Treasury' : 'Project' as const,
       metrics: project.metrics.length,
       categories: [...new Set(project.metrics.map(m => m.category))].filter(Boolean).sort(),
       slug: project.slug
     }))
     .sort((a, b) => {
       // Sort by type (Chains first, then Projects, ETFs, Treasuries)
-      const typeOrder = { 'Chain': 0, 'Project': 1, 'ETF': 2, 'Treasury': 3 }
+      const typeOrder: Record<string, number> = { 'Chain': 0, 'Project': 1, 'ETF': 2, 'Treasury': 3 }
       if (typeOrder[a.type] !== typeOrder[b.type]) {
-        return typeOrder[a.type] - typeOrder[b.type]
+        return typeOrder[a.type]! - typeOrder[b.type]!
       }
       // Then alphabetically by name
       return a.name.localeCompare(b.name)
-    })
-  
+    }) as ProjectData[]
+
   const content = getProjectsPageTemplate(projectData)
   await writeTextFile('./projects-supported.mdx', content)
-  
+
   text.detail(`Generated projects page with ${projects.length} projects`)
 }

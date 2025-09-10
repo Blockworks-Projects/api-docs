@@ -9,10 +9,10 @@ import { useState, useMemo } from 'react'
 export const ProjectsTable = () => {
   const [search, setSearch] = useState('')
   const [typeFilter, setTypeFilter] = useState('all')
-  
+
   const projects = [
   {
-    "name": "arbitrum",
+    "name": "Arbitrum",
     "type": "Chain",
     "metrics": 27,
     "categories": [
@@ -25,7 +25,7 @@ export const ProjectsTable = () => {
     "slug": "arbitrum"
   },
   {
-    "name": "base",
+    "name": "Base",
     "type": "Chain",
     "metrics": 22,
     "categories": [
@@ -37,7 +37,7 @@ export const ProjectsTable = () => {
     "slug": "base"
   },
   {
-    "name": "bitcoin",
+    "name": "Bitcoin",
     "type": "Chain",
     "metrics": 1,
     "categories": [
@@ -46,7 +46,7 @@ export const ProjectsTable = () => {
     "slug": "bitcoin"
   },
   {
-    "name": "ethereum",
+    "name": "Ethereum",
     "type": "Chain",
     "metrics": 33,
     "categories": [
@@ -60,7 +60,7 @@ export const ProjectsTable = () => {
     "slug": "ethereum"
   },
   {
-    "name": "solana",
+    "name": "Solana",
     "type": "Chain",
     "metrics": 31,
     "categories": [
@@ -74,7 +74,7 @@ export const ProjectsTable = () => {
     "slug": "solana"
   },
   {
-    "name": "aave",
+    "name": "Aave",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -83,7 +83,7 @@ export const ProjectsTable = () => {
     "slug": "aave"
   },
   {
-    "name": "aerodrome",
+    "name": "Aerodrome",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -92,7 +92,7 @@ export const ProjectsTable = () => {
     "slug": "aerodrome"
   },
   {
-    "name": "apex",
+    "name": "Apex",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -101,7 +101,7 @@ export const ProjectsTable = () => {
     "slug": "apex"
   },
   {
-    "name": "aries",
+    "name": "Aries",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -110,7 +110,7 @@ export const ProjectsTable = () => {
     "slug": "aries"
   },
   {
-    "name": "aster",
+    "name": "Aster",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -119,7 +119,7 @@ export const ProjectsTable = () => {
     "slug": "aster"
   },
   {
-    "name": "axiom",
+    "name": "Axiom",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -128,7 +128,7 @@ export const ProjectsTable = () => {
     "slug": "axiom"
   },
   {
-    "name": "bags",
+    "name": "Bags",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -137,7 +137,7 @@ export const ProjectsTable = () => {
     "slug": "bags"
   },
   {
-    "name": "balancer",
+    "name": "Balancer",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -146,7 +146,7 @@ export const ProjectsTable = () => {
     "slug": "balancer"
   },
   {
-    "name": "banana-gun",
+    "name": "Banana Gun",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -155,7 +155,7 @@ export const ProjectsTable = () => {
     "slug": "banana-gun"
   },
   {
-    "name": "believe",
+    "name": "Believe",
     "type": "Project",
     "metrics": 4,
     "categories": [
@@ -165,7 +165,7 @@ export const ProjectsTable = () => {
     "slug": "believe"
   },
   {
-    "name": "bloom",
+    "name": "Bloom",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -174,7 +174,7 @@ export const ProjectsTable = () => {
     "slug": "bloom"
   },
   {
-    "name": "bloxroute",
+    "name": "Bloxroute",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -183,7 +183,7 @@ export const ProjectsTable = () => {
     "slug": "bloxroute"
   },
   {
-    "name": "bluefin",
+    "name": "Bluefin",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -192,7 +192,7 @@ export const ProjectsTable = () => {
     "slug": "bluefin"
   },
   {
-    "name": "bonk",
+    "name": "Bonk",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -201,7 +201,7 @@ export const ProjectsTable = () => {
     "slug": "bonk"
   },
   {
-    "name": "boopfun",
+    "name": "Boopfun",
     "type": "Project",
     "metrics": 2,
     "categories": [
@@ -210,7 +210,7 @@ export const ProjectsTable = () => {
     "slug": "boopfun"
   },
   {
-    "name": "bullx",
+    "name": "Bullx",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -219,7 +219,7 @@ export const ProjectsTable = () => {
     "slug": "bullx"
   },
   {
-    "name": "byreal",
+    "name": "Byreal",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -228,7 +228,7 @@ export const ProjectsTable = () => {
     "slug": "byreal"
   },
   {
-    "name": "cetus",
+    "name": "Cetus",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -237,7 +237,7 @@ export const ProjectsTable = () => {
     "slug": "cetus"
   },
   {
-    "name": "clanker",
+    "name": "Clanker",
     "type": "Project",
     "metrics": 2,
     "categories": [
@@ -247,7 +247,7 @@ export const ProjectsTable = () => {
     "slug": "clanker"
   },
   {
-    "name": "clipper",
+    "name": "Clipper",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -256,7 +256,7 @@ export const ProjectsTable = () => {
     "slug": "clipper"
   },
   {
-    "name": "coinbase-wallet",
+    "name": "Coinbase Wallet",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -265,7 +265,7 @@ export const ProjectsTable = () => {
     "slug": "coinbase-wallet"
   },
   {
-    "name": "convex",
+    "name": "Convex",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -274,7 +274,7 @@ export const ProjectsTable = () => {
     "slug": "convex"
   },
   {
-    "name": "cookdotmeme",
+    "name": "Cookdotmeme",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -283,7 +283,7 @@ export const ProjectsTable = () => {
     "slug": "cookdotmeme"
   },
   {
-    "name": "cookmeme",
+    "name": "Cookmeme",
     "type": "Project",
     "metrics": 2,
     "categories": [
@@ -292,7 +292,7 @@ export const ProjectsTable = () => {
     "slug": "cookmeme"
   },
   {
-    "name": "dexscreener",
+    "name": "Dexscreener",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -301,7 +301,7 @@ export const ProjectsTable = () => {
     "slug": "dexscreener"
   },
   {
-    "name": "dodo",
+    "name": "Dodo",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -310,7 +310,7 @@ export const ProjectsTable = () => {
     "slug": "dodo"
   },
   {
-    "name": "drift",
+    "name": "Drift",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -319,7 +319,7 @@ export const ProjectsTable = () => {
     "slug": "drift"
   },
   {
-    "name": "dydx",
+    "name": "Dydx",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -328,7 +328,7 @@ export const ProjectsTable = () => {
     "slug": "dydx"
   },
   {
-    "name": "eigenlayer",
+    "name": "Eigenlayer",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -337,7 +337,7 @@ export const ProjectsTable = () => {
     "slug": "eigenlayer"
   },
   {
-    "name": "ethena",
+    "name": "Ethena",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -346,7 +346,7 @@ export const ProjectsTable = () => {
     "slug": "ethena"
   },
   {
-    "name": "euler",
+    "name": "Euler",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -355,7 +355,7 @@ export const ProjectsTable = () => {
     "slug": "euler"
   },
   {
-    "name": "flashbots",
+    "name": "Flashbots",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -364,7 +364,7 @@ export const ProjectsTable = () => {
     "slug": "flashbots"
   },
   {
-    "name": "fourmeme",
+    "name": "Fourmeme",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -373,7 +373,7 @@ export const ProjectsTable = () => {
     "slug": "fourmeme"
   },
   {
-    "name": "gmgn",
+    "name": "Gmgn",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -382,7 +382,7 @@ export const ProjectsTable = () => {
     "slug": "gmgn"
   },
   {
-    "name": "gmx",
+    "name": "Gmx",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -391,7 +391,7 @@ export const ProjectsTable = () => {
     "slug": "gmx"
   },
   {
-    "name": "goonfi",
+    "name": "Goonfi",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -400,7 +400,7 @@ export const ProjectsTable = () => {
     "slug": "goonfi"
   },
   {
-    "name": "humidifi",
+    "name": "Humidifi",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -409,7 +409,7 @@ export const ProjectsTable = () => {
     "slug": "humidifi"
   },
   {
-    "name": "hyperliquid",
+    "name": "Hyperliquid",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -418,7 +418,7 @@ export const ProjectsTable = () => {
     "slug": "hyperliquid"
   },
   {
-    "name": "ironbank",
+    "name": "Ironbank",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -427,7 +427,7 @@ export const ProjectsTable = () => {
     "slug": "ironbank"
   },
   {
-    "name": "jito",
+    "name": "Jito",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -436,7 +436,7 @@ export const ProjectsTable = () => {
     "slug": "jito"
   },
   {
-    "name": "jupstudio",
+    "name": "Jupstudio",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -445,7 +445,7 @@ export const ProjectsTable = () => {
     "slug": "jupstudio"
   },
   {
-    "name": "kamino",
+    "name": "Kamino",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -454,7 +454,7 @@ export const ProjectsTable = () => {
     "slug": "kamino"
   },
   {
-    "name": "letsbonk",
+    "name": "Letsbonk",
     "type": "Project",
     "metrics": 2,
     "categories": [
@@ -463,7 +463,7 @@ export const ProjectsTable = () => {
     "slug": "letsbonk"
   },
   {
-    "name": "letsbonkdotfun",
+    "name": "Letsbonkdotfun",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -472,7 +472,7 @@ export const ProjectsTable = () => {
     "slug": "letsbonkdotfun"
   },
   {
-    "name": "letsbonkfun",
+    "name": "Letsbonkfun",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -481,7 +481,7 @@ export const ProjectsTable = () => {
     "slug": "letsbonkfun"
   },
   {
-    "name": "level",
+    "name": "Level",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -490,7 +490,7 @@ export const ProjectsTable = () => {
     "slug": "level"
   },
   {
-    "name": "lido",
+    "name": "Lido",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -499,7 +499,7 @@ export const ProjectsTable = () => {
     "slug": "lido"
   },
   {
-    "name": "lifi",
+    "name": "Lifi",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -508,7 +508,7 @@ export const ProjectsTable = () => {
     "slug": "lifi"
   },
   {
-    "name": "lifinity",
+    "name": "Lifinity",
     "type": "Project",
     "metrics": 2,
     "categories": [
@@ -518,7 +518,7 @@ export const ProjectsTable = () => {
     "slug": "lifinity"
   },
   {
-    "name": "looter",
+    "name": "Looter",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -527,7 +527,7 @@ export const ProjectsTable = () => {
     "slug": "looter"
   },
   {
-    "name": "maestro",
+    "name": "Maestro",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -536,7 +536,7 @@ export const ProjectsTable = () => {
     "slug": "maestro"
   },
   {
-    "name": "metaplex",
+    "name": "Metaplex",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -545,7 +545,7 @@ export const ProjectsTable = () => {
     "slug": "metaplex"
   },
   {
-    "name": "meteroa",
+    "name": "Meteroa",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -554,7 +554,7 @@ export const ProjectsTable = () => {
     "slug": "meteroa"
   },
   {
-    "name": "meth-protocol",
+    "name": "Meth Protocol",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -563,7 +563,7 @@ export const ProjectsTable = () => {
     "slug": "meth-protocol"
   },
   {
-    "name": "mevx",
+    "name": "Mevx",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -572,7 +572,7 @@ export const ProjectsTable = () => {
     "slug": "mevx"
   },
   {
-    "name": "moonshot",
+    "name": "Moonshot",
     "type": "Project",
     "metrics": 4,
     "categories": [
@@ -582,7 +582,7 @@ export const ProjectsTable = () => {
     "slug": "moonshot"
   },
   {
-    "name": "morpho",
+    "name": "Morpho",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -591,7 +591,7 @@ export const ProjectsTable = () => {
     "slug": "morpho"
   },
   {
-    "name": "navi-protocol",
+    "name": "Navi Protocol",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -600,7 +600,7 @@ export const ProjectsTable = () => {
     "slug": "navi-protocol"
   },
   {
-    "name": "nova",
+    "name": "Nova",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -609,7 +609,7 @@ export const ProjectsTable = () => {
     "slug": "nova"
   },
   {
-    "name": "odos",
+    "name": "Odos",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -618,7 +618,7 @@ export const ProjectsTable = () => {
     "slug": "odos"
   },
   {
-    "name": "opensea",
+    "name": "Opensea",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -627,7 +627,7 @@ export const ProjectsTable = () => {
     "slug": "opensea"
   },
   {
-    "name": "orca",
+    "name": "Orca",
     "type": "Project",
     "metrics": 2,
     "categories": [
@@ -637,7 +637,7 @@ export const ProjectsTable = () => {
     "slug": "orca"
   },
   {
-    "name": "ostium",
+    "name": "Ostium",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -646,7 +646,7 @@ export const ProjectsTable = () => {
     "slug": "ostium"
   },
   {
-    "name": "other-launchpads",
+    "name": "Other Launchpads",
     "type": "Project",
     "metrics": 2,
     "categories": [
@@ -655,7 +655,7 @@ export const ProjectsTable = () => {
     "slug": "other-launchpads"
   },
   {
-    "name": "paal-ai",
+    "name": "Paal Ai",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -664,7 +664,7 @@ export const ProjectsTable = () => {
     "slug": "paal-ai"
   },
   {
-    "name": "pancakeswap",
+    "name": "Pancakeswap",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -673,7 +673,7 @@ export const ProjectsTable = () => {
     "slug": "pancakeswap"
   },
   {
-    "name": "paradex",
+    "name": "Paradex",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -682,7 +682,7 @@ export const ProjectsTable = () => {
     "slug": "paradex"
   },
   {
-    "name": "phantom",
+    "name": "Phantom",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -691,7 +691,7 @@ export const ProjectsTable = () => {
     "slug": "phantom"
   },
   {
-    "name": "photon",
+    "name": "Photon",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -700,7 +700,7 @@ export const ProjectsTable = () => {
     "slug": "photon"
   },
   {
-    "name": "pumpfun",
+    "name": "Pumpfun",
     "type": "Project",
     "metrics": 5,
     "categories": [
@@ -711,7 +711,7 @@ export const ProjectsTable = () => {
     "slug": "pumpfun"
   },
   {
-    "name": "raydium",
+    "name": "Raydium",
     "type": "Project",
     "metrics": 4,
     "categories": [
@@ -722,7 +722,7 @@ export const ProjectsTable = () => {
     "slug": "raydium"
   },
   {
-    "name": "scallop",
+    "name": "Scallop",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -731,7 +731,7 @@ export const ProjectsTable = () => {
     "slug": "scallop"
   },
   {
-    "name": "solfi",
+    "name": "Solfi",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -740,7 +740,7 @@ export const ProjectsTable = () => {
     "slug": "solfi"
   },
   {
-    "name": "soltradingbot",
+    "name": "Soltradingbot",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -749,7 +749,7 @@ export const ProjectsTable = () => {
     "slug": "soltradingbot"
   },
   {
-    "name": "sosovalue",
+    "name": "Sosovalue",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -758,7 +758,7 @@ export const ProjectsTable = () => {
     "slug": "sosovalue"
   },
   {
-    "name": "spark",
+    "name": "Spark",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -767,7 +767,7 @@ export const ProjectsTable = () => {
     "slug": "spark"
   },
   {
-    "name": "stabble",
+    "name": "Stabble",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -776,7 +776,7 @@ export const ProjectsTable = () => {
     "slug": "stabble"
   },
   {
-    "name": "stable-labs",
+    "name": "Stable Labs",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -785,7 +785,7 @@ export const ProjectsTable = () => {
     "slug": "stable-labs"
   },
   {
-    "name": "stakewise",
+    "name": "Stakewise",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -794,7 +794,7 @@ export const ProjectsTable = () => {
     "slug": "stakewise"
   },
   {
-    "name": "sushiswap",
+    "name": "Sushiswap",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -803,7 +803,7 @@ export const ProjectsTable = () => {
     "slug": "sushiswap"
   },
   {
-    "name": "syncswap",
+    "name": "Syncswap",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -812,7 +812,7 @@ export const ProjectsTable = () => {
     "slug": "syncswap"
   },
   {
-    "name": "tensor",
+    "name": "Tensor",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -821,7 +821,7 @@ export const ProjectsTable = () => {
     "slug": "tensor"
   },
   {
-    "name": "tessera",
+    "name": "Tessera",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -830,7 +830,7 @@ export const ProjectsTable = () => {
     "slug": "tessera"
   },
   {
-    "name": "thearena",
+    "name": "Thearena",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -839,7 +839,7 @@ export const ProjectsTable = () => {
     "slug": "thearena"
   },
   {
-    "name": "thorchain-dex",
+    "name": "Thorchain Dex",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -848,7 +848,7 @@ export const ProjectsTable = () => {
     "slug": "thorchain-dex"
   },
   {
-    "name": "tornado",
+    "name": "Tornado",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -857,7 +857,7 @@ export const ProjectsTable = () => {
     "slug": "tornado"
   },
   {
-    "name": "trojan",
+    "name": "Trojan",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -866,7 +866,7 @@ export const ProjectsTable = () => {
     "slug": "trojan"
   },
   {
-    "name": "uniswap",
+    "name": "Uniswap",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -875,7 +875,7 @@ export const ProjectsTable = () => {
     "slug": "uniswap"
   },
   {
-    "name": "uniswap-labs",
+    "name": "Uniswap Labs",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -884,7 +884,7 @@ export const ProjectsTable = () => {
     "slug": "uniswap-labs"
   },
   {
-    "name": "virtuals",
+    "name": "Virtuals",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -893,7 +893,7 @@ export const ProjectsTable = () => {
     "slug": "virtuals"
   },
   {
-    "name": "wavebreak",
+    "name": "Wavebreak",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -902,7 +902,7 @@ export const ProjectsTable = () => {
     "slug": "wavebreak"
   },
   {
-    "name": "wildcat",
+    "name": "Wildcat",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -920,7 +920,7 @@ export const ProjectsTable = () => {
     "slug": "ZeroFi"
   },
   {
-    "name": "zora",
+    "name": "Zora",
     "type": "Project",
     "metrics": 1,
     "categories": [
@@ -1271,17 +1271,17 @@ export const ProjectsTable = () => {
     "slug": "UPXI"
   }
 ]
-  
+
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
-      const matchesSearch = search === '' || 
+      const matchesSearch = search === '' ||
         project.name.toLowerCase().includes(search.toLowerCase()) ||
         project.categories.some(cat => cat.toLowerCase().includes(search.toLowerCase()))
       const matchesType = typeFilter === 'all' || project.type === typeFilter
       return matchesSearch && matchesType
     })
   }, [search, typeFilter])
-  
+
   const stats = useMemo(() => ({
     chains: projects.filter(p => p.type === 'Chain').length,
     projects: projects.filter(p => p.type === 'Project').length,
@@ -1289,7 +1289,7 @@ export const ProjectsTable = () => {
     treasuries: projects.filter(p => p.type === 'Treasury').length,
     total: projects.length
   }), [])
-  
+
   return (
     <div>
       <div className="mb-6 grid grid-cols-5 gap-4">
@@ -1314,7 +1314,7 @@ export const ProjectsTable = () => {
           <div className="text-sm text-gray-600 dark:text-gray-400">Total</div>
         </div>
       </div>
-      
+
       <div className="mb-4 flex gap-4">
         <input
           type="text"
@@ -1335,11 +1335,11 @@ export const ProjectsTable = () => {
           <option value="Treasury">Treasuries</option>
         </select>
       </div>
-      
+
       <div className="text-sm text-gray-500 dark:text-gray-400 mb-4">
         Showing {filteredProjects.length} of {projects.length} projects
       </div>
-      
+
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
@@ -1390,11 +1390,9 @@ export const ProjectsTable = () => {
 
 ## About This Page
 
-This page is automatically generated during the sync process and contains all 137 projects currently supported by the Blockworks Data API.
+This page is automatically generated and contains all 137 projects currently supported by the Blockworks Data API.
 
 - **Chains**: Blockchain networks with transaction and activity metrics
 - **Projects**: DeFi protocols, applications, and platforms
-- **ETFs**: Exchange-traded funds with price and flow metrics  
+- **ETFs**: Exchange-traded funds with price and flow metrics
 - **Treasuries**: Corporate and protocol treasury holdings
-
-> Don't see your project? Contact us via the in-app feedback form or reach out to Sales/Support.
