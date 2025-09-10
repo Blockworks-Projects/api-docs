@@ -1293,26 +1293,61 @@ export const ProjectsTable = () => {
   return (
     <div>
       <div className="mb-6 grid grid-cols-5 gap-4">
-        <div className="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
+        <button 
+          onClick={() => setTypeFilter('Chain')}
+          className={`text-center p-3 rounded-lg transition-all cursor-pointer hover:scale-105 ${
+            typeFilter === 'Chain' 
+              ? 'bg-blue-100 dark:bg-blue-900 ring-2 ring-blue-500 dark:ring-blue-400' 
+              : 'bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700'
+          }`}
+        >
           <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{stats.chains}</div>
           <div className="text-sm text-gray-600 dark:text-gray-400">Chains</div>
-        </div>
-        <div className="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
+        </button>
+        <button 
+          onClick={() => setTypeFilter('Project')}
+          className={`text-center p-3 rounded-lg transition-all cursor-pointer hover:scale-105 ${
+            typeFilter === 'Project' 
+              ? 'bg-green-100 dark:bg-green-900 ring-2 ring-green-500 dark:ring-green-400' 
+              : 'bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700'
+          }`}
+        >
           <div className="text-2xl font-bold text-green-600 dark:text-green-400">{stats.projects}</div>
           <div className="text-sm text-gray-600 dark:text-gray-400">Projects</div>
-        </div>
-        <div className="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
+        </button>
+        <button 
+          onClick={() => setTypeFilter('ETF')}
+          className={`text-center p-3 rounded-lg transition-all cursor-pointer hover:scale-105 ${
+            typeFilter === 'ETF' 
+              ? 'bg-purple-100 dark:bg-purple-900 ring-2 ring-purple-500 dark:ring-purple-400' 
+              : 'bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700'
+          }`}
+        >
           <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">{stats.etfs}</div>
           <div className="text-sm text-gray-600 dark:text-gray-400">ETFs</div>
-        </div>
-        <div className="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
+        </button>
+        <button 
+          onClick={() => setTypeFilter('Treasury')}
+          className={`text-center p-3 rounded-lg transition-all cursor-pointer hover:scale-105 ${
+            typeFilter === 'Treasury' 
+              ? 'bg-orange-100 dark:bg-orange-900 ring-2 ring-orange-500 dark:ring-orange-400' 
+              : 'bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700'
+          }`}
+        >
           <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">{stats.treasuries}</div>
           <div className="text-sm text-gray-600 dark:text-gray-400">Treasuries</div>
-        </div>
-        <div className="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
+        </button>
+        <button 
+          onClick={() => setTypeFilter('all')}
+          className={`text-center p-3 rounded-lg transition-all cursor-pointer hover:scale-105 ${
+            typeFilter === 'all' 
+              ? 'bg-gray-200 dark:bg-gray-700 ring-2 ring-gray-500 dark:ring-gray-400' 
+              : 'bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700'
+          }`}
+        >
           <div className="text-2xl font-bold text-gray-600 dark:text-gray-400">{stats.total}</div>
           <div className="text-sm text-gray-600 dark:text-gray-400">Total</div>
-        </div>
+        </button>
       </div>
 
       <div className="mb-4 flex gap-4">
