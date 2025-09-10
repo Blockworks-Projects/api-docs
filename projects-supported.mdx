@@ -1,32 +1,1400 @@
 ---
-title: 'Projects supported'
-description: 'Chains and projects currently supported by the Blockworks Data API'
+title: 'Projects Supported'
+description: 'All chains and projects currently supported by the Blockworks Data API'
 icon: list
 ---
 
-A list of networks you can access with the API. Click any network to see project-specific docs and example requests.
+import { useState, useMemo } from 'react'
 
-<CardGroup cols={2}>
-  <Card
-    title="Ethereum"
-    icon="https://assets.coingecko.com/coins/images/279/standard/ethereum.png?1696501628"
-    href="/api-reference/metrics/ethereum/address-total"
-  />
-  <Card
-    title="Base"
-    icon="/images/_base-square.svg"
-    href="/api-reference/metrics/base/dex-spot-volume"
-  />
-  <Card
-    title="Arbitrum"
-    icon="https://assets.coingecko.com/coins/images/16547/standard/arb.jpg?1721358242"
-    href="/api-reference/metrics/arbitrum/address-total"
-  />
-  <Card
-    title="Solana"
-    icon="https://assets.coingecko.com/coins/images/4128/standard/solana.png?1718769756"
-    href="/api-reference/metrics/solana/dex-spot-volume"
-  />
-</CardGroup>
+export const ProjectsTable = () => {
+  const [search, setSearch] = useState('')
+  const [typeFilter, setTypeFilter] = useState('all')
+  
+  const projects = [
+  {
+    "name": "arbitrum",
+    "type": "Chain",
+    "metrics": 27,
+    "categories": [
+      "Activity",
+      "Financials",
+      "Stablecoins",
+      "Token",
+      "Trading"
+    ],
+    "slug": "arbitrum"
+  },
+  {
+    "name": "base",
+    "type": "Chain",
+    "metrics": 22,
+    "categories": [
+      "Activity",
+      "Financials",
+      "Stablecoins",
+      "Trading"
+    ],
+    "slug": "base"
+  },
+  {
+    "name": "bitcoin",
+    "type": "Chain",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "bitcoin"
+  },
+  {
+    "name": "ethereum",
+    "type": "Chain",
+    "metrics": 33,
+    "categories": [
+      "Activity",
+      "ETF",
+      "Financials",
+      "Stablecoins",
+      "Token",
+      "Trading"
+    ],
+    "slug": "ethereum"
+  },
+  {
+    "name": "solana",
+    "type": "Chain",
+    "metrics": 31,
+    "categories": [
+      "Activity",
+      "ETF",
+      "Financials",
+      "Stablecoins",
+      "Token",
+      "Trading"
+    ],
+    "slug": "solana"
+  },
+  {
+    "name": "aave",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "aave"
+  },
+  {
+    "name": "aerodrome",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "aerodrome"
+  },
+  {
+    "name": "apex",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "apex"
+  },
+  {
+    "name": "aries",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "aries"
+  },
+  {
+    "name": "aster",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "aster"
+  },
+  {
+    "name": "axiom",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "axiom"
+  },
+  {
+    "name": "bags",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Token"
+    ],
+    "slug": "bags"
+  },
+  {
+    "name": "balancer",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "balancer"
+  },
+  {
+    "name": "banana-gun",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "banana-gun"
+  },
+  {
+    "name": "believe",
+    "type": "Project",
+    "metrics": 4,
+    "categories": [
+      "Financials",
+      "Token"
+    ],
+    "slug": "believe"
+  },
+  {
+    "name": "bloom",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "bloom"
+  },
+  {
+    "name": "bloxroute",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "bloxroute"
+  },
+  {
+    "name": "bluefin",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "bluefin"
+  },
+  {
+    "name": "bonk",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "bonk"
+  },
+  {
+    "name": "boopfun",
+    "type": "Project",
+    "metrics": 2,
+    "categories": [
+      "Token"
+    ],
+    "slug": "boopfun"
+  },
+  {
+    "name": "bullx",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "bullx"
+  },
+  {
+    "name": "byreal",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Trading"
+    ],
+    "slug": "byreal"
+  },
+  {
+    "name": "cetus",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "cetus"
+  },
+  {
+    "name": "clanker",
+    "type": "Project",
+    "metrics": 2,
+    "categories": [
+      "Financials",
+      "Token"
+    ],
+    "slug": "clanker"
+  },
+  {
+    "name": "clipper",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "clipper"
+  },
+  {
+    "name": "coinbase-wallet",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "coinbase-wallet"
+  },
+  {
+    "name": "convex",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "convex"
+  },
+  {
+    "name": "cookdotmeme",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "cookdotmeme"
+  },
+  {
+    "name": "cookmeme",
+    "type": "Project",
+    "metrics": 2,
+    "categories": [
+      "Token"
+    ],
+    "slug": "cookmeme"
+  },
+  {
+    "name": "dexscreener",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "dexscreener"
+  },
+  {
+    "name": "dodo",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "dodo"
+  },
+  {
+    "name": "drift",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "drift"
+  },
+  {
+    "name": "dydx",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "dydx"
+  },
+  {
+    "name": "eigenlayer",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "eigenlayer"
+  },
+  {
+    "name": "ethena",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "ethena"
+  },
+  {
+    "name": "euler",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "euler"
+  },
+  {
+    "name": "flashbots",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "flashbots"
+  },
+  {
+    "name": "fourmeme",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Token"
+    ],
+    "slug": "fourmeme"
+  },
+  {
+    "name": "gmgn",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "gmgn"
+  },
+  {
+    "name": "gmx",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "gmx"
+  },
+  {
+    "name": "goonfi",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Trading"
+    ],
+    "slug": "goonfi"
+  },
+  {
+    "name": "humidifi",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Trading"
+    ],
+    "slug": "humidifi"
+  },
+  {
+    "name": "hyperliquid",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "hyperliquid"
+  },
+  {
+    "name": "ironbank",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "ironbank"
+  },
+  {
+    "name": "jito",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "jito"
+  },
+  {
+    "name": "jupstudio",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Token"
+    ],
+    "slug": "jupstudio"
+  },
+  {
+    "name": "kamino",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "kamino"
+  },
+  {
+    "name": "letsbonk",
+    "type": "Project",
+    "metrics": 2,
+    "categories": [
+      "Token"
+    ],
+    "slug": "letsbonk"
+  },
+  {
+    "name": "letsbonkdotfun",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "letsbonkdotfun"
+  },
+  {
+    "name": "letsbonkfun",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Token"
+    ],
+    "slug": "letsbonkfun"
+  },
+  {
+    "name": "level",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "level"
+  },
+  {
+    "name": "lido",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "lido"
+  },
+  {
+    "name": "lifi",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "lifi"
+  },
+  {
+    "name": "lifinity",
+    "type": "Project",
+    "metrics": 2,
+    "categories": [
+      "Financials",
+      "Trading"
+    ],
+    "slug": "lifinity"
+  },
+  {
+    "name": "looter",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "looter"
+  },
+  {
+    "name": "maestro",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "maestro"
+  },
+  {
+    "name": "metaplex",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "metaplex"
+  },
+  {
+    "name": "meteroa",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Trading"
+    ],
+    "slug": "meteroa"
+  },
+  {
+    "name": "meth-protocol",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "meth-protocol"
+  },
+  {
+    "name": "mevx",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "mevx"
+  },
+  {
+    "name": "moonshot",
+    "type": "Project",
+    "metrics": 4,
+    "categories": [
+      "Financials",
+      "Token"
+    ],
+    "slug": "moonshot"
+  },
+  {
+    "name": "morpho",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "morpho"
+  },
+  {
+    "name": "navi-protocol",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "navi-protocol"
+  },
+  {
+    "name": "nova",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "nova"
+  },
+  {
+    "name": "odos",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "odos"
+  },
+  {
+    "name": "opensea",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "opensea"
+  },
+  {
+    "name": "orca",
+    "type": "Project",
+    "metrics": 2,
+    "categories": [
+      "Financials",
+      "Trading"
+    ],
+    "slug": "orca"
+  },
+  {
+    "name": "ostium",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "ostium"
+  },
+  {
+    "name": "other-launchpads",
+    "type": "Project",
+    "metrics": 2,
+    "categories": [
+      "Token"
+    ],
+    "slug": "other-launchpads"
+  },
+  {
+    "name": "paal-ai",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "paal-ai"
+  },
+  {
+    "name": "pancakeswap",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "pancakeswap"
+  },
+  {
+    "name": "paradex",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "paradex"
+  },
+  {
+    "name": "phantom",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "phantom"
+  },
+  {
+    "name": "photon",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "photon"
+  },
+  {
+    "name": "pumpfun",
+    "type": "Project",
+    "metrics": 5,
+    "categories": [
+      "Financials",
+      "Token",
+      "Trading"
+    ],
+    "slug": "pumpfun"
+  },
+  {
+    "name": "raydium",
+    "type": "Project",
+    "metrics": 4,
+    "categories": [
+      "Financials",
+      "Token",
+      "Trading"
+    ],
+    "slug": "raydium"
+  },
+  {
+    "name": "scallop",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "scallop"
+  },
+  {
+    "name": "solfi",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Trading"
+    ],
+    "slug": "solfi"
+  },
+  {
+    "name": "soltradingbot",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "soltradingbot"
+  },
+  {
+    "name": "sosovalue",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "sosovalue"
+  },
+  {
+    "name": "spark",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "spark"
+  },
+  {
+    "name": "stabble",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Trading"
+    ],
+    "slug": "stabble"
+  },
+  {
+    "name": "stable-labs",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "stable-labs"
+  },
+  {
+    "name": "stakewise",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "stakewise"
+  },
+  {
+    "name": "sushiswap",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "sushiswap"
+  },
+  {
+    "name": "syncswap",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "syncswap"
+  },
+  {
+    "name": "tensor",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "tensor"
+  },
+  {
+    "name": "tessera",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Trading"
+    ],
+    "slug": "tessera"
+  },
+  {
+    "name": "thearena",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Token"
+    ],
+    "slug": "thearena"
+  },
+  {
+    "name": "thorchain-dex",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "thorchain-dex"
+  },
+  {
+    "name": "tornado",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "tornado"
+  },
+  {
+    "name": "trojan",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "trojan"
+  },
+  {
+    "name": "uniswap",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "uniswap"
+  },
+  {
+    "name": "uniswap-labs",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "uniswap-labs"
+  },
+  {
+    "name": "virtuals",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "virtuals"
+  },
+  {
+    "name": "wavebreak",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Token"
+    ],
+    "slug": "wavebreak"
+  },
+  {
+    "name": "wildcat",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Financials"
+    ],
+    "slug": "wildcat"
+  },
+  {
+    "name": "ZeroFi",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Trading"
+    ],
+    "slug": "ZeroFi"
+  },
+  {
+    "name": "zora",
+    "type": "Project",
+    "metrics": 1,
+    "categories": [
+      "Token"
+    ],
+    "slug": "zora"
+  },
+  {
+    "name": "ARKB",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "ARKB"
+  },
+  {
+    "name": "BITB",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "BITB"
+  },
+  {
+    "name": "BRRR",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "BRRR"
+  },
+  {
+    "name": "BTC",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "BTC"
+  },
+  {
+    "name": "BTCO",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "BTCO"
+  },
+  {
+    "name": "BTCW",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "BTCW"
+  },
+  {
+    "name": "CETH",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "CETH"
+  },
+  {
+    "name": "ETH",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "ETH"
+  },
+  {
+    "name": "ETHA",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "ETHA"
+  },
+  {
+    "name": "ETHE",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "ETHE"
+  },
+  {
+    "name": "ETHV",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "ETHV"
+  },
+  {
+    "name": "ETHW",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "ETHW"
+  },
+  {
+    "name": "EZBC",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "EZBC"
+  },
+  {
+    "name": "EZET",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "EZET"
+  },
+  {
+    "name": "FBTC",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "FBTC"
+  },
+  {
+    "name": "FETH",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "FETH"
+  },
+  {
+    "name": "GBTC",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "GBTC"
+  },
+  {
+    "name": "HODL",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "HODL"
+  },
+  {
+    "name": "IBIT",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "IBIT"
+  },
+  {
+    "name": "QETH",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "QETH"
+  },
+  {
+    "name": "SSK",
+    "type": "ETF",
+    "metrics": 1,
+    "categories": [
+      "ETF"
+    ],
+    "slug": "SSK"
+  },
+  {
+    "name": "BMNR",
+    "type": "Treasury",
+    "metrics": 7,
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "BMNR"
+  },
+  {
+    "name": "BNC",
+    "type": "Treasury",
+    "metrics": 7,
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "BNC"
+  },
+  {
+    "name": "BTBT",
+    "type": "Treasury",
+    "metrics": 7,
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "BTBT"
+  },
+  {
+    "name": "BTCS",
+    "type": "Treasury",
+    "metrics": 7,
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "BTCS"
+  },
+  {
+    "name": "CEP",
+    "type": "Treasury",
+    "metrics": 7,
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "CEP"
+  },
+  {
+    "name": "CEPO",
+    "type": "Treasury",
+    "metrics": 7,
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "CEPO"
+  },
+  {
+    "name": "DFDV",
+    "type": "Treasury",
+    "metrics": 7,
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "DFDV"
+  },
+  {
+    "name": "ETHM",
+    "type": "Treasury",
+    "metrics": 7,
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "ETHM"
+  },
+  {
+    "name": "ETHZ",
+    "type": "Treasury",
+    "metrics": 7,
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "ETHZ"
+  },
+  {
+    "name": "GAME",
+    "type": "Treasury",
+    "metrics": 7,
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "GAME"
+  },
+  {
+    "name": "HYPD",
+    "type": "Treasury",
+    "metrics": 7,
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "HYPD"
+  },
+  {
+    "name": "MSTR",
+    "type": "Treasury",
+    "metrics": 7,
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "MSTR"
+  },
+  {
+    "name": "SBET",
+    "type": "Treasury",
+    "metrics": 7,
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "SBET"
+  },
+  {
+    "name": "SMLR",
+    "type": "Treasury",
+    "metrics": 7,
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "SMLR"
+  },
+  {
+    "name": "SQNS",
+    "type": "Treasury",
+    "metrics": 7,
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "SQNS"
+  },
+  {
+    "name": "STKE",
+    "type": "Treasury",
+    "metrics": 4,
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "STKE"
+  },
+  {
+    "name": "UPXI",
+    "type": "Treasury",
+    "metrics": 7,
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "UPXI"
+  }
+]
+  
+  const filteredProjects = useMemo(() => {
+    return projects.filter(project => {
+      const matchesSearch = search === '' || 
+        project.name.toLowerCase().includes(search.toLowerCase()) ||
+        project.categories.some(cat => cat.toLowerCase().includes(search.toLowerCase()))
+      const matchesType = typeFilter === 'all' || project.type === typeFilter
+      return matchesSearch && matchesType
+    })
+  }, [search, typeFilter])
+  
+  const stats = useMemo(() => ({
+    chains: projects.filter(p => p.type === 'Chain').length,
+    projects: projects.filter(p => p.type === 'Project').length,
+    etfs: projects.filter(p => p.type === 'ETF').length,
+    treasuries: projects.filter(p => p.type === 'Treasury').length,
+    total: projects.length
+  }), [])
+  
+  return (
+    <div>
+      <div className="mb-6 grid grid-cols-5 gap-4">
+        <div className="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
+          <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{stats.chains}</div>
+          <div className="text-sm text-gray-600 dark:text-gray-400">Chains</div>
+        </div>
+        <div className="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
+          <div className="text-2xl font-bold text-green-600 dark:text-green-400">{stats.projects}</div>
+          <div className="text-sm text-gray-600 dark:text-gray-400">Projects</div>
+        </div>
+        <div className="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
+          <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">{stats.etfs}</div>
+          <div className="text-sm text-gray-600 dark:text-gray-400">ETFs</div>
+        </div>
+        <div className="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
+          <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">{stats.treasuries}</div>
+          <div className="text-sm text-gray-600 dark:text-gray-400">Treasuries</div>
+        </div>
+        <div className="text-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800">
+          <div className="text-2xl font-bold text-gray-600 dark:text-gray-400">{stats.total}</div>
+          <div className="text-sm text-gray-600 dark:text-gray-400">Total</div>
+        </div>
+      </div>
+      
+      <div className="mb-4 flex gap-4">
+        <input
+          type="text"
+          placeholder="Search projects or categories..."
+          className="flex-1 px-4 py-2 border rounded-lg dark:bg-gray-800 dark:border-gray-700"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <select
+          className="px-4 py-2 border rounded-lg dark:bg-gray-800 dark:border-gray-700"
+          value={typeFilter}
+          onChange={(e) => setTypeFilter(e.target.value)}
+        >
+          <option value="all">All Types</option>
+          <option value="Chain">Chains</option>
+          <option value="Project">Projects</option>
+          <option value="ETF">ETFs</option>
+          <option value="Treasury">Treasuries</option>
+        </select>
+      </div>
+      
+      <div className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+        Showing {filteredProjects.length} of {projects.length} projects
+      </div>
+      
+      <div className="overflow-x-auto">
+        <table className="w-full">
+          <thead>
+            <tr className="border-b dark:border-gray-700">
+              <th className="text-left py-2 px-3">Project</th>
+              <th className="text-left py-2 px-3">Type</th>
+              <th className="text-center py-2 px-3">Metrics</th>
+              <th className="text-left py-2 px-3">Categories</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredProjects.map((project, idx) => (
+              <tr key={idx} className="border-b dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800">
+                <td className="py-2 px-3">
+                  <a href={`/api-reference/metrics/${project.slug}`} className="text-blue-600 hover:text-blue-700 dark:text-blue-400">
+                    {project.name}
+                  </a>
+                </td>
+                <td className="py-2 px-3">
+                  <span className={`px-2 py-1 text-xs rounded-full ${
+                    project.type === 'Chain' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300' :
+                    project.type === 'ETF' ? 'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300' :
+                    project.type === 'Treasury' ? 'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300' :
+                    'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300'
+                  }`}>
+                    {project.type}
+                  </span>
+                </td>
+                <td className="text-center py-2 px-3">{project.metrics}</td>
+                <td className="py-2 px-3 text-sm text-gray-600 dark:text-gray-400">
+                  {project.categories.join(', ') || '-'}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {filteredProjects.length === 0 && (
+          <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+            No projects found matching your search
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
 
-> Don’t see your network? Let us know via the in-app feedback form or reach out to Sales/Support.
+<ProjectsTable />
+
+## About This Page
+
+This page is automatically generated during the sync process and contains all 137 projects currently supported by the Blockworks Data API.
+
+- **Chains**: Blockchain networks with transaction and activity metrics
+- **Projects**: DeFi protocols, applications, and platforms
+- **ETFs**: Exchange-traded funds with price and flow metrics  
+- **Treasuries**: Corporate and protocol treasury holdings
+
+> Don't see your project? Contact us via the in-app feedback form or reach out to Sales/Support.

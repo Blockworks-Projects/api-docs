@@ -1,16 +1,20 @@
-import { Metric } from '../classes'
+import { Metric, Project } from '../classes'
 import { generateMetricPage } from './metric-page-generator'
 import { updateOpenApiSpec } from './openapi-generator'
 import { updateNavigation } from './navigation-generator'
 import { updateAssetExpansionOptions } from './asset-expansion-options-generator'
 import { syncMiscMetrics } from './misc-metrics-generator'
 import { generateMetricsCatalog } from './catalog-generator'
+import { generateProjectsPage } from './projects-page-generator'
 import * as text from '../lib/text'
 import { createProgressBar } from '../lib/createProgressBar'
 
-type GeneratorsConfig = { metrics: Metric[] }
+type GeneratorsConfig = { 
+  metrics: Metric[]
+  projects: Map<string, Project>
+}
 
-export const runGenerators = async ({ metrics }: GeneratorsConfig) => {
+export const runGenerators = async ({ metrics, projects }: GeneratorsConfig) => {
   await generateMetricPages({ metrics })
   
   text.header('📖 Generating metrics catalog...')
@@ -20,6 +24,11 @@ export const runGenerators = async ({ metrics }: GeneratorsConfig) => {
   
   const expandOptions = await updateAssetExpansionOptions()
   await syncMiscMetrics()
+  
+  // Generate projects page
+  const projectsList = Array.from(projects.values())
+  await generateProjectsPage(projectsList)
+  
   await updateNavigation(metrics, expandOptions)
 }
 

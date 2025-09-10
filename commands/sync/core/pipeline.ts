@@ -90,7 +90,7 @@ export const runSyncPipeline = async ({ updateOnlyMode = false }: PipelineConfig
   const { removedFiles, removedDirs } = await runCleanupStage(existingMetrics, metrics, OUTPUT_DIR)
   
   if (shouldContinue) {
-    await runGenerators({ metrics })
+    await runGenerators({ metrics, projects: filteredProjects })
   }
   
   if (validationResult.issues.length > 0) {
