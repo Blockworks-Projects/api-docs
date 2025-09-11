@@ -2,40 +2,6 @@
 import chalk from 'chalk'
 import { runSyncPipeline, displaySummary } from './core/pipeline'
 
-// Core functionality
-export { fetchAllMetrics, fetchMetricSampleData } from './api/metrics-api'
-export { buildNavigationStructure } from './builders/navigation-builder'
-export { categorizeProjects, getCategorySummary } from './categorizers/project-categorizer'
-export { cleanupExistingContent, cleanupObsoleteContent } from './cleanup/content-cleaner'
-export { catalogExistingMetrics, compareMetrics } from './cleanup/metrics-catalog'
-export { runSyncPipeline } from './core/pipeline'
-export { generateMetricPage } from './generators/metric-page-generator'
-export { updateNavigation } from './generators/navigation-generator'
-export {
-  API,
-  apiErrors,
-  ensureDirectory,
-  findMetric,
-  generateMockMetricData,
-  getDateNDaysAgo,
-  getUniqueCategories,
-  getUniqueProjects,
-  groupMetricsByProject,
-  groupMetricsByProjectAndCategory,
-  readJsonFile,
-  sortMetricsAlphabetically,
-  writeJsonFile,
-  writeTextFile
-} from './lib'
-export { OUTPUT_DIR, colors } from './lib/constants'
-
-// Validation
-export { fetchMetricDataWithTimeout } from './validation/api-fetcher'
-export { validateDataPoint } from './validation/data-point-validator'
-export { validateDataType } from './validation/data-type-validator'
-export { validateMetricData } from './validation/metric-data-validator'
-export { generateIssueEntry, generateValidationReport } from './validation/validation-reporter'
-export { validateMetrics } from './validation/validator'
 
 /**
  * Main sync function - simplified and organized

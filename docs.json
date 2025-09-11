@@ -62,7 +62,7 @@
             ]
           },
           {
-            "group": "Metrics : Chains",
+            "group": "Metrics: Chains",
             "pages": [
               {
                 "group": "Arbitrum",
@@ -322,7 +322,7 @@
             "tag": "5"
           },
           {
-            "group": "Metrics : Projects",
+            "group": "Metrics: Projects",
             "pages": [
               {
                 "group": "Aave",
@@ -496,16 +496,6 @@
                 "pages": [
                   "api-reference/metrics/cookmeme/launchpad-bonding-volume",
                   "api-reference/metrics/cookmeme/launchpad-tokens-graduated"
-                ]
-              },
-              {
-                "group": "CYFRD",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/CYFRD/treasury-crypto-asset",
-                  "api-reference/metrics/CYFRD/treasury-nav-usd",
-                  "api-reference/metrics/CYFRD/treasury-token-holdings",
-                  "api-reference/metrics/CYFRD/treasury-volume-usd"
                 ]
               },
               {
@@ -1013,10 +1003,10 @@
                 ]
               }
             ],
-            "tag": "95"
+            "tag": "94"
           },
           {
-            "group": "Metrics : ETFs",
+            "group": "Metrics: ETFs",
             "pages": [
               {
                 "group": "ARKB",
@@ -1169,7 +1159,7 @@
             "tag": "21"
           },
           {
-            "group": "Metrics : Treasuries",
+            "group": "Metrics: Treasuries",
             "pages": [
               {
                 "group": "BMNR",
@@ -1367,6 +1357,16 @@
                 ]
               },
               {
+                "group": "STKE",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/STKE/treasury-crypto-asset",
+                  "api-reference/metrics/STKE/treasury-nav-usd",
+                  "api-reference/metrics/STKE/treasury-token-holdings",
+                  "api-reference/metrics/STKE/treasury-volume-usd"
+                ]
+              },
+              {
                 "group": "UPXI",
                 "icon": "building-columns",
                 "pages": [
@@ -1380,7 +1380,7 @@
                 ]
               }
             ],
-            "tag": "16"
+            "tag": "17"
           }
         ]
       },
