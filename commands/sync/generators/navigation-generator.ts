@@ -16,7 +16,7 @@ export async function updateNavigation(metrics: Metric[], expandOptions?: string
 
   // Use legacy categorization until we pass projects
   const categories = categorizeMetrics(metrics)
-  
+
   // Calculate summary
   const summary = {
     chainCount: categories.chains.size,
@@ -71,7 +71,7 @@ function updateNavigationGroups(
 ): void {
   // Remove existing metric groups and add them back in the correct order
   docs.navigation.tabs[0].groups = docs.navigation.tabs[0].groups.filter((g: any) =>
-    !['Metrics : Chains', 'Chains', 'Metrics : Projects', 'Projects', 'Metrics : ETFs', 'ETFs', 'Metrics : Treasuries', 'Treasuries', 'Metrics : Equities', 'Equities'].includes(g.group)
+    !['Metrics: Chains', 'Chains', 'Metrics: Projects', 'Projects', 'Metrics: ETFs', 'ETFs', 'Metrics: Treasuries', 'Treasuries', 'Metrics: Equities', 'Equities'].includes(g.group)
   )
 
   // Find the index after the main Metrics group to insert the new groups

@@ -4,6 +4,8 @@ import * as text from '../lib/text'
 import { toTitleCase } from '../lib/utils'
 import type { Metric } from '../types'
 
+const GROUP_PREFIX = 'Metrics: '
+
 // Legacy type for backward compatibility
 type LegacyCategories = Record<'chains' | 'projects' | 'etfs' | 'treasuries', Map<string, Map<string, Metric[]>>>
 
@@ -48,7 +50,7 @@ function buildChainsNavigation(chains: Map<string, Map<string, Metric[]>>): Navi
   text.subheader('Processing Chains...')
 
   const chainsGroup: NavigationGroup = {
-    group: 'Metrics : Chains',
+    group: `${GROUP_PREFIX}Chains`,
     pages: [],
     tag: `${chains.size}`
   }
@@ -60,7 +62,7 @@ function buildChainsNavigation(chains: Map<string, Map<string, Metric[]>>): Navi
 
     const projectGroup: any = {
       group: toTitleCase(project),
-      icon: "link",
+      icon: 'link',
       pages: []
     }
 
@@ -96,7 +98,7 @@ function buildProjectsNavigation(projects: Map<string, Map<string, Metric[]>>): 
   text.subheader('Processing Projects...')
 
   const projectsGroup: NavigationGroup = {
-    group: 'Metrics : Projects',
+    group: `${GROUP_PREFIX}Projects`,
     pages: [],
     tag: `${projects.size}`
   }
@@ -112,7 +114,7 @@ function buildProjectsNavigation(projects: Map<string, Map<string, Metric[]>>): 
 
     const projectGroup: any = {
       group: toTitleCase(project),
-      icon: "cube",
+      icon: 'cube',
       pages: []
     }
 
@@ -142,7 +144,7 @@ function buildETFsNavigation(etfs: Map<string, Map<string, Metric[]>>): Navigati
   text.subheader('Processing ETFs...')
 
   const etfsGroup: NavigationGroup = {
-    group: 'Metrics : ETFs',
+    group: `${GROUP_PREFIX}ETFs`,
     pages: [],
     tag: `${etfs.size}`
   }
@@ -158,7 +160,7 @@ function buildETFsNavigation(etfs: Map<string, Map<string, Metric[]>>): Navigati
 
     const projectGroup: any = {
       group: toTitleCase(project),
-      icon: "chart-line",
+      icon: 'chart-line',
       pages: []
     }
 
@@ -188,7 +190,7 @@ function buildTreasuriesNavigation(treasuries: Map<string, Map<string, Metric[]>
   text.subheader('Processing Treasuries...')
 
   const treasuriesGroup: NavigationGroup = {
-    group: 'Metrics : Treasuries',
+    group: `${GROUP_PREFIX}Treasuries`,
     pages: [],
     tag: `${treasuries.size}`
   }
@@ -204,7 +206,7 @@ function buildTreasuriesNavigation(treasuries: Map<string, Map<string, Metric[]>
 
     const projectGroup: any = {
       group: toTitleCase(project),
-      icon: "building-columns",
+      icon: 'building-columns',
       pages: []
     }
 

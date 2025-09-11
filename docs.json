@@ -62,7 +62,7 @@
             ]
           },
           {
-            "group": "Metrics : Chains",
+            "group": "Metrics: Chains",
             "pages": [
               {
                 "group": "Arbitrum",
@@ -322,7 +322,7 @@
             "tag": "5"
           },
           {
-            "group": "Metrics : Projects",
+            "group": "Metrics: Projects",
             "pages": [
               {
                 "group": "Aave",
@@ -1006,7 +1006,7 @@
             "tag": "94"
           },
           {
-            "group": "Metrics : ETFs",
+            "group": "Metrics: ETFs",
             "pages": [
               {
                 "group": "ARKB",
@@ -1159,7 +1159,7 @@
             "tag": "21"
           },
           {
-            "group": "Metrics : Treasuries",
+            "group": "Metrics: Treasuries",
             "pages": [
               {
                 "group": "BMNR",
