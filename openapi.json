@@ -4183,7 +4183,6 @@
                 "BTCS",
                 "CEP",
                 "CEPO",
-                "CYFRD",
                 "DFDV",
                 "ETHM",
                 "ETHZ",
@@ -4193,6 +4192,7 @@
                 "SBET",
                 "SMLR",
                 "SQNS",
+                "STKE",
                 "UPXI"
               ],
               "example": "BMNR"
@@ -4221,10 +4221,6 @@
               "CEPO": {
                 "value": "CEPO",
                 "summary": "CEPO"
-              },
-              "CYFRD": {
-                "value": "CYFRD",
-                "summary": "CYFRD"
               },
               "DFDV": {
                 "value": "DFDV",
@@ -4261,6 +4257,10 @@
               "SQNS": {
                 "value": "SQNS",
                 "summary": "SQNS"
+              },
+              "STKE": {
+                "value": "STKE",
+                "summary": "STKE"
               },
               "UPXI": {
                 "value": "UPXI",
@@ -4350,7 +4350,6 @@
                 "BTCS",
                 "CEP",
                 "CEPO",
-                "CYFRD",
                 "DFDV",
                 "ETHM",
                 "ETHZ",
@@ -4360,6 +4359,7 @@
                 "SBET",
                 "SMLR",
                 "SQNS",
+                "STKE",
                 "UPXI"
               ],
               "example": "BMNR"
@@ -4388,10 +4388,6 @@
               "CEPO": {
                 "value": "CEPO",
                 "summary": "CEPO"
-              },
-              "CYFRD": {
-                "value": "CYFRD",
-                "summary": "CYFRD"
               },
               "DFDV": {
                 "value": "DFDV",
@@ -4428,6 +4424,10 @@
               "SQNS": {
                 "value": "SQNS",
                 "summary": "SQNS"
+              },
+              "STKE": {
+                "value": "STKE",
+                "summary": "STKE"
               },
               "UPXI": {
                 "value": "UPXI",
@@ -4701,7 +4701,6 @@
                 "BTCS",
                 "CEP",
                 "CEPO",
-                "CYFRD",
                 "DFDV",
                 "ETHM",
                 "ETHZ",
@@ -4711,6 +4710,7 @@
                 "SBET",
                 "SMLR",
                 "SQNS",
+                "STKE",
                 "UPXI"
               ],
               "example": "BMNR"
@@ -4739,10 +4739,6 @@
               "CEPO": {
                 "value": "CEPO",
                 "summary": "CEPO"
-              },
-              "CYFRD": {
-                "value": "CYFRD",
-                "summary": "CYFRD"
               },
               "DFDV": {
                 "value": "DFDV",
@@ -4779,6 +4775,10 @@
               "SQNS": {
                 "value": "SQNS",
                 "summary": "SQNS"
+              },
+              "STKE": {
+                "value": "STKE",
+                "summary": "STKE"
               },
               "UPXI": {
                 "value": "UPXI",
@@ -5052,7 +5052,6 @@
                 "BTCS",
                 "CEP",
                 "CEPO",
-                "CYFRD",
                 "DFDV",
                 "ETHM",
                 "ETHZ",
@@ -5062,6 +5061,7 @@
                 "SBET",
                 "SMLR",
                 "SQNS",
+                "STKE",
                 "UPXI"
               ],
               "example": "BMNR"
@@ -5090,10 +5090,6 @@
               "CEPO": {
                 "value": "CEPO",
                 "summary": "CEPO"
-              },
-              "CYFRD": {
-                "value": "CYFRD",
-                "summary": "CYFRD"
               },
               "DFDV": {
                 "value": "DFDV",
@@ -5130,6 +5126,10 @@
               "SQNS": {
                 "value": "SQNS",
                 "summary": "SQNS"
+              },
+              "STKE": {
+                "value": "STKE",
+                "summary": "STKE"
               },
               "UPXI": {
                 "value": "UPXI",
