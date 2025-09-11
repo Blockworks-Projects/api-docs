@@ -1,14 +1,14 @@
 import { apiErrors } from '../lib/api-errors'
 import { OUTPUT_DIR } from '../lib/constants'
 import { Metric, Project } from '../classes'
-import { runApiStage } from '../api'
-import { runCleanupStage } from '../cleanup'
-import { compareMetrics } from '../cleanup/metrics-catalog'
-import { runGenerators } from '../generators'
+import { runFetchingStage } from '../stages/stage-fetching'
+import { runCleanupStage } from '../stages/stage-cleanup'
+import { compareMetrics } from '../stages/stage-scanning/metrics-catalog'
+import { runGenerationStage } from '../stages/stage-generation'
 import { populateMetricDataCache } from '../lib/cache'
 import { writeTextFile } from '../lib/file-operations'
-import { runValidationStage } from '../validation'
-import { generateValidationReport } from '../validation/validation-reporter'
+import { runValidationStage } from '../stages/stage-validation'
+import { generateValidationReport } from '../stages/stage-validation/validation-reporter'
 import * as text from '../lib/text'
 
 type PipelineConfig = { updateOnlyMode?: boolean }
@@ -79,7 +79,7 @@ const saveValidationReport = async (validationResult: any) => {
 }
 
 export const runSyncPipeline = async ({ updateOnlyMode = false }: PipelineConfig = {}): Promise<PipelineResults> => {
-  const { existingMetrics, projects, shouldContinue } = await runApiStage({ outputDir: OUTPUT_DIR, updateOnlyMode })
+  const { existingMetrics, projects, shouldContinue } = await runFetchingStage({ outputDir: OUTPUT_DIR, updateOnlyMode })
   const { filteredProjects, omittedMetrics } = filterProjects(projects)
   const metrics = extractMetrics(filteredProjects)
   
@@ -90,7 +90,7 @@ export const runSyncPipeline = async ({ updateOnlyMode = false }: PipelineConfig
   const { removedFiles, removedDirs } = await runCleanupStage(existingMetrics, metrics, OUTPUT_DIR)
   
   if (shouldContinue) {
-    await runGenerators({ metrics, projects: filteredProjects })
+    await runGenerationStage({ metrics, projects: filteredProjects })
   }
   
   if (validationResult.issues.length > 0) {
