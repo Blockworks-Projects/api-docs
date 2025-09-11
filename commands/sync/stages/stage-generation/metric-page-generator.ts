@@ -1,6 +1,6 @@
 import { join } from 'node:path'
 import { Metric } from '../../classes'
-import { OUTPUT_DIR } from '../../lib/constants'
+import { OUTPUT_DIR } from '../../lib/utils'
 import { fetchMetricSampleData } from '../stage-fetching/metrics-api'
 import { ensureDirectory, writeTextFile } from '../../lib/file-operations'
 import { findMetric } from '../../lib/metric-utils'

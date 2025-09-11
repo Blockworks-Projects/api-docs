@@ -1,8 +1,9 @@
-import { readFile } from 'node:fs/promises'
+import { readFile, mkdir, writeFile } from 'node:fs/promises'
 import type { APIError } from '../../types'
 import { fetchWithoutLogging } from '../../lib/api-client'
-import { colors as c } from '../../lib/constants'
-import { generateAssetExpansionOption } from './asset-expansion-generator'
+import { colors as c, toTitleCase } from '../../lib/utils'
+import { fetchAssetSampleData } from '../stage-fetching/metrics-api'
+import { getAssetExpansionPage, getFieldReference } from '../../templates/asset-expansion-option'
 import * as text from '../../lib/text'
 
 /**
@@ -84,4 +85,31 @@ export const updateAssetExpansionOptions = async (): Promise<string[]> => {
   await Promise.all(expandOptions.map(option => generateAssetExpansionOption(option)))
 
   return expandOptions
+}
+
+export const generateAssetExpansionOption = async (option: string) => {
+  const expandDir = './api-reference/assets/expand'
+  const fileName = `${option.replace(/\./g, '-')}.mdx`
+  const filePath = `${expandDir}/${fileName}`
+
+  text.detail(`+ ${option}`)
+  
+  await mkdir(expandDir, { recursive: true })
+  
+  const sampleData = await fetchAssetSampleData(option)
+  let title = toTitleCase(option.replace(/[._]/g, ' '))
+  title = title.replace(/\bOhlcv\b/g, 'OHLCV')
+  
+  const content = getAssetExpansionPage({
+    option,
+    sampleData,
+    title,
+    description: `Retrieve ${option} data for an asset using the expand parameter`,
+    accessor: option.replace(/\./g, '?.'),
+    article: option === 'ohlcv_last_24_h' ? 'an' : 'a',
+    objectType: option.includes('.') ? 'nested object' : 'object',
+    fieldReference: getFieldReference(option)
+  })
+
+  await writeFile(filePath, content, 'utf-8')
 }

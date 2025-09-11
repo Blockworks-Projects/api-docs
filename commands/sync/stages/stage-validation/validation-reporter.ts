@@ -1,4 +1,4 @@
-import { colors as c } from '../../lib/constants'
+import { colors as c } from '../../lib/utils'
 import * as text from '../../lib/text'
 import type { ValidationIssue, ValidationResult } from './types'
 

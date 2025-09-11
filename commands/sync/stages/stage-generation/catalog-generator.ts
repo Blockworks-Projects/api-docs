@@ -1,6 +1,6 @@
 import { ensureDirectory, writeTextFile } from '../../lib/file-operations'
 import { join } from 'node:path'
-import { OUTPUT_DIR } from '../../lib/constants'
+import { OUTPUT_DIR } from '../../lib/utils'
 import * as text from '../../lib/text'
 import { toTitleCase } from '../../lib/utils'
 import * as templates from '../../templates'

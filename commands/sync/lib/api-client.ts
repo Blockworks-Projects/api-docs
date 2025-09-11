@@ -1,9 +1,6 @@
 import { fetcher } from 'itty-fetcher'
 import type { APIError, MetricDataResponse } from '../types'
-import { apiErrors } from './api-errors'
-
-const API_BASE_URL = 'https://api.blockworks.com/v1'
-const API_KEY = process.env.BWR_API_KEY
+import { apiErrors, API_BASE_URL, API_KEY } from './utils'
 
 if (!API_KEY) {
   console.error('BWR_API_KEY must be set in your .env file or runtime environment.')

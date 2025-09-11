@@ -1,4 +1,4 @@
-import { createProgressBar } from '../../lib/createProgressBar'
+import { createProgressBar } from '../../lib/utils'
 import { sortMetricsAlphabetically } from '../../lib/metric-utils'
 import * as text from '../../lib/text'
 import { toTitleCase } from '../../lib/utils'

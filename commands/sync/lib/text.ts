@@ -1,5 +1,5 @@
 import chalk from 'chalk'
-import { colors as c } from './constants'
+import { colors as c } from './utils'
 
 // main section header with emoji
 export const header = (text: string): void => console.log(chalk.greenBright.bold(`\n${text}`))

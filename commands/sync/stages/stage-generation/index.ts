@@ -7,7 +7,7 @@ import { syncMiscMetrics } from './misc-metrics-generator'
 import { generateMetricsCatalog } from './catalog-generator'
 import { generateProjectsPage } from './projects-page-generator'
 import * as text from '../../lib/text'
-import { createProgressBar } from '../../lib/createProgressBar'
+import { createProgressBar } from '../../lib/utils'
 
 type GenerationStageConfig = { 
   metrics: Metric[]
