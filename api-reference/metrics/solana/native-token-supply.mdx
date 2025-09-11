@@ -1,0 +1,76 @@
+---
+title: "Solana: Native Token Supply"
+sidebarTitle: "Native Token Supply"
+description: "The total token supply for the respective native asset of that chain. Inclusive of all locked tokens."
+openapi: "GET /v1/metrics/native-token-supply"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/native-token-supply?project=solana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/native-token-supply?project=solana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/native-token-supply',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'solana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-09-10",
+      "value": 609284785.6202391
+    },
+    {
+      "date": "2025-09-09",
+      "value": 609245343.8357017
+    },
+    {
+      "date": "2025-09-08",
+      "value": 609212898.6126158
+    },
+    {
+      "date": "2025-09-07",
+      "value": 609164132.0360576
+    },
+    {
+      "date": "2025-09-06",
+      "value": 609098209.6676925
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

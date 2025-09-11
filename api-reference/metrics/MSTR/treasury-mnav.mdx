@@ -1,0 +1,68 @@
+---
+title: "MNAV"
+sidebarTitle: "MNAV"
+description: "Market NAV value for that company. Calculated as enterprise value / NAV"
+openapi: "GET /v1/metrics/treasury-mnav"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/treasury-mnav?project=MSTR"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/treasury-mnav?project=MSTR',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/treasury-mnav',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'MSTR'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "mstr": [
+    {
+      "date": "2025-09-10",
+      "value": 1.4981266681628505
+    },
+    {
+      "date": "2025-09-09",
+      "value": 1.4978809286630852
+    },
+    {
+      "date": "2025-09-08",
+      "value": 1.5030940378790658
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

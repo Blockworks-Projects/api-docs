@@ -1,0 +1,68 @@
+---
+title: "NAV (USD)"
+sidebarTitle: "NAV (USD)"
+description: "Dollar value of crypto assets (does not include cash)"
+openapi: "GET /v1/metrics/treasury-nav-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/treasury-nav-usd?project=STKE"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/treasury-nav-usd?project=STKE',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/treasury-nav-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'STKE'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "stke": [
+    {
+      "date": "2025-09-10",
+      "value": 94204359.21
+    },
+    {
+      "date": "2025-09-09",
+      "value": 93396125.09
+    },
+    {
+      "date": "2025-09-08",
+      "value": 91604110.18
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

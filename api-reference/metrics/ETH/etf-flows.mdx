@@ -1,0 +1,64 @@
+---
+title: "ETF Flows"
+sidebarTitle: "ETF Flows"
+description: "ETF flows for Grayscale Ethereum Mini Trust ETF (ETH)"
+openapi: "GET /v1/metrics/etf-flows"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Farside UK
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/etf-flows?project=ETH"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/etf-flows?project=ETH',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/etf-flows',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ETH'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "eth": [
+    {
+      "date": "2025-09-09",
+      "value": 0
+    },
+    {
+      "date": "2025-09-08",
+      "value": 11300000
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

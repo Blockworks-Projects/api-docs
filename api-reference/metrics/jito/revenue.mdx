@@ -1,0 +1,72 @@
+---
+title: "Revenue (USD)"
+sidebarTitle: "Revenue (USD)"
+description: "The revenue produced during the specified time period for given project."
+openapi: "GET /v1/metrics/revenue"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/revenue?project=jito"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/revenue?project=jito',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/revenue',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'jito'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "jito": [
+    {
+      "date": "2025-09-09",
+      "value": 25769.42
+    },
+    {
+      "date": "2025-09-08",
+      "value": 46847.02
+    },
+    {
+      "date": "2025-09-07",
+      "value": 32672.15
+    },
+    {
+      "date": "2025-09-06",
+      "value": 0.25
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

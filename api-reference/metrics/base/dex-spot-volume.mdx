@@ -1,0 +1,76 @@
+---
+title: "Base: DEX Spot Volume"
+sidebarTitle: "DEX Spot Volume"
+description: "Calculates daily spot volume from major DEXs. Only includes volumes from fee-paying liquidity pools"
+openapi: "GET /v1/metrics/dex-spot-volume"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/dex-spot-volume?project=base"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/dex-spot-volume?project=base',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/dex-spot-volume',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'base'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "base": [
+    {
+      "date": "2025-09-10",
+      "value": 1492260600.03
+    },
+    {
+      "date": "2025-09-09",
+      "value": 1484561351.5
+    },
+    {
+      "date": "2025-09-08",
+      "value": 1377133921.86
+    },
+    {
+      "date": "2025-09-07",
+      "value": 927491609.18
+    },
+    {
+      "date": "2025-09-06",
+      "value": 983006111.7
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

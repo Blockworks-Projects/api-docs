@@ -1,0 +1,76 @@
+---
+title: "Revenue (USD)"
+sidebarTitle: "Revenue (USD)"
+description: "The revenue produced during the specified time period for given project."
+openapi: "GET /v1/metrics/revenue"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/revenue?project=bloxroute"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/revenue?project=bloxroute',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/revenue',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'bloxroute'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "bloxroute": [
+    {
+      "date": "2025-09-10",
+      "value": 51.27
+    },
+    {
+      "date": "2025-09-09",
+      "value": 77836.62
+    },
+    {
+      "date": "2025-09-08",
+      "value": 68987.15
+    },
+    {
+      "date": "2025-09-07",
+      "value": 46629.13
+    },
+    {
+      "date": "2025-09-06",
+      "value": 49280.3
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

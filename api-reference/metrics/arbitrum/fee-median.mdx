@@ -1,0 +1,78 @@
+---
+title: "Arbitrum: Fee Median"
+sidebarTitle: "Fee Median"
+description: "Median of the sum of the base fee and priority fee that day in native chain token"
+openapi: "GET /v1/metrics/fee-median"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/fee-median?project=arbitrum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/fee-median?project=arbitrum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/fee-median',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'arbitrum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "arbitrum": [
+    {
+      "date": "2025-09-10",
+      "value": 6.642695302710655e-7
+    },
+    {
+      "date": "2025-09-09",
+      "value": 5.700723642463778e-7
+    },
+    {
+      "date": "2025-09-08",
+      "value": 5.261011294242028e-7
+    },
+    {
+      "date": "2025-09-07",
+      "value": 4.368236622416182e-7
+    },
+    {
+      "date": "2025-09-06",
+      "value": 4.1838650008509223e-7
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
+
+<Note>For fiat values, see **[Fee Median (USD)](./fee-median-usd)**.</Note>

@@ -1,0 +1,78 @@
+---
+title: "Solana: Issuance"
+sidebarTitle: "Issuance"
+description: "Newly issued tokens that are distributed to participants (such as validators, miners, or stakers) as compensation for participating in consensus."
+openapi: "GET /v1/metrics/issuance"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/issuance?project=solana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/issuance?project=solana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/issuance',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'solana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-09-10",
+      "value": 71758.68379529969
+    },
+    {
+      "date": "2025-09-09",
+      "value": 71786.17617600458
+    },
+    {
+      "date": "2025-09-08",
+      "value": 71805.81359079375
+    },
+    {
+      "date": "2025-09-07",
+      "value": 71833.3169851708
+    },
+    {
+      "date": "2025-09-06",
+      "value": 71852.9622668687
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
+
+<Note>For fiat values, see **[Issuance (USD)](./issuance-usd)**.</Note>

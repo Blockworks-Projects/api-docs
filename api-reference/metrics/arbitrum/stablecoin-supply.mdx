@@ -1,0 +1,76 @@
+---
+title: "Arbitrum: Stablecoin Supply"
+sidebarTitle: "Stablecoin Supply"
+description: "Supply tracked via transfers to/from the null address, as well as distinct issuance and redemption events for supported stablecoins. Circulating supply remove supply held in bridges, token treasuries, and known mint/burn addresses."
+openapi: "GET /v1/metrics/stablecoin-supply"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/stablecoin-supply?project=arbitrum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply?project=arbitrum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'arbitrum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "arbitrum": [
+    {
+      "date": "2025-09-10",
+      "value": 11214294657.99
+    },
+    {
+      "date": "2025-09-09",
+      "value": 11106299013.81
+    },
+    {
+      "date": "2025-09-08",
+      "value": 11145701957.74
+    },
+    {
+      "date": "2025-09-07",
+      "value": 11139170630.21
+    },
+    {
+      "date": "2025-09-06",
+      "value": 11134501687.41
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

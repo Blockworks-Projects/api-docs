@@ -1,0 +1,78 @@
+---
+title: "Ethereum: Burn (USD)"
+sidebarTitle: "Burn (USD)"
+description: "The total amount of burned transaction fees in USD."
+openapi: "GET /v1/metrics/burn-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/burn-usd?project=ethereum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/burn-usd?project=ethereum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/burn-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ethereum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "ethereum": [
+    {
+      "date": "2025-09-10",
+      "value": 401317.63
+    },
+    {
+      "date": "2025-09-09",
+      "value": 343407.54
+    },
+    {
+      "date": "2025-09-08",
+      "value": 360760.59
+    },
+    {
+      "date": "2025-09-07",
+      "value": 109504.18
+    },
+    {
+      "date": "2025-09-06",
+      "value": 170496.03
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
+
+<Note>For native values, see **[Burn](./burn)**.</Note>
