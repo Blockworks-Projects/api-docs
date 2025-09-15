@@ -1,0 +1,76 @@
+---
+title: "Revenue (USD)"
+sidebarTitle: "Revenue (USD)"
+description: "The revenue produced during the specified time period for given project."
+openapi: "GET /v1/metrics/revenue-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/revenue-total-usd?project=odos"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=odos',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/revenue-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'odos'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "odos": [
+    {
+      "date": "2025-09-14",
+      "value": 6851.42
+    },
+    {
+      "date": "2025-09-13",
+      "value": 4961.05
+    },
+    {
+      "date": "2025-09-12",
+      "value": 9080.81
+    },
+    {
+      "date": "2025-09-11",
+      "value": 7052.29
+    },
+    {
+      "date": "2025-09-10",
+      "value": 15087.79
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

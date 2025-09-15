@@ -1,0 +1,76 @@
+---
+title: "Revenue (USD)"
+sidebarTitle: "Revenue (USD)"
+description: "The revenue produced during the specified time period for given project."
+openapi: "GET /v1/metrics/revenue-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/revenue-total-usd?project=meth-protocol"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=meth-protocol',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/revenue-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'meth-protocol'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "meth-protocol": [
+    {
+      "date": "2025-09-14",
+      "value": 11325.55
+    },
+    {
+      "date": "2025-09-13",
+      "value": 10206.33
+    },
+    {
+      "date": "2025-09-12",
+      "value": 7655.63
+    },
+    {
+      "date": "2025-09-11",
+      "value": 10016.12
+    },
+    {
+      "date": "2025-09-10",
+      "value": 10304.91
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

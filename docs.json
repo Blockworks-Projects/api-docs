@@ -65,261 +65,19 @@
             "group": "Metrics: Chains",
             "pages": [
               {
-                "group": "Arbitrum",
-                "icon": "link",
-                "pages": [
-                  {
-                    "group": "Activity",
-                    "pages": [
-                      "api-reference/metrics/arbitrum/active-addresses",
-                      "api-reference/metrics/arbitrum/fee-average",
-                      "api-reference/metrics/arbitrum/fee-average-usd",
-                      "api-reference/metrics/arbitrum/fee-median",
-                      "api-reference/metrics/arbitrum/fee-median-usd",
-                      "api-reference/metrics/arbitrum/transactions-failed",
-                      "api-reference/metrics/arbitrum/transactions-succeeded",
-                      "api-reference/metrics/arbitrum/transactions-total"
-                    ]
-                  },
-                  {
-                    "group": "Financials",
-                    "pages": [
-                      "api-reference/metrics/arbitrum/app-revenue-total",
-                      "api-reference/metrics/arbitrum/base-fees",
-                      "api-reference/metrics/arbitrum/base-fees-usd",
-                      "api-reference/metrics/arbitrum/costs-l2",
-                      "api-reference/metrics/arbitrum/gross-profit-l2",
-                      "api-reference/metrics/arbitrum/other-fees",
-                      "api-reference/metrics/arbitrum/other-fees-usd",
-                      "api-reference/metrics/arbitrum/priority-fees",
-                      "api-reference/metrics/arbitrum/priority-fees-usd",
-                      "api-reference/metrics/arbitrum/rev",
-                      "api-reference/metrics/arbitrum/rev-usd",
-                      "api-reference/metrics/arbitrum/transaction-fees",
-                      "api-reference/metrics/arbitrum/transaction-fees-usd"
-                    ]
-                  },
-                  {
-                    "group": "Stablecoins",
-                    "pages": [
-                      "api-reference/metrics/arbitrum/stablecoin-circulating-supply",
-                      "api-reference/metrics/arbitrum/stablecoin-supply"
-                    ]
-                  },
-                  {
-                    "group": "Token",
-                    "pages": [
-                      "api-reference/metrics/arbitrum/native-token-fdv",
-                      "api-reference/metrics/arbitrum/native-token-supply",
-                      "api-reference/metrics/arbitrum/price"
-                    ]
-                  },
-                  {
-                    "group": "Trading",
-                    "pages": [
-                      "api-reference/metrics/arbitrum/dex-spot-volume"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Base",
-                "icon": "link",
-                "pages": [
-                  {
-                    "group": "Activity",
-                    "pages": [
-                      "api-reference/metrics/base/active-addresses",
-                      "api-reference/metrics/base/fee-average",
-                      "api-reference/metrics/base/fee-average-usd",
-                      "api-reference/metrics/base/fee-median",
-                      "api-reference/metrics/base/fee-median-usd",
-                      "api-reference/metrics/base/transactions-failed",
-                      "api-reference/metrics/base/transactions-succeeded",
-                      "api-reference/metrics/base/transactions-total"
-                    ]
-                  },
-                  {
-                    "group": "Financials",
-                    "pages": [
-                      "api-reference/metrics/base/app-revenue-total",
-                      "api-reference/metrics/base/base-fees",
-                      "api-reference/metrics/base/base-fees-usd",
-                      "api-reference/metrics/base/costs-l2",
-                      "api-reference/metrics/base/gross-profit-l2",
-                      "api-reference/metrics/base/priority-fees",
-                      "api-reference/metrics/base/priority-fees-usd",
-                      "api-reference/metrics/base/rev",
-                      "api-reference/metrics/base/rev-usd",
-                      "api-reference/metrics/base/transaction-fees",
-                      "api-reference/metrics/base/transaction-fees-usd"
-                    ]
-                  },
-                  {
-                    "group": "Stablecoins",
-                    "pages": [
-                      "api-reference/metrics/base/stablecoin-circulating-supply",
-                      "api-reference/metrics/base/stablecoin-supply"
-                    ]
-                  },
-                  {
-                    "group": "Trading",
-                    "pages": [
-                      "api-reference/metrics/base/dex-spot-volume"
-                    ]
-                  }
-                ]
-              },
-              {
                 "group": "Bitcoin",
                 "icon": "link",
                 "pages": [
                   {
                     "group": "ETF",
                     "pages": [
-                      "api-reference/metrics/bitcoin/etf-flows-total"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Ethereum",
-                "icon": "link",
-                "pages": [
-                  {
-                    "group": "Activity",
-                    "pages": [
-                      "api-reference/metrics/ethereum/active-addresses",
-                      "api-reference/metrics/ethereum/fee-average",
-                      "api-reference/metrics/ethereum/fee-average-usd",
-                      "api-reference/metrics/ethereum/fee-median",
-                      "api-reference/metrics/ethereum/fee-median-usd",
-                      "api-reference/metrics/ethereum/transactions-failed",
-                      "api-reference/metrics/ethereum/transactions-succeeded",
-                      "api-reference/metrics/ethereum/transactions-total"
-                    ]
-                  },
-                  {
-                    "group": "ETF",
-                    "pages": [
-                      "api-reference/metrics/ethereum/etf-flows-total"
-                    ]
-                  },
-                  {
-                    "group": "Financials",
-                    "pages": [
-                      "api-reference/metrics/ethereum/app-revenue-total",
-                      "api-reference/metrics/ethereum/base-fees",
-                      "api-reference/metrics/ethereum/base-fees-usd",
-                      "api-reference/metrics/ethereum/burn",
-                      "api-reference/metrics/ethereum/burn-usd",
-                      "api-reference/metrics/ethereum/issuance",
-                      "api-reference/metrics/ethereum/issuance-usd",
-                      "api-reference/metrics/ethereum/mev-tips-fees",
-                      "api-reference/metrics/ethereum/mev-tips-fees-usd",
-                      "api-reference/metrics/ethereum/other-fees",
-                      "api-reference/metrics/ethereum/other-fees-usd",
-                      "api-reference/metrics/ethereum/priority-fees",
-                      "api-reference/metrics/ethereum/priority-fees-usd",
-                      "api-reference/metrics/ethereum/rev",
-                      "api-reference/metrics/ethereum/rev-usd",
-                      "api-reference/metrics/ethereum/token-supply-staked",
-                      "api-reference/metrics/ethereum/transaction-fees",
-                      "api-reference/metrics/ethereum/transaction-fees-usd"
-                    ]
-                  },
-                  {
-                    "group": "Stablecoins",
-                    "pages": [
-                      "api-reference/metrics/ethereum/stablecoin-circulating-supply",
-                      "api-reference/metrics/ethereum/stablecoin-supply"
-                    ]
-                  },
-                  {
-                    "group": "Token",
-                    "pages": [
-                      "api-reference/metrics/ethereum/native-token-fdv",
-                      "api-reference/metrics/ethereum/native-token-supply",
-                      "api-reference/metrics/ethereum/price"
-                    ]
-                  },
-                  {
-                    "group": "Trading",
-                    "pages": [
-                      "api-reference/metrics/ethereum/dex-spot-volume"
-                    ]
-                  }
-                ]
-              },
-              {
-                "group": "Solana",
-                "icon": "link",
-                "pages": [
-                  {
-                    "group": "Activity",
-                    "pages": [
-                      "api-reference/metrics/solana/active-addresses",
-                      "api-reference/metrics/solana/fee-average",
-                      "api-reference/metrics/solana/fee-average-usd",
-                      "api-reference/metrics/solana/fee-median",
-                      "api-reference/metrics/solana/fee-median-usd",
-                      "api-reference/metrics/solana/transactions-failed",
-                      "api-reference/metrics/solana/transactions-succeeded",
-                      "api-reference/metrics/solana/transactions-total"
-                    ]
-                  },
-                  {
-                    "group": "ETF",
-                    "pages": [
-                      "api-reference/metrics/solana/etf-flows-total"
-                    ]
-                  },
-                  {
-                    "group": "Financials",
-                    "pages": [
-                      "api-reference/metrics/solana/app-revenue-total",
-                      "api-reference/metrics/solana/base-fees",
-                      "api-reference/metrics/solana/base-fees-usd",
-                      "api-reference/metrics/solana/burn",
-                      "api-reference/metrics/solana/burn-usd",
-                      "api-reference/metrics/solana/issuance",
-                      "api-reference/metrics/solana/issuance-usd",
-                      "api-reference/metrics/solana/mev-tips-fees",
-                      "api-reference/metrics/solana/mev-tips-fees-usd",
-                      "api-reference/metrics/solana/priority-fees",
-                      "api-reference/metrics/solana/priority-fees-usd",
-                      "api-reference/metrics/solana/rev",
-                      "api-reference/metrics/solana/rev-usd",
-                      "api-reference/metrics/solana/token-supply-staked",
-                      "api-reference/metrics/solana/transaction-fees",
-                      "api-reference/metrics/solana/transaction-fees-usd"
-                    ]
-                  },
-                  {
-                    "group": "Stablecoins",
-                    "pages": [
-                      "api-reference/metrics/solana/stablecoin-circulating-supply",
-                      "api-reference/metrics/solana/stablecoin-supply"
-                    ]
-                  },
-                  {
-                    "group": "Token",
-                    "pages": [
-                      "api-reference/metrics/solana/native-token-fdv",
-                      "api-reference/metrics/solana/native-token-supply",
-                      "api-reference/metrics/solana/price"
-                    ]
-                  },
-                  {
-                    "group": "Trading",
-                    "pages": [
-                      "api-reference/metrics/solana/dex-spot-volume"
+                      "api-reference/metrics/bitcoin/etf-flows-total-usd"
                     ]
                   }
                 ]
               }
             ],
-            "tag": "5"
+            "tag": "1"
           },
           {
             "group": "Metrics: Projects",
@@ -328,42 +86,76 @@
                 "group": "Aave",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/aave/revenue"
+                  "api-reference/metrics/aave/revenue-total-usd"
                 ]
               },
               {
                 "group": "Aerodrome",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/aerodrome/revenue"
+                  "api-reference/metrics/aerodrome/revenue-total-usd"
                 ]
               },
               {
                 "group": "Apex",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/apex/revenue"
+                  "api-reference/metrics/apex/revenue-total-usd"
+                ]
+              },
+              {
+                "group": "Arbitrum",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/arbitrum/active-address-total",
+                  "api-reference/metrics/arbitrum/app-revenue-total-usd",
+                  "api-reference/metrics/arbitrum/dex-spot-volume-total-usd",
+                  "api-reference/metrics/arbitrum/rev",
+                  "api-reference/metrics/arbitrum/rev-native",
+                  "api-reference/metrics/arbitrum/rev-usd",
+                  "api-reference/metrics/arbitrum/sequencer-cost-total",
+                  "api-reference/metrics/arbitrum/sequencer-gross-profit",
+                  "api-reference/metrics/arbitrum/stablecoin-circulating-supply-total-usd",
+                  "api-reference/metrics/arbitrum/stablecoin-supply-total-usd",
+                  "api-reference/metrics/arbitrum/token-fdv-usd",
+                  "api-reference/metrics/arbitrum/token-price-usd",
+                  "api-reference/metrics/arbitrum/token-supply",
+                  "api-reference/metrics/arbitrum/transaction-base-fee-total-native",
+                  "api-reference/metrics/arbitrum/transaction-base-fee-total-usd",
+                  "api-reference/metrics/arbitrum/transaction-fail-total",
+                  "api-reference/metrics/arbitrum/transaction-fee-avg-native",
+                  "api-reference/metrics/arbitrum/transaction-fee-avg-usd",
+                  "api-reference/metrics/arbitrum/transaction-fee-med-native",
+                  "api-reference/metrics/arbitrum/transaction-fee-med-usd",
+                  "api-reference/metrics/arbitrum/transaction-fee-total-native",
+                  "api-reference/metrics/arbitrum/transaction-fee-total-usd",
+                  "api-reference/metrics/arbitrum/transaction-other-fee-total-native",
+                  "api-reference/metrics/arbitrum/transaction-other-fee-total-usd",
+                  "api-reference/metrics/arbitrum/transaction-priority-fee-total-native",
+                  "api-reference/metrics/arbitrum/transaction-priority-fee-total-usd",
+                  "api-reference/metrics/arbitrum/transaction-succeed-total",
+                  "api-reference/metrics/arbitrum/transaction-total"
                 ]
               },
               {
                 "group": "Aries",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/aries/revenue"
+                  "api-reference/metrics/aries/revenue-total-usd"
                 ]
               },
               {
                 "group": "Aster",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/aster/revenue"
+                  "api-reference/metrics/aster/revenue-total-usd"
                 ]
               },
               {
                 "group": "Axiom",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/axiom/revenue"
+                  "api-reference/metrics/axiom/revenue-total-usd"
                 ]
               },
               {
@@ -377,14 +169,42 @@
                 "group": "Balancer",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/balancer/revenue"
+                  "api-reference/metrics/balancer/revenue-total-usd"
                 ]
               },
               {
                 "group": "Banana Gun",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/banana-gun/revenue"
+                  "api-reference/metrics/banana-gun/revenue-total-usd"
+                ]
+              },
+              {
+                "group": "Base",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/base/active-address-total",
+                  "api-reference/metrics/base/app-revenue-total-usd",
+                  "api-reference/metrics/base/dex-spot-volume-total-usd",
+                  "api-reference/metrics/base/rev-native",
+                  "api-reference/metrics/base/rev-usd",
+                  "api-reference/metrics/base/sequencer-cost-total",
+                  "api-reference/metrics/base/sequencer-gross-profit",
+                  "api-reference/metrics/base/stablecoin-circulating-supply-total-usd",
+                  "api-reference/metrics/base/stablecoin-supply-total-usd",
+                  "api-reference/metrics/base/transaction-base-fee-total-native",
+                  "api-reference/metrics/base/transaction-base-fee-total-usd",
+                  "api-reference/metrics/base/transaction-fail-total",
+                  "api-reference/metrics/base/transaction-fee-avg-native",
+                  "api-reference/metrics/base/transaction-fee-avg-usd",
+                  "api-reference/metrics/base/transaction-fee-med-native",
+                  "api-reference/metrics/base/transaction-fee-med-usd",
+                  "api-reference/metrics/base/transaction-fee-total-native",
+                  "api-reference/metrics/base/transaction-fee-total-usd",
+                  "api-reference/metrics/base/transaction-priority-fee-total-native",
+                  "api-reference/metrics/base/transaction-priority-fee-total-usd",
+                  "api-reference/metrics/base/transaction-succeed-total",
+                  "api-reference/metrics/base/transaction-total"
                 ]
               },
               {
@@ -393,7 +213,7 @@
                 "pages": [
                   "api-reference/metrics/believe/launchpad-bonding-volume",
                   "api-reference/metrics/believe/launchpad-tokens-graduated",
-                  "api-reference/metrics/believe/revenue",
+                  "api-reference/metrics/believe/revenue-total-usd",
                   "api-reference/metrics/believe/tokens-launched-by-launchpad"
                 ]
               },
@@ -401,28 +221,28 @@
                 "group": "Bloom",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/bloom/revenue"
+                  "api-reference/metrics/bloom/revenue-total-usd"
                 ]
               },
               {
                 "group": "Bloxroute",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/bloxroute/revenue"
+                  "api-reference/metrics/bloxroute/revenue-total-usd"
                 ]
               },
               {
                 "group": "Bluefin",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/bluefin/revenue"
+                  "api-reference/metrics/bluefin/revenue-total-usd"
                 ]
               },
               {
                 "group": "Bonk",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/bonk/revenue"
+                  "api-reference/metrics/bonk/revenue-total-usd"
                 ]
               },
               {
@@ -437,7 +257,7 @@
                 "group": "Bullx",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/bullx/revenue"
+                  "api-reference/metrics/bullx/revenue-total-usd"
                 ]
               },
               {
@@ -451,14 +271,14 @@
                 "group": "Cetus",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/cetus/revenue"
+                  "api-reference/metrics/cetus/revenue-total-usd"
                 ]
               },
               {
                 "group": "Clanker",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/clanker/revenue",
+                  "api-reference/metrics/clanker/revenue-total-usd",
                   "api-reference/metrics/clanker/tokens-launched-by-launchpad"
                 ]
               },
@@ -466,28 +286,28 @@
                 "group": "Clipper",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/clipper/revenue"
+                  "api-reference/metrics/clipper/revenue-total-usd"
                 ]
               },
               {
                 "group": "Coinbase Wallet",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/coinbase-wallet/revenue"
+                  "api-reference/metrics/coinbase-wallet/revenue-total-usd"
                 ]
               },
               {
                 "group": "Convex",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/convex/revenue"
+                  "api-reference/metrics/convex/revenue-total-usd"
                 ]
               },
               {
                 "group": "Cookdotmeme",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/cookdotmeme/revenue"
+                  "api-reference/metrics/cookdotmeme/revenue-total-usd"
                 ]
               },
               {
@@ -502,56 +322,56 @@
                 "group": "Dexscreener",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/dexscreener/revenue"
+                  "api-reference/metrics/dexscreener/revenue-total-usd"
                 ]
               },
               {
                 "group": "Dodo",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/dodo/revenue"
+                  "api-reference/metrics/dodo/revenue-total-usd"
                 ]
               },
               {
                 "group": "Drift",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/drift/revenue"
+                  "api-reference/metrics/drift/revenue-total-usd"
                 ]
               },
               {
                 "group": "Dydx",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/dydx/revenue"
+                  "api-reference/metrics/dydx/revenue-total-usd"
                 ]
               },
               {
                 "group": "Eigenlayer",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/eigenlayer/revenue"
+                  "api-reference/metrics/eigenlayer/revenue-total-usd"
                 ]
               },
               {
                 "group": "Ethena",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/ethena/revenue"
+                  "api-reference/metrics/ethena/revenue-total-usd"
                 ]
               },
               {
                 "group": "Euler",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/euler/revenue"
+                  "api-reference/metrics/euler/revenue-total-usd"
                 ]
               },
               {
                 "group": "Flashbots",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/flashbots/revenue"
+                  "api-reference/metrics/flashbots/revenue-total-usd"
                 ]
               },
               {
@@ -565,14 +385,14 @@
                 "group": "Gmgn",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/gmgn/revenue"
+                  "api-reference/metrics/gmgn/revenue-total-usd"
                 ]
               },
               {
                 "group": "Gmx",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/gmx/revenue"
+                  "api-reference/metrics/gmx/revenue-total-usd"
                 ]
               },
               {
@@ -593,21 +413,21 @@
                 "group": "Hyperliquid",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/hyperliquid/revenue"
+                  "api-reference/metrics/hyperliquid/revenue-total-usd"
                 ]
               },
               {
                 "group": "Ironbank",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/ironbank/revenue"
+                  "api-reference/metrics/ironbank/revenue-total-usd"
                 ]
               },
               {
                 "group": "Jito",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/jito/revenue"
+                  "api-reference/metrics/jito/revenue-total-usd"
                 ]
               },
               {
@@ -621,7 +441,7 @@
                 "group": "Kamino",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/kamino/revenue"
+                  "api-reference/metrics/kamino/revenue-total-usd"
                 ]
               },
               {
@@ -636,7 +456,7 @@
                 "group": "Letsbonkdotfun",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/letsbonkdotfun/revenue"
+                  "api-reference/metrics/letsbonkdotfun/revenue-total-usd"
                 ]
               },
               {
@@ -650,28 +470,28 @@
                 "group": "Level",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/level/revenue"
+                  "api-reference/metrics/level/revenue-total-usd"
                 ]
               },
               {
                 "group": "Lido",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/lido/revenue"
+                  "api-reference/metrics/lido/revenue-total-usd"
                 ]
               },
               {
                 "group": "Lifi",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/lifi/revenue"
+                  "api-reference/metrics/lifi/revenue-total-usd"
                 ]
               },
               {
                 "group": "Lifinity",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/lifinity/revenue",
+                  "api-reference/metrics/lifinity/revenue-total-usd",
                   "api-reference/metrics/lifinity/volume-usd"
                 ]
               },
@@ -679,21 +499,21 @@
                 "group": "Looter",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/looter/revenue"
+                  "api-reference/metrics/looter/revenue-total-usd"
                 ]
               },
               {
                 "group": "Maestro",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/maestro/revenue"
+                  "api-reference/metrics/maestro/revenue-total-usd"
                 ]
               },
               {
                 "group": "Metaplex",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/metaplex/revenue"
+                  "api-reference/metrics/metaplex/revenue-total-usd"
                 ]
               },
               {
@@ -707,14 +527,14 @@
                 "group": "Meth Protocol",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/meth-protocol/revenue"
+                  "api-reference/metrics/meth-protocol/revenue-total-usd"
                 ]
               },
               {
                 "group": "Mevx",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/mevx/revenue"
+                  "api-reference/metrics/mevx/revenue-total-usd"
                 ]
               },
               {
@@ -723,7 +543,7 @@
                 "pages": [
                   "api-reference/metrics/moonshot/launchpad-bonding-volume",
                   "api-reference/metrics/moonshot/launchpad-tokens-graduated",
-                  "api-reference/metrics/moonshot/revenue",
+                  "api-reference/metrics/moonshot/revenue-total-usd",
                   "api-reference/metrics/moonshot/tokens-launched-by-launchpad"
                 ]
               },
@@ -731,42 +551,42 @@
                 "group": "Morpho",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/morpho/revenue"
+                  "api-reference/metrics/morpho/revenue-total-usd"
                 ]
               },
               {
                 "group": "Navi Protocol",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/navi-protocol/revenue"
+                  "api-reference/metrics/navi-protocol/revenue-total-usd"
                 ]
               },
               {
                 "group": "Nova",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/nova/revenue"
+                  "api-reference/metrics/nova/revenue-total-usd"
                 ]
               },
               {
                 "group": "Odos",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/odos/revenue"
+                  "api-reference/metrics/odos/revenue-total-usd"
                 ]
               },
               {
                 "group": "Opensea",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/opensea/revenue"
+                  "api-reference/metrics/opensea/revenue-total-usd"
                 ]
               },
               {
                 "group": "Orca",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/orca/revenue",
+                  "api-reference/metrics/orca/revenue-total-usd",
                   "api-reference/metrics/orca/volume-usd"
                 ]
               },
@@ -774,7 +594,7 @@
                 "group": "Ostium",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/ostium/revenue"
+                  "api-reference/metrics/ostium/revenue-total-usd"
                 ]
               },
               {
@@ -789,35 +609,35 @@
                 "group": "Paal Ai",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/paal-ai/revenue"
+                  "api-reference/metrics/paal-ai/revenue-total-usd"
                 ]
               },
               {
                 "group": "Pancakeswap",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/pancakeswap/revenue"
+                  "api-reference/metrics/pancakeswap/revenue-total-usd"
                 ]
               },
               {
                 "group": "Paradex",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/paradex/revenue"
+                  "api-reference/metrics/paradex/revenue-total-usd"
                 ]
               },
               {
                 "group": "Phantom",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/phantom/revenue"
+                  "api-reference/metrics/phantom/revenue-total-usd"
                 ]
               },
               {
                 "group": "Photon",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/photon/revenue"
+                  "api-reference/metrics/photon/revenue-total-usd"
                 ]
               },
               {
@@ -826,7 +646,7 @@
                 "pages": [
                   "api-reference/metrics/pumpfun/launchpad-bonding-volume",
                   "api-reference/metrics/pumpfun/launchpad-tokens-graduated",
-                  "api-reference/metrics/pumpfun/revenue",
+                  "api-reference/metrics/pumpfun/revenue-total-usd",
                   "api-reference/metrics/pumpfun/tokens-launched-by-launchpad",
                   "api-reference/metrics/pumpfun/volume-usd"
                 ]
@@ -837,7 +657,7 @@
                 "pages": [
                   "api-reference/metrics/raydium/launchpad-bonding-volume",
                   "api-reference/metrics/raydium/launchpad-tokens-graduated",
-                  "api-reference/metrics/raydium/revenue",
+                  "api-reference/metrics/raydium/revenue-total-usd",
                   "api-reference/metrics/raydium/volume-usd"
                 ]
               },
@@ -845,7 +665,7 @@
                 "group": "Scallop",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/scallop/revenue"
+                  "api-reference/metrics/scallop/revenue-total-usd"
                 ]
               },
               {
@@ -859,21 +679,21 @@
                 "group": "Soltradingbot",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/soltradingbot/revenue"
+                  "api-reference/metrics/soltradingbot/revenue-total-usd"
                 ]
               },
               {
                 "group": "Sosovalue",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/sosovalue/revenue"
+                  "api-reference/metrics/sosovalue/revenue-total-usd"
                 ]
               },
               {
                 "group": "Spark",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/spark/revenue"
+                  "api-reference/metrics/spark/revenue-total-usd"
                 ]
               },
               {
@@ -887,35 +707,35 @@
                 "group": "Stable Labs",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/stable-labs/revenue"
+                  "api-reference/metrics/stable-labs/revenue-total-usd"
                 ]
               },
               {
                 "group": "Stakewise",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/stakewise/revenue"
+                  "api-reference/metrics/stakewise/revenue-total-usd"
                 ]
               },
               {
                 "group": "Sushiswap",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/sushiswap/revenue"
+                  "api-reference/metrics/sushiswap/revenue-total-usd"
                 ]
               },
               {
                 "group": "Syncswap",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/syncswap/revenue"
+                  "api-reference/metrics/syncswap/revenue-total-usd"
                 ]
               },
               {
                 "group": "Tensor",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/tensor/revenue"
+                  "api-reference/metrics/tensor/revenue-total-usd"
                 ]
               },
               {
@@ -936,42 +756,42 @@
                 "group": "Thorchain Dex",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/thorchain-dex/revenue"
+                  "api-reference/metrics/thorchain-dex/revenue-total-usd"
                 ]
               },
               {
                 "group": "Tornado",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/tornado/revenue"
+                  "api-reference/metrics/tornado/revenue-total-usd"
                 ]
               },
               {
                 "group": "Trojan",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/trojan/revenue"
+                  "api-reference/metrics/trojan/revenue-total-usd"
                 ]
               },
               {
                 "group": "Uniswap",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/uniswap/revenue"
+                  "api-reference/metrics/uniswap/revenue-total-usd"
                 ]
               },
               {
                 "group": "Uniswap Labs",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/uniswap-labs/revenue"
+                  "api-reference/metrics/uniswap-labs/revenue-total-usd"
                 ]
               },
               {
                 "group": "Virtuals",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/virtuals/revenue"
+                  "api-reference/metrics/virtuals/revenue-total-usd"
                 ]
               },
               {
@@ -985,7 +805,7 @@
                 "group": "Wildcat",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/wildcat/revenue"
+                  "api-reference/metrics/wildcat/revenue-total-usd"
                 ]
               },
               {
@@ -1003,7 +823,7 @@
                 ]
               }
             ],
-            "tag": "94"
+            "tag": "96"
           },
           {
             "group": "Metrics: ETFs",
@@ -1012,151 +832,226 @@
                 "group": "ARKB",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/ARKB/etf-flows"
+                  "api-reference/metrics/ARKB/etf-flows-usd"
                 ]
               },
               {
                 "group": "BITB",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/BITB/etf-flows"
+                  "api-reference/metrics/BITB/etf-flows-usd"
                 ]
               },
               {
                 "group": "BRRR",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/BRRR/etf-flows"
+                  "api-reference/metrics/BRRR/etf-flows-usd"
                 ]
               },
               {
                 "group": "BTC",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/BTC/etf-flows"
+                  "api-reference/metrics/BTC/etf-flows-usd"
                 ]
               },
               {
                 "group": "BTCO",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/BTCO/etf-flows"
+                  "api-reference/metrics/BTCO/etf-flows-usd"
                 ]
               },
               {
                 "group": "BTCW",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/BTCW/etf-flows"
+                  "api-reference/metrics/BTCW/etf-flows-usd"
                 ]
               },
               {
                 "group": "CETH",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/CETH/etf-flows"
+                  "api-reference/metrics/CETH/etf-flows-usd"
                 ]
               },
               {
                 "group": "ETH",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/ETH/etf-flows"
+                  "api-reference/metrics/ETH/etf-flows-usd"
                 ]
               },
               {
                 "group": "ETHA",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/ETHA/etf-flows"
+                  "api-reference/metrics/ETHA/etf-flows-usd"
                 ]
               },
               {
                 "group": "ETHE",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/ETHE/etf-flows"
+                  "api-reference/metrics/ETHE/etf-flows-usd"
+                ]
+              },
+              {
+                "group": "Ethereum",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/ethereum/active-address-total",
+                  "api-reference/metrics/ethereum/app-revenue-total-usd",
+                  "api-reference/metrics/ethereum/burn",
+                  "api-reference/metrics/ethereum/burn-usd",
+                  "api-reference/metrics/ethereum/dex-spot-volume-total-usd",
+                  "api-reference/metrics/ethereum/etf-flows-total-usd",
+                  "api-reference/metrics/ethereum/issuance",
+                  "api-reference/metrics/ethereum/issuance-usd",
+                  "api-reference/metrics/ethereum/mev-tips-fees",
+                  "api-reference/metrics/ethereum/mev-tips-fees-usd",
+                  "api-reference/metrics/ethereum/rev-usd",
+                  "api-reference/metrics/ethereum/stablecoin-circulating-supply-total-usd",
+                  "api-reference/metrics/ethereum/stablecoin-supply-total-usd",
+                  "api-reference/metrics/ethereum/token-fdv-usd",
+                  "api-reference/metrics/ethereum/token-price-usd",
+                  "api-reference/metrics/ethereum/token-supply",
+                  "api-reference/metrics/ethereum/token-supply-staked",
+                  "api-reference/metrics/ethereum/transaction-base-fee-total-native",
+                  "api-reference/metrics/ethereum/transaction-base-fee-total-usd",
+                  "api-reference/metrics/ethereum/transaction-fail-total",
+                  "api-reference/metrics/ethereum/transaction-fee-avg-native",
+                  "api-reference/metrics/ethereum/transaction-fee-avg-usd",
+                  "api-reference/metrics/ethereum/transaction-fee-med-native",
+                  "api-reference/metrics/ethereum/transaction-fee-med-usd",
+                  "api-reference/metrics/ethereum/transaction-fee-total-native",
+                  "api-reference/metrics/ethereum/transaction-fee-total-usd",
+                  "api-reference/metrics/ethereum/transaction-other-fee-total-native",
+                  "api-reference/metrics/ethereum/transaction-other-fee-total-usd",
+                  "api-reference/metrics/ethereum/transaction-priority-fee-total-native",
+                  "api-reference/metrics/ethereum/transaction-priority-fee-total-usd",
+                  "api-reference/metrics/ethereum/transaction-succeed-total",
+                  "api-reference/metrics/ethereum/transaction-total"
                 ]
               },
               {
                 "group": "ETHV",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/ETHV/etf-flows"
+                  "api-reference/metrics/ETHV/etf-flows-usd"
                 ]
               },
               {
                 "group": "ETHW",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/ETHW/etf-flows"
+                  "api-reference/metrics/ETHW/etf-flows-usd"
                 ]
               },
               {
                 "group": "EZBC",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/EZBC/etf-flows"
+                  "api-reference/metrics/EZBC/etf-flows-usd"
                 ]
               },
               {
                 "group": "EZET",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/EZET/etf-flows"
+                  "api-reference/metrics/EZET/etf-flows-usd"
                 ]
               },
               {
                 "group": "FBTC",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/FBTC/etf-flows"
+                  "api-reference/metrics/FBTC/etf-flows-usd"
                 ]
               },
               {
                 "group": "FETH",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/FETH/etf-flows"
+                  "api-reference/metrics/FETH/etf-flows-usd"
                 ]
               },
               {
                 "group": "GBTC",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/GBTC/etf-flows"
+                  "api-reference/metrics/GBTC/etf-flows-usd"
                 ]
               },
               {
                 "group": "HODL",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/HODL/etf-flows"
+                  "api-reference/metrics/HODL/etf-flows-usd"
                 ]
               },
               {
                 "group": "IBIT",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/IBIT/etf-flows"
+                  "api-reference/metrics/IBIT/etf-flows-usd"
                 ]
               },
               {
                 "group": "QETH",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/QETH/etf-flows"
+                  "api-reference/metrics/QETH/etf-flows-usd"
+                ]
+              },
+              {
+                "group": "Solana",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/solana/active-address-total",
+                  "api-reference/metrics/solana/app-revenue-total-usd",
+                  "api-reference/metrics/solana/burn",
+                  "api-reference/metrics/solana/burn-usd",
+                  "api-reference/metrics/solana/dex-spot-volume-total-usd",
+                  "api-reference/metrics/solana/etf-flows-total-usd",
+                  "api-reference/metrics/solana/issuance",
+                  "api-reference/metrics/solana/issuance-usd",
+                  "api-reference/metrics/solana/mev-tips-fees",
+                  "api-reference/metrics/solana/mev-tips-fees-usd",
+                  "api-reference/metrics/solana/rev-native",
+                  "api-reference/metrics/solana/rev-usd",
+                  "api-reference/metrics/solana/stablecoin-circulating-supply-total-usd",
+                  "api-reference/metrics/solana/stablecoin-supply-total-usd",
+                  "api-reference/metrics/solana/token-fdv-usd",
+                  "api-reference/metrics/solana/token-price-usd",
+                  "api-reference/metrics/solana/token-supply",
+                  "api-reference/metrics/solana/token-supply-staked",
+                  "api-reference/metrics/solana/transaction-base-fee-total-native",
+                  "api-reference/metrics/solana/transaction-base-fee-total-usd",
+                  "api-reference/metrics/solana/transaction-fail-total",
+                  "api-reference/metrics/solana/transaction-fee-avg-native",
+                  "api-reference/metrics/solana/transaction-fee-avg-usd",
+                  "api-reference/metrics/solana/transaction-fee-med-native",
+                  "api-reference/metrics/solana/transaction-fee-med-usd",
+                  "api-reference/metrics/solana/transaction-fee-total-native",
+                  "api-reference/metrics/solana/transaction-fee-total-usd",
+                  "api-reference/metrics/solana/transaction-priority-fee-total-native",
+                  "api-reference/metrics/solana/transaction-priority-fee-total-usd",
+                  "api-reference/metrics/solana/transaction-succeed-total",
+                  "api-reference/metrics/solana/transaction-total"
                 ]
               },
               {
                 "group": "SSK",
                 "icon": "chart-line",
                 "pages": [
-                  "api-reference/metrics/SSK/etf-flows"
+                  "api-reference/metrics/SSK/etf-flows-usd"
                 ]
               }
             ],
-            "tag": "21"
+            "tag": "23"
           },
           {
             "group": "Metrics: Treasuries",
@@ -1165,222 +1060,253 @@
                 "group": "BMNR",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/BMNR/enterprise-value-usd",
-                  "api-reference/metrics/BMNR/market-cap",
-                  "api-reference/metrics/BMNR/treasury-crypto-asset",
+                  "api-reference/metrics/BMNR/treasury-enterprise-value-usd",
+                  "api-reference/metrics/BMNR/treasury-holdings-eth",
+                  "api-reference/metrics/BMNR/treasury-market-cap-usd",
                   "api-reference/metrics/BMNR/treasury-mnav",
-                  "api-reference/metrics/BMNR/treasury-nav-usd",
-                  "api-reference/metrics/BMNR/treasury-token-holdings",
-                  "api-reference/metrics/BMNR/treasury-volume-usd"
+                  "api-reference/metrics/BMNR/treasury-nav-eth-usd",
+                  "api-reference/metrics/BMNR/treasury-volume-total-usd"
                 ]
               },
               {
                 "group": "BNC",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/BNC/enterprise-value-usd",
-                  "api-reference/metrics/BNC/market-cap",
-                  "api-reference/metrics/BNC/treasury-crypto-asset",
+                  "api-reference/metrics/BNC/treasury-enterprise-value-usd",
+                  "api-reference/metrics/BNC/treasury-holdings-bnb",
+                  "api-reference/metrics/BNC/treasury-market-cap-usd",
                   "api-reference/metrics/BNC/treasury-mnav",
-                  "api-reference/metrics/BNC/treasury-nav-usd",
-                  "api-reference/metrics/BNC/treasury-token-holdings",
-                  "api-reference/metrics/BNC/treasury-volume-usd"
+                  "api-reference/metrics/BNC/treasury-nav-bnb-usd",
+                  "api-reference/metrics/BNC/treasury-volume-total-usd"
                 ]
               },
               {
                 "group": "BTBT",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/BTBT/enterprise-value-usd",
-                  "api-reference/metrics/BTBT/market-cap",
-                  "api-reference/metrics/BTBT/treasury-crypto-asset",
+                  "api-reference/metrics/BTBT/treasury-enterprise-value-usd",
+                  "api-reference/metrics/BTBT/treasury-holdings-eth",
+                  "api-reference/metrics/BTBT/treasury-market-cap-usd",
                   "api-reference/metrics/BTBT/treasury-mnav",
-                  "api-reference/metrics/BTBT/treasury-nav-usd",
-                  "api-reference/metrics/BTBT/treasury-token-holdings",
-                  "api-reference/metrics/BTBT/treasury-volume-usd"
+                  "api-reference/metrics/BTBT/treasury-nav-eth-usd",
+                  "api-reference/metrics/BTBT/treasury-volume-total-usd"
+                ]
+              },
+              {
+                "group": "BTCM",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/BTCM/treasury-enterprise-value-usd",
+                  "api-reference/metrics/BTCM/treasury-holdings-sol",
+                  "api-reference/metrics/BTCM/treasury-market-cap-usd",
+                  "api-reference/metrics/BTCM/treasury-mnav",
+                  "api-reference/metrics/BTCM/treasury-nav-sol-usd",
+                  "api-reference/metrics/BTCM/treasury-volume-total-usd"
                 ]
               },
               {
                 "group": "BTCS",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/BTCS/enterprise-value-usd",
-                  "api-reference/metrics/BTCS/market-cap",
-                  "api-reference/metrics/BTCS/treasury-crypto-asset",
+                  "api-reference/metrics/BTCS/treasury-enterprise-value-usd",
+                  "api-reference/metrics/BTCS/treasury-holdings-eth",
+                  "api-reference/metrics/BTCS/treasury-market-cap-usd",
                   "api-reference/metrics/BTCS/treasury-mnav",
-                  "api-reference/metrics/BTCS/treasury-nav-usd",
-                  "api-reference/metrics/BTCS/treasury-token-holdings",
-                  "api-reference/metrics/BTCS/treasury-volume-usd"
+                  "api-reference/metrics/BTCS/treasury-nav-eth-usd",
+                  "api-reference/metrics/BTCS/treasury-volume-total-usd"
                 ]
               },
               {
                 "group": "CEP",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/CEP/enterprise-value-usd",
-                  "api-reference/metrics/CEP/market-cap",
-                  "api-reference/metrics/CEP/treasury-crypto-asset",
+                  "api-reference/metrics/CEP/treasury-enterprise-value-usd",
+                  "api-reference/metrics/CEP/treasury-holdings-btc",
+                  "api-reference/metrics/CEP/treasury-market-cap-usd",
                   "api-reference/metrics/CEP/treasury-mnav",
-                  "api-reference/metrics/CEP/treasury-nav-usd",
-                  "api-reference/metrics/CEP/treasury-token-holdings",
-                  "api-reference/metrics/CEP/treasury-volume-usd"
+                  "api-reference/metrics/CEP/treasury-nav-btc-usd",
+                  "api-reference/metrics/CEP/treasury-volume-total-usd"
                 ]
               },
               {
                 "group": "CEPO",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/CEPO/enterprise-value-usd",
-                  "api-reference/metrics/CEPO/market-cap",
-                  "api-reference/metrics/CEPO/treasury-crypto-asset",
+                  "api-reference/metrics/CEPO/treasury-enterprise-value-usd",
+                  "api-reference/metrics/CEPO/treasury-holdings-btc",
+                  "api-reference/metrics/CEPO/treasury-market-cap-usd",
                   "api-reference/metrics/CEPO/treasury-mnav",
-                  "api-reference/metrics/CEPO/treasury-nav-usd",
-                  "api-reference/metrics/CEPO/treasury-token-holdings",
-                  "api-reference/metrics/CEPO/treasury-volume-usd"
+                  "api-reference/metrics/CEPO/treasury-nav-btc-usd",
+                  "api-reference/metrics/CEPO/treasury-volume-total-usd"
                 ]
               },
               {
                 "group": "DFDV",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/DFDV/enterprise-value-usd",
-                  "api-reference/metrics/DFDV/market-cap",
-                  "api-reference/metrics/DFDV/treasury-crypto-asset",
+                  "api-reference/metrics/DFDV/treasury-enterprise-value-usd",
+                  "api-reference/metrics/DFDV/treasury-holdings-sol",
+                  "api-reference/metrics/DFDV/treasury-market-cap-usd",
                   "api-reference/metrics/DFDV/treasury-mnav",
-                  "api-reference/metrics/DFDV/treasury-nav-usd",
-                  "api-reference/metrics/DFDV/treasury-token-holdings",
-                  "api-reference/metrics/DFDV/treasury-volume-usd"
+                  "api-reference/metrics/DFDV/treasury-nav-sol-usd",
+                  "api-reference/metrics/DFDV/treasury-volume-total-usd"
                 ]
               },
               {
                 "group": "ETHM",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/ETHM/enterprise-value-usd",
-                  "api-reference/metrics/ETHM/market-cap",
-                  "api-reference/metrics/ETHM/treasury-crypto-asset",
+                  "api-reference/metrics/ETHM/treasury-enterprise-value-usd",
+                  "api-reference/metrics/ETHM/treasury-holdings-eth",
+                  "api-reference/metrics/ETHM/treasury-market-cap-usd",
                   "api-reference/metrics/ETHM/treasury-mnav",
-                  "api-reference/metrics/ETHM/treasury-nav-usd",
-                  "api-reference/metrics/ETHM/treasury-token-holdings",
-                  "api-reference/metrics/ETHM/treasury-volume-usd"
+                  "api-reference/metrics/ETHM/treasury-nav-eth-usd",
+                  "api-reference/metrics/ETHM/treasury-volume-total-usd"
                 ]
               },
               {
                 "group": "ETHZ",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/ETHZ/enterprise-value-usd",
-                  "api-reference/metrics/ETHZ/market-cap",
-                  "api-reference/metrics/ETHZ/treasury-crypto-asset",
+                  "api-reference/metrics/ETHZ/treasury-enterprise-value-usd",
+                  "api-reference/metrics/ETHZ/treasury-holdings-eth",
+                  "api-reference/metrics/ETHZ/treasury-market-cap-usd",
                   "api-reference/metrics/ETHZ/treasury-mnav",
-                  "api-reference/metrics/ETHZ/treasury-nav-usd",
-                  "api-reference/metrics/ETHZ/treasury-token-holdings",
-                  "api-reference/metrics/ETHZ/treasury-volume-usd"
+                  "api-reference/metrics/ETHZ/treasury-nav-eth-usd",
+                  "api-reference/metrics/ETHZ/treasury-volume-total-usd"
+                ]
+              },
+              {
+                "group": "FGNX",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/FGNX/treasury-enterprise-value-usd",
+                  "api-reference/metrics/FGNX/treasury-holdings-eth",
+                  "api-reference/metrics/FGNX/treasury-market-cap-usd",
+                  "api-reference/metrics/FGNX/treasury-mnav",
+                  "api-reference/metrics/FGNX/treasury-nav-eth-usd",
+                  "api-reference/metrics/FGNX/treasury-volume-total-usd"
                 ]
               },
               {
                 "group": "GAME",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/GAME/enterprise-value-usd",
-                  "api-reference/metrics/GAME/market-cap",
-                  "api-reference/metrics/GAME/treasury-crypto-asset",
+                  "api-reference/metrics/GAME/treasury-enterprise-value-usd",
+                  "api-reference/metrics/GAME/treasury-holdings-eth",
+                  "api-reference/metrics/GAME/treasury-market-cap-usd",
                   "api-reference/metrics/GAME/treasury-mnav",
-                  "api-reference/metrics/GAME/treasury-nav-usd",
-                  "api-reference/metrics/GAME/treasury-token-holdings",
-                  "api-reference/metrics/GAME/treasury-volume-usd"
+                  "api-reference/metrics/GAME/treasury-nav-eth-usd",
+                  "api-reference/metrics/GAME/treasury-volume-total-usd"
                 ]
               },
               {
                 "group": "HYPD",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/HYPD/enterprise-value-usd",
-                  "api-reference/metrics/HYPD/market-cap",
-                  "api-reference/metrics/HYPD/treasury-crypto-asset",
+                  "api-reference/metrics/HYPD/treasury-enterprise-value-usd",
+                  "api-reference/metrics/HYPD/treasury-holdings-hype",
+                  "api-reference/metrics/HYPD/treasury-market-cap-usd",
                   "api-reference/metrics/HYPD/treasury-mnav",
-                  "api-reference/metrics/HYPD/treasury-nav-usd",
-                  "api-reference/metrics/HYPD/treasury-token-holdings",
-                  "api-reference/metrics/HYPD/treasury-volume-usd"
+                  "api-reference/metrics/HYPD/treasury-nav-hype-usd",
+                  "api-reference/metrics/HYPD/treasury-volume-total-usd"
                 ]
               },
               {
                 "group": "MSTR",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/MSTR/enterprise-value-usd",
-                  "api-reference/metrics/MSTR/market-cap",
-                  "api-reference/metrics/MSTR/treasury-crypto-asset",
+                  "api-reference/metrics/MSTR/treasury-enterprise-value-usd",
+                  "api-reference/metrics/MSTR/treasury-holdings-btc",
+                  "api-reference/metrics/MSTR/treasury-market-cap-usd",
                   "api-reference/metrics/MSTR/treasury-mnav",
-                  "api-reference/metrics/MSTR/treasury-nav-usd",
-                  "api-reference/metrics/MSTR/treasury-token-holdings",
-                  "api-reference/metrics/MSTR/treasury-volume-usd"
+                  "api-reference/metrics/MSTR/treasury-nav-btc-usd",
+                  "api-reference/metrics/MSTR/treasury-volume-total-usd"
+                ]
+              },
+              {
+                "group": "NAKA",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/NAKA/treasury-enterprise-value-usd",
+                  "api-reference/metrics/NAKA/treasury-holdings-btc",
+                  "api-reference/metrics/NAKA/treasury-market-cap-usd",
+                  "api-reference/metrics/NAKA/treasury-mnav",
+                  "api-reference/metrics/NAKA/treasury-nav-btc-usd",
+                  "api-reference/metrics/NAKA/treasury-volume-total-usd"
                 ]
               },
               {
                 "group": "SBET",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/SBET/enterprise-value-usd",
-                  "api-reference/metrics/SBET/market-cap",
-                  "api-reference/metrics/SBET/treasury-crypto-asset",
+                  "api-reference/metrics/SBET/treasury-enterprise-value-usd",
+                  "api-reference/metrics/SBET/treasury-holdings-eth",
+                  "api-reference/metrics/SBET/treasury-market-cap-usd",
                   "api-reference/metrics/SBET/treasury-mnav",
-                  "api-reference/metrics/SBET/treasury-nav-usd",
-                  "api-reference/metrics/SBET/treasury-token-holdings",
-                  "api-reference/metrics/SBET/treasury-volume-usd"
+                  "api-reference/metrics/SBET/treasury-nav-eth-usd",
+                  "api-reference/metrics/SBET/treasury-volume-total-usd"
                 ]
               },
               {
                 "group": "SMLR",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/SMLR/enterprise-value-usd",
-                  "api-reference/metrics/SMLR/market-cap",
-                  "api-reference/metrics/SMLR/treasury-crypto-asset",
+                  "api-reference/metrics/SMLR/treasury-enterprise-value-usd",
+                  "api-reference/metrics/SMLR/treasury-holdings-btc",
+                  "api-reference/metrics/SMLR/treasury-market-cap-usd",
                   "api-reference/metrics/SMLR/treasury-mnav",
-                  "api-reference/metrics/SMLR/treasury-nav-usd",
-                  "api-reference/metrics/SMLR/treasury-token-holdings",
-                  "api-reference/metrics/SMLR/treasury-volume-usd"
+                  "api-reference/metrics/SMLR/treasury-nav-btc-usd",
+                  "api-reference/metrics/SMLR/treasury-volume-total-usd"
                 ]
               },
               {
                 "group": "SQNS",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/SQNS/enterprise-value-usd",
-                  "api-reference/metrics/SQNS/market-cap",
-                  "api-reference/metrics/SQNS/treasury-crypto-asset",
+                  "api-reference/metrics/SQNS/treasury-enterprise-value-usd",
+                  "api-reference/metrics/SQNS/treasury-holdings-btc",
+                  "api-reference/metrics/SQNS/treasury-market-cap-usd",
                   "api-reference/metrics/SQNS/treasury-mnav",
-                  "api-reference/metrics/SQNS/treasury-nav-usd",
-                  "api-reference/metrics/SQNS/treasury-token-holdings",
-                  "api-reference/metrics/SQNS/treasury-volume-usd"
+                  "api-reference/metrics/SQNS/treasury-nav-btc-usd",
+                  "api-reference/metrics/SQNS/treasury-volume-total-usd"
                 ]
               },
               {
                 "group": "STKE",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/STKE/treasury-crypto-asset",
-                  "api-reference/metrics/STKE/treasury-nav-usd",
-                  "api-reference/metrics/STKE/treasury-token-holdings",
-                  "api-reference/metrics/STKE/treasury-volume-usd"
+                  "api-reference/metrics/STKE/treasury-holdings-sol",
+                  "api-reference/metrics/STKE/treasury-nav-sol-usd",
+                  "api-reference/metrics/STKE/treasury-volume-total-usd"
+                ]
+              },
+              {
+                "group": "STSS",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/STSS/treasury-enterprise-value-usd",
+                  "api-reference/metrics/STSS/treasury-holdings-sol",
+                  "api-reference/metrics/STSS/treasury-market-cap-usd",
+                  "api-reference/metrics/STSS/treasury-mnav",
+                  "api-reference/metrics/STSS/treasury-nav-sol-usd",
+                  "api-reference/metrics/STSS/treasury-volume-total-usd"
                 ]
               },
               {
                 "group": "UPXI",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/UPXI/enterprise-value-usd",
-                  "api-reference/metrics/UPXI/market-cap",
-                  "api-reference/metrics/UPXI/treasury-crypto-asset",
+                  "api-reference/metrics/UPXI/treasury-enterprise-value-usd",
+                  "api-reference/metrics/UPXI/treasury-holdings-sol",
+                  "api-reference/metrics/UPXI/treasury-market-cap-usd",
                   "api-reference/metrics/UPXI/treasury-mnav",
-                  "api-reference/metrics/UPXI/treasury-nav-usd",
-                  "api-reference/metrics/UPXI/treasury-token-holdings",
-                  "api-reference/metrics/UPXI/treasury-volume-usd"
+                  "api-reference/metrics/UPXI/treasury-nav-sol-usd",
+                  "api-reference/metrics/UPXI/treasury-volume-total-usd"
                 ]
               }
             ],
-            "tag": "17"
+            "tag": "21"
           }
         ]
       },

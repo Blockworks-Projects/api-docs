@@ -1,0 +1,76 @@
+---
+title: "Transactions (Succeeded)"
+sidebarTitle: "Transactions (Succeeded)"
+description: "Daily number of successful transactions, excluding failed transactions."
+openapi: "GET /v1/metrics/transaction-succeed-total"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** count
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-succeed-total?project=solana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-succeed-total?project=solana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-succeed-total',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'solana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-09-14",
+      "value": 67189732
+    },
+    {
+      "date": "2025-09-13",
+      "value": 58918889
+    },
+    {
+      "date": "2025-09-12",
+      "value": 65627423
+    },
+    {
+      "date": "2025-09-11",
+      "value": 64556998
+    },
+    {
+      "date": "2025-09-10",
+      "value": 65591902
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

@@ -1,0 +1,76 @@
+---
+title: "Priority Fees (SOL)"
+sidebarTitle: "Priority Fees (SOL)"
+description: "An additional transaction fee to incentivize validators to prioritize and execute transactions."
+openapi: "GET /v1/metrics/transaction-priority-fee-total-native"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-native?project=solana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-native?project=solana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-native',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'solana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-09-14",
+      "value": 6095.822595102829
+    },
+    {
+      "date": "2025-09-13",
+      "value": 3361.128367218941
+    },
+    {
+      "date": "2025-09-12",
+      "value": 3136.781072222379
+    },
+    {
+      "date": "2025-09-11",
+      "value": 3621.5004017677875
+    },
+    {
+      "date": "2025-09-10",
+      "value": 6518.143973422635
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

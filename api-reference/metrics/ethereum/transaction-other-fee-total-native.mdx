@@ -1,0 +1,76 @@
+---
+title: "Other Fees (ETH)"
+sidebarTitle: "Other Fees (ETH)"
+description: "For Ethereum, this includes just blob fees: an additional fee for transactions that post data to \"blobs,\" which are specialized data availability solutions for L2 blockchains."
+openapi: "GET /v1/metrics/transaction-other-fee-total-native"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** native units
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-other-fee-total-native?project=ethereum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-other-fee-total-native?project=ethereum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-other-fee-total-native',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ethereum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "ethereum": [
+    {
+      "date": "2025-09-14",
+      "value": 4.310958079999987e-9
+    },
+    {
+      "date": "2025-09-13",
+      "value": 4.281729023999987e-9
+    },
+    {
+      "date": "2025-09-12",
+      "value": 4.75817574399999e-9
+    },
+    {
+      "date": "2025-09-11",
+      "value": 4.68765900799998e-9
+    },
+    {
+      "date": "2025-09-10",
+      "value": 4.611899391999986e-9
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

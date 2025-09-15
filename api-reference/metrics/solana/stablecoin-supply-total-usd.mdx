@@ -1,0 +1,76 @@
+---
+title: "Stablecoin Supply"
+sidebarTitle: "Stablecoin Supply"
+description: "Supply tracked via transfers to/from the null address, as well as distinct issuance and redemption events for supported stablecoins. Circulating supply remove supply held in bridges, token treasuries, and known mint/burn addresses."
+openapi: "GET /v1/metrics/stablecoin-supply-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd?project=solana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd?project=solana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'solana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2025-09-14",
+      "value": 12761742443.83
+    },
+    {
+      "date": "2025-09-13",
+      "value": 12843473706.45
+    },
+    {
+      "date": "2025-09-12",
+      "value": 12930665816.66
+    },
+    {
+      "date": "2025-09-11",
+      "value": 12916775398.51
+    },
+    {
+      "date": "2025-09-10",
+      "value": 12458333552.29
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

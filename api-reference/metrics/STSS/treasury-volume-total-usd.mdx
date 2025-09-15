@@ -1,0 +1,68 @@
+---
+title: "Volume (USD)"
+sidebarTitle: "Volume (USD)"
+description: "USD volume over the period"
+openapi: "GET /v1/metrics/treasury-volume-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/treasury-volume-total-usd?project=STSS"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/treasury-volume-total-usd?project=STSS',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/treasury-volume-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'STSS'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "stss": [
+    {
+      "date": "2025-09-12",
+      "value": 6438845.95
+    },
+    {
+      "date": "2025-09-11",
+      "value": 17387742.67
+    },
+    {
+      "date": "2025-09-10",
+      "value": 55145842.29
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

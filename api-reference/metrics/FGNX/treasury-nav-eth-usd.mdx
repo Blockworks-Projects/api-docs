@@ -1,0 +1,68 @@
+---
+title: "NAV (USD)"
+sidebarTitle: "NAV (USD)"
+description: "Dollar value of crypto assets (does not include cash)"
+openapi: "GET /v1/metrics/treasury-nav-eth-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/treasury-nav-eth-usd?project=FGNX"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/treasury-nav-eth-usd?project=FGNX',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/treasury-nav-eth-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'FGNX'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "fgnx": [
+    {
+      "date": "2025-09-12",
+      "value": 221543983.12
+    },
+    {
+      "date": "2025-09-11",
+      "value": 214593424.83
+    },
+    {
+      "date": "2025-09-10",
+      "value": 210911223.35
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

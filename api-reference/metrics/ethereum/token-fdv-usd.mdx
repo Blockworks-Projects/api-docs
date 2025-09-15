@@ -1,0 +1,76 @@
+---
+title: "Token FDV"
+sidebarTitle: "Token FDV"
+description: "Fully diluted value of the native asset "
+openapi: "GET /v1/metrics/token-fdv-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/token-fdv-usd?project=ethereum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/token-fdv-usd?project=ethereum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/token-fdv-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ethereum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "ethereum": [
+    {
+      "date": "2025-09-14",
+      "value": 561385974799.18
+    },
+    {
+      "date": "2025-09-13",
+      "value": 567819740951.01
+    },
+    {
+      "date": "2025-09-12",
+      "value": 551504647976.06
+    },
+    {
+      "date": "2025-09-11",
+      "value": 534328378724.23
+    },
+    {
+      "date": "2025-09-10",
+      "value": 525298345898.85
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

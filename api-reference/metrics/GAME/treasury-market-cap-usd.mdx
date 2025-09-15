@@ -1,0 +1,68 @@
+---
+title: "Market Cap"
+sidebarTitle: "Market Cap"
+description: "Market capitalization of the equity"
+openapi: "GET /v1/metrics/treasury-market-cap-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Unit:** USD
+- **Interval:** daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/treasury-market-cap-usd?project=GAME"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/treasury-market-cap-usd?project=GAME',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/treasury-market-cap-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'GAME'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "game": [
+    {
+      "date": "2025-09-12",
+      "value": 70734496.84
+    },
+    {
+      "date": "2025-09-11",
+      "value": 73704454.72
+    },
+    {
+      "date": "2025-09-10",
+      "value": 74526143.07
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
