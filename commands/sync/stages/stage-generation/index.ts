@@ -29,7 +29,7 @@ export const runGenerationStage = async ({ metrics, projects }: GenerationStageC
   const projectsList = Array.from(projects.values())
   await generateProjectsPage(projectsList)
   
-  await updateNavigation(metrics, expandOptions)
+  await updateNavigation(metrics, projects, expandOptions)
 }
 
 const generateMetricPages = async ({ metrics }: { metrics: Metric[] }) => {

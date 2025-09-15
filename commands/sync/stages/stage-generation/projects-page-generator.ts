@@ -6,6 +6,7 @@ type ProjectData = {
   name: string
   type: 'Chain' | 'Project' | 'ETF' | 'Treasury'
   metrics: number
+  metricsList: { name: string; identifier: string }[]
   categories: string[]
   slug: string
 }
@@ -21,6 +22,7 @@ import { useState, useMemo } from 'react'
 export const ProjectsTable = () => {
   const [search, setSearch] = useState('')
   const [typeFilter, setTypeFilter] = useState('all')
+  const [expandedProject, setExpandedProject] = useState(null)
 
   const projects = ${JSON.stringify(projects, null, 2)}
 
@@ -139,25 +141,56 @@ export const ProjectsTable = () => {
           </thead>
           <tbody>
             {filteredProjects.map((project, idx) => (
-              <tr key={idx} className="border-b dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800">
-                <td className="py-2 px-3">
-                  <strong>{project.name}</strong>
-                </td>
-                <td className="py-2 px-3">
-                  <span className={\`px-2 py-1 text-xs rounded-full \${
-                    project.type === 'Chain' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300' :
-                    project.type === 'ETF' ? 'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300' :
-                    project.type === 'Treasury' ? 'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300' :
-                    'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300'
-                  }\`}>
-                    {project.type}
-                  </span>
-                </td>
-                <td className="text-center py-2 px-3">{project.metrics}</td>
-                <td className="py-2 px-3 text-sm text-gray-600 dark:text-gray-400">
-                  {project.categories.join(', ') || '-'}
-                </td>
-              </tr>
+              <>
+                <tr 
+                  key={idx} 
+                  onClick={() => setExpandedProject(expandedProject === idx ? null : idx)}
+                  className="border-b dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer"
+                >
+                  <td className="py-2 px-3">
+                    <strong>{project.name}</strong>
+                  </td>
+                  <td className="py-2 px-3">
+                    <span className={\`px-2 py-1 text-xs rounded-full \${
+                      project.type === 'Chain' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300' :
+                      project.type === 'ETF' ? 'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300' :
+                      project.type === 'Treasury' ? 'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300' :
+                      'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300'
+                    }\`}>
+                      {project.type}
+                    </span>
+                  </td>
+                  <td className="text-center py-2 px-3">
+                    {project.metrics}
+                  </td>
+                  <td className="py-2 px-3 text-sm text-gray-600 dark:text-gray-400">
+                    {project.categories.join(', ') || '-'}
+                  </td>
+                </tr>
+                {expandedProject === idx && (
+                  <tr className="bg-gray-50 dark:bg-gray-900">
+                    <td colSpan="4" className="py-3 px-6">
+                      <div className="text-sm">
+                        <div className="font-medium mb-2 text-gray-700 dark:text-gray-300">
+                          Metrics for {project.name}:
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+                          {project.metricsList.map((metric, metricIdx) => (
+                            <div key={metricIdx} className="text-gray-600 dark:text-gray-400">
+                              <a 
+                                href={\`/api-reference/metrics/\${project.slug}/\${metric.identifier}\`}
+                                className="hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
+                              >
+                                {metric.name}
+                              </a>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                )}
+              </>
             ))}
           </tbody>
         </table>
@@ -192,8 +225,11 @@ export const generateProjectsPage = async (projects: Project[]): Promise<void> =
       name: project.title,
       type: project.type === 'chain' ? 'Chain' :
             project.type === 'etf' ? 'ETF' :
-            project.type === 'treasury' ? 'Treasury' : 'Project' as const,
+            project.type === 'treasury' ? 'Treasury' : 'Project',
       metrics: project.metrics.length,
+      metricsList: [...project.metrics]
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map(m => ({ name: m.name, identifier: m.identifier })),
       categories: [...new Set(project.metrics.map(m => m.category))].filter(Boolean).sort(),
       slug: project.slug
     }))

@@ -21,7 +21,7 @@ export class Project {
   }
 
   get isChain() {
-    return this.metrics.some(metric => metric.identifier === 'transactions-failed') || this.name.toLowerCase() === 'bitcoin'
+    return this.metrics.some(metric => metric.identifier === 'transaction-fail-total') || this.name.toLowerCase() === 'bitcoin'
   }
 
   get isTreasury() {

@@ -1,6 +1,5 @@
 import { Project } from '../../classes'
 import type { Metric } from '../../types'
-import { groupMetricsByProjectAndCategory } from '../../lib/metric-utils'
 
 export type ProjectCategories = Record<'chains' | 'projects' | 'etfs' | 'treasuries', Project[]>
 
@@ -34,54 +33,6 @@ export function categorizeProjects(projects: Map<string, Project>): ProjectCateg
   return output
 }
 
-/**
- * Legacy categorization for backward compatibility
- */
-export function categorizeMetrics(metrics: Metric[]): Record<'chains' | 'projects' | 'etfs' | 'treasuries', Map<string, Map<string, Metric[]>>> {
-  const projectGroups = groupMetricsByProjectAndCategory(metrics)
-
-  const output = {
-    chains: new Map(),
-    projects: new Map(),
-    etfs: new Map(),
-    treasuries: new Map()
-  }
-
-  const lut = {
-    'chain': 'chains',
-    'project': 'projects',
-    'etf': 'etfs',
-    'treasury': 'treasuries'
-  }
-
-  for (const [project, categoryMap] of projectGroups.entries()) {
-    const category = determineProjectCategory(project, categoryMap)
-    output[lut[category] as keyof typeof output].set(project, categoryMap)
-  }
-
-  return output
-}
-
-/**
- * Determine if a project is a Chain, Project, or Equity
- */
-function determineProjectCategory(
-  project: string,
-  categoryMap: Map<string, Metric[]>
-): 'chain' | 'project' | 'etf' | 'treasury' {
-  const allMetrics = Array.from(categoryMap.values()).flat()
-
-  if (allMetrics.some(metric => metric.identifier === 'transaction-fail-total') || project.toLowerCase() === 'bitcoin')
-    return 'chain'
-
-  if (allMetrics.some(metric => metric.category === 'Treasury'))
-    return 'treasury'
-
-  if (allMetrics.some(metric => metric.category === 'ETF'))
-    return 'etf'
-
-  return 'project'
-}
 
 /**
  * Get categorization summary for logging
@@ -106,4 +57,51 @@ export function getCategorySummary(categories: ProjectCategories): {
   ].reduce((total, project) => total + project.metrics.length, 0)
 
   return { chainCount, projectCount, etfCount, treasuryCount, totalMetrics }
+}
+
+/**
+ * Convert new project categories to legacy format for navigation builder
+ */
+export function convertToLegacyFormat(categories: ProjectCategories): Record<'chains' | 'projects' | 'etfs' | 'treasuries', Map<string, Map<string, Metric[]>>> {
+  const output = {
+    chains: new Map(),
+    projects: new Map(),
+    etfs: new Map(),
+    treasuries: new Map()
+  }
+
+  // Helper function to convert project to legacy format
+  const convertProject = (project: Project) => {
+    const categoryMap = new Map<string, Metric[]>()
+    
+    // Group metrics by category
+    for (const metric of project.metrics) {
+      const category = metric.category || 'General'
+      if (!categoryMap.has(category)) {
+        categoryMap.set(category, [])
+      }
+      categoryMap.get(category)!.push(metric)
+    }
+    
+    return categoryMap
+  }
+
+  // Convert each category
+  categories.chains.forEach(project => {
+    output.chains.set(project.slug, convertProject(project))
+  })
+  
+  categories.projects.forEach(project => {
+    output.projects.set(project.slug, convertProject(project))
+  })
+  
+  categories.etfs.forEach(project => {
+    output.etfs.set(project.slug, convertProject(project))
+  })
+  
+  categories.treasuries.forEach(project => {
+    output.treasuries.set(project.slug, convertProject(project))
+  })
+
+  return output
 }

@@ -116,7 +116,7 @@ function buildCategoryNavigation(
       pages: []
     }
 
-    if (config.useCategories && config.name === 'chains') {
+    if (config.useCategories) {
       // Chains keep category subgroups in navigation
       const sortedCategories = Array.from(categoryMap.keys()).sort()
 

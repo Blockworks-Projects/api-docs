@@ -1,21 +1,22 @@
 import { buildNavigationStructure } from './navigation-builder'
-import { categorizeMetrics } from './project-categorizer'
+import { categorizeProjects, convertToLegacyFormat } from './project-categorizer'
 import { readJsonFile, writeJsonFile } from '../../lib/file-operations'
 import * as text from '../../lib/text'
-import type { Metric } from '../../classes'
+import type { Metric, Project } from '../../classes'
 
 /**
  * Generate and update docs.json navigation structure for metrics and assets
  */
-export async function updateNavigation(metrics: Metric[], expandOptions?: string[]): Promise<void> {
+export async function updateNavigation(metrics: Metric[], projects: Map<string, Project>, expandOptions?: string[]): Promise<void> {
   text.header('📋 Updating docs.json navigation...')
 
   const docsPath = './docs.json'
 
   text.subheader('Categorizing projects...')
 
-  // Use legacy categorization until we pass projects
-  const categories = categorizeMetrics(metrics)
+  // Use Project class categorization
+  const projectCategories = categorizeProjects(projects)
+  const categories = convertToLegacyFormat(projectCategories)
 
   // Calculate summary
   const summary = {
