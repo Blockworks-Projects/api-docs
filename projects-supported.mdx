@@ -3102,9 +3102,9 @@ export const ProjectsTable = () => {
       <div className="mb-6 grid grid-cols-5 gap-4">
         <button
           onClick={() => setTypeFilter('Chain')}
-          className="text-center p-3 rounded-lg transition-all cursor-pointer hover:scale-105"
+          className="text-center p-3 rounded-lg transition-colors cursor-pointer hover:scale-105"
           style={{
-            backgroundColor: typeFilter === 'Chain' ? 'rgb(var(--primary-light) / 0.15)' : 'rgb(var(--gray-200) / 0.05)',
+            backgroundColor: typeFilter === 'Chain' ? 'rgb(var(--primary-light) / 0.15)' : 'rgb(var(--primary-light) / 0.05)',
             borderColor: typeFilter === 'Chain' ? 'rgb(var(--primary))' : 'transparent',
             borderWidth: typeFilter === 'Chain' ? '2px' : '1px'
           }}
@@ -3114,9 +3114,9 @@ export const ProjectsTable = () => {
         </button>
         <button
           onClick={() => setTypeFilter('Project')}
-          className="text-center p-3 rounded-lg transition-all cursor-pointer hover:scale-105"
+          className="text-center p-3 rounded-lg transition-colors cursor-pointer hover:scale-105"
           style={{
-            backgroundColor: typeFilter === 'Project' ? 'rgb(var(--primary-light) / 0.15)' : 'rgb(var(--gray-200) / 0.05)',
+            backgroundColor: typeFilter === 'Project' ? 'rgb(var(--primary-light) / 0.15)' : 'rgb(var(--primary-light) / 0.05)',
             borderColor: typeFilter === 'Project' ? 'rgb(var(--primary))' : 'transparent',
             borderWidth: typeFilter === 'Project' ? '2px' : '1px'
           }}
@@ -3126,9 +3126,9 @@ export const ProjectsTable = () => {
         </button>
         <button
           onClick={() => setTypeFilter('ETF')}
-          className="text-center p-3 rounded-lg transition-all cursor-pointer hover:scale-105"
+          className="text-center p-3 rounded-lg transition-colors cursor-pointer hover:scale-105"
           style={{
-            backgroundColor: typeFilter === 'ETF' ? 'rgb(var(--primary-light) / 0.15)' : 'rgb(var(--gray-200) / 0.05)',
+            backgroundColor: typeFilter === 'ETF' ? 'rgb(var(--primary-light) / 0.15)' : 'rgb(var(--primary-light) / 0.05)',
             borderColor: typeFilter === 'ETF' ? 'rgb(var(--primary))' : 'transparent',
             borderWidth: typeFilter === 'ETF' ? '2px' : '1px'
           }}
@@ -3138,9 +3138,9 @@ export const ProjectsTable = () => {
         </button>
         <button
           onClick={() => setTypeFilter('Treasury')}
-          className="text-center p-3 rounded-lg transition-all cursor-pointer hover:scale-105"
+          className="text-center p-3 rounded-lg transition-colors cursor-pointer hover:scale-105"
           style={{
-            backgroundColor: typeFilter === 'Treasury' ? 'rgb(var(--primary-light) / 0.15)' : 'rgb(var(--gray-200) / 0.05)',
+            backgroundColor: typeFilter === 'Treasury' ? 'rgb(var(--primary-light) / 0.15)' : 'rgb(var(--primary-light) / 0.05)',
             borderColor: typeFilter === 'Treasury' ? 'rgb(var(--primary))' : 'transparent',
             borderWidth: typeFilter === 'Treasury' ? '2px' : '1px'
           }}
@@ -3150,9 +3150,9 @@ export const ProjectsTable = () => {
         </button>
         <button
           onClick={() => setTypeFilter('all')}
-          className="text-center p-3 rounded-lg transition-all cursor-pointer hover:scale-105"
+          className="text-center p-3 rounded-lg transition-colors cursor-pointer hover:scale-105"
           style={{
-            backgroundColor: typeFilter === 'all' ? 'rgb(var(--primary-light) / 0.15)' : 'rgb(var(--gray-200) / 0.05)',
+            backgroundColor: typeFilter === 'all' ? 'rgb(var(--primary-light) / 0.15)' : 'rgb(var(--primary-light) / 0.05)',
             borderColor: typeFilter === 'all' ? 'rgb(var(--primary))' : 'transparent',
             borderWidth: typeFilter === 'all' ? '2px' : '1px'
           }}
@@ -3167,13 +3167,13 @@ export const ProjectsTable = () => {
           type="text"
           placeholder="Search projects or categories..."
           className="flex-1 px-4 py-2 border rounded-lg"
-          style={{ backgroundColor: 'rgb(var(--gray-200) / 0.05)', borderColor: 'rgb(var(--primary-light) / 0.2)' }}
+          style={{ backgroundColor: 'rgb(var(--primary-light) / 0.05)', borderColor: 'rgb(var(--primary-light) / 0.2)' }}
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
         <select
           className="px-4 py-2 border rounded-lg"
-          style={{ backgroundColor: 'rgb(var(--gray-200) / 0.05)', borderColor: 'rgb(var(--primary-light) / 0.2)' }}
+          style={{ backgroundColor: 'rgb(var(--primary-light) / 0.05)', borderColor: 'rgb(var(--primary-light) / 0.2)' }}
           value={typeFilter}
           onChange={(e) => setTypeFilter(e.target.value)}
         >
@@ -3202,8 +3202,8 @@ export const ProjectsTable = () => {
           <tbody>
             {filteredProjects.map((project, idx) => (
               <>
-                <tr 
-                  key={idx} 
+                <tr
+                  key={idx}
                   onClick={() => setExpandedProject(expandedProject === idx ? null : idx)}
                   className="cursor-pointer hover:bg-opacity-50"
                   style={{
@@ -3213,7 +3213,7 @@ export const ProjectsTable = () => {
                   }}
                   onMouseEnter={(e) => {
                     if (!expandedProject || expandedProject !== idx) {
-                      e.currentTarget.style.backgroundColor = 'rgb(var(--gray-200) / 0.05)'
+                      e.currentTarget.style.backgroundColor = 'rgb(var(--primary-light) / 0.08)'
                     }
                   }}
                   onMouseLeave={(e) => {
@@ -3243,7 +3243,7 @@ export const ProjectsTable = () => {
                   </td>
                 </tr>
                 {expandedProject === idx && (
-                  <tr style={{ backgroundColor: 'rgb(var(--gray-200) / 0.05)' }}>
+                  <tr style={{ backgroundColor: 'rgb(var(--primary-light) / 0.05)' }}>
                     <td colSpan="4" className="py-6 px-6">
                       <div className="text-sm">
                         <div className="font-medium mb-4 text-gray-700 dark:text-gray-300">
@@ -3252,7 +3252,7 @@ export const ProjectsTable = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                           {project.metricsList.map((metric, metricIdx) => (
                             <div key={metricIdx} className="text-gray-600 dark:text-gray-400">
-                              <a 
+                              <a
                                 href={`/api-reference/metrics/${project.slug}/${metric.identifier}`}
                                 className="hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
                               >
