@@ -39,10 +39,10 @@ export function groupMetricsByProjectAndCategory(metrics: Metric[]): Map<string,
 }
 
 /**
- * Sort metrics alphabetically by identifier
+ * Sort metrics alphabetically by name
  */
 export function sortMetricsAlphabetically(metrics: Metric[]): Metric[] {
-  return [...metrics].sort((a, b) => a.identifier.localeCompare(b.identifier))
+  return [...metrics].sort((a, b) => a.name.localeCompare(b.name))
 }
 
 /**

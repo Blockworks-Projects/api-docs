@@ -71,7 +71,7 @@ function determineProjectCategory(
 ): 'chain' | 'project' | 'etf' | 'treasury' {
   const allMetrics = Array.from(categoryMap.values()).flat()
 
-  if (allMetrics.some(metric => metric.identifier === 'transactions-failed') || project.toLowerCase() === 'bitcoin')
+  if (allMetrics.some(metric => metric.identifier === 'transaction-fail-total') || project.toLowerCase() === 'bitcoin')
     return 'chain'
 
   if (allMetrics.some(metric => metric.category === 'Treasury'))

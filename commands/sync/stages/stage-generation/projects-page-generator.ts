@@ -45,55 +45,55 @@ export const ProjectsTable = () => {
   return (
     <div>
       <div className="mb-6 grid grid-cols-5 gap-4">
-        <button 
+        <button
           onClick={() => setTypeFilter('Chain')}
           className={\`text-center p-3 rounded-lg transition-all cursor-pointer hover:scale-105 \${
-            typeFilter === 'Chain' 
-              ? 'bg-blue-100 dark:bg-blue-900 ring-2 ring-blue-500 dark:ring-blue-400' 
+            typeFilter === 'Chain'
+              ? 'bg-blue-100 dark:bg-blue-900 ring-2 ring-blue-500 dark:ring-blue-400'
               : 'bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700'
           }\`}
         >
           <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{stats.chains}</div>
           <div className="text-sm text-gray-600 dark:text-gray-400">Chains</div>
         </button>
-        <button 
+        <button
           onClick={() => setTypeFilter('Project')}
           className={\`text-center p-3 rounded-lg transition-all cursor-pointer hover:scale-105 \${
-            typeFilter === 'Project' 
-              ? 'bg-green-100 dark:bg-green-900 ring-2 ring-green-500 dark:ring-green-400' 
+            typeFilter === 'Project'
+              ? 'bg-green-100 dark:bg-green-900 ring-2 ring-green-500 dark:ring-green-400'
               : 'bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700'
           }\`}
         >
           <div className="text-2xl font-bold text-green-600 dark:text-green-400">{stats.projects}</div>
           <div className="text-sm text-gray-600 dark:text-gray-400">Projects</div>
         </button>
-        <button 
+        <button
           onClick={() => setTypeFilter('ETF')}
           className={\`text-center p-3 rounded-lg transition-all cursor-pointer hover:scale-105 \${
-            typeFilter === 'ETF' 
-              ? 'bg-purple-100 dark:bg-purple-900 ring-2 ring-purple-500 dark:ring-purple-400' 
+            typeFilter === 'ETF'
+              ? 'bg-purple-100 dark:bg-purple-900 ring-2 ring-purple-500 dark:ring-purple-400'
               : 'bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700'
           }\`}
         >
           <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">{stats.etfs}</div>
           <div className="text-sm text-gray-600 dark:text-gray-400">ETFs</div>
         </button>
-        <button 
+        <button
           onClick={() => setTypeFilter('Treasury')}
           className={\`text-center p-3 rounded-lg transition-all cursor-pointer hover:scale-105 \${
-            typeFilter === 'Treasury' 
-              ? 'bg-orange-100 dark:bg-orange-900 ring-2 ring-orange-500 dark:ring-orange-400' 
+            typeFilter === 'Treasury'
+              ? 'bg-orange-100 dark:bg-orange-900 ring-2 ring-orange-500 dark:ring-orange-400'
               : 'bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700'
           }\`}
         >
           <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">{stats.treasuries}</div>
           <div className="text-sm text-gray-600 dark:text-gray-400">Treasuries</div>
         </button>
-        <button 
+        <button
           onClick={() => setTypeFilter('all')}
           className={\`text-center p-3 rounded-lg transition-all cursor-pointer hover:scale-105 \${
-            typeFilter === 'all' 
-              ? 'bg-gray-200 dark:bg-gray-700 ring-2 ring-gray-500 dark:ring-gray-400' 
+            typeFilter === 'all'
+              ? 'bg-gray-200 dark:bg-gray-700 ring-2 ring-gray-500 dark:ring-gray-400'
               : 'bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700'
           }\`}
         >
@@ -141,9 +141,7 @@ export const ProjectsTable = () => {
             {filteredProjects.map((project, idx) => (
               <tr key={idx} className="border-b dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800">
                 <td className="py-2 px-3">
-                  <a href={\`/api-reference/metrics/\${project.slug}\`} className="text-blue-600 hover:text-blue-700 dark:text-blue-400">
-                    {project.name}
-                  </a>
+                  <strong>{project.name}</strong>
                 </td>
                 <td className="py-2 px-3">
                   <span className={\`px-2 py-1 text-xs rounded-full \${
