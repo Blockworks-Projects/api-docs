@@ -8,7 +8,9 @@
   },
   "scripts": {
     "dev": "npx mintlify@latest dev --port 3333",
-    "sync": "bun run commands/sync/index.ts"
+    "sync": "bun run commands/sync/index.ts",
+    "only:code": "./scripts/commit-code.sh",
+    "only:generated": "./scripts/commit-generated.sh"
   },
   "dependencies": {
     "cli-progress": "^3.12.0",
