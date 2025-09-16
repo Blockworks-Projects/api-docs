@@ -46,6 +46,15 @@ Executes the complete metric synchronization process:
 - **Links** USD and native currency metric pairs
 - **Reports** any API errors or omitted metrics
 
+### `bun validate`
+Runs validation checks without generating documentation:
+
+- **Fetches** latest metrics from the API
+- **Identifies** new, missing, or changed metrics
+- **Validates** project structure and identifiers
+- **Reports** API errors and validation issues
+- **Outputs** comprehensive validation summary
+
 ### `bun only:code`
 Stages only code changes (excludes generated files) and automatically stashes remaining unstaged files for clean commits.
 
