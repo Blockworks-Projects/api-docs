@@ -1,0 +1,288 @@
+name: Daily Metrics Validation
+
+on:
+  schedule:
+    # Run every morning at 8:00 AM UTC
+    - cron: '0 8 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2.0.1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Run validation
+        id: validate
+        env:
+          BWR_API_KEY: ${{ secrets.BLOCKWORKS_API_KEY }}
+        run: |
+          echo "Running validation checks..."
+
+          # Capture validation output and exit code
+          set +e  # Don't exit on command failure
+          bun validate 2>&1 | tee validation_output.txt
+          validation_exit_code=${PIPESTATUS[0]}
+          set -e  # Re-enable exit on failure
+
+          echo "validation_exit_code=$validation_exit_code" >> $GITHUB_OUTPUT
+
+          # Check if issues were detected
+          if [ $validation_exit_code -eq 1 ]; then
+            echo "issues_detected=true" >> $GITHUB_OUTPUT
+            echo "Issues detected during validation"
+          else
+            echo "issues_detected=false" >> $GITHUB_OUTPUT
+            echo "No validation issues found"
+          fi
+
+      - name: Parse validation output for Slack
+        if: steps.validate.outputs.issues_detected == 'true'
+        id: parse_validation
+        run: |
+          output_file="validation_output.txt"
+
+          # Extract key metrics from validation output
+          new_metrics=""
+          if grep -q "New Metrics Detected:" "$output_file"; then
+            new_metrics=$(grep -A 10 "New Metrics Detected:" "$output_file" | grep -E "^[a-z]" | head -5)
+          fi
+
+          missing_metrics=""
+          if grep -q "Missing Metrics Detected:" "$output_file"; then
+            missing_metrics=$(grep -A 10 "Missing Metrics Detected:" "$output_file" | grep -E "^[a-z]" | head -5)
+          fi
+
+          bad_descriptions=""
+          if grep -q "Metrics with Bad Descriptions:" "$output_file"; then
+            bad_descriptions=$(grep -A 5 "Metrics with Bad Descriptions:" "$output_file" | grep -E "/" | head -3)
+          fi
+
+          api_errors=""
+          if grep -q "API Errors:" "$output_file"; then
+            api_errors=$(grep -A 5 "API Errors:" "$output_file" | grep -E "→" | head -3)
+          fi
+
+          validation_issues=""
+          if grep -q "Validation Issues:" "$output_file"; then
+            validation_issues=$(grep -A 10 "Validation Issues:" "$output_file" | grep -E "x " | head -5)
+          fi
+
+          # Extract summary stats
+          total_metrics=$(grep "Total Metrics:" "$output_file" | grep -o '[0-9]\+' | head -1)
+          projects=$(grep "Projects:" "$output_file" | grep -o '[0-9]\+' | head -1)
+
+          # Create Slack message payload
+          cat > slack_message.json << 'EOF'
+          {
+            "channel": "#api-docs-events",
+            "username": "API Docs Bot",
+            "icon_emoji": ":warning:",
+            "text": "🚨 Blockworks API Validation Issues Detected",
+            "blocks": [
+              {
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "🚨 Daily Validation Alert"
+                }
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "Issues were detected during the daily validation of Blockworks API metrics."
+                }
+              },
+              {
+                "type": "section",
+                "fields": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Total Metrics:* TOTAL_METRICS_PLACEHOLDER"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Projects:* PROJECTS_PLACEHOLDER"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Repository:* blockworks/api-docs"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "*Time:* $(date -u '+%Y-%m-%d %H:%M UTC')"
+                  }
+                ]
+              }
+          EOF
+
+          # Add sections for each type of issue found
+          if [ -n "$new_metrics" ]; then
+            cat >> slack_message.json << 'EOF'
+              ,
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*📈 New Metrics Detected:*\n```NEW_METRICS_PLACEHOLDER```"
+                }
+              }
+          EOF
+          fi
+
+          if [ -n "$missing_metrics" ]; then
+            cat >> slack_message.json << 'EOF'
+              ,
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*📉 Missing Metrics:*\n```MISSING_METRICS_PLACEHOLDER```"
+                }
+              }
+          EOF
+          fi
+
+          if [ -n "$bad_descriptions" ]; then
+            cat >> slack_message.json << 'EOF'
+              ,
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*🚫 Bad Descriptions:*\n```BAD_DESCRIPTIONS_PLACEHOLDER```"
+                }
+              }
+          EOF
+          fi
+
+          if [ -n "$api_errors" ]; then
+            cat >> slack_message.json << 'EOF'
+              ,
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*🔥 API Errors:*\n```API_ERRORS_PLACEHOLDER```"
+                }
+              }
+          EOF
+          fi
+
+          if [ -n "$validation_issues" ]; then
+            cat >> slack_message.json << 'EOF'
+              ,
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "*🔍 Validation Issues:*\n```VALIDATION_ISSUES_PLACEHOLDER```"
+                }
+              }
+          EOF
+          fi
+
+          # Close the JSON and add action buttons
+          cat >> slack_message.json << 'EOF'
+              ,
+              {
+                "type": "actions",
+                "elements": [
+                  {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "View Validation Report"
+                    },
+                    "url": "https://github.com/Blockworks-Projects/api-docs/actions"
+                  },
+                  {
+                    "type": "button",
+                    "text": {
+                      "type": "plain_text",
+                      "text": "Run Full Sync"
+                    },
+                    "url": "https://github.com/Blockworks-Projects/api-docs/actions/workflows/sync-metrics.yml"
+                  }
+                ]
+              }
+            ]
+          }
+          EOF
+
+          # Replace placeholders with actual data
+          sed -i "s/TOTAL_METRICS_PLACEHOLDER/${total_metrics:-'N/A'}/g" slack_message.json
+          sed -i "s/PROJECTS_PLACEHOLDER/${projects:-'N/A'}/g" slack_message.json
+
+          # Replace content placeholders (escape newlines and quotes)
+          if [ -n "$new_metrics" ]; then
+            new_metrics_escaped=$(echo "$new_metrics" | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
+            sed -i "s/NEW_METRICS_PLACEHOLDER/${new_metrics_escaped}/g" slack_message.json
+          fi
+
+          if [ -n "$missing_metrics" ]; then
+            missing_metrics_escaped=$(echo "$missing_metrics" | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
+            sed -i "s/MISSING_METRICS_PLACEHOLDER/${missing_metrics_escaped}/g" slack_message.json
+          fi
+
+          if [ -n "$bad_descriptions" ]; then
+            bad_descriptions_escaped=$(echo "$bad_descriptions" | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
+            sed -i "s/BAD_DESCRIPTIONS_PLACEHOLDER/${bad_descriptions_escaped}/g" slack_message.json
+          fi
+
+          if [ -n "$api_errors" ]; then
+            api_errors_escaped=$(echo "$api_errors" | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
+            sed -i "s/API_ERRORS_PLACEHOLDER/${api_errors_escaped}/g" slack_message.json
+          fi
+
+          if [ -n "$validation_issues" ]; then
+            validation_issues_escaped=$(echo "$validation_issues" | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
+            sed -i "s/VALIDATION_ISSUES_PLACEHOLDER/${validation_issues_escaped}/g" slack_message.json
+          fi
+
+          echo "Slack message prepared"
+
+      - name: Send Slack notification
+        if: steps.validate.outputs.issues_detected == 'true'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          # Send as form-encoded payload (Slack's preferred method)
+          curl -X POST \
+            --data-urlencode "payload@slack_message.json" \
+            "$SLACK_WEBHOOK_URL"
+
+          if [ $? -eq 0 ]; then
+            echo "✅ Slack notification sent successfully"
+          else
+            echo "❌ Failed to send Slack notification"
+            # Fallback: try as raw JSON body
+            echo "Trying fallback method..."
+            curl -X POST \
+              -H 'Content-type: application/json' \
+              --data @slack_message.json \
+              "$SLACK_WEBHOOK_URL"
+          fi
+
+      - name: Upload validation report
+        if: steps.validate.outputs.issues_detected == 'true' && always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validation-report
+          path: |
+            validation_output.txt
+            validation_report.md
+          retention-days: 7

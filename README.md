@@ -133,6 +133,9 @@ flowchart TD
 ### Sync Metrics Documentation
 Automated workflow that runs twice weekly (Tuesday/Thursday at 9:00 AM UTC) to sync metrics documentation with the latest API changes and create pull requests with updates.
 
+### Daily Metrics Validation
+Automated workflow that runs every morning (8:00 AM UTC) to validate API metrics and sends Slack alerts when issues are detected (new/missing metrics, API errors, validation failures).
+
 # Why [Bun](https://bun.sh)?
 
 - **Native TypeScript Support**: No additional transpilation setup required
