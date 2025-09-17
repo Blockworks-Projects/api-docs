@@ -1176,6 +1176,30 @@
     "denomination": "USD"
   },
   {
+    "name": "Fee Average (ETH)",
+    "description": "Average of the sum of the base fee and priority fee that day in native chain token",
+    "identifier": "transaction-fee-avg-native",
+    "project": "base",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Activity",
+    "denomination": "ETH"
+  },
+  {
     "name": "Revenue (USD)",
     "description": "The revenue produced during the specified time period for given project.",
     "identifier": "revenue-total-usd",
@@ -1318,30 +1342,6 @@
     "aggregation": "SUM",
     "category": "Token",
     "denomination": "USD"
-  },
-  {
-    "name": "Fee Average (ETH)",
-    "description": "Average of the sum of the base fee and priority fee that day in native chain token",
-    "identifier": "transaction-fee-avg-native",
-    "project": "base",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Activity",
-    "denomination": "ETH"
   },
   {
     "name": "ETF Flows",
@@ -2424,6 +2424,30 @@
     "denomination": "Count"
   },
   {
+    "name": "NAV (USD)",
+    "description": "Dollar value of crypto assets (does not include cash)",
+    "identifier": "treasury-nav-btc-usd",
+    "project": "SQNS",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Treasury",
+    "denomination": "USD"
+  },
+  {
     "name": "Issuance (USD)",
     "description": "Newly issued tokens that are distributed to participants (such as validators, miners, or stakers) as compensation for participating in consensus.",
     "identifier": "issuance-usd",
@@ -3240,30 +3264,6 @@
     "denomination": "USD"
   },
   {
-    "name": "NAV (USD)",
-    "description": "Dollar value of crypto assets (does not include cash)",
-    "identifier": "treasury-nav-btc-usd",
-    "project": "SQNS",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Treasury",
-    "denomination": "USD"
-  },
-  {
     "name": "Treasury Holdings",
     "description": "Number of tokens held by the company. See crypto-asset for asset indicator",
     "identifier": "treasury-holdings-btc",
@@ -3814,6 +3814,30 @@
     "aggregation": "LAST",
     "category": "Treasury",
     "denomination": "ETH"
+  },
+  {
+    "name": "Revenue (USD)",
+    "description": "The revenue produced during the specified time period for given project.",
+    "identifier": "revenue-total-usd",
+    "project": "lido",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
   },
   {
     "name": "Issuance (USD)",
@@ -4636,30 +4660,6 @@
     "description": "The revenue produced during the specified time period for given project.",
     "identifier": "revenue-total-usd",
     "project": "aerodrome",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "Revenue (USD)",
-    "description": "The revenue produced during the specified time period for given project.",
-    "identifier": "revenue-total-usd",
-    "project": "lido",
     "source": "Blockworks",
     "data_type": "timeseries_usd",
     "parameters": {
@@ -6648,6 +6648,30 @@
     "denomination": "USD"
   },
   {
+    "name": "Treasury Holdings",
+    "description": "Number of tokens held by the company. See crypto-asset for asset indicator",
+    "identifier": "treasury-holdings-eth",
+    "project": "FGNX",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Treasury",
+    "denomination": "ETH"
+  },
+  {
     "name": "mNAV",
     "description": "Market NAV value for that company. Calculated as enterprise value / NAV",
     "identifier": "treasury-mnav",
@@ -6792,6 +6816,54 @@
     "denomination": "mNAV"
   },
   {
+    "name": "Market Cap",
+    "description": "Market capitalization of the equity",
+    "identifier": "treasury-market-cap-usd",
+    "project": "ETHM",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Treasury",
+    "denomination": "USD"
+  },
+  {
+    "name": "NAV (USD)",
+    "description": "Dollar value of crypto assets (does not include cash)",
+    "identifier": "treasury-nav-sol-usd",
+    "project": "STSS",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Treasury",
+    "denomination": "USD"
+  },
+  {
     "name": "mNAV",
     "description": "Market NAV value for that company. Calculated as enterprise value / NAV",
     "identifier": "treasury-mnav",
@@ -6886,78 +6958,6 @@
     "aggregation": "LAST",
     "category": "Treasury",
     "denomination": "mNAV"
-  },
-  {
-    "name": "Treasury Holdings",
-    "description": "Number of tokens held by the company. See crypto-asset for asset indicator",
-    "identifier": "treasury-holdings-eth",
-    "project": "FGNX",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Treasury",
-    "denomination": "ETH"
-  },
-  {
-    "name": "Market Cap",
-    "description": "Market capitalization of the equity",
-    "identifier": "treasury-market-cap-usd",
-    "project": "ETHM",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Treasury",
-    "denomination": "USD"
-  },
-  {
-    "name": "NAV (USD)",
-    "description": "Dollar value of crypto assets (does not include cash)",
-    "identifier": "treasury-nav-sol-usd",
-    "project": "STSS",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Treasury",
-    "denomination": "USD"
   },
   {
     "name": "Enterprise Value (USD)",

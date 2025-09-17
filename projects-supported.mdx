@@ -4,3309 +4,1757 @@ description: 'All chains and projects currently supported by the Blockworks Data
 icon: list
 ---
 
-import { useState, useMemo } from 'react'
+# Projects Supported
 
-export const ProjectsTable = () => {
-  const [search, setSearch] = useState('')
-  const [typeFilter, setTypeFilter] = useState('all')
-  const [expandedProject, setExpandedProject] = useState(null)
+The Blockworks Data API currently supports **141 projects** across 5 chains, 94 projects, 0 ETFs, and 21 treasuries.
 
-  const projects = [
-  {
-    "name": "Arbitrum",
-    "type": "Chain",
-    "metrics": 28,
-    "metricsList": [
-      {
-        "name": "Active Addresses",
-        "identifier": "active-address-total"
-      },
-      {
-        "name": "Application Revenue (USD)",
-        "identifier": "app-revenue-total-usd"
-      },
-      {
-        "name": "Base Fees (ETH)",
-        "identifier": "transaction-base-fee-total-native"
-      },
-      {
-        "name": "Base Fees (USD)",
-        "identifier": "transaction-base-fee-total-usd"
-      },
-      {
-        "name": "DEX Spot Volume",
-        "identifier": "dex-spot-volume-total-usd"
-      },
-      {
-        "name": "Fee Average (ETH)",
-        "identifier": "transaction-fee-avg-native"
-      },
-      {
-        "name": "Fee Average (USD)",
-        "identifier": "transaction-fee-avg-usd"
-      },
-      {
-        "name": "Fee Median (ETH)",
-        "identifier": "transaction-fee-med-native"
-      },
-      {
-        "name": "Fee Median (USD)",
-        "identifier": "transaction-fee-med-usd"
-      },
-      {
-        "name": "Gross Profit",
-        "identifier": "sequencer-gross-profit"
-      },
-      {
-        "name": "Other Fees (ETH)",
-        "identifier": "transaction-other-fee-total-native"
-      },
-      {
-        "name": "Other Fees (USD)",
-        "identifier": "transaction-other-fee-total-usd"
-      },
-      {
-        "name": "Price (USD)",
-        "identifier": "token-price-usd"
-      },
-      {
-        "name": "Priority Fees (ETH)",
-        "identifier": "transaction-priority-fee-total-native"
-      },
-      {
-        "name": "Priority Fees (USD)",
-        "identifier": "transaction-priority-fee-total-usd"
-      },
-      {
-        "name": "REV",
-        "identifier": "rev"
-      },
-      {
-        "name": "REV",
-        "identifier": "rev-native"
-      },
-      {
-        "name": "REV (USD)",
-        "identifier": "rev-usd"
-      },
-      {
-        "name": "Rollup Data Cost",
-        "identifier": "sequencer-cost-total"
-      },
-      {
-        "name": "Stablecoin Circulating Supply",
-        "identifier": "stablecoin-circulating-supply-total-usd"
-      },
-      {
-        "name": "Stablecoin Supply",
-        "identifier": "stablecoin-supply-total-usd"
-      },
-      {
-        "name": "Token FDV",
-        "identifier": "token-fdv-usd"
-      },
-      {
-        "name": "Token Supply",
-        "identifier": "token-supply"
-      },
-      {
-        "name": "Transaction Fees (ETH)",
-        "identifier": "transaction-fee-total-native"
-      },
-      {
-        "name": "Transaction Fees (USD)",
-        "identifier": "transaction-fee-total-usd"
-      },
-      {
-        "name": "Transactions (Failed)",
-        "identifier": "transaction-fail-total"
-      },
-      {
-        "name": "Transactions (Succeeded)",
-        "identifier": "transaction-succeed-total"
-      },
-      {
-        "name": "Transactions (Total)",
-        "identifier": "transaction-total"
-      }
-    ],
-    "categories": [
-      "Activity",
-      "Financials",
-      "Stablecoins",
-      "Token",
-      "Trading"
-    ],
-    "slug": "arbitrum"
-  },
-  {
-    "name": "Base",
-    "type": "Chain",
-    "metrics": 22,
-    "metricsList": [
-      {
-        "name": "Active Addresses",
-        "identifier": "active-address-total"
-      },
-      {
-        "name": "Application Revenue (USD)",
-        "identifier": "app-revenue-total-usd"
-      },
-      {
-        "name": "Base Fees (ETH)",
-        "identifier": "transaction-base-fee-total-native"
-      },
-      {
-        "name": "Base Fees (USD)",
-        "identifier": "transaction-base-fee-total-usd"
-      },
-      {
-        "name": "Data Cost",
-        "identifier": "sequencer-cost-total"
-      },
-      {
-        "name": "DEX Spot Volume",
-        "identifier": "dex-spot-volume-total-usd"
-      },
-      {
-        "name": "Fee Average (ETH)",
-        "identifier": "transaction-fee-avg-native"
-      },
-      {
-        "name": "Fee Average (USD)",
-        "identifier": "transaction-fee-avg-usd"
-      },
-      {
-        "name": "Fee Median (ETH)",
-        "identifier": "transaction-fee-med-native"
-      },
-      {
-        "name": "Fee Median (USD)",
-        "identifier": "transaction-fee-med-usd"
-      },
-      {
-        "name": "Gross Profit",
-        "identifier": "sequencer-gross-profit"
-      },
-      {
-        "name": "Priority Fees (ETH)",
-        "identifier": "transaction-priority-fee-total-native"
-      },
-      {
-        "name": "Priority Fees (USD)",
-        "identifier": "transaction-priority-fee-total-usd"
-      },
-      {
-        "name": "REV",
-        "identifier": "rev-native"
-      },
-      {
-        "name": "REV (USD)",
-        "identifier": "rev-usd"
-      },
-      {
-        "name": "Stablecoin Circulating Supply",
-        "identifier": "stablecoin-circulating-supply-total-usd"
-      },
-      {
-        "name": "Stablecoin Supply",
-        "identifier": "stablecoin-supply-total-usd"
-      },
-      {
-        "name": "Transaction Fees (ETH)",
-        "identifier": "transaction-fee-total-native"
-      },
-      {
-        "name": "Transaction Fees (USD)",
-        "identifier": "transaction-fee-total-usd"
-      },
-      {
-        "name": "Transactions (Failed)",
-        "identifier": "transaction-fail-total"
-      },
-      {
-        "name": "Transactions (Succeeded)",
-        "identifier": "transaction-succeed-total"
-      },
-      {
-        "name": "Transactions (Total)",
-        "identifier": "transaction-total"
-      }
-    ],
-    "categories": [
-      "Activity",
-      "Financials",
-      "Stablecoins",
-      "Trading"
-    ],
-    "slug": "base"
-  },
-  {
-    "name": "Bitcoin",
-    "type": "Chain",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Total ETF Flows",
-        "identifier": "etf-flows-total-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "bitcoin"
-  },
-  {
-    "name": "Ethereum",
-    "type": "Chain",
-    "metrics": 32,
-    "metricsList": [
-      {
-        "name": "Active Addresses",
-        "identifier": "active-address-total"
-      },
-      {
-        "name": "Application Revenue (USD)",
-        "identifier": "app-revenue-total-usd"
-      },
-      {
-        "name": "Base Fees (ETH)",
-        "identifier": "transaction-base-fee-total-native"
-      },
-      {
-        "name": "Base Fees (USD)",
-        "identifier": "transaction-base-fee-total-usd"
-      },
-      {
-        "name": "Burn",
-        "identifier": "burn"
-      },
-      {
-        "name": "Burn (USD)",
-        "identifier": "burn-usd"
-      },
-      {
-        "name": "DEX Spot Volume",
-        "identifier": "dex-spot-volume-total-usd"
-      },
-      {
-        "name": "Fee Average (ETH)",
-        "identifier": "transaction-fee-avg-native"
-      },
-      {
-        "name": "Fee Average (USD)",
-        "identifier": "transaction-fee-avg-usd"
-      },
-      {
-        "name": "Fee Median (ETH)",
-        "identifier": "transaction-fee-med-native"
-      },
-      {
-        "name": "Fee Median (USD)",
-        "identifier": "transaction-fee-med-usd"
-      },
-      {
-        "name": "Issuance",
-        "identifier": "issuance"
-      },
-      {
-        "name": "Issuance (USD)",
-        "identifier": "issuance-usd"
-      },
-      {
-        "name": "MEV Tips",
-        "identifier": "mev-tips-fees"
-      },
-      {
-        "name": "MEV Tips (USD)",
-        "identifier": "mev-tips-fees-usd"
-      },
-      {
-        "name": "Native Token Supply Staked",
-        "identifier": "token-supply-staked"
-      },
-      {
-        "name": "Other Fees (ETH)",
-        "identifier": "transaction-other-fee-total-native"
-      },
-      {
-        "name": "Other Fees (USD)",
-        "identifier": "transaction-other-fee-total-usd"
-      },
-      {
-        "name": "Price (USD)",
-        "identifier": "token-price-usd"
-      },
-      {
-        "name": "Priority Fees (ETH)",
-        "identifier": "transaction-priority-fee-total-native"
-      },
-      {
-        "name": "Priority Fees (USD)",
-        "identifier": "transaction-priority-fee-total-usd"
-      },
-      {
-        "name": "REV (USD)",
-        "identifier": "rev-usd"
-      },
-      {
-        "name": "Stablecoin Circulating Supply",
-        "identifier": "stablecoin-circulating-supply-total-usd"
-      },
-      {
-        "name": "Stablecoin Supply",
-        "identifier": "stablecoin-supply-total-usd"
-      },
-      {
-        "name": "Token FDV",
-        "identifier": "token-fdv-usd"
-      },
-      {
-        "name": "Token Supply",
-        "identifier": "token-supply"
-      },
-      {
-        "name": "Total ETF Flows",
-        "identifier": "etf-flows-total-usd"
-      },
-      {
-        "name": "Transaction Fees (ETH)",
-        "identifier": "transaction-fee-total-native"
-      },
-      {
-        "name": "Transaction Fees (USD)",
-        "identifier": "transaction-fee-total-usd"
-      },
-      {
-        "name": "Transactions (Failed)",
-        "identifier": "transaction-fail-total"
-      },
-      {
-        "name": "Transactions (Succeeded)",
-        "identifier": "transaction-succeed-total"
-      },
-      {
-        "name": "Transactions (Total)",
-        "identifier": "transaction-total"
-      }
-    ],
-    "categories": [
-      "Activity",
-      "ETF",
-      "Financials",
-      "Stablecoins",
-      "Token",
-      "Trading"
-    ],
-    "slug": "ethereum"
-  },
-  {
-    "name": "Solana",
-    "type": "Chain",
-    "metrics": 31,
-    "metricsList": [
-      {
-        "name": "Active Addresses",
-        "identifier": "active-address-total"
-      },
-      {
-        "name": "Application Revenue (USD)",
-        "identifier": "app-revenue-total-usd"
-      },
-      {
-        "name": "Base Fees (SOL)",
-        "identifier": "transaction-base-fee-total-native"
-      },
-      {
-        "name": "Base Fees (USD)",
-        "identifier": "transaction-base-fee-total-usd"
-      },
-      {
-        "name": "Burn",
-        "identifier": "burn"
-      },
-      {
-        "name": "Burn (USD)",
-        "identifier": "burn-usd"
-      },
-      {
-        "name": "DEX Spot Volume",
-        "identifier": "dex-spot-volume-total-usd"
-      },
-      {
-        "name": "Fee Average (SOL)",
-        "identifier": "transaction-fee-avg-native"
-      },
-      {
-        "name": "Fee Average (USD)",
-        "identifier": "transaction-fee-avg-usd"
-      },
-      {
-        "name": "Fee Median (SOL)",
-        "identifier": "transaction-fee-med-native"
-      },
-      {
-        "name": "Fee Median (USD)",
-        "identifier": "transaction-fee-med-usd"
-      },
-      {
-        "name": "Issuance",
-        "identifier": "issuance"
-      },
-      {
-        "name": "Issuance (USD)",
-        "identifier": "issuance-usd"
-      },
-      {
-        "name": "MEV Tips",
-        "identifier": "mev-tips-fees"
-      },
-      {
-        "name": "MEV Tips (USD)",
-        "identifier": "mev-tips-fees-usd"
-      },
-      {
-        "name": "Native Token Supply Staked",
-        "identifier": "token-supply-staked"
-      },
-      {
-        "name": "Price (USD)",
-        "identifier": "token-price-usd"
-      },
-      {
-        "name": "Priority Fees (SOL)",
-        "identifier": "transaction-priority-fee-total-native"
-      },
-      {
-        "name": "Priority Fees (USD)",
-        "identifier": "transaction-priority-fee-total-usd"
-      },
-      {
-        "name": "REV",
-        "identifier": "rev-native"
-      },
-      {
-        "name": "REV (USD)",
-        "identifier": "rev-usd"
-      },
-      {
-        "name": "Stablecoin Circulating Supply",
-        "identifier": "stablecoin-circulating-supply-total-usd"
-      },
-      {
-        "name": "Stablecoin Supply",
-        "identifier": "stablecoin-supply-total-usd"
-      },
-      {
-        "name": "Token FDV",
-        "identifier": "token-fdv-usd"
-      },
-      {
-        "name": "Token Supply",
-        "identifier": "token-supply"
-      },
-      {
-        "name": "Total ETF Flows",
-        "identifier": "etf-flows-total-usd"
-      },
-      {
-        "name": "Transaction Fees (SOL)",
-        "identifier": "transaction-fee-total-native"
-      },
-      {
-        "name": "Transaction Fees (USD)",
-        "identifier": "transaction-fee-total-usd"
-      },
-      {
-        "name": "Transactions (Failed)",
-        "identifier": "transaction-fail-total"
-      },
-      {
-        "name": "Transactions (Succeeded)",
-        "identifier": "transaction-succeed-total"
-      },
-      {
-        "name": "Transactions (Total)",
-        "identifier": "transaction-total"
-      }
-    ],
-    "categories": [
-      "Activity",
-      "ETF",
-      "Financials",
-      "Stablecoins",
-      "Token",
-      "Trading"
-    ],
-    "slug": "solana"
-  },
-  {
-    "name": "Aave",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "aave"
-  },
-  {
-    "name": "Aerodrome",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "aerodrome"
-  },
-  {
-    "name": "Apex",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "apex"
-  },
-  {
-    "name": "Aries",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "aries"
-  },
-  {
-    "name": "Aster",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "aster"
-  },
-  {
-    "name": "Axiom",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "axiom"
-  },
-  {
-    "name": "Bags",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Launchpad Tokens Graduated",
-        "identifier": "launchpad-tokens-graduated"
-      }
-    ],
-    "categories": [
-      "Token"
-    ],
-    "slug": "bags"
-  },
-  {
-    "name": "Balancer",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "balancer"
-  },
-  {
-    "name": "Banana Gun",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "banana-gun"
-  },
-  {
-    "name": "Believe",
-    "type": "Project",
-    "metrics": 4,
-    "metricsList": [
-      {
-        "name": "Launchpad Tokens Bonding Volume",
-        "identifier": "launchpad-bonding-volume"
-      },
-      {
-        "name": "Launchpad Tokens Graduated",
-        "identifier": "launchpad-tokens-graduated"
-      },
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      },
-      {
-        "name": "Tokens Launched by Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
-      }
-    ],
-    "categories": [
-      "Financials",
-      "Token"
-    ],
-    "slug": "believe"
-  },
-  {
-    "name": "Bloom",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "bloom"
-  },
-  {
-    "name": "Bloxroute",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "bloxroute"
-  },
-  {
-    "name": "Bluefin",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "bluefin"
-  },
-  {
-    "name": "Bonk",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "bonk"
-  },
-  {
-    "name": "Boopfun",
-    "type": "Project",
-    "metrics": 2,
-    "metricsList": [
-      {
-        "name": "Launchpad Tokens Graduated",
-        "identifier": "launchpad-tokens-graduated"
-      },
-      {
-        "name": "Tokens Launched by Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
-      }
-    ],
-    "categories": [
-      "Token"
-    ],
-    "slug": "boopfun"
-  },
-  {
-    "name": "Bullx",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "bullx"
-  },
-  {
-    "name": "Byreal",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Volume (USD)",
-        "identifier": "volume-usd"
-      }
-    ],
-    "categories": [
-      "Trading"
-    ],
-    "slug": "byreal"
-  },
-  {
-    "name": "Cetus",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "cetus"
-  },
-  {
-    "name": "Clanker",
-    "type": "Project",
-    "metrics": 2,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      },
-      {
-        "name": "Tokens Launched by Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
-      }
-    ],
-    "categories": [
-      "Financials",
-      "Token"
-    ],
-    "slug": "clanker"
-  },
-  {
-    "name": "Clipper",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "clipper"
-  },
-  {
-    "name": "Coinbase Wallet",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "coinbase-wallet"
-  },
-  {
-    "name": "Convex",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "convex"
-  },
-  {
-    "name": "Cookdotmeme",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "cookdotmeme"
-  },
-  {
-    "name": "Cookmeme",
-    "type": "Project",
-    "metrics": 2,
-    "metricsList": [
-      {
-        "name": "Launchpad Tokens Bonding Volume",
-        "identifier": "launchpad-bonding-volume"
-      },
-      {
-        "name": "Launchpad Tokens Graduated",
-        "identifier": "launchpad-tokens-graduated"
-      }
-    ],
-    "categories": [
-      "Token"
-    ],
-    "slug": "cookmeme"
-  },
-  {
-    "name": "Dexscreener",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "dexscreener"
-  },
-  {
-    "name": "Dodo",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "dodo"
-  },
-  {
-    "name": "Drift",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "drift"
-  },
-  {
-    "name": "Dydx",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "dydx"
-  },
-  {
-    "name": "Eigenlayer",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "eigenlayer"
-  },
-  {
-    "name": "Ethena",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "ethena"
-  },
-  {
-    "name": "Euler",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "euler"
-  },
-  {
-    "name": "Flashbots",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "flashbots"
-  },
-  {
-    "name": "Fourmeme",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Tokens Launched by Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
-      }
-    ],
-    "categories": [
-      "Token"
-    ],
-    "slug": "fourmeme"
-  },
-  {
-    "name": "Gmgn",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "gmgn"
-  },
-  {
-    "name": "Gmx",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "gmx"
-  },
-  {
-    "name": "Goonfi",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Volume (USD)",
-        "identifier": "volume-usd"
-      }
-    ],
-    "categories": [
-      "Trading"
-    ],
-    "slug": "goonfi"
-  },
-  {
-    "name": "Humidifi",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Volume (USD)",
-        "identifier": "volume-usd"
-      }
-    ],
-    "categories": [
-      "Trading"
-    ],
-    "slug": "humidifi"
-  },
-  {
-    "name": "Hyperliquid",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "hyperliquid"
-  },
-  {
-    "name": "Ironbank",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "ironbank"
-  },
-  {
-    "name": "Jito",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "jito"
-  },
-  {
-    "name": "Jupstudio",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Launchpad Tokens Graduated",
-        "identifier": "launchpad-tokens-graduated"
-      }
-    ],
-    "categories": [
-      "Token"
-    ],
-    "slug": "jupstudio"
-  },
-  {
-    "name": "Kamino",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "kamino"
-  },
-  {
-    "name": "Letsbonk",
-    "type": "Project",
-    "metrics": 2,
-    "metricsList": [
-      {
-        "name": "Launchpad Tokens Graduated",
-        "identifier": "launchpad-tokens-graduated"
-      },
-      {
-        "name": "Tokens Launched by Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
-      }
-    ],
-    "categories": [
-      "Token"
-    ],
-    "slug": "letsbonk"
-  },
-  {
-    "name": "Letsbonkdotfun",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "letsbonkdotfun"
-  },
-  {
-    "name": "Letsbonkfun",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Launchpad Tokens Bonding Volume",
-        "identifier": "launchpad-bonding-volume"
-      }
-    ],
-    "categories": [
-      "Token"
-    ],
-    "slug": "letsbonkfun"
-  },
-  {
-    "name": "Level",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "level"
-  },
-  {
-    "name": "Lido",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "lido"
-  },
-  {
-    "name": "Lifi",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "lifi"
-  },
-  {
-    "name": "Lifinity",
-    "type": "Project",
-    "metrics": 2,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "volume-usd"
-      }
-    ],
-    "categories": [
-      "Financials",
-      "Trading"
-    ],
-    "slug": "lifinity"
-  },
-  {
-    "name": "Looter",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "looter"
-  },
-  {
-    "name": "Maestro",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "maestro"
-  },
-  {
-    "name": "Metaplex",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "metaplex"
-  },
-  {
-    "name": "Meteroa",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Volume (USD)",
-        "identifier": "volume-usd"
-      }
-    ],
-    "categories": [
-      "Trading"
-    ],
-    "slug": "meteroa"
-  },
-  {
-    "name": "Meth Protocol",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "meth-protocol"
-  },
-  {
-    "name": "Mevx",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "mevx"
-  },
-  {
-    "name": "Moonshot",
-    "type": "Project",
-    "metrics": 4,
-    "metricsList": [
-      {
-        "name": "Launchpad Tokens Bonding Volume",
-        "identifier": "launchpad-bonding-volume"
-      },
-      {
-        "name": "Launchpad Tokens Graduated",
-        "identifier": "launchpad-tokens-graduated"
-      },
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      },
-      {
-        "name": "Tokens Launched by Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
-      }
-    ],
-    "categories": [
-      "Financials",
-      "Token"
-    ],
-    "slug": "moonshot"
-  },
-  {
-    "name": "Morpho",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "morpho"
-  },
-  {
-    "name": "Navi Protocol",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "navi-protocol"
-  },
-  {
-    "name": "Nova",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "nova"
-  },
-  {
-    "name": "Odos",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "odos"
-  },
-  {
-    "name": "Opensea",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "opensea"
-  },
-  {
-    "name": "Orca",
-    "type": "Project",
-    "metrics": 2,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "volume-usd"
-      }
-    ],
-    "categories": [
-      "Financials",
-      "Trading"
-    ],
-    "slug": "orca"
-  },
-  {
-    "name": "Ostium",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "ostium"
-  },
-  {
-    "name": "Other Launchpads",
-    "type": "Project",
-    "metrics": 2,
-    "metricsList": [
-      {
-        "name": "Launchpad Tokens Graduated",
-        "identifier": "launchpad-tokens-graduated"
-      },
-      {
-        "name": "Tokens Launched by Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
-      }
-    ],
-    "categories": [
-      "Token"
-    ],
-    "slug": "other-launchpads"
-  },
-  {
-    "name": "Paal Ai",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "paal-ai"
-  },
-  {
-    "name": "Pancakeswap",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "pancakeswap"
-  },
-  {
-    "name": "Paradex",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "paradex"
-  },
-  {
-    "name": "Phantom",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "phantom"
-  },
-  {
-    "name": "Photon",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "photon"
-  },
-  {
-    "name": "Pumpfun",
-    "type": "Project",
-    "metrics": 5,
-    "metricsList": [
-      {
-        "name": "Launchpad Tokens Bonding Volume",
-        "identifier": "launchpad-bonding-volume"
-      },
-      {
-        "name": "Launchpad Tokens Graduated",
-        "identifier": "launchpad-tokens-graduated"
-      },
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      },
-      {
-        "name": "Tokens Launched by Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "volume-usd"
-      }
-    ],
-    "categories": [
-      "Financials",
-      "Token",
-      "Trading"
-    ],
-    "slug": "pumpfun"
-  },
-  {
-    "name": "Raydium",
-    "type": "Project",
-    "metrics": 4,
-    "metricsList": [
-      {
-        "name": "Launchpad Tokens Bonding Volume",
-        "identifier": "launchpad-bonding-volume"
-      },
-      {
-        "name": "Launchpad Tokens Graduated",
-        "identifier": "launchpad-tokens-graduated"
-      },
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "volume-usd"
-      }
-    ],
-    "categories": [
-      "Financials",
-      "Token",
-      "Trading"
-    ],
-    "slug": "raydium"
-  },
-  {
-    "name": "Scallop",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "scallop"
-  },
-  {
-    "name": "Solfi",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Volume (USD)",
-        "identifier": "volume-usd"
-      }
-    ],
-    "categories": [
-      "Trading"
-    ],
-    "slug": "solfi"
-  },
-  {
-    "name": "Soltradingbot",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "soltradingbot"
-  },
-  {
-    "name": "Sosovalue",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "sosovalue"
-  },
-  {
-    "name": "Spark",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "spark"
-  },
-  {
-    "name": "Stabble",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Volume (USD)",
-        "identifier": "volume-usd"
-      }
-    ],
-    "categories": [
-      "Trading"
-    ],
-    "slug": "stabble"
-  },
-  {
-    "name": "Stable Labs",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "stable-labs"
-  },
-  {
-    "name": "Stakewise",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "stakewise"
-  },
-  {
-    "name": "Sushiswap",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "sushiswap"
-  },
-  {
-    "name": "Syncswap",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "syncswap"
-  },
-  {
-    "name": "Tensor",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "tensor"
-  },
-  {
-    "name": "Tessera",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Volume (USD)",
-        "identifier": "volume-usd"
-      }
-    ],
-    "categories": [
-      "Trading"
-    ],
-    "slug": "tessera"
-  },
-  {
-    "name": "Thearena",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Tokens Launched by Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
-      }
-    ],
-    "categories": [
-      "Token"
-    ],
-    "slug": "thearena"
-  },
-  {
-    "name": "Thorchain Dex",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "thorchain-dex"
-  },
-  {
-    "name": "Tornado",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "tornado"
-  },
-  {
-    "name": "Trojan",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "trojan"
-  },
-  {
-    "name": "Uniswap",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "uniswap"
-  },
-  {
-    "name": "Uniswap Labs",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "uniswap-labs"
-  },
-  {
-    "name": "Virtuals",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "virtuals"
-  },
-  {
-    "name": "Wavebreak",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Launchpad Tokens Bonding Volume",
-        "identifier": "launchpad-bonding-volume"
-      }
-    ],
-    "categories": [
-      "Token"
-    ],
-    "slug": "wavebreak"
-  },
-  {
-    "name": "Wildcat",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Revenue (USD)",
-        "identifier": "revenue-total-usd"
-      }
-    ],
-    "categories": [
-      "Financials"
-    ],
-    "slug": "wildcat"
-  },
-  {
-    "name": "ZeroFi",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Volume (USD)",
-        "identifier": "volume-usd"
-      }
-    ],
-    "categories": [
-      "Trading"
-    ],
-    "slug": "ZeroFi"
-  },
-  {
-    "name": "Zora",
-    "type": "Project",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "Tokens Launched by Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
-      }
-    ],
-    "categories": [
-      "Token"
-    ],
-    "slug": "zora"
-  },
-  {
-    "name": "ARKB",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "ARKB"
-  },
-  {
-    "name": "BITB",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "BITB"
-  },
-  {
-    "name": "BRRR",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "BRRR"
-  },
-  {
-    "name": "BTC",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "BTC"
-  },
-  {
-    "name": "BTCO",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "BTCO"
-  },
-  {
-    "name": "BTCW",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "BTCW"
-  },
-  {
-    "name": "CETH",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "CETH"
-  },
-  {
-    "name": "ETH",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "ETH"
-  },
-  {
-    "name": "ETHA",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "ETHA"
-  },
-  {
-    "name": "ETHE",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "ETHE"
-  },
-  {
-    "name": "ETHV",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "ETHV"
-  },
-  {
-    "name": "ETHW",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "ETHW"
-  },
-  {
-    "name": "EZBC",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "EZBC"
-  },
-  {
-    "name": "EZET",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "EZET"
-  },
-  {
-    "name": "FBTC",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "FBTC"
-  },
-  {
-    "name": "FETH",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "FETH"
-  },
-  {
-    "name": "GBTC",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "GBTC"
-  },
-  {
-    "name": "HODL",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "HODL"
-  },
-  {
-    "name": "IBIT",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "IBIT"
-  },
-  {
-    "name": "QETH",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "QETH"
-  },
-  {
-    "name": "SSK",
-    "type": "ETF",
-    "metrics": 1,
-    "metricsList": [
-      {
-        "name": "ETF Flows",
-        "identifier": "etf-flows-usd"
-      }
-    ],
-    "categories": [
-      "ETF"
-    ],
-    "slug": "SSK"
-  },
-  {
-    "name": "BMNR",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-eth-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-eth"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "BMNR"
-  },
-  {
-    "name": "BNC",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-bnb-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-bnb"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "BNC"
-  },
-  {
-    "name": "BTBT",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-eth-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-eth"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "BTBT"
-  },
-  {
-    "name": "BTCM",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-sol-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-sol"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "BTCM"
-  },
-  {
-    "name": "BTCS",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-eth-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-eth"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "BTCS"
-  },
-  {
-    "name": "CEP",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-btc-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-btc"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "CEP"
-  },
-  {
-    "name": "CEPO",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-btc-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-btc"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "CEPO"
-  },
-  {
-    "name": "DFDV",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-sol-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-sol"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "DFDV"
-  },
-  {
-    "name": "ETHM",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-eth-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-eth"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "ETHM"
-  },
-  {
-    "name": "ETHZ",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-eth-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-eth"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "ETHZ"
-  },
-  {
-    "name": "FGNX",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-eth-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-eth"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "FGNX"
-  },
-  {
-    "name": "GAME",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-eth-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-eth"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "GAME"
-  },
-  {
-    "name": "HYPD",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-hype-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-hype"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "HYPD"
-  },
-  {
-    "name": "MSTR",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-btc-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-btc"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "MSTR"
-  },
-  {
-    "name": "NAKA",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-btc-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-btc"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "NAKA"
-  },
-  {
-    "name": "SBET",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-eth-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-eth"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "SBET"
-  },
-  {
-    "name": "SMLR",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-btc-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-btc"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "SMLR"
-  },
-  {
-    "name": "SQNS",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-btc-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-btc"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "SQNS"
-  },
-  {
-    "name": "STKE",
-    "type": "Treasury",
-    "metrics": 3,
-    "metricsList": [
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-sol-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-sol"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "STKE"
-  },
-  {
-    "name": "STSS",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-sol-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-sol"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "STSS"
-  },
-  {
-    "name": "UPXI",
-    "type": "Treasury",
-    "metrics": 6,
-    "metricsList": [
-      {
-        "name": "Enterprise Value (USD)",
-        "identifier": "treasury-enterprise-value-usd"
-      },
-      {
-        "name": "Market Cap",
-        "identifier": "treasury-market-cap-usd"
-      },
-      {
-        "name": "mNAV",
-        "identifier": "treasury-mnav"
-      },
-      {
-        "name": "NAV (USD)",
-        "identifier": "treasury-nav-sol-usd"
-      },
-      {
-        "name": "Treasury Holdings",
-        "identifier": "treasury-holdings-sol"
-      },
-      {
-        "name": "Volume (USD)",
-        "identifier": "treasury-volume-total-usd"
-      }
-    ],
-    "categories": [
-      "Treasury"
-    ],
-    "slug": "UPXI"
-  }
-]
+## Overview
 
-  const filteredProjects = useMemo(() => {
-    return projects.filter(project => {
-      const matchesSearch = search === '' ||
-        project.name.toLowerCase().includes(search.toLowerCase()) ||
-        project.categories.some(cat => cat.toLowerCase().includes(search.toLowerCase()))
-      const matchesType = typeFilter === 'all' || project.type === typeFilter
-      return matchesSearch && matchesType
-    })
-  }, [search, typeFilter])
+<CardGroup cols={4}>
+  <Card title="Chains" icon="link">
+    **5** blockchain networks
+  </Card>
+  <Card title="Projects" icon="rocket">
+    **94** DeFi protocols
+  </Card>
+  <Card title="ETFs" icon="chart-line">
+    **0** exchange-traded funds
+  </Card>
+  <Card title="Treasuries" icon="building">
+    **21** treasury entities
+  </Card>
+</CardGroup>
 
-  const stats = useMemo(() => ({
-    chains: projects.filter(p => p.type === 'Chain').length,
-    projects: projects.filter(p => p.type === 'Project').length,
-    etfs: projects.filter(p => p.type === 'ETF').length,
-    treasuries: projects.filter(p => p.type === 'Treasury').length,
-    total: projects.length
-  }), [])
+## Chains (5)
 
-  return (
-    <div>
-      <div className="mb-6 grid grid-cols-5 gap-4">
-        <button
-          onClick={() => {
-            setTypeFilter('Chain')
-            setExpandedProject(null)
-          }}
-          className="text-center p-3 rounded-lg transition-colors cursor-pointer hover:scale-105"
-          style={{
-            backgroundColor: typeFilter === 'Chain' ? 'rgb(var(--primary-light) / 0.15)' : 'rgb(var(--primary-light) / 0.05)',
-            borderColor: typeFilter === 'Chain' ? 'rgb(var(--primary))' : 'transparent',
-            borderWidth: typeFilter === 'Chain' ? '2px' : '1px'
-          }}
-        >
-          <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{stats.chains}</div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">Chains</div>
-        </button>
-        <button
-          onClick={() => {
-            setTypeFilter('Project')
-            setExpandedProject(null)
-          }}
-          className="text-center p-3 rounded-lg transition-colors cursor-pointer hover:scale-105"
-          style={{
-            backgroundColor: typeFilter === 'Project' ? 'rgb(var(--primary-light) / 0.15)' : 'rgb(var(--primary-light) / 0.05)',
-            borderColor: typeFilter === 'Project' ? 'rgb(var(--primary))' : 'transparent',
-            borderWidth: typeFilter === 'Project' ? '2px' : '1px'
-          }}
-        >
-          <div className="text-2xl font-bold text-green-600 dark:text-green-400">{stats.projects}</div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">Projects</div>
-        </button>
-        <button
-          onClick={() => {
-            setTypeFilter('ETF')
-            setExpandedProject(null)
-          }}
-          className="text-center p-3 rounded-lg transition-colors cursor-pointer hover:scale-105"
-          style={{
-            backgroundColor: typeFilter === 'ETF' ? 'rgb(var(--primary-light) / 0.15)' : 'rgb(var(--primary-light) / 0.05)',
-            borderColor: typeFilter === 'ETF' ? 'rgb(var(--primary))' : 'transparent',
-            borderWidth: typeFilter === 'ETF' ? '2px' : '1px'
-          }}
-        >
-          <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">{stats.etfs}</div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">ETFs</div>
-        </button>
-        <button
-          onClick={() => {
-            setTypeFilter('Treasury')
-            setExpandedProject(null)
-          }}
-          className="text-center p-3 rounded-lg transition-colors cursor-pointer hover:scale-105"
-          style={{
-            backgroundColor: typeFilter === 'Treasury' ? 'rgb(var(--primary-light) / 0.15)' : 'rgb(var(--primary-light) / 0.05)',
-            borderColor: typeFilter === 'Treasury' ? 'rgb(var(--primary))' : 'transparent',
-            borderWidth: typeFilter === 'Treasury' ? '2px' : '1px'
-          }}
-        >
-          <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">{stats.treasuries}</div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">Treasuries</div>
-        </button>
-        <button
-          onClick={() => {
-            setTypeFilter('all')
-            setExpandedProject(null)
-          }}
-          className="text-center p-3 rounded-lg transition-colors cursor-pointer hover:scale-105"
-          style={{
-            backgroundColor: typeFilter === 'all' ? 'rgb(var(--primary-light) / 0.15)' : 'rgb(var(--primary-light) / 0.05)',
-            borderColor: typeFilter === 'all' ? 'rgb(var(--primary))' : 'transparent',
-            borderWidth: typeFilter === 'all' ? '2px' : '1px'
-          }}
-        >
-          <div className="text-2xl font-bold text-gray-600 dark:text-gray-400">{stats.total}</div>
-          <div className="text-sm text-gray-600 dark:text-gray-400">Total</div>
-        </button>
-      </div>
 
-      <div className="mb-4 flex gap-4">
-        <input
-          type="text"
-          placeholder="Search projects or categories..."
-          className="flex-1 px-4 py-2 border rounded-lg"
-          style={{ backgroundColor: 'rgb(var(--primary-light) / 0.05)', borderColor: 'rgb(var(--primary-light) / 0.2)' }}
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value)
-            setExpandedProject(null)
-          }}
-        />
-        <select
-          className="px-4 py-2 border rounded-lg"
-          style={{ backgroundColor: 'rgb(var(--primary-light) / 0.05)', borderColor: 'rgb(var(--primary-light) / 0.2)' }}
-          value={typeFilter}
-          onChange={(e) => {
-            setTypeFilter(e.target.value)
-            setExpandedProject(null)
-          }}
-        >
-          <option value="all">All Types</option>
-          <option value="Chain">Chains</option>
-          <option value="Project">Projects</option>
-          <option value="ETF">ETFs</option>
-          <option value="Treasury">Treasuries</option>
-        </select>
-      </div>
+### arbitrum
+- **Type**: Chain
+- **Metrics Available**: 28
+- **Categories**: Financials, Activity, Token, Stablecoins, Trading
 
-      <div className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-        Showing {filteredProjects.length} of {projects.length} projects
-      </div>
+<details>
+<summary>View all 28 metrics</summary>
 
-      <div className="overflow-x-auto">
-        <table className="w-full">
-          <thead>
-            <tr style={{ borderBottomColor: 'rgb(var(--primary-light) / 0.3)', borderBottomWidth: '2px' }}>
-              <th className="text-left py-2 px-3">Project</th>
-              <th className="text-left py-2 px-3">Type</th>
-              <th className="text-center py-2 px-3">Metrics</th>
-              <th className="text-left py-2 px-3">Categories</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredProjects.map((project, idx) => (
-              <>
-                <tr
-                  key={idx}
-                  onClick={() => setExpandedProject(expandedProject === idx ? null : idx)}
-                  className="cursor-pointer hover:bg-opacity-50"
-                  style={{
-                    backgroundColor: expandedProject === idx ? 'rgb(var(--primary-light) / 0.1)' : undefined,
-                    borderBottomColor: 'rgb(var(--primary-light) / 0.2)',
-                    borderBottomWidth: '1px'
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!expandedProject || expandedProject !== idx) {
-                      e.currentTarget.style.backgroundColor = 'rgb(var(--primary-light) / 0.08)'
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!expandedProject || expandedProject !== idx) {
-                      e.currentTarget.style.backgroundColor = 'transparent'
-                    }
-                  }}
-                >
-                  <td className="py-2 px-3">
-                    <strong>{project.name}</strong>
-                  </td>
-                  <td className="py-2 px-3">
-                    <span className={`px-2 py-1 text-xs rounded-full ${
-                      project.type === 'Chain' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300' :
-                      project.type === 'ETF' ? 'bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300' :
-                      project.type === 'Treasury' ? 'bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300' :
-                      'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300'
-                    }`}>
-                      {project.type}
-                    </span>
-                  </td>
-                  <td className="text-center py-2 px-3">
-                    {project.metrics}
-                  </td>
-                  <td className="py-2 px-3 text-sm text-gray-600 dark:text-gray-400">
-                    {project.categories.join(', ') || '-'}
-                  </td>
-                </tr>
-                {expandedProject === idx && (
-                  <tr style={{ backgroundColor: 'rgb(var(--primary-light) / 0.05)' }}>
-                    <td colSpan="4" className="py-6 px-6">
-                      <div className="text-sm">
-                        <div className="font-medium mb-4 text-gray-700 dark:text-gray-300">
-                          Metrics for {project.name}:
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-                          {project.metricsList.map((metric, metricIdx) => (
-                            <div key={metricIdx} className="text-gray-600 dark:text-gray-400">
-                              <a
-                                href={`/api-reference/metrics/${project.slug}/${metric.identifier}`}
-                                className="hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
-                              >
-                                {metric.name}
-                              </a>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                )}
-              </>
-            ))}
-          </tbody>
-        </table>
-        {filteredProjects.length === 0 && (
-          <div className="text-center py-8 text-gray-500 dark:text-gray-400">
-            No projects found matching your search
-          </div>
-        )}
-      </div>
-    </div>
-  )
-}
+- **Priority Fees (ETH)** (`transaction-priority-fee-total-native`)
+- **REV** (`rev`)
+- **Transactions (Total)** (`transaction-total`)
+- **Other Fees (USD)** (`transaction-other-fee-total-usd`)
+- **REV** (`rev-native`)
+- **Fee Median (USD)** (`transaction-fee-med-usd`)
+- **Price (USD)** (`token-price-usd`)
+- **Fee Average (USD)** (`transaction-fee-avg-usd`)
+- **Transactions (Failed)** (`transaction-fail-total`)
+- **Base Fees (USD)** (`transaction-base-fee-total-usd`)
+- **Other Fees (ETH)** (`transaction-other-fee-total-native`)
+- **Token FDV** (`token-fdv-usd`)
+- **Fee Median (ETH)** (`transaction-fee-med-native`)
+- **Base Fees (ETH)** (`transaction-base-fee-total-native`)
+- **Stablecoin Circulating Supply** (`stablecoin-circulating-supply-total-usd`)
+- **Token Supply** (`token-supply`)
+- **Priority Fees (USD)** (`transaction-priority-fee-total-usd`)
+- **Stablecoin Supply** (`stablecoin-supply-total-usd`)
+- **Transactions (Succeeded)** (`transaction-succeed-total`)
+- **Fee Average (ETH)** (`transaction-fee-avg-native`)
+- **Rollup Data Cost** (`sequencer-cost-total`)
+- **Transaction Fees (USD)** (`transaction-fee-total-usd`)
+- **REV (USD)** (`rev-usd`)
+- **Transaction Fees (ETH)** (`transaction-fee-total-native`)
+- **Active Addresses** (`active-address-total`)
+- **Gross Profit** (`sequencer-gross-profit`)
+- **DEX Spot Volume** (`dex-spot-volume-total-usd`)
+- **Application Revenue (USD)** (`app-revenue-total-usd`)
 
-<ProjectsTable />
+</details>
 
-## About This Page
 
-This page is automatically generated and contains all 141 projects currently supported by the Blockworks Data API.
+### base
+- **Type**: Chain
+- **Metrics Available**: 22
+- **Categories**: Activity, Financials, Stablecoins, Trading
 
-- **Chains**: Blockchain networks with transaction and activity metrics
-- **Projects**: DeFi protocols, applications, and platforms
-- **ETFs**: Exchange-traded funds with price and flow metrics
-- **Treasuries**: Corporate and protocol treasury holdings
+<details>
+<summary>View all 22 metrics</summary>
+
+- **Fee Median (ETH)** (`transaction-fee-med-native`)
+- **Priority Fees (ETH)** (`transaction-priority-fee-total-native`)
+- **Active Addresses** (`active-address-total`)
+- **Application Revenue (USD)** (`app-revenue-total-usd`)
+- **Transactions (Total)** (`transaction-total`)
+- **Data Cost** (`sequencer-cost-total`)
+- **Fee Average (ETH)** (`transaction-fee-avg-native`)
+- **Fee Median (USD)** (`transaction-fee-med-usd`)
+- **Stablecoin Circulating Supply** (`stablecoin-circulating-supply-total-usd`)
+- **Base Fees (ETH)** (`transaction-base-fee-total-native`)
+- **REV** (`rev-native`)
+- **DEX Spot Volume** (`dex-spot-volume-total-usd`)
+- **Transaction Fees (USD)** (`transaction-fee-total-usd`)
+- **Fee Average (USD)** (`transaction-fee-avg-usd`)
+- **Priority Fees (USD)** (`transaction-priority-fee-total-usd`)
+- **Transactions (Failed)** (`transaction-fail-total`)
+- **Stablecoin Supply** (`stablecoin-supply-total-usd`)
+- **Base Fees (USD)** (`transaction-base-fee-total-usd`)
+- **Transactions (Succeeded)** (`transaction-succeed-total`)
+- **Transaction Fees (ETH)** (`transaction-fee-total-native`)
+- **REV (USD)** (`rev-usd`)
+- **Gross Profit** (`sequencer-gross-profit`)
+
+</details>
+
+
+### bitcoin
+- **Type**: Chain
+- **Metrics Available**: 1
+- **Categories**: ETF
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Total ETF Flows** (`etf-flows-total-usd`)
+
+</details>
+
+
+### ethereum
+- **Type**: Chain
+- **Metrics Available**: 32
+- **Categories**: Token, Financials, Activity, ETF, Stablecoins, Trading
+
+<details>
+<summary>View all 32 metrics</summary>
+
+- **Price (USD)** (`token-price-usd`)
+- **Priority Fees (ETH)** (`transaction-priority-fee-total-native`)
+- **Burn** (`burn`)
+- **Transactions (Total)** (`transaction-total`)
+- **Active Addresses** (`active-address-total`)
+- **Issuance** (`issuance`)
+- **Other Fees (USD)** (`transaction-other-fee-total-usd`)
+- **Total ETF Flows** (`etf-flows-total-usd`)
+- **Fee Median (ETH)** (`transaction-fee-med-native`)
+- **Priority Fees (USD)** (`transaction-priority-fee-total-usd`)
+- **Burn (USD)** (`burn-usd`)
+- **Base Fees (USD)** (`transaction-base-fee-total-usd`)
+- **Stablecoin Supply** (`stablecoin-supply-total-usd`)
+- **Fee Average (USD)** (`transaction-fee-avg-usd`)
+- **DEX Spot Volume** (`dex-spot-volume-total-usd`)
+- **Transactions (Failed)** (`transaction-fail-total`)
+- **Stablecoin Circulating Supply** (`stablecoin-circulating-supply-total-usd`)
+- **REV (USD)** (`rev-usd`)
+- **Token Supply** (`token-supply`)
+- **Issuance (USD)** (`issuance-usd`)
+- **MEV Tips (USD)** (`mev-tips-fees-usd`)
+- **Application Revenue (USD)** (`app-revenue-total-usd`)
+- **Transaction Fees (USD)** (`transaction-fee-total-usd`)
+- **Base Fees (ETH)** (`transaction-base-fee-total-native`)
+- **Token FDV** (`token-fdv-usd`)
+- **MEV Tips** (`mev-tips-fees`)
+- **Transaction Fees (ETH)** (`transaction-fee-total-native`)
+- **Native Token Supply Staked** (`token-supply-staked`)
+- **Transactions (Succeeded)** (`transaction-succeed-total`)
+- **Fee Median (USD)** (`transaction-fee-med-usd`)
+- **Other Fees (ETH)** (`transaction-other-fee-total-native`)
+- **Fee Average (ETH)** (`transaction-fee-avg-native`)
+
+</details>
+
+
+### solana
+- **Type**: Chain
+- **Metrics Available**: 31
+- **Categories**: Financials, Activity, Token, ETF, Stablecoins, Trading
+
+<details>
+<summary>View all 31 metrics</summary>
+
+- **REV** (`rev-native`)
+- **Fee Median (USD)** (`transaction-fee-med-usd`)
+- **MEV Tips** (`mev-tips-fees`)
+- **Fee Average (SOL)** (`transaction-fee-avg-native`)
+- **Price (USD)** (`token-price-usd`)
+- **Application Revenue (USD)** (`app-revenue-total-usd`)
+- **Transactions (Total)** (`transaction-total`)
+- **Fee Median (SOL)** (`transaction-fee-med-native`)
+- **Base Fees (SOL)** (`transaction-base-fee-total-native`)
+- **Priority Fees (SOL)** (`transaction-priority-fee-total-native`)
+- **MEV Tips (USD)** (`mev-tips-fees-usd`)
+- **Total ETF Flows** (`etf-flows-total-usd`)
+- **Base Fees (USD)** (`transaction-base-fee-total-usd`)
+- **Priority Fees (USD)** (`transaction-priority-fee-total-usd`)
+- **Token FDV** (`token-fdv-usd`)
+- **Stablecoin Supply** (`stablecoin-supply-total-usd`)
+- **Issuance (USD)** (`issuance-usd`)
+- **Transaction Fees (SOL)** (`transaction-fee-total-native`)
+- **Fee Average (USD)** (`transaction-fee-avg-usd`)
+- **REV (USD)** (`rev-usd`)
+- **Transactions (Failed)** (`transaction-fail-total`)
+- **Transaction Fees (USD)** (`transaction-fee-total-usd`)
+- **Stablecoin Circulating Supply** (`stablecoin-circulating-supply-total-usd`)
+- **Active Addresses** (`active-address-total`)
+- **Transactions (Succeeded)** (`transaction-succeed-total`)
+- **Token Supply** (`token-supply`)
+- **Burn** (`burn`)
+- **Native Token Supply Staked** (`token-supply-staked`)
+- **DEX Spot Volume** (`dex-spot-volume-total-usd`)
+- **Issuance** (`issuance`)
+- **Burn (USD)** (`burn-usd`)
+
+</details>
+
+
+## Projects (94)
+
+
+### aave
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### aerodrome
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### apex
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### aries
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### aster
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### axiom
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### bags
+- **Metrics Available**: 1
+- **Categories**: Token
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Launchpad Tokens Graduated** (`launchpad-tokens-graduated`)
+
+</details>
+
+
+### balancer
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### banana-gun
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### believe
+- **Metrics Available**: 4
+- **Categories**: Token, Financials
+
+<details>
+<summary>View all 4 metrics</summary>
+
+- **Tokens Launched by Launchpad** (`tokens-launched-by-launchpad`)
+- **Revenue (USD)** (`revenue-total-usd`)
+- **Launchpad Tokens Bonding Volume** (`launchpad-bonding-volume`)
+- **Launchpad Tokens Graduated** (`launchpad-tokens-graduated`)
+
+</details>
+
+
+### bloom
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### bloxroute
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### bluefin
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### bonk
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### boopfun
+- **Metrics Available**: 2
+- **Categories**: Token
+
+<details>
+<summary>View all 2 metrics</summary>
+
+- **Tokens Launched by Launchpad** (`tokens-launched-by-launchpad`)
+- **Launchpad Tokens Graduated** (`launchpad-tokens-graduated`)
+
+</details>
+
+
+### bullx
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### byreal
+- **Metrics Available**: 1
+- **Categories**: Trading
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Volume (USD)** (`volume-usd`)
+
+</details>
+
+
+### cetus
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### clanker
+- **Metrics Available**: 2
+- **Categories**: Token, Financials
+
+<details>
+<summary>View all 2 metrics</summary>
+
+- **Tokens Launched by Launchpad** (`tokens-launched-by-launchpad`)
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### clipper
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+
+<details>
+<summary>View 74 more projects...</summary>
+
+
+### coinbase-wallet
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### convex
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### cookdotmeme
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### cookmeme
+- **Metrics Available**: 2
+- **Categories**: Token
+
+<details>
+<summary>View all 2 metrics</summary>
+
+- **Launchpad Tokens Bonding Volume** (`launchpad-bonding-volume`)
+- **Launchpad Tokens Graduated** (`launchpad-tokens-graduated`)
+
+</details>
+
+
+### dexscreener
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### dodo
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### drift
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### dydx
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### eigenlayer
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### ethena
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### euler
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### flashbots
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### fourmeme
+- **Metrics Available**: 1
+- **Categories**: Token
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Tokens Launched by Launchpad** (`tokens-launched-by-launchpad`)
+
+</details>
+
+
+### gmgn
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### gmx
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### goonfi
+- **Metrics Available**: 1
+- **Categories**: Trading
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Volume (USD)** (`volume-usd`)
+
+</details>
+
+
+### humidifi
+- **Metrics Available**: 1
+- **Categories**: Trading
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Volume (USD)** (`volume-usd`)
+
+</details>
+
+
+### hyperliquid
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### ironbank
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### jito
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### jupstudio
+- **Metrics Available**: 1
+- **Categories**: Token
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Launchpad Tokens Graduated** (`launchpad-tokens-graduated`)
+
+</details>
+
+
+### letsbonkdotfun
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### lido
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### lifi
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### lifinity
+- **Metrics Available**: 2
+- **Categories**: Financials, Trading
+
+<details>
+<summary>View all 2 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+- **Volume (USD)** (`volume-usd`)
+
+</details>
+
+
+### looter
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### maestro
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### metaplex
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### kamino
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### level
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### meteroa
+- **Metrics Available**: 1
+- **Categories**: Trading
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Volume (USD)** (`volume-usd`)
+
+</details>
+
+
+### meth-protocol
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### mevx
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### moonshot
+- **Metrics Available**: 4
+- **Categories**: Financials, Token
+
+<details>
+<summary>View all 4 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+- **Tokens Launched by Launchpad** (`tokens-launched-by-launchpad`)
+- **Launchpad Tokens Graduated** (`launchpad-tokens-graduated`)
+- **Launchpad Tokens Bonding Volume** (`launchpad-bonding-volume`)
+
+</details>
+
+
+### morpho
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### navi-protocol
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### nova
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### odos
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### orca
+- **Metrics Available**: 2
+- **Categories**: Trading, Financials
+
+<details>
+<summary>View all 2 metrics</summary>
+
+- **Volume (USD)** (`volume-usd`)
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### ostium
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### other-launchpads
+- **Metrics Available**: 2
+- **Categories**: Token
+
+<details>
+<summary>View all 2 metrics</summary>
+
+- **Launchpad Tokens Graduated** (`launchpad-tokens-graduated`)
+- **Tokens Launched by Launchpad** (`tokens-launched-by-launchpad`)
+
+</details>
+
+
+### paal-ai
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### pancakeswap
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### paradex
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### phantom
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### raydium
+- **Metrics Available**: 4
+- **Categories**: Token, Trading, Financials
+
+<details>
+<summary>View all 4 metrics</summary>
+
+- **Launchpad Tokens Graduated** (`launchpad-tokens-graduated`)
+- **Volume (USD)** (`volume-usd`)
+- **Revenue (USD)** (`revenue-total-usd`)
+- **Launchpad Tokens Bonding Volume** (`launchpad-bonding-volume`)
+
+</details>
+
+
+### soltradingbot
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### spark
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### sushiswap
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### thorchain-dex
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### letsbonk
+- **Metrics Available**: 2
+- **Categories**: Token
+
+<details>
+<summary>View all 2 metrics</summary>
+
+- **Launchpad Tokens Graduated** (`launchpad-tokens-graduated`)
+- **Tokens Launched by Launchpad** (`tokens-launched-by-launchpad`)
+
+</details>
+
+
+### opensea
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### photon
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### pumpfun
+- **Metrics Available**: 5
+- **Categories**: Financials, Token, Trading
+
+<details>
+<summary>View all 5 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+- **Launchpad Tokens Bonding Volume** (`launchpad-bonding-volume`)
+- **Volume (USD)** (`volume-usd`)
+- **Tokens Launched by Launchpad** (`tokens-launched-by-launchpad`)
+- **Launchpad Tokens Graduated** (`launchpad-tokens-graduated`)
+
+</details>
+
+
+### scallop
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### sosovalue
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### stakewise
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### tensor
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### tessera
+- **Metrics Available**: 1
+- **Categories**: Trading
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Volume (USD)** (`volume-usd`)
+
+</details>
+
+
+### thearena
+- **Metrics Available**: 1
+- **Categories**: Token
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Tokens Launched by Launchpad** (`tokens-launched-by-launchpad`)
+
+</details>
+
+
+### tornado
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### uniswap
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### uniswap-labs
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### wavebreak
+- **Metrics Available**: 1
+- **Categories**: Token
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Launchpad Tokens Bonding Volume** (`launchpad-bonding-volume`)
+
+</details>
+
+
+### wildcat
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### ZeroFi
+- **Metrics Available**: 1
+- **Categories**: Trading
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Volume (USD)** (`volume-usd`)
+
+</details>
+
+
+### zora
+- **Metrics Available**: 1
+- **Categories**: Token
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Tokens Launched by Launchpad** (`tokens-launched-by-launchpad`)
+
+</details>
+
+
+### solfi
+- **Metrics Available**: 1
+- **Categories**: Trading
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Volume (USD)** (`volume-usd`)
+
+</details>
+
+
+### stabble
+- **Metrics Available**: 1
+- **Categories**: Trading
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Volume (USD)** (`volume-usd`)
+
+</details>
+
+
+### stable-labs
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### syncswap
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### trojan
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### virtuals
+- **Metrics Available**: 1
+- **Categories**: Financials
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Revenue (USD)** (`revenue-total-usd`)
+
+</details>
+
+
+### letsbonkfun
+- **Metrics Available**: 1
+- **Categories**: Token
+
+<details>
+<summary>View all 1 metrics</summary>
+
+- **Launchpad Tokens Bonding Volume** (`launchpad-bonding-volume`)
+
+</details>
+
+
+</details>
+
+
+## ETFs (0)
+
+
+
+## Treasuries (21)
+
+
+### BMNR
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **Treasury Holdings** (`treasury-holdings-eth`)
+- **mNAV** (`treasury-mnav`)
+- **NAV (USD)** (`treasury-nav-eth-usd`)
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **Market Cap** (`treasury-market-cap-usd`)
+- **Volume (USD)** (`treasury-volume-total-usd`)
+
+</details>
+
+
+### BNC
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **NAV (USD)** (`treasury-nav-bnb-usd`)
+- **Volume (USD)** (`treasury-volume-total-usd`)
+- **Market Cap** (`treasury-market-cap-usd`)
+- **Treasury Holdings** (`treasury-holdings-bnb`)
+- **mNAV** (`treasury-mnav`)
+
+</details>
+
+
+### BTCM
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **Market Cap** (`treasury-market-cap-usd`)
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **Treasury Holdings** (`treasury-holdings-sol`)
+- **NAV (USD)** (`treasury-nav-sol-usd`)
+- **Volume (USD)** (`treasury-volume-total-usd`)
+- **mNAV** (`treasury-mnav`)
+
+</details>
+
+
+### BTCS
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **Volume (USD)** (`treasury-volume-total-usd`)
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **Treasury Holdings** (`treasury-holdings-eth`)
+- **mNAV** (`treasury-mnav`)
+- **NAV (USD)** (`treasury-nav-eth-usd`)
+- **Market Cap** (`treasury-market-cap-usd`)
+
+</details>
+
+
+### CEP
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **Volume (USD)** (`treasury-volume-total-usd`)
+- **Treasury Holdings** (`treasury-holdings-btc`)
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **Market Cap** (`treasury-market-cap-usd`)
+- **NAV (USD)** (`treasury-nav-btc-usd`)
+- **mNAV** (`treasury-mnav`)
+
+</details>
+
+
+### CEPO
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **Treasury Holdings** (`treasury-holdings-btc`)
+- **Volume (USD)** (`treasury-volume-total-usd`)
+- **Market Cap** (`treasury-market-cap-usd`)
+- **mNAV** (`treasury-mnav`)
+- **NAV (USD)** (`treasury-nav-btc-usd`)
+
+</details>
+
+
+### DFDV
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **Treasury Holdings** (`treasury-holdings-sol`)
+- **NAV (USD)** (`treasury-nav-sol-usd`)
+- **Volume (USD)** (`treasury-volume-total-usd`)
+- **Market Cap** (`treasury-market-cap-usd`)
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **mNAV** (`treasury-mnav`)
+
+</details>
+
+
+### ETHM
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **Volume (USD)** (`treasury-volume-total-usd`)
+- **Treasury Holdings** (`treasury-holdings-eth`)
+- **NAV (USD)** (`treasury-nav-eth-usd`)
+- **mNAV** (`treasury-mnav`)
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **Market Cap** (`treasury-market-cap-usd`)
+
+</details>
+
+
+### FGNX
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **Market Cap** (`treasury-market-cap-usd`)
+- **Treasury Holdings** (`treasury-holdings-eth`)
+- **mNAV** (`treasury-mnav`)
+- **Volume (USD)** (`treasury-volume-total-usd`)
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **NAV (USD)** (`treasury-nav-eth-usd`)
+
+</details>
+
+
+### HYPD
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **Volume (USD)** (`treasury-volume-total-usd`)
+- **Market Cap** (`treasury-market-cap-usd`)
+- **NAV (USD)** (`treasury-nav-hype-usd`)
+- **Treasury Holdings** (`treasury-holdings-hype`)
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **mNAV** (`treasury-mnav`)
+
+</details>
+
+
+### MSTR
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **Volume (USD)** (`treasury-volume-total-usd`)
+- **Treasury Holdings** (`treasury-holdings-btc`)
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **Market Cap** (`treasury-market-cap-usd`)
+- **NAV (USD)** (`treasury-nav-btc-usd`)
+- **mNAV** (`treasury-mnav`)
+
+</details>
+
+
+### NAKA
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **NAV (USD)** (`treasury-nav-btc-usd`)
+- **Market Cap** (`treasury-market-cap-usd`)
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **mNAV** (`treasury-mnav`)
+- **Treasury Holdings** (`treasury-holdings-btc`)
+- **Volume (USD)** (`treasury-volume-total-usd`)
+
+</details>
+
+
+### SBET
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **NAV (USD)** (`treasury-nav-eth-usd`)
+- **Market Cap** (`treasury-market-cap-usd`)
+- **mNAV** (`treasury-mnav`)
+- **Treasury Holdings** (`treasury-holdings-eth`)
+- **Volume (USD)** (`treasury-volume-total-usd`)
+
+</details>
+
+
+### SMLR
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **Volume (USD)** (`treasury-volume-total-usd`)
+- **Treasury Holdings** (`treasury-holdings-btc`)
+- **NAV (USD)** (`treasury-nav-btc-usd`)
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **Market Cap** (`treasury-market-cap-usd`)
+- **mNAV** (`treasury-mnav`)
+
+</details>
+
+
+### SQNS
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **Volume (USD)** (`treasury-volume-total-usd`)
+- **NAV (USD)** (`treasury-nav-btc-usd`)
+- **Treasury Holdings** (`treasury-holdings-btc`)
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **Market Cap** (`treasury-market-cap-usd`)
+- **mNAV** (`treasury-mnav`)
+
+</details>
+
+
+### STKE
+- **Type**: Treasury
+- **Metrics Available**: 3
+- **Categories**: Treasury
+
+<details>
+<summary>View all 3 metrics</summary>
+
+- **Volume (USD)** (`treasury-volume-total-usd`)
+- **Treasury Holdings** (`treasury-holdings-sol`)
+- **NAV (USD)** (`treasury-nav-sol-usd`)
+
+</details>
+
+
+### STSS
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **Volume (USD)** (`treasury-volume-total-usd`)
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **Treasury Holdings** (`treasury-holdings-sol`)
+- **Market Cap** (`treasury-market-cap-usd`)
+- **NAV (USD)** (`treasury-nav-sol-usd`)
+- **mNAV** (`treasury-mnav`)
+
+</details>
+
+
+### UPXI
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **Market Cap** (`treasury-market-cap-usd`)
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **NAV (USD)** (`treasury-nav-sol-usd`)
+- **Volume (USD)** (`treasury-volume-total-usd`)
+- **Treasury Holdings** (`treasury-holdings-sol`)
+- **mNAV** (`treasury-mnav`)
+
+</details>
+
+
+### BTBT
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **mNAV** (`treasury-mnav`)
+- **Treasury Holdings** (`treasury-holdings-eth`)
+- **Market Cap** (`treasury-market-cap-usd`)
+- **Volume (USD)** (`treasury-volume-total-usd`)
+- **NAV (USD)** (`treasury-nav-eth-usd`)
+
+</details>
+
+
+### ETHZ
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **NAV (USD)** (`treasury-nav-eth-usd`)
+- **Treasury Holdings** (`treasury-holdings-eth`)
+- **mNAV** (`treasury-mnav`)
+- **Market Cap** (`treasury-market-cap-usd`)
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **Volume (USD)** (`treasury-volume-total-usd`)
+
+</details>
+
+
+### GAME
+- **Type**: Treasury
+- **Metrics Available**: 6
+- **Categories**: Treasury
+
+<details>
+<summary>View all 6 metrics</summary>
+
+- **Treasury Holdings** (`treasury-holdings-eth`)
+- **Market Cap** (`treasury-market-cap-usd`)
+- **mNAV** (`treasury-mnav`)
+- **Volume (USD)** (`treasury-volume-total-usd`)
+- **Enterprise Value (USD)** (`treasury-enterprise-value-usd`)
+- **NAV (USD)** (`treasury-nav-eth-usd`)
+
+</details>
+
+
+## API Usage
+
+To fetch metrics for any of these projects, use the following endpoint pattern:
+
+```bash
+GET /api/v1/metrics/{project_slug}/{metric_identifier}
+```
+
+### Example
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  "https://api.blockworksresearch.com/api/v1/metrics/bitcoin/price"
+```
+
+For more information, see our [API Reference](/api-reference) documentation.
