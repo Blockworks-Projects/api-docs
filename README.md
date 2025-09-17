@@ -136,6 +136,9 @@ Automated workflow that runs twice weekly (Tuesday/Thursday at 9:00 AM UTC) to s
 ### Daily Metrics Validation
 Automated workflow that runs every morning (8:00 AM UTC) to validate API metrics and sends Slack alerts when issues are detected (new/missing metrics, API errors, validation failures).
 
+### Test Slack Integration
+Manual workflow for testing Slack notifications with mock validation data. Use this to verify webhook configuration and message formatting.
+
 # Why [Bun](https://bun.sh)?
 
 - **Native TypeScript Support**: No additional transpilation setup required
