@@ -197,42 +197,42 @@ jobs:
 
           # Use Python for safer multi-line content replacement
           python3 << 'PYTHON_EOF'
-import json
-import re
+          import json
+          import re
 
-# Read the JSON template
-with open('slack_message_temp.json', 'r') as f:
-    content = f.read()
+          # Read the JSON template
+          with open('slack_message_temp.json', 'r') as f:
+              content = f.read()
 
-# Define the replacement data
-new_metrics = """bitcoin > etf-flows-arkb-v2
-ethereum > staking-rewards-percentage
-solana > validator-count-total"""
+          # Define the replacement data
+          new_metrics = """bitcoin > etf-flows-arkb-v2
+          ethereum > staking-rewards-percentage
+          solana > validator-count-total"""
 
-missing_metrics = """arbitrum > transaction-count-daily
-base > tvl-total-usd"""
+          missing_metrics = """arbitrum > transaction-count-daily
+          base > tvl-total-usd"""
 
-bad_descriptions = """solana/bad-metric-1: There are no fees on solana...
-ethereum/incomplete-desc: There is no data in this metric...
-bitcoin/empty-metric: There are no values for bitcoin..."""
+          bad_descriptions = """solana/bad-metric-1: There are no fees on solana...
+          ethereum/incomplete-desc: There is no data in this metric...
+          bitcoin/empty-metric: There are no values for bitcoin..."""
 
-api_errors = """/api/v1/metrics/bitcoin/price → 503 Service Unavailable
-/api/v1/metrics/ethereum/gas-price → 429 Too Many Requests"""
+          api_errors = """/api/v1/metrics/bitcoin/price → 503 Service Unavailable
+          /api/v1/metrics/ethereum/gas-price → 429 Too Many Requests"""
 
-validation_issues = """3x Missing Data
-2x Invalid Format"""
+          validation_issues = """3x Missing Data
+          2x Invalid Format"""
 
-# Replace placeholders safely
-content = content.replace('NEW_METRICS_PLACEHOLDER', new_metrics)
-content = content.replace('MISSING_METRICS_PLACEHOLDER', missing_metrics)
-content = content.replace('BAD_DESCRIPTIONS_PLACEHOLDER', bad_descriptions)
-content = content.replace('API_ERRORS_PLACEHOLDER', api_errors)
-content = content.replace('VALIDATION_ISSUES_PLACEHOLDER', validation_issues)
+          # Replace placeholders safely
+          content = content.replace('NEW_METRICS_PLACEHOLDER', new_metrics)
+          content = content.replace('MISSING_METRICS_PLACEHOLDER', missing_metrics)
+          content = content.replace('BAD_DESCRIPTIONS_PLACEHOLDER', bad_descriptions)
+          content = content.replace('API_ERRORS_PLACEHOLDER', api_errors)
+          content = content.replace('VALIDATION_ISSUES_PLACEHOLDER', validation_issues)
 
-# Write the final JSON
-with open('slack_message.json', 'w') as f:
-    f.write(content)
-PYTHON_EOF
+          # Write the final JSON
+          with open('slack_message.json', 'w') as f:
+              f.write(content)
+          PYTHON_EOF
 
           echo "Slack message prepared for testing"
 
