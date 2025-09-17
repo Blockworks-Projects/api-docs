@@ -188,25 +188,51 @@ jobs:
           }
           EOF
 
-          # Replace placeholders with mock data
-          sed -i "s/TOTAL_METRICS_PLACEHOLDER/${total_metrics:-'168'}/g" slack_message.json
-          sed -i "s/PROJECTS_PLACEHOLDER/${projects:-'11'}/g" slack_message.json
+          # Replace placeholders with mock data using a safer approach
+          cp slack_message.json slack_message_temp.json
 
-          # Replace content placeholders
-          new_metrics_escaped=$(echo "$new_metrics" | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
-          sed -i "s/NEW_METRICS_PLACEHOLDER/${new_metrics_escaped}/g" slack_message.json
+          # Replace simple placeholders first
+          sed -i "s/TOTAL_METRICS_PLACEHOLDER/${total_metrics:-168}/g" slack_message_temp.json
+          sed -i "s/PROJECTS_PLACEHOLDER/${projects:-11}/g" slack_message_temp.json
 
-          missing_metrics_escaped=$(echo "$missing_metrics" | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
-          sed -i "s/MISSING_METRICS_PLACEHOLDER/${missing_metrics_escaped}/g" slack_message.json
+          # Use Python for safer multi-line content replacement
+          python3 << 'PYTHON_EOF'
+import json
+import re
 
-          bad_descriptions_escaped=$(echo "$bad_descriptions" | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
-          sed -i "s/BAD_DESCRIPTIONS_PLACEHOLDER/${bad_descriptions_escaped}/g" slack_message.json
+# Read the JSON template
+with open('slack_message_temp.json', 'r') as f:
+    content = f.read()
 
-          api_errors_escaped=$(echo "$api_errors" | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
-          sed -i "s/API_ERRORS_PLACEHOLDER/${api_errors_escaped}/g" slack_message.json
+# Define the replacement data
+new_metrics = """bitcoin > etf-flows-arkb-v2
+ethereum > staking-rewards-percentage
+solana > validator-count-total"""
 
-          validation_issues_escaped=$(echo "$validation_issues" | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
-          sed -i "s/VALIDATION_ISSUES_PLACEHOLDER/${validation_issues_escaped}/g" slack_message.json
+missing_metrics = """arbitrum > transaction-count-daily
+base > tvl-total-usd"""
+
+bad_descriptions = """solana/bad-metric-1: There are no fees on solana...
+ethereum/incomplete-desc: There is no data in this metric...
+bitcoin/empty-metric: There are no values for bitcoin..."""
+
+api_errors = """/api/v1/metrics/bitcoin/price → 503 Service Unavailable
+/api/v1/metrics/ethereum/gas-price → 429 Too Many Requests"""
+
+validation_issues = """3x Missing Data
+2x Invalid Format"""
+
+# Replace placeholders safely
+content = content.replace('NEW_METRICS_PLACEHOLDER', new_metrics)
+content = content.replace('MISSING_METRICS_PLACEHOLDER', missing_metrics)
+content = content.replace('BAD_DESCRIPTIONS_PLACEHOLDER', bad_descriptions)
+content = content.replace('API_ERRORS_PLACEHOLDER', api_errors)
+content = content.replace('VALIDATION_ISSUES_PLACEHOLDER', validation_issues)
+
+# Write the final JSON
+with open('slack_message.json', 'w') as f:
+    f.write(content)
+PYTHON_EOF
 
           echo "Slack message prepared for testing"
 
