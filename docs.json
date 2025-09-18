@@ -92,7 +92,6 @@
                       "api-reference/metrics/arbitrum/transaction-other-fee-total-usd",
                       "api-reference/metrics/arbitrum/transaction-priority-fee-total-native",
                       "api-reference/metrics/arbitrum/transaction-priority-fee-total-usd",
-                      "api-reference/metrics/arbitrum/rev",
                       "api-reference/metrics/arbitrum/rev-native",
                       "api-reference/metrics/arbitrum/rev-usd",
                       "api-reference/metrics/arbitrum/sequencer-cost-total",
@@ -223,6 +222,7 @@
                       "api-reference/metrics/ethereum/transaction-other-fee-total-usd",
                       "api-reference/metrics/ethereum/transaction-priority-fee-total-native",
                       "api-reference/metrics/ethereum/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/ethereum/rev-native",
                       "api-reference/metrics/ethereum/rev-usd",
                       "api-reference/metrics/ethereum/transaction-fee-total-native",
                       "api-reference/metrics/ethereum/transaction-fee-total-usd"
@@ -1168,7 +1168,7 @@
                   "api-reference/metrics/BMNR/treasury-enterprise-value-usd",
                   "api-reference/metrics/BMNR/treasury-market-cap-usd",
                   "api-reference/metrics/BMNR/treasury-mnav",
-                  "api-reference/metrics/BMNR/treasury-nav-eth-usd",
+                  "api-reference/metrics/BMNR/treasury-nav-total-usd",
                   "api-reference/metrics/BMNR/treasury-holdings-eth",
                   "api-reference/metrics/BMNR/treasury-volume-total-usd"
                 ]
@@ -1180,7 +1180,7 @@
                   "api-reference/metrics/BNC/treasury-enterprise-value-usd",
                   "api-reference/metrics/BNC/treasury-market-cap-usd",
                   "api-reference/metrics/BNC/treasury-mnav",
-                  "api-reference/metrics/BNC/treasury-nav-bnb-usd",
+                  "api-reference/metrics/BNC/treasury-nav-total-usd",
                   "api-reference/metrics/BNC/treasury-holdings-bnb",
                   "api-reference/metrics/BNC/treasury-volume-total-usd"
                 ]
@@ -1192,7 +1192,7 @@
                   "api-reference/metrics/BTBT/treasury-enterprise-value-usd",
                   "api-reference/metrics/BTBT/treasury-market-cap-usd",
                   "api-reference/metrics/BTBT/treasury-mnav",
-                  "api-reference/metrics/BTBT/treasury-nav-eth-usd",
+                  "api-reference/metrics/BTBT/treasury-nav-total-usd",
                   "api-reference/metrics/BTBT/treasury-holdings-eth",
                   "api-reference/metrics/BTBT/treasury-volume-total-usd"
                 ]
@@ -1204,7 +1204,7 @@
                   "api-reference/metrics/BTCM/treasury-enterprise-value-usd",
                   "api-reference/metrics/BTCM/treasury-market-cap-usd",
                   "api-reference/metrics/BTCM/treasury-mnav",
-                  "api-reference/metrics/BTCM/treasury-nav-sol-usd",
+                  "api-reference/metrics/BTCM/treasury-nav-total-usd",
                   "api-reference/metrics/BTCM/treasury-holdings-sol",
                   "api-reference/metrics/BTCM/treasury-volume-total-usd"
                 ]
@@ -1216,7 +1216,7 @@
                   "api-reference/metrics/BTCS/treasury-enterprise-value-usd",
                   "api-reference/metrics/BTCS/treasury-market-cap-usd",
                   "api-reference/metrics/BTCS/treasury-mnav",
-                  "api-reference/metrics/BTCS/treasury-nav-eth-usd",
+                  "api-reference/metrics/BTCS/treasury-nav-total-usd",
                   "api-reference/metrics/BTCS/treasury-holdings-eth",
                   "api-reference/metrics/BTCS/treasury-volume-total-usd"
                 ]
@@ -1228,7 +1228,7 @@
                   "api-reference/metrics/CEP/treasury-enterprise-value-usd",
                   "api-reference/metrics/CEP/treasury-market-cap-usd",
                   "api-reference/metrics/CEP/treasury-mnav",
-                  "api-reference/metrics/CEP/treasury-nav-btc-usd",
+                  "api-reference/metrics/CEP/treasury-nav-total-usd",
                   "api-reference/metrics/CEP/treasury-holdings-btc",
                   "api-reference/metrics/CEP/treasury-volume-total-usd"
                 ]
@@ -1240,7 +1240,7 @@
                   "api-reference/metrics/CEPO/treasury-enterprise-value-usd",
                   "api-reference/metrics/CEPO/treasury-market-cap-usd",
                   "api-reference/metrics/CEPO/treasury-mnav",
-                  "api-reference/metrics/CEPO/treasury-nav-btc-usd",
+                  "api-reference/metrics/CEPO/treasury-nav-total-usd",
                   "api-reference/metrics/CEPO/treasury-holdings-btc",
                   "api-reference/metrics/CEPO/treasury-volume-total-usd"
                 ]
@@ -1252,7 +1252,7 @@
                   "api-reference/metrics/DFDV/treasury-enterprise-value-usd",
                   "api-reference/metrics/DFDV/treasury-market-cap-usd",
                   "api-reference/metrics/DFDV/treasury-mnav",
-                  "api-reference/metrics/DFDV/treasury-nav-sol-usd",
+                  "api-reference/metrics/DFDV/treasury-nav-total-usd",
                   "api-reference/metrics/DFDV/treasury-holdings-sol",
                   "api-reference/metrics/DFDV/treasury-volume-total-usd"
                 ]
@@ -1264,7 +1264,7 @@
                   "api-reference/metrics/ETHM/treasury-enterprise-value-usd",
                   "api-reference/metrics/ETHM/treasury-market-cap-usd",
                   "api-reference/metrics/ETHM/treasury-mnav",
-                  "api-reference/metrics/ETHM/treasury-nav-eth-usd",
+                  "api-reference/metrics/ETHM/treasury-nav-total-usd",
                   "api-reference/metrics/ETHM/treasury-holdings-eth",
                   "api-reference/metrics/ETHM/treasury-volume-total-usd"
                 ]
@@ -1276,7 +1276,7 @@
                   "api-reference/metrics/ETHZ/treasury-enterprise-value-usd",
                   "api-reference/metrics/ETHZ/treasury-market-cap-usd",
                   "api-reference/metrics/ETHZ/treasury-mnav",
-                  "api-reference/metrics/ETHZ/treasury-nav-eth-usd",
+                  "api-reference/metrics/ETHZ/treasury-nav-total-usd",
                   "api-reference/metrics/ETHZ/treasury-holdings-eth",
                   "api-reference/metrics/ETHZ/treasury-volume-total-usd"
                 ]
@@ -1288,7 +1288,7 @@
                   "api-reference/metrics/FGNX/treasury-enterprise-value-usd",
                   "api-reference/metrics/FGNX/treasury-market-cap-usd",
                   "api-reference/metrics/FGNX/treasury-mnav",
-                  "api-reference/metrics/FGNX/treasury-nav-eth-usd",
+                  "api-reference/metrics/FGNX/treasury-nav-total-usd",
                   "api-reference/metrics/FGNX/treasury-holdings-eth",
                   "api-reference/metrics/FGNX/treasury-volume-total-usd"
                 ]
@@ -1300,7 +1300,7 @@
                   "api-reference/metrics/GAME/treasury-enterprise-value-usd",
                   "api-reference/metrics/GAME/treasury-market-cap-usd",
                   "api-reference/metrics/GAME/treasury-mnav",
-                  "api-reference/metrics/GAME/treasury-nav-eth-usd",
+                  "api-reference/metrics/GAME/treasury-nav-total-usd",
                   "api-reference/metrics/GAME/treasury-holdings-eth",
                   "api-reference/metrics/GAME/treasury-volume-total-usd"
                 ]
@@ -1312,7 +1312,7 @@
                   "api-reference/metrics/HYPD/treasury-enterprise-value-usd",
                   "api-reference/metrics/HYPD/treasury-market-cap-usd",
                   "api-reference/metrics/HYPD/treasury-mnav",
-                  "api-reference/metrics/HYPD/treasury-nav-hype-usd",
+                  "api-reference/metrics/HYPD/treasury-nav-total-usd",
                   "api-reference/metrics/HYPD/treasury-holdings-hype",
                   "api-reference/metrics/HYPD/treasury-volume-total-usd"
                 ]
@@ -1324,7 +1324,7 @@
                   "api-reference/metrics/MSTR/treasury-enterprise-value-usd",
                   "api-reference/metrics/MSTR/treasury-market-cap-usd",
                   "api-reference/metrics/MSTR/treasury-mnav",
-                  "api-reference/metrics/MSTR/treasury-nav-btc-usd",
+                  "api-reference/metrics/MSTR/treasury-nav-total-usd",
                   "api-reference/metrics/MSTR/treasury-holdings-btc",
                   "api-reference/metrics/MSTR/treasury-volume-total-usd"
                 ]
@@ -1336,7 +1336,7 @@
                   "api-reference/metrics/NAKA/treasury-enterprise-value-usd",
                   "api-reference/metrics/NAKA/treasury-market-cap-usd",
                   "api-reference/metrics/NAKA/treasury-mnav",
-                  "api-reference/metrics/NAKA/treasury-nav-btc-usd",
+                  "api-reference/metrics/NAKA/treasury-nav-total-usd",
                   "api-reference/metrics/NAKA/treasury-holdings-btc",
                   "api-reference/metrics/NAKA/treasury-volume-total-usd"
                 ]
@@ -1348,7 +1348,7 @@
                   "api-reference/metrics/SBET/treasury-enterprise-value-usd",
                   "api-reference/metrics/SBET/treasury-market-cap-usd",
                   "api-reference/metrics/SBET/treasury-mnav",
-                  "api-reference/metrics/SBET/treasury-nav-eth-usd",
+                  "api-reference/metrics/SBET/treasury-nav-total-usd",
                   "api-reference/metrics/SBET/treasury-holdings-eth",
                   "api-reference/metrics/SBET/treasury-volume-total-usd"
                 ]
@@ -1360,7 +1360,7 @@
                   "api-reference/metrics/SMLR/treasury-enterprise-value-usd",
                   "api-reference/metrics/SMLR/treasury-market-cap-usd",
                   "api-reference/metrics/SMLR/treasury-mnav",
-                  "api-reference/metrics/SMLR/treasury-nav-btc-usd",
+                  "api-reference/metrics/SMLR/treasury-nav-total-usd",
                   "api-reference/metrics/SMLR/treasury-holdings-btc",
                   "api-reference/metrics/SMLR/treasury-volume-total-usd"
                 ]
@@ -1372,7 +1372,7 @@
                   "api-reference/metrics/SQNS/treasury-enterprise-value-usd",
                   "api-reference/metrics/SQNS/treasury-market-cap-usd",
                   "api-reference/metrics/SQNS/treasury-mnav",
-                  "api-reference/metrics/SQNS/treasury-nav-btc-usd",
+                  "api-reference/metrics/SQNS/treasury-nav-total-usd",
                   "api-reference/metrics/SQNS/treasury-holdings-btc",
                   "api-reference/metrics/SQNS/treasury-volume-total-usd"
                 ]
@@ -1381,7 +1381,7 @@
                 "group": "STKE",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/STKE/treasury-nav-sol-usd",
+                  "api-reference/metrics/STKE/treasury-nav-total-usd",
                   "api-reference/metrics/STKE/treasury-holdings-sol",
                   "api-reference/metrics/STKE/treasury-volume-total-usd"
                 ]
@@ -1393,7 +1393,7 @@
                   "api-reference/metrics/STSS/treasury-enterprise-value-usd",
                   "api-reference/metrics/STSS/treasury-market-cap-usd",
                   "api-reference/metrics/STSS/treasury-mnav",
-                  "api-reference/metrics/STSS/treasury-nav-sol-usd",
+                  "api-reference/metrics/STSS/treasury-nav-total-usd",
                   "api-reference/metrics/STSS/treasury-holdings-sol",
                   "api-reference/metrics/STSS/treasury-volume-total-usd"
                 ]
@@ -1405,7 +1405,7 @@
                   "api-reference/metrics/UPXI/treasury-enterprise-value-usd",
                   "api-reference/metrics/UPXI/treasury-market-cap-usd",
                   "api-reference/metrics/UPXI/treasury-mnav",
-                  "api-reference/metrics/UPXI/treasury-nav-sol-usd",
+                  "api-reference/metrics/UPXI/treasury-nav-total-usd",
                   "api-reference/metrics/UPXI/treasury-holdings-sol",
                   "api-reference/metrics/UPXI/treasury-volume-total-usd"
                 ]

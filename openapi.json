@@ -13449,6 +13449,7 @@
               "enum": [
                 "arbitrum",
                 "base",
+                "ethereum",
                 "solana"
               ],
               "example": "arbitrum"
@@ -13461,6 +13462,10 @@
               "base": {
                 "value": "base",
                 "summary": "Base"
+              },
+              "ethereum": {
+                "value": "ethereum",
+                "summary": "Ethereum"
               },
               "solana": {
                 "value": "solana",
@@ -15946,6 +15951,204 @@
               "HYPD": {
                 "value": "HYPD",
                 "summary": "HYPD"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/treasury-nav-total-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_treasury_nav_total_usd",
+        "summary": "Treasury Nav Total Usd",
+        "description": "Retrieve the 'treasury-nav-total-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "BMNR",
+                "BNC",
+                "BTBT",
+                "BTCM",
+                "BTCS",
+                "CEP",
+                "CEPO",
+                "DFDV",
+                "ETHM",
+                "ETHZ",
+                "FGNX",
+                "GAME",
+                "HYPD",
+                "MSTR",
+                "NAKA",
+                "SBET",
+                "SMLR",
+                "SQNS",
+                "STKE",
+                "STSS",
+                "UPXI"
+              ],
+              "example": "BMNR"
+            },
+            "examples": {
+              "BMNR": {
+                "value": "BMNR",
+                "summary": "BMNR"
+              },
+              "BNC": {
+                "value": "BNC",
+                "summary": "BNC"
+              },
+              "BTBT": {
+                "value": "BTBT",
+                "summary": "BTBT"
+              },
+              "BTCM": {
+                "value": "BTCM",
+                "summary": "BTCM"
+              },
+              "BTCS": {
+                "value": "BTCS",
+                "summary": "BTCS"
+              },
+              "CEP": {
+                "value": "CEP",
+                "summary": "CEP"
+              },
+              "CEPO": {
+                "value": "CEPO",
+                "summary": "CEPO"
+              },
+              "DFDV": {
+                "value": "DFDV",
+                "summary": "DFDV"
+              },
+              "ETHM": {
+                "value": "ETHM",
+                "summary": "ETHM"
+              },
+              "ETHZ": {
+                "value": "ETHZ",
+                "summary": "ETHZ"
+              },
+              "FGNX": {
+                "value": "FGNX",
+                "summary": "FGNX"
+              },
+              "GAME": {
+                "value": "GAME",
+                "summary": "GAME"
+              },
+              "HYPD": {
+                "value": "HYPD",
+                "summary": "HYPD"
+              },
+              "MSTR": {
+                "value": "MSTR",
+                "summary": "MSTR"
+              },
+              "NAKA": {
+                "value": "NAKA",
+                "summary": "NAKA"
+              },
+              "SBET": {
+                "value": "SBET",
+                "summary": "SBET"
+              },
+              "SMLR": {
+                "value": "SMLR",
+                "summary": "SMLR"
+              },
+              "SQNS": {
+                "value": "SQNS",
+                "summary": "SQNS"
+              },
+              "STKE": {
+                "value": "STKE",
+                "summary": "STKE"
+              },
+              "STSS": {
+                "value": "STSS",
+                "summary": "STSS"
+              },
+              "UPXI": {
+                "value": "UPXI",
+                "summary": "UPXI"
+              },
+              "multi": {
+                "value": "BMNR,BNC",
+                "summary": "BMNR + BNC"
               }
             }
           },

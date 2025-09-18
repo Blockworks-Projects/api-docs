@@ -2,7 +2,7 @@
 title: "NAV (USD)"
 sidebarTitle: "NAV (USD)"
 description: "Dollar value of crypto assets (does not include cash)"
-openapi: "GET /v1/metrics/treasury-nav-sol-usd"
+openapi: "GET /v1/metrics/treasury-nav-total-usd"
 mode: "wide"
 ---
 
@@ -18,12 +18,12 @@ mode: "wide"
 
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworks.com/v1/metrics/treasury-nav-sol-usd?project=UPXI"
+  "https://api.blockworks.com/v1/metrics/treasury-nav-total-usd?project=BTBT"
 ```
 
 ```typescript TypeScript
 const res = await fetch(
-  'https://api.blockworks.com/v1/metrics/treasury-nav-sol-usd?project=UPXI',
+  'https://api.blockworks.com/v1/metrics/treasury-nav-total-usd?project=BTBT',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
@@ -33,9 +33,9 @@ const data = await res.json()
 import requests
 
 r = requests.get(
-  'https://api.blockworks.com/v1/metrics/treasury-nav-sol-usd',
+  'https://api.blockworks.com/v1/metrics/treasury-nav-total-usd',
   headers={'x-api-key': 'YOUR_API_KEY'},
-  params={'project': 'UPXI'}
+  params={'project': 'BTBT'}
 )
 data = r.json()
 ```
@@ -46,18 +46,14 @@ data = r.json()
 
 ```json
 {
-  "upxi": [
+  "btbt": [
+    {
+      "date": "2025-09-16",
+      "value": 545990165.12
+    },
     {
       "date": "2025-09-15",
-      "value": 478120359.44
-    },
-    {
-      "date": "2025-09-12",
-      "value": 480501813.53
-    },
-    {
-      "date": "2025-09-11",
-      "value": 455012265.25
+      "value": 552407465.11
     }
   ]
 }

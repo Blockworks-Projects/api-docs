@@ -56,33 +56,53 @@ jobs:
 
           # Extract key metrics from validation output - show all metrics
           new_metrics=""
+          new_metrics_count=0
           if grep -q "New Metrics Detected:" "$output_file"; then
             # Extract all lines between "New Metrics Detected:" and the next empty line
             new_metrics=$(sed -n '/📈.*New Metrics Detected:/,/^[[:space:]]*$/p' "$output_file" | sed '/📈.*New Metrics Detected:/d' | grep -E " > " || true)
+            if [ -n "$new_metrics" ]; then
+              new_metrics_count=$(echo "$new_metrics" | wc -l | tr -d ' ')
+            fi
           fi
 
           missing_metrics=""
+          missing_metrics_count=0
           if grep -q "Missing Metrics Detected:" "$output_file"; then
             # Extract all lines between "Missing Metrics Detected:" and the next empty line
             missing_metrics=$(sed -n '/📉.*Missing Metrics Detected:/,/^[[:space:]]*$/p' "$output_file" | sed '/📉.*Missing Metrics Detected:/d' | grep -E " > " || true)
+            if [ -n "$missing_metrics" ]; then
+              missing_metrics_count=$(echo "$missing_metrics" | wc -l | tr -d ' ')
+            fi
           fi
 
           bad_descriptions=""
+          bad_descriptions_count=0
           if grep -q "Metrics with Bad Descriptions:" "$output_file"; then
             # Extract all bad descriptions - no limit
             bad_descriptions=$(sed -n '/🚫.*Metrics with Bad Descriptions:/,/^[[:space:]]*$/p' "$output_file" | sed '/🚫.*Metrics with Bad Descriptions:/d' | grep -E "/" || true)
+            if [ -n "$bad_descriptions" ]; then
+              bad_descriptions_count=$(echo "$bad_descriptions" | wc -l | tr -d ' ')
+            fi
           fi
 
           api_errors=""
+          api_errors_count=0
           if grep -q "API Errors:" "$output_file"; then
             # Extract all API errors - no limit
             api_errors=$(sed -n '/🔥.*API Errors:/,/^[[:space:]]*$/p' "$output_file" | sed '/🔥.*API Errors:/d' | grep -E "→" || true)
+            if [ -n "$api_errors" ]; then
+              api_errors_count=$(echo "$api_errors" | wc -l | tr -d ' ')
+            fi
           fi
 
           validation_issues=""
+          validation_issues_count=0
           if grep -q "Validation Issues:" "$output_file"; then
             # Extract all validation issues - no limit
             validation_issues=$(sed -n '/🔍.*Validation Issues:/,/^[[:space:]]*$/p' "$output_file" | sed '/🔍.*Validation Issues:/d' | grep -E "x " || true)
+            if [ -n "$validation_issues" ]; then
+              validation_issues_count=$(echo "$validation_issues" | wc -l | tr -d ' ')
+            fi
           fi
 
           # Extract summary stats
@@ -145,7 +165,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "*📈 New Metrics Detected:*\n```NEW_METRICS_PLACEHOLDER```"
+                  "text": "*📈 New Metrics Detected (NEW_METRICS_COUNT_PLACEHOLDER):*\n```NEW_METRICS_PLACEHOLDER```"
                 }
               }
           EOF
@@ -159,7 +179,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "*📉 Missing Metrics:*\n```MISSING_METRICS_PLACEHOLDER```"
+                  "text": "*📉 Missing Metrics (MISSING_METRICS_COUNT_PLACEHOLDER):*\n```MISSING_METRICS_PLACEHOLDER```"
                 }
               }
           EOF
@@ -173,7 +193,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "*🚫 Bad Descriptions:*\n```BAD_DESCRIPTIONS_PLACEHOLDER```"
+                  "text": "*🚫 Bad Descriptions (BAD_DESCRIPTIONS_COUNT_PLACEHOLDER):*\n```BAD_DESCRIPTIONS_PLACEHOLDER```"
                 }
               }
           EOF
@@ -187,7 +207,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "*🔥 API Errors:*\n```API_ERRORS_PLACEHOLDER```"
+                  "text": "*🔥 API Errors (API_ERRORS_COUNT_PLACEHOLDER):*\n```API_ERRORS_PLACEHOLDER```"
                 }
               }
           EOF
@@ -201,7 +221,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "*🔍 Validation Issues:*\n```VALIDATION_ISSUES_PLACEHOLDER```"
+                  "text": "*🔍 Validation Issues (VALIDATION_ISSUES_COUNT_PLACEHOLDER):*\n```VALIDATION_ISSUES_PLACEHOLDER```"
                 }
               }
           EOF
@@ -231,6 +251,13 @@ jobs:
           sed -i "s/TOTAL_METRICS_PLACEHOLDER/${total_metrics:-'N/A'}/g" slack_message.json
           sed -i "s/PROJECTS_PLACEHOLDER/${projects:-'N/A'}/g" slack_message.json
           sed -i "s/TIME_PLACEHOLDER/${current_time}/g" slack_message.json
+
+          # Replace count placeholders
+          sed -i "s/NEW_METRICS_COUNT_PLACEHOLDER/${new_metrics_count}/g" slack_message.json
+          sed -i "s/MISSING_METRICS_COUNT_PLACEHOLDER/${missing_metrics_count}/g" slack_message.json
+          sed -i "s/BAD_DESCRIPTIONS_COUNT_PLACEHOLDER/${bad_descriptions_count}/g" slack_message.json
+          sed -i "s/API_ERRORS_COUNT_PLACEHOLDER/${api_errors_count}/g" slack_message.json
+          sed -i "s/VALIDATION_ISSUES_COUNT_PLACEHOLDER/${validation_issues_count}/g" slack_message.json
 
           # Replace content placeholders (escape newlines and quotes)
           if [ -n "$new_metrics" ]; then

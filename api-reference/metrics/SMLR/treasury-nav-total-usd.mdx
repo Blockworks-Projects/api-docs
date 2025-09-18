@@ -2,7 +2,7 @@
 title: "NAV (USD)"
 sidebarTitle: "NAV (USD)"
 description: "Dollar value of crypto assets (does not include cash)"
-openapi: "GET /v1/metrics/treasury-nav-eth-usd"
+openapi: "GET /v1/metrics/treasury-nav-total-usd"
 mode: "wide"
 ---
 
@@ -18,12 +18,12 @@ mode: "wide"
 
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworks.com/v1/metrics/treasury-nav-eth-usd?project=BMNR"
+  "https://api.blockworks.com/v1/metrics/treasury-nav-total-usd?project=SMLR"
 ```
 
 ```typescript TypeScript
 const res = await fetch(
-  'https://api.blockworks.com/v1/metrics/treasury-nav-eth-usd?project=BMNR',
+  'https://api.blockworks.com/v1/metrics/treasury-nav-total-usd?project=SMLR',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
@@ -33,9 +33,9 @@ const data = await res.json()
 import requests
 
 r = requests.get(
-  'https://api.blockworks.com/v1/metrics/treasury-nav-eth-usd',
+  'https://api.blockworks.com/v1/metrics/treasury-nav-total-usd',
   headers={'x-api-key': 'YOUR_API_KEY'},
-  params={'project': 'BMNR'}
+  params={'project': 'SMLR'}
 )
 data = r.json()
 ```
@@ -46,18 +46,14 @@ data = r.json()
 
 ```json
 {
-  "bmnr": [
+  "smlr": [
+    {
+      "date": "2025-09-16",
+      "value": 581719321.29
+    },
     {
       "date": "2025-09-15",
-      "value": 9802740448.82
-    },
-    {
-      "date": "2025-09-12",
-      "value": 9436506021.47
-    },
-    {
-      "date": "2025-09-11",
-      "value": 9140452008.88
+      "value": 579024791.53
     }
   ]
 }
