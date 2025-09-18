@@ -56,30 +56,53 @@ jobs:
 
           # Extract key metrics from validation output with precise parsing
           new_metrics=""
+          new_metrics_count=0
           if grep -q "New Metrics Detected:" "$output_file"; then
-            # Extract lines between "New Metrics Detected:" and the next emoji section (excluding the end marker)
-            new_metrics=$(sed -n '/📈.*New Metrics Detected:/,/^[[:space:]]*$/p' "$output_file" | sed '/📈.*New Metrics Detected:/d' | grep -E " > " | head -5)
+            # Extract all lines and count them
+            all_new_metrics=$(sed -n '/📈.*New Metrics Detected:/,/^[[:space:]]*$/p' "$output_file" | sed '/📈.*New Metrics Detected:/d' | grep -E " > ")
+            new_metrics_count=$(echo "$all_new_metrics" | wc -l)
+            # Take first 10 for display, add "and X more" if needed
+            new_metrics=$(echo "$all_new_metrics" | head -10)
+            if [ $new_metrics_count -gt 10 ]; then
+              remaining=$((new_metrics_count - 10))
+              new_metrics="$new_metrics\n   ... and $remaining more"
+            fi
           fi
 
           missing_metrics=""
+          missing_metrics_count=0
           if grep -q "Missing Metrics Detected:" "$output_file"; then
-            # Extract lines between "Missing Metrics Detected:" and the next empty line or emoji section
-            missing_metrics=$(sed -n '/📉.*Missing Metrics Detected:/,/^[[:space:]]*$/p' "$output_file" | sed '/📉.*Missing Metrics Detected:/d' | grep -E " > " | head -5)
+            # Extract all lines and count them
+            all_missing_metrics=$(sed -n '/📉.*Missing Metrics Detected:/,/^[[:space:]]*$/p' "$output_file" | sed '/📉.*Missing Metrics Detected:/d' | grep -E " > ")
+            missing_metrics_count=$(echo "$all_missing_metrics" | wc -l)
+            # Take first 10 for display, add "and X more" if needed
+            missing_metrics=$(echo "$all_missing_metrics" | head -10)
+            if [ $missing_metrics_count -gt 10 ]; then
+              remaining=$((missing_metrics_count - 10))
+              missing_metrics="$missing_metrics\n   ... and $remaining more"
+            fi
           fi
 
           bad_descriptions=""
+          bad_descriptions_count=0
           if grep -q "Metrics with Bad Descriptions:" "$output_file"; then
-            bad_descriptions=$(grep -A 5 "Metrics with Bad Descriptions:" "$output_file" | grep -E "/" | head -3)
+            all_bad_descriptions=$(grep -A 20 "Metrics with Bad Descriptions:" "$output_file" | grep -E "/" | head -10)
+            bad_descriptions_count=$(echo "$all_bad_descriptions" | wc -l)
+            bad_descriptions="$all_bad_descriptions"
+            if [ $bad_descriptions_count -gt 10 ]; then
+              remaining=$((bad_descriptions_count - 10))
+              bad_descriptions="$bad_descriptions\\n   ... and $remaining more"
+            fi
           fi
 
           api_errors=""
           if grep -q "API Errors:" "$output_file"; then
-            api_errors=$(grep -A 5 "API Errors:" "$output_file" | grep -E "→" | head -3)
+            api_errors=$(grep -A 10 "API Errors:" "$output_file" | grep -E "→" | head -10)
           fi
 
           validation_issues=""
           if grep -q "Validation Issues:" "$output_file"; then
-            validation_issues=$(grep -A 10 "Validation Issues:" "$output_file" | grep -E "x " | head -5)
+            validation_issues=$(grep -A 15 "Validation Issues:" "$output_file" | grep -E "x " | head -10)
           fi
 
           # Extract summary stats
