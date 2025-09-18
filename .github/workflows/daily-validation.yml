@@ -58,36 +58,56 @@ jobs:
           new_metrics=""
           if grep -q "New Metrics Detected:" "$output_file"; then
             # Extract all lines between "New Metrics Detected:" and the next empty line
+<<<<<<< Updated upstream
+            new_metrics=$(sed -n '/📈.*New Metrics Detected:/,/^[[:space:]]*$/p' "$output_file" | sed '/📈.*New Metrics Detected:/d' | grep -E " > " || true)
+=======
             new_metrics=$(sed -n '/📈.*New Metrics Detected:/,/^[[:space:]]*$/p' "$output_file" | sed '/📈.*New Metrics Detected:/d' | grep -E " > ")
+>>>>>>> Stashed changes
           fi
 
           missing_metrics=""
           if grep -q "Missing Metrics Detected:" "$output_file"; then
             # Extract all lines between "Missing Metrics Detected:" and the next empty line
+<<<<<<< Updated upstream
+            missing_metrics=$(sed -n '/📉.*Missing Metrics Detected:/,/^[[:space:]]*$/p' "$output_file" | sed '/📉.*Missing Metrics Detected:/d' | grep -E " > " || true)
+=======
             missing_metrics=$(sed -n '/📉.*Missing Metrics Detected:/,/^[[:space:]]*$/p' "$output_file" | sed '/📉.*Missing Metrics Detected:/d' | grep -E " > ")
+>>>>>>> Stashed changes
           fi
 
           bad_descriptions=""
           if grep -q "Metrics with Bad Descriptions:" "$output_file"; then
             # Extract all bad descriptions - no limit
+<<<<<<< Updated upstream
+            bad_descriptions=$(sed -n '/🚫.*Metrics with Bad Descriptions:/,/^[[:space:]]*$/p' "$output_file" | sed '/🚫.*Metrics with Bad Descriptions:/d' | grep -E "/" || true)
+=======
             bad_descriptions=$(sed -n '/🚫.*Metrics with Bad Descriptions:/,/^[[:space:]]*$/p' "$output_file" | sed '/🚫.*Metrics with Bad Descriptions:/d' | grep -E "/")
+>>>>>>> Stashed changes
           fi
 
           api_errors=""
           if grep -q "API Errors:" "$output_file"; then
             # Extract all API errors - no limit
+<<<<<<< Updated upstream
+            api_errors=$(sed -n '/🔥.*API Errors:/,/^[[:space:]]*$/p' "$output_file" | sed '/🔥.*API Errors:/d' | grep -E "→" || true)
+=======
             api_errors=$(sed -n '/🔥.*API Errors:/,/^[[:space:]]*$/p' "$output_file" | sed '/🔥.*API Errors:/d' | grep -E "→")
+>>>>>>> Stashed changes
           fi
 
           validation_issues=""
           if grep -q "Validation Issues:" "$output_file"; then
             # Extract all validation issues - no limit
+<<<<<<< Updated upstream
+            validation_issues=$(sed -n '/🔍.*Validation Issues:/,/^[[:space:]]*$/p' "$output_file" | sed '/🔍.*Validation Issues:/d' | grep -E "x " || true)
+=======
             validation_issues=$(sed -n '/🔍.*Validation Issues:/,/^[[:space:]]*$/p' "$output_file" | sed '/🔍.*Validation Issues:/d' | grep -E "x ")
+>>>>>>> Stashed changes
           fi
 
           # Extract summary stats
-          total_metrics=$(grep "Total Metrics:" "$output_file" | grep -o '[0-9]\+' | head -1)
-          projects=$(grep "Projects:" "$output_file" | grep -o '[0-9]\+' | head -1)
+          total_metrics=$(grep "Total Metrics:" "$output_file" | grep -o '[0-9]\+' | head -1 || echo "0")
+          projects=$(grep "Projects:" "$output_file" | grep -o '[0-9]\+' | head -1 || echo "0")
 
           # Get current time
           current_time=$(date -u '+%Y-%m-%d %H:%M UTC')
