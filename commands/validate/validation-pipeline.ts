@@ -96,7 +96,9 @@ export const runValidationPipeline = async (): Promise<ValidationResults> => {
   const hasIssues = (
     validationResult.issues.length > 0 ||
     apiErrors.length > 0 ||
-    omittedMetrics.length > 0
+    omittedMetrics.length > 0 ||
+    added.length > 0 ||
+    removed.length > 0
   )
 
   return {
