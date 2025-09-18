@@ -54,15 +54,17 @@ jobs:
         run: |
           output_file="validation_output.txt"
 
-          # Extract key metrics from validation output
+          # Extract key metrics from validation output with precise parsing
           new_metrics=""
           if grep -q "New Metrics Detected:" "$output_file"; then
-            new_metrics=$(grep -A 10 "New Metrics Detected:" "$output_file" | grep -E " > " | head -5)
+            # Extract lines between "New Metrics Detected:" and the next emoji section (excluding the end marker)
+            new_metrics=$(sed -n '/📈.*New Metrics Detected:/,/^[[:space:]]*$/p' "$output_file" | sed '/📈.*New Metrics Detected:/d' | grep -E " > " | head -5)
           fi
 
           missing_metrics=""
           if grep -q "Missing Metrics Detected:" "$output_file"; then
-            missing_metrics=$(grep -A 10 "Missing Metrics Detected:" "$output_file" | grep -E " > " | head -5)
+            # Extract lines between "Missing Metrics Detected:" and the next empty line or emoji section
+            missing_metrics=$(sed -n '/📉.*Missing Metrics Detected:/,/^[[:space:]]*$/p' "$output_file" | sed '/📉.*Missing Metrics Detected:/d' | grep -E " > " | head -5)
           fi
 
           bad_descriptions=""
