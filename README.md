@@ -61,71 +61,6 @@ Stages only code changes (excludes generated files) and automatically stashes re
 ### `bun only:generated`
 Stages only generated files from sync command output for separate commit tracking.
 
-## Sync Process Flow
-
-```mermaid
-flowchart TD
-    A[📂 Catalog Existing Metrics] --> B[🔎 Fetch All Metrics from API]
-    B --> C[🚫 Filter Bad Descriptions]
-    C --> D[📊 Compare & Calculate Changes]
-    D --> E[🧹 Clean Existing Content]
-    E --> F[✏️ Generate Metric Pages]
-    F --> G[📖 Generate Metrics Catalog]
-    G --> H[🔧 Update OpenAPI Specification]
-    H --> I[🎯 Update Asset Expansion Options]
-    I --> J[📋 Update Navigation Structure]
-    J --> K[📊 Display Summary & Changelog]
-    
-    A --> A1[📁 Scan MDX files recursively]
-    A --> A2[🔍 Extract project/identifier pairs]
-    C --> C1[🚫 Omit There is/are no... patterns]
-    D --> D1[➕ Identify added metrics]
-    D --> D2[➖ Identify removed metrics]
-    F --> F1[📝 Create MDX files with frontmatter]
-    F --> F2[🔗 Add USD/native cross-references]
-    F --> F3[📄 Fetch live sample data]
-    G --> G1[🏷️ Group by category & identifier]
-    G --> G2[🔗 Link chain names to pages]
-    H --> H1[➕ Add missing endpoints]
-    H --> H2[🔄 Update with placeholder examples]
-    I --> I1[📝 Extract expand enum from OpenAPI]
-    I --> I2[📄 Generate pages with live API examples]
-    J --> J1[📁 Organize by project/category]
-    J --> J2[🔤 Sort alphabetically]
-    J --> J3[📂 Add Assets Expand Options dropdown]
-    
-    style A fill:#e8f4f8
-    style A1 fill:#e8f4f8
-    style A2 fill:#e8f4f8
-    style B fill:#f3e5f5
-    style C fill:#ffeeee
-    style C1 fill:#ffeeee
-    style D fill:#fff0f5
-    style D1 fill:#fff0f5
-    style D2 fill:#fff0f5
-    style E fill:#fff3e0
-    style F fill:#eef5ff
-    style F1 fill:#eef5ff
-    style F2 fill:#eef5ff
-    style F3 fill:#eef5ff
-    style G fill:#fff8e1
-    style G1 fill:#fff8e1
-    style G2 fill:#fff8e1
-    style H fill:#f1f8e9
-    style H1 fill:#f1f8e9
-    style H2 fill:#f1f8e9
-    style I fill:#ffeedd
-    style I1 fill:#ffeedd
-    style I2 fill:#ffeedd
-    style J fill:#e8f5e8
-    style J1 fill:#e8f5e8
-    style J2 fill:#e8f5e8
-    style J3 fill:#e8f5e8
-    style K fill:#fce4ec
-```
-
-<img width="621" height="553" alt="image" src="https://github.com/user-attachments/assets/0a7d9eae-23dd-41e5-946b-597cf844759b" />
-
 <br /><br />
 
 # GitHub Actions
@@ -136,8 +71,7 @@ Automated workflow that runs twice weekly (Tuesday/Thursday at 9:00 AM UTC) to s
 ### Daily Metrics Validation
 Automated workflow that runs every morning (8:00 AM UTC) to validate API metrics and sends Slack alerts when issues are detected (new/missing metrics, API errors, validation failures).
 
-### Test Slack Integration
-Manual workflow for testing Slack notifications with mock validation data. Use this to verify webhook configuration and message formatting.
+<br /><br />
 
 # Why [Bun](https://bun.sh)?
 
