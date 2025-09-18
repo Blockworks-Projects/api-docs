@@ -57,12 +57,12 @@ jobs:
           # Extract key metrics from validation output
           new_metrics=""
           if grep -q "New Metrics Detected:" "$output_file"; then
-            new_metrics=$(grep -A 10 "New Metrics Detected:" "$output_file" | grep -E "^[a-z]" | head -5)
+            new_metrics=$(grep -A 10 "New Metrics Detected:" "$output_file" | grep -E " > " | head -5)
           fi
 
           missing_metrics=""
           if grep -q "Missing Metrics Detected:" "$output_file"; then
-            missing_metrics=$(grep -A 10 "Missing Metrics Detected:" "$output_file" | grep -E "^[a-z]" | head -5)
+            missing_metrics=$(grep -A 10 "Missing Metrics Detected:" "$output_file" | grep -E " > " | head -5)
           fi
 
           bad_descriptions=""
@@ -84,7 +84,10 @@ jobs:
           total_metrics=$(grep "Total Metrics:" "$output_file" | grep -o '[0-9]\+' | head -1)
           projects=$(grep "Projects:" "$output_file" | grep -o '[0-9]\+' | head -1)
 
-          # Create Slack message payload
+          # Get current time
+          current_time=$(date -u '+%Y-%m-%d %H:%M UTC')
+
+          # Create complete Slack message payload with all sections
           cat > slack_message.json << 'EOF'
           {
             "channel": "#api-docs-events",
@@ -123,13 +126,13 @@ jobs:
                   },
                   {
                     "type": "mrkdwn",
-                    "text": "*Time:* $(date -u '+%Y-%m-%d %H:%M UTC')"
+                    "text": "*Time:* TIME_PLACEHOLDER"
                   }
                 ]
               }
           EOF
 
-          # Add sections for each type of issue found
+          # Add new metrics section if found
           if [ -n "$new_metrics" ]; then
             cat >> slack_message.json << 'EOF'
               ,
@@ -143,6 +146,7 @@ jobs:
           EOF
           fi
 
+          # Add missing metrics section if found
           if [ -n "$missing_metrics" ]; then
             cat >> slack_message.json << 'EOF'
               ,
@@ -156,6 +160,7 @@ jobs:
           EOF
           fi
 
+          # Add bad descriptions section if found
           if [ -n "$bad_descriptions" ]; then
             cat >> slack_message.json << 'EOF'
               ,
@@ -169,6 +174,7 @@ jobs:
           EOF
           fi
 
+          # Add API errors section if found
           if [ -n "$api_errors" ]; then
             cat >> slack_message.json << 'EOF'
               ,
@@ -182,6 +188,7 @@ jobs:
           EOF
           fi
 
+          # Add validation issues section if found
           if [ -n "$validation_issues" ]; then
             cat >> slack_message.json << 'EOF'
               ,
@@ -195,7 +202,7 @@ jobs:
           EOF
           fi
 
-          # Close the JSON and add action buttons
+          # Close the blocks array and add action buttons
           cat >> slack_message.json << 'EOF'
               ,
               {
@@ -226,6 +233,7 @@ jobs:
           # Replace placeholders with actual data
           sed -i "s/TOTAL_METRICS_PLACEHOLDER/${total_metrics:-'N/A'}/g" slack_message.json
           sed -i "s/PROJECTS_PLACEHOLDER/${projects:-'N/A'}/g" slack_message.json
+          sed -i "s/TIME_PLACEHOLDER/${current_time}/g" slack_message.json
 
           # Replace content placeholders (escape newlines and quotes)
           if [ -n "$new_metrics" ]; then
