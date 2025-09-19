@@ -31,6 +31,7 @@ jobs:
         id: sync
         env:
           BWR_API_KEY: ${{ secrets.BLOCKWORKS_API_KEY }}
+          STRAPI_API_KEY: ${{ secrets.STRAPI_API_KEY }}
         run: |
           echo "Running metrics sync with update-only flag..."
 
@@ -39,7 +40,7 @@ jobs:
           bun sync --update-only 2>&1 | tee sync_output.txt
           sync_exit_code=${PIPESTATUS[0]}  # Get exit code of first command in pipe
           set -e  # Re-enable exit on failure
-          
+
           echo "sync_exit_code=$sync_exit_code" >> $GITHUB_OUTPUT
           echo "Sync completed with exit code: $sync_exit_code"
 
@@ -84,7 +85,7 @@ jobs:
           if grep -q "📊 Sync Summary:" "$output_file"; then
             summary_section=$(sed -n '/📊 Sync Summary:/,/✅ Sync complete/p' "$output_file")
           fi
-          
+
           # Extract validation issues count
           validation_count="0"
           if grep -q "🔍 Validation Issues:" "$output_file"; then
@@ -130,7 +131,7 @@ jobs:
             echo '```' >> pr_body.md
             echo "" >> pr_body.md
           fi
-          
+
           # Include validation report if it exists
           if [ -f "validation_report.md" ]; then
             cat validation_report.md >> pr_body.md
