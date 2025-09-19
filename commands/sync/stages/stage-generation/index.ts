@@ -16,19 +16,19 @@ type GenerationStageConfig = {
 
 export const runGenerationStage = async ({ metrics, projects }: GenerationStageConfig) => {
   await generateMetricPages({ metrics })
-  
+
   text.header('📖 Generating metrics catalog...')
   await generateMetricsCatalog(metrics)
 
   await updateOpenApiSpec(metrics)
-  
+
   const expandOptions = await updateAssetExpansionOptions()
   await syncMiscMetrics()
-  
+
   // Generate projects page
   const projectsList = Array.from(projects.values())
   await generateProjectsPage(projectsList)
-  
+
   await updateNavigation(metrics, projects, expandOptions)
 }
 
