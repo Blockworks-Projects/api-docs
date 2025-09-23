@@ -610,6 +610,59 @@
         "description": "Retrieves detailed transparency framework score for a specific project including ratings across four key categories."
       }
     },
+    "/v1/transparency/{id}/download": {
+      "get": {
+        "operationId": "TransparencyController_download_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "PDF file download",
+            "content": {
+              "application/pdf": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            },
+            "headers": {
+              "Content-Disposition": {
+                "description": "Attachment header with filename",
+                "schema": {
+                  "type": "string",
+                  "example": "attachment; filename=\"project-transparency-report.pdf\""
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Report not found or PDF not available"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "transparency"
+        ],
+        "summary": "Download Token Transparency Report",
+        "description": "Downloads the complete token transparency framework report as a PDF file."
+      }
+    },
     "/v1/transparency": {
       "get": {
         "operationId": "TransparencyController_list_v1",

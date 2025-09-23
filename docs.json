@@ -49,7 +49,8 @@
             "group": "Token Transparency",
             "pages": [
               "api-reference/token-transparency/list",
-              "api-reference/token-transparency/get-single"
+              "api-reference/token-transparency/get-single",
+              "api-reference/token-transparency/download"
             ]
           },
           {

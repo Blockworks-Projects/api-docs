@@ -49,22 +49,23 @@ data = r.json()
 ```json
 {
   "page": 1,
-  "total": 246140,
+  "total": 247269,
   "data": [
     {
-      "total_usd_market_cap": 4032248138229.6,
-      "total_usd_volume_24h": 145876536399.65,
-      "altcoin_usd_market_cap": 1724509872106,
-      "altcoin_usd_volume_24h": 103585676249.46,
-      "stablecoin_usd_volume_24h": 140588276517.96,
-      "stablecoin_usd_change_24h": -38.122623381537,
-      "defi_usd_volume_24h": 18973480464.699,
+      "total_usd_market_cap": 3898362647275.2,
+      "total_usd_volume_24h": 162171084077.2,
+      "altcoin_usd_market_cap": 1647915528033.7,
+      "altcoin_usd_volume_24h": 113860717108.17,
+      "stablecoin_usd_volume_24h": 158754304924.32,
+      "stablecoin_usd_change_24h": -23.587722263042,
+      "defi_usd_volume_24h": 23471425422.107,
       "defi_usd_change_24h": 0,
-      "btc_dominance": 57.232049889093,
-      "btc_dominance_change_24h": 0.362224549093,
-      "eth_dominance": 13.368835247873,
-      "eth_dominance_change_24h": -0.156934562127,
-      "date": "2025-05-15T21:57:59.000Z"
+      "btc_dominance": 57.728008470798,
+      "btc_dominance_change_24h": -0.075173529202,
+      "eth_dominance": 12.939262290952,
+      "eth_dominance_change_24h": -0.025993219048,
+      "updated_at": 1758641102,
+      "date": "2025-09-23T15:22:59.000Z"
     }
   ]
 }
@@ -97,7 +98,8 @@ data = r.json()
 | `btc_dominance_change_24h` | number | 24-hour change in Bitcoin dominance percentage |
 | `eth_dominance` | number | Ethereum's percentage of total market cap |
 | `eth_dominance_change_24h` | number | 24-hour change in Ethereum dominance percentage |
-| `date` | string | ISO 8601 timestamp of the data point |
+| `updated_at` | number | Unix timestamp of last update |
+| `day` | string | Date in YYYY-MM-DD format |
 
 ## Use Cases
 
