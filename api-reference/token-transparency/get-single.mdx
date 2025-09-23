@@ -1,5 +1,5 @@
 ---
-title: 'Get Single Token Transparency Report'
+title: 'Get Single Token Transparency'
 sidebarTitle: 'Get Single Report'
 description: 'Retrieve detailed transparency framework score for one project by ID'
 openapi: 'GET /v1/transparency/{id}'
@@ -60,7 +60,7 @@ data = r.json()
     "legacy_sector": null,
     "category": null,
     "is_supported": false,
-    "updated_at": 1758637622,
+    "updated_at": 1758643493,
     "sector_id": null,
     "type": null
   },
@@ -89,53 +89,6 @@ data = r.json()
 | - | - | - |
 | `id` | path | The ID of the transparency report to fetch |
 | `expand` | query | Expand related data. Options: `asset` |
-
-## Response Fields
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | number | Unique identifier for the transparency report |
-| `asset_id` | number | Associated asset ID |
-| `summary` | string | Summary text for the transparency report |
-| `created_at` | number | Unix timestamp when report was created |
-| `updated_at` | number | Unix timestamp when report was last updated |
-| `project_team` | object | Project & Team category rating |
-| `project_team.rating` | number | Current rating score for project and team transparency |
-| `project_team.max` | number | Maximum possible score for this category |
-| `token_allocation` | object | Token Allocation category rating |
-| `token_allocation.rating` | number | Current rating score for token allocation transparency |
-| `token_allocation.max` | number | Maximum possible score for this category |
-| `market_structure` | object | Market Structure category rating |
-| `market_structure.rating` | number | Current rating score for market structure transparency |
-| `market_structure.max` | number | Maximum possible score for this category |
-| `financial_disclosure` | object | Financial Disclosure category rating |
-| `financial_disclosure.rating` | number | Current rating score for financial disclosure transparency |
-| `financial_disclosure.max` | number | Maximum possible score for this category |
-
-## Transparency Framework Categories
-
-The Blockworks Token Transparency Framework evaluates projects across four key areas:
-
-### Project & Team (Max: 10 points)
-Evaluates team transparency, background disclosure, and governance structure.
-
-### Token Allocation (Max: 18 points)
-Assesses clarity around token distribution, vesting schedules, and allocation percentages.
-
-### Market Structure (Max: 7 points)
-Reviews market making arrangements, liquidity provisions, and trading mechanics.
-
-### Financial Disclosure (Max: 5 points)
-Measures transparency of financial operations, revenue models, and treasury management.
-
-## Total Score Calculation
-
-The total transparency score is calculated by summing all category ratings. In this example:
-- Project & Team: 10/10
-- Token Allocation: 17/18
-- Market Structure: 7/7
-- Financial Disclosure: 4/5
-- **Total: 38/40 (95%)**
 
 ## See also
 

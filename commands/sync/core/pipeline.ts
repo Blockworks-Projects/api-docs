@@ -5,7 +5,6 @@ import { runFetchingStage } from '../stages/stage-fetching'
 import { runCleanupStage } from '../stages/stage-cleanup'
 import { compareMetrics } from '../stages/stage-scanning/metrics-catalog'
 import { runGenerationStage } from '../stages/stage-generation'
-import { runTokenTransparencyStage } from '../stages/stage-token-transparency'
 import { populateMetricDataCache } from '../lib/cache'
 import { writeTextFile } from '../lib/file-operations'
 import { runValidationStage } from '../stages/stage-validation'
@@ -92,7 +91,6 @@ export const runSyncPipeline = async ({ updateOnlyMode = false }: PipelineConfig
   
   if (shouldContinue) {
     await runGenerationStage({ metrics, projects: filteredProjects })
-    await runTokenTransparencyStage()
   }
 
   if (validationResult.issues.length > 0) {

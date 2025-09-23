@@ -107,72 +107,13 @@ A successful response returns a paginated list of transparency reports.
 
 ## Supported Options
 
-| Name | Type | Details |
-| - | - | - |
-| `expand` | query | Expand related data. Options: `asset` |
-| `limit` | query | The number of reports to return (max: 100, default: 100) |
-| `page` | query | The page number to return (default: 1) |
-| `query` | query | JSON filter query |
-| `order_by` | query | Field to order results by (default: `id`) |
-| `order_dir` | query | Order direction (`asc` or `desc`, default: `asc`) |
-
-## Response Fields
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `id` | number | Unique identifier for the transparency report |
-| `asset_id` | number | Associated asset ID |
-| `summary` | string | Summary text for the transparency report |
-| `created_at` | number | Unix timestamp when report was created |
-| `updated_at` | number | Unix timestamp when report was last updated |
-| `project_team` | object | Project & Team category rating |
-| `project_team.rating` | number | Current rating score |
-| `project_team.max` | number | Maximum possible score |
-| `token_allocation` | object | Token Allocation category rating |
-| `token_allocation.rating` | number | Current rating score |
-| `token_allocation.max` | number | Maximum possible score |
-| `market_structure` | object | Market Structure category rating |
-| `market_structure.rating` | number | Current rating score |
-| `market_structure.max` | number | Maximum possible score |
-| `financial_disclosure` | object | Financial Disclosure category rating |
-| `financial_disclosure.rating` | number | Current rating score |
-| `financial_disclosure.max` | number | Maximum possible score |
-
-## Expand Options
-
-### `?expand=asset`
-
-Include full asset information with each transparency report:
-
-```json
-{
-  "id": 1,
-  "asset_id": 345426,
-  // ... other transparency fields
-  "asset": {
-    "id": 345426,
-    "code": "AERO",
-    "title": "Aerodrome Finance",
-    "slug": "aerodrome-finance",
-    "tag_line": null,
-    "description": "",
-    "image_url": "https://coin-images.coingecko.com/coins/images/31745/large/token.png",
-    "legacy_sector": null,
-    "category": null,
-    "is_supported": false,
-    "updated_at": 1758637622,
-    "sector_id": null,
-    "type": null
-  }
-}
-```
-
-## Notes
-
-- Results are **paginated** — use `limit` and `page` query parameters to navigate
-- Transparency scores are based on the Blockworks Token Transparency Framework
-- Each category has its own maximum score that may vary
-- Use the `asset_id` to cross-reference with other endpoints
+| Name | Type | Details | Available Options |
+| - | - | - | - |
+| `expand` | query | Expand related data. | `asset` |
+| `limit` | query | The number of reports to return (max: 100, default: 100) | `1-100` |
+| `page` | query | The page number to return. | any numeric value |
+| `order_by` | query | Field to order results by. | `asset.title`, `project_team`, `token_allocation`, `market_structure`, `financial_disclosure`, `total` |
+| `order_dir` | query | Order direction for results. Default is `asc` (ascending). | `asc`, `desc` |
 
 ## Related Endpoints
 
