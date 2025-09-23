@@ -1,0 +1,84 @@
+---
+title: 'Download Token Transparency Report'
+sidebarTitle: 'Download Report'
+description: 'Download the complete token transparency framework report as a PDF file'
+openapi: 'GET /v1/transparency/{id}/download'
+mode: 'wide'
+---
+
+## Overview
+
+Download the complete token transparency framework report as a **PDF file**. This endpoint returns the full transparency report document that contains detailed analysis, scores, and supporting documentation for the specified project.
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  -o "transparency-report.pdf" \
+  "https://api.blockworks.com/v1/transparency/1/download"
+```
+
+```typescript TypeScript
+fetch('https://api.blockworks.com/v1/transparency/1/download', {
+  headers: { 'x-api-key': 'YOUR_API_KEY' }
+})
+.then(r => r.blob())
+.then(blob => {
+  window.open(URL.createObjectURL(blob), '_blank')
+})
+```
+
+```python Python
+import requests
+
+response = requests.get(
+    'https://api.blockworks.com/v1/transparency/1/download',
+    headers={'x-api-key': 'YOUR_API_KEY'}
+)
+
+if response.status_code == 200:
+    with open('transparency-report.pdf', 'wb') as f:
+        f.write(response.content)
+    print("PDF downloaded successfully")
+```
+
+</CodeGroup>
+
+## Response Format
+
+This endpoint returns binary data with the following characteristics:
+
+| Property | Value |
+|----------|--------|
+| **Content-Type** | `application/pdf` |
+| **Content-Disposition** | `attachment; filename="project-name-transparency-report.pdf"` |
+| **Response Body** | Binary PDF data |
+
+## Supported Options
+
+| Name | Type | Details |
+| - | - | - |
+| `id` | path | The ID of the transparency report to download |
+
+## Usage Notes
+
+- **File Handling**: The response contains binary PDF data that should be saved directly to a file or handled as a blob
+- **Filename**: Extract filename from `Content-Disposition` header or use a default name
+- **Browser Usage**: Use `blob()` method and `URL.createObjectURL()` for browser downloads
+- **Server Usage**: Write binary content directly to filesystem
+
+## Report Contents
+
+The downloaded PDF contains:
+- **Executive Summary**: Overview of transparency score and key findings
+- **Detailed Scoring**: Breakdown of all four categories with explanations
+- **Project Analysis**: In-depth review of team, tokenomics, and governance
+- **Supporting Documentation**: Links and references to source materials
+- **Methodology**: Explanation of scoring criteria and framework
+
+## See also
+
+- [Get Single Token Transparency](/api-reference/token-transparency/get-single)
+- [List Token Transparency Reports](/api-reference/token-transparency/list)
