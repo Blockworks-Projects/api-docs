@@ -564,6 +564,29 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TransparencyResponse"
+                },
+                "example": {
+                  "id": 1,
+                  "asset_id": 345426,
+                  "summary": "",
+                  "created_at": 1755624545,
+                  "updated_at": 1758051174,
+                  "project_team": {
+                    "rating": 10,
+                    "max": 10
+                  },
+                  "token_allocation": {
+                    "rating": 17,
+                    "max": 18
+                  },
+                  "market_structure": {
+                    "rating": 7,
+                    "max": 7
+                  },
+                  "financial_disclosure": {
+                    "rating": 4,
+                    "max": 5
+                  }
                 }
               }
             }
@@ -667,6 +690,35 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/TransparencyPageResponse"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": 1,
+                      "asset_id": 345426,
+                      "summary": "",
+                      "created_at": 1755624545,
+                      "updated_at": 1758051174,
+                      "project_team": {
+                        "rating": 10,
+                        "max": 10
+                      },
+                      "token_allocation": {
+                        "rating": 17,
+                        "max": 18
+                      },
+                      "market_structure": {
+                        "rating": 7,
+                        "max": 7
+                      },
+                      "financial_disclosure": {
+                        "rating": 4,
+                        "max": 5
+                      }
+                    }
+                  ],
+                  "total": 27,
+                  "page": 1
                 }
               }
             }
