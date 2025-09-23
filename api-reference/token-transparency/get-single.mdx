@@ -1,0 +1,142 @@
+---
+title: 'Get Single Token Transparency'
+description: 'Retrieve detailed transparency framework score for one project by ID'
+openapi: 'GET /v1/transparency/{id}'
+mode: 'wide'
+---
+
+## Overview
+
+Fetch a single token transparency report by **ID**. You can optionally expand the asset object to get full asset metadata including project name, symbol, and other details in a single request.
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/transparency/1?expand=asset"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/transparency/1?expand=asset',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/transparency/1',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'expand': 'asset'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "id": 1,
+  "asset_id": 345426,
+  "summary": "",
+  "created_at": 1755624545,
+  "updated_at": 1758051174,
+  "asset": {
+    "id": 345426,
+    "code": "AERO",
+    "title": "Aerodrome Finance",
+    "slug": "aerodrome-finance",
+    "tag_line": null,
+    "description": "",
+    "image_url": "https://coin-images.coingecko.com/coins/images/31745/large/token.png?1696530564",
+    "legacy_sector": null,
+    "category": null,
+    "is_supported": false,
+    "updated_at": 1758637622,
+    "sector_id": null,
+    "type": null
+  },
+  "project_team": {
+    "rating": 10,
+    "max": 10
+  },
+  "token_allocation": {
+    "rating": 17,
+    "max": 18
+  },
+  "market_structure": {
+    "rating": 7,
+    "max": 7
+  },
+  "financial_disclosure": {
+    "rating": 4,
+    "max": 5
+  }
+}
+```
+
+## Supported Options
+
+| Name | Type | Details |
+| - | - | - |
+| `id` | path | The ID of the transparency report to fetch |
+| `expand` | query | Expand related data. Options: `asset` |
+
+## Response Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | number | Unique identifier for the transparency report |
+| `asset_id` | number | Associated asset ID |
+| `summary` | string | Summary text for the transparency report |
+| `created_at` | number | Unix timestamp when report was created |
+| `updated_at` | number | Unix timestamp when report was last updated |
+| `project_team` | object | Project & Team category rating |
+| `project_team.rating` | number | Current rating score for project and team transparency |
+| `project_team.max` | number | Maximum possible score for this category |
+| `token_allocation` | object | Token Allocation category rating |
+| `token_allocation.rating` | number | Current rating score for token allocation transparency |
+| `token_allocation.max` | number | Maximum possible score for this category |
+| `market_structure` | object | Market Structure category rating |
+| `market_structure.rating` | number | Current rating score for market structure transparency |
+| `market_structure.max` | number | Maximum possible score for this category |
+| `financial_disclosure` | object | Financial Disclosure category rating |
+| `financial_disclosure.rating` | number | Current rating score for financial disclosure transparency |
+| `financial_disclosure.max` | number | Maximum possible score for this category |
+
+## Transparency Framework Categories
+
+The Blockworks Token Transparency Framework evaluates projects across four key areas:
+
+### Project & Team (Max: 10 points)
+Evaluates team transparency, background disclosure, and governance structure.
+
+### Token Allocation (Max: 18 points)
+Assesses clarity around token distribution, vesting schedules, and allocation percentages.
+
+### Market Structure (Max: 7 points)
+Reviews market making arrangements, liquidity provisions, and trading mechanics.
+
+### Financial Disclosure (Max: 5 points)
+Measures transparency of financial operations, revenue models, and treasury management.
+
+## Total Score Calculation
+
+The total transparency score is calculated by summing all category ratings. In this example:
+- Project & Team: 10/10
+- Token Allocation: 17/18
+- Market Structure: 7/7
+- Financial Disclosure: 4/5
+- **Total: 38/40 (95%)**
+
+## See also
+
+- [List Token Transparency Reports](/api-reference/token-transparency/list)
+- [Get Single Asset](/api-reference/assets/get-single)

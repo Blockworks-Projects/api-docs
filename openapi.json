@@ -530,6 +530,163 @@
         "description": "Retrieves a single market-level statistic by ID, including its value, effective time window, and metadata. Use with the list endpoint for discovery or to fetch the latest value for a specific stat."
       }
     },
+    "/v1/transparency/{id}": {
+      "get": {
+        "operationId": "TransparencyController_get_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "expand",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "asset"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransparencyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "transparency"
+        ],
+        "summary": "Get Token Transparency Report",
+        "description": "Retrieves detailed transparency framework score for a specific project including ratings across four key categories."
+      }
+    },
+    "/v1/transparency": {
+      "get": {
+        "operationId": "TransparencyController_list_v1",
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 1,
+              "maximum": 2147483647,
+              "default": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 1,
+              "maximum": 100,
+              "default": 100,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "expand",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "asset"
+                ]
+              }
+            }
+          },
+          {
+            "name": "query",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "maxLength": 65535,
+              "format": "json",
+              "type": "string"
+            }
+          },
+          {
+            "name": "order_by",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "default": "id",
+              "type": "string"
+            }
+          },
+          {
+            "name": "order_dir",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "default": "asc",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransparencyPageResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "transparency"
+        ],
+        "summary": "List Token Transparency Reports",
+        "description": "Returns a paginated list of token transparency framework reports with scores across four key categories."
+      }
+    },
     "/v1/metrics/{identifier}": {
       "get": {
         "operationId": "MetricController_getResults_v1",
