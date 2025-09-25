@@ -1,7 +1,7 @@
 ---
 title: "Base: Gross Profit"
 sidebarTitle: "Gross Profit"
-description: "Gross L2 profit during the specified time period for given blockchain."
+description: "Gross profit during the specified time period for given rollup."
 openapi: "GET /v1/metrics/sequencer-gross-profit"
 mode: "wide"
 ---
@@ -48,6 +48,14 @@ data = r.json()
 {
   "base": [
     {
+      "date": "2025-09-24",
+      "value": 177587.94
+    },
+    {
+      "date": "2025-09-23",
+      "value": 185583.35
+    },
+    {
       "date": "2025-09-22",
       "value": 298631.48
     },
@@ -58,14 +66,6 @@ data = r.json()
     {
       "date": "2025-09-20",
       "value": 102467.22
-    },
-    {
-      "date": "2025-09-19",
-      "value": 175677.24
-    },
-    {
-      "date": "2025-09-18",
-      "value": 246777.89
     }
   ]
 }

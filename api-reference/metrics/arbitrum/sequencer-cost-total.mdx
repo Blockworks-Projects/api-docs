@@ -1,7 +1,7 @@
 ---
 title: "Arbitrum: Rollup Data Cost"
 sidebarTitle: "Rollup Data Cost"
-description: "Data costs during the specified time period for given blockchain."
+description: "Data costs during the specified time period for given rollup."
 openapi: "GET /v1/metrics/sequencer-cost-total"
 mode: "wide"
 ---
@@ -48,6 +48,14 @@ data = r.json()
 {
   "arbitrum": [
     {
+      "date": "2025-09-24",
+      "value": -1200.83
+    },
+    {
+      "date": "2025-09-23",
+      "value": -992.71
+    },
+    {
       "date": "2025-09-22",
       "value": -963.63
     },
@@ -58,14 +66,6 @@ data = r.json()
     {
       "date": "2025-09-20",
       "value": -540.33
-    },
-    {
-      "date": "2025-09-19",
-      "value": -725.91
-    },
-    {
-      "date": "2025-09-18",
-      "value": -1455.3
     }
   ]
 }

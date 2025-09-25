@@ -1,7 +1,7 @@
 ---
 title: "Ethereum: Fee Median (USD)"
 sidebarTitle: "Fee Median (USD)"
-description: "Median transaction fee paid in USD."
+description: "Median of the sum of the base fee and priority fee in USD that day"
 openapi: "GET /v1/metrics/transaction-fee-med-usd"
 mode: "wide"
 ---
@@ -48,6 +48,14 @@ data = r.json()
 {
   "ethereum": [
     {
+      "date": "2025-09-24",
+      "value": 0.13
+    },
+    {
+      "date": "2025-09-23",
+      "value": 0.12
+    },
+    {
       "date": "2025-09-22",
       "value": 0.17
     },
@@ -58,14 +66,6 @@ data = r.json()
     {
       "date": "2025-09-20",
       "value": 0.1
-    },
-    {
-      "date": "2025-09-19",
-      "value": 0.16
-    },
-    {
-      "date": "2025-09-18",
-      "value": 0.32
     }
   ]
 }

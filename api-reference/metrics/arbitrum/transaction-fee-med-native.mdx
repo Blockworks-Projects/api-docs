@@ -1,7 +1,7 @@
 ---
 title: "Arbitrum: Fee Median (ETH)"
 sidebarTitle: "Fee Median (ETH)"
-description: "Median of the sum of the base fee and priority fee that day in native chain token"
+description: "Median of the sum of the base fee and priority fee that day"
 openapi: "GET /v1/metrics/transaction-fee-med-native"
 mode: "wide"
 ---
@@ -48,24 +48,24 @@ data = r.json()
 {
   "arbitrum": [
     {
+      "date": "2025-09-24",
+      "value": 6.002679467331906e-7
+    },
+    {
+      "date": "2025-09-23",
+      "value": 0.000001970314271670939
+    },
+    {
       "date": "2025-09-22",
-      "value": 0.0000014912264881889783
+      "value": 0.0000015109164394095322
     },
     {
       "date": "2025-09-21",
-      "value": 5.843251633049489e-7
+      "value": 5.845426350876411e-7
     },
     {
       "date": "2025-09-20",
-      "value": 5.956236986900659e-7
-    },
-    {
-      "date": "2025-09-19",
-      "value": 6.505495219761769e-7
-    },
-    {
-      "date": "2025-09-18",
-      "value": 8.201489272520961e-7
+      "value": 5.870599680577941e-7
     }
   ]
 }

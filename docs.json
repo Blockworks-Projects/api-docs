@@ -153,12 +153,12 @@
                       "api-reference/metrics/base/app-revenue-total-usd",
                       "api-reference/metrics/base/transaction-base-fee-total-native",
                       "api-reference/metrics/base/transaction-base-fee-total-usd",
-                      "api-reference/metrics/base/sequencer-cost-total",
                       "api-reference/metrics/base/sequencer-gross-profit",
                       "api-reference/metrics/base/transaction-priority-fee-total-native",
                       "api-reference/metrics/base/transaction-priority-fee-total-usd",
                       "api-reference/metrics/base/rev-native",
                       "api-reference/metrics/base/rev-usd",
+                      "api-reference/metrics/base/sequencer-cost-total",
                       "api-reference/metrics/base/transaction-fee-total-native",
                       "api-reference/metrics/base/transaction-fee-total-usd"
                     ]
@@ -1302,6 +1302,18 @@
                 ]
               },
               {
+                "group": "FORD",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/FORD/treasury-enterprise-value-usd",
+                  "api-reference/metrics/FORD/treasury-market-cap-usd",
+                  "api-reference/metrics/FORD/treasury-mnav",
+                  "api-reference/metrics/FORD/treasury-nav-total-usd",
+                  "api-reference/metrics/FORD/treasury-holdings-sol",
+                  "api-reference/metrics/FORD/treasury-volume-total-usd"
+                ]
+              },
+              {
                 "group": "GAME",
                 "icon": "building-columns",
                 "pages": [
@@ -1419,7 +1431,7 @@
                 ]
               }
             ],
-            "tag": "21"
+            "tag": "22"
           }
         ]
       },

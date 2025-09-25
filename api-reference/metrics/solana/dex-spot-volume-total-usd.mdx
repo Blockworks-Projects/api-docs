@@ -1,7 +1,7 @@
 ---
 title: "Solana: DEX Spot Volume"
 sidebarTitle: "DEX Spot Volume"
-description: "Calculates daily spot volume from major DEXs. Only includes volumes from fee-paying liquidity pools"
+description: "Total amount of daily spot volume from major DEXs. Only includes volumes from fee-paying liquidity pools."
 openapi: "GET /v1/metrics/dex-spot-volume-total-usd"
 mode: "wide"
 ---
@@ -48,24 +48,24 @@ data = r.json()
 {
   "solana": [
     {
+      "date": "2025-09-24",
+      "value": 2652237982.93
+    },
+    {
+      "date": "2025-09-23",
+      "value": 4030383243.87
+    },
+    {
       "date": "2025-09-22",
-      "value": 4491782374.23
+      "value": 4970498820.23
     },
     {
       "date": "2025-09-21",
-      "value": 2758584855.02
+      "value": 2758585399.36
     },
     {
       "date": "2025-09-20",
       "value": 2202765155.21
-    },
-    {
-      "date": "2025-09-19",
-      "value": 3401708118.87
-    },
-    {
-      "date": "2025-09-18",
-      "value": 4474449852.97
     }
   ]
 }
