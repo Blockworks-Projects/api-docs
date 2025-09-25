@@ -1,7 +1,7 @@
 ---
-title: "Base: Data Cost"
-sidebarTitle: "Data Cost"
-description: "Data costs during the specified time period for given blockchain."
+title: "Base: Rollup Data Cost"
+sidebarTitle: "Rollup Data Cost"
+description: "Data costs during the specified time period for given rollup."
 openapi: "GET /v1/metrics/sequencer-cost-total"
 mode: "wide"
 ---
@@ -48,6 +48,14 @@ data = r.json()
 {
   "base": [
     {
+      "date": "2025-09-24",
+      "value": 4457.2
+    },
+    {
+      "date": "2025-09-23",
+      "value": 4507.81
+    },
+    {
       "date": "2025-09-22",
       "value": 5117.63
     },
@@ -58,14 +66,6 @@ data = r.json()
     {
       "date": "2025-09-20",
       "value": 4752.38
-    },
-    {
-      "date": "2025-09-19",
-      "value": 4957.96
-    },
-    {
-      "date": "2025-09-18",
-      "value": 6122.1
     }
   ]
 }

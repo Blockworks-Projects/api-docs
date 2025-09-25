@@ -157,10 +157,6 @@ export const ProjectsTable = () => {
         "identifier": "transaction-base-fee-total-usd"
       },
       {
-        "name": "Data Cost",
-        "identifier": "sequencer-cost-total"
-      },
-      {
         "name": "DEX Spot Volume",
         "identifier": "dex-spot-volume-total-usd"
       },
@@ -199,6 +195,10 @@ export const ProjectsTable = () => {
       {
         "name": "REV (USD)",
         "identifier": "rev-usd"
+      },
+      {
+        "name": "Rollup Data Cost",
+        "identifier": "sequencer-cost-total"
       },
       {
         "name": "Stablecoin Circulating Supply",
@@ -2740,6 +2740,41 @@ export const ProjectsTable = () => {
     "slug": "FGNX"
   },
   {
+    "name": "FORD",
+    "type": "Treasury",
+    "metrics": 6,
+    "metricsList": [
+      {
+        "name": "Enterprise Value",
+        "identifier": "treasury-enterprise-value-usd"
+      },
+      {
+        "name": "Market Cap",
+        "identifier": "treasury-market-cap-usd"
+      },
+      {
+        "name": "mNAV",
+        "identifier": "treasury-mnav"
+      },
+      {
+        "name": "NAV",
+        "identifier": "treasury-nav-total-usd"
+      },
+      {
+        "name": "Treasury Holdings",
+        "identifier": "treasury-holdings-sol"
+      },
+      {
+        "name": "Volume",
+        "identifier": "treasury-volume-total-usd"
+      }
+    ],
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "FORD"
+  },
+  {
     "name": "GAME",
     "type": "Treasury",
     "metrics": 6,
@@ -3304,7 +3339,7 @@ export const ProjectsTable = () => {
 
 ## About This Page
 
-This page is automatically generated and contains all 141 projects currently supported by the Blockworks Data API.
+This page is automatically generated and contains all 142 projects currently supported by the Blockworks Data API.
 
 - **Chains**: Blockchain networks with transaction and activity metrics
 - **Projects**: DeFi protocols, applications, and platforms

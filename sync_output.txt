@@ -1,514 +1,144 @@
-$ bun run commands/sync.ts --update-only
+$ bun run commands/sync/index.ts --update-only
 
 📂 Cataloging existing metrics...
-   Found 152 existing metric files
-   Cataloged 147 existing metrics
+   Found 377 existing metric files
+   Cataloged 372 existing metrics
 
 🔎 Fetching metrics from API...
-   + page 1...
-   + page 2...
-
-✅ Found 168 metrics
-
+   fetching page 1...
+   Found 378 metrics
+   
 🔄 Changes detected, continuing with sync
 
+🔍 Validating metric data feeds...
+   Checking data_type consistency for 378 metrics
+   Fetching 378 metrics in 4 batches of up to 100 each...
+
+   Validation Results:
+   ✓ All metrics have consistent data_type values
+   ✓ All 378 metrics passed validation
+
+🗑️ Cleaning up obsolete content...
+   Removing obsolete metric files...
+   Cleaning up empty directories...
+
 🧹 Wiping existing metrics pages...
-   - Removed base/
-   - Removed solana/
-   - Removed ethereum/
-   - Removed arbitrum/
-   - Removed MSTR/
-   - Removed bitcoin/
-   - Removed SBET/
-   - Removed BMNR/
-   - Removed assets/expand/
+   Removed 142 existing directories
 
 ✏️ Generating metric pages...
-   + UPXI/financials/treasury-volume-usd.mdx
-   + ETHZ/financials/treasury-crypto-asset.mdx
-   + ETHZ/financials/treasury-token-holdings.mdx
-   + base/activity/transaction-fail.mdx
-   + base/activity/transaction-success.mdx
-   + solana/activity/fee-average-usd.mdx
-   + ethereum/financials/fees-other-usd.mdx
-   + arbitrum/activity/fee-median-usd.mdx
-   + solana/activity/fee-average.mdx
-   + base/stablecoins/stablecoin-supply.mdx
-   + ethereum/trading/etf-flows-ezet.mdx
-   + solana/token/native-token-fdv.mdx
-   + solana/trading/dex-spot-volume.mdx
-   + solana/financials/rev.mdx
-   + ethereum/financials/fees-transaction.mdx
-   + ethereum/financials/fees-priority-usd.mdx
-   + MSTR/financials/treasury-nav-usd.mdx
-   + ethereum/activity/fee-median.mdx
-   + ethereum/activity/fee-median-usd.mdx
-   + bitcoin/trading/etf-flows-ibit.mdx
-   + bitcoin/trading/etf-flows-btco.mdx
-   + arbitrum/activity/transaction-success.mdx
-   + UPXI/financials/treasury-mnav.mdx
-   + solana/financials/fees-mev-tips.mdx
-   + MSTR/financials/treasury-crypto-asset.mdx
-   + ethereum/financials/issuance.mdx
-   + ethereum/financials/rev-usd.mdx
-   + SBET/financials/treasury-nav-usd.mdx
-   + base/activity/address-total.mdx
-   + ethereum/financials/fees-mev-tips.mdx
-   + ethereum/financials/fees-base.mdx
-   + UPXI/financials/enterprise-value-usd.mdx
-   + UPXI/financials/treasury-token-holdings.mdx
-   + bitcoin/trading/etf-flows-btcw.mdx
-   + ETHZ/financials/treasury-mnav.mdx
-   + arbitrum/activity/address-total.mdx
-   + arbitrum/activity/fee-average.mdx
-   + solana/token/native-token-price.mdx
-   + ETHZ/equity/market-cap.mdx
-   + ethereum/trading/etf-flows-eth.mdx
-   + ethereum/financials/fees-transaction-usd.mdx
-   + solana/financials/burn-usd.mdx
-   + arbitrum/financials/fees-other-usd.mdx
-   + ethereum/activity/transaction-success.mdx
-   + MSTR/financials/treasury-mnav.mdx
-   + bitcoin/trading/etf-flows-btc.mdx
-   + arbitrum/activity/fee-average-usd.mdx
-   + bitcoin/trading/etf-flows-fbtc.mdx
-   + DFDV/financials/treasury-mnav.mdx
-   + DFDV/financials/treasury-crypto-asset.mdx
-   + ETHZ/financials/treasury-volume-usd.mdx
-   + ethereum/token/native-token-fdv.mdx
-   + ethereum/trading/etf-flows-feth.mdx
-   + BMNR/financials/treasury-volume-usd.mdx
-   + ethereum/activity/transaction-fail.mdx
-   + MSTR/financials/treasury-token-holdings.mdx
-   + base/activity/transaction-total.mdx
-   + ethereum/financials/issuance-usd.mdx
-   + arbitrum/token/native-token-fdv.mdx
-   + arbitrum/token/native-token-price.mdx
-   + arbitrum/financials/fees-base.mdx
-   + DFDV/financials/treasury-token-holdings.mdx
-   + ETHZ/financials/enterprise-value-usd.mdx
-   + ethereum/token/native-token-supply.mdx
-   + base/financials/fees-priority-usd.mdx
-   + ethereum/trading/etf-flows-ethv.mdx
-   + ethereum/financials/burn.mdx
-   + solana/financials/fees-base.mdx
-   + bitcoin/trading/etf-flows-brrr.mdx
-   + ETHZ/financials/treasury-nav-usd.mdx
-   + arbitrum/financials/fees-other.mdx
-   + base/token/native-token-price.mdx
-   + base/trading/dex-spot-volume.mdx
-   + ethereum/financials/fees-base-usd.mdx
-   + solana/activity/transaction-success.mdx
-   + arbitrum/financials/rev.mdx
-   + solana/financials/rev-usd.mdx
-   + arbitrum/trading/dex-spot-volume.mdx
-   + base/financials/fees-transaction-usd.mdx
-   + DFDV/financials/treasury-nav-usd.mdx
-   + DFDV/equity/market-cap.mdx
-   + SBET/financials/treasury-token-holdings.mdx
-   + SBET/financials/treasury-volume-usd.mdx
-   + ethereum/activity/fee-average-usd.mdx
-   + bitcoin/trading/etf-flows-arkb.mdx
-   + solana/trading/etf-flows-ssk.mdx
-   + ethereum/trading/dex-spot-volume.mdx
-   + bitcoin/trading/etf-flows-bitb.mdx
-   + solana/trading/etf-flows-total.mdx
-   + BMNR/financials/treasury-mnav.mdx
-   + UPXI/financials/treasury-crypto-asset.mdx
-   + DFDV/financials/enterprise-value-usd.mdx
-   + MSTR/equity/market-cap.mdx
-   + BMNR/equity/market-cap.mdx
-   + UPXI/financials/treasury-nav-usd.mdx
-   + solana/financials/fees-base-usd.mdx
-   + solana/financials/burn.mdx
-   + UPXI/equity/market-cap.mdx
-   + SBET/financials/enterprise-value-usd.mdx
-   + solana/activity/transaction-total.mdx
-   + BMNR/financials/treasury-crypto-asset.mdx
-   + ethereum/financials/burn-usd.mdx
-   + base/financials/fees-base.mdx
-   + DFDV/financials/treasury-volume-usd.mdx
-   + solana/financials/fees-priority.mdx
-   + arbitrum/financials/fees-priority-usd.mdx
-   + MSTR/financials/treasury-volume-usd.mdx
-   + BMNR/financials/treasury-nav-usd.mdx
-   + base/financials/fees-base-usd.mdx
-   + arbitrum/stablecoins/stablecoin-supply.mdx
-   + solana/stablecoins/stablecoin-circulating-supply.mdx
-   + solana/activity/transaction-fail.mdx
-   + base/financials/fees-transaction.mdx
-   + ethereum/financials/fees-priority.mdx
-   + ethereum/trading/etf-flows-ceth.mdx
-   + solana/financials/fees-transaction.mdx
-   + ethereum/stablecoins/stablecoin-circulating-supply.mdx
-   + solana/financials/fees-transaction-usd.mdx
-   + ethereum/trading/etf-flows-qeth.mdx
-   + arbitrum/stablecoins/stablecoin-circulating-supply.mdx
-   + bitcoin/trading/etf-flows-gbtc.mdx
-   + arbitrum/financials/fees-transaction-usd.mdx
-   + arbitrum/token/native-token-supply.mdx
-   + base/financials/rev-usd.mdx
-   + solana/financials/issuance-usd.mdx
-   + solana/financials/issuance.mdx
-   + arbitrum/activity/fee-median.mdx
-   + solana/financials/fees-priority-usd.mdx
-   + base/activity/fee-average.mdx
-   + BMNR/financials/treasury-token-holdings.mdx
-   + SBET/financials/market-cap.mdx
-   + ethereum/activity/address-total.mdx
-   + bitcoin/trading/etf-flows-ezbc.mdx
-   + MSTR/financials/enterprise-value-usd.mdx
-   + base/financials/fees-priority.mdx
-   + base/activity/fee-average-usd.mdx
-   + solana/stablecoins/stablecoin-supply.mdx
-   + base/stablecoins/stablecoin-circulating-supply.mdx
-   + ethereum/financials/fees-other.mdx
-   + arbitrum/activity/transaction-fail.mdx
-   + ethereum/stablecoins/stablecoin-supply.mdx
-   + bitcoin/trading/etf-flows-hodl.mdx
-   + ethereum/token/native-token-price.mdx
-   + BMNR/financials/enterprise-value-usd.mdx
-   + ethereum/financials/fees-mev-tips-usd.mdx
-   + base/financials/rev.mdx
-   + bitcoin/trading/etf-flows-total.mdx
-   + solana/activity/fee-median-usd.mdx
-   + arbitrum/financials/fees-priority.mdx
-   + arbitrum/activity/transaction-total.mdx
-   + SBET/financials/treasury-mnav.mdx
-   + ethereum/trading/etf-flows-etha.mdx
-   + arbitrum/financials/rev-usd.mdx
-   + ethereum/financials/rev.mdx
-   + ethereum/activity/fee-average.mdx
-   + solana/token/native-token-supply.mdx
-   + ethereum/trading/etf-flows-ethw.mdx
-   + solana/financials/fees-mev-tips-usd.mdx
-   + arbitrum/financials/fees-base-usd.mdx
-   + SBET/financials/treasury-crypto-asset.mdx
-   + arbitrum/financials/fees-transaction.mdx
-   + ethereum/activity/transaction-total.mdx
-   + ethereum/trading/etf-flows-ethe.mdx
-   + solana/activity/fee-median.mdx
-   + base/activity/fee-median-usd.mdx
-   + ethereum/trading/etf-flows-total.mdx
-   + solana/activity/address-total.mdx
-   + base/activity/fee-median.mdx
 
 📖 Generating metrics catalog...
-   + Category "Activity" has 8 unique metrics
-   + Category "Equity" has 1 unique metrics
-   + Category "Financials" has 23 unique metrics
-   + Category "Stablecoins" has 2 unique metrics
-   + Category "Token" has 3 unique metrics
-   + Category "Trading" has 23 unique metrics
+   Category Activity has 8 unique metrics
+   Category ETF has 2 unique metrics
+   Category Financials has 21 unique metrics
+   Category Stablecoins has 2 unique metrics
+   Category Token has 6 unique metrics
+   Category Trading has 2 unique metrics
+   Category Treasury has 10 unique metrics
 
 🔧 Updating OpenAPI specification...
+   Reading OpenAPI specification...
+   Found 51 unique metrics across 378 project-metric combinations
+   Analyzing existing endpoints...
+   Analyzed 51 existing endpoints
+   Adding missing endpoints and updating project enums
+   Updated treasury-nav-total-usd projects: 22 projects (was 21)
+   Updated treasury-volume-total-usd projects: 22 projects (was 21)
+   Updated treasury-enterprise-value-usd projects: 21 projects (was 20)
+   Updated treasury-market-cap-usd projects: 21 projects (was 20)
+   Updated treasury-mnav projects: 21 projects (was 20)
+   Updated treasury-holdings-sol projects: 6 projects (was 5)
+   Updating response examples with standardized placeholders...
+   Updated 51 response examples with standardized placeholders
+   Writing updated OpenAPI specification...
 
-  1. Reading OpenAPI specification...
+   OpenAPI spec updated:
+   ✓ Added endpoints: 0
+   ✓ Updated project enums: 6
+   ✓ Updated examples: 51
+   ✓ Total endpoints: 128
 
-     Found 59 unique metrics across 168 project-metric combinations
+🔧 Creating /assets Add-On (expand) pages...
+   Reading OpenAPI specification...
+   Detecting valid expand options from API...
+   Detected 5 valid expand options from API: markets, ohlcv_last_24_h, price, sector, supply
 
-  2. Analyzing existing endpoints...
-     ✓ treasury-volume-usd (exists)
-     ✓ treasury-crypto-asset (exists)
-     ✓ treasury-token-holdings (exists)
-     ✓ transaction-fail (exists)
-     ✓ transaction-success (exists)
-     ✓ fee-average-usd (exists)
-     ✓ fees-other-usd (exists)
-     ✓ fee-median-usd (exists)
-     ✓ fee-average (exists)
-     ✓ stablecoin-supply (exists)
-     ✓ etf-flows-ezet (exists)
-     ✓ native-token-fdv (exists)
-     ✓ dex-spot-volume (exists)
-     ✓ rev (exists)
-     ✓ fees-transaction (exists)
-     ✓ fees-priority-usd (exists)
-     ✓ treasury-nav-usd (exists)
-     ✓ fee-median (exists)
-     ✓ etf-flows-ibit (exists)
-     ✓ etf-flows-btco (exists)
-     ✓ treasury-mnav (exists)
-     ✓ fees-mev-tips (exists)
-     ✓ issuance (exists)
-     ✓ rev-usd (exists)
-     ✓ address-total (exists)
-     ✓ fees-base (exists)
-     ✓ enterprise-value-usd (exists)
-     ✓ etf-flows-btcw (exists)
-     ✓ native-token-price (exists)
-     ✓ market-cap (exists)
-     ✓ etf-flows-eth (exists)
-     ✓ fees-transaction-usd (exists)
-     ✓ burn-usd (exists)
-     ✓ etf-flows-btc (exists)
-     ✓ etf-flows-fbtc (exists)
-     ✓ etf-flows-feth (exists)
-     ✓ transaction-total (exists)
-     ✓ issuance-usd (exists)
-     ✓ native-token-supply (exists)
-     ✓ etf-flows-ethv (exists)
-     ✓ burn (exists)
-     ✓ etf-flows-brrr (exists)
-     ✓ fees-other (exists)
-     ✓ fees-base-usd (exists)
-     ✓ etf-flows-arkb (exists)
-     ✓ etf-flows-ssk (exists)
-     ✓ etf-flows-bitb (exists)
-     ✓ etf-flows-total (exists)
-     ✓ fees-priority (exists)
-     ✓ stablecoin-circulating-supply (exists)
-     ✓ etf-flows-ceth (exists)
-     ✓ etf-flows-qeth (exists)
-     ✓ etf-flows-gbtc (exists)
-     ✓ etf-flows-ezbc (exists)
-     ✓ etf-flows-hodl (exists)
-     ✓ fees-mev-tips-usd (exists)
-     ✓ etf-flows-etha (exists)
-     ✓ etf-flows-ethw (exists)
-     ✓ etf-flows-ethe (exists)
+   Creating 5 expansion option pages...
+   + markets
+   + ohlcv_last_24_h
+   + price
+   + sector
+   + supply
 
-  3. Adding missing endpoints...
+🎯 Updating misc endpoints...
 
-  4. Updating response examples with standardized placeholders...
-     ✓ Updated treasury-volume-usd with float placeholder
-     ✓ Updated treasury-crypto-asset with AssetType placeholder
-     ✓ Updated treasury-token-holdings with float placeholder
-     ✓ Updated transaction-fail with integer placeholder
-     ✓ Updated transaction-success with integer placeholder
-     ✓ Updated fee-average-usd with float placeholder
-     ✓ Updated fees-other-usd with float placeholder
-     ✓ Updated fee-median-usd with float placeholder
-     ✓ Updated fee-average with float placeholder
-     ✓ Updated stablecoin-supply with float placeholder
-     ✓ Updated etf-flows-ezet with float placeholder
-     ✓ Updated native-token-fdv with float placeholder
-     ✓ Updated dex-spot-volume with float placeholder
-     ✓ Updated rev with float placeholder
-     ✓ Updated fees-transaction with float placeholder
-     ✓ Updated fees-priority-usd with float placeholder
-     ✓ Updated treasury-nav-usd with float placeholder
-     ✓ Updated fee-median with float placeholder
-     ✓ Updated etf-flows-ibit with float placeholder
-     ✓ Updated etf-flows-btco with float placeholder
-     ✓ Updated treasury-mnav with float placeholder
-     ✓ Updated fees-mev-tips with float placeholder
-     ✓ Updated issuance with float placeholder
-     ✓ Updated rev-usd with float placeholder
-     ✓ Updated address-total with integer placeholder
-     ✓ Updated fees-base with float placeholder
-     ✓ Updated enterprise-value-usd with float placeholder
-     ✓ Updated etf-flows-btcw with float placeholder
-     ✓ Updated native-token-price with float placeholder
-     ✓ Updated market-cap with float placeholder
-     ✓ Updated etf-flows-eth with float placeholder
-     ✓ Updated fees-transaction-usd with float placeholder
-     ✓ Updated burn-usd with float placeholder
-     ✓ Updated etf-flows-btc with float placeholder
-     ✓ Updated etf-flows-fbtc with float placeholder
-     ✓ Updated etf-flows-feth with float placeholder
-     ✓ Updated transaction-total with integer placeholder
-     ✓ Updated issuance-usd with float placeholder
-     ✓ Updated native-token-supply with float placeholder
-     ✓ Updated etf-flows-ethv with float placeholder
-     ✓ Updated burn with float placeholder
-     ✓ Updated etf-flows-brrr with float placeholder
-     ✓ Updated fees-other with float placeholder
-     ✓ Updated fees-base-usd with float placeholder
-     ✓ Updated etf-flows-arkb with float placeholder
-     ✓ Updated etf-flows-ssk with float placeholder
-     ✓ Updated etf-flows-bitb with float placeholder
-     ✓ Updated etf-flows-total with float placeholder
-     ✓ Updated fees-priority with float placeholder
-     ✓ Updated stablecoin-circulating-supply with float placeholder
-     ✓ Updated etf-flows-ceth with float placeholder
-     ✓ Updated etf-flows-qeth with float placeholder
-     ✓ Updated etf-flows-gbtc with float placeholder
-     ✓ Updated etf-flows-ezbc with float placeholder
-     ✓ Updated etf-flows-hodl with float placeholder
-     ✓ Updated fees-mev-tips-usd with float placeholder
-     ✓ Updated etf-flows-etha with float placeholder
-     ✓ Updated etf-flows-ethw with float placeholder
-     ✓ Updated etf-flows-ethe with float placeholder
+📈 Generating market-stats page...
+   ✓ Using real API data for market-stats
+   Created market-stats.mdx
 
-  5. Writing updated OpenAPI specification...
+🔍 Updating token transparency examples...
+   ✓ Using real API data for transparency
+   Updated token-transparency/list.mdx examples
+   Updated token-transparency/get-single.mdx examples
+   Misc endpoints updated successfully
 
-  ✅ OpenAPI spec updated:
-     ✓ Added endpoints: 0
-     ✓ Updated examples: 59
-     ✓ Total endpoints: 61
-
-🎯 Updating asset expansion options...
-
-🔧 Updating asset expansion options...
-
-  1. Reading OpenAPI specification...
-
-  2. Detecting valid expand options from API...
-
-     Detected 5 valid expand options from API: markets, ohlcv_last_24_h, price, sector, supply
-
-  3. Creating expansion option pages...
-     + markets
-     + ohlcv_last_24_h
-     + price
-     + sector
-     + supply
-
-  ✅ Asset expansion options updated:
-     ✓ Created pages: 5
-     ✓ Options processed: 5
+📋 Generating projects supported page...
+   Generated projects page with 142 projects
 
 📋 Updating docs.json navigation...
 
-  1. Grouping metrics by project and category...
+   Categorizing projects...
+   Chains: 5 projects
+   Projects: 94 projects
+   ETFs: 21 projects
+   Treasuries: 22 projects
+   Building navigation structure...
 
-   🔎 UPXI
-      + Financials: 6 metrics
-      + Equity: 1 metrics
+   Processing Chains...
+   Creating Activity category with 8 metrics
+   Creating Financials category with 13 metrics
+   Creating Stablecoins category with 2 metrics
+   Creating Token category with 3 metrics
+   Creating Trading category with 1 metrics
+   Creating Activity category with 8 metrics
+   Creating Financials category with 11 metrics
+   Creating Stablecoins category with 2 metrics
+   Creating Trading category with 1 metrics
+   Creating ETF category with 1 metrics
+   Creating Activity category with 8 metrics
+   Creating ETF category with 1 metrics
+   Creating Financials category with 18 metrics
+   Creating Stablecoins category with 2 metrics
+   Creating Token category with 3 metrics
+   Creating Trading category with 1 metrics
+   Creating Activity category with 8 metrics
+   Creating ETF category with 1 metrics
+   Creating Financials category with 16 metrics
+   Creating Stablecoins category with 2 metrics
+   Creating Token category with 3 metrics
+   Creating Trading category with 1 metrics
 
-   🔎 ETHZ
-      + Financials: 6 metrics
-      + Equity: 1 metrics
+   Processing Projects...
 
-   🔎 BASE
-      + Activity: 8 metrics
-      + Stablecoins: 2 metrics
-      + Financials: 8 metrics
-      + Token: 1 metrics
-      + Trading: 1 metrics
+   Processing ETFs...
 
-   🔎 SOLANA
-      + Activity: 8 metrics
-      + Token: 3 metrics
-      + Trading: 3 metrics
-      + Financials: 14 metrics
-      + Stablecoins: 2 metrics
+   Processing Treasuries...
 
-   🔎 ETHEREUM
-      + Financials: 16 metrics
-      + Trading: 11 metrics
-      + Activity: 8 metrics
-      + Token: 3 metrics
-      + Stablecoins: 2 metrics
+   Building Assets navigation...
+   ✓ Added Add-On Information dropdown with 5 options
+   ✓ Updated docs.json navigation structure
 
-   🔎 ARBITRUM
-      + Activity: 8 metrics
-      + Financials: 10 metrics
-      + Token: 3 metrics
-      + Trading: 1 metrics
-      + Stablecoins: 2 metrics
+   + 6 Metrics Added:
+   FORD > treasury-enterprise-value-usd, treasury-holdings-sol, treasury-market-cap-usd, treasury-mnav, treasury-nav-total-usd, treasury-volume-total-usd
 
-   🔎 MSTR
-      + Financials: 6 metrics
-      + Equity: 1 metrics
+ Sync Summary:
+   Output Folder: ./api-reference/metrics
+   Metric Pages: 378
+   Projects: 142
+   Categories: 7
+   Navigation updated
+   Added Metrics: 6
+   API Errors: 0
+   Validation Issues: 0
 
-   🔎 BITCOIN
-      + Trading: 12 metrics
-
-   🔎 SBET
-      + Financials: 7 metrics
-
-   🔎 DFDV
-      + Financials: 6 metrics
-      + Equity: 1 metrics
-
-   🔎 BMNR
-      + Financials: 6 metrics
-      + Equity: 1 metrics
-
-  2. Processing projects...
-
-   🛠️ ARBITRUM
-      + Creating Activity subgroup with 8 metrics
-      + Creating Financials subgroup with 10 metrics
-      + Creating Stablecoins subgroup with 2 metrics
-      + Creating Token subgroup with 3 metrics
-      + Creating Trading subgroup with 1 metrics
-
-   🛠️ BASE
-      + Creating Activity subgroup with 8 metrics
-      + Creating Financials subgroup with 8 metrics
-      + Creating Stablecoins subgroup with 2 metrics
-      + Creating Token subgroup with 1 metrics
-      + Creating Trading subgroup with 1 metrics
-
-   🛠️ BITCOIN
-      + Creating Trading subgroup with 12 metrics
-
-   🛠️ BMNR
-      + Creating Equity subgroup with 1 metrics
-      + Creating Financials subgroup with 6 metrics
-
-   🛠️ DFDV
-      + Creating Equity subgroup with 1 metrics
-      + Creating Financials subgroup with 6 metrics
-
-   🛠️ ETHEREUM
-      + Creating Activity subgroup with 8 metrics
-      + Creating Financials subgroup with 16 metrics
-      + Creating Stablecoins subgroup with 2 metrics
-      + Creating Token subgroup with 3 metrics
-      + Creating Trading subgroup with 11 metrics
-
-   🛠️ ETHZ
-      + Creating Equity subgroup with 1 metrics
-      + Creating Financials subgroup with 6 metrics
-
-   🛠️ MSTR
-      + Creating Equity subgroup with 1 metrics
-      + Creating Financials subgroup with 6 metrics
-
-   🛠️ SBET
-      + Creating Financials subgroup with 7 metrics
-
-   🛠️ SOLANA
-      + Creating Activity subgroup with 8 metrics
-      + Creating Financials subgroup with 14 metrics
-      + Creating Stablecoins subgroup with 2 metrics
-      + Creating Token subgroup with 3 metrics
-      + Creating Trading subgroup with 3 metrics
-
-   🛠️ UPXI
-      + Creating Equity subgroup with 1 metrics
-      + Creating Financials subgroup with 6 metrics
-
-  3. Updating Assets navigation...
-
-  ✅ Updated docs.json navigation structure
-
-+ 21 Metrics Added:
-   UPXI/treasury-volume-usd
-   ETHZ/treasury-crypto-asset
-   ETHZ/treasury-token-holdings
-   UPXI/treasury-mnav
-   UPXI/enterprise-value-usd
-   UPXI/treasury-token-holdings
-   ETHZ/treasury-mnav
-   ETHZ/market-cap
-   DFDV/treasury-mnav
-   DFDV/treasury-crypto-asset
-   ETHZ/treasury-volume-usd
-   DFDV/treasury-token-holdings
-   ETHZ/enterprise-value-usd
-   ETHZ/treasury-nav-usd
-   DFDV/treasury-nav-usd
-   DFDV/market-cap
-   UPXI/treasury-crypto-asset
-   DFDV/enterprise-value-usd
-   UPXI/treasury-nav-usd
-   UPXI/market-cap
-   DFDV/treasury-volume-usd
-
-📊 Sync Summary:
-
-  📁 Output: ./api-reference/metrics
-  📄 Metric Pages: 168
-  📂 Projects: 11
-  🏷️ Categories: 6
-  ✅ Catalog generated
-  ✅ Navigation updated
-  ✅ OpenAPI spec updated
-  ➕ Added Metrics: 21
-
-✅ Sync complete in 2.48s
+✅ Sync complete in 5.61s
