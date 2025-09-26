@@ -3,7 +3,7 @@ import { Metric } from '../../classes'
 import { OUTPUT_DIR } from '../../lib/constants'
 import { fetchMetricSampleData } from '../stage-fetching/metrics-api'
 import { ensureDirectory, writeTextFile } from '../../lib/file-operations'
-import { findMetric } from '../../lib/metric-utils'
+import { findMetric, hasUsdTitleConflict } from '../../lib/metric-utils'
 import { getMetricPage } from '../../templates/metric-page'
 
 type GeneratePageConfig = { metric: Metric; allMetrics?: Metric[] }
@@ -15,7 +15,7 @@ export const generateMetricPage = async ({ metric, allMetrics }: GeneratePageCon
   await ensureDirectory(projectDir)
 
   // Check if this USD metric has a title conflict and needs USD tag
-  const needsUsdTag = allMetrics ? hasUsdTitleConflict(metric, allMetrics) : false
+  const needsUsdTag = allMetrics ? hasUsdTitleConflict(metric, allMetrics.filter(m => m.project === metric.project)) : false
 
 
   const sampleData = await fetchMetricSampleData(metric.identifier, metric.project)
@@ -29,20 +29,6 @@ export const generateMetricPage = async ({ metric, allMetrics }: GeneratePageCon
   await writeTextFile(filePath, content)
 }
 
-const hasUsdTitleConflict = (metric: Metric, allMetrics: Metric[]): boolean => {
-  // Only USD metrics (denomination = "USD") should get the tag
-  if (metric.denomination !== 'USD') return false
-
-  // Find other metrics in the same project with the same title but different denomination
-  const sameProjectMetrics = allMetrics.filter(m => m.project === metric.project)
-  const conflictingMetrics = sameProjectMetrics.filter(m =>
-    m.identifier !== metric.identifier && // Different metric
-    m.title === metric.title && // Same title
-    m.denomination !== 'USD' // Different denomination
-  )
-
-  return conflictingMetrics.length > 0
-}
 
 const generateCrossReference = (metric: Metric, allMetrics: Metric[]): string | null => {
   const isUsd = metric.identifier.endsWith('-usd')

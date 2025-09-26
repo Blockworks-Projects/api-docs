@@ -3,6 +3,7 @@ import { join } from 'node:path'
 import { OUTPUT_DIR } from '../../lib/constants'
 import * as text from '../../lib/text'
 import { toTitleCase } from '../../lib/utils'
+import { hasUsdTitleConflict } from '../../lib/metric-utils'
 import * as templates from '../../templates'
 import type { Metric } from '../../classes'
 
@@ -46,6 +47,10 @@ export const generateMetricsCatalog = async (metrics: Metric[]): Promise<void> =
       const metricsForIdentifier = metricGroups.get(identifier)!
       const firstMetric = metricsForIdentifier[0]
 
+      // Check if this metric has USD title conflicts across all metrics in the category
+      const allCategoryMetrics = Array.from(metricGroups.values()).flat()
+      const needsUsdTag = firstMetric ? hasUsdTitleConflict(firstMetric, allCategoryMetrics) : false
+
       // Generate table rows for each project, sorted by project name
       const catalogRows = metricsForIdentifier
         .sort((a, b) => a.project.localeCompare(b.project))
@@ -56,8 +61,13 @@ export const generateMetricsCatalog = async (metrics: Metric[]): Promise<void> =
         })
         .join('\n')
 
+      // Add USD tag to metric title if there's a conflict
+      const metricName = needsUsdTag
+        ? `${firstMetric?.title} (USD)`
+        : firstMetric?.title ?? ''
+
       const entry = templates.CATALOG_ENTRY
-        .replace('{metric_name}', firstMetric?.name ?? '')
+        .replace('{metric_name}', metricName)
         .replace('{metric_description}', firstMetric?.description ?? '')
         .replace('{catalog_rows}', catalogRows)
 

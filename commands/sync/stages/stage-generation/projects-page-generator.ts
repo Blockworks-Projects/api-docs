@@ -1,5 +1,6 @@
 import { Project } from '../../classes'
 import { writeTextFile } from '../../lib/file-operations'
+import { hasUsdTitleConflict } from '../../lib/metric-utils'
 import * as text from '../../lib/text'
 
 type ProjectData = {
@@ -272,7 +273,15 @@ export const generateProjectsPage = async (projects: Project[]): Promise<void> =
       metrics: project.metrics.length,
       metricsList: [...project.metrics]
         .sort((a, b) => a.name.localeCompare(b.name))
-        .map(m => ({ name: m.name, identifier: m.identifier })),
+        .map(m => {
+          // Check if this USD metric has a title conflict with non-USD metrics
+          const needsUsdTag = hasUsdTitleConflict(m, project.metrics)
+
+          return {
+            name: needsUsdTag ? `${m.title} (USD)` : m.title,
+            identifier: m.identifier
+          }
+        }),
       categories: [...new Set(project.metrics.map(m => m.category))].filter(Boolean).sort(),
       slug: project.slug
     }))

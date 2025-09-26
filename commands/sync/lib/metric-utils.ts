@@ -83,3 +83,16 @@ export function getUniqueCategories(metrics: Metric[]): string[] {
 export function findMetric(metrics: Metric[], project: string, identifier: string): Metric | undefined {
   return metrics.find(m => m.project === project && m.identifier === identifier)
 }
+
+/**
+ * Check if a USD metric has a title conflict with non-USD metrics in the given scope
+ */
+export const hasUsdTitleConflict = (metric: Metric, scopeMetrics: Metric[]): boolean => {
+  if (metric.denomination !== 'USD') return false
+
+  return scopeMetrics.some(other =>
+    other.identifier !== metric.identifier &&
+    other.title === metric.title &&
+    other.denomination !== 'USD'
+  )
+}
