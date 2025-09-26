@@ -1,0 +1,97 @@
+---
+title: "Katana: L1 Fees"
+sidebarTitle: "L1 Fees"
+description: "An OP Stack fee meant to estimate the costs associated with posting data to the L1 that is attributed to the user's transaction fee"
+openapi: "GET /v1/metrics/transaction-l1-fee-total-native"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** ETH
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-l1-fee-total-native?project=katana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-l1-fee-total-native?project=katana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-l1-fee-total-native',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'katana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "katana": [
+    {
+      "date": "2025-09-25",
+      "value": 0.00008168289780602804
+    },
+    {
+      "date": "2025-09-25",
+      "value": 0.000806288922499799
+    },
+    {
+      "date": "2025-09-24",
+      "value": 0.00019328218327813312
+    },
+    {
+      "date": "2025-09-24",
+      "value": 0.0001932821832781331
+    },
+    {
+      "date": "2025-09-23",
+      "value": 0.000259021706207503
+    },
+    {
+      "date": "2025-09-23",
+      "value": 0.000259021706207503
+    },
+    {
+      "date": "2025-09-22",
+      "value": 0.0002328758921018181
+    },
+    {
+      "date": "2025-09-22",
+      "value": 0.0002328758921018181
+    },
+    {
+      "date": "2025-09-21",
+      "value": 0.00005418130426818402
+    },
+    {
+      "date": "2025-09-21",
+      "value": 0.000054181304268184014
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

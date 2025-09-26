@@ -1,0 +1,101 @@
+---
+title: "Katana: Transactions (Total)"
+sidebarTitle: "Transactions (Total)"
+description: "Daily number of all transactions."
+openapi: "GET /v1/metrics/transaction-total"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** Count
+- **Type:** Integer
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-total?project=katana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-total?project=katana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-total',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'katana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "katana": [
+    {
+      "date": "2025-09-26",
+      "value": 24431
+    },
+    {
+      "date": "2025-09-25",
+      "value": 28442
+    },
+    {
+      "date": "2025-09-25",
+      "value": 92497
+    },
+    {
+      "date": "2025-09-24",
+      "value": 84603
+    },
+    {
+      "date": "2025-09-24",
+      "value": 84603
+    },
+    {
+      "date": "2025-09-23",
+      "value": 100203
+    },
+    {
+      "date": "2025-09-23",
+      "value": 100203
+    },
+    {
+      "date": "2025-09-22",
+      "value": 82060
+    },
+    {
+      "date": "2025-09-22",
+      "value": 82060
+    },
+    {
+      "date": "2025-09-21",
+      "value": 64184
+    },
+    {
+      "date": "2025-09-21",
+      "value": 64184
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

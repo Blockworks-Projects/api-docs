@@ -1,0 +1,97 @@
+---
+title: "Katana: Priority Fees"
+sidebarTitle: "Priority Fees"
+description: "An additional transaction fee to incentivize validators to prioritize and execute transactions."
+openapi: "GET /v1/metrics/transaction-priority-fee-total-native"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** ETH
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-native?project=katana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-native?project=katana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-native',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'katana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "katana": [
+    {
+      "date": "2025-09-25",
+      "value": 0.0076455186261962915
+    },
+    {
+      "date": "2025-09-25",
+      "value": 0.06570422521016742
+    },
+    {
+      "date": "2025-09-24",
+      "value": 0.04036450829229073
+    },
+    {
+      "date": "2025-09-24",
+      "value": 0.04036450829229072
+    },
+    {
+      "date": "2025-09-23",
+      "value": 0.0370270243609812
+    },
+    {
+      "date": "2025-09-23",
+      "value": 0.037027024360981216
+    },
+    {
+      "date": "2025-09-22",
+      "value": 0.028281424529023123
+    },
+    {
+      "date": "2025-09-22",
+      "value": 0.028281424529023123
+    },
+    {
+      "date": "2025-09-21",
+      "value": 0.009549731229834086
+    },
+    {
+      "date": "2025-09-21",
+      "value": 0.00954973122983409
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

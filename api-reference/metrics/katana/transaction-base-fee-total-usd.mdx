@@ -1,0 +1,98 @@
+---
+title: "Katana: Base Fees (USD)"
+sidebarTitle: "Base Fees"
+tag: "USD"
+description: "The minimum transaction fee required for a transaction to be included in a block"
+openapi: "GET /v1/metrics/transaction-base-fee-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-base-fee-total-usd?project=katana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-base-fee-total-usd?project=katana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-base-fee-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'katana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "katana": [
+    {
+      "date": "2025-09-25",
+      "value": 0.005882926266544556
+    },
+    {
+      "date": "2025-09-25",
+      "value": 0.01792439555725275
+    },
+    {
+      "date": "2025-09-24",
+      "value": 0.022719468438796086
+    },
+    {
+      "date": "2025-09-24",
+      "value": 0.02271946843879609
+    },
+    {
+      "date": "2025-09-23",
+      "value": 0.06036282528988334
+    },
+    {
+      "date": "2025-09-23",
+      "value": 0.060362825289883335
+    },
+    {
+      "date": "2025-09-22",
+      "value": 0.014590107565277111
+    },
+    {
+      "date": "2025-09-22",
+      "value": 0.014590107565277115
+    },
+    {
+      "date": "2025-09-21",
+      "value": 0.010182180208795527
+    },
+    {
+      "date": "2025-09-21",
+      "value": 0.010182180208795527
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

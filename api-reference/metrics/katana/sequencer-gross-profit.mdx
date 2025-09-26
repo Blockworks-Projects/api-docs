@@ -1,0 +1,97 @@
+---
+title: "Katana: Gross Profit"
+sidebarTitle: "Gross Profit"
+description: "Gross profit during the specified time period for given rollup."
+openapi: "GET /v1/metrics/sequencer-gross-profit"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/sequencer-gross-profit?project=katana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/sequencer-gross-profit?project=katana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/sequencer-gross-profit',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'katana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "katana": [
+    {
+      "date": "2025-09-25",
+      "value": 136.79795920300512
+    },
+    {
+      "date": "2025-09-25",
+      "value": 13743.294054005513
+    },
+    {
+      "date": "2025-09-24",
+      "value": 17950.717382627157
+    },
+    {
+      "date": "2025-09-24",
+      "value": 17950.717382627157
+    },
+    {
+      "date": "2025-09-23",
+      "value": 15023.049584575527
+    },
+    {
+      "date": "2025-09-23",
+      "value": 15023.049584575525
+    },
+    {
+      "date": "2025-09-22",
+      "value": 18169.803064919768
+    },
+    {
+      "date": "2025-09-22",
+      "value": 18169.803064919768
+    },
+    {
+      "date": "2025-09-21",
+      "value": 15562.854877553134
+    },
+    {
+      "date": "2025-09-21",
+      "value": 15562.854877553134
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

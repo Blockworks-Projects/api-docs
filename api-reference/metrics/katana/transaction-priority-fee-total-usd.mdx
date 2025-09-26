@@ -1,0 +1,98 @@
+---
+title: "Katana: Priority Fees (USD)"
+sidebarTitle: "Priority Fees"
+tag: "USD"
+description: "An additional transaction fee to incentivize validators to prioritize and execute transactions"
+openapi: "GET /v1/metrics/transaction-priority-fee-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-usd?project=katana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-usd?project=katana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'katana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "katana": [
+    {
+      "date": "2025-09-25",
+      "value": 31.321910035059087
+    },
+    {
+      "date": "2025-09-25",
+      "value": 262.67494093047145
+    },
+    {
+      "date": "2025-09-24",
+      "value": 168.46560052706226
+    },
+    {
+      "date": "2025-09-24",
+      "value": 168.46560052706224
+    },
+    {
+      "date": "2025-09-23",
+      "value": 155.00298321811974
+    },
+    {
+      "date": "2025-09-23",
+      "value": 155.0029832181198
+    },
+    {
+      "date": "2025-09-22",
+      "value": 119.39943624093243
+    },
+    {
+      "date": "2025-09-22",
+      "value": 119.39943624093243
+    },
+    {
+      "date": "2025-09-21",
+      "value": 42.76848523950327
+    },
+    {
+      "date": "2025-09-21",
+      "value": 42.768485239503285
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

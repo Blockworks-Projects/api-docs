@@ -1,0 +1,98 @@
+---
+title: "Katana: Operator Fees (USD)"
+sidebarTitle: "Operator Fees"
+tag: "USD"
+description: "An additional fee for OP Stack chains in order to pay operators, such as provers and verfiers, for their work and is included as part of the transaction fee"
+openapi: "GET /v1/metrics/transaction-operator-fee-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-operator-fee-total-usd?project=katana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-operator-fee-total-usd?project=katana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-operator-fee-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'katana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "katana": [
+    {
+      "date": "2025-09-25",
+      "value": 157.17192051391507
+    },
+    {
+      "date": "2025-09-25",
+      "value": 499.71371875805966
+    },
+    {
+      "date": "2025-09-24",
+      "value": 477.16173776533975
+    },
+    {
+      "date": "2025-09-24",
+      "value": 477.16173776533975
+    },
+    {
+      "date": "2025-09-23",
+      "value": 566.8527388952376
+    },
+    {
+      "date": "2025-09-23",
+      "value": 566.8527388952376
+    },
+    {
+      "date": "2025-09-22",
+      "value": 468.1669893251191
+    },
+    {
+      "date": "2025-09-22",
+      "value": 468.1669893251191
+    },
+    {
+      "date": "2025-09-21",
+      "value": 388.44342919132566
+    },
+    {
+      "date": "2025-09-21",
+      "value": 388.4434291913258
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
