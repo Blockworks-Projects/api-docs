@@ -39,10 +39,28 @@ export function groupMetricsByProjectAndCategory(metrics: Metric[]): Map<string,
 }
 
 /**
- * Sort metrics alphabetically by name
+ * Sort metrics alphabetically by name, with native versions before USD versions for same-named metrics
  */
 export function sortMetricsAlphabetically(metrics: Metric[]): Metric[] {
-  return [...metrics].sort((a, b) => a.name.localeCompare(b.name))
+  return [...metrics].sort((a, b) => {
+    // First sort by name
+    const nameComparison = a.name.localeCompare(b.name)
+    if (nameComparison !== 0) {
+      return nameComparison
+    }
+
+    // If names are equal, put native versions before USD versions
+    // USD metrics have denomination "USD", others come first
+    if (a.denomination === 'USD' && b.denomination !== 'USD') {
+      return 1 // a comes after b
+    }
+    if (a.denomination !== 'USD' && b.denomination === 'USD') {
+      return -1 // a comes before b
+    }
+
+    // If both are USD or both are non-USD, maintain original order
+    return 0
+  })
 }
 
 /**

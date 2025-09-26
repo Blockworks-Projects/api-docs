@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** count
-- **Interval:** daily
+- **Denomination:** Count
+- **Type:** Integer
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,12 @@ data = r.json()
 {
   "bags": [
     {
+      "date": "2025-09-25",
+      "value": "0"
+    },
+    {
       "date": "2025-09-24",
-      "value": "1"
+      "value": "2"
     },
     {
       "date": "2025-09-23",
@@ -57,15 +62,11 @@ data = r.json()
     },
     {
       "date": "2025-09-22",
-      "value": "3"
-    },
-    {
-      "date": "2025-09-21",
       "value": "4"
     },
     {
-      "date": "2025-09-20",
-      "value": "0"
+      "date": "2025-09-21",
+      "value": "5"
     }
   ]
 }

@@ -1,6 +1,6 @@
 ---
-title: "NAV (USD)"
-sidebarTitle: "NAV (USD)"
+title: "NAV"
+sidebarTitle: "NAV"
 description: "Dollar value of crypto assets (does not include cash)"
 openapi: "GET /v1/metrics/treasury-nav-total-usd"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,16 +49,20 @@ data = r.json()
 {
   "cepo": [
     {
+      "date": "2025-09-25",
+      "value": 6694163085.272596
+    },
+    {
       "date": "2025-09-24",
-      "value": 3392487612.46
+      "value": 6784975224.928551
     },
     {
       "date": "2025-09-23",
-      "value": 3380526460.1
+      "value": 6761052920.195612
     },
     {
       "date": "2025-09-22",
-      "value": 3400434650.67
+      "value": 6800869301.332737
     }
   ]
 }

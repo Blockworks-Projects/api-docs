@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** count
-- **Interval:** daily
+- **Denomination:** Count
+- **Type:** Integer
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,24 @@ data = r.json()
 {
   "arbitrum": [
     {
+      "date": "2025-09-25",
+      "value": 321847
+    },
+    {
+      "date": "2025-09-25",
+      "value": 85129
+    },
+    {
       "date": "2025-09-24",
       "value": 303549
+    },
+    {
+      "date": "2025-09-24",
+      "value": 303549
+    },
+    {
+      "date": "2025-09-23",
+      "value": 320381
     },
     {
       "date": "2025-09-23",
@@ -60,12 +77,16 @@ data = r.json()
       "value": 292422
     },
     {
+      "date": "2025-09-22",
+      "value": 292422
+    },
+    {
       "date": "2025-09-21",
       "value": 258755
     },
     {
-      "date": "2025-09-20",
-      "value": 351612
+      "date": "2025-09-21",
+      "value": 258755
     }
   ]
 }

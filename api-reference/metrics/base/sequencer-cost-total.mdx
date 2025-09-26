@@ -1,15 +1,16 @@
 ---
-title: "Base: Rollup Data Cost"
-sidebarTitle: "Rollup Data Cost"
-description: "Data costs during the specified time period for given rollup."
+title: "Base: Rollup Costs"
+sidebarTitle: "Rollup Costs"
+description: "Costs the rollup sequencer endures for operating during the specified time period. Equivalent of cost of goods sold"
 openapi: "GET /v1/metrics/sequencer-cost-total"
 mode: "wide"
 ---
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +49,44 @@ data = r.json()
 {
   "base": [
     {
+      "date": "2025-09-25",
+      "value": 88.97995741752395
+    },
+    {
+      "date": "2025-09-25",
+      "value": 5237.744548005654
+    },
+    {
       "date": "2025-09-24",
-      "value": 4457.2
+      "value": 4457.199495251294
+    },
+    {
+      "date": "2025-09-24",
+      "value": 4457.19949526599
     },
     {
       "date": "2025-09-23",
-      "value": 4507.81
+      "value": 4507.807054910334
+    },
+    {
+      "date": "2025-09-23",
+      "value": 4507.807054910325
     },
     {
       "date": "2025-09-22",
-      "value": 5117.63
+      "value": 5117.625711912017
+    },
+    {
+      "date": "2025-09-22",
+      "value": 5117.625711912022
     },
     {
       "date": "2025-09-21",
-      "value": 5263.92
+      "value": 5263.91618379227
     },
     {
-      "date": "2025-09-20",
-      "value": 4752.38
+      "date": "2025-09-21",
+      "value": 5263.916183792257
     }
   ]
 }

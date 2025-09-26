@@ -1,6 +1,7 @@
 ---
 title: "Arbitrum: Transaction Fees (USD)"
-sidebarTitle: "Transaction Fees (USD)"
+sidebarTitle: "Transaction Fees"
+tag: "USD"
 description: "Total transaction fees paid converted to USD, does not include out-of-protocol tips or additional sources of revenue"
 openapi: "GET /v1/metrics/transaction-fee-total-usd"
 mode: "wide"
@@ -8,8 +9,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +50,40 @@ data = r.json()
 {
   "arbitrum": [
     {
+      "date": "2025-09-25",
+      "value": 154389.52102674503
+    },
+    {
       "date": "2025-09-24",
-      "value": 37500.71
+      "value": 37500.7096330584
+    },
+    {
+      "date": "2025-09-24",
+      "value": 37500.70963305817
     },
     {
       "date": "2025-09-23",
-      "value": 109608.84
+      "value": 109608.83595917252
+    },
+    {
+      "date": "2025-09-23",
+      "value": 109608.8359591726
     },
     {
       "date": "2025-09-22",
-      "value": 608430.99
+      "value": 608430.9909007082
+    },
+    {
+      "date": "2025-09-22",
+      "value": 608430.9909007077
     },
     {
       "date": "2025-09-21",
-      "value": 14155.71
+      "value": 14155.71062201668
     },
     {
-      "date": "2025-09-20",
-      "value": 15516.27
+      "date": "2025-09-21",
+      "value": 14155.71062201669
     }
   ]
 }

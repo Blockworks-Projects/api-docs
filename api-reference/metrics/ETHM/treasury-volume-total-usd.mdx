@@ -1,6 +1,6 @@
 ---
-title: "Volume (USD)"
-sidebarTitle: "Volume (USD)"
+title: "Volume"
+sidebarTitle: "Volume"
 description: "USD volume over the period"
 openapi: "GET /v1/metrics/treasury-volume-total-usd"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,16 +49,20 @@ data = r.json()
 {
   "ethm": [
     {
+      "date": "2025-09-25",
+      "value": 3255011.5696
+    },
+    {
       "date": "2025-09-24",
-      "value": 3408679.16
+      "value": 3419356.5849
     },
     {
       "date": "2025-09-23",
-      "value": 4371652.2
+      "value": 4371652.195499999
     },
     {
       "date": "2025-09-22",
-      "value": 5029166.15
+      "value": 5029166.151
     }
   ]
 }

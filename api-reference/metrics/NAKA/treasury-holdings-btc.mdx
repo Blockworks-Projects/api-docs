@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** BTC
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -47,6 +48,10 @@ data = r.json()
 ```json
 {
   "naka": [
+    {
+      "date": "2025-09-25",
+      "value": 5764.91
+    },
     {
       "date": "2025-09-24",
       "value": 5764.91

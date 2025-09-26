@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** mNAV
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,12 @@ data = r.json()
 {
   "dfdv": [
     {
+      "date": "2025-09-25",
+      "value": 0.967469553982847
+    },
+    {
       "date": "2025-09-24",
-      "value": 0.9773713604568437
+      "value": 0.9772534823577363
     },
     {
       "date": "2025-09-23",

@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** mNAV
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,12 @@ data = r.json()
 {
   "naka": [
     {
+      "date": "2025-09-25",
+      "value": 0.7243483145513322
+    },
+    {
       "date": "2025-09-24",
-      "value": 0.7054735278146599
+      "value": 0.7028177099907169
     },
     {
       "date": "2025-09-23",

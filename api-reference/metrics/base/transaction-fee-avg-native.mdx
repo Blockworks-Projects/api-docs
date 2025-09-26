@@ -1,6 +1,6 @@
 ---
-title: "Base: Fee Average (ETH)"
-sidebarTitle: "Fee Average (ETH)"
+title: "Base: Fee Average"
+sidebarTitle: "Fee Average"
 description: "Average of the sum of the base fee and priority fee that day in native chain token"
 openapi: "GET /v1/metrics/transaction-fee-avg-native"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** ETH
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,12 +49,32 @@ data = r.json()
 {
   "base": [
     {
+      "date": "2025-09-25",
+      "value": 0.000006025441293228019
+    },
+    {
+      "date": "2025-09-25",
+      "value": 0.000004713694346987525
+    },
+    {
       "date": "2025-09-24",
       "value": 0.000003768246617227491
     },
     {
+      "date": "2025-09-24",
+      "value": 0.0000037682466172274883
+    },
+    {
+      "date": "2025-09-23",
+      "value": 0.000003676243701082965
+    },
+    {
       "date": "2025-09-23",
       "value": 0.000003676243701082961
+    },
+    {
+      "date": "2025-09-22",
+      "value": 0.000005261209991543755
     },
     {
       "date": "2025-09-22",
@@ -64,8 +85,8 @@ data = r.json()
       "value": 0.000002462545421822089
     },
     {
-      "date": "2025-09-20",
-      "value": 0.000001888500279626177
+      "date": "2025-09-21",
+      "value": 0.000002462545421822091
     }
   ]
 }

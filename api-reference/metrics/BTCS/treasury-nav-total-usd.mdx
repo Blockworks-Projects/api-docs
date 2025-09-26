@@ -1,6 +1,6 @@
 ---
-title: "NAV (USD)"
-sidebarTitle: "NAV (USD)"
+title: "NAV"
+sidebarTitle: "NAV"
 description: "Dollar value of crypto assets (does not include cash)"
 openapi: "GET /v1/metrics/treasury-nav-total-usd"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,16 +49,20 @@ data = r.json()
 {
   "btcs": [
     {
+      "date": "2025-09-25",
+      "value": 561114629.0754569
+    },
+    {
       "date": "2025-09-24",
-      "value": 292269361.69
+      "value": 584538723.3894436
     },
     {
       "date": "2025-09-23",
-      "value": 293152071.93
+      "value": 586304143.85861
     },
     {
       "date": "2025-09-22",
-      "value": 295646483.88
+      "value": 591292967.7569411
     }
   ]
 }

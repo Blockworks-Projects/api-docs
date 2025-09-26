@@ -1,6 +1,7 @@
 ---
 title: "Base: Fee Median (USD)"
-sidebarTitle: "Fee Median (USD)"
+sidebarTitle: "Fee Median"
+tag: "USD"
 description: "Median of the sum of the base fee and priority fee in USD that day"
 openapi: "GET /v1/metrics/transaction-fee-med-usd"
 mode: "wide"
@@ -8,8 +9,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +50,44 @@ data = r.json()
 {
   "base": [
     {
+      "date": "2025-09-25",
+      "value": 0.003477911183892734
+    },
+    {
+      "date": "2025-09-25",
+      "value": 0.00356835193679612
+    },
+    {
       "date": "2025-09-24",
-      "value": 0
+      "value": 0.0024826233310450163
+    },
+    {
+      "date": "2025-09-24",
+      "value": 0.002483080353898394
     },
     {
       "date": "2025-09-23",
-      "value": 0
+      "value": 0.002465604285090526
+    },
+    {
+      "date": "2025-09-23",
+      "value": 0.002467684568965708
     },
     {
       "date": "2025-09-22",
-      "value": 0
+      "value": 0.003551546063111335
+    },
+    {
+      "date": "2025-09-22",
+      "value": 0.0035864663883356223
     },
     {
       "date": "2025-09-21",
-      "value": 0
+      "value": 0.0027105200047699255
     },
     {
-      "date": "2025-09-20",
-      "value": 0
+      "date": "2025-09-21",
+      "value": 0.0027038203668810663
     }
   ]
 }

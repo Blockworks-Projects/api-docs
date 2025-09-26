@@ -1,6 +1,7 @@
 ---
 title: "Solana: MEV Tips (USD)"
-sidebarTitle: "MEV Tips (USD)"
+sidebarTitle: "MEV Tips"
+tag: "USD"
 description: "Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders or leaders for faster transaction execution, MEV capture, or MEV protection."
 openapi: "GET /v1/metrics/mev-tips-fees-usd"
 mode: "wide"
@@ -8,8 +9,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +50,24 @@ data = r.json()
 {
   "solana": [
     {
+      "date": "2025-09-25",
+      "value": 27379.286624499513
+    },
+    {
       "date": "2025-09-24",
-      "value": 430274.84
+      "value": 430274.8439663272
     },
     {
       "date": "2025-09-23",
-      "value": 446094.58
+      "value": 446094.5825338801
     },
     {
       "date": "2025-09-22",
-      "value": 570388.72
+      "value": 570388.7150926334
     },
     {
       "date": "2025-09-21",
-      "value": 322877.6
-    },
-    {
-      "date": "2025-09-20",
-      "value": 366636.13
+      "value": 322877.5975170935
     }
   ]
 }

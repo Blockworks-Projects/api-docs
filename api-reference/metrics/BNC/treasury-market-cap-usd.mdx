@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,16 +49,20 @@ data = r.json()
 {
   "bnc": [
     {
+      "date": "2025-09-25",
+      "value": 331287359.039
+    },
+    {
       "date": "2025-09-24",
-      "value": 340966792.37
+      "value": 344845604.9444
     },
     {
       "date": "2025-09-23",
-      "value": 330373210.94
+      "value": 330373210.944
     },
     {
       "date": "2025-09-22",
-      "value": 343905904.23
+      "value": 343905904.2288
     }
   ]
 }

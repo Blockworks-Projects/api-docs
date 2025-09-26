@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,16 +49,20 @@ data = r.json()
 {
   "dfdv": [
     {
+      "date": "2025-09-25",
+      "value": 380821186.2016
+    },
+    {
       "date": "2025-09-24",
-      "value": 403641912.21
+      "value": 403590571.9976
     },
     {
       "date": "2025-09-23",
-      "value": 397668478.08
+      "value": 397668478.082
     },
     {
       "date": "2025-09-22",
-      "value": 439728670.1
+      "value": 439728670.1038
     }
   ]
 }

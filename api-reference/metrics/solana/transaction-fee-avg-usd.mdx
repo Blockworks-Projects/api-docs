@@ -1,6 +1,7 @@
 ---
 title: "Solana: Fee Average (USD)"
-sidebarTitle: "Fee Average (USD)"
+sidebarTitle: "Fee Average"
+tag: "USD"
 description: "Average of the sum of the base fee and priority fee in USD that day"
 openapi: "GET /v1/metrics/transaction-fee-avg-usd"
 mode: "wide"
@@ -8,8 +9,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,20 +50,36 @@ data = r.json()
 {
   "solana": [
     {
+      "date": "2025-09-25",
+      "value": null
+    },
+    {
+      "date": "2025-09-24",
+      "value": 0.00972176754737233
+    },
+    {
       "date": "2025-09-23",
-      "value": 0.01
+      "value": 0.01007020452769218
+    },
+    {
+      "date": "2025-09-23",
+      "value": 0.01007020452769218
     },
     {
       "date": "2025-09-22",
-      "value": 0.01
+      "value": 0.010100366973164427
+    },
+    {
+      "date": "2025-09-22",
+      "value": 0.010100366973164427
     },
     {
       "date": "2025-09-21",
-      "value": 0.01
+      "value": 0.009209320335709438
     },
     {
-      "date": "2025-09-20",
-      "value": 0.01
+      "date": "2025-09-21",
+      "value": 0.009209320335709438
     }
   ]
 }

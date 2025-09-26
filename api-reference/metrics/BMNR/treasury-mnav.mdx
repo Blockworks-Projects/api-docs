@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** mNAV
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,12 @@ data = r.json()
 {
   "bmnr": [
     {
+      "date": "2025-09-25",
+      "value": 0.9206787378148809
+    },
+    {
       "date": "2025-09-24",
-      "value": 0.9597550467206181
+      "value": 0.959317721154783
     },
     {
       "date": "2025-09-23",

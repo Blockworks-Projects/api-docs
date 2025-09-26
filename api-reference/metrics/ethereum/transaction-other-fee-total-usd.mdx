@@ -1,6 +1,7 @@
 ---
 title: "Ethereum: Other Fees (USD)"
-sidebarTitle: "Other Fees (USD)"
+sidebarTitle: "Other Fees"
+tag: "USD"
 description: "For Ethereum, this includes just blob fees: an additional fee for transactions that post data to \"blobs,\" which are specialized data availability solutions for L2 blockchains."
 openapi: "GET /v1/metrics/transaction-other-fee-total-usd"
 mode: "wide"
@@ -8,8 +9,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +50,44 @@ data = r.json()
 {
   "ethereum": [
     {
+      "date": "2025-09-25",
+      "value": 0.06971671633078917
+    },
+    {
+      "date": "2025-09-25",
+      "value": 0
+    },
+    {
       "date": "2025-09-24",
-      "value": 69.23
+      "value": 69.233011299745
+    },
+    {
+      "date": "2025-09-24",
+      "value": 69.23301134056557
     },
     {
       "date": "2025-09-23",
-      "value": 0
+      "value": 0.0004089795126270358
+    },
+    {
+      "date": "2025-09-23",
+      "value": 0.00040897951262703627
     },
     {
       "date": "2025-09-22",
-      "value": 0
+      "value": 0.00003648928299876352
+    },
+    {
+      "date": "2025-09-22",
+      "value": 0.0000364892829987635
     },
     {
       "date": "2025-09-21",
-      "value": 0
+      "value": 0.000023053264842915872
     },
     {
-      "date": "2025-09-20",
-      "value": 0
+      "date": "2025-09-21",
+      "value": 0.000023053264842915845
     }
   ]
 }

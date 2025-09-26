@@ -1,6 +1,6 @@
 ---
-title: "Ethereum: Price (USD)"
-sidebarTitle: "Price (USD)"
+title: "Ethereum: Price"
+sidebarTitle: "Price"
 description: "The average token price during the specified time period for the native asset of that chain."
 openapi: "GET /v1/metrics/token-price-usd"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -49,23 +50,19 @@ data = r.json()
   "ethereum": [
     {
       "date": "2025-09-24",
-      "value": 4173.46
+      "value": 4173.463680555555
     },
     {
       "date": "2025-09-23",
-      "value": 4185.97
+      "value": 4185.970937500006
     },
     {
       "date": "2025-09-22",
-      "value": 4221.86
+      "value": 4221.855590277787
     },
     {
       "date": "2025-09-21",
-      "value": 4478.03
-    },
-    {
-      "date": "2025-09-20",
-      "value": 4479.94
+      "value": 4478.025381944443
     }
   ]
 }

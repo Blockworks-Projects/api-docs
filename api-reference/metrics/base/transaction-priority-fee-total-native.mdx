@@ -1,6 +1,6 @@
 ---
-title: "Base: Priority Fees (ETH)"
-sidebarTitle: "Priority Fees (ETH)"
+title: "Base: Priority Fees"
+sidebarTitle: "Priority Fees"
 description: "An additional transaction fee to incentivize validators to prioritize and execute transactions."
 openapi: "GET /v1/metrics/transaction-priority-fee-total-native"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** ETH
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +49,44 @@ data = r.json()
 {
   "base": [
     {
+      "date": "2025-09-25",
+      "value": 0.4541752728002242
+    },
+    {
+      "date": "2025-09-25",
+      "value": 50.02844872337223
+    },
+    {
       "date": "2025-09-24",
       "value": 31.89604682479903
+    },
+    {
+      "date": "2025-09-24",
+      "value": 31.896046824798912
     },
     {
       "date": "2025-09-23",
       "value": 35.033628552781025
     },
     {
+      "date": "2025-09-23",
+      "value": 35.03362855278128
+    },
+    {
       "date": "2025-09-22",
       "value": 49.41913047764054
+    },
+    {
+      "date": "2025-09-22",
+      "value": 49.41913047764068
     },
     {
       "date": "2025-09-21",
       "value": 23.73206620923451
     },
     {
-      "date": "2025-09-20",
-      "value": 17.8880017696262
+      "date": "2025-09-21",
+      "value": 23.732066209234844
     }
   ]
 }

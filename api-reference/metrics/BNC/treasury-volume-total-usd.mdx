@@ -1,6 +1,6 @@
 ---
-title: "Volume (USD)"
-sidebarTitle: "Volume (USD)"
+title: "Volume"
+sidebarTitle: "Volume"
 description: "USD volume over the period"
 openapi: "GET /v1/metrics/treasury-volume-total-usd"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,12 @@ data = r.json()
 {
   "bnc": [
     {
+      "date": "2025-09-25",
+      "value": 7796660.8719999995
+    },
+    {
       "date": "2025-09-24",
-      "value": 8261682.89
+      "value": 8324424.029400001
     },
     {
       "date": "2025-09-23",
@@ -57,7 +62,7 @@ data = r.json()
     },
     {
       "date": "2025-09-22",
-      "value": 44859592.51
+      "value": 44859592.5094
     }
   ]
 }

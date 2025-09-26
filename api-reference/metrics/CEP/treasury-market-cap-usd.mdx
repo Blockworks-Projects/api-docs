@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,12 @@ data = r.json()
 {
   "cep": [
     {
+      "date": "2025-09-25",
+      "value": 244839680
+    },
+    {
       "date": "2025-09-24",
-      "value": 257328640
+      "value": 256968960.00000003
     },
     {
       "date": "2025-09-23",

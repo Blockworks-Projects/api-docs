@@ -1,6 +1,7 @@
 ---
 title: "Base: Base Fees (USD)"
-sidebarTitle: "Base Fees (USD)"
+sidebarTitle: "Base Fees"
+tag: "USD"
 description: "The minimum transaction fee required for a transaction to be included in a block"
 openapi: "GET /v1/metrics/transaction-base-fee-total-usd"
 mode: "wide"
@@ -8,8 +9,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +50,44 @@ data = r.json()
 {
   "base": [
     {
+      "date": "2025-09-25",
+      "value": 503.9380860244476
+    },
+    {
+      "date": "2025-09-25",
+      "value": 93289.72972673131
+    },
+    {
       "date": "2025-09-24",
-      "value": 48751.01
+      "value": 48751.01288081642
+    },
+    {
+      "date": "2025-09-24",
+      "value": 48751.0128808163
     },
     {
       "date": "2025-09-23",
-      "value": 43287.2
+      "value": 43287.19563746831
+    },
+    {
+      "date": "2025-09-23",
+      "value": 43287.19563746831
     },
     {
       "date": "2025-09-22",
-      "value": 94893.59
+      "value": 94893.59314646712
+    },
+    {
+      "date": "2025-09-22",
+      "value": 94893.59314646768
     },
     {
       "date": "2025-09-21",
-      "value": 52144.12
+      "value": 52144.116973803364
     },
     {
-      "date": "2025-09-20",
-      "value": 26964.87
+      "date": "2025-09-21",
+      "value": 52144.11697380315
     }
   ]
 }

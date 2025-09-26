@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** count
-- **Interval:** daily
+- **Denomination:** Count
+- **Type:** Integer
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,24 @@ data = r.json()
 {
   "fourmeme": [
     {
+      "date": "2025-09-25",
+      "value": 2219
+    },
+    {
+      "date": "2025-09-25",
+      "value": 19
+    },
+    {
       "date": "2025-09-24",
       "value": 3451
+    },
+    {
+      "date": "2025-09-24",
+      "value": 3451
+    },
+    {
+      "date": "2025-09-23",
+      "value": 3042
     },
     {
       "date": "2025-09-23",
@@ -60,12 +77,16 @@ data = r.json()
       "value": 4216
     },
     {
+      "date": "2025-09-22",
+      "value": 4216
+    },
+    {
       "date": "2025-09-21",
       "value": 3794
     },
     {
-      "date": "2025-09-20",
-      "value": 3316
+      "date": "2025-09-21",
+      "value": 3794
     }
   ]
 }

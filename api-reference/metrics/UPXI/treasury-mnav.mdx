@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** mNAV
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,12 @@ data = r.json()
 {
   "upxi": [
     {
+      "date": "2025-09-25",
+      "value": 0.7811750523426223
+    },
+    {
       "date": "2025-09-24",
-      "value": 0.8472450955708201
+      "value": 0.8462008780814685
     },
     {
       "date": "2025-09-23",

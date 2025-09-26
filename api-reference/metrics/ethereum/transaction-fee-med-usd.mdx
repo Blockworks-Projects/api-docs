@@ -1,6 +1,7 @@
 ---
 title: "Ethereum: Fee Median (USD)"
-sidebarTitle: "Fee Median (USD)"
+sidebarTitle: "Fee Median"
+tag: "USD"
 description: "Median of the sum of the base fee and priority fee in USD that day"
 openapi: "GET /v1/metrics/transaction-fee-med-usd"
 mode: "wide"
@@ -8,8 +9,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +50,44 @@ data = r.json()
 {
   "ethereum": [
     {
+      "date": "2025-09-25",
+      "value": 0.29212265509079505
+    },
+    {
+      "date": "2025-09-25",
+      "value": 0.17569132208678295
+    },
+    {
       "date": "2025-09-24",
-      "value": 0.13
+      "value": 0.1295822906273852
+    },
+    {
+      "date": "2025-09-24",
+      "value": 0.12864942829476142
     },
     {
       "date": "2025-09-23",
-      "value": 0.12
+      "value": 0.12106754396983246
+    },
+    {
+      "date": "2025-09-23",
+      "value": 0.12058340207840396
     },
     {
       "date": "2025-09-22",
-      "value": 0.17
+      "value": 0.16797781259380135
+    },
+    {
+      "date": "2025-09-22",
+      "value": 0.16845115992171744
     },
     {
       "date": "2025-09-21",
-      "value": 0.09
+      "value": 0.08934725177405385
     },
     {
-      "date": "2025-09-20",
-      "value": 0.1
+      "date": "2025-09-21",
+      "value": 0.08974875922805804
     }
   ]
 }

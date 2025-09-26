@@ -1,6 +1,6 @@
 ---
-title: "Revenue (USD)"
-sidebarTitle: "Revenue (USD)"
+title: "Revenue"
+sidebarTitle: "Revenue"
 description: "The revenue produced during the specified time period for given project."
 openapi: "GET /v1/metrics/revenue-total-usd"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +49,24 @@ data = r.json()
 {
   "thorchain-dex": [
     {
+      "date": "2025-09-25",
+      "value": -2056.840992301937
+    },
+    {
       "date": "2025-09-24",
-      "value": -818.75
+      "value": -818.83989125209
     },
     {
       "date": "2025-09-23",
-      "value": -782.05
+      "value": -782.136432505578
     },
     {
       "date": "2025-09-22",
-      "value": -1138.29
+      "value": -1138.386054082937
     },
     {
       "date": "2025-09-21",
-      "value": -631.42
-    },
-    {
-      "date": "2025-09-20",
-      "value": -707.21
+      "value": -631.472758338878
     }
   ]
 }

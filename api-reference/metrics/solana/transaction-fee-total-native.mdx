@@ -1,6 +1,6 @@
 ---
-title: "Solana: Transaction Fees (SOL)"
-sidebarTitle: "Transaction Fees (SOL)"
+title: "Solana: Transaction Fees"
+sidebarTitle: "Transaction Fees"
 description: "Total transaction fees paid, does not include blob fees, out-of-protocol tips, or additional sources of revenue"
 openapi: "GET /v1/metrics/transaction-fee-total-native"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** SOL
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,6 +49,10 @@ data = r.json()
 {
   "solana": [
     {
+      "date": "2025-09-25",
+      "value": 371.34326332503906
+    },
+    {
       "date": "2025-09-24",
       "value": 4740.711270362445
     },
@@ -62,10 +67,6 @@ data = r.json()
     {
       "date": "2025-09-21",
       "value": 3801.9027220150633
-    },
-    {
-      "date": "2025-09-20",
-      "value": 4015.514165509884
     }
   ]
 }

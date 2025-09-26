@@ -13,6 +13,7 @@ type MetricConfig = {
   interval: string
   aggregation: string
   category: string
+  denomination?: string
   updated_at: number
 }
 
@@ -27,6 +28,7 @@ export class Metric {
   interval: string
   aggregation: string
   category: string
+  denomination?: string
   updated_at: number
   validationErrors: ValidationError[] = []
   parent: Project | null = null
@@ -42,6 +44,7 @@ export class Metric {
     this.interval = config.interval
     this.aggregation = config.aggregation
     this.category = config.category
+    this.denomination = config.denomination
     this.updated_at = config.updated_at
   }
 
@@ -63,6 +66,23 @@ export class Metric {
     if (this.data_type.includes('float')) return 'native units'
     if (this.data_type.includes('int')) return 'count'
     return 'Various'
+  }
+
+  get type(): string {
+    // Convert data_type to user-friendly type
+    if (this.data_type === 'string') return 'String'
+    if (this.data_type.includes('usd')) return 'USD Value'
+    if (this.data_type.includes('float')) return 'Decimal'
+    if (this.data_type.includes('int')) return 'Integer'
+    return toTitleCase(this.data_type.replace('timeseries_', ''))
+  }
+
+  get titleCasedSource(): string {
+    return toTitleCase(this.source)
+  }
+
+  get titleCasedInterval(): string {
+    return toTitleCase(this.interval)
   }
 
   get hasValidationErrors(): boolean {

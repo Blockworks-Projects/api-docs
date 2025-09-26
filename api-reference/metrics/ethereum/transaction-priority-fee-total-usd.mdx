@@ -1,6 +1,7 @@
 ---
 title: "Ethereum: Priority Fees (USD)"
-sidebarTitle: "Priority Fees (USD)"
+sidebarTitle: "Priority Fees"
+tag: "USD"
 description: "An additional transaction fee to incentivize validators to prioritize and execute transactions."
 openapi: "GET /v1/metrics/transaction-priority-fee-total-usd"
 mode: "wide"
@@ -8,8 +9,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +50,44 @@ data = r.json()
 {
   "ethereum": [
     {
+      "date": "2025-09-25",
+      "value": 823357.8829993677
+    },
+    {
+      "date": "2025-09-25",
+      "value": 43364.46211457194
+    },
+    {
       "date": "2025-09-24",
-      "value": 749731.6
+      "value": 749731.5961055093
+    },
+    {
+      "date": "2025-09-24",
+      "value": 749731.5961055111
     },
     {
       "date": "2025-09-23",
-      "value": 479817.87
+      "value": 479817.86677658715
+    },
+    {
+      "date": "2025-09-23",
+      "value": 479817.86677658727
     },
     {
       "date": "2025-09-22",
-      "value": 877285.38
+      "value": 877285.3768583135
+    },
+    {
+      "date": "2025-09-22",
+      "value": 877285.3768583139
     },
     {
       "date": "2025-09-21",
-      "value": 398998.86
+      "value": 398998.8587429987
     },
     {
-      "date": "2025-09-20",
-      "value": 393945.37
+      "date": "2025-09-21",
+      "value": 398998.85874299705
     }
   ]
 }

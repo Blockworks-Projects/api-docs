@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** ETH
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,6 +49,14 @@ data = r.json()
 {
   "arbitrum": [
     {
+      "date": "2025-09-25",
+      "value": 45.2504240422878
+    },
+    {
+      "date": "2025-09-24",
+      "value": 10.472944470214722
+    },
+    {
       "date": "2025-09-24",
       "value": 10.472944470214742
     },
@@ -56,16 +65,24 @@ data = r.json()
       "value": 28.3777202830245
     },
     {
+      "date": "2025-09-23",
+      "value": 28.377720283024523
+    },
+    {
+      "date": "2025-09-22",
+      "value": 148.93429885555346
+    },
+    {
       "date": "2025-09-22",
       "value": 148.93429885555324
     },
     {
       "date": "2025-09-21",
-      "value": 4.14951762936026
+      "value": 4.149517629360256
     },
     {
-      "date": "2025-09-20",
-      "value": 4.371678198398519
+      "date": "2025-09-21",
+      "value": 4.14951762936026
     }
   ]
 }

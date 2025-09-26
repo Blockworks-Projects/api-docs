@@ -1,6 +1,7 @@
 ---
 title: "Arbitrum: Base Fees (USD)"
-sidebarTitle: "Base Fees (USD)"
+sidebarTitle: "Base Fees"
+tag: "USD"
 description: "The minimum transaction fee required for a transaction to be included in a block"
 openapi: "GET /v1/metrics/transaction-base-fee-total-usd"
 mode: "wide"
@@ -8,8 +9,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +50,40 @@ data = r.json()
 {
   "arbitrum": [
     {
+      "date": "2025-09-25",
+      "value": 26406.316345904772
+    },
+    {
       "date": "2025-09-24",
-      "value": 21810.59
+      "value": 21810.58662524316
+    },
+    {
+      "date": "2025-09-24",
+      "value": 21810.586625242922
     },
     {
       "date": "2025-09-23",
-      "value": 23193.35
+      "value": 23193.351174893625
+    },
+    {
+      "date": "2025-09-23",
+      "value": 23193.351174893676
     },
     {
       "date": "2025-09-22",
-      "value": 22274.81
+      "value": 22274.81270276156
+    },
+    {
+      "date": "2025-09-22",
+      "value": 22274.812702761425
     },
     {
       "date": "2025-09-21",
-      "value": 13997.08
+      "value": 13997.08416208163
     },
     {
-      "date": "2025-09-20",
-      "value": 15382.77
+      "date": "2025-09-21",
+      "value": 13997.084162081639
     }
   ]
 }

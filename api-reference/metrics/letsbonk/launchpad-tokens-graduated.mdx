@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** count
-- **Interval:** daily
+- **Denomination:** Count
+- **Type:** Integer
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +49,24 @@ data = r.json()
 {
   "letsbonk": [
     {
+      "date": "2025-09-25",
+      "value": "29"
+    },
+    {
       "date": "2025-09-24",
-      "value": "45"
+      "value": "89"
     },
     {
       "date": "2025-09-23",
-      "value": "73"
+      "value": "108"
     },
     {
       "date": "2025-09-22",
-      "value": "51"
+      "value": "68"
     },
     {
       "date": "2025-09-21",
-      "value": "32"
-    },
-    {
-      "date": "2025-09-20",
-      "value": "55"
+      "value": "40"
     }
   ]
 }

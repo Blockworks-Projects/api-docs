@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** mNAV
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,12 @@ data = r.json()
 {
   "fgnx": [
     {
+      "date": "2025-09-25",
+      "value": 1.2104422863486308
+    },
+    {
       "date": "2025-09-24",
-      "value": 1.0981265730651373
+      "value": 1.0979064804770295
     },
     {
       "date": "2025-09-23",

@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,16 +49,20 @@ data = r.json()
 {
   "game": [
     {
+      "date": "2025-09-25",
+      "value": 68148357.3009
+    },
+    {
       "date": "2025-09-24",
-      "value": 70830042.7
+      "value": 70863666.4701
     },
     {
       "date": "2025-09-23",
-      "value": 70898895.68
+      "value": 70898895.6784
     },
     {
       "date": "2025-09-22",
-      "value": 69384130.15
+      "value": 69384130.1492
     }
   ]
 }

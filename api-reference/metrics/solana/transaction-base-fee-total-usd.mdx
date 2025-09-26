@@ -1,6 +1,7 @@
 ---
 title: "Solana: Base Fees (USD)"
-sidebarTitle: "Base Fees (USD)"
+sidebarTitle: "Base Fees"
+tag: "USD"
 description: "The minimum transaction fee required for a transaction to be included in a block"
 openapi: "GET /v1/metrics/transaction-base-fee-total-usd"
 mode: "wide"
@@ -8,8 +9,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +50,24 @@ data = r.json()
 {
   "solana": [
     {
+      "date": "2025-09-25",
+      "value": 6595.911070874007
+    },
+    {
       "date": "2025-09-24",
-      "value": 100098.2
+      "value": 100098.1969264013
     },
     {
       "date": "2025-09-23",
-      "value": 106224.61
+      "value": 106224.60936588483
     },
     {
       "date": "2025-09-22",
-      "value": 108285.03
+      "value": 108285.03181954997
     },
     {
       "date": "2025-09-21",
-      "value": 101167.84
-    },
-    {
-      "date": "2025-09-20",
-      "value": 103245.78
+      "value": 101167.83594274332
     }
   ]
 }

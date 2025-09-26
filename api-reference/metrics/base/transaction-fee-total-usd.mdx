@@ -1,6 +1,7 @@
 ---
 title: "Base: Transaction Fees (USD)"
-sidebarTitle: "Transaction Fees (USD)"
+sidebarTitle: "Transaction Fees"
+tag: "USD"
 description: "Total transaction fees paid converted to USD, does not include out-of-protocol tips or additional sources of revenue"
 openapi: "GET /v1/metrics/transaction-fee-total-usd"
 mode: "wide"
@@ -8,8 +9,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +50,44 @@ data = r.json()
 {
   "base": [
     {
+      "date": "2025-09-25",
+      "value": 2394.5333096011423
+    },
+    {
+      "date": "2025-09-25",
+      "value": 293905.862119316
+    },
+    {
       "date": "2025-09-24",
-      "value": 182045.14
+      "value": 182045.14375872858
+    },
+    {
+      "date": "2025-09-24",
+      "value": 182045.14375872875
     },
     {
       "date": "2025-09-23",
-      "value": 190091.16
+      "value": 190091.15786343598
+    },
+    {
+      "date": "2025-09-23",
+      "value": 190091.1578634359
     },
     {
       "date": "2025-09-22",
-      "value": 303749.11
+      "value": 303749.109597711
+    },
+    {
+      "date": "2025-09-22",
+      "value": 303749.1095977107
     },
     {
       "date": "2025-09-21",
-      "value": 158502.87
+      "value": 158502.86513029604
     },
     {
-      "date": "2025-09-20",
-      "value": 107219.61
+      "date": "2025-09-21",
+      "value": 158502.86513029624
     }
   ]
 }

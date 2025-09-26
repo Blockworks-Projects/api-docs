@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** mNAV
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,12 @@ data = r.json()
 {
   "sbet": [
     {
+      "date": "2025-09-25",
+      "value": 0.9394599886412383
+    },
+    {
       "date": "2025-09-24",
-      "value": 0.9650921726162006
+      "value": 0.9651588580943893
     },
     {
       "date": "2025-09-23",

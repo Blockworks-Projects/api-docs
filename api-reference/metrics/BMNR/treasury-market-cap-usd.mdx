@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,16 +49,20 @@ data = r.json()
 {
   "bmnr": [
     {
+      "date": "2025-09-25",
+      "value": 8911783415.1775
+    },
+    {
       "date": "2025-09-24",
-      "value": 9677843820.01
+      "value": 9673433977.5865
     },
     {
       "date": "2025-09-23",
-      "value": 10048742418.88
+      "value": 10048742418.8822
     },
     {
       "date": "2025-09-22",
-      "value": 10236351270.78
+      "value": 10236351270.7808
     }
   ]
 }

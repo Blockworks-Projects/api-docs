@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** SOL
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -47,6 +48,10 @@ data = r.json()
 ```json
 {
   "btcm": [
+    {
+      "date": "2025-09-25",
+      "value": 44412
+    },
     {
       "date": "2025-09-24",
       "value": 44412

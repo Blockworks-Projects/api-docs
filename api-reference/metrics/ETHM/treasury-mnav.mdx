@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** mNAV
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -47,6 +48,10 @@ data = r.json()
 ```json
 {
   "ethm": [
+    {
+      "date": "2025-09-25",
+      "value": 0.32567046766785746
+    },
     {
       "date": "2025-09-24",
       "value": 0.31485743247203785

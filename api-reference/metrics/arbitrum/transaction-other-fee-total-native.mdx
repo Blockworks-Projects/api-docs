@@ -1,6 +1,6 @@
 ---
-title: "Arbitrum: Other Fees (ETH)"
-sidebarTitle: "Other Fees (ETH)"
+title: "Arbitrum: Other Fees"
+sidebarTitle: "Other Fees"
 description: "For Arbitrum, other fees include the fee for Timeboost, an priroty auction for access to transactions with no delay compared to 200ms delay for the chain's sequencer"
 openapi: "GET /v1/metrics/transaction-other-fee-total-native"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** ETH
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,6 +49,14 @@ data = r.json()
 {
   "arbitrum": [
     {
+      "date": "2025-09-25",
+      "value": 6.226304354159807
+    },
+    {
+      "date": "2025-09-24",
+      "value": 1.4716412574818356
+    },
+    {
       "date": "2025-09-24",
       "value": 1.4716412574818338
     },
@@ -56,16 +65,24 @@ data = r.json()
       "value": 2.2080737806608193
     },
     {
+      "date": "2025-09-23",
+      "value": 2.2080737806608206
+    },
+    {
+      "date": "2025-09-22",
+      "value": 4.1980845699406455
+    },
+    {
       "date": "2025-09-22",
       "value": 4.198084569940644
     },
     {
       "date": "2025-09-21",
-      "value": 0.9879775659812401
+      "value": 0.98797756598124
     },
     {
-      "date": "2025-09-20",
-      "value": 0.9078913596373024
+      "date": "2025-09-21",
+      "value": 0.9879775659812401
     }
   ]
 }

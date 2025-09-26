@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** mNAV
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,12 @@ data = r.json()
 {
   "stss": [
     {
+      "date": "2025-09-25",
+      "value": 0.39962464597614905
+    },
+    {
       "date": "2025-09-24",
-      "value": 0.40218538790754205
+      "value": 0.4021128403742104
     },
     {
       "date": "2025-09-23",

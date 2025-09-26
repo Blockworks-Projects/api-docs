@@ -1,6 +1,6 @@
 ---
-title: "Solana: Priority Fees (SOL)"
-sidebarTitle: "Priority Fees (SOL)"
+title: "Solana: Priority Fees"
+sidebarTitle: "Priority Fees"
 description: "An additional transaction fee to incentivize validators to prioritize and execute transactions."
 openapi: "GET /v1/metrics/transaction-priority-fee-total-native"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** SOL
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,6 +49,10 @@ data = r.json()
 {
   "solana": [
     {
+      "date": "2025-09-25",
+      "value": 129.54987559362456
+    },
+    {
       "date": "2025-09-24",
       "value": 2026.1381301779202
     },
@@ -62,10 +67,6 @@ data = r.json()
     {
       "date": "2025-09-21",
       "value": 1350.6045933774005
-    },
-    {
-      "date": "2025-09-20",
-      "value": 1534.0156596425957
     }
   ]
 }

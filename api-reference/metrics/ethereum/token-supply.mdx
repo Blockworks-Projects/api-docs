@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** ETH
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,7 +49,23 @@ data = r.json()
 {
   "ethereum": [
     {
+      "date": "2025-09-25",
+      "value": 121045250.05353238
+    },
+    {
+      "date": "2025-09-25",
+      "value": 121042634.71795139
+    },
+    {
       "date": "2025-09-24",
+      "value": 121042634.71795139
+    },
+    {
+      "date": "2025-09-24",
+      "value": 121045250.05353238
+    },
+    {
+      "date": "2025-09-23",
       "value": 121042634.71795139
     },
     {
@@ -60,12 +77,16 @@ data = r.json()
       "value": 121040023.56962274
     },
     {
+      "date": "2025-09-22",
+      "value": 121040023.56962274
+    },
+    {
       "date": "2025-09-21",
       "value": 121037444.16484614
     },
     {
-      "date": "2025-09-20",
-      "value": 121034811.04008847
+      "date": "2025-09-21",
+      "value": 121037444.16484614
     }
   ]
 }

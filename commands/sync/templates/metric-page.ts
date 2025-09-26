@@ -1,11 +1,16 @@
 import { Metric } from '../classes'
 import { escapeYamlString } from '../lib/utils'
 
-type MetricPageConfig = { metric: Metric; sampleData: any }
+type MetricPageConfig = { metric: Metric; sampleData: any; needsUsdTag?: boolean }
 
-export const getMetricPage = ({ metric, sampleData }: MetricPageConfig) => `---
-title: "${escapeYamlString(metric.pageTitle)}"
-sidebarTitle: "${escapeYamlString(metric.title)}"
+export const getMetricPage = ({ metric, sampleData, needsUsdTag = false }: MetricPageConfig) => {
+  const title = needsUsdTag ? `${metric.pageTitle} (USD)` : metric.pageTitle
+  const sidebarTitle = metric.title // Always unaltered
+  const tagLine = needsUsdTag ? `\ntag: "USD"` : ''
+
+  return `---
+title: "${escapeYamlString(title)}"
+sidebarTitle: "${escapeYamlString(sidebarTitle)}"${tagLine}
 description: "${escapeYamlString(metric.description)}"
 openapi: "GET /v1/metrics/${metric.identifier}"
 mode: "wide"
@@ -13,9 +18,10 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** ${metric.unit}
-- **Interval:** ${metric.unit === 'string' ? 'N/A' : metric.interval}
-- **Source:** ${metric.source}
+- **Denomination:** ${metric.denomination || 'N/A'}
+- **Type:** ${metric.type}
+- **Interval:** ${metric.unit === 'string' ? 'N/A' : metric.titleCasedInterval}
+- **Source:** ${metric.titleCasedSource}
 
 ## Example Request
 
@@ -56,3 +62,4 @@ ${JSON.stringify(sampleData, null, 2)}
 ## Notes
 - Intervals are ${metric.interval} unless otherwise noted.
 - Data is updated ${metric.interval} and may be revised after late-arriving data.`
+}

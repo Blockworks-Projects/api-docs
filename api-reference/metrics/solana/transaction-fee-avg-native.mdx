@@ -1,6 +1,6 @@
 ---
-title: "Solana: Fee Average (SOL)"
-sidebarTitle: "Fee Average (SOL)"
+title: "Solana: Fee Average"
+sidebarTitle: "Fee Average"
 description: "Average of the sum of the base fee and priority fee that day in native chain token"
 openapi: "GET /v1/metrics/transaction-fee-avg-native"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** SOL
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,24 @@ data = r.json()
 {
   "solana": [
     {
+      "date": "2025-09-25",
+      "value": null
+    },
+    {
+      "date": "2025-09-24",
+      "value": 0.00004577921342682015
+    },
+    {
       "date": "2025-09-23",
       "value": 0.000046219902221252094
+    },
+    {
+      "date": "2025-09-23",
+      "value": 0.000046219902221252094
+    },
+    {
+      "date": "2025-09-22",
+      "value": 0.00004503661085997213
     },
     {
       "date": "2025-09-22",
@@ -60,8 +77,8 @@ data = r.json()
       "value": 0.00003852280382009861
     },
     {
-      "date": "2025-09-20",
-      "value": 0.000040529291630395984
+      "date": "2025-09-21",
+      "value": 0.00003852280382009861
     }
   ]
 }

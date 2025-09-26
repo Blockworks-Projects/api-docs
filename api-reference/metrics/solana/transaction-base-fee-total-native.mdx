@@ -1,6 +1,6 @@
 ---
-title: "Solana: Base Fees (SOL)"
-sidebarTitle: "Base Fees (SOL)"
+title: "Solana: Base Fees"
+sidebarTitle: "Base Fees"
 description: "The minimum transaction fee required for a transaction to be included in a block"
 openapi: "GET /v1/metrics/transaction-base-fee-total-native"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** SOL
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,6 +49,10 @@ data = r.json()
 {
   "solana": [
     {
+      "date": "2025-09-25",
+      "value": 31.209704999995303
+    },
+    {
       "date": "2025-09-24",
       "value": 471.35633499988813
     },
@@ -62,10 +67,6 @@ data = r.json()
     {
       "date": "2025-09-21",
       "value": 423.1874399999023
-    },
-    {
-      "date": "2025-09-20",
-      "value": 431.9831849998775
     }
   ]
 }

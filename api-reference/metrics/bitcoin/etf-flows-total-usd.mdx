@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Farside UK
 
 ## Example Request
@@ -47,6 +48,10 @@ data = r.json()
 ```json
 {
   "bitcoin": [
+    {
+      "date": "2025-09-25",
+      "value": -253400000
+    },
     {
       "date": "2025-09-24",
       "value": 241000000

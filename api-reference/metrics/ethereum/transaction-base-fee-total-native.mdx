@@ -1,6 +1,6 @@
 ---
-title: "Ethereum: Base Fees (ETH)"
-sidebarTitle: "Base Fees (ETH)"
+title: "Ethereum: Base Fees"
+sidebarTitle: "Base Fees"
 description: "The minimum transaction fee required for a transaction to be included in a block"
 openapi: "GET /v1/metrics/transaction-base-fee-total-native"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** ETH
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,12 +49,32 @@ data = r.json()
 {
   "ethereum": [
     {
+      "date": "2025-09-25",
+      "value": 229.97665046332358
+    },
+    {
+      "date": "2025-09-25",
+      "value": 4.692473912249038
+    },
+    {
       "date": "2025-09-24",
       "value": 48.79419808478227
     },
     {
+      "date": "2025-09-24",
+      "value": 48.79419808478226
+    },
+    {
       "date": "2025-09-23",
       "value": 53.2304334658479
+    },
+    {
+      "date": "2025-09-23",
+      "value": 53.23043346584799
+    },
+    {
+      "date": "2025-09-22",
+      "value": 76.59913924607854
     },
     {
       "date": "2025-09-22",
@@ -61,11 +82,11 @@ data = r.json()
     },
     {
       "date": "2025-09-21",
-      "value": 22.551623998361656
+      "value": 22.55162399836167
     },
     {
-      "date": "2025-09-20",
-      "value": 34.03126809692087
+      "date": "2025-09-21",
+      "value": 22.551623998361656
     }
   ]
 }

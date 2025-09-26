@@ -1,6 +1,7 @@
 ---
 title: "Solana: Transaction Fees (USD)"
-sidebarTitle: "Transaction Fees (USD)"
+sidebarTitle: "Transaction Fees"
+tag: "USD"
 description: "Total transaction fees paid converted to USD, does not include out-of-protocol tips or additional sources of revenue"
 openapi: "GET /v1/metrics/transaction-fee-total-usd"
 mode: "wide"
@@ -8,8 +9,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +50,24 @@ data = r.json()
 {
   "solana": [
     {
+      "date": "2025-09-25",
+      "value": 78480.30417655263
+    },
+    {
       "date": "2025-09-24",
-      "value": 1006747.16
+      "value": 1006747.1572479508
     },
     {
       "date": "2025-09-23",
-      "value": 1069117.77
+      "value": 1069117.7702046584
     },
     {
       "date": "2025-09-22",
-      "value": 1071535.7
+      "value": 1071535.7017619766
     },
     {
       "date": "2025-09-21",
-      "value": 908888.67
-    },
-    {
-      "date": "2025-09-20",
-      "value": 959724.62
+      "value": 908888.673187413
     }
   ]
 }

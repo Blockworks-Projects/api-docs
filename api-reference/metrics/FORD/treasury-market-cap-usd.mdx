@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,16 +49,20 @@ data = r.json()
 {
   "ford": [
     {
+      "date": "2025-09-25",
+      "value": 2450929741.7514
+    },
+    {
       "date": "2025-09-24",
-      "value": 2642467541.8
+      "value": 2642609039.3975997
     },
     {
       "date": "2025-09-23",
-      "value": 2572625994.78
+      "value": 2572625994.7752
     },
     {
       "date": "2025-09-22",
-      "value": 2322649688.98
+      "value": 2322649688.9778
     }
   ]
 }

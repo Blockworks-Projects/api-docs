@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** mNAV
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,12 @@ data = r.json()
 {
   "game": [
     {
+      "date": "2025-09-25",
+      "value": 1.0813074317477094
+    },
+    {
       "date": "2025-09-24",
-      "value": 1.0788215286949283
+      "value": 1.0793336566831786
     },
     {
       "date": "2025-09-23",

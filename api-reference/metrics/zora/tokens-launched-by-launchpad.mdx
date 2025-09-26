@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** count
-- **Interval:** daily
+- **Denomination:** Count
+- **Type:** Integer
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,24 @@ data = r.json()
 {
   "zora": [
     {
+      "date": "2025-09-25",
+      "value": 37680
+    },
+    {
+      "date": "2025-09-25",
+      "value": 1337
+    },
+    {
       "date": "2025-09-24",
       "value": 39480
+    },
+    {
+      "date": "2025-09-24",
+      "value": 39480
+    },
+    {
+      "date": "2025-09-23",
+      "value": 31294
     },
     {
       "date": "2025-09-23",
@@ -60,12 +77,16 @@ data = r.json()
       "value": 32411
     },
     {
+      "date": "2025-09-22",
+      "value": 32411
+    },
+    {
       "date": "2025-09-21",
       "value": 35081
     },
     {
-      "date": "2025-09-20",
-      "value": 33664
+      "date": "2025-09-21",
+      "value": 35081
     }
   ]
 }

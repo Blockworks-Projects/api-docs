@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** ETH
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -47,6 +48,10 @@ data = r.json()
 ```json
 {
   "fgnx": [
+    {
+      "date": "2025-09-25",
+      "value": 50000
+    },
     {
       "date": "2025-09-24",
       "value": 50000

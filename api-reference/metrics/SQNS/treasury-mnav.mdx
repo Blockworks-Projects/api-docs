@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** mNAV
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,12 @@ data = r.json()
 {
   "sqns": [
     {
+      "date": "2025-09-25",
+      "value": 3.6527637091069924
+    },
+    {
       "date": "2025-09-24",
-      "value": 3.7259171746441124
+      "value": 3.7257984556280004
     },
     {
       "date": "2025-09-23",

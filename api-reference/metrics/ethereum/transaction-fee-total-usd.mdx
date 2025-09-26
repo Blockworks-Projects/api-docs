@@ -1,6 +1,7 @@
 ---
 title: "Ethereum: Transaction Fees (USD)"
-sidebarTitle: "Transaction Fees (USD)"
+sidebarTitle: "Transaction Fees"
+tag: "USD"
 description: "Total transaction fees paid converted to USD, does not include out-of-protocol tips or additional sources of revenue"
 openapi: "GET /v1/metrics/transaction-fee-total-usd"
 mode: "wide"
@@ -8,8 +9,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +50,44 @@ data = r.json()
 {
   "ethereum": [
     {
+      "date": "2025-09-25",
+      "value": 1893616.1220822104
+    },
+    {
+      "date": "2025-09-25",
+      "value": null
+    },
+    {
       "date": "2025-09-24",
-      "value": 1038580.02
+      "value": 1038580.0248177312
+    },
+    {
+      "date": "2025-09-24",
+      "value": 1104297.096085494
     },
     {
       "date": "2025-09-23",
-      "value": 787783.14
+      "value": 787783.1417629842
+    },
+    {
+      "date": "2025-09-23",
+      "value": 787783.1417629847
     },
     {
       "date": "2025-09-22",
-      "value": 1808715.75
+      "value": 1808715.751350698
+    },
+    {
+      "date": "2025-09-22",
+      "value": 1808715.7513506976
     },
     {
       "date": "2025-09-21",
-      "value": 563643.87
+      "value": 563643.8732523717
     },
     {
-      "date": "2025-09-20",
-      "value": 633257.54
+      "date": "2025-09-21",
+      "value": 563643.87325237
     }
   ]
 }

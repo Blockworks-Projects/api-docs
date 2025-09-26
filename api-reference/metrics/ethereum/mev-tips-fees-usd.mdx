@@ -1,6 +1,7 @@
 ---
 title: "Ethereum: MEV Tips (USD)"
-sidebarTitle: "MEV Tips (USD)"
+sidebarTitle: "MEV Tips"
+tag: "USD"
 description: "Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders for faster transaction execution, MEV capture, or MEV protection."
 openapi: "GET /v1/metrics/mev-tips-fees-usd"
 mode: "wide"
@@ -8,8 +9,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +50,44 @@ data = r.json()
 {
   "ethereum": [
     {
+      "date": "2025-09-25",
+      "value": 150848.45282793962
+    },
+    {
+      "date": "2025-09-25",
+      "value": null
+    },
+    {
       "date": "2025-09-24",
-      "value": 85131.38
+      "value": 85131.38156021974
+    },
+    {
+      "date": "2025-09-24",
+      "value": 150848.45282793962
     },
     {
       "date": "2025-09-23",
-      "value": 85131.38
+      "value": 85131.38156021974
+    },
+    {
+      "date": "2025-09-23",
+      "value": 85131.38156021974
     },
     {
       "date": "2025-09-22",
-      "value": 608041.64
+      "value": 608041.6415744695
+    },
+    {
+      "date": "2025-09-22",
+      "value": 608041.6415744695
     },
     {
       "date": "2025-09-21",
-      "value": 63647.53
+      "value": 63647.53352187216
     },
     {
-      "date": "2025-09-20",
-      "value": 86828.69
+      "date": "2025-09-21",
+      "value": 63647.53352187216
     }
   ]
 }

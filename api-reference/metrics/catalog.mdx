@@ -16,6 +16,7 @@ Total number of active addresses
 | [Arbitrum](/api-reference/metrics/arbitrum/activity/active-address-total) | `active-address-total` | Blockworks | daily | timeseries_int |
 | [Base](/api-reference/metrics/base/activity/active-address-total) | `active-address-total` | Blockworks | daily | timeseries_int |
 | [Ethereum](/api-reference/metrics/ethereum/activity/active-address-total) | `active-address-total` | Blockworks | daily | timeseries_int |
+| [Katana](/api-reference/metrics/katana/activity/active-address-total) | `active-address-total` | Blockworks | daily | timeseries_int |
 | [Solana](/api-reference/metrics/solana/activity/active-address-total) | `active-address-total` | Blockworks | daily | timeseries_int |
 
 ### Transactions (Failed)
@@ -28,12 +29,12 @@ Daily number of transactions where a failure occurred.
 | [Arbitrum](/api-reference/metrics/arbitrum/activity/transaction-fail-total) | `transaction-fail-total` | Blockworks | daily | timeseries_int |
 | [Base](/api-reference/metrics/base/activity/transaction-fail-total) | `transaction-fail-total` | Blockworks | daily | timeseries_int |
 | [Ethereum](/api-reference/metrics/ethereum/activity/transaction-fail-total) | `transaction-fail-total` | Blockworks | daily | timeseries_int |
+| [Katana](/api-reference/metrics/katana/activity/transaction-fail-total) | `transaction-fail-total` | Blockworks | daily | timeseries_int |
 | [Solana](/api-reference/metrics/solana/activity/transaction-fail-total) | `transaction-fail-total` | Blockworks | daily | timeseries_int |
 
-### Fee Average (ETH)
+### Fee Average
 
 Average of the sum of the base fee and priority fee that day in native chain token
-
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -41,9 +42,10 @@ Average of the sum of the base fee and priority fee that day in native chain tok
 | [Arbitrum](/api-reference/metrics/arbitrum/activity/transaction-fee-avg-native) | `transaction-fee-avg-native` | Blockworks | daily | timeseries_float |
 | [Base](/api-reference/metrics/base/activity/transaction-fee-avg-native) | `transaction-fee-avg-native` | Blockworks | daily | timeseries_float |
 | [Ethereum](/api-reference/metrics/ethereum/activity/transaction-fee-avg-native) | `transaction-fee-avg-native` | Blockworks | daily | timeseries_float |
+| [Katana](/api-reference/metrics/katana/activity/transaction-fee-avg-native) | `transaction-fee-avg-native` | Blockworks | daily | timeseries_float |
 | [Solana](/api-reference/metrics/solana/activity/transaction-fee-avg-native) | `transaction-fee-avg-native` | Blockworks | daily | timeseries_float |
 
-### Fee Average (USD)
+### Fee Average
 
 Average of the sum of the base fee and priority fee in USD that day
 
@@ -53,9 +55,10 @@ Average of the sum of the base fee and priority fee in USD that day
 | [Arbitrum](/api-reference/metrics/arbitrum/activity/transaction-fee-avg-usd) | `transaction-fee-avg-usd` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/activity/transaction-fee-avg-usd) | `transaction-fee-avg-usd` | Blockworks | daily | timeseries_usd |
 | [Ethereum](/api-reference/metrics/ethereum/activity/transaction-fee-avg-usd) | `transaction-fee-avg-usd` | Blockworks | daily | timeseries_usd |
+| [Katana](/api-reference/metrics/katana/activity/transaction-fee-avg-usd) | `transaction-fee-avg-usd` | Blockworks | daily | timeseries_usd |
 | [Solana](/api-reference/metrics/solana/activity/transaction-fee-avg-usd) | `transaction-fee-avg-usd` | Blockworks | daily | timeseries_usd |
 
-### Fee Median (ETH)
+### Fee Median
 
 Median of the sum of the base fee and priority fee that day
 
@@ -65,9 +68,10 @@ Median of the sum of the base fee and priority fee that day
 | [Arbitrum](/api-reference/metrics/arbitrum/activity/transaction-fee-med-native) | `transaction-fee-med-native` | Blockworks | daily | timeseries_float |
 | [Base](/api-reference/metrics/base/activity/transaction-fee-med-native) | `transaction-fee-med-native` | Blockworks | daily | timeseries_float |
 | [Ethereum](/api-reference/metrics/ethereum/activity/transaction-fee-med-native) | `transaction-fee-med-native` | Blockworks | daily | timeseries_float |
+| [Katana](/api-reference/metrics/katana/activity/transaction-fee-med-native) | `transaction-fee-med-native` | Blockworks | daily | timeseries_float |
 | [Solana](/api-reference/metrics/solana/activity/transaction-fee-med-native) | `transaction-fee-med-native` | Blockworks | daily | timeseries_float |
 
-### Fee Median (USD)
+### Fee Median
 
 Median of the sum of the base fee and priority fee in USD that day
 
@@ -77,6 +81,7 @@ Median of the sum of the base fee and priority fee in USD that day
 | [Arbitrum](/api-reference/metrics/arbitrum/activity/transaction-fee-med-usd) | `transaction-fee-med-usd` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/activity/transaction-fee-med-usd) | `transaction-fee-med-usd` | Blockworks | daily | timeseries_usd |
 | [Ethereum](/api-reference/metrics/ethereum/activity/transaction-fee-med-usd) | `transaction-fee-med-usd` | Blockworks | daily | timeseries_usd |
+| [Katana](/api-reference/metrics/katana/activity/transaction-fee-med-usd) | `transaction-fee-med-usd` | Blockworks | daily | timeseries_usd |
 | [Solana](/api-reference/metrics/solana/activity/transaction-fee-med-usd) | `transaction-fee-med-usd` | Blockworks | daily | timeseries_usd |
 
 ### Transactions (Succeeded)
@@ -89,6 +94,7 @@ Daily number of successful transactions, excluding failed transactions.
 | [Arbitrum](/api-reference/metrics/arbitrum/activity/transaction-succeed-total) | `transaction-succeed-total` | Blockworks | daily | timeseries_int |
 | [Base](/api-reference/metrics/base/activity/transaction-succeed-total) | `transaction-succeed-total` | Blockworks | daily | timeseries_int |
 | [Ethereum](/api-reference/metrics/ethereum/activity/transaction-succeed-total) | `transaction-succeed-total` | Blockworks | daily | timeseries_int |
+| [Katana](/api-reference/metrics/katana/activity/transaction-succeed-total) | `transaction-succeed-total` | Blockworks | daily | timeseries_int |
 | [Solana](/api-reference/metrics/solana/activity/transaction-succeed-total) | `transaction-succeed-total` | Blockworks | daily | timeseries_int |
 
 ### Transactions (Total)
@@ -101,13 +107,14 @@ Daily number of all transactions.
 | [Arbitrum](/api-reference/metrics/arbitrum/activity/transaction-total) | `transaction-total` | Blockworks | daily | timeseries_int |
 | [Base](/api-reference/metrics/base/activity/transaction-total) | `transaction-total` | Blockworks | daily | timeseries_int |
 | [Ethereum](/api-reference/metrics/ethereum/activity/transaction-total) | `transaction-total` | Blockworks | daily | timeseries_int |
+| [Katana](/api-reference/metrics/katana/activity/transaction-total) | `transaction-total` | Blockworks | daily | timeseries_int |
 | [Solana](/api-reference/metrics/solana/activity/transaction-total) | `transaction-total` | Blockworks | daily | timeseries_int |
 
 # ETF
 
 ### Total ETF Flows
 
-Total ETF flows for Ether ETFs
+Total ETF flows for Solana ETFs
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -118,7 +125,7 @@ Total ETF flows for Ether ETFs
 
 ### ETF Flows
 
-ETF flows for Grayscale Ethereum Mini Trust ETF (ETH)
+ETF flows for Grayscale Ethereum Trust ETF (ETHE)
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -147,7 +154,7 @@ ETF flows for Grayscale Ethereum Mini Trust ETF (ETH)
 
 # Financials
 
-### Application Revenue (USD)
+### Application Revenue
 
 The total amount of revenue produced by all labelled applications during the specified time period for given blockchain.
 
@@ -169,7 +176,7 @@ The total amount of the native token burned transaction fees.
 | [Ethereum](/api-reference/metrics/ethereum/financials/burn) | `burn` | Blockworks | daily | timeseries_float |
 | [Solana](/api-reference/metrics/solana/financials/burn) | `burn` | Blockworks | daily | timeseries_float |
 
-### Burn (USD)
+### Burn
 
 The total amount of burned transaction fees in USD.
 
@@ -189,7 +196,7 @@ Newly issued tokens that are distributed to participants (such as validators, mi
 | [Ethereum](/api-reference/metrics/ethereum/financials/issuance) | `issuance` | Blockworks | daily | timeseries_float |
 | [Solana](/api-reference/metrics/solana/financials/issuance) | `issuance` | Blockworks | daily | timeseries_float |
 
-### Issuance (USD)
+### Issuance
 
 Newly issued tokens that are distributed to participants (such as validators, miners, or stakers) as compensation for participating in consensus.
 
@@ -201,7 +208,7 @@ Newly issued tokens that are distributed to participants (such as validators, mi
 
 ### MEV Tips
 
-Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders for faster transaction execution, MEV capture, or MEV protection.
+Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders or leaders for faster transaction execution, MEV capture, or MEV protection.
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -209,9 +216,9 @@ Additional fees for using out-of-protocol systems that enables users to send tra
 | [Ethereum](/api-reference/metrics/ethereum/financials/mev-tips-fees) | `mev-tips-fees` | Blockworks | daily | timeseries_float |
 | [Solana](/api-reference/metrics/solana/financials/mev-tips-fees) | `mev-tips-fees` | Blockworks | daily | timeseries_float |
 
-### MEV Tips (USD)
+### MEV Tips
 
-Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders for faster transaction execution, MEV capture, or MEV protection.
+Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders or leaders for faster transaction execution, MEV capture, or MEV protection.
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -229,9 +236,10 @@ Network REV (Real Economic Value) is a standardized metric that tracks blockchai
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/rev-native) | `rev-native` | Blockworks | daily | timeseries_float |
 | [Base](/api-reference/metrics/base/financials/rev-native) | `rev-native` | Blockworks | daily | timeseries_float |
 | [Ethereum](/api-reference/metrics/ethereum/financials/rev-native) | `rev-native` | Blockworks | daily | timeseries_float |
+| [Katana](/api-reference/metrics/katana/financials/rev-native) | `rev-native` | Blockworks | daily | timeseries_float |
 | [Solana](/api-reference/metrics/solana/financials/rev-native) | `rev-native` | Blockworks | daily | timeseries_float |
 
-### REV (USD)
+### REV
 
 Network REV (Real Economic Value) is a standardized metric that tracks blockchain value accrual generated by user activity. REV consists of both in-protocol transaction fees and out-of-protocol tips that users pay for transaction execution, so it measures the monetary demand to transact onchain.
 
@@ -241,9 +249,10 @@ Network REV (Real Economic Value) is a standardized metric that tracks blockchai
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/rev-usd) | `rev-usd` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/financials/rev-usd) | `rev-usd` | Blockworks | daily | timeseries_usd |
 | [Ethereum](/api-reference/metrics/ethereum/financials/rev-usd) | `rev-usd` | Blockworks | daily | timeseries_usd |
+| [Katana](/api-reference/metrics/katana/financials/rev-usd) | `rev-usd` | Blockworks | daily | timeseries_usd |
 | [Solana](/api-reference/metrics/solana/financials/rev-usd) | `rev-usd` | Blockworks | daily | timeseries_usd |
 
-### Revenue (USD)
+### Revenue
 
 The revenue produced during the specified time period for given project.
 
@@ -326,15 +335,16 @@ The revenue produced during the specified time period for given project.
 | [Virtuals](/api-reference/metrics/virtuals/financials/revenue-total-usd) | `revenue-total-usd` | Blockworks | daily | timeseries_usd |
 | [Wildcat](/api-reference/metrics/wildcat/financials/revenue-total-usd) | `revenue-total-usd` | Blockworks | daily | timeseries_usd |
 
-### Rollup Data Cost
+### Rollup Costs
 
-Data costs during the specified time period for given rollup.
+Costs the rollup sequencer endures for operating during the specified time period. Equivalent of cost of goods sold
 
 
 | Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/sequencer-cost-total) | `sequencer-cost-total` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/financials/sequencer-cost-total) | `sequencer-cost-total` | Blockworks | daily | timeseries_usd |
+| [Katana](/api-reference/metrics/katana/financials/sequencer-cost-total) | `sequencer-cost-total` | Blockworks | daily | timeseries_usd |
 
 ### Gross Profit
 
@@ -345,6 +355,7 @@ Gross profit during the specified time period for given rollup.
 |-------|------------|--------|----------|-----------|
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/sequencer-gross-profit) | `sequencer-gross-profit` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/financials/sequencer-gross-profit) | `sequencer-gross-profit` | Blockworks | daily | timeseries_usd |
+| [Katana](/api-reference/metrics/katana/financials/sequencer-gross-profit) | `sequencer-gross-profit` | Blockworks | daily | timeseries_usd |
 
 ### Native Token Supply Staked
 
@@ -356,7 +367,7 @@ The native token supply staked during the specified time period for given blockc
 | [Ethereum](/api-reference/metrics/ethereum/financials/token-supply-staked) | `token-supply-staked` | Blockworks | daily | timeseries_usd |
 | [Solana](/api-reference/metrics/solana/financials/token-supply-staked) | `token-supply-staked` | Blockworks | daily | timeseries_usd |
 
-### Base Fees (ETH)
+### Base Fees
 
 The minimum transaction fee required for a transaction to be included in a block
 
@@ -366,9 +377,10 @@ The minimum transaction fee required for a transaction to be included in a block
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/transaction-base-fee-total-native) | `transaction-base-fee-total-native` | Blockworks | daily | timeseries_float |
 | [Base](/api-reference/metrics/base/financials/transaction-base-fee-total-native) | `transaction-base-fee-total-native` | Blockworks | daily | timeseries_float |
 | [Ethereum](/api-reference/metrics/ethereum/financials/transaction-base-fee-total-native) | `transaction-base-fee-total-native` | Blockworks | daily | timeseries_float |
+| [Katana](/api-reference/metrics/katana/financials/transaction-base-fee-total-native) | `transaction-base-fee-total-native` | Blockworks | daily | timeseries_float |
 | [Solana](/api-reference/metrics/solana/financials/transaction-base-fee-total-native) | `transaction-base-fee-total-native` | Blockworks | daily | timeseries_float |
 
-### Base Fees (USD)
+### Base Fees
 
 The minimum transaction fee required for a transaction to be included in a block
 
@@ -378,9 +390,10 @@ The minimum transaction fee required for a transaction to be included in a block
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/transaction-base-fee-total-usd) | `transaction-base-fee-total-usd` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/financials/transaction-base-fee-total-usd) | `transaction-base-fee-total-usd` | Blockworks | daily | timeseries_usd |
 | [Ethereum](/api-reference/metrics/ethereum/financials/transaction-base-fee-total-usd) | `transaction-base-fee-total-usd` | Blockworks | daily | timeseries_usd |
+| [Katana](/api-reference/metrics/katana/financials/transaction-base-fee-total-usd) | `transaction-base-fee-total-usd` | Blockworks | daily | timeseries_usd |
 | [Solana](/api-reference/metrics/solana/financials/transaction-base-fee-total-usd) | `transaction-base-fee-total-usd` | Blockworks | daily | timeseries_usd |
 
-### Transaction Fees (ETH)
+### Transaction Fees
 
 Total transaction fees paid, does not include blob fees, out-of-protocol tips, or additional sources of revenue
 
@@ -390,9 +403,10 @@ Total transaction fees paid, does not include blob fees, out-of-protocol tips, o
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/transaction-fee-total-native) | `transaction-fee-total-native` | Blockworks | daily | timeseries_float |
 | [Base](/api-reference/metrics/base/financials/transaction-fee-total-native) | `transaction-fee-total-native` | Blockworks | daily | timeseries_float |
 | [Ethereum](/api-reference/metrics/ethereum/financials/transaction-fee-total-native) | `transaction-fee-total-native` | Blockworks | daily | timeseries_float |
+| [Katana](/api-reference/metrics/katana/financials/transaction-fee-total-native) | `transaction-fee-total-native` | Blockworks | daily | timeseries_float |
 | [Solana](/api-reference/metrics/solana/financials/transaction-fee-total-native) | `transaction-fee-total-native` | Blockworks | daily | timeseries_float |
 
-### Transaction Fees (USD)
+### Transaction Fees
 
 Total transaction fees paid converted to USD, does not include out-of-protocol tips or additional sources of revenue
 
@@ -402,11 +416,48 @@ Total transaction fees paid converted to USD, does not include out-of-protocol t
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/transaction-fee-total-usd) | `transaction-fee-total-usd` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/financials/transaction-fee-total-usd) | `transaction-fee-total-usd` | Blockworks | daily | timeseries_usd |
 | [Ethereum](/api-reference/metrics/ethereum/financials/transaction-fee-total-usd) | `transaction-fee-total-usd` | Blockworks | daily | timeseries_usd |
+| [Katana](/api-reference/metrics/katana/financials/transaction-fee-total-usd) | `transaction-fee-total-usd` | Blockworks | daily | timeseries_usd |
 | [Solana](/api-reference/metrics/solana/financials/transaction-fee-total-usd) | `transaction-fee-total-usd` | Blockworks | daily | timeseries_usd |
 
-### Other Fees (ETH)
+### L1 Fees
 
-For Ethereum, this includes just blob fees: an additional fee for transactions that post data to "blobs," which are specialized data availability solutions for L2 blockchains.
+An OP Stack fee meant to estimate the costs associated with posting data to the L1 that is attributed to the user's transaction fee
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [Katana](/api-reference/metrics/katana/financials/transaction-l1-fee-total-native) | `transaction-l1-fee-total-native` | Blockworks | daily | timeseries_float |
+
+### L1 Fees
+
+An OP Stack fee meant to estimate the costs associated with posting data to the L1 that is attributed to the user's transaction fee
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [Katana](/api-reference/metrics/katana/financials/transaction-l1-fee-total-usd) | `transaction-l1-fee-total-usd` | Blockworks | daily | timeseries_usd |
+
+### Operator Fees
+
+An additional fee for OP Stack chains in order to pay operators, such as provers and verfiers, for their work and is included as part of the transaction fee
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [Katana](/api-reference/metrics/katana/financials/transaction-operator-fee-total-native) | `transaction-operator-fee-total-native` | Blockworks | daily | timeseries_float |
+
+### Operator Fees
+
+An additional fee for OP Stack chains in order to pay operators, such as provers and verfiers, for their work and is included as part of the transaction fee
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [Katana](/api-reference/metrics/katana/financials/transaction-operator-fee-total-usd) | `transaction-operator-fee-total-usd` | Blockworks | daily | timeseries_usd |
+
+### Other Fees
+
+For Arbitrum, other fees include the fee for Timeboost, an priroty auction for access to transactions with no delay compared to 200ms delay for the chain's sequencer
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -414,9 +465,9 @@ For Ethereum, this includes just blob fees: an additional fee for transactions t
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/transaction-other-fee-total-native) | `transaction-other-fee-total-native` | Blockworks | daily | timeseries_float |
 | [Ethereum](/api-reference/metrics/ethereum/financials/transaction-other-fee-total-native) | `transaction-other-fee-total-native` | Blockworks | daily | timeseries_float |
 
-### Other Fees (USD)
+### Other Fees
 
-For Ethereum, this includes just blob fees: an additional fee for transactions that post data to "blobs," which are specialized data availability solutions for L2 blockchains.
+For Arbitrum, other fees include the fee for Timeboost, an priroty auction for access to transactions with no delay compared to 200ms delay for the chain's sequencer
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -424,7 +475,7 @@ For Ethereum, this includes just blob fees: an additional fee for transactions t
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/transaction-other-fee-total-usd) | `transaction-other-fee-total-usd` | Blockworks | daily | timeseries_usd |
 | [Ethereum](/api-reference/metrics/ethereum/financials/transaction-other-fee-total-usd) | `transaction-other-fee-total-usd` | Blockworks | daily | timeseries_usd |
 
-### Priority Fees (ETH)
+### Priority Fees
 
 An additional transaction fee to incentivize validators to prioritize and execute transactions.
 
@@ -434,9 +485,10 @@ An additional transaction fee to incentivize validators to prioritize and execut
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/transaction-priority-fee-total-native) | `transaction-priority-fee-total-native` | Blockworks | daily | timeseries_float |
 | [Base](/api-reference/metrics/base/financials/transaction-priority-fee-total-native) | `transaction-priority-fee-total-native` | Blockworks | daily | timeseries_float |
 | [Ethereum](/api-reference/metrics/ethereum/financials/transaction-priority-fee-total-native) | `transaction-priority-fee-total-native` | Blockworks | daily | timeseries_float |
+| [Katana](/api-reference/metrics/katana/financials/transaction-priority-fee-total-native) | `transaction-priority-fee-total-native` | Blockworks | daily | timeseries_float |
 | [Solana](/api-reference/metrics/solana/financials/transaction-priority-fee-total-native) | `transaction-priority-fee-total-native` | Blockworks | daily | timeseries_float |
 
-### Priority Fees (USD)
+### Priority Fees
 
 An additional transaction fee to incentivize validators to prioritize and execute transactions.
 
@@ -446,6 +498,7 @@ An additional transaction fee to incentivize validators to prioritize and execut
 | [Arbitrum](/api-reference/metrics/arbitrum/financials/transaction-priority-fee-total-usd) | `transaction-priority-fee-total-usd` | Blockworks | daily | timeseries_usd |
 | [Base](/api-reference/metrics/base/financials/transaction-priority-fee-total-usd) | `transaction-priority-fee-total-usd` | Blockworks | daily | timeseries_usd |
 | [Ethereum](/api-reference/metrics/ethereum/financials/transaction-priority-fee-total-usd) | `transaction-priority-fee-total-usd` | Blockworks | daily | timeseries_usd |
+| [Katana](/api-reference/metrics/katana/financials/transaction-priority-fee-total-usd) | `transaction-priority-fee-total-usd` | Blockworks | daily | timeseries_usd |
 | [Solana](/api-reference/metrics/solana/financials/transaction-priority-fee-total-usd) | `transaction-priority-fee-total-usd` | Blockworks | daily | timeseries_usd |
 
 # Stablecoins
@@ -520,7 +573,7 @@ Fully diluted value of the native asset
 | [Ethereum](/api-reference/metrics/ethereum/token/token-fdv-usd) | `token-fdv-usd` | Blockworks | daily | timeseries_usd |
 | [Solana](/api-reference/metrics/solana/token/token-fdv-usd) | `token-fdv-usd` | Blockworks | daily | timeseries_usd |
 
-### Price (USD)
+### Price
 
 The average token price during the specified time period for the native asset of that chain.
 
@@ -574,7 +627,7 @@ Total amount of daily spot volume from major DEXs. Only includes volumes from fe
 | [Ethereum](/api-reference/metrics/ethereum/trading/dex-spot-volume-total-usd) | `dex-spot-volume-total-usd` | Blockworks | daily | timeseries_usd |
 | [Solana](/api-reference/metrics/solana/trading/dex-spot-volume-total-usd) | `dex-spot-volume-total-usd` | Blockworks | daily | timeseries_usd |
 
-### Volume (USD)
+### Volume
 
 Amount of trading volume in USD
 
@@ -596,7 +649,7 @@ Amount of trading volume in USD
 
 # Treasury
 
-### Enterprise Value (USD)
+### Enterprise Value
 
 Actual enterprise value for the equity. Calculated as market cap - liabilities + assets
 
@@ -689,7 +742,7 @@ Number of tokens held by the company. See crypto-asset for asset indicator
 
 ### Market Cap
 
-Market capitalization of the equity
+"Market capitalization of the equity
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -745,7 +798,7 @@ Market NAV value for that company. Calculated as enterprise value / NAV
 | [STSS](/api-reference/metrics/STSS/treasury/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
 | [UPXI](/api-reference/metrics/UPXI/treasury/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
 
-### NAV (USD)
+### NAV
 
 Dollar value of crypto assets (does not include cash)
 
@@ -775,7 +828,7 @@ Dollar value of crypto assets (does not include cash)
 | [STSS](/api-reference/metrics/STSS/treasury/treasury-nav-total-usd) | `treasury-nav-total-usd` | Blockworks | daily | timeseries_usd |
 | [UPXI](/api-reference/metrics/UPXI/treasury/treasury-nav-total-usd) | `treasury-nav-total-usd` | Blockworks | daily | timeseries_usd |
 
-### Volume (USD)
+### Volume
 
 USD volume over the period
 

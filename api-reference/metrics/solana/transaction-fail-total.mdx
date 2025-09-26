@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** count
-- **Interval:** daily
+- **Denomination:** Count
+- **Type:** Integer
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,24 @@ data = r.json()
 {
   "solana": [
     {
+      "date": "2025-09-25",
+      "value": 20128553
+    },
+    {
+      "date": "2025-09-24",
+      "value": 19208111
+    },
+    {
       "date": "2025-09-23",
       "value": 20857891
+    },
+    {
+      "date": "2025-09-23",
+      "value": 20857891
+    },
+    {
+      "date": "2025-09-22",
+      "value": 20416295
     },
     {
       "date": "2025-09-22",
@@ -60,8 +77,8 @@ data = r.json()
       "value": 17037275
     },
     {
-      "date": "2025-09-20",
-      "value": 16224031
+      "date": "2025-09-21",
+      "value": 17037275
     }
   ]
 }

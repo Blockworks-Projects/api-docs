@@ -1,6 +1,6 @@
 ---
-title: "Revenue (USD)"
-sidebarTitle: "Revenue (USD)"
+title: "Revenue"
+sidebarTitle: "Revenue"
 description: "The revenue produced during the specified time period for given project."
 openapi: "GET /v1/metrics/revenue-total-usd"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -49,23 +50,19 @@ data = r.json()
   "soltradingbot": [
     {
       "date": "2025-09-24",
-      "value": 5375.14
+      "value": 10560.281690531125
     },
     {
       "date": "2025-09-23",
-      "value": 10396.64
+      "value": 10447.397425157718
     },
     {
       "date": "2025-09-22",
-      "value": 9067.92
+      "value": 9067.91946591704
     },
     {
       "date": "2025-09-21",
-      "value": 8989.78
-    },
-    {
-      "date": "2025-09-20",
-      "value": 9532.78
+      "value": 8989.775756417957
     }
   ]
 }

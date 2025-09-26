@@ -260,6 +260,44 @@
                 ]
               },
               {
+                "group": "Katana",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/katana/active-address-total",
+                      "api-reference/metrics/katana/transaction-fee-avg-native",
+                      "api-reference/metrics/katana/transaction-fee-avg-usd",
+                      "api-reference/metrics/katana/transaction-fee-med-native",
+                      "api-reference/metrics/katana/transaction-fee-med-usd",
+                      "api-reference/metrics/katana/transaction-fail-total",
+                      "api-reference/metrics/katana/transaction-succeed-total",
+                      "api-reference/metrics/katana/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/katana/transaction-base-fee-total-native",
+                      "api-reference/metrics/katana/transaction-base-fee-total-usd",
+                      "api-reference/metrics/katana/sequencer-gross-profit",
+                      "api-reference/metrics/katana/transaction-l1-fee-total-native",
+                      "api-reference/metrics/katana/transaction-l1-fee-total-usd",
+                      "api-reference/metrics/katana/transaction-operator-fee-total-native",
+                      "api-reference/metrics/katana/transaction-operator-fee-total-usd",
+                      "api-reference/metrics/katana/transaction-priority-fee-total-native",
+                      "api-reference/metrics/katana/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/katana/rev-native",
+                      "api-reference/metrics/katana/rev-usd",
+                      "api-reference/metrics/katana/sequencer-cost-total",
+                      "api-reference/metrics/katana/transaction-fee-total-native",
+                      "api-reference/metrics/katana/transaction-fee-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
                 "group": "Solana",
                 "icon": "link",
                 "pages": [
@@ -327,7 +365,7 @@
                 ]
               }
             ],
-            "tag": "5"
+            "tag": "6"
           },
           {
             "group": "Metrics: Projects",

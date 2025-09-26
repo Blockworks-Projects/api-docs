@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** mNAV
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,12 @@ data = r.json()
 {
   "cep": [
     {
+      "date": "2025-09-25",
+      "value": 0.05046748439558246
+    },
+    {
       "date": "2025-09-24",
-      "value": 0.052331839566424364
+      "value": 0.05225869296270683
     },
     {
       "date": "2025-09-23",

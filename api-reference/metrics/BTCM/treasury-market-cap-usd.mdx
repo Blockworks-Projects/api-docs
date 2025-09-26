@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,12 +49,16 @@ data = r.json()
 {
   "btcm": [
     {
+      "date": "2025-09-25",
+      "value": 46176384.969
+    },
+    {
       "date": "2025-09-24",
-      "value": 48418927.02
+      "value": 48420711.063
     },
     {
       "date": "2025-09-23",
-      "value": 48183433.34
+      "value": 48183433.344000004
     },
     {
       "date": "2025-09-22",

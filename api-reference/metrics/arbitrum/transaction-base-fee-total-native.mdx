@@ -1,6 +1,6 @@
 ---
-title: "Arbitrum: Base Fees (ETH)"
-sidebarTitle: "Base Fees (ETH)"
+title: "Arbitrum: Base Fees"
+sidebarTitle: "Base Fees"
 description: "The minimum transaction fee required for a transaction to be included in a block"
 openapi: "GET /v1/metrics/transaction-base-fee-total-native"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** ETH
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,6 +49,14 @@ data = r.json()
 {
   "arbitrum": [
     {
+      "date": "2025-09-25",
+      "value": 6.610621105608409
+    },
+    {
+      "date": "2025-09-24",
+      "value": 5.225866684394644
+    },
+    {
       "date": "2025-09-24",
       "value": 5.2258666843946715
     },
@@ -56,16 +65,24 @@ data = r.json()
       "value": 5.5390008659682906
     },
     {
+      "date": "2025-09-23",
+      "value": 5.53900086596828
+    },
+    {
+      "date": "2025-09-22",
+      "value": 5.279037880573328
+    },
+    {
       "date": "2025-09-22",
       "value": 5.279037880573332
     },
     {
       "date": "2025-09-21",
-      "value": 3.1260474661739637
+      "value": 3.12604746617396
     },
     {
-      "date": "2025-09-20",
-      "value": 3.434025943814644
+      "date": "2025-09-21",
+      "value": 3.1260474661739637
     }
   ]
 }

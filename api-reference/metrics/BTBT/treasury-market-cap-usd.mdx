@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,16 +49,20 @@ data = r.json()
 {
   "btbt": [
     {
+      "date": "2025-09-25",
+      "value": 963108864.9286001
+    },
+    {
       "date": "2025-09-24",
-      "value": 1037552683.34
+      "value": 1037391966.9827999
     },
     {
       "date": "2025-09-23",
-      "value": 1021931053.05
+      "value": 1021931053.0546
     },
     {
       "date": "2025-09-22",
-      "value": 977798340.32
+      "value": 977798340.3239999
     }
   ]
 }

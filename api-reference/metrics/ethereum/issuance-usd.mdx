@@ -1,6 +1,7 @@
 ---
 title: "Ethereum: Issuance (USD)"
-sidebarTitle: "Issuance (USD)"
+sidebarTitle: "Issuance"
+tag: "USD"
 description: "Newly issued tokens that are distributed to participants (such as validators, miners, or stakers) as compensation for participating in consensus."
 openapi: "GET /v1/metrics/issuance-usd"
 mode: "wide"
@@ -8,8 +9,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +50,44 @@ data = r.json()
 {
   "ethereum": [
     {
+      "date": "2025-09-25",
+      "value": 10654117.889231278
+    },
+    {
+      "date": "2025-09-25",
+      "value": 11031619.869351111
+    },
+    {
       "date": "2025-09-24",
-      "value": 11121106.91
+      "value": 11121106.910678849
+    },
+    {
+      "date": "2025-09-24",
+      "value": 11120136.823599726
     },
     {
       "date": "2025-09-23",
-      "value": 11154456.19
+      "value": 11154456.192857247
+    },
+    {
+      "date": "2025-09-23",
+      "value": 11154456.192857247
     },
     {
       "date": "2025-09-22",
-      "value": 11214345.43
+      "value": 11214345.434049465
+    },
+    {
+      "date": "2025-09-22",
+      "value": 11214345.434049465
     },
     {
       "date": "2025-09-21",
-      "value": 11892613.25
+      "value": 11892613.251898818
     },
     {
-      "date": "2025-09-20",
-      "value": 11937837.13
+      "date": "2025-09-21",
+      "value": 11892613.251898818
     }
   ]
 }

@@ -1,6 +1,6 @@
 ---
-title: "Solana: Fee Median (SOL)"
-sidebarTitle: "Fee Median (SOL)"
+title: "Solana: Fee Median"
+sidebarTitle: "Fee Median"
 description: "Median of the sum of the base fee and priority fee that day"
 openapi: "GET /v1/metrics/transaction-fee-med-native"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** SOL
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,24 @@ data = r.json()
 {
   "solana": [
     {
+      "date": "2025-09-25",
+      "value": null
+    },
+    {
+      "date": "2025-09-24",
+      "value": 0.0000056666411178356514
+    },
+    {
       "date": "2025-09-23",
       "value": 0.000005593895601483425
+    },
+    {
+      "date": "2025-09-23",
+      "value": 0.000005593895601483425
+    },
+    {
+      "date": "2025-09-22",
+      "value": 0.000005793364308140305
     },
     {
       "date": "2025-09-22",
@@ -60,8 +77,8 @@ data = r.json()
       "value": 0.000005685285885117595
     },
     {
-      "date": "2025-09-20",
-      "value": 0.000005488581364104946
+      "date": "2025-09-21",
+      "value": 0.000005685285885117595
     }
   ]
 }

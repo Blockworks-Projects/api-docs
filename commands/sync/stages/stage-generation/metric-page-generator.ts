@@ -14,8 +14,12 @@ export const generateMetricPage = async ({ metric, allMetrics }: GeneratePageCon
 
   await ensureDirectory(projectDir)
 
+  // Check if this USD metric has a title conflict and needs USD tag
+  const needsUsdTag = allMetrics ? hasUsdTitleConflict(metric, allMetrics) : false
+
+
   const sampleData = await fetchMetricSampleData(metric.identifier, metric.project)
-  let content = getMetricPage({ metric, sampleData })
+  let content = getMetricPage({ metric, sampleData, needsUsdTag })
 
   if (allMetrics) {
     const crossReference = generateCrossReference(metric, allMetrics)
@@ -23,6 +27,21 @@ export const generateMetricPage = async ({ metric, allMetrics }: GeneratePageCon
   }
 
   await writeTextFile(filePath, content)
+}
+
+const hasUsdTitleConflict = (metric: Metric, allMetrics: Metric[]): boolean => {
+  // Only USD metrics (denomination = "USD") should get the tag
+  if (metric.denomination !== 'USD') return false
+
+  // Find other metrics in the same project with the same title but different denomination
+  const sameProjectMetrics = allMetrics.filter(m => m.project === metric.project)
+  const conflictingMetrics = sameProjectMetrics.filter(m =>
+    m.identifier !== metric.identifier && // Different metric
+    m.title === metric.title && // Same title
+    m.denomination !== 'USD' // Different denomination
+  )
+
+  return conflictingMetrics.length > 0
 }
 
 const generateCrossReference = (metric: Metric, allMetrics: Metric[]): string | null => {

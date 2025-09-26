@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Farside UK
 
 ## Example Request
@@ -47,6 +48,10 @@ data = r.json()
 ```json
 {
   "ethe": [
+    {
+      "date": "2025-09-25",
+      "value": -30300000
+    },
     {
       "date": "2025-09-24",
       "value": -8900000

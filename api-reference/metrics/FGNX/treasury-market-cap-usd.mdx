@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,12 @@ data = r.json()
 {
   "fgnx": [
     {
+      "date": "2025-09-25",
+      "value": 242473323
+    },
+    {
       "date": "2025-09-24",
-      "value": 229157446
+      "value": 229111517
     },
     {
       "date": "2025-09-23",

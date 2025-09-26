@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,16 +49,20 @@ data = r.json()
 {
   "naka": [
     {
+      "date": "2025-09-25",
+      "value": 471014717.8422
+    },
+    {
       "date": "2025-09-24",
-      "value": 465034414.39
+      "value": 463304263.7052
     },
     {
       "date": "2025-09-23",
-      "value": 475377706.52
+      "value": 475377706.5246
     },
     {
       "date": "2025-09-22",
-      "value": 492303093.65
+      "value": 492303093.65459996
     }
   ]
 }

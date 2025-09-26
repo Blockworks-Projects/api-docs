@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** count
-- **Interval:** daily
+- **Denomination:** Count
+- **Type:** Integer
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,23 +49,23 @@ data = r.json()
 {
   "moonshot": [
     {
+      "date": "2025-09-25",
+      "value": "0"
+    },
+    {
       "date": "2025-09-24",
-      "value": "4"
+      "value": "8"
     },
     {
       "date": "2025-09-23",
-      "value": "4"
+      "value": "6"
     },
     {
       "date": "2025-09-22",
-      "value": "3"
-    },
-    {
-      "date": "2025-09-21",
       "value": "4"
     },
     {
-      "date": "2025-09-20",
+      "date": "2025-09-21",
       "value": "5"
     }
   ]

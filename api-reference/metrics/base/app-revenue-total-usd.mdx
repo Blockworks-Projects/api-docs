@@ -1,6 +1,6 @@
 ---
-title: "Base: Application Revenue (USD)"
-sidebarTitle: "Application Revenue (USD)"
+title: "Base: Application Revenue"
+sidebarTitle: "Application Revenue"
 description: "The total amount of revenue produced by all labelled applications during the specified time period for given blockchain."
 openapi: "GET /v1/metrics/app-revenue-total-usd"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +49,24 @@ data = r.json()
 {
   "base": [
     {
+      "date": "2025-09-25",
+      "value": 635658.9972736394
+    },
+    {
       "date": "2025-09-24",
-      "value": 1288624.9
+      "value": 651863.8767776146
     },
     {
       "date": "2025-09-23",
-      "value": 774770.25
+      "value": 774762.3896971716
     },
     {
       "date": "2025-09-22",
-      "value": 924823.04
+      "value": 924823.4520812804
     },
     {
       "date": "2025-09-21",
-      "value": 694292.21
-    },
-    {
-      "date": "2025-09-20",
-      "value": 535340.13
+      "value": 694283.964244047
     }
   ]
 }

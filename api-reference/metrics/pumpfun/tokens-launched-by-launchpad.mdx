@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** count
-- **Interval:** daily
+- **Denomination:** Count
+- **Type:** Integer
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,24 @@ data = r.json()
 {
   "pumpfun": [
     {
+      "date": "2025-09-25",
+      "value": 15693
+    },
+    {
+      "date": "2025-09-25",
+      "value": null
+    },
+    {
       "date": "2025-09-24",
       "value": 16556
+    },
+    {
+      "date": "2025-09-24",
+      "value": 16556
+    },
+    {
+      "date": "2025-09-23",
+      "value": 17068
     },
     {
       "date": "2025-09-23",
@@ -60,12 +77,16 @@ data = r.json()
       "value": 16907
     },
     {
+      "date": "2025-09-22",
+      "value": 16907
+    },
+    {
       "date": "2025-09-21",
       "value": 17119
     },
     {
-      "date": "2025-09-20",
-      "value": 18724
+      "date": "2025-09-21",
+      "value": 17119
     }
   ]
 }

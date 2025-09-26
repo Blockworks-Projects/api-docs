@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** mNAV
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,12 @@ data = r.json()
 {
   "smlr": [
     {
+      "date": "2025-09-25",
+      "value": 1.0474673511982406
+    },
+    {
       "date": "2025-09-24",
-      "value": 1.0889233995501042
+      "value": 1.0888476168199965
     },
     {
       "date": "2025-09-23",

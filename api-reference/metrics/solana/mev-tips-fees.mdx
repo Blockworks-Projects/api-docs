@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** SOL
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,6 +49,10 @@ data = r.json()
 {
   "solana": [
     {
+      "date": "2025-09-25",
+      "value": 129.54987559362456
+    },
+    {
       "date": "2025-09-24",
       "value": 2026.1381301779202
     },
@@ -62,10 +67,6 @@ data = r.json()
     {
       "date": "2025-09-21",
       "value": 1350.6045933774005
-    },
-    {
-      "date": "2025-09-20",
-      "value": 1534.0156596425957
     }
   ]
 }
@@ -75,4 +76,4 @@ data = r.json()
 - Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.
 
-<Note>For fiat values, see **[MEV Tips (USD)](./mev-tips-fees-usd)**.</Note>
+<Note>For fiat values, see **[MEV Tips](./mev-tips-fees-usd)**.</Note>

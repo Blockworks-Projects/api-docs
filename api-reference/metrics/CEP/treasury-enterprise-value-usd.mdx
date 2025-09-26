@@ -1,6 +1,6 @@
 ---
-title: "Enterprise Value (USD)"
-sidebarTitle: "Enterprise Value (USD)"
+title: "Enterprise Value"
+sidebarTitle: "Enterprise Value"
 description: "Actual enterprise value for the equity. Calculated as market cap - liabilities + assets"
 openapi: "GET /v1/metrics/treasury-enterprise-value-usd"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,16 +49,20 @@ data = r.json()
 {
   "cep": [
     {
+      "date": "2025-09-25",
+      "value": 489679360
+    },
+    {
       "date": "2025-09-24",
-      "value": 257328640
+      "value": 513937920.00000006
     },
     {
       "date": "2025-09-23",
-      "value": 276139520
+      "value": 552279040
     },
     {
       "date": "2025-09-22",
-      "value": 276194560
+      "value": 552389120
     }
   ]
 }

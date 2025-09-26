@@ -1,6 +1,6 @@
 ---
-title: "Volume (USD)"
-sidebarTitle: "Volume (USD)"
+title: "Volume"
+sidebarTitle: "Volume"
 description: "Amount of trading volume in USD"
 openapi: "GET /v1/metrics/volume-usd"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,64 +49,64 @@ data = r.json()
 {
   "meteroa": [
     {
+      "date": "2025-09-25",
+      "value": 393833404.9095306
+    },
+    {
       "date": "2025-09-24",
-      "value": 306055311.34
+      "value": 309821926.84916276
+    },
+    {
+      "date": "2025-09-24",
+      "value": 306055311.3363416
     },
     {
       "date": "2025-09-23",
-      "value": 350711566.07
+      "value": 350711566.07142866
     },
     {
       "date": "2025-09-23",
-      "value": 351411982.06
+      "value": 351411982.05604327
+    },
+    {
+      "date": "2025-09-23",
+      "value": 351411982.0560437
     },
     {
       "date": "2025-09-22",
-      "value": 417228801.45
+      "value": 417228801.4513835
     },
     {
       "date": "2025-09-22",
-      "value": 415337845.72
+      "value": 417228801.45138305
     },
     {
       "date": "2025-09-22",
-      "value": 417228801.45
+      "value": 417228801.4513832
+    },
+    {
+      "date": "2025-09-22",
+      "value": 415337845.7244849
     },
     {
       "date": "2025-09-21",
-      "value": 218090631.02
+      "value": 218090631.01882863
     },
     {
       "date": "2025-09-21",
-      "value": 218090631.02
+      "value": 218090631.01882842
     },
     {
       "date": "2025-09-21",
-      "value": 217382908.06
+      "value": 218090631.01882866
     },
     {
       "date": "2025-09-21",
-      "value": 218090631.02
+      "value": 217382908.0629405
     },
     {
-      "date": "2025-09-20",
-      "value": 194001704.47
-    },
-    {
-      "date": "2025-09-20",
-      "value": 194648924.85
-    },
-    {
-      "date": "2025-09-20",
-      "value": 194648924.85
-    },
-    {
-      "date": "2025-09-20",
-      "value": 194648924.85
-    },
-    {
-      "date": "2025-09-20",
-      "value": 194648924.85
+      "date": "2025-09-21",
+      "value": 218090631.0188285
     }
   ]
 }

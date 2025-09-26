@@ -1,6 +1,6 @@
 ---
-title: "Revenue (USD)"
-sidebarTitle: "Revenue (USD)"
+title: "Revenue"
+sidebarTitle: "Revenue"
 description: "The revenue produced during the specified time period for given project."
 openapi: "GET /v1/metrics/revenue-total-usd"
 mode: "wide"
@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** USD
-- **Interval:** daily
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,24 +49,24 @@ data = r.json()
 {
   "clipper": [
     {
+      "date": "2025-09-25",
+      "value": 1006.951483434052
+    },
+    {
       "date": "2025-09-24",
-      "value": 355.04
+      "value": 355.038250386766
     },
     {
       "date": "2025-09-23",
-      "value": 413.89
+      "value": 413.886251757117
     },
     {
       "date": "2025-09-22",
-      "value": 749.03
+      "value": 749.032433470381
     },
     {
       "date": "2025-09-21",
-      "value": 107.44
-    },
-    {
-      "date": "2025-09-20",
-      "value": 108.88
+      "value": 107.442214927559
     }
   ]
 }

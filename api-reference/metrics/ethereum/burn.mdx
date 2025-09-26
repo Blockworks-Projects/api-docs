@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** ETH
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,12 +49,32 @@ data = r.json()
 {
   "ethereum": [
     {
+      "date": "2025-09-25",
+      "value": 229.97666792635835
+    },
+    {
+      "date": "2025-09-25",
+      "value": 4.692473912249038
+    },
+    {
       "date": "2025-09-24",
       "value": 48.81076916504115
     },
     {
+      "date": "2025-09-24",
+      "value": 48.81076916505097
+    },
+    {
       "date": "2025-09-23",
       "value": 53.23043356409371
+    },
+    {
+      "date": "2025-09-23",
+      "value": 53.230433564093794
+    },
+    {
+      "date": "2025-09-22",
+      "value": 76.59913925466205
     },
     {
       "date": "2025-09-22",
@@ -61,11 +82,11 @@ data = r.json()
     },
     {
       "date": "2025-09-21",
-      "value": 22.551624003509115
+      "value": 22.55162400350913
     },
     {
-      "date": "2025-09-20",
-      "value": 34.031268101461336
+      "date": "2025-09-21",
+      "value": 22.551624003509115
     }
   ]
 }
@@ -75,4 +96,4 @@ data = r.json()
 - Intervals are daily unless otherwise noted.
 - Data is updated daily and may be revised after late-arriving data.
 
-<Note>For fiat values, see **[Burn (USD)](./burn-usd)**.</Note>
+<Note>For fiat values, see **[Burn](./burn-usd)**.</Note>

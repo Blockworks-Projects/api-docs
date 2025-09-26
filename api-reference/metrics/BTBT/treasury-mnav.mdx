@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** native units
-- **Interval:** daily
+- **Denomination:** mNAV
+- **Type:** Decimal
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,12 @@ data = r.json()
 {
   "btbt": [
     {
+      "date": "2025-09-25",
+      "value": 1.5224746390794608
+    },
+    {
       "date": "2025-09-24",
-      "value": 1.6085700874679132
+      "value": 1.6082525027387284
     },
     {
       "date": "2025-09-23",

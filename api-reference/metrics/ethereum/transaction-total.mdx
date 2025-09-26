@@ -8,8 +8,9 @@ mode: "wide"
 
 ## Overview
 
-- **Unit:** count
-- **Interval:** daily
+- **Denomination:** Count
+- **Type:** Integer
+- **Interval:** Daily
 - **Source:** Blockworks
 
 ## Example Request
@@ -48,8 +49,24 @@ data = r.json()
 {
   "ethereum": [
     {
+      "date": "2025-09-25",
+      "value": 1624004
+    },
+    {
+      "date": "2025-09-25",
+      "value": 303194
+    },
+    {
       "date": "2025-09-24",
       "value": 1597810
+    },
+    {
+      "date": "2025-09-24",
+      "value": 1597810
+    },
+    {
+      "date": "2025-09-23",
+      "value": 1688051
     },
     {
       "date": "2025-09-23",
@@ -60,12 +77,16 @@ data = r.json()
       "value": 1588927
     },
     {
+      "date": "2025-09-22",
+      "value": 1588927
+    },
+    {
       "date": "2025-09-21",
       "value": 1418164
     },
     {
-      "date": "2025-09-20",
-      "value": 1589396
+      "date": "2025-09-21",
+      "value": 1418164
     }
   ]
 }
