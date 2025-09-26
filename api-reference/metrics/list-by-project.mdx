@@ -78,11 +78,15 @@ A successful response returns a paginated list of metric definitions for the spe
       "parameters": {
         "start_date": { "type": "date", "default": "2000-01-01", "description": "Start date (inclusive)" },
         "end_date": { "type": "date", "default": "3000-01-01", "description": "End date (inclusive)" }
-      }
+      },
+      "aggregation": "LAST",
+      "category": "Financials",
+      "denomination": "USD",
+      "updated_at": 1758867864
     }
   ],
-  "next": null,
-  "meta": { "request_id": "req_123" }
+  "total": 25,
+  "page": 1
 }
 ```
 
@@ -91,12 +95,17 @@ A successful response returns a paginated list of metric definitions for the spe
 | Field | Type | Description |
 |---|---|---|
 | `name` | string | Human-readable metric name |
-| `description` | string | What the metric measures and how it’s intended to be used |
+| `description` | string | What the metric measures and how it's intended to be used |
 | `identifier` | string | Stable key used with `GET /v1/metrics/{identifier}` |
 | `project` | string | Chain/project slug (e.g., `ethereum`, `base`) |
 | `source` | string | Data lineage owner (e.g., Blockworks) |
 | `data_type` | string | Series shape and units (e.g., `timeseries_usd`, `timeseries_float`) |
 | `parameters` | object | Supported query parameters when fetching this series |
+| `interval` | string | Data frequency (e.g., `daily`) |
+| `aggregation` | string | How values are aggregated (e.g., `SUM`, `LAST`) |
+| `category` | string | Metric classification (e.g., `Financials`, `Treasury`) |
+| `denomination` | string | Currency/unit designation (e.g., `USD`, `ETH`) |
+| `updated_at` | integer | Unix timestamp of last update |
 
 ## Pagination
 

@@ -47,12 +47,12 @@ A successful response returns a paginated list of metric definitions, with the f
 {
   "data": [
     {
-      "name": "Issuance",
-      "description": "Newly issued tokens that are distributed to participants (such as validators, miners, or stakers) as compensation for participating in consensus.",
-      "identifier": "issuance",
-      "project": "ethereum",
+      "name": "NAV (USD)",
+      "description": "Dollar value of crypto assets (does not include cash)",
+      "identifier": "treasury-nav-total-usd",
+      "project": "CEP",
       "source": "Blockworks",
-      "data_type": "timeseries_float",
+      "data_type": "timeseries_usd",
       "parameters": {
         "end_date": {
           "type": "date",
@@ -66,13 +66,14 @@ A successful response returns a paginated list of metric definitions, with the f
         }
       },
       "interval": "daily",
-      "aggregation": "SUM",
-      "category": "Financials",
-      "updated_at": 1755151418
-    },
-    // ... 99 other metrics
+      "aggregation": "LAST",
+      "category": "Treasury",
+      "denomination": "USD",
+      "updated_at": 1758867864
+    }
+    // ... 399 other metrics
   ],
-  "total": 114,
+  "total": 400,
   "page": 1
 }
 ```
@@ -98,8 +99,9 @@ A successful response returns a paginated list of metric definitions, with the f
 | `data_type` | string | Shape/units of the series (e.g., `timeseries_usd`, `timeseries_float`) |
 | `parameters` | object | Supported query parameters for retrieving the series |
 | `interval` | string | Data frequency (e.g., `daily`) |
-| `aggregation` | string | How values are aggregated (e.g., `SUM`) |
-| `category` | string | Metric classification (e.g., `Financials`) |
+| `aggregation` | string | How values are aggregated (e.g., `SUM`, `LAST`) |
+| `category` | string | Metric classification (e.g., `Financials`, `Treasury`) |
+| `denomination` | string | Currency/unit designation (e.g., `USD`, `ETH`) |
 | `updated_at` | integer | Unix timestamp of last update |
 
 ## Pagination
@@ -109,18 +111,6 @@ This endpoint uses **page-based pagination**. Pass `limit` to set page size and 
 ```bash
 curl -H "x-api-key: YOUR_API_KEY" \\
   "https://api.blockworks.com/v1/metrics?limit=100&page=1"
-```
-
-## Error Example
-
-```json
-{
-  "error": {
-    "type": "validation_error",
-    "message": "Unsupported filter 'interval=hourly'",
-    "request_id": "abcd1234"
-  }
-}
 ```
 
 ## See also

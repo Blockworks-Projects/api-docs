@@ -20060,6 +20060,12 @@
             "nullable": true,
             "example": "Financials",
             "maxLength": 65535
+          },
+          "denomination": {
+            "type": "string",
+            "nullable": true,
+            "example": "USD",
+            "maxLength": 65535
           }
         },
         "required": [
@@ -20073,7 +20079,8 @@
           "updated_at",
           "interval",
           "aggregation",
-          "category"
+          "category",
+          "denomination"
         ]
       },
       "MetricPageResponse": {
