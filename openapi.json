@@ -11292,6 +11292,7 @@
                 "base",
                 "ethereum",
                 "katana",
+                "polymarket",
                 "solana"
               ],
               "example": "arbitrum"
@@ -11312,6 +11313,10 @@
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
+              },
+              "polymarket": {
+                "value": "polymarket",
+                "summary": "Polymarket"
               },
               "solana": {
                 "value": "solana",
@@ -16959,6 +16964,288 @@
                     {
                       "date": "2025-08-12",
                       "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/open-interest-total-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_open_interest_total_usd",
+        "summary": "Open Interest Total Usd",
+        "description": "Retrieve the 'open-interest-total-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "polymarket"
+              ],
+              "example": "polymarket"
+            },
+            "examples": {
+              "polymarket": {
+                "value": "polymarket",
+                "summary": "Polymarket"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/volume-total-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_volume_total_usd",
+        "summary": "Volume Total Usd",
+        "description": "Retrieve the 'volume-total-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "polymarket"
+              ],
+              "example": "polymarket"
+            },
+            "examples": {
+              "polymarket": {
+                "value": "polymarket",
+                "summary": "Polymarket"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/trade-count-total": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_trade_count_total",
+        "summary": "Trade Count Total",
+        "description": "Retrieve the 'trade-count-total' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "polymarket"
+              ],
+              "example": "polymarket"
+            },
+            "examples": {
+              "polymarket": {
+                "value": "polymarket",
+                "summary": "Polymarket"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678
                     }
                   ]
                 }

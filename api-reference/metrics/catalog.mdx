@@ -17,7 +17,17 @@ Total number of active addresses
 | [Base](/api-reference/metrics/base/activity/active-address-total) | `active-address-total` | Blockworks | daily | timeseries_int |
 | [Ethereum](/api-reference/metrics/ethereum/activity/active-address-total) | `active-address-total` | Blockworks | daily | timeseries_int |
 | [Katana](/api-reference/metrics/katana/activity/active-address-total) | `active-address-total` | Blockworks | daily | timeseries_int |
+| [Polymarket](/api-reference/metrics/polymarket/activity/active-address-total) | `active-address-total` | Blockworks | daily | timeseries_int |
 | [Solana](/api-reference/metrics/solana/activity/active-address-total) | `active-address-total` | Blockworks | daily | timeseries_int |
+
+### Trade Count
+
+Total number of trades taken
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [Polymarket](/api-reference/metrics/polymarket/activity/trade-count-total) | `trade-count-total` | Blockworks | daily | timeseries_int |
 
 ### Transactions (Failed)
 
@@ -110,11 +120,20 @@ Daily number of all transactions.
 | [Katana](/api-reference/metrics/katana/activity/transaction-total) | `transaction-total` | Blockworks | daily | timeseries_int |
 | [Solana](/api-reference/metrics/solana/activity/transaction-total) | `transaction-total` | Blockworks | daily | timeseries_int |
 
+### Trading Volume
+
+Total amount of trading volume. Does not represent open positions
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [Polymarket](/api-reference/metrics/polymarket/activity/volume-total-usd) | `volume-total-usd` | Blockworks | daily | timeseries_usd |
+
 # ETF
 
 ### Total ETF Flows
 
-Total ETF flows for Solana ETFs
+Total ETF flows for Ether ETFs
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -208,7 +227,7 @@ Newly issued tokens that are distributed to participants (such as validators, mi
 
 ### MEV Tips
 
-Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders or leaders for faster transaction execution, MEV capture, or MEV protection.
+Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders for faster transaction execution, MEV capture, or MEV protection.
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -218,7 +237,7 @@ Additional fees for using out-of-protocol systems that enables users to send tra
 
 ### MEV Tips (USD)
 
-Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders or leaders for faster transaction execution, MEV capture, or MEV protection.
+Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders for faster transaction execution, MEV capture, or MEV protection.
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -561,6 +580,15 @@ Token graduated during the specified time period for given launchpad.
 | [Other Launchpads](/api-reference/metrics/other-launchpads/token/launchpad-tokens-graduated) | `launchpad-tokens-graduated` | Blockworks | daily | timeseries_int |
 | [Pumpfun](/api-reference/metrics/pumpfun/token/launchpad-tokens-graduated) | `launchpad-tokens-graduated` | Blockworks | daily | timeseries_int |
 | [Raydium](/api-reference/metrics/raydium/token/launchpad-tokens-graduated) | `launchpad-tokens-graduated` | Blockworks | daily | timeseries_int |
+
+### Open Interest
+
+Total amount of contracts outstanding in USD
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [Polymarket](/api-reference/metrics/polymarket/token/open-interest-total-usd) | `open-interest-total-usd` | Blockworks | daily | timeseries_usd |
 
 ### Token FDV
 
