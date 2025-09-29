@@ -46,6 +46,14 @@
             ]
           },
           {
+            "group": "Charts",
+            "pages": [
+              "api-reference/charts/list",
+              "api-reference/charts/get-data",
+              "api-reference/charts/get-data-with-slug"
+            ]
+          },
+          {
             "group": "Token Transparency",
             "pages": [
               "api-reference/token-transparency/list",
