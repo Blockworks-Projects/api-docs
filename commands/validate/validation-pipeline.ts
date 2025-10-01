@@ -166,19 +166,16 @@ const displayChanges = (metrics: Metric[], added: string[], removed: string[]) =
     text.subheader(`📈 ${added.length} New Metrics Detected:`)
     const grouped = groupMetricsByProject(metrics, added)
     displayGroupedMetrics(grouped, text.detail)
-    console.log()
   }
 
   if (removed.length > 0) {
     text.warn(`📉 ${removed.length} Missing Metrics Detected:`)
     const grouped = groupRemovedMetrics(removed)
     displayGroupedMetrics(grouped, text.warnDetail)
-    console.log()
   }
 
   if (added.length === 0 && removed.length === 0) {
-    text.pass('✅ No metric changes detected')
-    console.log()
+    text.pass('No metric changes detected')
   }
 }
 
@@ -196,13 +193,11 @@ const displayOmittedMetrics = (omitted: Metric[]) => {
         text.warnDetail(`${project}/${item.identifier}: ${item.description.substring(0, 60)}...`)
       })
     })
-  console.log()
 }
 
 const displayApiErrors = () => {
   if (apiErrors.length === 0) {
-    text.pass('✅ No API errors')
-    console.log()
+    text.pass('No API errors')
     return
   }
 
@@ -210,13 +205,11 @@ const displayApiErrors = () => {
   apiErrors.forEach(error => {
     text.warnDetail(`${error.url} → ${error.status} ${error.message}`)
   })
-  console.log()
 }
 
 const displayValidationIssues = (validationResult: any) => {
   if (!validationResult || validationResult.issues.length === 0) {
-    text.pass('✅ No validation issues')
-    console.log()
+    text.pass('No validation issues')
     return
   }
 
@@ -248,8 +241,6 @@ const displayValidationIssues = (validationResult: any) => {
       text.warnDetail(`  ${issue.metric.identifier}: ${issue.issue}`)
     })
   })
-
-  console.log()
 }
 
 const displayValidationStats = (results: ValidationResults) => {

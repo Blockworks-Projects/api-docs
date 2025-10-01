@@ -14,7 +14,7 @@ export const detail = (text: string): void => console.log(chalk.grey(`   ${text}
 export const skip = (text: string): void => console.log('   ', chalk.grey.strikethrough(text))
 
 // passed message
-export const pass = (...args: any[]): void => console.log(chalk.grey('   ✓', ...args))
+export const pass = (...args: any[]): void => console.log(chalk.green('   ✓'), chalk.grey(...args))
 
 // failed message
 export const fail = (...args: any[]): void => console.log(c.fail('   ✗', ...args))
