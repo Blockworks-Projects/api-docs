@@ -874,6 +874,16 @@
                 ]
               },
               {
+                "group": "Polymarket",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/polymarket/active-address-total",
+                  "api-reference/metrics/polymarket/open-interest-total-usd",
+                  "api-reference/metrics/polymarket/trade-count-total",
+                  "api-reference/metrics/polymarket/volume-total-usd"
+                ]
+              },
+              {
                 "group": "Pumpfun",
                 "icon": "cube",
                 "pages": [
@@ -1056,7 +1066,7 @@
                 ]
               }
             ],
-            "tag": "94"
+            "tag": "95"
           },
           {
             "group": "Metrics: ETFs",
