@@ -1491,6 +1491,12 @@
         ]
       },
       {
+        "tab": "Projects Supported",
+        "pages": [
+          "projects-supported"
+        ]
+      },
+      {
         "tab": "API Reference",
         "openapi": "/openapi.json"
       }
