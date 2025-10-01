@@ -46,6 +46,13 @@
             ]
           },
           {
+            "group": "Chart Data",
+            "pages": [
+              "api-reference/charts/list",
+              "api-reference/charts/get-chart-data"
+            ]
+          },
+          {
             "group": "Token Transparency",
             "pages": [
               "api-reference/token-transparency/list",
@@ -1481,6 +1488,12 @@
             ],
             "tag": "22"
           }
+        ]
+      },
+      {
+        "tab": "Projects Supported",
+        "pages": [
+          "projects-supported"
         ]
       },
       {

@@ -16984,6 +16984,167 @@
         ]
       }
     },
+    "/v1/charts": {
+      "get": {
+        "operationId": "ChartsController_list",
+        "summary": "List Charts",
+        "description": "Retrieve a paginated list of available charts.",
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2147483647,
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 100
+            }
+          },
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChartPageResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": ["Charts"],
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/charts/{visualizationId}/data": {
+      "get": {
+        "operationId": "ChartsController_getData",
+        "summary": "Get Chart Data",
+        "description": "Retrieve data for a specific chart or dashboard visualization",
+        "parameters": [
+          {
+            "name": "visualizationId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2147483647,
+              "default": 1
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100000,
+              "default": 10000
+            }
+          },
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            }
+          },
+          {
+            "name": "select",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 255
+              }
+            }
+          },
+          {
+            "name": "order_by",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 255
+            }
+          },
+          {
+            "name": "order_dir",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": ["asc", "desc"],
+              "default": "asc"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChartDataPageResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "tags": ["Charts"],
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
     "/v1/metrics/open-interest-total-usd": {
       "get": {
         "operationId": "MetricController_getResults_v1_open_interest_total_usd",
@@ -17071,6 +17232,7 @@
             "description": "Not Found"
           }
         },
+        "tags": ["open-interest-total-usd"],
         "security": [
           {
             "x-api-key": []
@@ -21107,6 +21269,83 @@
           "path",
           "mime_type",
           "metadata"
+        ]
+      },
+      "ChartPageResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChartResponse"
+            }
+          },
+          "total": {
+            "type": "integer"
+          },
+          "page": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "data",
+          "total",
+          "page"
+        ]
+      },
+      "ChartResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "dashboards": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "dashboards"
+        ]
+      },
+      "ChartDataPageResponse": {
+        "type": "object",
+        "description": "Chart data response with dynamic columns. Each chart returns different data structure based on its configuration. Common fields include 'dt' (datetime) and various metric columns.",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": true,
+              "example": {
+                "dt": "2024-11-12T00:00:00.000Z",
+                "btc_block_subsidy_usd": 40198390.03341997,
+                "btc_profit": -38437320.788166374,
+                "btc_txn_fees": 1761069.2452535906,
+                "eth_block_subsidy_usd": 8466344.28558703,
+                "eth_profit": 4042623.518063875,
+                "eth_txn_fees": 12508967.803650904
+              }
+            }
+          },
+          "total": {
+            "type": "integer"
+          },
+          "page": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "data",
+          "total",
+          "page"
         ]
       }
     }
