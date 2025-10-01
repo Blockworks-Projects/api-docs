@@ -16983,7 +16983,7 @@
       "get": {
         "operationId": "ChartsController_list",
         "summary": "List Charts",
-        "description": "Retrieve a paginated list of available charts and visualizations",
+        "description": "Retrieve a paginated list of available charts.",
         "parameters": [
           {
             "name": "page",
@@ -17040,122 +17040,14 @@
         ]
       }
     },
-    "/v1/charts/{visualizationIdOrDashboardSlug}/data": {
+    "/v1/charts/{visualizationId}/data": {
       "get": {
         "operationId": "ChartsController_getData",
         "summary": "Get Chart Data",
         "description": "Retrieve data for a specific chart or dashboard visualization",
         "parameters": [
           {
-            "name": "visualizationIdOrDashboardSlug",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "page",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 2147483647,
-              "default": 1
-            }
-          },
-          {
-            "name": "limit",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 100000,
-              "default": 10000
-            }
-          },
-          {
-            "name": "search",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "maxLength": 255
-            }
-          },
-          {
-            "name": "select",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "maxLength": 255
-              }
-            }
-          },
-          {
-            "name": "order_by",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "maxLength": 255
-            }
-          },
-          {
-            "name": "order_dir",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "enum": ["asc", "desc"],
-              "default": "asc"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChartDataPageResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          }
-        },
-        "tags": ["Charts"],
-        "security": [
-          {
-            "x-api-key": []
-          }
-        ]
-      }
-    },
-    "/v1/charts/{visualizationIdOrDashboardSlug}/{visualizationSlug}/data": {
-      "get": {
-        "operationId": "ChartsController_getDataWithSlug",
-        "summary": "Get Chart Data with Visualization Slug",
-        "description": "Retrieve data for a specific chart visualization with both dashboard and visualization slugs",
-        "parameters": [
-          {
-            "name": "visualizationIdOrDashboardSlug",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "visualizationSlug",
+            "name": "visualizationId",
             "required": true,
             "in": "path",
             "schema": {

@@ -46,11 +46,10 @@
             ]
           },
           {
-            "group": "Charts",
+            "group": "Chart Data",
             "pages": [
               "api-reference/charts/list",
-              "api-reference/charts/get-data",
-              "api-reference/charts/get-data-with-slug"
+              "api-reference/charts/get-chart-data"
             ]
           },
           {

@@ -1,13 +1,14 @@
 ---
 title: 'Get Chart Data'
-description: 'Retrieve data for a specific chart or dashboard visualization'
-openapi: 'GET /v1/charts/{visualizationIdOrDashboardSlug}/data'
+description: 'Retrieve underlying data for a specific chart.'
+openapi: 'GET /v1/charts/{visualizationId}/data'
 mode: 'wide'
 ---
 
 ## Overview
 
-Fetch chart data by **visualization ID** or **dashboard slug**. This endpoint returns the underlying data powering charts and visualizations, with support for pagination, filtering, and sorting.
+Fetch chart data by **chart ID**. This endpoint returns the underlying data powering charts and visualizations, with support for pagination, filtering,
+and sorting. Use [List Charts](/api-reference/charts/list) to fetch a list of charts or open the chart on https://app.blockworksresearch.com/analytics to grab the id from its URL.
 
 ## Example Request
 
