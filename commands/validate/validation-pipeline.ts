@@ -5,6 +5,10 @@ import { runFetchingStage } from '../sync/stages/stage-fetching'
 import { compareMetrics } from '../sync/stages/stage-scanning/metrics-catalog'
 import { runValidationStage } from '../sync/stages/stage-validation'
 import { generateValidationReport } from '../sync/stages/stage-validation/validation-reporter'
+import { runShapeCheckingStage } from '../sync/stages/stage-shape-checking'
+import { fetchAssetSampleData } from '../sync/stages/stage-fetching/assets-api'
+import { fetchTransparencyData } from '../sync/templates/transparency'
+import { fetch } from '../sync/lib/api-client'
 import { writeTextFile } from '../sync/lib/file-operations'
 import * as text from '../sync/lib/text'
 
@@ -15,6 +19,7 @@ type ValidationResults = {
   removed: string[]
   omittedMetrics: Metric[]
   validationResult: any
+  shapeCheckResult?: any
   hasIssues: boolean
 }
 
@@ -72,6 +77,65 @@ const saveValidationReport = async (validationResult: any) => {
   }
 }
 
+/**
+ * Fetch and check shapes for non-metric endpoints
+ */
+const runShapeCheckingForValidation = async () => {
+  const responses: Array<{ endpoint: string, params?: Record<string, string>, response: any }> = []
+
+  // Fetch asset expand options
+  const expandOptions = ['markets', 'ohlcv_last_24_h', 'price', 'sector', 'supply']
+
+  for (const option of expandOptions) {
+    const sampleData = await fetchAssetSampleData(option)
+    if (sampleData) {
+      responses.push({
+        endpoint: '/assets/ethereum',
+        params: { expand: option },
+        response: sampleData
+      })
+    }
+  }
+
+  // Fetch market stats
+  try {
+    const marketStatsResponse = await fetch('/market-stats', { limit: '1' }) as any
+    if (marketStatsResponse) {
+      responses.push({
+        endpoint: '/market-stats',
+        params: { limit: '1' },
+        response: marketStatsResponse
+      })
+    }
+  } catch (error) {
+    // Ignore errors, shape checking is optional
+  }
+
+  // Fetch transparency data
+  try {
+    const transparencyData = await fetchTransparencyData()
+    if (transparencyData.list) {
+      responses.push({
+        endpoint: '/transparency',
+        params: { limit: '2' },
+        response: transparencyData.list
+      })
+    }
+    if (transparencyData.single) {
+      const id = transparencyData.single.id
+      responses.push({
+        endpoint: `/transparency/${id}`,
+        params: { expand: 'asset' },
+        response: transparencyData.single
+      })
+    }
+  } catch (error) {
+    // Ignore errors, shape checking is optional
+  }
+
+  return await runShapeCheckingStage(responses)
+}
+
 export const runValidationPipeline = async (): Promise<ValidationResults> => {
   // Only fetch data, don't trigger generation
   const { existingMetrics, projects } = await runFetchingStage({
@@ -88,17 +152,23 @@ export const runValidationPipeline = async (): Promise<ValidationResults> => {
   // Compare with existing to identify changes
   const { added, removed } = compareMetrics(existingMetrics, metrics)
 
+  // Run shape checking on non-metric endpoints
+  const shapeCheckResult = await runShapeCheckingForValidation()
+
   // Save validation report if there are issues
   if (validationResult.issues.length > 0) {
     await saveValidationReport(validationResult)
   }
+
+  const totalShapeChanges = shapeCheckResult?.results?.reduce((sum: number, r: any) => sum + r.changes.length, 0) || 0
 
   const hasIssues = (
     validationResult.issues.length > 0 ||
     apiErrors.length > 0 ||
     omittedMetrics.length > 0 ||
     added.length > 0 ||
-    removed.length > 0
+    removed.length > 0 ||
+    totalShapeChanges > 0
   )
 
   return {
@@ -108,6 +178,7 @@ export const runValidationPipeline = async (): Promise<ValidationResults> => {
     removed,
     omittedMetrics,
     validationResult,
+    shapeCheckResult,
     hasIssues
   }
 }
@@ -243,8 +314,35 @@ const displayValidationIssues = (validationResult: any) => {
   })
 }
 
+const displayShapeChanges = (shapeCheckResult: any) => {
+  if (!shapeCheckResult || !shapeCheckResult.results) return
+
+  const changedEndpoints = shapeCheckResult.results.filter((r: any) => r.changes.length > 0)
+
+  if (changedEndpoints.length === 0) return
+
+  text.warnHeader(`🔄 ${changedEndpoints.length} Endpoint Shape Changes Detected:`)
+
+  changedEndpoints.forEach((result: any) => {
+    const paramStr = result.params
+      ? `?${Object.entries(result.params).map(([k, v]) => `${k}=${v}`).join('&')}`
+      : ''
+    text.warn(`${result.endpoint}${paramStr}`)
+
+    result.changes.forEach((change: any) => {
+      if (change.changeType === 'added') {
+        text.detail(`  + ${change.path}: ${change.newValue}`)
+      } else if (change.changeType === 'removed') {
+        text.detail(`  - ${change.path}: ${change.oldValue}`)
+      } else if (change.changeType === 'type_changed') {
+        text.detail(`  ~ ${change.path}: ${change.oldValue} → ${change.newValue}`)
+      }
+    })
+  })
+}
+
 const displayValidationStats = (results: ValidationResults) => {
-  const { metrics, omittedMetrics, added, removed, validationResult } = results
+  const { metrics, omittedMetrics, added, removed, validationResult, shapeCheckResult } = results
 
   text.summaryHeader('📊 Validation Summary:')
 
@@ -270,6 +368,15 @@ const displayValidationStats = (results: ValidationResults) => {
   } else {
     text.summarySuccess(`Validation Issues: {count}`, 0)
   }
+
+  if (shapeCheckResult) {
+    const totalChanges = shapeCheckResult.results.reduce((sum: number, r: any) => sum + r.changes.length, 0)
+    if (totalChanges > 0) {
+      text.summaryWarn(`Shape Changes: ${totalChanges}`)
+    } else {
+      text.summarySuccess(`Shape Changes: {count}`, 0)
+    }
+  }
 }
 
 export const displayValidationSummary = (results: ValidationResults) => {
@@ -277,5 +384,6 @@ export const displayValidationSummary = (results: ValidationResults) => {
   displayOmittedMetrics(results.omittedMetrics)
   displayApiErrors()
   displayValidationIssues(results.validationResult)
+  displayShapeChanges(results.shapeCheckResult)
   displayValidationStats(results)
 }
