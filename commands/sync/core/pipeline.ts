@@ -22,6 +22,7 @@ type PipelineResults = {
   removedDirs: string[]
   shouldContinue: boolean
   validationResult?: any
+  shapeCheckResult?: any
 }
 
 const BAD_DESCRIPTION_PATTERN = /^There (are|is) no .+ (on|in) .+$/i
@@ -88,9 +89,11 @@ export const runSyncPipeline = async ({ updateOnlyMode = false }: PipelineConfig
   
   const { added, removed } = compareMetrics(existingMetrics, metrics)
   const { removedFiles, removedDirs } = await runCleanupStage(existingMetrics, metrics, OUTPUT_DIR)
-  
+
+  let shapeCheckResult
   if (shouldContinue) {
-    await runGenerationStage({ metrics, projects: filteredProjects })
+    const generationResult = await runGenerationStage({ metrics, projects: filteredProjects })
+    shapeCheckResult = generationResult?.shapeCheckResult
   }
 
   if (validationResult.issues.length > 0) {
@@ -106,7 +109,8 @@ export const runSyncPipeline = async ({ updateOnlyMode = false }: PipelineConfig
     removedFiles,
     removedDirs,
     shouldContinue,
-    validationResult
+    validationResult,
+    shapeCheckResult
   }
 }
 
@@ -232,21 +236,21 @@ const displayValidationIssues = (validationResult: any) => {
 }
 
 const displaySummaryStats = (results: PipelineResults) => {
-  const { metrics, omittedMetrics, added, removed, shouldContinue, removedFiles, removedDirs, validationResult } = results
-  
+  const { metrics, omittedMetrics, added, removed, shouldContinue, removedFiles, removedDirs, validationResult, shapeCheckResult } = results
+
   text.summaryHeader('Sync Summary:')
   text.summarySuccess(`Output Folder: {dir}`, OUTPUT_DIR)
   text.summarySuccess(`Metric Pages: {count}`, metrics.length)
-  
+
   if (omittedMetrics.length > 0) {
     text.summaryWarn(`Omitted Pages: {count}`, omittedMetrics.length)
   }
-  
+
   const uniqueProjects = new Set(metrics.map(m => m.project)).size
   const uniqueCategories = new Set(metrics.map(m => m.category)).size
   text.summarySuccess(`Projects: {count}`, uniqueProjects)
   text.summarySuccess(`Categories: {count}`, uniqueCategories)
-  
+
   if (shouldContinue) {
     text.summarySuccess('Navigation updated')
     if (added.length > 0) text.summarySuccess(`Added Metrics: {count}`, added.length)
@@ -254,16 +258,16 @@ const displaySummaryStats = (results: PipelineResults) => {
   } else {
     text.summaryWarn('Sync skipped (no changes)')
   }
-  
+
   if (removedFiles.length > 0) text.summarySuccess(`Cleaned up files: {count}`, removedFiles.length)
   if (removedDirs.length > 0) text.summarySuccess(`Removed empty dirs: {count}`, removedDirs.length)
-  
+
   if (apiErrors.length > 0) {
     text.summaryWarn(`API Errors: ${apiErrors.length}`)
   } else {
     text.summarySuccess(`API Errors: {count}`, 0)
   }
-  
+
   if (validationResult) {
     if (validationResult.issues.length > 0) {
       text.summaryWarn(`Validation Issues: ${validationResult.issues.length}`)
@@ -271,6 +275,42 @@ const displaySummaryStats = (results: PipelineResults) => {
       text.summarySuccess(`Validation Issues: {count}`, 0)
     }
   }
+
+  if (shapeCheckResult) {
+    const totalChanges = shapeCheckResult.results.reduce((sum: number, r: any) => sum + r.changes.length, 0)
+    if (totalChanges > 0) {
+      text.summaryWarn(`Shape Changes: ${totalChanges}`)
+    } else {
+      text.summarySuccess(`Shape Changes: {count}`, 0)
+    }
+  }
+}
+
+const displayShapeChanges = (shapeCheckResult: any) => {
+  if (!shapeCheckResult || !shapeCheckResult.results) return
+
+  const changedEndpoints = shapeCheckResult.results.filter((r: any) => r.changes.length > 0)
+
+  if (changedEndpoints.length === 0) return
+
+  text.warnHeader(`🔄 ${changedEndpoints.length} Endpoint Shape Changes Detected:`)
+
+  changedEndpoints.forEach((result: any) => {
+    const paramStr = result.params
+      ? `?${Object.entries(result.params).map(([k, v]) => `${k}=${v}`).join('&')}`
+      : ''
+    text.warn(`${result.endpoint}${paramStr}`)
+
+    result.changes.forEach((change: any) => {
+      if (change.changeType === 'added') {
+        text.detail(`  + ${change.path}: ${change.newValue}`)
+      } else if (change.changeType === 'removed') {
+        text.detail(`  - ${change.path}: ${change.oldValue}`)
+      } else if (change.changeType === 'type_changed') {
+        text.detail(`  ~ ${change.path}: ${change.oldValue} → ${change.newValue}`)
+      }
+    })
+  })
 }
 
 export const displaySummary = (results: PipelineResults) => {
@@ -279,5 +319,6 @@ export const displaySummary = (results: PipelineResults) => {
   displayOmittedMetrics(results.omittedMetrics)
   displayApiErrors()
   displayValidationIssues(results.validationResult)
+  displayShapeChanges(results.shapeCheckResult)
   displaySummaryStats(results)
 }

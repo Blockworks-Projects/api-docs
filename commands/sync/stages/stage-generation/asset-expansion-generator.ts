@@ -16,7 +16,7 @@ export const generateAssetExpansionOption = async (option: string) => {
   const sampleData = await fetchAssetSampleData(option)
   let title = toTitleCase(option.replace(/[._]/g, ' '))
   title = title.replace(/\bOhlcv\b/g, 'OHLCV')
-  
+
   const content = getAssetExpansionPage({
     option,
     sampleData,
@@ -29,4 +29,6 @@ export const generateAssetExpansionOption = async (option: string) => {
   })
 
   await writeFile(filePath, content, 'utf-8')
+
+  return { option, sampleData }
 }

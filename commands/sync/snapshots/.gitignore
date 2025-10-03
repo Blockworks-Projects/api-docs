@@ -1,0 +1,5 @@
+# Ignore all snapshot files
+*.json
+
+# Keep the directory structure
+!.gitignore

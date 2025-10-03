@@ -6,10 +6,11 @@ import { updateAssetExpansionOptions } from './asset-expansion-options-generator
 import { syncMiscMetrics } from './misc-metrics-generator'
 import { generateMetricsCatalog } from './catalog-generator'
 import { generateProjectsPage } from './projects-page-generator'
+import { runShapeCheckingStage } from '../stage-shape-checking'
 import * as text from '../../lib/text'
 import { createProgressBar } from '../../lib/createProgressBar'
 
-type GenerationStageConfig = { 
+type GenerationStageConfig = {
   metrics: Metric[]
   projects: Map<string, Project>
 }
@@ -22,14 +23,32 @@ export const runGenerationStage = async ({ metrics, projects }: GenerationStageC
 
   await updateOpenApiSpec(metrics)
 
-  const expandOptions = await updateAssetExpansionOptions()
-  await syncMiscMetrics()
+  const { expandOptions, responses } = await updateAssetExpansionOptions()
+
+  // Run shape checking on asset expansion responses
+  const endpointResponses = responses.map(({ option, sampleData }) => ({
+    endpoint: '/assets/ethereum',
+    params: { expand: option },
+    response: sampleData
+  }))
+
+  const miscResult = await syncMiscMetrics()
+
+  // Combine all endpoint responses for shape checking
+  const allEndpointResponses = [
+    ...endpointResponses,
+    ...(miscResult.responses || [])
+  ]
+
+  const shapeCheckResult = await runShapeCheckingStage(allEndpointResponses)
 
   // Generate projects page
   const projectsList = Array.from(projects.values())
   await generateProjectsPage(projectsList)
 
   await updateNavigation(metrics, projects, expandOptions)
+
+  return { shapeCheckResult }
 }
 
 const generateMetricPages = async ({ metrics }: { metrics: Metric[] }) => {

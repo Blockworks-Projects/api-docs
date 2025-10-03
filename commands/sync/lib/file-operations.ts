@@ -74,3 +74,8 @@ export const fileExists = async (path: string): Promise<boolean> => {
  */
 export const readTextFile = async (filePath: string): Promise<string> =>
   readFile(filePath, 'utf-8')
+
+/**
+ * Alias for fileExists (used by snapshot manager)
+ */
+export const exists = fileExists

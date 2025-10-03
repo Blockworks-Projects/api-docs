@@ -80,8 +80,8 @@ export const updateAssetExpansionOptions = async (): Promise<string[]> => {
     text.warn('No BWR_API_KEY found, using placeholder examples')
   }
 
-  // Generate pages in parallel like metrics
-  await Promise.all(expandOptions.map(option => generateAssetExpansionOption(option)))
+  // Generate pages in parallel like metrics and collect responses
+  const results = await Promise.all(expandOptions.map(option => generateAssetExpansionOption(option)))
 
-  return expandOptions
+  return { expandOptions, responses: results }
 }
