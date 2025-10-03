@@ -56,7 +56,7 @@ export const generateMetricsCatalog = async (metrics: Metric[]): Promise<void> =
         .sort((a, b) => a.project.localeCompare(b.project))
         .map(metric => {
           const categoryFolder = metric.category.toLowerCase().replace(/\s+/g, '-')
-          const projectLink = `/api-reference/metrics/${metric.project}/${categoryFolder}/${metric.identifier}`
+          const projectLink = `/api-reference/metrics/${metric.project}/${metric.identifier}`
           return `| [${toTitleCase(metric.project)}](${projectLink}) | \`${metric.identifier}\` | ${metric.source} | ${metric.interval} | ${metric.data_type} |`
         })
         .join('\n')

@@ -17037,7 +17037,9 @@
             "description": "Bad Request"
           }
         },
-        "tags": ["Charts"],
+        "tags": [
+          "Charts"
+        ],
         "security": [
           {
             "x-api-key": []
@@ -17117,7 +17119,10 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "enum": ["asc", "desc"],
+              "enum": [
+                "asc",
+                "desc"
+              ],
               "default": "asc"
             }
           }
@@ -17137,7 +17142,9 @@
             "description": "Bad Request"
           }
         },
-        "tags": ["Charts"],
+        "tags": [
+          "Charts"
+        ],
         "security": [
           {
             "x-api-key": []
@@ -17232,7 +17239,9 @@
             "description": "Not Found"
           }
         },
-        "tags": ["open-interest-total-usd"],
+        "tags": [
+          "open-interest-total-usd"
+        ],
         "security": [
           {
             "x-api-key": []
