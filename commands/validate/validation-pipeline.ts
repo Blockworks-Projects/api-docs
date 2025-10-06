@@ -1,16 +1,15 @@
+import { Metric, Project } from '../sync/classes'
+import { fetch } from '../sync/lib/api-client'
 import { apiErrors } from '../sync/lib/api-errors'
 import { OUTPUT_DIR } from '../sync/lib/constants'
-import { Metric, Project } from '../sync/classes'
-import { runFetchingStage } from '../sync/stages/stage-fetching'
-import { compareMetrics } from '../sync/stages/stage-scanning/metrics-catalog'
-import { runValidationStage } from '../sync/stages/stage-validation'
-import { generateValidationReport } from '../sync/stages/stage-validation/validation-reporter'
-import { runShapeCheckingStage } from '../sync/stages/stage-shape-checking'
-import { fetchAssetSampleData } from '../sync/stages/stage-fetching/assets-api'
-import { fetchTransparencyData } from '../sync/templates/transparency'
-import { fetch } from '../sync/lib/api-client'
 import { writeTextFile } from '../sync/lib/file-operations'
 import * as text from '../sync/lib/text'
+import { runFetchingStage } from '../sync/stages/stage-fetching'
+import { compareMetrics } from '../sync/stages/stage-scanning/metrics-catalog'
+import { runShapeCheckingStage } from '../sync/stages/stage-shape-checking'
+import { runValidationStage } from '../sync/stages/stage-validation'
+import { generateValidationReport } from '../sync/stages/stage-validation/validation-reporter'
+import { CHECK_ENDPOINTS } from '../check-endpoints'
 
 type ValidationResults = {
   projects: Map<string, Project>
@@ -77,63 +76,19 @@ const saveValidationReport = async (validationResult: any) => {
   }
 }
 
-/**
- * Fetch and check shapes for non-metric endpoints
- */
 const runShapeCheckingForValidation = async () => {
-  const responses: Array<{ endpoint: string, params?: Record<string, string>, response: any }> = []
+  const responses = await Promise.all(
+    CHECK_ENDPOINTS.map(async ({ path, query }) => {
+      try {
+        const response = await fetch(path, query)
+        return response ? { endpoint: path, params: query, response } : null
+      } catch {
+        return null // Shape checking is optional
+      }
+    })
+  )
 
-  // Fetch asset expand options
-  const expandOptions = ['markets', 'ohlcv_last_24_h', 'price', 'sector', 'supply']
-
-  for (const option of expandOptions) {
-    const sampleData = await fetchAssetSampleData(option)
-    if (sampleData) {
-      responses.push({
-        endpoint: '/assets/ethereum',
-        params: { expand: option },
-        response: sampleData
-      })
-    }
-  }
-
-  // Fetch market stats
-  try {
-    const marketStatsResponse = await fetch('/market-stats', { limit: '1' }) as any
-    if (marketStatsResponse) {
-      responses.push({
-        endpoint: '/market-stats',
-        params: { limit: '1' },
-        response: marketStatsResponse
-      })
-    }
-  } catch (error) {
-    // Ignore errors, shape checking is optional
-  }
-
-  // Fetch transparency data
-  try {
-    const transparencyData = await fetchTransparencyData()
-    if (transparencyData.list) {
-      responses.push({
-        endpoint: '/transparency',
-        params: { limit: '2' },
-        response: transparencyData.list
-      })
-    }
-    if (transparencyData.single) {
-      const id = transparencyData.single.id
-      responses.push({
-        endpoint: `/transparency/${id}`,
-        params: { expand: 'asset' },
-        response: transparencyData.single
-      })
-    }
-  } catch (error) {
-    // Ignore errors, shape checking is optional
-  }
-
-  return await runShapeCheckingStage(responses)
+  return await runShapeCheckingStage(responses.filter(Boolean) as any[])
 }
 
 export const runValidationPipeline = async (): Promise<ValidationResults> => {
@@ -183,29 +138,19 @@ export const runValidationPipeline = async (): Promise<ValidationResults> => {
   }
 }
 
-const groupMetricsByProject = (metrics: Metric[], metricKeys: string[]) => {
+const groupByProject = (keys: string[], metrics?: Metric[]) => {
   const grouped = new Map<string, string[]>()
 
-  metricKeys.forEach(key => {
-    const metric = metrics.find(m => `${m.project}/${m.identifier}` === key)
-    if (metric) {
-      const identifiers = grouped.get(metric.project) || []
-      identifiers.push(metric.identifier)
-      grouped.set(metric.project, identifiers)
+  keys.forEach(key => {
+    const [project, identifier] = metrics
+      ? [metrics.find(m => `${m.project}/${m.identifier}` === key)?.project, metrics.find(m => `${m.project}/${m.identifier}` === key)?.identifier]
+      : key.split('/')
+
+    if (project && identifier) {
+      const identifiers = grouped.get(project) || []
+      identifiers.push(identifier)
+      grouped.set(project, identifiers)
     }
-  })
-
-  return grouped
-}
-
-const groupRemovedMetrics = (removedKeys: string[]) => {
-  const grouped = new Map<string, string[]>()
-
-  removedKeys.forEach(key => {
-    const [project, identifier] = key.split('/')
-    const identifiers = grouped.get(project!) || []
-    identifiers.push(identifier!)
-    grouped.set(project!, identifiers)
   })
 
   return grouped
@@ -235,14 +180,12 @@ const displayGroupedMetrics = (grouped: Map<string, string[]>, displayFn: (text:
 const displayChanges = (metrics: Metric[], added: string[], removed: string[]) => {
   if (added.length > 0) {
     text.subheader(`📈 ${added.length} New Metrics Detected:`)
-    const grouped = groupMetricsByProject(metrics, added)
-    displayGroupedMetrics(grouped, text.detail)
+    displayGroupedMetrics(groupByProject(added, metrics), text.detail)
   }
 
   if (removed.length > 0) {
     text.warn(`📉 ${removed.length} Missing Metrics Detected:`)
-    const grouped = groupRemovedMetrics(removed)
-    displayGroupedMetrics(grouped, text.warnDetail)
+    displayGroupedMetrics(groupByProject(removed), text.warnDetail)
   }
 
   if (added.length === 0 && removed.length === 0) {
@@ -267,76 +210,55 @@ const displayOmittedMetrics = (omitted: Metric[]) => {
 }
 
 const displayApiErrors = () => {
-  if (apiErrors.length === 0) {
-    text.pass('No API errors')
-    return
-  }
+  if (apiErrors.length === 0) return text.pass('No API errors')
 
   text.warn(`🔥 ${apiErrors.length} API Errors:`)
-  apiErrors.forEach(error => {
-    text.warnDetail(`${error.url} → ${error.status} ${error.message}`)
-  })
+  apiErrors.forEach(error => text.warnDetail(`${error.url} → ${error.status} ${error.message}`))
 }
 
 const displayValidationIssues = (validationResult: any) => {
-  if (!validationResult || validationResult.issues.length === 0) {
-    text.pass('No validation issues')
-    return
-  }
+  if (!validationResult?.issues.length) return text.pass('No validation issues')
 
   text.warnHeader(`🔍 ${validationResult.issues.length} Validation Issues:`)
 
-  // Group by issue type
   const issueTypes = new Map<string, number>()
-  validationResult.issues.forEach((issue: any) => {
-    const type = issue.issue.split(':')[0]
-    issueTypes.set(type || 'Unknown', (issueTypes.get(type || 'Unknown') || 0) + 1)
-  })
-
-  issueTypes.forEach((count, type) => {
-    text.warn(`  ${count}x ${type}`)
-  })
-
-  // Show details by project
   const issuesByProject = new Map<string, any[]>()
+
   validationResult.issues.forEach((issue: any) => {
+    const type = issue.issue.split(':')[0] || 'Unknown'
+    issueTypes.set(type, (issueTypes.get(type) || 0) + 1)
+
     const list = issuesByProject.get(issue.metric.project) || []
     list.push(issue)
     issuesByProject.set(issue.metric.project, list)
   })
 
+  issueTypes.forEach((count, type) => text.warn(`  ${count}x ${type}`))
+
   text.warnDetail('\nDetails by project:')
   issuesByProject.forEach((projectIssues, project) => {
     text.warnDetail(`${project}:`)
-    projectIssues.forEach(issue => {
-      text.warnDetail(`  ${issue.metric.identifier}: ${issue.issue}`)
-    })
+    projectIssues.forEach(issue => text.warnDetail(`  ${issue.metric.identifier}: ${issue.issue}`))
   })
 }
 
 const displayShapeChanges = (shapeCheckResult: any) => {
-  if (!shapeCheckResult || !shapeCheckResult.results) return
-
-  const changedEndpoints = shapeCheckResult.results.filter((r: any) => r.changes.length > 0)
-
-  if (changedEndpoints.length === 0) return
+  const changedEndpoints = shapeCheckResult?.results?.filter((r: any) => r.changes.length > 0)
+  if (!changedEndpoints?.length) return
 
   text.warnHeader(`🔄 ${changedEndpoints.length} Endpoint Shape Changes Detected:`)
 
   changedEndpoints.forEach((result: any) => {
-    const paramStr = result.params
-      ? `?${Object.entries(result.params).map(([k, v]) => `${k}=${v}`).join('&')}`
-      : ''
+    const paramStr = result.params ? `?${Object.entries(result.params).map(([k, v]) => `${k}=${v}`).join('&')}` : ''
     text.warn(`${result.endpoint}${paramStr}`)
 
     result.changes.forEach((change: any) => {
-      if (change.changeType === 'added') {
-        text.detail(`  + ${change.path}: ${change.newValue}`)
-      } else if (change.changeType === 'removed') {
-        text.detail(`  - ${change.path}: ${change.oldValue}`)
-      } else if (change.changeType === 'type_changed') {
-        text.detail(`  ~ ${change.path}: ${change.oldValue} → ${change.newValue}`)
-      }
+      const symbols = { added: '+', removed: '-', type_changed: '~' }
+      const symbol = symbols[change.changeType as keyof typeof symbols] || '?'
+      const value = change.changeType === 'type_changed'
+        ? `${change.oldValue} → ${change.newValue}`
+        : change.newValue || change.oldValue
+      text.detail(`  ${symbol} ${change.path}: ${value}`)
     })
   })
 }
@@ -346,37 +268,22 @@ const displayValidationStats = (results: ValidationResults) => {
 
   text.summaryHeader('📊 Validation Summary:')
 
-  const uniqueProjects = new Set(metrics.map(m => m.project)).size
-  const uniqueCategories = new Set(metrics.map(m => m.category)).size
-
   text.summarySuccess(`Total Metrics: {count}`, metrics.length)
-  text.summarySuccess(`Projects: {count}`, uniqueProjects)
-  text.summarySuccess(`Categories: {count}`, uniqueCategories)
+  text.summarySuccess(`Projects: {count}`, new Set(metrics.map(m => m.project)).size)
+  text.summarySuccess(`Categories: {count}`, new Set(metrics.map(m => m.category)).size)
 
-  if (added.length > 0) text.summaryWarn(`New Metrics: {count}`, added.length)
-  if (removed.length > 0) text.summaryWarn(`Missing Metrics: {count}`, removed.length)
-  if (omittedMetrics.length > 0) text.summaryWarn(`Bad Descriptions: {count}`, omittedMetrics.length)
+  const counts = [
+    { label: 'New Metrics', count: added.length },
+    { label: 'Missing Metrics', count: removed.length },
+    { label: 'Bad Descriptions', count: omittedMetrics.length },
+    { label: 'API Errors', count: apiErrors.length },
+    { label: 'Validation Issues', count: validationResult?.issues.length || 0 },
+    { label: 'Shape Changes', count: shapeCheckResult?.results.reduce((sum: number, r: any) => sum + r.changes.length, 0) || 0 }
+  ]
 
-  if (apiErrors.length > 0) {
-    text.summaryWarn(`API Errors: {count}`, apiErrors.length)
-  } else {
-    text.summarySuccess(`API Errors: {count}`, 0)
-  }
-
-  if (validationResult && validationResult.issues.length > 0) {
-    text.summaryWarn(`Validation Issues: {count}`, validationResult.issues.length)
-  } else {
-    text.summarySuccess(`Validation Issues: {count}`, 0)
-  }
-
-  if (shapeCheckResult) {
-    const totalChanges = shapeCheckResult.results.reduce((sum: number, r: any) => sum + r.changes.length, 0)
-    if (totalChanges > 0) {
-      text.summaryWarn(`Shape Changes: ${totalChanges}`)
-    } else {
-      text.summarySuccess(`Shape Changes: {count}`, 0)
-    }
-  }
+  counts.forEach(({ label, count }) => {
+    count > 0 ? text.summaryWarn(`${label}: {count}`, count) : text.summarySuccess(`${label}: {count}`, 0)
+  })
 }
 
 export const displayValidationSummary = (results: ValidationResults) => {
