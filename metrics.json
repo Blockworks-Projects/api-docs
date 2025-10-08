@@ -120,6 +120,78 @@
     "denomination": "USD"
   },
   {
+    "name": "Volume",
+    "description": "Amount of trading volume in USD",
+    "identifier": "volume-usd",
+    "project": "solfi",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Trading",
+    "denomination": "USD"
+  },
+  {
+    "name": "NAV",
+    "description": "Dollar value of crypto assets (does not include cash)",
+    "identifier": "treasury-nav-total-usd",
+    "project": "ETHZ",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Treasury",
+    "denomination": "USD"
+  },
+  {
+    "name": "Active Addresses",
+    "description": "Total number of active addresses",
+    "identifier": "active-address-total",
+    "project": "polymarket",
+    "source": "Blockworks",
+    "data_type": "timeseries_int",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Activity",
+    "denomination": "Count"
+  },
+  {
     "name": "Active Addresses",
     "description": "Total number of active addresses",
     "identifier": "active-address-total",
@@ -264,54 +336,6 @@
     "denomination": "USD"
   },
   {
-    "name": "Volume",
-    "description": "Amount of trading volume in USD",
-    "identifier": "volume-usd",
-    "project": "solfi",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Trading",
-    "denomination": "USD"
-  },
-  {
-    "name": "NAV",
-    "description": "Dollar value of crypto assets (does not include cash)",
-    "identifier": "treasury-nav-total-usd",
-    "project": "ETHZ",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Treasury",
-    "denomination": "USD"
-  },
-  {
     "name": "L1 Fees",
     "description": "An OP Stack fee meant to estimate the costs associated with posting data to the L1 that is attributed to the user's transaction fee",
     "identifier": "transaction-l1-fee-total-usd",
@@ -429,6 +453,78 @@
     "interval": "daily",
     "aggregation": "LAST",
     "category": "Treasury",
+    "denomination": "USD"
+  },
+  {
+    "name": "Priority Fees",
+    "description": "An additional transaction fee to incentivize validators to prioritize and execute transactions.",
+    "identifier": "transaction-priority-fee-total-usd",
+    "project": "arbitrum",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Priority Fees",
+    "description": "An additional transaction fee to incentivize validators to prioritize and execute transactions.",
+    "identifier": "transaction-priority-fee-total-native",
+    "project": "ethereum",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "ETH"
+  },
+  {
+    "name": "Price",
+    "description": "The average token price during the specified time period for the native asset of that chain.",
+    "identifier": "token-price-usd",
+    "project": "solana",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Token",
     "denomination": "USD"
   },
   {
@@ -552,78 +648,6 @@
     "denomination": "USD"
   },
   {
-    "name": "Active Addresses",
-    "description": "Total number of active addresses",
-    "identifier": "active-address-total",
-    "project": "polymarket",
-    "source": "Blockworks",
-    "data_type": "timeseries_int",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Activity",
-    "denomination": "Count"
-  },
-  {
-    "name": "Priority Fees",
-    "description": "An additional transaction fee to incentivize validators to prioritize and execute transactions.",
-    "identifier": "transaction-priority-fee-total-usd",
-    "project": "arbitrum",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "Priority Fees",
-    "description": "An additional transaction fee to incentivize validators to prioritize and execute transactions.",
-    "identifier": "transaction-priority-fee-total-native",
-    "project": "ethereum",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "ETH"
-  },
-  {
     "name": "Other Fees",
     "description": "For Ethereum, this includes just blob fees: an additional fee for transactions that post data to \"blobs,\" which are specialized data availability solutions for L2 blockchains.",
     "identifier": "transaction-other-fee-total-usd",
@@ -693,78 +717,6 @@
     "interval": "daily",
     "aggregation": "SUM",
     "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "Revenue",
-    "description": "The revenue produced during the specified time period for given project.",
-    "identifier": "revenue-total-usd",
-    "project": "orca",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "Price",
-    "description": "The average token price during the specified time period for the native asset of that chain.",
-    "identifier": "token-price-usd",
-    "project": "ethereum",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Token",
-    "denomination": "USD"
-  },
-  {
-    "name": "Price",
-    "description": "The average token price during the specified time period for the native asset of that chain.",
-    "identifier": "token-price-usd",
-    "project": "solana",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Token",
     "denomination": "USD"
   },
   {
@@ -840,30 +792,6 @@
     "denomination": "ETH"
   },
   {
-    "name": "Market Cap",
-    "description": "Market capitalization of the equity",
-    "identifier": "treasury-market-cap-usd",
-    "project": "FORD",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Treasury",
-    "denomination": "USD"
-  },
-  {
     "name": "Transaction Fees",
     "description": "Total transaction fees paid, does not include blob fees, out-of-protocol tips, or additional sources of revenue",
     "identifier": "transaction-fee-total-native",
@@ -910,6 +838,102 @@
     "aggregation": "SUM",
     "category": "Token",
     "denomination": "Count"
+  },
+  {
+    "name": "Transactions (Succeeded)",
+    "description": "Daily number of successful transactions, excluding failed transactions.",
+    "identifier": "transaction-succeed-total",
+    "project": "solana",
+    "source": "Blockworks",
+    "data_type": "timeseries_int",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Activity",
+    "denomination": "Count"
+  },
+  {
+    "name": "Revenue",
+    "description": "The revenue produced during the specified time period for given project.",
+    "identifier": "revenue-total-usd",
+    "project": "orca",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Price",
+    "description": "The average token price during the specified time period for the native asset of that chain.",
+    "identifier": "token-price-usd",
+    "project": "ethereum",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Token",
+    "denomination": "USD"
+  },
+  {
+    "name": "Market Cap",
+    "description": "Market capitalization of the equity",
+    "identifier": "treasury-market-cap-usd",
+    "project": "FORD",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Treasury",
+    "denomination": "USD"
   },
   {
     "name": "Priority Fees",
@@ -1008,6 +1032,126 @@
     "denomination": "Count"
   },
   {
+    "name": "Active Addresses",
+    "description": "Total number of active addresses",
+    "identifier": "active-address-total",
+    "project": "base",
+    "source": "Blockworks",
+    "data_type": "timeseries_int",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Activity",
+    "denomination": "Count"
+  },
+  {
+    "name": "Revenue",
+    "description": "The revenue produced during the specified time period for given project.",
+    "identifier": "revenue-total-usd",
+    "project": "kamino",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Burn",
+    "description": "The total amount of burned transaction fees in USD.",
+    "identifier": "burn-usd",
+    "project": "ethereum",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "MEV Tips",
+    "description": "Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders or leaders for faster transaction execution, MEV capture, or MEV protection.",
+    "identifier": "mev-tips-fees-usd",
+    "project": "solana",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Revenue",
+    "description": "The revenue produced during the specified time period for given project.",
+    "identifier": "revenue-total-usd",
+    "project": "jito",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
     "name": "Priority Fees",
     "description": "An additional transaction fee to incentivize validators to prioritize and execute transactions.",
     "identifier": "transaction-priority-fee-total-native",
@@ -1053,6 +1197,222 @@
     "interval": "daily",
     "aggregation": "SUM",
     "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Fee Median",
+    "description": "Median of the sum of the base fee and priority fee that day",
+    "identifier": "transaction-fee-med-native",
+    "project": "base",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Activity",
+    "denomination": "ETH"
+  },
+  {
+    "name": "Fee Median",
+    "description": "Median of the sum of the base fee and priority fee that day",
+    "identifier": "transaction-fee-med-native",
+    "project": "solana",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Activity",
+    "denomination": "SOL"
+  },
+  {
+    "name": "Revenue",
+    "description": "The revenue produced during the specified time period for given project.",
+    "identifier": "revenue-total-usd",
+    "project": "moonshot",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Volume",
+    "description": "USD volume over the period",
+    "identifier": "treasury-volume-total-usd",
+    "project": "SMLR",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Treasury",
+    "denomination": "USD"
+  },
+  {
+    "name": "Transactions (Failed)",
+    "description": "Daily number of transactions where a failure occurred.",
+    "identifier": "transaction-fail-total",
+    "project": "arbitrum",
+    "source": "Blockworks",
+    "data_type": "timeseries_int",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Activity",
+    "denomination": "Count"
+  },
+  {
+    "name": "ETF Flows",
+    "description": "ETF flows for Grayscale Ethereum Trust ETF (ETHE)",
+    "identifier": "etf-flows-usd",
+    "project": "ETHE",
+    "source": "Farside UK",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "ETF",
+    "denomination": "USD"
+  },
+  {
+    "name": "Priority Fees",
+    "description": "An additional transaction fee to incentivize validators to prioritize and execute transactions.",
+    "identifier": "transaction-priority-fee-total-native",
+    "project": "arbitrum",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "ETH"
+  },
+  {
+    "name": "Rollup Costs",
+    "description": "Costs the rollup sequencer endures for operating during the specified time period. Equivalent of cost of goods sold",
+    "identifier": "sequencer-cost-total",
+    "project": "base",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "ETF Flows",
+    "description": "ETF flows for ARK 21Shares Bitcoin ETF (ARKB)",
+    "identifier": "etf-flows-usd",
+    "project": "ARKB",
+    "source": "Farside UK",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "ETF",
     "denomination": "USD"
   },
   {
@@ -1152,6 +1512,102 @@
     "denomination": "USD"
   },
   {
+    "name": "Base Fees",
+    "description": "The minimum transaction fee required for a transaction to be included in a block",
+    "identifier": "transaction-base-fee-total-usd",
+    "project": "ethereum",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Transaction Fees",
+    "description": "Total transaction fees paid, does not include blob fees, out-of-protocol tips, or additional sources of revenue",
+    "identifier": "transaction-fee-total-native",
+    "project": "arbitrum",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "ETH"
+  },
+  {
+    "name": "Volume",
+    "description": "Amount of trading volume in USD",
+    "identifier": "volume-usd",
+    "project": "lifinity",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Trading",
+    "denomination": "USD"
+  },
+  {
+    "name": "NAV",
+    "description": "Dollar value of crypto assets (does not include cash)",
+    "identifier": "treasury-nav-total-usd",
+    "project": "CEP",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Treasury",
+    "denomination": "USD"
+  },
+  {
     "name": "Issuance",
     "description": "Newly issued tokens that are distributed to participants (such as validators, miners, or stakers) as compensation for participating in consensus.",
     "identifier": "issuance-usd",
@@ -1173,6 +1629,30 @@
     "interval": "daily",
     "aggregation": "SUM",
     "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Volume",
+    "description": "USD volume over the period",
+    "identifier": "treasury-volume-total-usd",
+    "project": "FGNX",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Treasury",
     "denomination": "USD"
   },
   {
@@ -1221,6 +1701,198 @@
     "interval": "daily",
     "aggregation": "SUM",
     "category": "ETF",
+    "denomination": "USD"
+  },
+  {
+    "name": "Volume",
+    "description": "Amount of trading volume in USD",
+    "identifier": "volume-usd",
+    "project": "orca",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Trading",
+    "denomination": "USD"
+  },
+  {
+    "name": "REV",
+    "description": "Network REV (Real Economic Value) is a standardized metric that tracks blockchain value accrual generated by user activity. REV consists of both in-protocol transaction fees and out-of-protocol tips that users pay for transaction execution, so it measures the monetary demand to transact onchain.",
+    "identifier": "rev-usd",
+    "project": "ethereum",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Volume",
+    "description": "USD volume over the period",
+    "identifier": "treasury-volume-total-usd",
+    "project": "STKE",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Treasury",
+    "denomination": "USD"
+  },
+  {
+    "name": "Revenue",
+    "description": "The revenue produced during the specified time period for given project.",
+    "identifier": "revenue-total-usd",
+    "project": "flashbots",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Base Fees",
+    "description": "The minimum transaction fee required for a transaction to be included in a block",
+    "identifier": "transaction-base-fee-total-native",
+    "project": "katana",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "ETH"
+  },
+  {
+    "name": "mNAV",
+    "description": "Market NAV value for that company. Calculated as enterprise value / NAV",
+    "identifier": "treasury-mnav",
+    "project": "FORD",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Treasury",
+    "denomination": "mNAV"
+  },
+  {
+    "name": "Revenue",
+    "description": "The revenue produced during the specified time period for given project.",
+    "identifier": "revenue-total-usd",
+    "project": "mevx",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Fee Average",
+    "description": "Average of the sum of the base fee and priority fee in USD that day",
+    "identifier": "transaction-fee-avg-usd",
+    "project": "base",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "AVG",
+    "category": "Activity",
     "denomination": "USD"
   },
   {
@@ -1488,6 +2160,150 @@
     "denomination": "USD"
   },
   {
+    "name": "Rollup Costs",
+    "description": "Costs the rollup sequencer endures for operating during the specified time period. Equivalent of cost of goods sold",
+    "identifier": "sequencer-cost-total",
+    "project": "katana",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Fee Average",
+    "description": "Average of the sum of the base fee and priority fee that day",
+    "identifier": "transaction-fee-avg-native",
+    "project": "katana",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "AVG",
+    "category": "Activity",
+    "denomination": "ETH"
+  },
+  {
+    "name": "Total ETF Flows",
+    "description": "Total ETF flows for Ether ETFs",
+    "identifier": "etf-flows-total-usd",
+    "project": "ethereum",
+    "source": "Farside UK",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "ETF",
+    "denomination": "USD"
+  },
+  {
+    "name": "Revenue",
+    "description": "The revenue produced during the specified time period for given project.",
+    "identifier": "revenue-total-usd",
+    "project": "level",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "mNAV",
+    "description": "Market NAV value for that company. Calculated as enterprise value / NAV",
+    "identifier": "treasury-mnav",
+    "project": "ETHM",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Treasury",
+    "denomination": "mNAV"
+  },
+  {
+    "name": "Enterprise Value",
+    "description": "Actual enterprise value for the equity. Calculated as market cap - liabilities + assets",
+    "identifier": "treasury-enterprise-value-usd",
+    "project": "UPXI",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Treasury",
+    "denomination": "USD"
+  },
+  {
     "name": "Revenue",
     "description": "The revenue produced during the specified time period for given project.",
     "identifier": "revenue-total-usd",
@@ -1509,30 +2325,6 @@
     "interval": "daily",
     "aggregation": "SUM",
     "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "Volume",
-    "description": "USD volume over the period",
-    "identifier": "treasury-volume-total-usd",
-    "project": "FGNX",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Treasury",
     "denomination": "USD"
   },
   {
@@ -1608,10 +2400,10 @@
     "denomination": "Count"
   },
   {
-    "name": "mNAV",
-    "description": "Market NAV value for that company. Calculated as enterprise value / NAV",
-    "identifier": "treasury-mnav",
-    "project": "FORD",
+    "name": "Fee Average",
+    "description": "Average of the sum of the base fee and priority fee that day in native chain token",
+    "identifier": "transaction-fee-avg-native",
+    "project": "arbitrum",
     "source": "Blockworks",
     "data_type": "timeseries_float",
     "parameters": {
@@ -1627,9 +2419,57 @@
       }
     },
     "interval": "daily",
-    "aggregation": "LAST",
+    "aggregation": "AVG",
+    "category": "Activity",
+    "denomination": "ETH"
+  },
+  {
+    "name": "Base Fees",
+    "description": "The minimum transaction fee required for a transaction to be included in a block",
+    "identifier": "transaction-base-fee-total-native",
+    "project": "base",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "ETH"
+  },
+  {
+    "name": "Volume",
+    "description": "USD volume over the period",
+    "identifier": "treasury-volume-total-usd",
+    "project": "BTCS",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
     "category": "Treasury",
-    "denomination": "mNAV"
+    "denomination": "USD"
   },
   {
     "name": "REV",
@@ -1728,78 +2568,6 @@
     "denomination": "ETH"
   },
   {
-    "name": "Transactions (Succeeded)",
-    "description": "Daily number of successful transactions, excluding failed transactions.",
-    "identifier": "transaction-succeed-total",
-    "project": "solana",
-    "source": "Blockworks",
-    "data_type": "timeseries_int",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Activity",
-    "denomination": "Count"
-  },
-  {
-    "name": "Active Addresses",
-    "description": "Total number of active addresses",
-    "identifier": "active-address-total",
-    "project": "base",
-    "source": "Blockworks",
-    "data_type": "timeseries_int",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Activity",
-    "denomination": "Count"
-  },
-  {
-    "name": "Revenue",
-    "description": "The revenue produced during the specified time period for given project.",
-    "identifier": "revenue-total-usd",
-    "project": "kamino",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
     "name": "Revenue",
     "description": "The revenue produced during the specified time period for given project.",
     "identifier": "revenue-total-usd",
@@ -1894,126 +2662,6 @@
     "aggregation": "SUM",
     "category": "Financials",
     "denomination": "ETH"
-  },
-  {
-    "name": "Burn",
-    "description": "The total amount of burned transaction fees in USD.",
-    "identifier": "burn-usd",
-    "project": "ethereum",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "MEV Tips",
-    "description": "Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders or leaders for faster transaction execution, MEV capture, or MEV protection.",
-    "identifier": "mev-tips-fees-usd",
-    "project": "solana",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "Revenue",
-    "description": "The revenue produced during the specified time period for given project.",
-    "identifier": "revenue-total-usd",
-    "project": "jito",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "Fee Median",
-    "description": "Median of the sum of the base fee and priority fee that day",
-    "identifier": "transaction-fee-med-native",
-    "project": "base",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Activity",
-    "denomination": "ETH"
-  },
-  {
-    "name": "Fee Median",
-    "description": "Median of the sum of the base fee and priority fee that day",
-    "identifier": "transaction-fee-med-native",
-    "project": "solana",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Activity",
-    "denomination": "SOL"
   },
   {
     "name": "Transaction Fees",
@@ -2134,78 +2782,6 @@
     "aggregation": "SUM",
     "category": "Financials",
     "denomination": "SOL"
-  },
-  {
-    "name": "Revenue",
-    "description": "The revenue produced during the specified time period for given project.",
-    "identifier": "revenue-total-usd",
-    "project": "moonshot",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "Volume",
-    "description": "USD volume over the period",
-    "identifier": "treasury-volume-total-usd",
-    "project": "SMLR",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Treasury",
-    "denomination": "USD"
-  },
-  {
-    "name": "Transactions (Failed)",
-    "description": "Daily number of transactions where a failure occurred.",
-    "identifier": "transaction-fail-total",
-    "project": "arbitrum",
-    "source": "Blockworks",
-    "data_type": "timeseries_int",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Activity",
-    "denomination": "Count"
   },
   {
     "name": "Launchpad Tokens Graduated",
@@ -2352,30 +2928,6 @@
     "denomination": "USD"
   },
   {
-    "name": "ETF Flows",
-    "description": "ETF flows for Grayscale Ethereum Trust ETF (ETHE)",
-    "identifier": "etf-flows-usd",
-    "project": "ETHE",
-    "source": "Farside UK",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "ETF",
-    "denomination": "USD"
-  },
-  {
     "name": "Fee Median",
     "description": "Median of the sum of the base fee and priority fee in USD that day",
     "identifier": "transaction-fee-med-usd",
@@ -2493,54 +3045,6 @@
     "interval": "daily",
     "aggregation": "SUM",
     "category": "Treasury",
-    "denomination": "USD"
-  },
-  {
-    "name": "Priority Fees",
-    "description": "An additional transaction fee to incentivize validators to prioritize and execute transactions.",
-    "identifier": "transaction-priority-fee-total-native",
-    "project": "arbitrum",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "ETH"
-  },
-  {
-    "name": "Rollup Costs",
-    "description": "Costs the rollup sequencer endures for operating during the specified time period. Equivalent of cost of goods sold",
-    "identifier": "sequencer-cost-total",
-    "project": "base",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
     "denomination": "USD"
   },
   {
@@ -2712,30 +3216,6 @@
     "denomination": "ETH"
   },
   {
-    "name": "ETF Flows",
-    "description": "ETF flows for ARK 21Shares Bitcoin ETF (ARKB)",
-    "identifier": "etf-flows-usd",
-    "project": "ARKB",
-    "source": "Farside UK",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "ETF",
-    "denomination": "USD"
-  },
-  {
     "name": "Transactions (Total)",
     "description": " Daily number of all transactions.",
     "identifier": "transaction-total",
@@ -2832,106 +3312,10 @@
     "denomination": "USD"
   },
   {
-    "name": "Base Fees",
-    "description": "The minimum transaction fee required for a transaction to be included in a block",
-    "identifier": "transaction-base-fee-total-usd",
-    "project": "ethereum",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "Transaction Fees",
-    "description": "Total transaction fees paid, does not include blob fees, out-of-protocol tips, or additional sources of revenue",
-    "identifier": "transaction-fee-total-native",
-    "project": "arbitrum",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "ETH"
-  },
-  {
     "name": "NAV",
     "description": "Dollar value of crypto assets (does not include cash)",
     "identifier": "treasury-nav-total-usd",
     "project": "UPXI",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Treasury",
-    "denomination": "USD"
-  },
-  {
-    "name": "Volume",
-    "description": "Amount of trading volume in USD",
-    "identifier": "volume-usd",
-    "project": "lifinity",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Trading",
-    "denomination": "USD"
-  },
-  {
-    "name": "NAV",
-    "description": "Dollar value of crypto assets (does not include cash)",
-    "identifier": "treasury-nav-total-usd",
-    "project": "CEP",
     "source": "Blockworks",
     "data_type": "timeseries_usd",
     "parameters": {
@@ -3072,54 +3456,6 @@
     "denomination": "USD"
   },
   {
-    "name": "Volume",
-    "description": "Amount of trading volume in USD",
-    "identifier": "volume-usd",
-    "project": "orca",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Trading",
-    "denomination": "USD"
-  },
-  {
-    "name": "REV",
-    "description": "Network REV (Real Economic Value) is a standardized metric that tracks blockchain value accrual generated by user activity. REV consists of both in-protocol transaction fees and out-of-protocol tips that users pay for transaction execution, so it measures the monetary demand to transact onchain.",
-    "identifier": "rev-usd",
-    "project": "ethereum",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
     "name": "Launchpad Tokens Bonding Volume",
     "description": "Token bonding trading volume during the specified time period for given launchpad.",
     "identifier": "launchpad-bonding-volume",
@@ -3216,6 +3552,126 @@
     "denomination": "USD"
   },
   {
+    "name": "Application Revenue",
+    "description": "The total amount of revenue produced by all labelled applications during the specified time period for given blockchain.",
+    "identifier": "app-revenue-total-usd",
+    "project": "ethereum",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Transaction Fees",
+    "description": "Total transaction fees paid converted to USD, does not include out-of-protocol tips or additional sources of revenue",
+    "identifier": "transaction-fee-total-usd",
+    "project": "arbitrum",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Transactions (Failed)",
+    "description": "Daily number of transactions where a failure occurred.",
+    "identifier": "transaction-fail-total",
+    "project": "ethereum",
+    "source": "Blockworks",
+    "data_type": "timeseries_int",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Activity",
+    "denomination": "Count"
+  },
+  {
+    "name": "Volume",
+    "description": "USD volume over the period",
+    "identifier": "treasury-volume-total-usd",
+    "project": "BNC",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Treasury",
+    "denomination": "USD"
+  },
+  {
+    "name": "Transaction Fees",
+    "description": "Total transaction fees paid, does not include blob fees, out-of-protocol tips, or additional sources of revenue",
+    "identifier": "transaction-fee-total-native",
+    "project": "base",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "ETH"
+  },
+  {
     "name": "Active Addresses",
     "description": "Total number of active addresses",
     "identifier": "active-address-total",
@@ -3268,198 +3724,6 @@
     "description": "ETF flows for Fidelity Wise Origin Bitcoin Fund (FBTC)",
     "identifier": "etf-flows-usd",
     "project": "FBTC",
-    "source": "Farside UK",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "ETF",
-    "denomination": "USD"
-  },
-  {
-    "name": "Volume",
-    "description": "USD volume over the period",
-    "identifier": "treasury-volume-total-usd",
-    "project": "STKE",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Treasury",
-    "denomination": "USD"
-  },
-  {
-    "name": "Revenue",
-    "description": "The revenue produced during the specified time period for given project.",
-    "identifier": "revenue-total-usd",
-    "project": "flashbots",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "Base Fees",
-    "description": "The minimum transaction fee required for a transaction to be included in a block",
-    "identifier": "transaction-base-fee-total-native",
-    "project": "katana",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "ETH"
-  },
-  {
-    "name": "Revenue",
-    "description": "The revenue produced during the specified time period for given project.",
-    "identifier": "revenue-total-usd",
-    "project": "mevx",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "Fee Average",
-    "description": "Average of the sum of the base fee and priority fee in USD that day",
-    "identifier": "transaction-fee-avg-usd",
-    "project": "base",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "AVG",
-    "category": "Activity",
-    "denomination": "USD"
-  },
-  {
-    "name": "Rollup Costs",
-    "description": "Costs the rollup sequencer endures for operating during the specified time period. Equivalent of cost of goods sold",
-    "identifier": "sequencer-cost-total",
-    "project": "katana",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "Fee Average",
-    "description": "Average of the sum of the base fee and priority fee that day",
-    "identifier": "transaction-fee-avg-native",
-    "project": "katana",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "AVG",
-    "category": "Activity",
-    "denomination": "ETH"
-  },
-  {
-    "name": "Total ETF Flows",
-    "description": "Total ETF flows for Ether ETFs",
-    "identifier": "etf-flows-total-usd",
-    "project": "ethereum",
     "source": "Farside UK",
     "data_type": "timeseries_usd",
     "parameters": {
@@ -3556,126 +3820,6 @@
     "description": "The minimum transaction fee required for a transaction to be included in a block",
     "identifier": "transaction-base-fee-total-native",
     "project": "arbitrum",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "ETH"
-  },
-  {
-    "name": "Revenue",
-    "description": "The revenue produced during the specified time period for given project.",
-    "identifier": "revenue-total-usd",
-    "project": "level",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "mNAV",
-    "description": "Market NAV value for that company. Calculated as enterprise value / NAV",
-    "identifier": "treasury-mnav",
-    "project": "ETHM",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Treasury",
-    "denomination": "mNAV"
-  },
-  {
-    "name": "Enterprise Value",
-    "description": "Actual enterprise value for the equity. Calculated as market cap - liabilities + assets",
-    "identifier": "treasury-enterprise-value-usd",
-    "project": "UPXI",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Treasury",
-    "denomination": "USD"
-  },
-  {
-    "name": "Fee Average",
-    "description": "Average of the sum of the base fee and priority fee that day in native chain token",
-    "identifier": "transaction-fee-avg-native",
-    "project": "arbitrum",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "AVG",
-    "category": "Activity",
-    "denomination": "ETH"
-  },
-  {
-    "name": "Base Fees",
-    "description": "The minimum transaction fee required for a transaction to be included in a block",
-    "identifier": "transaction-base-fee-total-native",
-    "project": "base",
     "source": "Blockworks",
     "data_type": "timeseries_float",
     "parameters": {
@@ -3813,78 +3957,6 @@
     "interval": "daily",
     "aggregation": "LAST",
     "category": "Treasury",
-    "denomination": "USD"
-  },
-  {
-    "name": "Volume",
-    "description": "USD volume over the period",
-    "identifier": "treasury-volume-total-usd",
-    "project": "BTCS",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Treasury",
-    "denomination": "USD"
-  },
-  {
-    "name": "Application Revenue",
-    "description": "The total amount of revenue produced by all labelled applications during the specified time period for given blockchain.",
-    "identifier": "app-revenue-total-usd",
-    "project": "ethereum",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "Transaction Fees",
-    "description": "Total transaction fees paid converted to USD, does not include out-of-protocol tips or additional sources of revenue",
-    "identifier": "transaction-fee-total-usd",
-    "project": "arbitrum",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
     "denomination": "USD"
   },
   {
@@ -4035,30 +4107,6 @@
     "name": "Transactions (Failed)",
     "description": "Daily number of transactions where a failure occurred.",
     "identifier": "transaction-fail-total",
-    "project": "ethereum",
-    "source": "Blockworks",
-    "data_type": "timeseries_int",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Activity",
-    "denomination": "Count"
-  },
-  {
-    "name": "Transactions (Failed)",
-    "description": "Daily number of transactions where a failure occurred.",
-    "identifier": "transaction-fail-total",
     "project": "base",
     "source": "Blockworks",
     "data_type": "timeseries_int",
@@ -4200,54 +4248,6 @@
     "denomination": "USD"
   },
   {
-    "name": "Volume",
-    "description": "USD volume over the period",
-    "identifier": "treasury-volume-total-usd",
-    "project": "BNC",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Treasury",
-    "denomination": "USD"
-  },
-  {
-    "name": "Transaction Fees",
-    "description": "Total transaction fees paid, does not include blob fees, out-of-protocol tips, or additional sources of revenue",
-    "identifier": "transaction-fee-total-native",
-    "project": "base",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "ETH"
-  },
-  {
     "name": "Fee Median",
     "description": "Median of the sum of the base fee and priority fee in USD that day",
     "identifier": "transaction-fee-med-usd",
@@ -4341,102 +4341,6 @@
     "interval": "daily",
     "aggregation": "LAST",
     "category": "Treasury",
-    "denomination": "USD"
-  },
-  {
-    "name": "Transactions (Succeeded)",
-    "description": "Daily number of successful transactions, excluding failed transactions.",
-    "identifier": "transaction-succeed-total",
-    "project": "arbitrum",
-    "source": "Blockworks",
-    "data_type": "timeseries_int",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Activity",
-    "denomination": "Count"
-  },
-  {
-    "name": "Revenue",
-    "description": "The revenue produced during the specified time period for given project.",
-    "identifier": "revenue-total-usd",
-    "project": "wildcat",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "Fee Median",
-    "description": "Median of the sum of the base fee and priority fee that day",
-    "identifier": "transaction-fee-med-native",
-    "project": "arbitrum",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Activity",
-    "denomination": "ETH"
-  },
-  {
-    "name": "Revenue",
-    "description": "The revenue produced during the specified time period for given project.",
-    "identifier": "revenue-total-usd",
-    "project": "bluefin",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
     "denomination": "USD"
   },
   {
@@ -4560,6 +4464,102 @@
     "denomination": "ETH"
   },
   {
+    "name": "Transactions (Succeeded)",
+    "description": "Daily number of successful transactions, excluding failed transactions.",
+    "identifier": "transaction-succeed-total",
+    "project": "arbitrum",
+    "source": "Blockworks",
+    "data_type": "timeseries_int",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Activity",
+    "denomination": "Count"
+  },
+  {
+    "name": "Revenue",
+    "description": "The revenue produced during the specified time period for given project.",
+    "identifier": "revenue-total-usd",
+    "project": "wildcat",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Fee Median",
+    "description": "Median of the sum of the base fee and priority fee that day",
+    "identifier": "transaction-fee-med-native",
+    "project": "arbitrum",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Activity",
+    "denomination": "ETH"
+  },
+  {
+    "name": "Revenue",
+    "description": "The revenue produced during the specified time period for given project.",
+    "identifier": "revenue-total-usd",
+    "project": "bluefin",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
     "name": "Treasury Holdings",
     "description": "Number of tokens held by the company. See crypto-asset for asset indicator",
     "identifier": "treasury-holdings-sol",
@@ -4678,6 +4678,54 @@
     "aggregation": "SUM",
     "category": "Stablecoins",
     "denomination": "USD"
+  },
+  {
+    "name": "Other Fees",
+    "description": "For Ethereum, this includes just blob fees: an additional fee for transactions that post data to \"blobs,\" which are specialized data availability solutions for L2 blockchains.",
+    "identifier": "transaction-other-fee-total-native",
+    "project": "ethereum",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "ETH"
+  },
+  {
+    "name": "Launchpad Tokens Graduated",
+    "description": "Token graduated during the specified time period for given launchpad.",
+    "identifier": "launchpad-tokens-graduated",
+    "project": "letsbonk",
+    "source": "Blockworks",
+    "data_type": "timeseries_int",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Token",
+    "denomination": "Count"
   },
   {
     "name": "Stablecoin Supply",
@@ -4824,30 +4872,6 @@
     "denomination": "USD"
   },
   {
-    "name": "Other Fees",
-    "description": "For Ethereum, this includes just blob fees: an additional fee for transactions that post data to \"blobs,\" which are specialized data availability solutions for L2 blockchains.",
-    "identifier": "transaction-other-fee-total-native",
-    "project": "ethereum",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "ETH"
-  },
-  {
     "name": "Volume",
     "description": "USD volume over the period",
     "identifier": "treasury-volume-total-usd",
@@ -4992,12 +5016,12 @@
     "denomination": "USD"
   },
   {
-    "name": "Launchpad Tokens Graduated",
-    "description": "Token graduated during the specified time period for given launchpad.",
-    "identifier": "launchpad-tokens-graduated",
-    "project": "letsbonk",
+    "name": "Revenue",
+    "description": "The revenue produced during the specified time period for given project.",
+    "identifier": "revenue-total-usd",
+    "project": "pumpfun",
     "source": "Blockworks",
-    "data_type": "timeseries_int",
+    "data_type": "timeseries_usd",
     "parameters": {
       "end_date": {
         "type": "date",
@@ -5012,8 +5036,8 @@
     },
     "interval": "daily",
     "aggregation": "SUM",
-    "category": "Token",
-    "denomination": "Count"
+    "category": "Financials",
+    "denomination": "USD"
   },
   {
     "name": "NAV",
@@ -5086,6 +5110,174 @@
     "aggregation": "LAST",
     "category": "Treasury",
     "denomination": "mNAV"
+  },
+  {
+    "name": "Enterprise Value",
+    "description": "Actual enterprise value for the equity. Calculated as market cap - liabilities + assets",
+    "identifier": "treasury-enterprise-value-usd",
+    "project": "MSTR",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Treasury",
+    "denomination": "USD"
+  },
+  {
+    "name": "Revenue",
+    "description": "The revenue produced during the specified time period for given project.",
+    "identifier": "revenue-total-usd",
+    "project": "pancakeswap",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Treasury Holdings",
+    "description": "Number of tokens held by the company. See crypto-asset for asset indicator",
+    "identifier": "treasury-holdings-btc",
+    "project": "CEP",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Treasury",
+    "denomination": "BTC"
+  },
+  {
+    "name": "Token Supply",
+    "description": "The total token supply for the respective native asset of that chain. Inclusive of all locked tokens.",
+    "identifier": "token-supply",
+    "project": "solana",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Token",
+    "denomination": "SOL"
+  },
+  {
+    "name": "Revenue",
+    "description": "The revenue produced during the specified time period for given project.",
+    "identifier": "revenue-total-usd",
+    "project": "euler",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Revenue",
+    "description": "The revenue produced during the specified time period for given project.",
+    "identifier": "revenue-total-usd",
+    "project": "stable-labs",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Revenue",
+    "description": "The revenue produced during the specified time period for given project.",
+    "identifier": "revenue-total-usd",
+    "project": "tornado",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
   },
   {
     "name": "Stablecoin Circulating Supply",
@@ -5182,78 +5374,6 @@
     "aggregation": "SUM",
     "category": "Financials",
     "denomination": "ETH"
-  },
-  {
-    "name": "Revenue",
-    "description": "The revenue produced during the specified time period for given project.",
-    "identifier": "revenue-total-usd",
-    "project": "pumpfun",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "Enterprise Value",
-    "description": "Actual enterprise value for the equity. Calculated as market cap - liabilities + assets",
-    "identifier": "treasury-enterprise-value-usd",
-    "project": "MSTR",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Treasury",
-    "denomination": "USD"
-  },
-  {
-    "name": "Revenue",
-    "description": "The revenue produced during the specified time period for given project.",
-    "identifier": "revenue-total-usd",
-    "project": "pancakeswap",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
   },
   {
     "name": "Enterprise Value",
@@ -5640,12 +5760,12 @@
     "denomination": "USD"
   },
   {
-    "name": "Treasury Holdings",
-    "description": "Number of tokens held by the company. See crypto-asset for asset indicator",
-    "identifier": "treasury-holdings-btc",
-    "project": "CEP",
+    "name": "Enterprise Value",
+    "description": "Actual enterprise value for the equity. Calculated as market cap - liabilities + assets",
+    "identifier": "treasury-enterprise-value-usd",
+    "project": "BTCS",
     "source": "Blockworks",
-    "data_type": "timeseries_float",
+    "data_type": "timeseries_usd",
     "parameters": {
       "end_date": {
         "type": "date",
@@ -5661,15 +5781,39 @@
     "interval": "daily",
     "aggregation": "LAST",
     "category": "Treasury",
-    "denomination": "BTC"
+    "denomination": "USD"
   },
   {
-    "name": "Token Supply",
-    "description": "The total token supply for the respective native asset of that chain. Inclusive of all locked tokens.",
-    "identifier": "token-supply",
-    "project": "solana",
+    "name": "Revenue",
+    "description": "The revenue produced during the specified time period for given project.",
+    "identifier": "revenue-total-usd",
+    "project": "bloxroute",
     "source": "Blockworks",
-    "data_type": "timeseries_float",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
+    "name": "Launchpad Tokens Graduated",
+    "description": "Token graduated during the specified time period for given launchpad.",
+    "identifier": "launchpad-tokens-graduated",
+    "project": "other-launchpads",
+    "source": "Blockworks",
+    "data_type": "timeseries_int",
     "parameters": {
       "end_date": {
         "type": "date",
@@ -5685,79 +5829,7 @@
     "interval": "daily",
     "aggregation": "SUM",
     "category": "Token",
-    "denomination": "SOL"
-  },
-  {
-    "name": "Revenue",
-    "description": "The revenue produced during the specified time period for given project.",
-    "identifier": "revenue-total-usd",
-    "project": "euler",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "Revenue",
-    "description": "The revenue produced during the specified time period for given project.",
-    "identifier": "revenue-total-usd",
-    "project": "stable-labs",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "Revenue",
-    "description": "The revenue produced during the specified time period for given project.",
-    "identifier": "revenue-total-usd",
-    "project": "tornado",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
+    "denomination": "Count"
   },
   {
     "name": "Active Addresses",
@@ -5836,30 +5908,6 @@
     "description": "Actual enterprise value for the equity. Calculated as market cap - liabilities + assets",
     "identifier": "treasury-enterprise-value-usd",
     "project": "DFDV",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Treasury",
-    "denomination": "USD"
-  },
-  {
-    "name": "Enterprise Value",
-    "description": "Actual enterprise value for the equity. Calculated as market cap - liabilities + assets",
-    "identifier": "treasury-enterprise-value-usd",
-    "project": "BTCS",
     "source": "Blockworks",
     "data_type": "timeseries_usd",
     "parameters": {
@@ -6024,6 +6072,102 @@
     "denomination": "USD"
   },
   {
+    "name": "Treasury Holdings",
+    "description": "Number of tokens held by the company. See crypto-asset for asset indicator",
+    "identifier": "treasury-holdings-sol",
+    "project": "STSS",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Treasury",
+    "denomination": "SOL"
+  },
+  {
+    "name": "mNAV",
+    "description": "Market NAV value for that company. Calculated as enterprise value / NAV",
+    "identifier": "treasury-mnav",
+    "project": "CEP",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Treasury",
+    "denomination": "mNAV"
+  },
+  {
+    "name": "mNAV",
+    "description": "Market NAV value for that company. Calculated as enterprise value / NAV",
+    "identifier": "treasury-mnav",
+    "project": "STSS",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Treasury",
+    "denomination": "mNAV"
+  },
+  {
+    "name": "mNAV",
+    "description": "Market NAV value for that company. Calculated as enterprise value / NAV",
+    "identifier": "treasury-mnav",
+    "project": "DFDV",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Treasury",
+    "denomination": "mNAV"
+  },
+  {
     "name": "Total ETF Flows",
     "description": "Total ETF flows for Solana ETFs",
     "identifier": "etf-flows-total-usd",
@@ -6144,6 +6288,54 @@
     "denomination": "USD"
   },
   {
+    "name": "NAV",
+    "description": "Dollar value of crypto assets (does not include cash)",
+    "identifier": "treasury-nav-total-usd",
+    "project": "ETHM",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Treasury",
+    "denomination": "USD"
+  },
+  {
+    "name": "Priority Fees",
+    "description": "An additional transaction fee to incentivize validators to prioritize and execute transactions.",
+    "identifier": "transaction-priority-fee-total-usd",
+    "project": "ethereum",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
     "name": "Enterprise Value",
     "description": "Actual enterprise value for the equity. Calculated as market cap - liabilities + assets",
     "identifier": "treasury-enterprise-value-usd",
@@ -6165,6 +6357,30 @@
     "interval": "daily",
     "aggregation": "LAST",
     "category": "Treasury",
+    "denomination": "USD"
+  },
+  {
+    "name": "REV",
+    "description": "Network REV (Real Economic Value) is a standardized metric that tracks blockchain value accrual generated by user activity. REV consists of both in-protocol transaction fees and out-of-protocol tips that users pay for transaction execution, so it measures the monetary demand to transact onchain.",
+    "identifier": "rev-usd",
+    "project": "solana",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
     "denomination": "USD"
   },
   {
@@ -6408,126 +6624,6 @@
     "denomination": "USD"
   },
   {
-    "name": "Revenue",
-    "description": "The revenue produced during the specified time period for given project.",
-    "identifier": "revenue-total-usd",
-    "project": "bloxroute",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "Launchpad Tokens Graduated",
-    "description": "Token graduated during the specified time period for given launchpad.",
-    "identifier": "launchpad-tokens-graduated",
-    "project": "other-launchpads",
-    "source": "Blockworks",
-    "data_type": "timeseries_int",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Token",
-    "denomination": "Count"
-  },
-  {
-    "name": "Treasury Holdings",
-    "description": "Number of tokens held by the company. See crypto-asset for asset indicator",
-    "identifier": "treasury-holdings-sol",
-    "project": "STSS",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Treasury",
-    "denomination": "SOL"
-  },
-  {
-    "name": "mNAV",
-    "description": "Market NAV value for that company. Calculated as enterprise value / NAV",
-    "identifier": "treasury-mnav",
-    "project": "CEP",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Treasury",
-    "denomination": "mNAV"
-  },
-  {
-    "name": "mNAV",
-    "description": "Market NAV value for that company. Calculated as enterprise value / NAV",
-    "identifier": "treasury-mnav",
-    "project": "STSS",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Treasury",
-    "denomination": "mNAV"
-  },
-  {
     "name": "Enterprise Value",
     "description": "Actual enterprise value for the equity. Calculated as market cap - liabilities + assets",
     "identifier": "treasury-enterprise-value-usd",
@@ -6648,10 +6744,10 @@
     "denomination": "Count"
   },
   {
-    "name": "mNAV",
-    "description": "Market NAV value for that company. Calculated as enterprise value / NAV",
-    "identifier": "treasury-mnav",
-    "project": "DFDV",
+    "name": "Token Supply",
+    "description": "The total token supply for the respective native asset of that chain. Inclusive of all locked tokens.",
+    "identifier": "token-supply",
+    "project": "ethereum",
     "source": "Blockworks",
     "data_type": "timeseries_float",
     "parameters": {
@@ -6667,57 +6763,9 @@
       }
     },
     "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Treasury",
-    "denomination": "mNAV"
-  },
-  {
-    "name": "NAV",
-    "description": "Dollar value of crypto assets (does not include cash)",
-    "identifier": "treasury-nav-total-usd",
-    "project": "ETHM",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Treasury",
-    "denomination": "USD"
-  },
-  {
-    "name": "Priority Fees",
-    "description": "An additional transaction fee to incentivize validators to prioritize and execute transactions.",
-    "identifier": "transaction-priority-fee-total-usd",
-    "project": "ethereum",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
     "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
+    "category": "Token",
+    "denomination": "ETH"
   },
   {
     "name": "Market Cap",
@@ -6840,10 +6888,10 @@
     "denomination": "USD"
   },
   {
-    "name": "REV",
-    "description": "Network REV (Real Economic Value) is a standardized metric that tracks blockchain value accrual generated by user activity. REV consists of both in-protocol transaction fees and out-of-protocol tips that users pay for transaction execution, so it measures the monetary demand to transact onchain.",
-    "identifier": "rev-usd",
-    "project": "solana",
+    "name": "Market Cap",
+    "description": "Market capitalization of the equity",
+    "identifier": "treasury-market-cap-usd",
+    "project": "ETHM",
     "source": "Blockworks",
     "data_type": "timeseries_usd",
     "parameters": {
@@ -6859,15 +6907,15 @@
       }
     },
     "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
+    "aggregation": "LAST",
+    "category": "Treasury",
     "denomination": "USD"
   },
   {
     "name": "Market Cap",
     "description": "Market capitalization of the equity",
     "identifier": "treasury-market-cap-usd",
-    "project": "ETHM",
+    "project": "CEP",
     "source": "Blockworks",
     "data_type": "timeseries_usd",
     "parameters": {
@@ -7032,6 +7080,30 @@
     "denomination": "mNAV"
   },
   {
+    "name": "Revenue",
+    "description": "The revenue produced during the specified time period for given project.",
+    "identifier": "revenue-total-usd",
+    "project": "believe",
+    "source": "Blockworks",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Financials",
+    "denomination": "USD"
+  },
+  {
     "name": "mNAV",
     "description": "Market NAV value for that company. Calculated as enterprise value / NAV",
     "identifier": "treasury-mnav",
@@ -7176,6 +7248,30 @@
     "denomination": "SOL"
   },
   {
+    "name": "ETF Flows",
+    "description": "ETF flows for Franklin Ethereum ETF (EZET)",
+    "identifier": "etf-flows-usd",
+    "project": "EZET",
+    "source": "Farside UK",
+    "data_type": "timeseries_usd",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "ETF",
+    "denomination": "USD"
+  },
+  {
     "name": "Base Fees",
     "description": "The minimum transaction fee required for a transaction to be included in a block",
     "identifier": "transaction-base-fee-total-usd",
@@ -7294,6 +7390,54 @@
     "aggregation": "SUM",
     "category": "ETF",
     "denomination": "USD"
+  },
+  {
+    "name": "mNAV",
+    "description": "Market NAV value for that company. Calculated as enterprise value / NAV",
+    "identifier": "treasury-mnav",
+    "project": "CEPO",
+    "source": "Blockworks",
+    "data_type": "timeseries_float",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "LAST",
+    "category": "Treasury",
+    "denomination": "mNAV"
+  },
+  {
+    "name": "Launchpad Tokens Graduated",
+    "description": "Token graduated during the specified time period for given launchpad.",
+    "identifier": "launchpad-tokens-graduated",
+    "project": "moonshot",
+    "source": "Blockworks",
+    "data_type": "timeseries_int",
+    "parameters": {
+      "end_date": {
+        "type": "date",
+        "default": "3000-01-01",
+        "description": "End date (inclusive)"
+      },
+      "start_date": {
+        "type": "date",
+        "default": "2000-01-01",
+        "description": "Start date (inclusive)"
+      }
+    },
+    "interval": "daily",
+    "aggregation": "SUM",
+    "category": "Token",
+    "denomination": "Count"
   },
   {
     "name": "mNAV",
@@ -7704,126 +7848,6 @@
     "denomination": "ETH"
   },
   {
-    "name": "Token Supply",
-    "description": "The total token supply for the respective native asset of that chain. Inclusive of all locked tokens.",
-    "identifier": "token-supply",
-    "project": "ethereum",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Token",
-    "denomination": "ETH"
-  },
-  {
-    "name": "Market Cap",
-    "description": "Market capitalization of the equity",
-    "identifier": "treasury-market-cap-usd",
-    "project": "CEP",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Treasury",
-    "denomination": "USD"
-  },
-  {
-    "name": "Revenue",
-    "description": "The revenue produced during the specified time period for given project.",
-    "identifier": "revenue-total-usd",
-    "project": "believe",
-    "source": "Blockworks",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Financials",
-    "denomination": "USD"
-  },
-  {
-    "name": "ETF Flows",
-    "description": "ETF flows for Franklin Ethereum ETF (EZET)",
-    "identifier": "etf-flows-usd",
-    "project": "EZET",
-    "source": "Farside UK",
-    "data_type": "timeseries_usd",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "ETF",
-    "denomination": "USD"
-  },
-  {
-    "name": "mNAV",
-    "description": "Market NAV value for that company. Calculated as enterprise value / NAV",
-    "identifier": "treasury-mnav",
-    "project": "CEPO",
-    "source": "Blockworks",
-    "data_type": "timeseries_float",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "LAST",
-    "category": "Treasury",
-    "denomination": "mNAV"
-  },
-  {
     "name": "Volume",
     "description": "USD volume over the period",
     "identifier": "treasury-volume-total-usd",
@@ -7948,30 +7972,6 @@
     "description": "Tokens Launched during the specified time period for given launchpad.",
     "identifier": "tokens-launched-by-launchpad",
     "project": "letsbonk",
-    "source": "Blockworks",
-    "data_type": "timeseries_int",
-    "parameters": {
-      "end_date": {
-        "type": "date",
-        "default": "3000-01-01",
-        "description": "End date (inclusive)"
-      },
-      "start_date": {
-        "type": "date",
-        "default": "2000-01-01",
-        "description": "Start date (inclusive)"
-      }
-    },
-    "interval": "daily",
-    "aggregation": "SUM",
-    "category": "Token",
-    "denomination": "Count"
-  },
-  {
-    "name": "Launchpad Tokens Graduated",
-    "description": "Token graduated during the specified time period for given launchpad.",
-    "identifier": "launchpad-tokens-graduated",
-    "project": "moonshot",
     "source": "Blockworks",
     "data_type": "timeseries_int",
     "parameters": {

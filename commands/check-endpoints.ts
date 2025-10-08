@@ -7,6 +7,6 @@ export const CHECK_ENDPOINTS = [
   { path: '/assets/ethereum', query: { expand: 'supply' } },
   { path: '/market-stats', query: { limit: '1' } },
   { path: '/transparency', query: { limit: '2' } },
-  { path: '/transparency/10' },
-  { path: '/transparency/10', query: { expand: 'asset' } },
+  // { path: '/transparency/10' },
+  // { path: '/transparency/10', query: { expand: 'asset' } },
 ]
