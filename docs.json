@@ -36,8 +36,9 @@
               {
                 "group": "Add-On Information",
                 "pages": [
+                  "api-reference/assets/expand/market_cap",
                   "api-reference/assets/expand/markets",
-                  "api-reference/assets/expand/ohlcv_last_24_h",
+                  "api-reference/assets/expand/ohlcv_last_24h",
                   "api-reference/assets/expand/price",
                   "api-reference/assets/expand/sector",
                   "api-reference/assets/expand/supply"
@@ -55,9 +56,7 @@
           {
             "group": "Token Transparency",
             "pages": [
-              "api-reference/token-transparency/list",
-              "api-reference/token-transparency/get-single",
-              "api-reference/token-transparency/download"
+              "api-reference/token-transparency/list"
             ]
           },
           {

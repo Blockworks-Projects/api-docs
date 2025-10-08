@@ -1,13 +1,13 @@
 ---
-title: "Markets"
-description: "Retrieve markets data for an asset using the expand parameter"
+title: "Market Cap"
+description: "Retrieve market cap data for an asset using the expand parameter"
 openapi: 'GET /v1/assets/{idOrSlug}'
 mode: "wide"
 ---
 
 ## Overview
 
-Add the `?expand=markets` flag to your `/assets` or `/assets/{idOrSlug}` page to include **markets** data in the response.
+Add the `?expand=market_cap` flag to your `/assets` or `/assets/{idOrSlug}` page to include **market_cap** data in the response.
 
 ## Example Request
 
@@ -15,16 +15,16 @@ Add the `?expand=markets` flag to your `/assets` or `/assets/{idOrSlug}` page to
 
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworks.com/v1/assets/ethereum?expand=markets"
+  "https://api.blockworks.com/v1/assets/ethereum?expand=market_cap"
 ```
 
 ```typescript TypeScript
 const res = await fetch(
-  'https://api.blockworks.com/v1/assets/ethereum?expand=markets',
+  'https://api.blockworks.com/v1/assets/ethereum?expand=market_cap',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
-console.log(data.markets)
+console.log(data.market_cap)
 ```
 
 ```python Python
@@ -33,10 +33,10 @@ import requests
 r = requests.get(
   'https://api.blockworks.com/v1/assets/ethereum',
   headers={'x-api-key': 'YOUR_API_KEY'},
-  params={'expand': 'markets'}
+  params={'expand': 'market_cap'}
 )
 data = r.json()
-print(data.get('markets'))
+print(data.get('market_cap'))
 ```
 
 </CodeGroup>
@@ -55,19 +55,21 @@ print(data.get('markets'))
   "category": "Infrastructure",
   "updated_at": 1759454319,
   "type": "Infrastructure",
-  "markets": [
-    {
-      "id": 2,
-      "assetId": 2,
-      "volume_24h": 49333800000,
-      "ath": 4946.05,
-      "ath_change_percentage": -9.04585,
-      "ath_date": 1756063263,
-      "total_open_interest": null,
-      "total_liquidations": null,
-      "updated_at": 1759877194
-    }
-  ]
+  "market_cap": {
+    "assetId": 2,
+    "rank": 2,
+    "usd": 4456.91,
+    "dominance": 11.9754,
+    "percent_change_btc_1h": -0.134556,
+    "percent_change_btc_24h": -1.56252,
+    "percent_change_usd_1h": 0.0999065,
+    "percent_change_usd_24h": -0.63777,
+    "percent_change_usd_7d": 2.94011,
+    "percent_change_usd_30d": 2.0461,
+    "percent_change_eth_1h": 0,
+    "percent_change_eth_24h": 0,
+    "updated_at": 1759940402
+  }
 }
 ```
 
@@ -75,15 +77,18 @@ print(data.get('markets'))
 
 | Field | Type | Description |
 |---|---|---|
-| `id` | number | Unique market identifier |
 | `assetId` | number | Unique identifier for the asset |
-| `asset_id` | number | Unique identifier for the asset |
-| `volume_24h` | number | Trading volume in the last 24 hours |
-| `ath` | number | All-time high price |
-| `ath_change_percentage` | number | Percentage change from all-time high |
-| `ath_date` | number | Unix timestamp when all-time high was reached |
-| `total_open_interest` | number | Total open interest |
-| `total_liquidations` | number | Total liquidations |
+| `rank` | number | Rank of the asset |
+| `usd` | number | Market cap in USD |
+| `dominance` | number | Dominance of the asset |
+| `percent_change_btc_1h` | number | Percentage change from BTC in the last 1 hour |
+| `percent_change_btc_24h` | number | Percentage change from BTC in the last 24 hours |
+| `percent_change_usd_1h` | number | Percentage change from USD in the last 1 hour |
+| `percent_change_usd_24h` | number | Percentage change from USD in the last 24 hours |
+| `percent_change_usd_7d` | number | Percentage change from USD in the last 7 days |
+| `percent_change_usd_30d` | number | Percentage change from USD in the last 30 days |
+| `percent_change_eth_1h` | number | Percentage change from ETH in the last 1 hour |
+| `percent_change_eth_24h` | number | Percentage change from ETH in the last 24 hours |
 | `updated_at` | number | Unix timestamp when market data was last updated |
 
 ## Notes
