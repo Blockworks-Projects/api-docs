@@ -2,8 +2,6 @@ import { Metric, Project } from '../../classes'
 import { generateMetricPage } from './metric-page-generator'
 import { updateOpenApiSpec } from './openapi-generator'
 import { updateNavigation } from './navigation-generator'
-import { updateAssetExpansionOptions } from './asset-expansion-options-generator'
-import { syncMiscMetrics } from './misc-metrics-generator'
 import { generateMetricsCatalog } from './catalog-generator'
 import { generateProjectsPage } from './projects-page-generator'
 import * as text from '../../lib/text'
@@ -22,14 +20,11 @@ export const runGenerationStage = async ({ metrics, projects }: GenerationStageC
 
   await updateOpenApiSpec(metrics)
 
-  const expandOptions = await updateAssetExpansionOptions()
-  await syncMiscMetrics()
-
   // Generate projects page
   const projectsList = Array.from(projects.values())
   await generateProjectsPage(projectsList)
 
-  await updateNavigation(metrics, projects, expandOptions)
+  await updateNavigation(metrics, projects)
 }
 
 const generateMetricPages = async ({ metrics }: { metrics: Metric[] }) => {
