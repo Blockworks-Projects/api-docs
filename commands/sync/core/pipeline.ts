@@ -54,18 +54,18 @@ const filterProjects = (projects: Map<string, Project>) => {
 
   for (const [name, project] of projects) {
     const { filteredProject, omittedMetrics } = filterProjectMetrics(project)
-    
+
     if (filteredProject.metrics.length > 0) {
       filteredProjects.set(name, filteredProject)
     }
-    
+
     allOmittedMetrics.push(...omittedMetrics)
   }
 
   return { filteredProjects, omittedMetrics: allOmittedMetrics }
 }
 
-const extractMetrics = (projects: Map<string, Project>) => 
+const extractMetrics = (projects: Map<string, Project>) =>
   Array.from(projects.values()).flatMap(project => project.metrics)
 
 const saveValidationReport = async (validationResult: any) => {
@@ -82,13 +82,13 @@ export const runSyncPipeline = async ({ updateOnlyMode = false }: PipelineConfig
   const { existingMetrics, projects, shouldContinue } = await runFetchingStage({ outputDir: OUTPUT_DIR, updateOnlyMode })
   const { filteredProjects, omittedMetrics } = filterProjects(projects)
   const metrics = extractMetrics(filteredProjects)
-  
+
   const validationResult = await runValidationStage(metrics)
   populateMetricDataCache(validationResult.metricDataCache)
-  
+
   const { added, removed } = compareMetrics(existingMetrics, metrics)
   const { removedFiles, removedDirs } = await runCleanupStage(existingMetrics, metrics, OUTPUT_DIR)
-  
+
   if (shouldContinue) {
     await runGenerationStage({ metrics, projects: filteredProjects })
   }
@@ -113,7 +113,7 @@ export const runSyncPipeline = async ({ updateOnlyMode = false }: PipelineConfig
 
 const groupMetricsByProject = (metrics: Metric[], metricKeys: string[]) => {
   const grouped = new Map<string, string[]>()
-  
+
   metricKeys.forEach(key => {
     const metric = metrics.find(m => `${m.project}/${m.identifier}` === key)
     if (metric) {
@@ -122,32 +122,32 @@ const groupMetricsByProject = (metrics: Metric[], metricKeys: string[]) => {
       grouped.set(metric.project, identifiers)
     }
   })
-  
+
   return grouped
 }
 
 const groupRemovedMetrics = (removedKeys: string[]) => {
   const grouped = new Map<string, string[]>()
-  
+
   removedKeys.forEach(key => {
     const [project, identifier] = key.split('/')
     const identifiers = grouped.get(project!) || []
     identifiers.push(identifier!)
     grouped.set(project!, identifiers)
   })
-  
+
   return grouped
 }
 
 const groupOmittedMetrics = (omitted: Metric[]) => {
   const grouped = new Map<string, Array<{identifier: string, description: string}>>()
-  
+
   omitted.forEach(metric => {
     const items = grouped.get(metric.project) || []
     items.push({ identifier: metric.identifier, description: metric.description })
     grouped.set(metric.project, items)
   })
-  
+
   return grouped
 }
 
@@ -162,26 +162,26 @@ const displayGroupedMetrics = (grouped: Map<string, string[]>, displayFn: (text:
 
 const displayAddedMetrics = (metrics: Metric[], added: string[]) => {
   if (added.length === 0) return
-  
-  text.subheader(`+ ${added.length} Metrics Added:`)
+
+  text.subheader(`${added.length} Metrics Added:`)
   const grouped = groupMetricsByProject(metrics, added)
-  displayGroupedMetrics(grouped, text.detail)
+  displayGroupedMetrics(grouped, text.added)
 }
 
 const displayRemovedMetrics = (removed: string[]) => {
   if (removed.length === 0) return
-  
-  text.warn(`- ${removed.length} Metrics Removed:`)
+
+  text.subheader(`${removed.length} Metrics Removed:`)
   const grouped = groupRemovedMetrics(removed)
-  displayGroupedMetrics(grouped, text.warnDetail)
+  displayGroupedMetrics(grouped, text.removed)
 }
 
 const displayOmittedMetrics = (omitted: Metric[]) => {
   if (omitted.length === 0) return
-  
+
   text.warn(`${omitted.length} Metrics Omitted (Bad Descriptions):`)
   const grouped = groupOmittedMetrics(omitted)
-  
+
   Array.from(grouped.keys())
     .sort()
     .forEach(project => {
@@ -194,7 +194,7 @@ const displayOmittedMetrics = (omitted: Metric[]) => {
 
 const displayApiErrors = () => {
   if (apiErrors.length === 0) return
-  
+
   text.warn(`${apiErrors.length} API Errors:`)
   apiErrors.forEach(error => {
     text.warnDetail(`URL: ${error.url}`)
@@ -204,26 +204,26 @@ const displayApiErrors = () => {
 
 const displayValidationIssues = (validationResult: any) => {
   if (!validationResult || validationResult.issues.length === 0) return
-  
+
   text.warnHeader(`${validationResult.issues.length} Validation Issues:`)
-  
+
   const issueTypes = new Map<string, number>()
   validationResult.issues.forEach((issue: any) => {
     const type = issue.issue.split(':')[0]
     issueTypes.set(type || 'Unknown', (issueTypes.get(type || 'Unknown') || 0) + 1)
   })
-  
+
   issueTypes.forEach((count, type) => {
     text.warn(`${count}x ${type}`)
   })
-  
+
   const issuesByProject = new Map<string, any[]>()
   validationResult.issues.forEach((issue: any) => {
     const list = issuesByProject.get(issue.metric.project) || []
     list.push(issue)
     issuesByProject.set(issue.metric.project, list)
   })
-  
+
   issuesByProject.forEach((projectIssues) => {
     projectIssues.forEach(issue => {
       text.warnDetail(`{ project: ${issue.metric.project}, identifier: ${issue.metric.identifier} }`)
@@ -233,20 +233,20 @@ const displayValidationIssues = (validationResult: any) => {
 
 const displaySummaryStats = (results: PipelineResults) => {
   const { metrics, omittedMetrics, added, removed, shouldContinue, removedFiles, removedDirs, validationResult } = results
-  
+
   text.summaryHeader('Sync Summary:')
   text.summarySuccess(`Output Folder: {dir}`, OUTPUT_DIR)
   text.summarySuccess(`Metric Pages: {count}`, metrics.length)
-  
+
   if (omittedMetrics.length > 0) {
     text.summaryWarn(`Omitted Pages: {count}`, omittedMetrics.length)
   }
-  
+
   const uniqueProjects = new Set(metrics.map(m => m.project)).size
   const uniqueCategories = new Set(metrics.map(m => m.category)).size
   text.summarySuccess(`Projects: {count}`, uniqueProjects)
   text.summarySuccess(`Categories: {count}`, uniqueCategories)
-  
+
   if (shouldContinue) {
     text.summarySuccess('Navigation updated')
     if (added.length > 0) text.summarySuccess(`Added Metrics: {count}`, added.length)
@@ -254,16 +254,16 @@ const displaySummaryStats = (results: PipelineResults) => {
   } else {
     text.summaryWarn('Sync skipped (no changes)')
   }
-  
+
   if (removedFiles.length > 0) text.summarySuccess(`Cleaned up files: {count}`, removedFiles.length)
   if (removedDirs.length > 0) text.summarySuccess(`Removed empty dirs: {count}`, removedDirs.length)
-  
+
   if (apiErrors.length > 0) {
     text.summaryWarn(`API Errors: ${apiErrors.length}`)
   } else {
     text.summarySuccess(`API Errors: {count}`, 0)
   }
-  
+
   if (validationResult) {
     if (validationResult.issues.length > 0) {
       text.summaryWarn(`Validation Issues: ${validationResult.issues.length}`)

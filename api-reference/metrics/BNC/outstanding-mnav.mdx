@@ -1,0 +1,73 @@
+---
+title: "MNAV"
+sidebarTitle: "MNAV"
+description: "Market NAV value for that company. Calculated as enterprise value / NAV"
+openapi: "GET /v1/metrics/outstanding-mnav"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** mNAV
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/outstanding-mnav?project=BNC"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/outstanding-mnav?project=BNC',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/outstanding-mnav',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'BNC'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "bnc": [
+    {
+      "date": "2025-10-09",
+      "value": 0.7082580649431974
+    },
+    {
+      "date": "2025-10-08",
+      "value": 0.7545021380759058
+    },
+    {
+      "date": "2025-10-07",
+      "value": 0.7452006770963555
+    },
+    {
+      "date": "2025-10-06",
+      "value": 0.7092165609863007
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
