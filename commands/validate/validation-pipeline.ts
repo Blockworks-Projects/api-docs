@@ -163,15 +163,15 @@ const displayGroupedMetrics = (grouped: Map<string, string[]>, displayFn: (text:
 
 const displayChanges = (metrics: Metric[], added: string[], removed: string[]) => {
   if (added.length > 0) {
-    text.subheader(`📈 ${added.length} New Metrics Detected:`)
+    text.subheader(text.withCount(`📈 {count} Metrics Added:`, added.length))
     const grouped = groupMetricsByProject(metrics, added)
-    displayGroupedMetrics(grouped, text.detail)
+    displayGroupedMetrics(grouped, text.added)
   }
 
   if (removed.length > 0) {
-    text.warn(`📉 ${removed.length} Missing Metrics Detected:`)
+    text.subheader(text.withCount(`📉 {count} Metrics Removed:`, removed.length))
     const grouped = groupRemovedMetrics(removed)
-    displayGroupedMetrics(grouped, text.warnDetail)
+    displayGroupedMetrics(grouped, text.removed)
   }
 
   if (added.length === 0 && removed.length === 0) {
