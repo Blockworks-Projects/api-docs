@@ -60,11 +60,8 @@ A successful response returns a paginated list of assets.
       "tag_line": "A peer-to-peer electronic cash system",
       "description": "Bitcoin is the first distributed consensus-based, censorship-resistant, permissionless, peer-to-peer payment settlement network with a provably scarce, programmable, native currency. Bitcoin (BTC), the native asset of the Bitcoin blockchain, is the world's first digital currency without a central bank or administrator. The Bitcoin network is an emergent decentralized monetary institution that exists through the interplay between full nodes, miners, and developers. It is set by a social contract that is created and opted into by the users of the network and hardened through game theory and cryptography. Bitcoin is the first, oldest, and largest cryptocurrency in the world.",
       "image_url": "https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
-      "legacy_sector": "Currencies",
       "category": "Infrastructure",
-      "is_supported": true,
       "updated_at": 1755185437,
-      "sector_id": 40,
       "type": "Infrastructure"
     },
     // ... 99 other assets
@@ -81,6 +78,21 @@ A successful response returns a paginated list of assets.
 | `expand` | query | The fields to expand. See **Expand Options** for more details. |
 | `limit` | query | The number of assets to return. |
 | `page` | query | The page number to return. |
+
+## Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | number | Unique asset identifier |
+| `code` | string | Asset ticker symbol (e.g., BTC, ETH) |
+| `title` | string | Full asset name |
+| `slug` | string | URL-friendly identifier |
+| `tag_line` | string | Short description or tagline |
+| `description` | string | Detailed asset description |
+| `image_url` | string | URL to asset logo/image |
+| `category` | string | Asset category (e.g., Infrastructure, DeFi) |
+| `updated_at` | number | Unix timestamp of last update |
+| `type` | string | Asset type classification |
 
 ## Notes
 

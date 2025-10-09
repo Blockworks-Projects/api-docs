@@ -88,6 +88,23 @@ data = r.json()
 | `idOrSlug` | path | The ID or slug of the asset to fetch |
 | `expand` | query | The fields to expand. See **Expand Options** for more details. |
 
+## Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | number | Unique asset identifier |
+| `code` | string | Asset ticker symbol (e.g., BTC, ETH) |
+| `title` | string | Full asset name |
+| `slug` | string | URL-friendly identifier |
+| `tag_line` | string | Short description or tagline |
+| `description` | string | Detailed asset description |
+| `image_url` | string | URL to asset logo/image |
+| `category` | string | Asset category (e.g., Infrastructure, DeFi) |
+| `updated_at` | number | Unix timestamp of last update |
+| `type` | string | Asset type classification |
+| `market_cap` | object | Market capitalization data (expanded by default) |
+| `price` | object | Price data (expanded by default) |
+
 ## See also
 
 - [List Assets](/api-reference/assets/list)
