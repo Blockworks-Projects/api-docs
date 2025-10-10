@@ -1,0 +1,81 @@
+---
+title: "Treasury Holdings"
+sidebarTitle: "Treasury Holdings"
+description: "Number of tokens held by the company. See crypto-asset for asset indicator"
+openapi: "GET /v1/metrics/treasury-holdings-eth"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** ETH
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/treasury-holdings-eth?project=BMNR"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/treasury-holdings-eth?project=BMNR',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/treasury-holdings-eth',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'BMNR'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "bmnr": [
+    {
+      "date": "2025-10-10",
+      "value": 2830151
+    },
+    {
+      "date": "2025-10-09",
+      "value": 2830151
+    },
+    {
+      "date": "2025-10-08",
+      "value": 2830151
+    },
+    {
+      "date": "2025-10-07",
+      "value": 2830151
+    },
+    {
+      "date": "2025-10-06",
+      "value": 2830151
+    },
+    {
+      "date": "2025-10-05",
+      "value": 2650900
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

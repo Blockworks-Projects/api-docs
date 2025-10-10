@@ -1,0 +1,73 @@
+---
+title: "NAV"
+sidebarTitle: "NAV"
+description: "Dollar value of crypto assets (does not include cash)"
+openapi: "GET /v1/metrics/treasury-nav-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/treasury-nav-total-usd?project=BMNR"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/treasury-nav-total-usd?project=BMNR',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/treasury-nav-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'BMNR'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "bmnr": [
+    {
+      "date": "2025-10-09",
+      "value": 12837413098.085415
+    },
+    {
+      "date": "2025-10-08",
+      "value": 12629753754.650204
+    },
+    {
+      "date": "2025-10-07",
+      "value": 13294907381.805117
+    },
+    {
+      "date": "2025-10-06",
+      "value": 12802754540.350424
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

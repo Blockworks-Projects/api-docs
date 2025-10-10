@@ -17436,6 +17436,204 @@
           }
         ]
       }
+    },
+    "/v1/metrics/outstanding-mnav": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_outstanding_mnav",
+        "summary": "Outstanding Mnav",
+        "description": "Retrieve the 'outstanding-mnav' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "BMNR",
+                "BNC",
+                "BTBT",
+                "BTCM",
+                "BTCS",
+                "CEP",
+                "CEPO",
+                "DFDV",
+                "ETHM",
+                "ETHZ",
+                "FGNX",
+                "FORD",
+                "GAME",
+                "HYPD",
+                "MSTR",
+                "NAKA",
+                "SBET",
+                "SMLR",
+                "SQNS",
+                "STSS",
+                "UPXI"
+              ],
+              "example": "BMNR"
+            },
+            "examples": {
+              "BMNR": {
+                "value": "BMNR",
+                "summary": "BMNR"
+              },
+              "BNC": {
+                "value": "BNC",
+                "summary": "BNC"
+              },
+              "BTBT": {
+                "value": "BTBT",
+                "summary": "BTBT"
+              },
+              "BTCM": {
+                "value": "BTCM",
+                "summary": "BTCM"
+              },
+              "BTCS": {
+                "value": "BTCS",
+                "summary": "BTCS"
+              },
+              "CEP": {
+                "value": "CEP",
+                "summary": "CEP"
+              },
+              "CEPO": {
+                "value": "CEPO",
+                "summary": "CEPO"
+              },
+              "DFDV": {
+                "value": "DFDV",
+                "summary": "DFDV"
+              },
+              "ETHM": {
+                "value": "ETHM",
+                "summary": "ETHM"
+              },
+              "ETHZ": {
+                "value": "ETHZ",
+                "summary": "ETHZ"
+              },
+              "FGNX": {
+                "value": "FGNX",
+                "summary": "FGNX"
+              },
+              "FORD": {
+                "value": "FORD",
+                "summary": "FORD"
+              },
+              "GAME": {
+                "value": "GAME",
+                "summary": "GAME"
+              },
+              "HYPD": {
+                "value": "HYPD",
+                "summary": "HYPD"
+              },
+              "MSTR": {
+                "value": "MSTR",
+                "summary": "MSTR"
+              },
+              "NAKA": {
+                "value": "NAKA",
+                "summary": "NAKA"
+              },
+              "SBET": {
+                "value": "SBET",
+                "summary": "SBET"
+              },
+              "SMLR": {
+                "value": "SMLR",
+                "summary": "SMLR"
+              },
+              "SQNS": {
+                "value": "SQNS",
+                "summary": "SQNS"
+              },
+              "STSS": {
+                "value": "STSS",
+                "summary": "STSS"
+              },
+              "UPXI": {
+                "value": "UPXI",
+                "summary": "UPXI"
+              },
+              "multi": {
+                "value": "BMNR,BNC",
+                "summary": "BMNR + BNC"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
     }
   },
   "info": {

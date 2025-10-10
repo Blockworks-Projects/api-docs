@@ -133,7 +133,7 @@ Total amount of trading volume. Does not represent open positions
 
 ### Total ETF Flows
 
-Total ETF flows for Ether ETFs
+Total ETF flows for Solana ETFs
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -144,7 +144,7 @@ Total ETF flows for Ether ETFs
 
 ### ETF Flows
 
-ETF flows for Grayscale Ethereum Trust ETF (ETHE)
+ETF flows for REX-Osprey SOL + Staking ETF (SSK)
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -227,7 +227,7 @@ Newly issued tokens that are distributed to participants (such as validators, mi
 
 ### MEV Tips
 
-Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders for faster transaction execution, MEV capture, or MEV protection.
+Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders or leaders for faster transaction execution, MEV capture, or MEV protection.
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -237,7 +237,7 @@ Additional fees for using out-of-protocol systems that enables users to send tra
 
 ### MEV Tips (USD)
 
-Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders for faster transaction execution, MEV capture, or MEV protection.
+Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders or leaders for faster transaction execution, MEV capture, or MEV protection.
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -677,6 +677,35 @@ Amount of trading volume in USD
 
 # Treasury
 
+### MNAV
+
+Market NAV value for that company. Calculated as enterprise value / NAV
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [BMNR](/api-reference/metrics/BMNR/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [BNC](/api-reference/metrics/BNC/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [BTBT](/api-reference/metrics/BTBT/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [BTCM](/api-reference/metrics/BTCM/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [BTCS](/api-reference/metrics/BTCS/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [CEP](/api-reference/metrics/CEP/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [CEPO](/api-reference/metrics/CEPO/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [DFDV](/api-reference/metrics/DFDV/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [ETHM](/api-reference/metrics/ETHM/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [ETHZ](/api-reference/metrics/ETHZ/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [FGNX](/api-reference/metrics/FGNX/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [FORD](/api-reference/metrics/FORD/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [GAME](/api-reference/metrics/GAME/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [HYPD](/api-reference/metrics/HYPD/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [MSTR](/api-reference/metrics/MSTR/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [NAKA](/api-reference/metrics/NAKA/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [SBET](/api-reference/metrics/SBET/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [SMLR](/api-reference/metrics/SMLR/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [SQNS](/api-reference/metrics/SQNS/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [STSS](/api-reference/metrics/STSS/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+| [UPXI](/api-reference/metrics/UPXI/outstanding-mnav) | `outstanding-mnav` | Blockworks | daily | timeseries_float |
+
 ### Enterprise Value
 
 Actual enterprise value for the equity. Calculated as market cap - liabilities + assets
@@ -796,35 +825,6 @@ Number of tokens held by the company. See crypto-asset for asset indicator
 | [SQNS](/api-reference/metrics/SQNS/treasury-market-cap-usd) | `treasury-market-cap-usd` | Blockworks | daily | timeseries_usd |
 | [STSS](/api-reference/metrics/STSS/treasury-market-cap-usd) | `treasury-market-cap-usd` | Blockworks | daily | timeseries_usd |
 | [UPXI](/api-reference/metrics/UPXI/treasury-market-cap-usd) | `treasury-market-cap-usd` | Blockworks | daily | timeseries_usd |
-
-### MNAV
-
-Market NAV value for that company. Calculated as enterprise value / NAV
-
-
-| Project | Identifier | Source | Interval | Data Type |
-|-------|------------|--------|----------|-----------|
-| [BMNR](/api-reference/metrics/BMNR/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [BNC](/api-reference/metrics/BNC/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [BTBT](/api-reference/metrics/BTBT/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [BTCM](/api-reference/metrics/BTCM/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [BTCS](/api-reference/metrics/BTCS/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [CEP](/api-reference/metrics/CEP/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [CEPO](/api-reference/metrics/CEPO/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [DFDV](/api-reference/metrics/DFDV/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [ETHM](/api-reference/metrics/ETHM/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [ETHZ](/api-reference/metrics/ETHZ/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [FGNX](/api-reference/metrics/FGNX/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [FORD](/api-reference/metrics/FORD/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [GAME](/api-reference/metrics/GAME/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [HYPD](/api-reference/metrics/HYPD/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [MSTR](/api-reference/metrics/MSTR/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [NAKA](/api-reference/metrics/NAKA/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [SBET](/api-reference/metrics/SBET/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [SMLR](/api-reference/metrics/SMLR/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [SQNS](/api-reference/metrics/SQNS/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [STSS](/api-reference/metrics/STSS/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
-| [UPXI](/api-reference/metrics/UPXI/treasury-mnav) | `treasury-mnav` | Blockworks | daily | timeseries_float |
 
 ### NAV
 
