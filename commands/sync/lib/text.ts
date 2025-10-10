@@ -28,6 +28,12 @@ export const warnHeader = (...args: any[]): void => console.log('\n', chalk.yell
 // warning detail message
 export const warnDetail = (...args: any[]): void => console.log(chalk.yellow('  ', ...args))
 
+// added message
+export const added = (...args: any[]): void => console.log(chalk.green('   +', ...args))
+
+// removed message
+export const removed = (...args: any[]): void => console.log(chalk.red('   -', ...args))
+
 // helper function to replace {count} with the count
 export const withCount = (text: string, ...values: (number | string)[]): string =>
   text.replace(/\{[^}]+\}/g, () => chalk.yellowBright.bold(values.shift() ?? ''))

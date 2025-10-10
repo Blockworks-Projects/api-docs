@@ -59,14 +59,12 @@ const CATEGORY_CONFIGS: Record<string, CategoryConfig> = {
  * Build navigation structure for all project categories
  */
 export function buildNavigationStructure(
-  categories: LegacyCategories,
-  expandOptions?: string[]
+  categories: LegacyCategories
 ): {
   chainsGroup: NavigationGroup
   projectsGroup: NavigationGroup
   etfsGroup: NavigationGroup
   treasuriesGroup: NavigationGroup
-  assetsUpdate?: any
 } {
   text.detail('Building navigation structure...')
 
@@ -76,10 +74,7 @@ export function buildNavigationStructure(
   const etfsGroup = buildCategoryNavigation(categories.etfs, CATEGORY_CONFIGS.etfs)
   const treasuriesGroup = buildCategoryNavigation(categories.treasuries, CATEGORY_CONFIGS.treasuries)
 
-  // Build assets navigation if expand options provided
-  const assetsUpdate = expandOptions ? buildAssetsNavigation(expandOptions) : undefined
-
-  return { chainsGroup, projectsGroup, etfsGroup, treasuriesGroup, assetsUpdate }
+  return { chainsGroup, projectsGroup, etfsGroup, treasuriesGroup }
 }
 
 /**
@@ -157,18 +152,3 @@ function buildCategoryNavigation(
   return categoryGroup
 }
 
-/**
- * Build assets navigation with expand options
- */
-function buildAssetsNavigation(expandOptions: string[]): any {
-  text.subheader('Building Assets navigation...')
-
-  const expandOptionsGroup = {
-    group: 'Add-On Information',
-    pages: expandOptions.map(option => `api-reference/assets/expand/${option.replace(/\./g, '-')}`)
-  }
-
-  text.pass(text.withCount(`Added Add-On Information dropdown with {count} options`, expandOptions.length))
-
-  return expandOptionsGroup
-}

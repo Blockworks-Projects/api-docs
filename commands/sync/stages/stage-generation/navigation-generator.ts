@@ -5,9 +5,9 @@ import * as text from '../../lib/text'
 import type { Metric, Project } from '../../classes'
 
 /**
- * Generate and update docs.json navigation structure for metrics and assets
+ * Generate and update docs.json navigation structure for metrics only
  */
-export async function updateNavigation(metrics: Metric[], projects: Map<string, Project>, expandOptions?: string[]): Promise<void> {
+export async function updateNavigation(metrics: Metric[], projects: Map<string, Project>): Promise<void> {
   text.header('📋 Updating docs.json navigation...')
 
   const docsPath = './docs.json'
@@ -31,11 +31,8 @@ export async function updateNavigation(metrics: Metric[], projects: Map<string, 
   text.detail(text.withCount(`ETFs: {count} projects`, summary.etfCount))
   text.detail(text.withCount(`Treasuries: {count} projects`, summary.treasuryCount))
 
-  // Build navigation structure
-  const { chainsGroup, projectsGroup, etfsGroup, treasuriesGroup, assetsUpdate } = buildNavigationStructure(
-    categories,
-    expandOptions
-  )
+  // Build navigation structure (metrics only, no assets)
+  const { chainsGroup, projectsGroup, etfsGroup, treasuriesGroup } = buildNavigationStructure(categories)
 
   // Read and update docs.json
   const docs = await readJsonFile<any>(docsPath)
@@ -48,11 +45,6 @@ export async function updateNavigation(metrics: Metric[], projects: Map<string, 
 
   // Update or create category groups
   updateNavigationGroups(docs, chainsGroup, projectsGroup, etfsGroup, treasuriesGroup, metricsGroup)
-
-  // Update assets navigation if provided
-  if (assetsUpdate && expandOptions) {
-    updateAssetsNavigation(docs, assetsUpdate)
-  }
 
   // Write updated docs.json
   await writeJsonFile(docsPath, docs)
@@ -87,23 +79,3 @@ function updateNavigationGroups(
   metricsGroup.pages = staticPages
 }
 
-/**
- * Update assets navigation
- */
-function updateAssetsNavigation(docs: any, assetsUpdate: any): void {
-  // Find the Assets group
-  const assetsGroup = docs.navigation.tabs[0].groups
-    .find((g: any) => g.group === 'API Reference')
-    ?.pages?.find((p: any) => p.group === 'Assets')
-
-  if (assetsGroup) {
-    // Remove existing OHLCV page and any existing Add-On Information groups
-    assetsGroup.pages = assetsGroup.pages.filter((page: any) => {
-      return page !== 'api-reference/assets/ohlcv' &&
-             !(typeof page === 'object' && (page.group === 'Expand Options' || page.group === 'Add-On Information'))
-    })
-
-    // Add the new assets navigation
-    assetsGroup.pages.push(assetsUpdate)
-  }
-}

@@ -90,6 +90,29 @@ data = r.json()
 | `id` | path | The ID of the transparency report to fetch |
 | `expand` | query | Expand related data. Options: `asset` |
 
+## Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | number | Unique report identifier |
+| `asset_id` | number | Associated asset identifier |
+| `summary` | string | Report summary text |
+| `created_at` | number | Unix timestamp when report was created |
+| `updated_at` | number | Unix timestamp of last update |
+| `asset` | object | Expanded asset data (when `expand=asset` is used) |
+| `project_team` | object | Project & Team category scores |
+| `project_team.rating` | number | Score achieved in this category |
+| `project_team.max` | number | Maximum possible score |
+| `token_allocation` | object | Token Allocation category scores |
+| `token_allocation.rating` | number | Score achieved in this category |
+| `token_allocation.max` | number | Maximum possible score |
+| `market_structure` | object | Market Structure category scores |
+| `market_structure.rating` | number | Score achieved in this category |
+| `market_structure.max` | number | Maximum possible score |
+| `financial_disclosure` | object | Financial Disclosure category scores |
+| `financial_disclosure.rating` | number | Score achieved in this category |
+| `financial_disclosure.max` | number | Maximum possible score |
+
 ## See also
 
 - [List Token Transparency Reports](/api-reference/token-transparency/list)

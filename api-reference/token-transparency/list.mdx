@@ -114,6 +114,28 @@ A successful response returns a paginated list of transparency reports.
 | `order_by` | query | Field to order results by. | `asset.title`, `project_team`, `token_allocation`, `market_structure`, `financial_disclosure`, `total` |
 | `order_dir` | query | Order direction for results. Default is `asc` (ascending). | `asc`, `desc` |
 
+## Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | number | Unique report identifier |
+| `asset_id` | number | Associated asset identifier |
+| `summary` | string | Report summary text |
+| `created_at` | number | Unix timestamp when report was created |
+| `updated_at` | number | Unix timestamp of last update |
+| `project_team` | object | Project & Team category scores |
+| `project_team.rating` | number | Score achieved in this category |
+| `project_team.max` | number | Maximum possible score |
+| `token_allocation` | object | Token Allocation category scores |
+| `token_allocation.rating` | number | Score achieved in this category |
+| `token_allocation.max` | number | Maximum possible score |
+| `market_structure` | object | Market Structure category scores |
+| `market_structure.rating` | number | Score achieved in this category |
+| `market_structure.max` | number | Maximum possible score |
+| `financial_disclosure` | object | Financial Disclosure category scores |
+| `financial_disclosure.rating` | number | Score achieved in this category |
+| `financial_disclosure.max` | number | Maximum possible score |
+
 ## Related Endpoints
 
 - [Get Single Token Transparency](/api-reference/token-transparency/get-single)
