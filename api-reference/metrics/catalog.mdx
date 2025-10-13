@@ -133,7 +133,7 @@ Total amount of trading volume. Does not represent open positions
 
 ### Total ETF Flows
 
-Total ETF flows for Solana ETFs
+Total ETF flows for Ether ETFs
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -144,7 +144,7 @@ Total ETF flows for Solana ETFs
 
 ### ETF Flows
 
-ETF flows for REX-Osprey SOL + Staking ETF (SSK)
+ETF flows for iShares Bitcoin Trust ETF (IBIT)
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -227,7 +227,7 @@ Newly issued tokens that are distributed to participants (such as validators, mi
 
 ### MEV Tips
 
-Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders or leaders for faster transaction execution, MEV capture, or MEV protection.
+Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders for faster transaction execution, MEV capture, or MEV protection.
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -237,7 +237,7 @@ Additional fees for using out-of-protocol systems that enables users to send tra
 
 ### MEV Tips (USD)
 
-Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders or leaders for faster transaction execution, MEV capture, or MEV protection.
+Additional fees for using out-of-protocol systems that enables users to send transactions, or a bundle of transactions, to block builders for faster transaction execution, MEV capture, or MEV protection.
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -476,7 +476,7 @@ An additional fee for OP Stack chains in order to pay operators, such as provers
 
 ### Other Fees
 
-For Arbitrum, other fees include the fee for Timeboost, an priroty auction for access to transactions with no delay compared to 200ms delay for the chain's sequencer
+For Ethereum, this includes just blob fees: an additional fee for transactions that post data to "blobs," which are specialized data availability solutions for L2 blockchains.
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -486,7 +486,7 @@ For Arbitrum, other fees include the fee for Timeboost, an priroty auction for a
 
 ### Other Fees (USD)
 
-For Arbitrum, other fees include the fee for Timeboost, an priroty auction for access to transactions with no delay compared to 200ms delay for the chain's sequencer
+For Ethereum, this includes just blob fees: an additional fee for transactions that post data to "blobs," which are specialized data availability solutions for L2 blockchains.
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -592,7 +592,7 @@ Total amount of contracts outstanding in USD
 
 ### Token FDV
 
-Fully diluted value of the native asset 
+Fully diluted value of the native asset
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -677,9 +677,99 @@ Amount of trading volume in USD
 
 # Treasury
 
-### MNAV
+### MNAV (Fully Diluted EV)
 
-Market NAV value for that company. Calculated as enterprise value / NAV
+The company's market cap divided by the value of crypto asset holdings. Often called Basic mNAV, it is the most simplistic way to track the multiple the company trades at relative to its crypto assets held. This figure can be calculated using both the market cap and the enterprise value. Some Companies may hold a considerable amount of cash that has not yet been deployed into crypto, which the Enterprise Value calculation highlights.
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [BMNR](/api-reference/metrics/BMNR/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [BNC](/api-reference/metrics/BNC/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [BTBT](/api-reference/metrics/BTBT/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [BTCM](/api-reference/metrics/BTCM/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [BTCS](/api-reference/metrics/BTCS/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [CEP](/api-reference/metrics/CEP/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [CEPO](/api-reference/metrics/CEPO/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [DFDV](/api-reference/metrics/DFDV/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [ETHM](/api-reference/metrics/ETHM/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [ETHZ](/api-reference/metrics/ETHZ/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [FGNX](/api-reference/metrics/FGNX/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [FORD](/api-reference/metrics/FORD/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [GAME](/api-reference/metrics/GAME/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [HYPD](/api-reference/metrics/HYPD/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [MSTR](/api-reference/metrics/MSTR/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [NAKA](/api-reference/metrics/NAKA/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [PAPL](/api-reference/metrics/PAPL/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [SBET](/api-reference/metrics/SBET/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [SMLR](/api-reference/metrics/SMLR/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [SQNS](/api-reference/metrics/SQNS/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [STSS](/api-reference/metrics/STSS/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+| [UPXI](/api-reference/metrics/UPXI/fully-diluted-ev-mnav) | `fully-diluted-ev-mnav` | Blockworks | daily | timeseries_float |
+
+### MNAV (Fully Diluted)
+
+The company's market cap divided by the value of crypto asset holdings. Often called Basic mNAV, it is the most simplistic way to track the multiple the company trades at relative to its crypto assets held. This figure can be calculated using both the market cap and the enterprise value. Some Companies may hold a considerable amount of cash that has not yet been deployed into crypto, which the Enterprise Value calculation highlights.
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [BMNR](/api-reference/metrics/BMNR/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [BNC](/api-reference/metrics/BNC/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [BTBT](/api-reference/metrics/BTBT/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [BTCM](/api-reference/metrics/BTCM/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [BTCS](/api-reference/metrics/BTCS/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [CEP](/api-reference/metrics/CEP/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [CEPO](/api-reference/metrics/CEPO/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [DFDV](/api-reference/metrics/DFDV/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [ETHM](/api-reference/metrics/ETHM/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [ETHZ](/api-reference/metrics/ETHZ/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [FGNX](/api-reference/metrics/FGNX/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [FORD](/api-reference/metrics/FORD/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [GAME](/api-reference/metrics/GAME/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [HYPD](/api-reference/metrics/HYPD/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [MSTR](/api-reference/metrics/MSTR/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [NAKA](/api-reference/metrics/NAKA/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [PAPL](/api-reference/metrics/PAPL/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [SBET](/api-reference/metrics/SBET/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [SMLR](/api-reference/metrics/SMLR/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [SQNS](/api-reference/metrics/SQNS/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [STSS](/api-reference/metrics/STSS/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+| [UPXI](/api-reference/metrics/UPXI/fully-diluted-mnav) | `fully-diluted-mnav` | Blockworks | daily | timeseries_float |
+
+### MNAV (Oustanding EV)
+
+The company's market cap divided by the value of crypto asset holdings. Often called Basic mNAV, it is the most simplistic way to track the multiple the company trades at relative to its crypto assets held. This figure can be calculated using both the market cap and the enterprise value. Some Companies may hold a considerable amount of cash that has not yet been deployed into crypto, which the Enterprise Value calculation highlights.
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
+| [BMNR](/api-reference/metrics/BMNR/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [BNC](/api-reference/metrics/BNC/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [BTBT](/api-reference/metrics/BTBT/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [BTCM](/api-reference/metrics/BTCM/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [BTCS](/api-reference/metrics/BTCS/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [CEP](/api-reference/metrics/CEP/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [CEPO](/api-reference/metrics/CEPO/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [DFDV](/api-reference/metrics/DFDV/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [ETHM](/api-reference/metrics/ETHM/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [ETHZ](/api-reference/metrics/ETHZ/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [FGNX](/api-reference/metrics/FGNX/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [FORD](/api-reference/metrics/FORD/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [GAME](/api-reference/metrics/GAME/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [HYPD](/api-reference/metrics/HYPD/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [MSTR](/api-reference/metrics/MSTR/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [NAKA](/api-reference/metrics/NAKA/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [PAPL](/api-reference/metrics/PAPL/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [SBET](/api-reference/metrics/SBET/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [SMLR](/api-reference/metrics/SMLR/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [SQNS](/api-reference/metrics/SQNS/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [STSS](/api-reference/metrics/STSS/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+| [UPXI](/api-reference/metrics/UPXI/outstanding-ev-mnav) | `outstanding-ev-mnav` | Blockworks | daily | timeseries_float |
+
+### MNAV (Outstanding)
+
+The company's market cap divided by the value of crypto asset holdings. Often called Basic mNAV, it is the most simplistic way to track the multiple the company trades at relative to its crypto assets held. This figure can be calculated using both the market cap and the enterprise value. Some Companies may hold a considerable amount of cash that has not yet been deployed into crypto, which the Enterprise Value calculation highlights.
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -729,6 +819,7 @@ Actual enterprise value for the equity. Calculated as market cap - liabilities +
 | [HYPD](/api-reference/metrics/HYPD/treasury-enterprise-value-usd) | `treasury-enterprise-value-usd` | Blockworks | daily | timeseries_usd |
 | [MSTR](/api-reference/metrics/MSTR/treasury-enterprise-value-usd) | `treasury-enterprise-value-usd` | Blockworks | daily | timeseries_usd |
 | [NAKA](/api-reference/metrics/NAKA/treasury-enterprise-value-usd) | `treasury-enterprise-value-usd` | Blockworks | daily | timeseries_usd |
+| [PAPL](/api-reference/metrics/PAPL/treasury-enterprise-value-usd) | `treasury-enterprise-value-usd` | Blockworks | daily | timeseries_usd |
 | [SBET](/api-reference/metrics/SBET/treasury-enterprise-value-usd) | `treasury-enterprise-value-usd` | Blockworks | daily | timeseries_usd |
 | [SMLR](/api-reference/metrics/SMLR/treasury-enterprise-value-usd) | `treasury-enterprise-value-usd` | Blockworks | daily | timeseries_usd |
 | [SQNS](/api-reference/metrics/SQNS/treasury-enterprise-value-usd) | `treasury-enterprise-value-usd` | Blockworks | daily | timeseries_usd |
@@ -790,6 +881,15 @@ Number of tokens held by the company. See crypto-asset for asset indicator
 
 | Project | Identifier | Source | Interval | Data Type |
 |-------|------------|--------|----------|-----------|
+| [PAPL](/api-reference/metrics/PAPL/treasury-holdings-inj) | `treasury-holdings-inj` | Blockworks | daily | timeseries_float |
+
+### Treasury Holdings
+
+Number of tokens held by the company. See crypto-asset for asset indicator
+
+
+| Project | Identifier | Source | Interval | Data Type |
+|-------|------------|--------|----------|-----------|
 | [BTCM](/api-reference/metrics/BTCM/treasury-holdings-sol) | `treasury-holdings-sol` | Blockworks | daily | timeseries_float |
 | [DFDV](/api-reference/metrics/DFDV/treasury-holdings-sol) | `treasury-holdings-sol` | Blockworks | daily | timeseries_float |
 | [FORD](/api-reference/metrics/FORD/treasury-holdings-sol) | `treasury-holdings-sol` | Blockworks | daily | timeseries_float |
@@ -799,7 +899,7 @@ Number of tokens held by the company. See crypto-asset for asset indicator
 
 ### Market Cap
 
-"Market capitalization of the equity
+Market capitalization of the equity
 
 
 | Project | Identifier | Source | Interval | Data Type |
@@ -820,6 +920,7 @@ Number of tokens held by the company. See crypto-asset for asset indicator
 | [HYPD](/api-reference/metrics/HYPD/treasury-market-cap-usd) | `treasury-market-cap-usd` | Blockworks | daily | timeseries_usd |
 | [MSTR](/api-reference/metrics/MSTR/treasury-market-cap-usd) | `treasury-market-cap-usd` | Blockworks | daily | timeseries_usd |
 | [NAKA](/api-reference/metrics/NAKA/treasury-market-cap-usd) | `treasury-market-cap-usd` | Blockworks | daily | timeseries_usd |
+| [PAPL](/api-reference/metrics/PAPL/treasury-market-cap-usd) | `treasury-market-cap-usd` | Blockworks | daily | timeseries_usd |
 | [SBET](/api-reference/metrics/SBET/treasury-market-cap-usd) | `treasury-market-cap-usd` | Blockworks | daily | timeseries_usd |
 | [SMLR](/api-reference/metrics/SMLR/treasury-market-cap-usd) | `treasury-market-cap-usd` | Blockworks | daily | timeseries_usd |
 | [SQNS](/api-reference/metrics/SQNS/treasury-market-cap-usd) | `treasury-market-cap-usd` | Blockworks | daily | timeseries_usd |
@@ -849,6 +950,7 @@ Dollar value of crypto assets (does not include cash)
 | [HYPD](/api-reference/metrics/HYPD/treasury-nav-total-usd) | `treasury-nav-total-usd` | Blockworks | daily | timeseries_usd |
 | [MSTR](/api-reference/metrics/MSTR/treasury-nav-total-usd) | `treasury-nav-total-usd` | Blockworks | daily | timeseries_usd |
 | [NAKA](/api-reference/metrics/NAKA/treasury-nav-total-usd) | `treasury-nav-total-usd` | Blockworks | daily | timeseries_usd |
+| [PAPL](/api-reference/metrics/PAPL/treasury-nav-total-usd) | `treasury-nav-total-usd` | Blockworks | daily | timeseries_usd |
 | [SBET](/api-reference/metrics/SBET/treasury-nav-total-usd) | `treasury-nav-total-usd` | Blockworks | daily | timeseries_usd |
 | [SMLR](/api-reference/metrics/SMLR/treasury-nav-total-usd) | `treasury-nav-total-usd` | Blockworks | daily | timeseries_usd |
 | [SQNS](/api-reference/metrics/SQNS/treasury-nav-total-usd) | `treasury-nav-total-usd` | Blockworks | daily | timeseries_usd |
@@ -879,6 +981,7 @@ USD volume over the period
 | [HYPD](/api-reference/metrics/HYPD/treasury-volume-total-usd) | `treasury-volume-total-usd` | Blockworks | daily | timeseries_usd |
 | [MSTR](/api-reference/metrics/MSTR/treasury-volume-total-usd) | `treasury-volume-total-usd` | Blockworks | daily | timeseries_usd |
 | [NAKA](/api-reference/metrics/NAKA/treasury-volume-total-usd) | `treasury-volume-total-usd` | Blockworks | daily | timeseries_usd |
+| [PAPL](/api-reference/metrics/PAPL/treasury-volume-total-usd) | `treasury-volume-total-usd` | Blockworks | daily | timeseries_usd |
 | [SBET](/api-reference/metrics/SBET/treasury-volume-total-usd) | `treasury-volume-total-usd` | Blockworks | daily | timeseries_usd |
 | [SMLR](/api-reference/metrics/SMLR/treasury-volume-total-usd) | `treasury-volume-total-usd` | Blockworks | daily | timeseries_usd |
 | [SQNS](/api-reference/metrics/SQNS/treasury-volume-total-usd) | `treasury-volume-total-usd` | Blockworks | daily | timeseries_usd |

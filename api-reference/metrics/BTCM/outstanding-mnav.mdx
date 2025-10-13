@@ -1,7 +1,7 @@
 ---
-title: "MNAV"
-sidebarTitle: "MNAV"
-description: "Market NAV value for that company. Calculated as enterprise value / NAV"
+title: "MNAV (Outstanding)"
+sidebarTitle: "MNAV (Outstanding)"
+description: "The company's market cap divided by the value of crypto asset holdings. Often called Basic mNAV, it is the most simplistic way to track the multiple the company trades at relative to its crypto assets held. This figure can be calculated using both the market cap and the enterprise value. Some Companies may hold a considerable amount of cash that has not yet been deployed into crypto, which the Enterprise Value calculation highlights."
 openapi: "GET /v1/metrics/outstanding-mnav"
 mode: "wide"
 ---
@@ -49,20 +49,16 @@ data = r.json()
 {
   "btcm": [
     {
+      "date": "2025-10-10",
+      "value": 5.015498958977877
+    },
+    {
       "date": "2025-10-09",
-      "value": 5.2026431180198545
+      "value": 5.201941645930594
     },
     {
       "date": "2025-10-08",
       "value": 5.436692181515206
-    },
-    {
-      "date": "2025-10-07",
-      "value": 5.09164587362269
-    },
-    {
-      "date": "2025-10-06",
-      "value": 5.143964000189744
     }
   ]
 }
