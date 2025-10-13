@@ -1,0 +1,103 @@
+---
+title: "Market Cap"
+description: "Retrieve market cap data for an asset using the expand parameter"
+openapi: 'GET /v1/assets/{idOrSlug}'
+mode: "wide"
+---
+
+## Overview
+
+Add the `?expand=market_cap` flag to your `/assets` or `/assets/{idOrSlug}` page to include **market_cap** data in the response.
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/assets/ethereum?expand=market_cap"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/assets/ethereum?expand=market_cap',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+console.log(data.market_cap)
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/assets/ethereum',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'expand': 'market_cap'}
+)
+data = r.json()
+print(data.get('market_cap'))
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "id": 2,
+  "code": "ETH",
+  "title": "Ethereum",
+  "slug": "ethereum",
+  "tag_line": "A decentralized computing platform",
+  "description": "Ethereum is a distributed blockchain computing platform for smart contracts and decentralized applications. Its native token is ether (ETH), which primarily serves as a means of payment for transaction fees and as collateral for borrowing specific ERC-20 tokens within the decentralized finance (DeFi) sector.",
+  "image_url": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
+  "category": "Infrastructure",
+  "updated_at": 1759454319,
+  "type": "Infrastructure",
+  "market_cap": {
+    "assetId": 2,
+    "rank": 2,
+    "usd": 4456.91,
+    "dominance": 11.9754,
+    "percent_change_btc_1h": -0.134556,
+    "percent_change_btc_24h": -1.56252,
+    "percent_change_usd_1h": 0.0999065,
+    "percent_change_usd_24h": -0.63777,
+    "percent_change_usd_7d": 2.94011,
+    "percent_change_usd_30d": 2.0461,
+    "percent_change_eth_1h": 0,
+    "percent_change_eth_24h": 0,
+    "updated_at": 1759940402
+  }
+}
+```
+
+### Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `assetId` | number | Unique identifier for the asset |
+| `rank` | number | Rank of the asset |
+| `usd` | number | Market cap in USD |
+| `dominance` | number | Dominance of the asset |
+| `percent_change_btc_1h` | number | Percentage change from BTC in the last 1 hour |
+| `percent_change_btc_24h` | number | Percentage change from BTC in the last 24 hours |
+| `percent_change_usd_1h` | number | Percentage change from USD in the last 1 hour |
+| `percent_change_usd_24h` | number | Percentage change from USD in the last 24 hours |
+| `percent_change_usd_7d` | number | Percentage change from USD in the last 7 days |
+| `percent_change_usd_30d` | number | Percentage change from USD in the last 30 days |
+| `percent_change_eth_1h` | number | Percentage change from ETH in the last 1 hour |
+| `percent_change_eth_24h` | number | Percentage change from ETH in the last 24 hours |
+| `updated_at` | number | Unix timestamp when market data was last updated |
+
+## Notes
+
+- Can be used with other expansion options by joining with a comma (e.g. `?expand=markets,ohlcv_last_24_h`).
+- Can be used on `/v1/assets/` or `/v1/assets/{idOrSlug}` endpoints.
+- `price` and `market_cap` are expanded by default in `/assets/{idOrSlug}` results unless an explicit `?expand=` flag is provided.
+
+## See also
+
+- [Get Single Asset](/api-reference/assets/get-single)
+- [All Assets](/api-reference/assets/list)

@@ -1,0 +1,98 @@
+---
+title: "Markets"
+description: "Retrieve markets data for an asset using the expand parameter"
+openapi: 'GET /v1/assets/{idOrSlug}'
+mode: "wide"
+---
+
+## Overview
+
+Add the `?expand=markets` flag to your `/assets` or `/assets/{idOrSlug}` page to include **markets** data in the response.
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/assets/ethereum?expand=markets"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/assets/ethereum?expand=markets',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+console.log(data.markets)
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/assets/ethereum',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'expand': 'markets'}
+)
+data = r.json()
+print(data.get('markets'))
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "id": 2,
+  "code": "ETH",
+  "title": "Ethereum",
+  "slug": "ethereum",
+  "tag_line": "A decentralized computing platform",
+  "description": "Ethereum is a distributed blockchain computing platform for smart contracts and decentralized applications. Its native token is ether (ETH), which primarily serves as a means of payment for transaction fees and as collateral for borrowing specific ERC-20 tokens within the decentralized finance (DeFi) sector.",
+  "image_url": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
+  "category": "Infrastructure",
+  "updated_at": 1759454319,
+  "type": "Infrastructure",
+  "markets": [
+    {
+      "id": 2,
+      "assetId": 2,
+      "volume_24h": 49333800000,
+      "ath": 4946.05,
+      "ath_change_percentage": -9.04585,
+      "ath_date": 1756063263,
+      "total_open_interest": null,
+      "total_liquidations": null,
+      "updated_at": 1759877194
+    }
+  ]
+}
+```
+
+### Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | number | Unique market identifier |
+| `assetId` | number | Unique identifier for the asset |
+| `asset_id` | number | Unique identifier for the asset |
+| `volume_24h` | number | Trading volume in the last 24 hours |
+| `ath` | number | All-time high price |
+| `ath_change_percentage` | number | Percentage change from all-time high |
+| `ath_date` | number | Unix timestamp when all-time high was reached |
+| `total_open_interest` | number | Total open interest |
+| `total_liquidations` | number | Total liquidations |
+| `updated_at` | number | Unix timestamp when market data was last updated |
+
+## Notes
+
+- Can be used with other expansion options by joining with a comma (e.g. `?expand=markets,ohlcv_last_24_h`).
+- Can be used on `/v1/assets/` or `/v1/assets/{idOrSlug}` endpoints.
+- `price` and `market_cap` are expanded by default in `/assets/{idOrSlug}` results unless an explicit `?expand=` flag is provided.
+
+## See also
+
+- [Get Single Asset](/api-reference/assets/get-single)
+- [All Assets](/api-reference/assets/list)
