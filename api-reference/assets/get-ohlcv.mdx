@@ -1,0 +1,79 @@
+---
+title: "Get Single Asset OHLCV"
+sidebarTitle: "Get OHLCV"
+description: "Retrieve OHLCV data for a specific asset"
+openapi: 'GET /v1/assets/{idOrSlug}/ohlcv'
+mode: "wide"
+---
+
+## Overview
+
+Get the current OHLCV (Open, High, Low, Close, Volume) data for a specific asset over the last 24 hours. This endpoint returns just the OHLCV data block with `asset_code` and `asset_slug` included.
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/assets/ethereum/ohlcv"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/assets/ethereum/ohlcv',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/assets/ethereum/ohlcv',
+  headers={'x-api-key': 'YOUR_API_KEY'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "open": 2991.0164373997,
+  "high": 4514.81,
+  "low": 4347.24,
+  "close": 2972.9752699223,
+  "volume": 14018548707.668,
+  "updated_at": 1759454319,
+  "asset_code": "ETH",
+  "asset_slug": "ethereum"
+}
+```
+
+### Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `open` | number | Price at the start of the trailing 24h window |
+| `high` | number | Highest price during the trailing 24h window |
+| `low` | number | Lowest price during the trailing 24h window |
+| `close` | number | Price at the end of the trailing 24h window |
+| `volume` | number | Total traded volume over the trailing 24h window |
+| `updated_at` | number | Unix timestamp when values were last refreshed |
+| `asset_code` | string | Asset code (e.g., "ETH") |
+| `asset_slug` | string | Asset slug (e.g., "ethereum") |
+
+## Notes
+
+- This endpoint is equivalent to using `?expand=ohlcv_last_24_h` on the `/v1/assets/{idOrSlug}` endpoint, but returns only the OHLCV data.
+- The response includes `asset_code` and `asset_slug` for easy identification.
+
+## See also
+
+- [Get Single Asset](/api-reference/assets/get-single)
+- [OHLCV (Expand Parameter)](/api-reference/assets/expand/ohlcv_last_24h)
+- [All Assets](/api-reference/assets/list)

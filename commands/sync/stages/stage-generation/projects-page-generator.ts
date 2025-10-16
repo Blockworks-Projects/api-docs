@@ -12,15 +12,7 @@ type ProjectData = {
   slug: string
 }
 
-const getProjectsPageTemplate = (projects: ProjectData[]) => `---
-title: 'Projects Supported'
-description: 'All chains and projects currently supported by the Blockworks Data API'
-icon: list
----
-
-import { useState, useMemo } from 'react'
-
-export const ProjectsTable = () => {
+const getProjectsSnippetTemplate = (projects: ProjectData[]) => `export const ProjectsTable = () => {
   const [search, setSearch] = useState('')
   const [typeFilter, setTypeFilter] = useState('all')
   const [expandedProject, setExpandedProject] = useState(null)
@@ -246,13 +238,21 @@ export const ProjectsTable = () => {
       </div>
     </div>
   )
-}
+}`
+
+const getProjectsPageTemplate = (projectCount: number) => `---
+title: 'Projects Supported'
+description: 'All chains and projects currently supported by the Blockworks Data API'
+icon: list
+---
+
+import { ProjectsTable } from '/snippets/projects-table.mdx'
 
 <ProjectsTable />
 
 ## About This Page
 
-This page is automatically generated and contains all ${projects.length} projects currently supported by the Blockworks Data API.
+This page is automatically generated and contains all ${projectCount} projects currently supported by the Blockworks Data API.
 
 - **Chains**: Blockchain networks with transaction and activity metrics
 - **Projects**: DeFi protocols, applications, and platforms
@@ -295,8 +295,14 @@ export const generateProjectsPage = async (projects: Project[]): Promise<void> =
       return a.name.localeCompare(b.name)
     }) as ProjectData[]
 
-  const content = getProjectsPageTemplate(projectData)
-  await writeTextFile('./projects-supported.mdx', content)
+  // Generate snippet with component
+  const snippetContent = getProjectsSnippetTemplate(projectData)
+  await writeTextFile('./snippets/projects-table.mdx', snippetContent)
+
+  // Generate main page that imports the snippet
+  const pageContent = getProjectsPageTemplate(projects.length)
+  await writeTextFile('./projects-supported.mdx', pageContent)
 
   text.detail(`Generated projects page with ${projects.length} projects`)
+  text.detail(`Generated projects-table snippet`)
 }

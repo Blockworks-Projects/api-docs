@@ -63,6 +63,347 @@
         "description": "Get a single asset by `idOrSlug`. Use `expand` to include related fields such as `addresses`, `chains`, `price`, `market_cap`, and `supply`."
       }
     },
+    "/v1/assets/{idOrSlug}/price": {
+      "get": {
+        "operationId": "AssetController_getPrice_v1",
+        "parameters": [
+          {
+            "name": "idOrSlug",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Price data for the specified asset",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetPriceWithIdentifiers"
+                },
+                "example": {
+                  "usd": 4014.79,
+                  "btc": 0.036245034667051854,
+                  "eth": 1,
+                  "updated_at": 1760623631,
+                  "asset_code": "ETH",
+                  "asset_slug": "ethereum"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "assets"
+        ],
+        "summary": "Get Asset Price",
+        "description": "Get price data for a single asset. Returns only the price data with asset identifiers."
+      }
+    },
+    "/v1/assets/{idOrSlug}/market_cap": {
+      "get": {
+        "operationId": "AssetController_getMarketCap_v1",
+        "parameters": [
+          {
+            "name": "idOrSlug",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Market cap data for the specified asset",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetMarketCapWithIdentifiers"
+                },
+                "example": {
+                  "rank": 2,
+                  "usd": 4456.91,
+                  "dominance": 11.9754,
+                  "percent_change_btc_1h": -0.134556,
+                  "percent_change_btc_24h": -1.56252,
+                  "percent_change_usd_1h": 0.0999065,
+                  "percent_change_usd_24h": -0.63777,
+                  "percent_change_usd_7d": 2.94011,
+                  "percent_change_usd_30d": 2.0461,
+                  "percent_change_eth_1h": 0,
+                  "percent_change_eth_24h": 0,
+                  "updated_at": 1759940402,
+                  "asset_code": "ETH",
+                  "asset_slug": "ethereum"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "assets"
+        ],
+        "summary": "Get Asset Market Cap",
+        "description": "Get market cap data for a single asset. Returns only the market cap data with asset identifiers."
+      }
+    },
+    "/v1/assets/{idOrSlug}/market-cap": {
+      "get": {
+        "operationId": "AssetController_getMarketCapHyphen_v1",
+        "parameters": [
+          {
+            "name": "idOrSlug",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Market cap data for the specified asset",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetMarketCapWithIdentifiers"
+                },
+                "example": {
+                  "rank": 2,
+                  "usd": 4456.91,
+                  "dominance": 11.9754,
+                  "percent_change_btc_1h": -0.134556,
+                  "percent_change_btc_24h": -1.56252,
+                  "percent_change_usd_1h": 0.0999065,
+                  "percent_change_usd_24h": -0.63777,
+                  "percent_change_usd_7d": 2.94011,
+                  "percent_change_usd_30d": 2.0461,
+                  "percent_change_eth_1h": 0,
+                  "percent_change_eth_24h": 0,
+                  "updated_at": 1759940402,
+                  "asset_code": "ETH",
+                  "asset_slug": "ethereum"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "assets"
+        ],
+        "summary": "Get Asset Market Cap",
+        "description": "Get market cap data for a single asset. Returns only the market cap data with asset identifiers."
+      }
+    },
+    "/v1/assets/{idOrSlug}/markets": {
+      "get": {
+        "operationId": "AssetController_getMarkets_v1",
+        "parameters": [
+          {
+            "name": "idOrSlug",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Markets data for the specified asset",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetMarketWithIdentifiers"
+                },
+                "example": {
+                  "volume_24h": 44573500000,
+                  "ath": 4946.05,
+                  "ath_change_percentage": -21.2222,
+                  "ath_date": 1756063263,
+                  "total_open_interest": 1707980000,
+                  "total_liquidations": 0,
+                  "updated_at": 1760639807,
+                  "asset_code": "ETH",
+                  "asset_slug": "ethereum"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "assets"
+        ],
+        "summary": "Get Asset Markets",
+        "description": "Get markets data for a single asset. Returns only the markets data with asset identifiers."
+      }
+    },
+    "/v1/assets/{idOrSlug}/ohlcv": {
+      "get": {
+        "operationId": "AssetController_getOhlcv_v1",
+        "parameters": [
+          {
+            "name": "idOrSlug",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OHLCV data for the specified asset",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetOhlcvWithIdentifiers"
+                },
+                "example": {
+                  "open": 2991.0164373997,
+                  "high": 4514.81,
+                  "low": 4347.24,
+                  "close": 2972.9752699223,
+                  "volume": 14018548707.668,
+                  "updated_at": 1759454319,
+                  "asset_code": "ETH",
+                  "asset_slug": "ethereum"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "assets"
+        ],
+        "summary": "Get Asset OHLCV",
+        "description": "Get OHLCV (Open, High, Low, Close, Volume) data for the last 24 hours for a single asset. Returns only the OHLCV data with asset identifiers."
+      }
+    },
+    "/v1/assets/{idOrSlug}/sector": {
+      "get": {
+        "operationId": "AssetController_getSector_v1",
+        "parameters": [
+          {
+            "name": "idOrSlug",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sector data for the specified asset",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetSectorWithIdentifiers"
+                },
+                "example": {
+                  "id": 40,
+                  "title": "L1",
+                  "created_at": 1698971397,
+                  "asset_code": "ETH",
+                  "asset_slug": "ethereum"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "assets"
+        ],
+        "summary": "Get Asset Sector",
+        "description": "Get sector data for a single asset. Returns only the sector data with asset identifiers."
+      }
+    },
+    "/v1/assets/{idOrSlug}/supply": {
+      "get": {
+        "operationId": "AssetController_getSupply_v1",
+        "parameters": [
+          {
+            "name": "idOrSlug",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Supply data for the specified asset",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetSupplyWithIdentifiers"
+                },
+                "example": {
+                  "circulating": 120702472.20949,
+                  "liquid": 0,
+                  "total": 120702572.39159,
+                  "asset_code": "ETH",
+                  "asset_slug": "ethereum"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "assets"
+        ],
+        "summary": "Get Asset Supply",
+        "description": "Get supply data for a single asset. Returns only the supply data with asset identifiers."
+      }
+    },
     "/v1/assets": {
       "get": {
         "operationId": "AssetController_list_v1",
@@ -22276,6 +22617,313 @@
           "data",
           "total",
           "page"
+        ]
+      },
+      "AssetPriceWithIdentifiers": {
+        "type": "object",
+        "properties": {
+          "usd": {
+            "type": "number",
+            "nullable": true,
+            "format": "double"
+          },
+          "btc": {
+            "type": "number",
+            "nullable": true,
+            "format": "double"
+          },
+          "eth": {
+            "type": "number",
+            "nullable": true,
+            "format": "double"
+          },
+          "updated_at": {
+            "type": "number",
+            "nullable": true,
+            "description": "Unix timestamp"
+          },
+          "asset_code": {
+            "type": "string",
+            "maxLength": 20
+          },
+          "asset_slug": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": [
+          "usd",
+          "btc",
+          "eth",
+          "updated_at",
+          "asset_code",
+          "asset_slug"
+        ]
+      },
+      "AssetMarketCapWithIdentifiers": {
+        "type": "object",
+        "properties": {
+          "rank": {
+            "type": "integer",
+            "nullable": true
+          },
+          "usd": {
+            "type": "number",
+            "nullable": true,
+            "format": "double"
+          },
+          "dominance": {
+            "type": "number",
+            "nullable": true,
+            "format": "float"
+          },
+          "percent_change_btc_1h": {
+            "type": "number",
+            "nullable": true,
+            "format": "float"
+          },
+          "percent_change_btc_24h": {
+            "type": "number",
+            "nullable": true,
+            "format": "float"
+          },
+          "percent_change_usd_1h": {
+            "type": "number",
+            "nullable": true,
+            "format": "float"
+          },
+          "percent_change_usd_24h": {
+            "type": "number",
+            "nullable": true,
+            "format": "float"
+          },
+          "percent_change_usd_7d": {
+            "type": "number",
+            "nullable": true,
+            "format": "float"
+          },
+          "percent_change_usd_30d": {
+            "type": "number",
+            "nullable": true,
+            "format": "float"
+          },
+          "percent_change_eth_1h": {
+            "type": "number",
+            "nullable": true,
+            "format": "float"
+          },
+          "percent_change_eth_24h": {
+            "type": "number",
+            "nullable": true,
+            "format": "float"
+          },
+          "updated_at": {
+            "type": "number",
+            "nullable": true,
+            "description": "Unix timestamp"
+          },
+          "asset_code": {
+            "type": "string",
+            "maxLength": 20
+          },
+          "asset_slug": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": [
+          "rank",
+          "usd",
+          "dominance",
+          "percent_change_btc_1h",
+          "percent_change_btc_24h",
+          "percent_change_usd_1h",
+          "percent_change_usd_24h",
+          "percent_change_eth_1h",
+          "percent_change_eth_24h",
+          "updated_at",
+          "asset_code",
+          "asset_slug"
+        ]
+      },
+      "AssetMarketWithIdentifiers": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "volume_24h": {
+            "type": "number",
+            "nullable": true,
+            "format": "float"
+          },
+          "ath": {
+            "type": "number",
+            "nullable": true,
+            "format": "float"
+          },
+          "ath_change_percentage": {
+            "type": "number",
+            "nullable": true,
+            "format": "float"
+          },
+          "ath_date": {
+            "type": "number",
+            "nullable": true,
+            "description": "Unix timestamp"
+          },
+          "total_open_interest": {
+            "type": "number",
+            "nullable": true
+          },
+          "total_liquidations": {
+            "type": "number",
+            "nullable": true
+          },
+          "updated_at": {
+            "type": "number",
+            "nullable": true,
+            "description": "Unix timestamp"
+          },
+          "asset_code": {
+            "type": "string",
+            "maxLength": 20
+          },
+          "asset_slug": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": [
+          "id",
+          "volume_24h",
+          "ath",
+          "ath_change_percentage",
+          "ath_date",
+          "updated_at",
+          "asset_code",
+          "asset_slug"
+        ]
+      },
+      "AssetOhlcvWithIdentifiers": {
+        "type": "object",
+        "properties": {
+          "open": {
+            "type": "number",
+            "nullable": true,
+            "format": "double"
+          },
+          "high": {
+            "type": "number",
+            "nullable": true,
+            "format": "double"
+          },
+          "low": {
+            "type": "number",
+            "nullable": true,
+            "format": "double"
+          },
+          "close": {
+            "type": "number",
+            "nullable": true,
+            "format": "double"
+          },
+          "volume": {
+            "type": "number",
+            "nullable": true,
+            "format": "double"
+          },
+          "updated_at": {
+            "type": "number",
+            "nullable": true,
+            "description": "Unix timestamp"
+          },
+          "asset_code": {
+            "type": "string",
+            "maxLength": 20
+          },
+          "asset_slug": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": [
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume",
+          "updated_at",
+          "asset_code",
+          "asset_slug"
+        ]
+      },
+      "AssetSectorWithIdentifiers": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 100
+          },
+          "created_at": {
+            "type": "number",
+            "nullable": true,
+            "description": "Unix timestamp"
+          },
+          "asset_code": {
+            "type": "string",
+            "maxLength": 20
+          },
+          "asset_slug": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "created_at",
+          "asset_code",
+          "asset_slug"
+        ]
+      },
+      "AssetSupplyWithIdentifiers": {
+        "type": "object",
+        "properties": {
+          "circulating": {
+            "type": "number",
+            "nullable": true,
+            "format": "double"
+          },
+          "liquid": {
+            "type": "number",
+            "nullable": true,
+            "format": "double"
+          },
+          "total": {
+            "type": "number",
+            "nullable": true,
+            "format": "double"
+          },
+          "asset_code": {
+            "type": "string",
+            "maxLength": 20
+          },
+          "asset_slug": {
+            "type": "string",
+            "maxLength": 100
+          }
+        },
+        "required": [
+          "circulating",
+          "liquid",
+          "total",
+          "asset_code",
+          "asset_slug"
         ]
       }
     }

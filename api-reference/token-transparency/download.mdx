@@ -41,7 +41,6 @@ response = requests.get(
 if response.status_code == 200:
     with open('transparency-report.pdf', 'wb') as f:
         f.write(response.content)
-    print("PDF downloaded successfully")
 ```
 
 </CodeGroup>

@@ -1,0 +1,72 @@
+---
+title: "Sparklines"
+icon: "chart-line"
+description: "Learn how to add sparklines to your asset responses"
+mode: "wide"
+---
+
+## Overview
+
+Sparklines are a visual representation of price data over a period of time.
+They are available for the last 7 days and are returned as a JSON array of price points.
+To add them to your response, include the `?sparkline=7d` query parameter.
+
+<Note>
+  Sparklines may be added to either the
+  [Get Multiple Assets](/api-reference/assets/list) or
+  [Get Single Asset](/api-reference/assets/get-single) endpoints.
+</Note>
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/assets/ethereum?sparkline=7d"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/assets/ethereum?sparkline=7d',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/assets/ethereum',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'sparkline': '7d'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "id": 2,
+  "code": "ETH",
+  "title": "Ethereum",
+  "slug": "ethereum",
+  ... // other asset data
+  "sparkline_7d": "[4320.656767290254,4305.000222677031,4378.403865674114,...]"
+}
+```
+
+### Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `sparkline_7d` | Number[] | Array of price points for the last 7 days |
+
+## See Also
+
+- [List Assets](/api-reference/assets/list)
+- [Get Single Asset](/api-reference/assets/get-single)

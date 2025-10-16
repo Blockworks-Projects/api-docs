@@ -4,7 +4,6 @@ export const Fetcher = ({ path = 'https://ittysockets.io/stats' }) => {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    console.log('fetching', path)
     setLoading(true)
     fetch(path)
       .then(res => res.json())

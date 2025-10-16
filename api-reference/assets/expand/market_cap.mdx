@@ -24,7 +24,6 @@ const res = await fetch(
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
-console.log(data.market_cap)
 ```
 
 ```python Python
@@ -36,7 +35,6 @@ r = requests.get(
   params={'expand': 'market_cap'}
 )
 data = r.json()
-print(data.get('market_cap'))
 ```
 
 </CodeGroup>
@@ -49,26 +47,20 @@ print(data.get('market_cap'))
   "code": "ETH",
   "title": "Ethereum",
   "slug": "ethereum",
-  "tag_line": "A decentralized computing platform",
-  "description": "Ethereum is a distributed blockchain computing platform for smart contracts and decentralized applications. Its native token is ether (ETH), which primarily serves as a means of payment for transaction fees and as collateral for borrowing specific ERC-20 tokens within the decentralized finance (DeFi) sector.",
-  "image_url": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
-  "category": "Infrastructure",
-  "updated_at": 1759454319,
-  "type": "Infrastructure",
+  ... // other asset data
   "market_cap": {
-    "assetId": 2,
     "rank": 2,
-    "usd": 4456.91,
-    "dominance": 11.9754,
-    "percent_change_btc_1h": -0.134556,
-    "percent_change_btc_24h": -1.56252,
-    "percent_change_usd_1h": 0.0999065,
-    "percent_change_usd_24h": -0.63777,
-    "percent_change_usd_7d": 2.94011,
-    "percent_change_usd_30d": 2.0461,
+    "usd": 471861023471,
+    "dominance": 11.8965,
+    "percent_change_btc_1h": -0.361956,
+    "percent_change_btc_24h": 0.431648,
+    "percent_change_usd_1h": -0.411428,
+    "percent_change_usd_24h": -1.96078,
+    "percent_change_usd_7d": -8.98796,
+    "percent_change_usd_30d": -12.4466,
     "percent_change_eth_1h": 0,
     "percent_change_eth_24h": 0,
-    "updated_at": 1759940402
+    "updated_at": 1760640504
   }
 }
 ```
@@ -77,7 +69,6 @@ print(data.get('market_cap'))
 
 | Field | Type | Description |
 |---|---|---|
-| `assetId` | number | Unique identifier for the asset |
 | `rank` | number | Rank of the asset |
 | `usd` | number | Market cap in USD |
 | `dominance` | number | Dominance of the asset |
@@ -93,7 +84,7 @@ print(data.get('market_cap'))
 
 ## Notes
 
-- Can be used with other expansion options by joining with a comma (e.g. `?expand=markets,ohlcv_last_24_h`).
+- Can be used with other expansion options by joining with a comma (e.g. `?expand=markets,ohlcv_last_24h`).
 - Can be used on `/v1/assets/` or `/v1/assets/{idOrSlug}` endpoints.
 - `price` and `market_cap` are expanded by default in `/assets/{idOrSlug}` results unless an explicit `?expand=` flag is provided.
 
