@@ -10,23 +10,51 @@ mode: "wide"
 
 Get the current markets information for a specific asset. This endpoint returns just the markets data block with `asset_code` and `asset_slug` included.
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/assets/ethereum/markets"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/assets/ethereum/markets',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+console.log(data)
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/assets/ethereum/markets',
+  headers={'x-api-key': 'YOUR_API_KEY'}
+)
+data = r.json()
+print(data)
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
-[
-  {
-    "id": 2,
-    "volume_24h": 49333800000,
-    "ath": 4946.05,
-    "ath_change_percentage": -9.04585,
-    "ath_date": 1756063263,
-    "total_open_interest": null,
-    "total_liquidations": null,
-    "updated_at": 1759877194,
-    "asset_code": "ETH",
-    "asset_slug": "ethereum"
-  }
-]
+{
+  "volume_24h": 44573500000,
+  "ath": 4946.05,
+  "ath_change_percentage": -21.2222,
+  "ath_date": 1756063263,
+  "total_open_interest": 1707980000,
+  "total_liquidations": 0,
+  "updated_at": 1760639807,
+  "asset_code": "ETH",
+  "asset_slug": "ethereum"
+}
 ```
 
 ### Response Fields

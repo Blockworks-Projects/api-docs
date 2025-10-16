@@ -9,7 +9,7 @@ import Request from '/snippets/request.mdx'
 
 ## Overview
 
-Fetch a single asset by **ID** or **slug**. You can optionally expand related objects (e.g. supply) to avoid making multiple requests. Single asset payloads include `price` and `market_cap` expansions by default, unless an explicit `?expand=` flag is provided.
+Fetch a single asset by **ID** (2), **code** (`eth`), or **slug** (`ethereum`). You can optionally expand related objects (e.g. `supply`) to avoid making multiple requests. Single asset payloads include `price` and `market_cap` expansions by default, unless an explicit `?expand=` flag is provided.
 
 ## Example Request
 
@@ -17,12 +17,12 @@ Fetch a single asset by **ID** or **slug**. You can optionally expand related ob
 
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \\
-  "https://api.blockworks.com/v1/assets/eth?expand=supply"
+  "https://api.blockworks.com/v1/assets/ethereum"
 ```
 
 ```typescript TypeScript
 const res = await fetch(
-  'https://api.blockworks.com/v1/assets/eth?expand=supply',
+  'https://api.blockworks.com/v1/assets/ethereum',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
@@ -32,9 +32,8 @@ const data = await res.json()
 import requests
 
 r = requests.get(
-  'https://api.blockworks.com/v1/assets/eth',
-  headers={'x-api-key': 'YOUR_API_KEY'},
-  params={'expand': 'supply'}
+  'https://api.blockworks.com/v1/assets/ethereum',
+  headers={'x-api-key': 'YOUR_API_KEY'}
 )
 data = r.json()
 ```

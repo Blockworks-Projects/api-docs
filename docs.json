@@ -59,7 +59,8 @@
                   "api-reference/assets/expand/price",
                   "api-reference/assets/expand/supply"
                 ]
-              }
+              },
+              "api-reference/assets/sparklines"
             ]
           },
           {
@@ -76,7 +77,7 @@
             ]
           },
           {
-            "group": "Misc",
+            "group": "Market Stats",
             "pages": [
               "api-reference/misc/market-stats"
             ]

@@ -10,6 +10,37 @@ mode: "wide"
 
 Get the current OHLCV (Open, High, Low, Close, Volume) data for a specific asset over the last 24 hours. This endpoint returns just the OHLCV data block with `asset_code` and `asset_slug` included.
 
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/assets/ethereum/ohlcv"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/assets/ethereum/ohlcv',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+console.log(data)
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/assets/ethereum/ohlcv',
+  headers={'x-api-key': 'YOUR_API_KEY'}
+)
+data = r.json()
+print(data)
+```
+
+</CodeGroup>
+
 ## Example Response
 
 ```json
