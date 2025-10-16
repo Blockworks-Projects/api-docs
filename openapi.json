@@ -163,6 +163,60 @@
         "description": "Get market cap data for a single asset. Returns only the market cap data with asset identifiers."
       }
     },
+    "/v1/assets/{idOrSlug}/market-cap": {
+      "get": {
+        "operationId": "AssetController_getMarketCapHyphen_v1",
+        "parameters": [
+          {
+            "name": "idOrSlug",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Market cap data for the specified asset",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssetMarketCapWithIdentifiers"
+                },
+                "example": {
+                  "rank": 2,
+                  "usd": 4456.91,
+                  "dominance": 11.9754,
+                  "percent_change_btc_1h": -0.134556,
+                  "percent_change_btc_24h": -1.56252,
+                  "percent_change_usd_1h": 0.0999065,
+                  "percent_change_usd_24h": -0.63777,
+                  "percent_change_usd_7d": 2.94011,
+                  "percent_change_usd_30d": 2.0461,
+                  "percent_change_eth_1h": 0,
+                  "percent_change_eth_24h": 0,
+                  "updated_at": 1759940402,
+                  "asset_code": "ETH",
+                  "asset_slug": "ethereum"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "tags": [
+          "assets"
+        ],
+        "summary": "Get Asset Market Cap",
+        "description": "Get market cap data for a single asset. Returns only the market cap data with asset identifiers."
+      }
+    },
     "/v1/assets/{idOrSlug}/markets": {
       "get": {
         "operationId": "AssetController_getMarkets_v1",
@@ -182,25 +236,19 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/AssetMarketWithIdentifiers"
-                  }
+                  "$ref": "#/components/schemas/AssetMarketWithIdentifiers"
                 },
-                "example": [
-                  {
-                    "id": 2,
-                    "volume_24h": 49333800000,
-                    "ath": 4946.05,
-                    "ath_change_percentage": -9.04585,
-                    "ath_date": 1756063263,
-                    "total_open_interest": null,
-                    "total_liquidations": null,
-                    "updated_at": 1759877194,
-                    "asset_code": "ETH",
-                    "asset_slug": "ethereum"
-                  }
-                ]
+                "example": {
+                  "volume_24h": 44573500000,
+                  "ath": 4946.05,
+                  "ath_change_percentage": -21.2222,
+                  "ath_date": 1756063263,
+                  "total_open_interest": 1707980000,
+                  "total_liquidations": 0,
+                  "updated_at": 1760639807,
+                  "asset_code": "ETH",
+                  "asset_slug": "ethereum"
+                }
               }
             }
           },
