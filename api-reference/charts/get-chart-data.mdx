@@ -24,7 +24,6 @@ const res = await fetch(
   'https://api.blockworks.com/v1/charts/3/data?limit=5&page=1',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
-
 const data = await res.json()
 ```
 
@@ -36,7 +35,6 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'limit': 5, 'page': 1}
 )
-
 data = r.json()
 ```
 
