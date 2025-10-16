@@ -1,0 +1,65 @@
+---
+title: "How Expand Works"
+description: "Learn how to use the expand parameter to include additional data in asset responses"
+---
+
+## Overview
+
+The `?expand=` parameter allows you to include additional related data in your asset responses, primarily
+used to reduce API calls.  To include more than one option, use a comma-separated list, such as `?expand=price,market_cap`.
+
+<Note>
+  This behavior applies to both the `/v1/assets` **(Get Multiple Assets)** and `/v1/assets/{idOrSlug}` **(Get Single Asset)** endpoints.
+</Note>
+
+<Note>
+  When fetching a single asset, the `price` and `market_cap` data are included by default.
+</Note>
+
+## Example Request
+
+```bash
+GET /v1/assets/ethereum?expand=markets
+```
+
+## Example Response
+
+```json
+{
+  "id": 2,
+  "code": "ETH",
+  "title": "Ethereum",
+  "slug": "ethereum",
+  "tag_line": "A decentralized computing platform",
+  ... // other asset data
+  "markets": {
+    "volume_24h": 41300200000,
+    "ath": 4946.05,
+    "ath_change_percentage": -21.4616,
+    "ath_date": 1756063263,
+    "total_open_interest": 1707980000,
+    "total_liquidations": 0,
+    "updated_at": 1760631722
+  }
+}
+```
+
+## Available Options
+
+You can expand the following fields:
+
+- `price` - Current price data (USD, BTC, ETH)
+- `market_cap` - Market capitalization and percentage changes
+- `markets` - Trading volume and all-time high data
+- `ohlcv` - Open, High, Low, Close, Volume for last 24 hours
+- `supply` - Circulating and total supply information
+
+## See Also
+
+- [List Assets](/api-reference/assets/list)
+- [Get Single Asset](/api-reference/assets/get-single)
+- [Get Single Asset Price](/api-reference/assets/get-price)
+- [Get Single Asset Market Cap](/api-reference/assets/get-market-cap)
+- [Get Single Asset Markets](/api-reference/assets/get-markets)
+- [Get Single Asset OHLCV](/api-reference/assets/get-ohlcv)
+- [Get Single Asset Supply](/api-reference/assets/get-supply)

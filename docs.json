@@ -45,7 +45,6 @@
                   "api-reference/assets/get-market-cap",
                   "api-reference/assets/get-markets",
                   "api-reference/assets/get-ohlcv",
-                  "api-reference/assets/get-sector",
                   "api-reference/assets/get-supply"
                 ]
               },
@@ -58,7 +57,6 @@
                   "api-reference/assets/expand/markets",
                   "api-reference/assets/expand/ohlcv",
                   "api-reference/assets/expand/price",
-                  "api-reference/assets/expand/sector",
                   "api-reference/assets/expand/supply"
                 ]
               }
