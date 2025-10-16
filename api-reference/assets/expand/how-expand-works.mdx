@@ -20,9 +20,33 @@ used to reduce API calls.  To include more than one option, use a comma-separate
 
 ## Example Request
 
-```bash
-GET /v1/assets/ethereum?expand=markets
+CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/assets/ethereum?expand=markets"
 ```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/assets/ethereum?expand=markets',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/assets/ethereum',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'expand': 'markets'}
+)
+data = r.json()
+```
+
+</CodeGroup>
 
 ## Example Response
 

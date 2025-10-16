@@ -24,7 +24,6 @@ const res = await fetch(
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
-console.log(data.ohlcv_last_24h)
 ```
 
 ```python Python
@@ -36,7 +35,6 @@ r = requests.get(
   params={'expand': 'ohlcv_last_24h'}
 )
 data = r.json()
-print(data.get('ohlcv_last_24h'))
 ```
 
 </CodeGroup>

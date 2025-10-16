@@ -24,7 +24,6 @@ const res = await fetch(
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
-console.log(data.market_cap)
 ```
 
 ```python Python
@@ -36,7 +35,6 @@ r = requests.get(
   params={'expand': 'market_cap'}
 )
 data = r.json()
-print(data.get('market_cap'))
 ```
 
 </CodeGroup>

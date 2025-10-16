@@ -25,7 +25,6 @@ const res = await fetch(
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
-console.log(data)
 ```
 
 ```python Python
@@ -35,7 +34,6 @@ r = requests.get(
   'https://api.blockworks.com/v1/assets/ethereum/price',
   headers={'x-api-key': 'YOUR_API_KEY'}
 data = r.json()
-print(data)
 ```
 
 </CodeGroup>
