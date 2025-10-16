@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/transaction-fee-avg-native?project=katana',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'katana'}
 )
+
 data = r.json()
 ```
 
@@ -49,8 +51,20 @@ data = r.json()
 {
   "katana": [
     {
+      "date": "2025-10-16",
+      "value": 2.110158643190039e-7
+    },
+    {
+      "date": "2025-10-15",
+      "value": 7.599663094854737e-7
+    },
+    {
+      "date": "2025-10-14",
+      "value": 7.908306372199799e-7
+    },
+    {
       "date": "2025-10-13",
-      "value": 2.0196012641043897e-7
+      "value": 3.4681058898489225e-7
     },
     {
       "date": "2025-10-12",
@@ -58,19 +72,7 @@ data = r.json()
     },
     {
       "date": "2025-10-11",
-      "value": 7.096099794157822e-7
-    },
-    {
-      "date": "2025-10-10",
-      "value": 0.000001791104182178376
-    },
-    {
-      "date": "2025-10-09",
-      "value": 5.880271202307385e-7
-    },
-    {
-      "date": "2025-10-08",
-      "value": 6.361587320404465e-7
+      "value": 7.096099794157823e-7
     }
   ]
 }

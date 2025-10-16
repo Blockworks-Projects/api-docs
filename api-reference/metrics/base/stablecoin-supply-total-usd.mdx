@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd?project=base',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'base'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "base": [
     {
+      "date": "2025-10-15",
+      "value": 4637137010.057999
+    },
+    {
+      "date": "2025-10-14",
+      "value": 4642240944.661204
+    },
+    {
+      "date": "2025-10-13",
+      "value": 4666992471.85073
+    },
+    {
       "date": "2025-10-12",
-      "value": 4649710416.6528015
+      "value": 4649736268.649092
     },
     {
       "date": "2025-10-11",
-      "value": 4659473939.760041
-    },
-    {
-      "date": "2025-10-10",
-      "value": 4612672572.288622
-    },
-    {
-      "date": "2025-10-09",
-      "value": 4643264488.777616
-    },
-    {
-      "date": "2025-10-08",
-      "value": 4675403902.302865
+      "value": 4659523270.418472
     }
   ]
 }

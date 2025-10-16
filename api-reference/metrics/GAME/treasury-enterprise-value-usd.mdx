@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/treasury-enterprise-value-usd?project=GAME',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'GAME'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "game": [
     {
-      "date": "2025-10-10",
-      "value": 72508898.50909999
+      "date": "2025-10-15",
+      "value": 71023348.9274
     },
     {
-      "date": "2025-10-09",
-      "value": 76867166.48719999
+      "date": "2025-10-14",
+      "value": 70403550.0953
     },
     {
-      "date": "2025-10-08",
-      "value": 79247981.0486
+      "date": "2025-10-13",
+      "value": 70610149.706
     }
   ]
 }

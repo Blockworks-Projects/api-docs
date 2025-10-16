@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/etf-flows-usd?project=ARKB',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'ARKB'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "arkb": [
     {
-      "date": "2025-10-10",
-      "value": -6200000
-    },
-    {
-      "date": "2025-10-09",
-      "value": -5600000
-    },
-    {
-      "date": "2025-10-08",
+      "date": "2025-10-15",
       "value": 0
+    },
+    {
+      "date": "2025-10-14",
+      "value": 6800000
+    },
+    {
+      "date": "2025-10-13",
+      "value": -21100000
     }
   ]
 }

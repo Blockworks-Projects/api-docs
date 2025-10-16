@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/treasury-nav-total-usd?project=BNC',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'BNC'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "bnc": [
     {
-      "date": "2025-10-10",
-      "value": 602821759.0196339
+      "date": "2025-10-15",
+      "value": 581896008.9477571
     },
     {
-      "date": "2025-10-09",
-      "value": 627110991.3845055
+      "date": "2025-10-14",
+      "value": 620674671.0468776
     },
     {
-      "date": "2025-10-08",
-      "value": 629622199.0520165
+      "date": "2025-10-13",
+      "value": 623419584.2868035
     }
   ]
 }

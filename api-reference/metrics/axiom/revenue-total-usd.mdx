@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=axiom',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'axiom'}
 )
+
 data = r.json()
 ```
 
@@ -49,20 +51,20 @@ data = r.json()
 {
   "axiom": [
     {
+      "date": "2025-10-14",
+      "value": 360510.55656404793
+    },
+    {
+      "date": "2025-10-13",
+      "value": 359550.79644517734
+    },
+    {
+      "date": "2025-10-12",
+      "value": 294822.6323670533
+    },
+    {
       "date": "2025-10-11",
-      "value": 240338.4546857725
-    },
-    {
-      "date": "2025-10-10",
-      "value": 560994.8592831229
-    },
-    {
-      "date": "2025-10-09",
-      "value": 589508.4491999396
-    },
-    {
-      "date": "2025-10-08",
-      "value": 259726.24467950495
+      "value": 305088.2025841029
     }
   ]
 }

@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/treasury-nav-total-usd?project=SQNS',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'SQNS'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "sqns": [
     {
-      "date": "2025-10-10",
-      "value": 393571431.1796107
+      "date": "2025-10-15",
+      "value": 365948345.56336236
     },
     {
-      "date": "2025-10-09",
-      "value": 398922000.7665004
+      "date": "2025-10-14",
+      "value": 372628863.2904483
     },
     {
-      "date": "2025-10-08",
-      "value": 392991656.6962178
+      "date": "2025-10-13",
+      "value": 372523074.1136889
     }
   ]
 }

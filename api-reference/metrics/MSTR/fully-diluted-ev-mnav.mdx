@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/fully-diluted-ev-mnav?project=MSTR',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'MSTR'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "mstr": [
     {
-      "date": "2025-10-10",
-      "value": 1.3775206103295647
+      "date": "2025-10-15",
+      "value": 1.436783209080254
     },
     {
-      "date": "2025-10-09",
-      "value": 1.4105381839107811
+      "date": "2025-10-14",
+      "value": 1.4309001193451043
     },
     {
-      "date": "2025-10-08",
-      "value": 1.4556076282807298
+      "date": "2025-10-13",
+      "value": 1.456323369982544
     }
   ]
 }

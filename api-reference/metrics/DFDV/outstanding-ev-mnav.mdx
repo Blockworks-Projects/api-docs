@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/outstanding-ev-mnav?project=DFDV',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'DFDV'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "dfdv": [
     {
-      "date": "2025-10-10",
-      "value": 0.9920843303465079
+      "date": "2025-10-15",
+      "value": 1.0588328053889877
     },
     {
-      "date": "2025-10-09",
-      "value": 1.0009026068778963
+      "date": "2025-10-14",
+      "value": 1.0561838726445845
     },
     {
-      "date": "2025-10-08",
-      "value": 0.9721840111693542
+      "date": "2025-10-13",
+      "value": 1.1111512237154857
     }
   ]
 }

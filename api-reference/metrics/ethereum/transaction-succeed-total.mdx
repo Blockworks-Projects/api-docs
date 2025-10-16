@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/transaction-succeed-total?project=ethereum',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'ethereum'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "ethereum": [
     {
+      "date": "2025-10-15",
+      "value": 1613320
+    },
+    {
+      "date": "2025-10-14",
+      "value": 1551318
+    },
+    {
+      "date": "2025-10-13",
+      "value": 1559653
+    },
+    {
       "date": "2025-10-12",
       "value": 1461281
     },
     {
       "date": "2025-10-11",
       "value": 1625479
-    },
-    {
-      "date": "2025-10-10",
-      "value": 1601480
-    },
-    {
-      "date": "2025-10-09",
-      "value": 1575935
-    },
-    {
-      "date": "2025-10-08",
-      "value": 1599094
     }
   ]
 }

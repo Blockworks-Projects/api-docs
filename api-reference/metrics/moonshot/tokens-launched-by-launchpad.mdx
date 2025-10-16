@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/tokens-launched-by-launchpad?project=moonshot',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'moonshot'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "moonshot": [
     {
+      "date": "2025-10-15",
+      "value": 260
+    },
+    {
+      "date": "2025-10-14",
+      "value": 273
+    },
+    {
+      "date": "2025-10-13",
+      "value": 276
+    },
+    {
       "date": "2025-10-12",
       "value": 259
     },
     {
       "date": "2025-10-11",
       "value": 252
-    },
-    {
-      "date": "2025-10-10",
-      "value": 267
-    },
-    {
-      "date": "2025-10-09",
-      "value": 267
-    },
-    {
-      "date": "2025-10-08",
-      "value": 285
     }
   ]
 }

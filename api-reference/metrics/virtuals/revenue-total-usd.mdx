@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=virtuals',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'virtuals'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "virtuals": [
     {
+      "date": "2025-10-15",
+      "value": 1232.447062944195
+    },
+    {
+      "date": "2025-10-14",
+      "value": 396.2377070298
+    },
+    {
+      "date": "2025-10-13",
+      "value": 297.178406077798
+    },
+    {
       "date": "2025-10-12",
       "value": 461.3053211102
     },
     {
       "date": "2025-10-11",
       "value": 443.643104271499
-    },
-    {
-      "date": "2025-10-10",
-      "value": 251.430671091199
-    },
-    {
-      "date": "2025-10-09",
-      "value": 452.682965178676
-    },
-    {
-      "date": "2025-10-08",
-      "value": 1481.750811678384
     }
   ]
 }

@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/treasury-nav-total-usd?project=BTCS',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'BTCS'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "btcs": [
     {
-      "date": "2025-10-10",
-      "value": 305927782.9412754
+      "date": "2025-10-15",
+      "value": 289137800.16889316
     },
     {
-      "date": "2025-10-09",
-      "value": 317057232.5024835
+      "date": "2025-10-14",
+      "value": 297354116.39775765
     },
     {
-      "date": "2025-10-08",
-      "value": 311927713.59762645
+      "date": "2025-10-13",
+      "value": 291297523.96605265
     }
   ]
 }

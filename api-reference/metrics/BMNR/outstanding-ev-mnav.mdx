@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/outstanding-ev-mnav?project=BMNR',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'BMNR'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "bmnr": [
     {
-      "date": "2025-10-10",
-      "value": 1.205247205009777
+      "date": "2025-10-15",
+      "value": 1.1646449190332027
     },
     {
-      "date": "2025-10-09",
-      "value": 1.2244461646794795
+      "date": "2025-10-14",
+      "value": 1.1481963305568168
     },
     {
-      "date": "2025-10-08",
-      "value": 1.2765176185297304
+      "date": "2025-10-13",
+      "value": 1.2063603611742746
     }
   ]
 }

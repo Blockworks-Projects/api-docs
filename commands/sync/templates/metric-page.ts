@@ -37,6 +37,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/${metric.identifier}?project=${metric.project}',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 \`\`\`
 
@@ -48,6 +49,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': '${metric.project}'}
 )
+
 data = r.json()
 \`\`\`
 

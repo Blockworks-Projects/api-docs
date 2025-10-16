@@ -24,6 +24,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/transparency/1?expand=asset',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -35,6 +36,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'expand': 'asset'}
 )
+
 data = r.json()
 ```
 

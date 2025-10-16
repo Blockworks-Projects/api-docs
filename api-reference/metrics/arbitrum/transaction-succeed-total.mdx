@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/transaction-succeed-total?project=arbitrum',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'arbitrum'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "arbitrum": [
     {
+      "date": "2025-10-15",
+      "value": 2782336
+    },
+    {
+      "date": "2025-10-14",
+      "value": 3013545
+    },
+    {
+      "date": "2025-10-13",
+      "value": 2621271
+    },
+    {
       "date": "2025-10-12",
       "value": 3026658
     },
     {
       "date": "2025-10-11",
       "value": 3004000
-    },
-    {
-      "date": "2025-10-10",
-      "value": 3354430
-    },
-    {
-      "date": "2025-10-09",
-      "value": 2505480
-    },
-    {
-      "date": "2025-10-08",
-      "value": 3385962
     }
   ]
 }

@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/app-revenue-total-usd?project=base',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'base'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "base": [
     {
+      "date": "2025-10-15",
+      "value": 606428.215834844
+    },
+    {
+      "date": "2025-10-14",
+      "value": 702000.707896849
+    },
+    {
+      "date": "2025-10-13",
+      "value": 674342.1539028639
+    },
+    {
       "date": "2025-10-12",
-      "value": 661546.3415809189
+      "value": 661705.8659548304
     },
     {
       "date": "2025-10-11",
-      "value": 639695.5462933053
-    },
-    {
-      "date": "2025-10-10",
-      "value": 1142109.57513765
-    },
-    {
-      "date": "2025-10-09",
-      "value": 677938.7273391108
-    },
-    {
-      "date": "2025-10-08",
-      "value": 630383.0430195398
+      "value": 639695.4881403096
     }
   ]
 }

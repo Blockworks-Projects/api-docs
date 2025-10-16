@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/outstanding-mnav?project=FGNX',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'FGNX'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "fgnx": [
     {
-      "date": "2025-10-10",
-      "value": 0.8765903440055378
+      "date": "2025-10-15",
+      "value": 0.7362296867794642
     },
     {
-      "date": "2025-10-09",
-      "value": 0.9119104675649311
+      "date": "2025-10-14",
+      "value": 0.7691523202029945
     },
     {
-      "date": "2025-10-08",
-      "value": 0.8776639085617587
+      "date": "2025-10-13",
+      "value": 0.7962695506838744
     }
   ]
 }

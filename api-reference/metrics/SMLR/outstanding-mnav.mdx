@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/outstanding-mnav?project=SMLR',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'SMLR'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "smlr": [
     {
-      "date": "2025-10-10",
-      "value": 0.6749353986233085
+      "date": "2025-10-15",
+      "value": 0.6738876103401004
     },
     {
-      "date": "2025-10-09",
-      "value": 0.6824868678475191
+      "date": "2025-10-14",
+      "value": 0.6619597014006476
     },
     {
-      "date": "2025-10-08",
-      "value": 0.6991889547107762
+      "date": "2025-10-13",
+      "value": 0.6642882484848169
     }
   ]
 }

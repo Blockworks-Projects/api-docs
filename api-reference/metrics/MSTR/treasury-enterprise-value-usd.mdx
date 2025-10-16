@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/treasury-enterprise-value-usd?project=MSTR',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'MSTR'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "mstr": [
     {
-      "date": "2025-10-10",
-      "value": 97130816636
+      "date": "2025-10-15",
+      "value": 94256245123
     },
     {
-      "date": "2025-10-09",
-      "value": 100779347640.8
+      "date": "2025-10-14",
+      "value": 95572145427.4
     },
     {
-      "date": "2025-10-08",
-      "value": 102439491180.79999
+      "date": "2025-10-13",
+      "value": 97227959404.8
     }
   ]
 }

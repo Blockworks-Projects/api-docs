@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=convex',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'convex'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "convex": [
     {
+      "date": "2025-10-15",
+      "value": 5810.002743137532
+    },
+    {
+      "date": "2025-10-14",
+      "value": 5166.045812147767
+    },
+    {
+      "date": "2025-10-13",
+      "value": 41911.71875480201
+    },
+    {
       "date": "2025-10-12",
       "value": 15759.556310996155
     },
     {
       "date": "2025-10-11",
-      "value": 4896.888385497534
-    },
-    {
-      "date": "2025-10-10",
-      "value": 8237.700727461015
-    },
-    {
-      "date": "2025-10-09",
-      "value": 9455.398939640363
-    },
-    {
-      "date": "2025-10-08",
-      "value": 16670.081158378034
+      "value": 5127.267834127972
     }
   ]
 }

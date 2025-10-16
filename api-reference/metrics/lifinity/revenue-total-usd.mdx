@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=lifinity',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'lifinity'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "lifinity": [
     {
+      "date": "2025-10-15",
+      "value": 3321.024417143062
+    },
+    {
+      "date": "2025-10-14",
+      "value": 7168.306497123916
+    },
+    {
+      "date": "2025-10-13",
+      "value": 4885.572668670084
+    },
+    {
       "date": "2025-10-12",
-      "value": 3201.040870285847
+      "value": 4126.037473329161
     },
     {
       "date": "2025-10-11",
-      "value": 12428.023238140238
-    },
-    {
-      "date": "2025-10-10",
-      "value": 23426.966220430117
-    },
-    {
-      "date": "2025-10-09",
-      "value": 3458.225286136266
-    },
-    {
-      "date": "2025-10-08",
-      "value": 2959.644465323728
+      "value": 12428.009483577833
     }
   ]
 }

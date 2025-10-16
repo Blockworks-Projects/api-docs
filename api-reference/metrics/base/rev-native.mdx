@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/rev-native?project=base',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'base'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "base": [
     {
+      "date": "2025-10-15",
+      "value": 105.35910154333088
+    },
+    {
+      "date": "2025-10-14",
+      "value": 73.40492690856024
+    },
+    {
+      "date": "2025-10-13",
+      "value": 59.80667530829738
+    },
+    {
       "date": "2025-10-12",
-      "value": 68.10234552274663
+      "value": 68.10234552274675
     },
     {
       "date": "2025-10-11",
-      "value": 60.80861024291152
-    },
-    {
-      "date": "2025-10-10",
-      "value": 462.7572606433543
-    },
-    {
-      "date": "2025-10-09",
-      "value": 57.29635686651318
-    },
-    {
-      "date": "2025-10-08",
-      "value": 39.952536511671674
+      "value": 60.80861024291133
     }
   ]
 }

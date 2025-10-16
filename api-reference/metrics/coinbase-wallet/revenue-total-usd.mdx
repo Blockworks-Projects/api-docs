@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=coinbase-wallet',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'coinbase-wallet'}
 )
+
 data = r.json()
 ```
 
@@ -47,12 +49,7 @@ data = r.json()
 
 ```json
 {
-  "coinbase-wallet": [
-    {
-      "date": "2025-10-08",
-      "value": 7341.651650801069
-    }
-  ]
+  "coinbase-wallet": []
 }
 ```
 

@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=ironbank',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'ironbank'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "ironbank": [
     {
+      "date": "2025-10-15",
+      "value": 14915.992719555028
+    },
+    {
+      "date": "2025-10-14",
+      "value": 7841.37431642498
+    },
+    {
+      "date": "2025-10-13",
+      "value": 12101.826253540152
+    },
+    {
       "date": "2025-10-12",
-      "value": 11083.741845690443
+      "value": 11083.741845690442
     },
     {
       "date": "2025-10-11",
-      "value": 10873.523313166761
-    },
-    {
-      "date": "2025-10-10",
-      "value": 13246.001085529055
-    },
-    {
-      "date": "2025-10-09",
-      "value": 8754.919601287067
-    },
-    {
-      "date": "2025-10-08",
-      "value": 9500.901918442256
+      "value": 10873.523313166774
     }
   ]
 }

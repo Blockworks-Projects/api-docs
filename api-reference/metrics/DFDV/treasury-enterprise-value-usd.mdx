@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/treasury-enterprise-value-usd?project=DFDV',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'DFDV'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "dfdv": [
     {
-      "date": "2025-10-10",
-      "value": 449270711.15999997
+      "date": "2025-10-15",
+      "value": 440348480.231
     },
     {
-      "date": "2025-10-09",
-      "value": 470212385.2664
+      "date": "2025-10-14",
+      "value": 450404628.3162
     },
     {
-      "date": "2025-10-08",
-      "value": 440491534.22400004
+      "date": "2025-10-13",
+      "value": 449029807.6298
     }
   ]
 }

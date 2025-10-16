@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/treasury-nav-total-usd?project=HYPD',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'HYPD'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "hypd": [
     {
-      "date": "2025-10-10",
-      "value": 67702411.80314496
+      "date": "2025-10-15",
+      "value": 60709343.78151834
     },
     {
-      "date": "2025-10-09",
-      "value": 71234924.42721803
+      "date": "2025-10-14",
+      "value": 65079563.345774435
     },
     {
-      "date": "2025-10-08",
-      "value": 69407493.69219671
+      "date": "2025-10-13",
+      "value": 61084654.87566295
     }
   ]
 }

@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/volume-total-usd?project=polymarket',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'polymarket'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "polymarket": [
     {
-      "date": "2025-10-08",
-      "value": 72454270.79332504
-    },
-    {
-      "date": "2025-10-09",
-      "value": 94984841.25396892
-    },
-    {
-      "date": "2025-10-10",
-      "value": 115058040.86077109
-    },
-    {
       "date": "2025-10-11",
-      "value": 94417613.14844713
+      "value": 94417613.14844719
     },
     {
       "date": "2025-10-12",
-      "value": 99445000.69458088
+      "value": 99445000.69458093
+    },
+    {
+      "date": "2025-10-13",
+      "value": 85639362.45622663
+    },
+    {
+      "date": "2025-10-14",
+      "value": 85064520.35676795
+    },
+    {
+      "date": "2025-10-15",
+      "value": 78824973.7371211
     }
   ]
 }

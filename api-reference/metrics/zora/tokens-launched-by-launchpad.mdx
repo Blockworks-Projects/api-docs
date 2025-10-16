@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/tokens-launched-by-launchpad?project=zora',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'zora'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "zora": [
     {
+      "date": "2025-10-15",
+      "value": 44549
+    },
+    {
+      "date": "2025-10-14",
+      "value": 44901
+    },
+    {
+      "date": "2025-10-13",
+      "value": 35495
+    },
+    {
       "date": "2025-10-12",
       "value": 35108
     },
     {
       "date": "2025-10-11",
       "value": 34519
-    },
-    {
-      "date": "2025-10-10",
-      "value": 35490
-    },
-    {
-      "date": "2025-10-09",
-      "value": 35580
-    },
-    {
-      "date": "2025-10-08",
-      "value": 32687
     }
   ]
 }

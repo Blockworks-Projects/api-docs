@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/fully-diluted-ev-mnav?project=FORD',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'FORD'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "ford": [
     {
-      "date": "2025-10-10",
-      "value": 1.369482276064591
+      "date": "2025-10-15",
+      "value": 1.6846392040691969
     },
     {
-      "date": "2025-10-09",
-      "value": 1.463494239221077
+      "date": "2025-10-14",
+      "value": 1.6423350992745158
     },
     {
-      "date": "2025-10-08",
-      "value": 1.5794921915135662
+      "date": "2025-10-13",
+      "value": 1.692432088998815
     }
   ]
 }

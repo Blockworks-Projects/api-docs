@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/transaction-base-fee-total-native?project=ethereum',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'ethereum'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "ethereum": [
     {
+      "date": "2025-10-15",
+      "value": 75.42891522035113
+    },
+    {
+      "date": "2025-10-14",
+      "value": 87.81381708710376
+    },
+    {
+      "date": "2025-10-13",
+      "value": 70.93626171835669
+    },
+    {
       "date": "2025-10-12",
-      "value": 80.89044980903772
+      "value": 80.89044980903755
     },
     {
       "date": "2025-10-11",
       "value": 338.2493387068037
-    },
-    {
-      "date": "2025-10-10",
-      "value": 2550.137308764227
-    },
-    {
-      "date": "2025-10-09",
-      "value": 72.77235192577203
-    },
-    {
-      "date": "2025-10-08",
-      "value": 49.50469159966396
     }
   ]
 }

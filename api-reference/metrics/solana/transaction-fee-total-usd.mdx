@@ -28,6 +28,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/transaction-fee-total-usd?project=solana',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -39,6 +40,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'solana'}
 )
+
 data = r.json()
 ```
 
@@ -50,24 +52,24 @@ data = r.json()
 {
   "solana": [
     {
+      "date": "2025-10-15",
+      "value": 794711.9711430436
+    },
+    {
+      "date": "2025-10-14",
+      "value": 886474.9030595103
+    },
+    {
+      "date": "2025-10-13",
+      "value": 725120.8459047285
+    },
+    {
       "date": "2025-10-12",
-      "value": 667968.6487029053
+      "value": 667968.6487029392
     },
     {
       "date": "2025-10-11",
-      "value": 717256.2894528566
-    },
-    {
-      "date": "2025-10-10",
-      "value": 1600362.81208751
-    },
-    {
-      "date": "2025-10-09",
-      "value": 852868.9391501361
-    },
-    {
-      "date": "2025-10-08",
-      "value": 743381.7601185123
+      "value": 717256.2894528559
     }
   ]
 }

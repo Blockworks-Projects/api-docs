@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/treasury-market-cap-usd?project=BNC',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'BNC'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "bnc": [
     {
-      "date": "2025-10-10",
-      "value": 409297895.6164
+      "date": "2025-10-15",
+      "value": 381035393.8244
     },
     {
-      "date": "2025-10-09",
-      "value": 444195192.0364
+      "date": "2025-10-14",
+      "value": 398789931.9166
     },
     {
-      "date": "2025-10-08",
-      "value": 475051295.36480004
+      "date": "2025-10-13",
+      "value": 412119837.4874
     }
   ]
 }

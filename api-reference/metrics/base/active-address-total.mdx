@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/active-address-total?project=base',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'base'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "base": [
     {
+      "date": "2025-10-15",
+      "value": 894684
+    },
+    {
+      "date": "2025-10-14",
+      "value": 757327
+    },
+    {
+      "date": "2025-10-13",
+      "value": 695690
+    },
+    {
       "date": "2025-10-12",
       "value": 670588
     },
     {
       "date": "2025-10-11",
       "value": 655097
-    },
-    {
-      "date": "2025-10-10",
-      "value": 687533
-    },
-    {
-      "date": "2025-10-09",
-      "value": 841566
-    },
-    {
-      "date": "2025-10-08",
-      "value": 867757
     }
   ]
 }

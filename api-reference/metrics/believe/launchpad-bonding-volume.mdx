@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/launchpad-bonding-volume?project=believe',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'believe'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "believe": [
     {
+      "date": "2025-10-15",
+      "value": 40687.44294112419
+    },
+    {
+      "date": "2025-10-14",
+      "value": 40240.875330669696
+    },
+    {
+      "date": "2025-10-13",
+      "value": 332734.6902095309
+    },
+    {
       "date": "2025-10-12",
-      "value": 0
+      "value": 51229.74970564379
     },
     {
       "date": "2025-10-11",
-      "value": 10095.962451323703
-    },
-    {
-      "date": "2025-10-10",
-      "value": 66846.20620355736
-    },
-    {
-      "date": "2025-10-09",
-      "value": 146872.11633459092
-    },
-    {
-      "date": "2025-10-08",
-      "value": 227713.6764740501
+      "value": 10095.962451323681
     }
   ]
 }

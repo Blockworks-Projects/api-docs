@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/fully-diluted-mnav?project=ETHZ',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'ETHZ'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "ethz": [
     {
-      "date": "2025-10-10",
-      "value": 1.477518892484422
+      "date": "2025-10-15",
+      "value": 1.377823938662404
     },
     {
-      "date": "2025-10-09",
-      "value": 1.5468997062655234
+      "date": "2025-10-14",
+      "value": 1.4099335656568261
     },
     {
-      "date": "2025-10-08",
-      "value": 1.6417523434329233
+      "date": "2025-10-13",
+      "value": 1.4927303477783582
     }
   ]
 }

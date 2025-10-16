@@ -28,6 +28,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/transaction-fee-med-usd?project=katana',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -39,6 +40,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'katana'}
 )
+
 data = r.json()
 ```
 
@@ -50,28 +52,28 @@ data = r.json()
 {
   "katana": [
     {
+      "date": "2025-10-16",
+      "value": 0.00024855162101850774
+    },
+    {
+      "date": "2025-10-15",
+      "value": 0.0004002067064169367
+    },
+    {
+      "date": "2025-10-14",
+      "value": 0.0004436328220602638
+    },
+    {
       "date": "2025-10-13",
-      "value": 0.00015046794561230403
+      "value": 0.00026878489454702347
     },
     {
       "date": "2025-10-12",
-      "value": 0.0002499270178840307
+      "value": 0.00024797751273897896
     },
     {
       "date": "2025-10-11",
-      "value": 0.00032644103373657805
-    },
-    {
-      "date": "2025-10-10",
-      "value": 0.0006710002458155088
-    },
-    {
-      "date": "2025-10-09",
-      "value": 0.0003049863553255521
-    },
-    {
-      "date": "2025-10-08",
-      "value": 0.000339728016745086
+      "value": 0.00033524845533246673
     }
   ]
 }

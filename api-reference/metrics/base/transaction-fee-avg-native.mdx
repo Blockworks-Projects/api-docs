@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/transaction-fee-avg-native?project=base',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'base'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "base": [
     {
+      "date": "2025-10-15",
+      "value": 0.000011204209013507067
+    },
+    {
+      "date": "2025-10-14",
+      "value": 0.000007583910868917405
+    },
+    {
+      "date": "2025-10-13",
+      "value": 0.000006673525021228358
+    },
+    {
       "date": "2025-10-12",
-      "value": 0.000007525582762398696
+      "value": 0.000007525582762398718
     },
     {
       "date": "2025-10-11",
-      "value": 0.000006484075215025889
-    },
-    {
-      "date": "2025-10-10",
-      "value": 0.00004660476805772391
-    },
-    {
-      "date": "2025-10-09",
-      "value": 0.000005657982446630363
-    },
-    {
-      "date": "2025-10-08",
-      "value": 0.000003977757714247631
+      "value": 0.000006484075215025939
     }
   ]
 }

@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=aries',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'aries'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "aries": [
     {
+      "date": "2025-10-15",
+      "value": 3630.998244823345
+    },
+    {
+      "date": "2025-10-14",
+      "value": 3286.771356206854
+    },
+    {
+      "date": "2025-10-13",
+      "value": 3905.604517541091
+    },
+    {
       "date": "2025-10-12",
       "value": 1955.09255146292
     },
     {
       "date": "2025-10-11",
-      "value": 2500.123147706921
-    },
-    {
-      "date": "2025-10-10",
-      "value": 3473.230511107008
-    },
-    {
-      "date": "2025-10-09",
-      "value": 2837.526930435201
-    },
-    {
-      "date": "2025-10-08",
-      "value": 3245.295585233613
+      "value": 2500.123147706923
     }
   ]
 }

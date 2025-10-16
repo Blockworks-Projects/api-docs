@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/volume-usd?project=byreal',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'byreal'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "byreal": [
     {
+      "date": "2025-10-15",
+      "value": 136259416.81266317
+    },
+    {
+      "date": "2025-10-14",
+      "value": 141485460.17935622
+    },
+    {
+      "date": "2025-10-13",
+      "value": 575601546.2614481
+    },
+    {
       "date": "2025-10-12",
-      "value": 665255693.1768434
+      "value": 665252535.8796419
     },
     {
       "date": "2025-10-11",
-      "value": 540405501.6125836
-    },
-    {
-      "date": "2025-10-10",
-      "value": 921456207.6199583
-    },
-    {
-      "date": "2025-10-09",
-      "value": 122840048.06907515
-    },
-    {
-      "date": "2025-10-08",
-      "value": 203506430.4467902
+      "value": 540405501.6125838
     }
   ]
 }

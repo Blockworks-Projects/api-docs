@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=aster',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'aster'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "aster": [
     {
+      "date": "2025-10-15",
+      "value": 3312327.3148513036
+    },
+    {
+      "date": "2025-10-14",
+      "value": 4042805.171343637
+    },
+    {
+      "date": "2025-10-13",
+      "value": 3999656.66625921
+    },
+    {
       "date": "2025-10-12",
       "value": 6996930.888596253
     },
     {
       "date": "2025-10-11",
       "value": 6122223.4283349505
-    },
-    {
-      "date": "2025-10-10",
-      "value": 5148681.85964891
-    },
-    {
-      "date": "2025-10-09",
-      "value": 3509922.0808566944
-    },
-    {
-      "date": "2025-10-08",
-      "value": 3271592.0615298916
     }
   ]
 }

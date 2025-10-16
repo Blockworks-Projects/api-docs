@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/stablecoin-circulating-supply-total-usd?project=solana',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'solana'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "solana": [
     {
+      "date": "2025-10-15",
+      "value": 16531685211.804304
+    },
+    {
+      "date": "2025-10-14",
+      "value": 15996645396.907482
+    },
+    {
+      "date": "2025-10-13",
+      "value": 16713134253.504147
+    },
+    {
       "date": "2025-10-12",
-      "value": 16730471970.046745
+      "value": 16678034664.942549
     },
     {
       "date": "2025-10-11",
       "value": 16414968688.786413
-    },
-    {
-      "date": "2025-10-10",
-      "value": 16057335077.899403
-    },
-    {
-      "date": "2025-10-09",
-      "value": 15941411757.33956
-    },
-    {
-      "date": "2025-10-08",
-      "value": 15847792296.052866
     }
   ]
 }

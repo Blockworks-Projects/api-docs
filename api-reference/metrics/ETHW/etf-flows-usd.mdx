@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/etf-flows-usd?project=ETHW',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'ETHW'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "ethw": [
     {
-      "date": "2025-10-10",
-      "value": -21600000
+      "date": "2025-10-15",
+      "value": 12300000
     },
     {
-      "date": "2025-10-09",
-      "value": -8100000
+      "date": "2025-10-14",
+      "value": 13300000
     },
     {
-      "date": "2025-10-08",
-      "value": 0
+      "date": "2025-10-13",
+      "value": -12800000
     }
   ]
 }

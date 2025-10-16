@@ -28,6 +28,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/rev-usd?project=arbitrum',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -39,6 +40,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'arbitrum'}
 )
+
 data = r.json()
 ```
 
@@ -50,24 +52,24 @@ data = r.json()
 {
   "arbitrum": [
     {
+      "date": "2025-10-15",
+      "value": 90501.81859488781
+    },
+    {
+      "date": "2025-10-14",
+      "value": 150356.9249379253
+    },
+    {
+      "date": "2025-10-13",
+      "value": 123322.0490777146
+    },
+    {
       "date": "2025-10-12",
-      "value": 160484.74733645492
+      "value": 160484.74733645513
     },
     {
       "date": "2025-10-11",
-      "value": 145346.2602467457
-    },
-    {
-      "date": "2025-10-10",
-      "value": 1830172.9718653418
-    },
-    {
-      "date": "2025-10-09",
-      "value": 95211.09560289174
-    },
-    {
-      "date": "2025-10-08",
-      "value": 59986.82222579377
+      "value": 145346.26024674578
     }
   ]
 }

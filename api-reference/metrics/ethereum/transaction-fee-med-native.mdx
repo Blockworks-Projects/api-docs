@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/transaction-fee-med-native?project=ethereum',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'ethereum'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "ethereum": [
     {
+      "date": "2025-10-15",
+      "value": 0.000039895366799961156
+    },
+    {
+      "date": "2025-10-14",
+      "value": 0.00004439528862966068
+    },
+    {
+      "date": "2025-10-13",
+      "value": 0.00004045781673850576
+    },
+    {
       "date": "2025-10-12",
-      "value": 0.00003937333856211172
+      "value": 0.0000393528864623672
     },
     {
       "date": "2025-10-11",
-      "value": 0.00008766753354318668
-    },
-    {
-      "date": "2025-10-10",
-      "value": 0.00006171574906992657
-    },
-    {
-      "date": "2025-10-09",
-      "value": 0.00003855800083967859
-    },
-    {
-      "date": "2025-10-08",
-      "value": 0.000031177008136158186
+      "value": 0.00008888215704259484
     }
   ]
 }

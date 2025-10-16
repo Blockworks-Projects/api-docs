@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/transaction-total?project=base',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'base'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "base": [
     {
+      "date": "2025-10-15",
+      "value": 9397897
+    },
+    {
+      "date": "2025-10-14",
+      "value": 9673442
+    },
+    {
+      "date": "2025-10-13",
+      "value": 8958749
+    },
+    {
       "date": "2025-10-12",
       "value": 9046249
     },
     {
       "date": "2025-10-11",
       "value": 9374896
-    },
-    {
-      "date": "2025-10-10",
-      "value": 9927338
-    },
-    {
-      "date": "2025-10-09",
-      "value": 10122297
-    },
-    {
-      "date": "2025-10-08",
-      "value": 10040190
     }
   ]
 }

@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=wildcat',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'wildcat'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "wildcat": [
     {
+      "date": "2025-10-15",
+      "value": 1703.366338489642
+    },
+    {
+      "date": "2025-10-14",
+      "value": 1385.24726361089
+    },
+    {
+      "date": "2025-10-13",
+      "value": 1416.100576527637
+    },
+    {
       "date": "2025-10-12",
-      "value": 1651.971729760717
+      "value": 1651.971729760715
     },
     {
       "date": "2025-10-11",
-      "value": 2407.575780181067
-    },
-    {
-      "date": "2025-10-10",
-      "value": 2054.63142711545
-    },
-    {
-      "date": "2025-10-09",
-      "value": 1613.495601678106
-    },
-    {
-      "date": "2025-10-08",
-      "value": 2142.417480223676
+      "value": 2407.575780181071
     }
   ]
 }

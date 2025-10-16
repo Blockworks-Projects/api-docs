@@ -31,8 +31,8 @@ const res = await fetch(
   'https://api.blockworks.com/v1/assets/ethereum?sparkline=7d',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
-console.log(data)
 ```
 
 ```python Python
@@ -43,8 +43,8 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'sparkline': '7d'}
 )
+
 data = r.json()
-print(data)
 ```
 
 </CodeGroup>

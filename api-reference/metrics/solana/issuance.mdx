@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/issuance?project=solana',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'solana'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "solana": [
     {
+      "date": "2025-10-15",
+      "value": 70924.75878849975
+    },
+    {
+      "date": "2025-10-14",
+      "value": 70959.89072103797
+    },
+    {
+      "date": "2025-10-13",
+      "value": 71349.30282403974
+    },
+    {
       "date": "2025-10-12",
       "value": 71349.30282403974
     },
     {
       "date": "2025-10-11",
       "value": 71508.5309307296
-    },
-    {
-      "date": "2025-10-10",
-      "value": 72090.56537243017
-    },
-    {
-      "date": "2025-10-09",
-      "value": 72124.66678220099
-    },
-    {
-      "date": "2025-10-08",
-      "value": 72090.56537243017
     }
   ]
 }

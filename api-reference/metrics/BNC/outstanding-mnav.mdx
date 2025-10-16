@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/outstanding-mnav?project=BNC',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'BNC'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "bnc": [
     {
-      "date": "2025-10-10",
-      "value": 0.6789700097787432
+      "date": "2025-10-15",
+      "value": 0.6548169912926994
     },
     {
-      "date": "2025-10-09",
-      "value": 0.7083198957424223
+      "date": "2025-10-14",
+      "value": 0.6425104012122329
     },
     {
-      "date": "2025-10-08",
-      "value": 0.7545021380759058
+      "date": "2025-10-13",
+      "value": 0.6610633478235498
     }
   ]
 }

@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=pumpfun',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'pumpfun'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "pumpfun": [
     {
+      "date": "2025-10-15",
+      "value": 1241858.391254244
+    },
+    {
+      "date": "2025-10-14",
+      "value": 1387882.5976750713
+    },
+    {
+      "date": "2025-10-13",
+      "value": 1075724.8550239443
+    },
+    {
       "date": "2025-10-12",
-      "value": 786086.9333321495
+      "value": 831158.9396724608
     },
     {
       "date": "2025-10-11",
-      "value": 929259.2786112537
-    },
-    {
-      "date": "2025-10-10",
-      "value": 1181424.378477718
-    },
-    {
-      "date": "2025-10-09",
-      "value": 1247934.7005941458
-    },
-    {
-      "date": "2025-10-08",
-      "value": 976184.7714026291
+      "value": 929259.2786112584
     }
   ]
 }

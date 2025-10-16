@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/treasury-holdings-eth?project=BTBT',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'BTBT'}
 )
+
 data = r.json()
 ```
 
@@ -49,28 +51,28 @@ data = r.json()
 {
   "btbt": [
     {
+      "date": "2025-10-16",
+      "value": 150244
+    },
+    {
+      "date": "2025-10-15",
+      "value": 150244
+    },
+    {
+      "date": "2025-10-14",
+      "value": 150244
+    },
+    {
       "date": "2025-10-13",
-      "value": 121252
+      "value": 150244
     },
     {
       "date": "2025-10-12",
-      "value": 121252
+      "value": 150244
     },
     {
       "date": "2025-10-11",
-      "value": 121252
-    },
-    {
-      "date": "2025-10-10",
-      "value": 121252
-    },
-    {
-      "date": "2025-10-09",
-      "value": 121252
-    },
-    {
-      "date": "2025-10-08",
-      "value": 121252
+      "value": 150244
     }
   ]
 }

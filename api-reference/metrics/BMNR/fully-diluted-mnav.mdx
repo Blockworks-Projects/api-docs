@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/fully-diluted-mnav?project=BMNR',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'BMNR'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "bmnr": [
     {
-      "date": "2025-10-10",
-      "value": 1.3432206784676732
+      "date": "2025-10-15",
+      "value": 1.2684622911306283
     },
     {
-      "date": "2025-10-09",
-      "value": 1.362595596046933
+      "date": "2025-10-14",
+      "value": 1.2504286372680515
     },
     {
-      "date": "2025-10-08",
-      "value": 1.4195440499299388
+      "date": "2025-10-13",
+      "value": 1.3135153587146027
     }
   ]
 }

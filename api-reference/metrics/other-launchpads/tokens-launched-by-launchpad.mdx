@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/tokens-launched-by-launchpad?project=other-launchpads',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'other-launchpads'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "other-launchpads": [
     {
+      "date": "2025-10-15",
+      "value": 3975
+    },
+    {
+      "date": "2025-10-14",
+      "value": 3273
+    },
+    {
+      "date": "2025-10-13",
+      "value": 2971
+    },
+    {
       "date": "2025-10-12",
       "value": 2972
     },
     {
       "date": "2025-10-11",
       "value": 3678
-    },
-    {
-      "date": "2025-10-10",
-      "value": 3800
-    },
-    {
-      "date": "2025-10-09",
-      "value": 3863
-    },
-    {
-      "date": "2025-10-08",
-      "value": 3959
     }
   ]
 }

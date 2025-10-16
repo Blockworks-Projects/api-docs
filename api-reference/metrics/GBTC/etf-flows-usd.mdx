@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/etf-flows-usd?project=GBTC',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'GBTC'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "gbtc": [
     {
-      "date": "2025-10-10",
-      "value": -19200000
+      "date": "2025-10-15",
+      "value": -82900000
     },
     {
-      "date": "2025-10-09",
-      "value": -45500000
-    },
-    {
-      "date": "2025-10-08",
+      "date": "2025-10-14",
       "value": 0
+    },
+    {
+      "date": "2025-10-13",
+      "value": -145400000
     }
   ]
 }

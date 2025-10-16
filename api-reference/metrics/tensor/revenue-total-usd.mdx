@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=tensor',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'tensor'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "tensor": [
     {
+      "date": "2025-10-15",
+      "value": 6.830805027486
+    },
+    {
+      "date": "2025-10-14",
+      "value": 0.8800085607670001
+    },
+    {
+      "date": "2025-10-13",
+      "value": 16.410736467470997
+    },
+    {
       "date": "2025-10-12",
       "value": 4.498572478361
     },
     {
       "date": "2025-10-11",
       "value": 2.353100570679
-    },
-    {
-      "date": "2025-10-10",
-      "value": 2.4177893531140002
-    },
-    {
-      "date": "2025-10-09",
-      "value": 6.884254621341
-    },
-    {
-      "date": "2025-10-08",
-      "value": 7.486992177531
     }
   ]
 }

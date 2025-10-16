@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=aave',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'aave'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "aave": [
     {
+      "date": "2025-10-15",
+      "value": 366083.7722538218
+    },
+    {
+      "date": "2025-10-14",
+      "value": 381706.5294479992
+    },
+    {
+      "date": "2025-10-13",
+      "value": 380807.69876875146
+    },
+    {
       "date": "2025-10-12",
-      "value": 376936.6315691402
+      "value": 377198.92829082516
     },
     {
       "date": "2025-10-11",
-      "value": 387898.55566146615
-    },
-    {
-      "date": "2025-10-10",
-      "value": 403838.77019654715
-    },
-    {
-      "date": "2025-10-09",
-      "value": 404665.5846425103
-    },
-    {
-      "date": "2025-10-08",
-      "value": 398561.3061692927
+      "value": 387893.8548084464
     }
   ]
 }

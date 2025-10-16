@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=jito',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'jito'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "jito": [
     {
+      "date": "2025-10-15",
+      "value": 612.13396993141
+    },
+    {
+      "date": "2025-10-14",
+      "value": 11838.596564813843
+    },
+    {
+      "date": "2025-10-13",
+      "value": 9983.565770059962
+    },
+    {
       "date": "2025-10-12",
-      "value": 84298.14185574197
+      "value": 85875.86080732604
     },
     {
       "date": "2025-10-11",
       "value": 83571.27884725151
-    },
-    {
-      "date": "2025-10-10",
-      "value": 20958.816533841342
-    },
-    {
-      "date": "2025-10-09",
-      "value": 19679.1949111844
-    },
-    {
-      "date": "2025-10-08",
-      "value": 68106.44958349626
     }
   ]
 }

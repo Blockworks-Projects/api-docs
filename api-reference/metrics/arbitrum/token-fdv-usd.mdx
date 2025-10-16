@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/token-fdv-usd?project=arbitrum',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'arbitrum'}
 )
+
 data = r.json()
 ```
 
@@ -49,23 +51,23 @@ data = r.json()
 {
   "arbitrum": [
     {
+      "date": "2025-10-15",
+      "value": null
+    },
+    {
+      "date": "2025-10-14",
+      "value": null
+    },
+    {
+      "date": "2025-10-13",
+      "value": null
+    },
+    {
       "date": "2025-10-12",
       "value": null
     },
     {
       "date": "2025-10-11",
-      "value": null
-    },
-    {
-      "date": "2025-10-10",
-      "value": null
-    },
-    {
-      "date": "2025-10-09",
-      "value": null
-    },
-    {
-      "date": "2025-10-08",
       "value": null
     }
   ]

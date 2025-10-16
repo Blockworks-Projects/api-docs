@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/volume-usd?project=raydium',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'raydium'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "raydium": [
     {
+      "date": "2025-10-15",
+      "value": 307920689.6639238
+    },
+    {
+      "date": "2025-10-14",
+      "value": 539987663.7170177
+    },
+    {
+      "date": "2025-10-13",
+      "value": 426414387.33111537
+    },
+    {
       "date": "2025-10-12",
-      "value": 1285612787.6376262
+      "value": 442834238.14331657
     },
     {
       "date": "2025-10-11",
-      "value": 492491038.07551706
-    },
-    {
-      "date": "2025-10-10",
-      "value": 956201697.9669695
-    },
-    {
-      "date": "2025-10-09",
-      "value": 364672909.60287905
-    },
-    {
-      "date": "2025-10-08",
-      "value": 325531716.1714305
+      "value": 492542467.836808
     }
   ]
 }

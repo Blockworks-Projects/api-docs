@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/treasury-enterprise-value-usd?project=ETHZ',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'ETHZ'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "ethz": [
     {
-      "date": "2025-10-10",
-      "value": -229966210.18760002
+      "date": "2025-10-15",
+      "value": -268856972.6092
     },
     {
-      "date": "2025-10-09",
-      "value": -201983441.6742
+      "date": "2025-10-14",
+      "value": -253816434.75340003
     },
     {
-      "date": "2025-10-08",
-      "value": -186222111.2694
+      "date": "2025-10-13",
+      "value": -242475965.3158
     }
   ]
 }

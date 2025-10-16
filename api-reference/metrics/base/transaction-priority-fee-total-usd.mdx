@@ -28,6 +28,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-usd?project=base',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -39,6 +40,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'base'}
 )
+
 data = r.json()
 ```
 
@@ -50,24 +52,24 @@ data = r.json()
 {
   "base": [
     {
+      "date": "2025-10-15",
+      "value": 229116.2085214607
+    },
+    {
+      "date": "2025-10-14",
+      "value": 202323.0466313999
+    },
+    {
+      "date": "2025-10-13",
+      "value": 167532.0628967485
+    },
+    {
       "date": "2025-10-12",
-      "value": 171869.54289003194
+      "value": 171869.54289003205
     },
     {
       "date": "2025-10-11",
-      "value": 157159.83276180067
-    },
-    {
-      "date": "2025-10-10",
-      "value": 1406307.1458028238
-    },
-    {
-      "date": "2025-10-09",
-      "value": 164686.6530851728
-    },
-    {
-      "date": "2025-10-08",
-      "value": 134422.66143342204
+      "value": 157159.8327617999
     }
   ]
 }

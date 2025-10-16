@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/outstanding-ev-mnav?project=GAME',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'GAME'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "game": [
     {
-      "date": "2025-10-10",
-      "value": 1.0550187394132646
+      "date": "2025-10-15",
+      "value": 1.093412562658064
     },
     {
-      "date": "2025-10-09",
-      "value": 1.079172806032708
+      "date": "2025-10-14",
+      "value": 1.0539218035807798
     },
     {
-      "date": "2025-10-08",
-      "value": 1.1308943393311375
+      "date": "2025-10-13",
+      "value": 1.0789917510204665
     }
   ]
 }

@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=hyperliquid',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'hyperliquid'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "hyperliquid": [
     {
+      "date": "2025-10-15",
+      "value": 235712.5949118376
+    },
+    {
+      "date": "2025-10-14",
+      "value": 4116531.461772137
+    },
+    {
+      "date": "2025-10-13",
+      "value": 2572937.4922469365
+    },
+    {
       "date": "2025-10-12",
       "value": 3075483.188046967
     },
     {
       "date": "2025-10-11",
       "value": 2918943.4835797944
-    },
-    {
-      "date": "2025-10-10",
-      "value": 18810987.117271625
-    },
-    {
-      "date": "2025-10-09",
-      "value": 3293351.620405165
-    },
-    {
-      "date": "2025-10-08",
-      "value": 2536107.235368601
     }
   ]
 }

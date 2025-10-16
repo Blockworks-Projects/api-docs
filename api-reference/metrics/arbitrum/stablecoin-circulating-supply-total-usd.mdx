@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/stablecoin-circulating-supply-total-usd?project=arbitrum',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'arbitrum'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "arbitrum": [
     {
+      "date": "2025-10-15",
+      "value": 14528338958.949326
+    },
+    {
+      "date": "2025-10-14",
+      "value": 14614716967.846985
+    },
+    {
+      "date": "2025-10-13",
+      "value": 12088065918.387478
+    },
+    {
       "date": "2025-10-12",
-      "value": 10653642668.02966
+      "value": 11117667609.47822
     },
     {
       "date": "2025-10-11",
-      "value": 10660061206.017338
-    },
-    {
-      "date": "2025-10-10",
-      "value": 10376252620.263695
-    },
-    {
-      "date": "2025-10-09",
-      "value": 9744228609.41634
-    },
-    {
-      "date": "2025-10-08",
-      "value": 9784775904.178694
+      "value": 10958454859.906324
     }
   ]
 }

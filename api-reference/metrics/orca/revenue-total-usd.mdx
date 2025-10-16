@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=orca',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'orca'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "orca": [
     {
+      "date": "2025-10-15",
+      "value": 44181.6407730934
+    },
+    {
+      "date": "2025-10-14",
+      "value": 58841.427718993684
+    },
+    {
+      "date": "2025-10-13",
+      "value": 49203.92802726314
+    },
+    {
       "date": "2025-10-12",
-      "value": 39688.754832918974
+      "value": 48722.963343732095
     },
     {
       "date": "2025-10-11",
-      "value": 57408.643373243
-    },
-    {
-      "date": "2025-10-10",
-      "value": 129824.48044094637
-    },
-    {
-      "date": "2025-10-09",
-      "value": 37884.2820912614
-    },
-    {
-      "date": "2025-10-08",
-      "value": 33668.1308743806
+      "value": 57408.64337324299
     }
   ]
 }

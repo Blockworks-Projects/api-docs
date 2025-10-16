@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/treasury-nav-total-usd?project=SMLR',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'SMLR'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "smlr": [
     {
-      "date": "2025-10-10",
-      "value": 614331658.8109694
+      "date": "2025-10-15",
+      "value": 571214362.5243826
     },
     {
-      "date": "2025-10-09",
-      "value": 622683444.6101713
+      "date": "2025-10-14",
+      "value": 581642084.690842
     },
     {
-      "date": "2025-10-08",
-      "value": 613426679.9636695
+      "date": "2025-10-13",
+      "value": 581476956.7488873
     }
   ]
 }

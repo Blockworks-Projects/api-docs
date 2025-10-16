@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=soltradingbot',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'soltradingbot'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "soltradingbot": [
     {
+      "date": "2025-10-15",
+      "value": 3145.090393135759
+    },
+    {
+      "date": "2025-10-14",
+      "value": 4041.973754096148
+    },
+    {
+      "date": "2025-10-13",
+      "value": 4433.946922627304
+    },
+    {
       "date": "2025-10-12",
-      "value": 3138.673608029707
+      "value": 3537.661477381558
     },
     {
       "date": "2025-10-11",
-      "value": 4599.182476837365
-    },
-    {
-      "date": "2025-10-10",
-      "value": 10369.55028437476
-    },
-    {
-      "date": "2025-10-09",
-      "value": 6644.185080642812
-    },
-    {
-      "date": "2025-10-08",
-      "value": 5263.472681996116
+      "value": 4699.86870336643
     }
   ]
 }

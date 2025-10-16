@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/dex-spot-volume-total-usd?project=arbitrum',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'arbitrum'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "arbitrum": [
     {
+      "date": "2025-10-15",
+      "value": 1033871193.1139398
+    },
+    {
+      "date": "2025-10-14",
+      "value": 1391551580.3986855
+    },
+    {
+      "date": "2025-10-13",
+      "value": 1112240499.876481
+    },
+    {
       "date": "2025-10-12",
-      "value": 1226758342.0666976
+      "value": 1226780842.5169353
     },
     {
       "date": "2025-10-11",
-      "value": 1045775671.9385302
-    },
-    {
-      "date": "2025-10-10",
-      "value": 2351390358.080939
-    },
-    {
-      "date": "2025-10-09",
-      "value": 1051714404.1228052
-    },
-    {
-      "date": "2025-10-08",
-      "value": 982693399.546881
+      "value": 1045775671.9385295
     }
   ]
 }

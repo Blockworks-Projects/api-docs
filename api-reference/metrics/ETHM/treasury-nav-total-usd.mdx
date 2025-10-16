@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/treasury-nav-total-usd?project=ETHM',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'ETHM'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "ethm": [
     {
-      "date": "2025-10-10",
-      "value": 2164062923.5927925
+      "date": "2025-10-15",
+      "value": 2045294438.8996296
     },
     {
-      "date": "2025-10-09",
-      "value": 2242790095.488879
+      "date": "2025-10-14",
+      "value": 2103414774.1906955
     },
     {
-      "date": "2025-10-08",
-      "value": 2206505056.0225544
+      "date": "2025-10-13",
+      "value": 2060571829.3664215
     }
   ]
 }

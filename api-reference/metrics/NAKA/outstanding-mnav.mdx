@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/outstanding-mnav?project=NAKA',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'NAKA'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "naka": [
     {
-      "date": "2025-10-10",
-      "value": 0.5259726144188994
+      "date": "2025-10-15",
+      "value": 0.5019556379057392
     },
     {
-      "date": "2025-10-09",
-      "value": 0.5573627999903903
+      "date": "2025-10-14",
+      "value": 0.4910885730454186
     },
     {
-      "date": "2025-10-08",
-      "value": 0.5766958156623787
+      "date": "2025-10-13",
+      "value": 0.5082313611012507
     }
   ]
 }

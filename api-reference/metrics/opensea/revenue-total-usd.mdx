@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=opensea',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'opensea'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "opensea": [
     {
+      "date": "2025-10-15",
+      "value": 77235.95720728447
+    },
+    {
+      "date": "2025-10-14",
+      "value": 77022.71610531402
+    },
+    {
+      "date": "2025-10-13",
+      "value": 84622.42449356317
+    },
+    {
       "date": "2025-10-12",
-      "value": 121456.92070214813
+      "value": 121456.92070214819
     },
     {
       "date": "2025-10-11",
-      "value": 75202.3342858219
-    },
-    {
-      "date": "2025-10-10",
-      "value": 127103.37242125864
-    },
-    {
-      "date": "2025-10-09",
-      "value": 91266.99365283166
-    },
-    {
-      "date": "2025-10-08",
-      "value": 104549.42981730512
+      "value": 75202.33428582187
     }
   ]
 }

@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/treasury-volume-total-usd?project=PAPL',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'PAPL'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "papl": [
     {
-      "date": "2025-10-10",
-      "value": 374166.111
+      "date": "2025-10-15",
+      "value": 45813.7328
     },
     {
-      "date": "2025-10-09",
-      "value": 292967.935
+      "date": "2025-10-14",
+      "value": 220158.4128
     },
     {
-      "date": "2025-10-08",
-      "value": 380943.5305
+      "date": "2025-10-13",
+      "value": 229266.5495
     }
   ]
 }

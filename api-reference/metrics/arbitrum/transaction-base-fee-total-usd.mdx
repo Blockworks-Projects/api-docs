@@ -28,6 +28,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/transaction-base-fee-total-usd?project=arbitrum',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -39,6 +40,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'arbitrum'}
 )
+
 data = r.json()
 ```
 
@@ -50,24 +52,24 @@ data = r.json()
 {
   "arbitrum": [
     {
+      "date": "2025-10-15",
+      "value": 23136.123051676517
+    },
+    {
+      "date": "2025-10-14",
+      "value": 23808.716209396676
+    },
+    {
+      "date": "2025-10-13",
+      "value": 24276.496081140587
+    },
+    {
       "date": "2025-10-12",
-      "value": 23681.430683281003
+      "value": 23681.430683281043
     },
     {
       "date": "2025-10-11",
-      "value": 23209.905390565997
-    },
-    {
-      "date": "2025-10-10",
-      "value": 49329.1858888681
-    },
-    {
-      "date": "2025-10-09",
-      "value": 24898.74875704575
-    },
-    {
-      "date": "2025-10-08",
-      "value": 23854.096254045176
+      "value": 23209.90539056609
     }
   ]
 }

@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/dex-spot-volume-total-usd?project=solana',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'solana'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "solana": [
     {
+      "date": "2025-10-15",
+      "value": 3568957698.8038707
+    },
+    {
+      "date": "2025-10-14",
+      "value": 5972338150.965137
+    },
+    {
+      "date": "2025-10-13",
+      "value": 5288147489.57117
+    },
+    {
       "date": "2025-10-12",
-      "value": 7068510396.904224
+      "value": 6571363222.879308
     },
     {
       "date": "2025-10-11",
-      "value": 6789346217.095856
-    },
-    {
-      "date": "2025-10-10",
-      "value": 11423322501.530964
-    },
-    {
-      "date": "2025-10-09",
-      "value": 4320725870.037098
-    },
-    {
-      "date": "2025-10-08",
-      "value": 4492042058.351281
+      "value": 6818380944.931289
     }
   ]
 }

@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=stable-labs',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'stable-labs'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "stable-labs": [
     {
+      "date": "2025-10-15",
+      "value": 49907.5887152778
+    },
+    {
+      "date": "2025-10-14",
+      "value": 39942.79861111113
+    },
+    {
+      "date": "2025-10-13",
+      "value": 59912.03416666663
+    },
+    {
       "date": "2025-10-12",
-      "value": 49974.05572916667
+      "value": 49974.05572916685
     },
     {
       "date": "2025-10-11",
       "value": 9993.884861111112
-    },
-    {
-      "date": "2025-10-10",
-      "value": 69912.38819444469
-    },
-    {
-      "date": "2025-10-09",
-      "value": 59895.30770833328
-    },
-    {
-      "date": "2025-10-08",
-      "value": 59886.22812500002
     }
   ]
 }

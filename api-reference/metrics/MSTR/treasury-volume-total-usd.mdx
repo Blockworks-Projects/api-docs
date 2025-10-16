@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/treasury-volume-total-usd?project=MSTR',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'MSTR'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "mstr": [
     {
-      "date": "2025-10-10",
-      "value": 4233458406.78
+      "date": "2025-10-15",
+      "value": 3115193679.685
     },
     {
-      "date": "2025-10-09",
-      "value": 3621976627.29
+      "date": "2025-10-14",
+      "value": 3499828667.2502
     },
     {
-      "date": "2025-10-08",
-      "value": 4273185945.8208
+      "date": "2025-10-13",
+      "value": 3595489514.9952
     }
   ]
 }

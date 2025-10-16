@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/volume-usd?project=ZeroFi',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'ZeroFi'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "zerofi": [
     {
+      "date": "2025-10-15",
+      "value": 70637455.71966073
+    },
+    {
+      "date": "2025-10-14",
+      "value": 102767755.47786042
+    },
+    {
+      "date": "2025-10-13",
+      "value": 100919618.9439293
+    },
+    {
       "date": "2025-10-12",
-      "value": 80402968.99435163
+      "value": 80480794.42522341
     },
     {
       "date": "2025-10-11",
-      "value": 130759321.0030599
-    },
-    {
-      "date": "2025-10-10",
-      "value": 98058915.9015125
-    },
-    {
-      "date": "2025-10-09",
-      "value": 64460425.7141119
-    },
-    {
-      "date": "2025-10-08",
-      "value": 53631268.308780074
+      "value": 130933045.53322117
     }
   ]
 }

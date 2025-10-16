@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=clanker',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'clanker'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "clanker": [
     {
+      "date": "2025-10-15",
+      "value": 13667.337052080535
+    },
+    {
+      "date": "2025-10-14",
+      "value": 24331.586944413997
+    },
+    {
+      "date": "2025-10-13",
+      "value": 24004.917062012195
+    },
+    {
       "date": "2025-10-12",
-      "value": 13046.587261094926
+      "value": 13129.37196638929
     },
     {
       "date": "2025-10-11",
-      "value": 11204.605541277853
-    },
-    {
-      "date": "2025-10-10",
-      "value": 31802.019046616955
-    },
-    {
-      "date": "2025-10-09",
-      "value": 28948.68918957783
-    },
-    {
-      "date": "2025-10-08",
-      "value": 20768.22293191859
+      "value": 11204.605541277851
     }
   ]
 }

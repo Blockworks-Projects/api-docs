@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/issuance?project=ethereum',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'ethereum'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "ethereum": [
     {
+      "date": "2025-10-15",
+      "value": 2659.293494115
+    },
+    {
+      "date": "2025-10-14",
+      "value": 2659.293494115
+    },
+    {
+      "date": "2025-10-13",
+      "value": 2659.067709632
+    },
+    {
       "date": "2025-10-12",
-      "value": 2659.838207684
+      "value": 2655.846792886
     },
     {
       "date": "2025-10-11",
       "value": 2659.838207684
-    },
-    {
-      "date": "2025-10-10",
-      "value": 2661.410570714
-    },
-    {
-      "date": "2025-10-09",
-      "value": 2665.56706149
-    },
-    {
-      "date": "2025-10-08",
-      "value": 2659.153374436
     }
   ]
 }

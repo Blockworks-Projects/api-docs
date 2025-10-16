@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/volume-usd?project=solfi',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'solfi'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "solfi": [
     {
+      "date": "2025-10-15",
+      "value": 242274238.39957094
+    },
+    {
+      "date": "2025-10-14",
+      "value": 523799775.7176595
+    },
+    {
+      "date": "2025-10-13",
+      "value": 424477940.21622276
+    },
+    {
       "date": "2025-10-12",
-      "value": 614258834.4365395
+      "value": 617185056.6796514
     },
     {
       "date": "2025-10-11",
-      "value": 287658099.98318744
-    },
-    {
-      "date": "2025-10-10",
-      "value": 1661992055.1975303
-    },
-    {
-      "date": "2025-10-09",
-      "value": 307092048.11989653
-    },
-    {
-      "date": "2025-10-08",
-      "value": 300345970.2193801
+      "value": 291845984.68383014
     }
   ]
 }

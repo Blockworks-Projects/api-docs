@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=banana-gun',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'banana-gun'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "banana-gun": [
     {
+      "date": "2025-10-15",
+      "value": 11498.062513098337
+    },
+    {
+      "date": "2025-10-14",
+      "value": 5585.75718523742
+    },
+    {
+      "date": "2025-10-13",
+      "value": 8434.253075055272
+    },
+    {
       "date": "2025-10-12",
-      "value": 3601.3162368152716
+      "value": 4073.949426642984
     },
     {
       "date": "2025-10-11",
-      "value": 3828.4519125564357
-    },
-    {
-      "date": "2025-10-10",
-      "value": 11533.206251697728
-    },
-    {
-      "date": "2025-10-09",
-      "value": 10133.570054795922
-    },
-    {
-      "date": "2025-10-08",
-      "value": 11842.245937348313
+      "value": 3828.45191255644
     }
   ]
 }

@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/treasury-enterprise-value-usd?project=PAPL',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'PAPL'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "papl": [
     {
-      "date": "2025-10-10",
-      "value": 7562670.5285
+      "date": "2025-10-15",
+      "value": 6976782.4112
     },
     {
-      "date": "2025-10-09",
-      "value": 7739392.581800001
+      "date": "2025-10-14",
+      "value": 7018775.7704
     },
     {
-      "date": "2025-10-08",
-      "value": 7516908.534499999
+      "date": "2025-10-13",
+      "value": 7286752.623500001
     }
   ]
 }

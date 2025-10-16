@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/treasury-nav-total-usd?project=STKE',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'STKE'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "stke": [
     {
-      "date": "2025-10-10",
-      "value": 93285718.29885843
+      "date": "2025-10-15",
+      "value": 87405978.44318497
     },
     {
-      "date": "2025-10-09",
-      "value": 98922668.93809648
+      "date": "2025-10-14",
+      "value": 87242558.60093181
     },
     {
-      "date": "2025-10-08",
-      "value": 99032089.68250357
+      "date": "2025-10-13",
+      "value": 86669454.92444903
     }
   ]
 }

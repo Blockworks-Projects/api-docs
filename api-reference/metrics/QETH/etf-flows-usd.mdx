@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/etf-flows-usd?project=QETH',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'QETH'}
 )
+
 data = r.json()
 ```
 
@@ -49,15 +51,15 @@ data = r.json()
 {
   "qeth": [
     {
-      "date": "2025-10-10",
+      "date": "2025-10-15",
       "value": 0
     },
     {
-      "date": "2025-10-09",
-      "value": -2200000
+      "date": "2025-10-14",
+      "value": 0
     },
     {
-      "date": "2025-10-08",
+      "date": "2025-10-13",
       "value": 0
     }
   ]

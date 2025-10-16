@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/fully-diluted-mnav?project=PAPL',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'PAPL'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "papl": [
     {
-      "date": "2025-10-10",
-      "value": 18.46343103763896
+      "date": "2025-10-15",
+      "value": 21.658050696048587
     },
     {
-      "date": "2025-10-09",
-      "value": 18.04975858136612
+      "date": "2025-10-14",
+      "value": 20.985639957169223
     },
     {
-      "date": "2025-10-08",
-      "value": 17.89633894876451
+      "date": "2025-10-13",
+      "value": 22.548963421447485
     }
   ]
 }

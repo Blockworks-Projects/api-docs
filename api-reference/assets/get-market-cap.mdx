@@ -24,6 +24,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/assets/ethereum/market-cap',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -34,6 +35,7 @@ r = requests.get(
   'https://api.blockworks.com/v1/assets/ethereum/market-cap',
   headers={'x-api-key': 'YOUR_API_KEY'}
 )
+
 data = r.json()
 ```
 

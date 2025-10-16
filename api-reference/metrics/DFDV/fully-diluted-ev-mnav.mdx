@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/fully-diluted-ev-mnav?project=DFDV',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'DFDV'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "dfdv": [
     {
-      "date": "2025-10-10",
-      "value": 1.522611373252978
+      "date": "2025-10-15",
+      "value": 1.5078551076347222
     },
     {
-      "date": "2025-10-09",
-      "value": 1.5371854048544924
+      "date": "2025-10-14",
+      "value": 1.5045283969498466
     },
     {
-      "date": "2025-10-08",
-      "value": 1.491617065796646
+      "date": "2025-10-13",
+      "value": 1.5827662546955645
     }
   ]
 }

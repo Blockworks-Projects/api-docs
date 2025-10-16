@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/revenue-total-usd?project=ostium',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'ostium'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "ostium": [
     {
+      "date": "2025-10-15",
+      "value": 47183.252282500085
+    },
+    {
+      "date": "2025-10-14",
+      "value": 131348.48850999997
+    },
+    {
+      "date": "2025-10-13",
+      "value": 147361.4952805
+    },
+    {
       "date": "2025-10-12",
-      "value": 10908.393411
+      "value": 10908.393410999997
     },
     {
       "date": "2025-10-11",
       "value": 7799.249506499999
-    },
-    {
-      "date": "2025-10-10",
-      "value": 40298.42513599999
-    },
-    {
-      "date": "2025-10-09",
-      "value": 33558.487121499995
-    },
-    {
-      "date": "2025-10-08",
-      "value": 28993.800613500003
     }
   ]
 }

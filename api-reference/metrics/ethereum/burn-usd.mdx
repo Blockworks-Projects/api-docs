@@ -28,6 +28,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/burn-usd?project=ethereum',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -39,6 +40,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'ethereum'}
 )
+
 data = r.json()
 ```
 
@@ -50,24 +52,24 @@ data = r.json()
 {
   "ethereum": [
     {
+      "date": "2025-10-15",
+      "value": 306629.52472652117
+    },
+    {
+      "date": "2025-10-14",
+      "value": 358121.08428917633
+    },
+    {
+      "date": "2025-10-13",
+      "value": 296223.6535231837
+    },
+    {
       "date": "2025-10-12",
-      "value": 317436.0862657477
+      "value": 317436.0862657466
     },
     {
       "date": "2025-10-11",
       "value": 1286361.5421977737
-    },
-    {
-      "date": "2025-10-10",
-      "value": 10773710.934479391
-    },
-    {
-      "date": "2025-10-09",
-      "value": 319251.3700316923
-    },
-    {
-      "date": "2025-10-08",
-      "value": 222114.95847810173
     }
   ]
 }

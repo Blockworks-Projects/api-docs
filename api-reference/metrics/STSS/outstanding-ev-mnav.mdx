@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/outstanding-ev-mnav?project=STSS',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'STSS'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "stss": [
     {
-      "date": "2025-10-10",
-      "value": 0.35172399199859533
+      "date": "2025-10-15",
+      "value": 0.3561937387002094
     },
     {
-      "date": "2025-10-09",
-      "value": 0.3700469073932279
+      "date": "2025-10-14",
+      "value": 0.34607317076203964
     },
     {
-      "date": "2025-10-08",
-      "value": 0.37314470592108717
+      "date": "2025-10-13",
+      "value": 0.35135927747970735
     }
   ]
 }

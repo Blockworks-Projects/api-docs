@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/rev-native?project=katana',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'katana'}
 )
+
 data = r.json()
 ```
 
@@ -49,24 +51,24 @@ data = r.json()
 {
   "katana": [
     {
+      "date": "2025-10-15",
+      "value": 0.16549985747998514
+    },
+    {
+      "date": "2025-10-14",
+      "value": 0.18304185348583543
+    },
+    {
+      "date": "2025-10-13",
+      "value": 0.11470744274580544
+    },
+    {
       "date": "2025-10-12",
-      "value": 0.13571745356352893
+      "value": 0.1357174535635289
     },
     {
       "date": "2025-10-11",
       "value": 2.1736676931536834
-    },
-    {
-      "date": "2025-10-10",
-      "value": 2.9520422994916125
-    },
-    {
-      "date": "2025-10-09",
-      "value": 2.8753079441032536
-    },
-    {
-      "date": "2025-10-08",
-      "value": 3.2380907903341174
     }
   ]
 }

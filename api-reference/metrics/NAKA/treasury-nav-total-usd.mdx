@@ -27,6 +27,7 @@ const res = await fetch(
   'https://api.blockworks.com/v1/metrics/treasury-nav-total-usd?project=NAKA',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
+
 const data = await res.json()
 ```
 
@@ -38,6 +39,7 @@ r = requests.get(
   headers={'x-api-key': 'YOUR_API_KEY'},
   params={'project': 'NAKA'}
 )
+
 data = r.json()
 ```
 
@@ -49,16 +51,16 @@ data = r.json()
 {
   "naka": [
     {
-      "date": "2025-10-10",
-      "value": 701589146.7997699
+      "date": "2025-10-15",
+      "value": 652347622.8116215
     },
     {
-      "date": "2025-10-09",
-      "value": 711127190.6057127
+      "date": "2025-10-14",
+      "value": 664256461.6170175
     },
     {
-      "date": "2025-10-08",
-      "value": 700555627.9696028
+      "date": "2025-10-13",
+      "value": 664067879.4883786
     }
   ]
 }
