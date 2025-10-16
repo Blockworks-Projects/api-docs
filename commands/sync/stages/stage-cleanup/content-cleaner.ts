@@ -26,17 +26,6 @@ export async function cleanupExistingContent(metrics: Metric[], outputDir: strin
     }
   }
 
-  // Clean up expand options directory
-  const expandDir = './api-reference/assets/expand'
-  try {
-    if (await fileExists(expandDir)) {
-      await remove(expandDir, { recursive: true })
-      removedCount++
-    }
-  } catch (error) {
-    console.warn(`Failed to remove assets/expand/ directory:`, error)
-  }
-
   if (removedCount > 0) {
     text.detail(text.withCount('Removed {count} existing directories', removedCount))
   }
