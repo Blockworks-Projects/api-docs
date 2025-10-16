@@ -1,0 +1,44 @@
+---
+title: "Get Single Asset Supply"
+sidebarTitle: "Get Supply"
+description: "Retrieve supply data for a specific asset"
+openapi: 'GET /v1/assets/{idOrSlug}/supply'
+mode: "wide"
+---
+
+## Overview
+
+Get the supply information for a specific asset. This endpoint returns just the supply data block with `asset_code` and `asset_slug` included.
+
+## Example Response
+
+```json
+{
+  "circulating": 120702472.20949,
+  "liquid": 0,
+  "total": 120702572.39159,
+  "asset_code": "ETH",
+  "asset_slug": "ethereum"
+}
+```
+
+### Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `circulating` | number | Number of tokens currently in circulation |
+| `liquid` | number | Liquid supply amount |
+| `total` | number | Total token supply including locked tokens |
+| `asset_code` | string | Asset code (e.g., "ETH") |
+| `asset_slug` | string | Asset slug (e.g., "ethereum") |
+
+## Notes
+
+- This endpoint is equivalent to using `?expand=supply` on the `/v1/assets/{idOrSlug}` endpoint, but returns only the supply data.
+- The response includes `asset_code` and `asset_slug` for easy identification.
+
+## See also
+
+- [Get Single Asset](/api-reference/assets/get-single)
+- [Supply (Expand Parameter)](/api-reference/assets/expand/supply)
+- [All Assets](/api-reference/assets/list)

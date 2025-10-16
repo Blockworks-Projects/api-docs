@@ -1,0 +1,44 @@
+---
+title: "Get Single Asset Sector"
+sidebarTitle: "Get Sector"
+description: "Retrieve sector data for a specific asset"
+openapi: 'GET /v1/assets/{idOrSlug}/sector'
+mode: "wide"
+---
+
+## Overview
+
+Get the sector information for a specific asset. This endpoint returns just the sector data block with `asset_code` and `asset_slug` included.
+
+## Example Response
+
+```json
+{
+  "id": 40,
+  "title": "L1",
+  "created_at": 1698971397,
+  "asset_code": "ETH",
+  "asset_slug": "ethereum"
+}
+```
+
+### Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | number | Unique sector identifier |
+| `title` | string | Sector title (e.g., "L1", "DeFi") |
+| `created_at` | number | Unix timestamp when sector was created |
+| `asset_code` | string | Asset code (e.g., "ETH") |
+| `asset_slug` | string | Asset slug (e.g., "ethereum") |
+
+## Notes
+
+- This endpoint is equivalent to using `?expand=sector` on the `/v1/assets/{idOrSlug}` endpoint, but returns only the sector data.
+- The response includes `asset_code` and `asset_slug` for easy identification.
+
+## See also
+
+- [Get Single Asset](/api-reference/assets/get-single)
+- [Sector (Expand Parameter)](/api-reference/assets/expand/sector)
+- [All Assets](/api-reference/assets/list)

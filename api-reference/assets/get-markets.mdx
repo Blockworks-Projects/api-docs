@@ -1,0 +1,56 @@
+---
+title: "Get Single Asset Markets"
+sidebarTitle: "Get Markets"
+description: "Retrieve markets data for a specific asset"
+openapi: 'GET /v1/assets/{idOrSlug}/markets'
+mode: "wide"
+---
+
+## Overview
+
+Get the current markets information for a specific asset. This endpoint returns just the markets data block with `asset_code` and `asset_slug` included.
+
+## Example Response
+
+```json
+[
+  {
+    "id": 2,
+    "volume_24h": 49333800000,
+    "ath": 4946.05,
+    "ath_change_percentage": -9.04585,
+    "ath_date": 1756063263,
+    "total_open_interest": null,
+    "total_liquidations": null,
+    "updated_at": 1759877194,
+    "asset_code": "ETH",
+    "asset_slug": "ethereum"
+  }
+]
+```
+
+### Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | number | Unique market identifier |
+| `volume_24h` | number | Trading volume in the last 24 hours |
+| `ath` | number | All-time high price |
+| `ath_change_percentage` | number | Percentage change from all-time high |
+| `ath_date` | number | Unix timestamp when all-time high was reached |
+| `total_open_interest` | number \| null | Total open interest |
+| `total_liquidations` | number \| null | Total liquidations |
+| `updated_at` | number | Unix timestamp when market data was last updated |
+| `asset_code` | string | Asset code (e.g., "ETH") |
+| `asset_slug` | string | Asset slug (e.g., "ethereum") |
+
+## Notes
+
+- This endpoint is equivalent to using `?expand=markets` on the `/v1/assets/{idOrSlug}` endpoint, but returns only the markets data.
+- The response includes `asset_code` and `asset_slug` for easy identification.
+
+## See also
+
+- [Get Single Asset](/api-reference/assets/get-single)
+- [Markets (Expand Parameter)](/api-reference/assets/expand/markets)
+- [All Assets](/api-reference/assets/list)

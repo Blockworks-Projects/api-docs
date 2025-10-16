@@ -31,14 +31,32 @@
           {
             "group": "Assets",
             "pages": [
-              "api-reference/assets/list",
-              "api-reference/assets/get-single",
               {
-                "group": "Add-On Information",
+                "group": "Get Multiple",
                 "pages": [
+                  "api-reference/assets/list"
+                ]
+              },
+              {
+                "group": "Get Single",
+                "pages": [
+                  "api-reference/assets/get-single",
+                  "api-reference/assets/get-price",
+                  "api-reference/assets/get-market-cap",
+                  "api-reference/assets/get-markets",
+                  "api-reference/assets/get-ohlcv",
+                  "api-reference/assets/get-sector",
+                  "api-reference/assets/get-supply"
+                ]
+              },
+              {
+                "group": "Expand Options",
+                "expanded": true,
+                "pages": [
+                  "api-reference/assets/expand/how-expand-works",
                   "api-reference/assets/expand/market_cap",
                   "api-reference/assets/expand/markets",
-                  "api-reference/assets/expand/ohlcv_last_24h",
+                  "api-reference/assets/expand/ohlcv",
                   "api-reference/assets/expand/price",
                   "api-reference/assets/expand/sector",
                   "api-reference/assets/expand/supply"

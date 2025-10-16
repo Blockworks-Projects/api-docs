@@ -1,0 +1,46 @@
+---
+title: "Get Single Asset Price"
+sidebarTitle: "Get Price"
+description: "Retrieve price data for a specific asset"
+openapi: 'GET /v1/assets/{idOrSlug}/price'
+mode: "wide"
+---
+
+## Overview
+
+Get the current price information for a specific asset. This endpoint returns just the price data block with `asset_code` and `asset_slug` included.
+
+## Example Response
+
+```json
+{
+  "usd": 4014.79,
+  "btc": 0.036245034667051854,
+  "eth": 1,
+  "updated_at": 1760623631,
+  "asset_code": "ETH",
+  "asset_slug": "ethereum"
+}
+```
+
+### Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `usd` | number | Current price in US dollars |
+| `btc` | number | Current price in Bitcoin |
+| `eth` | number | Current price in Ethereum |
+| `updated_at` | number | Unix timestamp when the price was last updated |
+| `asset_code` | string | Asset code (e.g., "ETH") |
+| `asset_slug` | string | Asset slug (e.g., "ethereum") |
+
+## Notes
+
+- This endpoint is equivalent to using `?expand=price` on the `/v1/assets/{idOrSlug}` endpoint, but returns only the price data.
+- The response includes `asset_code` and `asset_slug` for easy identification.
+
+## See also
+
+- [Get Single Asset](/api-reference/assets/get-single)
+- [Price (Expand Parameter)](/api-reference/assets/expand/price)
+- [All Assets](/api-reference/assets/list)
