@@ -2,17 +2,26 @@ import { apiErrors } from '../sync/lib/api-errors'
 import { OUTPUT_DIR } from '../sync/lib/constants'
 import { Metric, Project } from '../sync/classes'
 import { runFetchingStage } from '../sync/stages/stage-fetching'
-import { compareMetrics } from '../sync/stages/stage-scanning/metrics-catalog'
 import { runValidationStage } from '../sync/stages/stage-validation'
 import { generateValidationReport } from '../sync/stages/stage-validation/validation-reporter'
-import { writeTextFile } from '../sync/lib/file-operations'
+import { writeTextFile, readJsonFile } from '../sync/lib/file-operations'
+import { compareMetricsDetailed } from '../sync/lib/utils'
 import * as text from '../sync/lib/text'
+
+type MetricChange = {
+  project: string
+  identifier: string
+  field: string
+  oldValue: any
+  newValue: any
+}
 
 type ValidationResults = {
   projects: Map<string, Project>
   metrics: Metric[]
   added: string[]
   removed: string[]
+  changed: MetricChange[]
   omittedMetrics: Metric[]
   validationResult: any
   hasIssues: boolean
@@ -73,8 +82,16 @@ const saveValidationReport = async (validationResult: any) => {
 }
 
 export const runValidationPipeline = async (): Promise<ValidationResults> => {
+  // Load cached metrics from previous run
+  let cachedMetrics: any[] = []
+  try {
+    cachedMetrics = await readJsonFile<any[]>('./metrics.json')
+  } catch {
+    text.warn('No cached metrics found - first run or cache missing')
+  }
+
   // Only fetch data, don't trigger generation
-  const { existingMetrics, projects } = await runFetchingStage({
+  const { projects } = await runFetchingStage({
     outputDir: OUTPUT_DIR,
     updateOnlyMode: true
   })
@@ -85,8 +102,8 @@ export const runValidationPipeline = async (): Promise<ValidationResults> => {
   // Run validation checks
   const validationResult = await runValidationStage(metrics)
 
-  // Compare with existing to identify changes
-  const { added, removed } = compareMetrics(existingMetrics, metrics)
+  // Perform detailed comparison with cached metrics
+  const { added, removed, changed } = compareMetricsDetailed(cachedMetrics, metrics)
 
   // Save validation report if there are issues
   if (validationResult.issues.length > 0) {
@@ -98,7 +115,8 @@ export const runValidationPipeline = async (): Promise<ValidationResults> => {
     apiErrors.length > 0 ||
     omittedMetrics.length > 0 ||
     added.length > 0 ||
-    removed.length > 0
+    removed.length > 0 ||
+    changed.length > 0
   )
 
   return {
@@ -106,6 +124,7 @@ export const runValidationPipeline = async (): Promise<ValidationResults> => {
     metrics,
     added,
     removed,
+    changed,
     omittedMetrics,
     validationResult,
     hasIssues
@@ -161,7 +180,7 @@ const displayGroupedMetrics = (grouped: Map<string, string[]>, displayFn: (text:
     })
 }
 
-const displayChanges = (metrics: Metric[], added: string[], removed: string[]) => {
+const displayChanges = (metrics: Metric[], added: string[], removed: string[], changed: MetricChange[]) => {
   if (added.length > 0) {
     text.subheader(text.withCount(`📈 {count} Metrics Added:`, added.length))
     const grouped = groupMetricsByProject(metrics, added)
@@ -174,9 +193,54 @@ const displayChanges = (metrics: Metric[], added: string[], removed: string[]) =
     displayGroupedMetrics(grouped, text.removed)
   }
 
-  if (added.length === 0 && removed.length === 0) {
+  if (changed.length > 0) {
+    text.subheader(text.withCount(`🔄 {count} Field Changes Detected:`, changed.length))
+    displayChangedMetrics(changed)
+  }
+
+  if (added.length === 0 && removed.length === 0 && changed.length === 0) {
     text.pass('No metric changes detected')
   }
+}
+
+const displayChangedMetrics = (changes: MetricChange[]) => {
+  // Group changes by metric
+  const changesByMetric = new Map<string, MetricChange[]>()
+
+  changes.forEach(change => {
+    const key = `${change.project}/${change.identifier}`
+    const list = changesByMetric.get(key) || []
+    list.push(change)
+    changesByMetric.set(key, list)
+  })
+
+  // Display grouped by project
+  const changesByProject = new Map<string, Map<string, MetricChange[]>>()
+
+  changesByMetric.forEach((metricChanges, key) => {
+    const [project, identifier] = key.split('/')
+    if (!changesByProject.has(project!)) {
+      changesByProject.set(project!, new Map())
+    }
+    changesByProject.get(project!)!.set(identifier!, metricChanges)
+  })
+
+  Array.from(changesByProject.keys())
+    .sort()
+    .forEach(project => {
+      const metrics = changesByProject.get(project)!
+      Array.from(metrics.keys())
+        .sort()
+        .forEach(identifier => {
+          const metricChanges = metrics.get(identifier)!
+          text.warn(`${project}/${identifier}:`)
+          metricChanges.forEach(change => {
+            const oldVal = change.oldValue === undefined ? 'undefined' : JSON.stringify(change.oldValue)
+            const newVal = change.newValue === undefined ? 'undefined' : JSON.stringify(change.newValue)
+            text.warnDetail(`  ${change.field}: ${oldVal} → ${newVal}`)
+          })
+        })
+    })
 }
 
 const displayOmittedMetrics = (omitted: Metric[]) => {
@@ -244,7 +308,7 @@ const displayValidationIssues = (validationResult: any) => {
 }
 
 const displayValidationStats = (results: ValidationResults) => {
-  const { metrics, omittedMetrics, added, removed, validationResult } = results
+  const { metrics, omittedMetrics, added, removed, changed, validationResult } = results
 
   text.summaryHeader('📊 Validation Summary:')
 
@@ -257,6 +321,7 @@ const displayValidationStats = (results: ValidationResults) => {
 
   if (added.length > 0) text.summaryWarn(`New Metrics: {count}`, added.length)
   if (removed.length > 0) text.summaryWarn(`Missing Metrics: {count}`, removed.length)
+  if (changed.length > 0) text.summaryWarn(`Changed Fields: {count}`, changed.length)
   if (omittedMetrics.length > 0) text.summaryWarn(`Bad Descriptions: {count}`, omittedMetrics.length)
 
   if (apiErrors.length > 0) {
@@ -273,7 +338,7 @@ const displayValidationStats = (results: ValidationResults) => {
 }
 
 export const displayValidationSummary = (results: ValidationResults) => {
-  displayChanges(results.metrics, results.added, results.removed)
+  displayChanges(results.metrics, results.added, results.removed, results.changed)
   displayOmittedMetrics(results.omittedMetrics)
   displayApiErrors()
   displayValidationIssues(results.validationResult)

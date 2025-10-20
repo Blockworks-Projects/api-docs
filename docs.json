@@ -1246,8 +1246,8 @@
                 "pages": [
                   "api-reference/metrics/BMNR/treasury-enterprise-value-usd",
                   "api-reference/metrics/BMNR/treasury-market-cap-usd",
-                  "api-reference/metrics/BMNR/fully-diluted-ev-mnav",
                   "api-reference/metrics/BMNR/fully-diluted-mnav",
+                  "api-reference/metrics/BMNR/fully-diluted-ev-mnav",
                   "api-reference/metrics/BMNR/outstanding-ev-mnav",
                   "api-reference/metrics/BMNR/outstanding-mnav",
                   "api-reference/metrics/BMNR/treasury-nav-total-usd",
@@ -1261,8 +1261,8 @@
                 "pages": [
                   "api-reference/metrics/BNC/treasury-enterprise-value-usd",
                   "api-reference/metrics/BNC/treasury-market-cap-usd",
-                  "api-reference/metrics/BNC/fully-diluted-ev-mnav",
                   "api-reference/metrics/BNC/fully-diluted-mnav",
+                  "api-reference/metrics/BNC/fully-diluted-ev-mnav",
                   "api-reference/metrics/BNC/outstanding-ev-mnav",
                   "api-reference/metrics/BNC/outstanding-mnav",
                   "api-reference/metrics/BNC/treasury-nav-total-usd",
@@ -1276,8 +1276,8 @@
                 "pages": [
                   "api-reference/metrics/BTBT/treasury-enterprise-value-usd",
                   "api-reference/metrics/BTBT/treasury-market-cap-usd",
-                  "api-reference/metrics/BTBT/fully-diluted-ev-mnav",
                   "api-reference/metrics/BTBT/fully-diluted-mnav",
+                  "api-reference/metrics/BTBT/fully-diluted-ev-mnav",
                   "api-reference/metrics/BTBT/outstanding-ev-mnav",
                   "api-reference/metrics/BTBT/outstanding-mnav",
                   "api-reference/metrics/BTBT/treasury-nav-total-usd",
@@ -1291,8 +1291,8 @@
                 "pages": [
                   "api-reference/metrics/BTCM/treasury-enterprise-value-usd",
                   "api-reference/metrics/BTCM/treasury-market-cap-usd",
-                  "api-reference/metrics/BTCM/fully-diluted-ev-mnav",
                   "api-reference/metrics/BTCM/fully-diluted-mnav",
+                  "api-reference/metrics/BTCM/fully-diluted-ev-mnav",
                   "api-reference/metrics/BTCM/outstanding-ev-mnav",
                   "api-reference/metrics/BTCM/outstanding-mnav",
                   "api-reference/metrics/BTCM/treasury-nav-total-usd",
@@ -1306,8 +1306,8 @@
                 "pages": [
                   "api-reference/metrics/BTCS/treasury-enterprise-value-usd",
                   "api-reference/metrics/BTCS/treasury-market-cap-usd",
-                  "api-reference/metrics/BTCS/fully-diluted-ev-mnav",
                   "api-reference/metrics/BTCS/fully-diluted-mnav",
+                  "api-reference/metrics/BTCS/fully-diluted-ev-mnav",
                   "api-reference/metrics/BTCS/outstanding-ev-mnav",
                   "api-reference/metrics/BTCS/outstanding-mnav",
                   "api-reference/metrics/BTCS/treasury-nav-total-usd",
@@ -1321,8 +1321,8 @@
                 "pages": [
                   "api-reference/metrics/CEP/treasury-enterprise-value-usd",
                   "api-reference/metrics/CEP/treasury-market-cap-usd",
-                  "api-reference/metrics/CEP/fully-diluted-ev-mnav",
                   "api-reference/metrics/CEP/fully-diluted-mnav",
+                  "api-reference/metrics/CEP/fully-diluted-ev-mnav",
                   "api-reference/metrics/CEP/outstanding-ev-mnav",
                   "api-reference/metrics/CEP/outstanding-mnav",
                   "api-reference/metrics/CEP/treasury-nav-total-usd",
@@ -1336,8 +1336,8 @@
                 "pages": [
                   "api-reference/metrics/CEPO/treasury-enterprise-value-usd",
                   "api-reference/metrics/CEPO/treasury-market-cap-usd",
-                  "api-reference/metrics/CEPO/fully-diluted-ev-mnav",
                   "api-reference/metrics/CEPO/fully-diluted-mnav",
+                  "api-reference/metrics/CEPO/fully-diluted-ev-mnav",
                   "api-reference/metrics/CEPO/outstanding-ev-mnav",
                   "api-reference/metrics/CEPO/outstanding-mnav",
                   "api-reference/metrics/CEPO/treasury-nav-total-usd",
@@ -1351,8 +1351,8 @@
                 "pages": [
                   "api-reference/metrics/DFDV/treasury-enterprise-value-usd",
                   "api-reference/metrics/DFDV/treasury-market-cap-usd",
-                  "api-reference/metrics/DFDV/fully-diluted-ev-mnav",
                   "api-reference/metrics/DFDV/fully-diluted-mnav",
+                  "api-reference/metrics/DFDV/fully-diluted-ev-mnav",
                   "api-reference/metrics/DFDV/outstanding-ev-mnav",
                   "api-reference/metrics/DFDV/outstanding-mnav",
                   "api-reference/metrics/DFDV/treasury-nav-total-usd",
@@ -1366,8 +1366,8 @@
                 "pages": [
                   "api-reference/metrics/ETHM/treasury-enterprise-value-usd",
                   "api-reference/metrics/ETHM/treasury-market-cap-usd",
-                  "api-reference/metrics/ETHM/fully-diluted-ev-mnav",
                   "api-reference/metrics/ETHM/fully-diluted-mnav",
+                  "api-reference/metrics/ETHM/fully-diluted-ev-mnav",
                   "api-reference/metrics/ETHM/outstanding-ev-mnav",
                   "api-reference/metrics/ETHM/outstanding-mnav",
                   "api-reference/metrics/ETHM/treasury-nav-total-usd",
@@ -1381,8 +1381,8 @@
                 "pages": [
                   "api-reference/metrics/ETHZ/treasury-enterprise-value-usd",
                   "api-reference/metrics/ETHZ/treasury-market-cap-usd",
-                  "api-reference/metrics/ETHZ/fully-diluted-ev-mnav",
                   "api-reference/metrics/ETHZ/fully-diluted-mnav",
+                  "api-reference/metrics/ETHZ/fully-diluted-ev-mnav",
                   "api-reference/metrics/ETHZ/outstanding-ev-mnav",
                   "api-reference/metrics/ETHZ/outstanding-mnav",
                   "api-reference/metrics/ETHZ/treasury-nav-total-usd",
@@ -1396,8 +1396,8 @@
                 "pages": [
                   "api-reference/metrics/FGNX/treasury-enterprise-value-usd",
                   "api-reference/metrics/FGNX/treasury-market-cap-usd",
-                  "api-reference/metrics/FGNX/fully-diluted-ev-mnav",
                   "api-reference/metrics/FGNX/fully-diluted-mnav",
+                  "api-reference/metrics/FGNX/fully-diluted-ev-mnav",
                   "api-reference/metrics/FGNX/outstanding-ev-mnav",
                   "api-reference/metrics/FGNX/outstanding-mnav",
                   "api-reference/metrics/FGNX/treasury-nav-total-usd",
@@ -1411,8 +1411,8 @@
                 "pages": [
                   "api-reference/metrics/FORD/treasury-enterprise-value-usd",
                   "api-reference/metrics/FORD/treasury-market-cap-usd",
-                  "api-reference/metrics/FORD/fully-diluted-ev-mnav",
                   "api-reference/metrics/FORD/fully-diluted-mnav",
+                  "api-reference/metrics/FORD/fully-diluted-ev-mnav",
                   "api-reference/metrics/FORD/outstanding-ev-mnav",
                   "api-reference/metrics/FORD/outstanding-mnav",
                   "api-reference/metrics/FORD/treasury-nav-total-usd",
@@ -1426,8 +1426,8 @@
                 "pages": [
                   "api-reference/metrics/GAME/treasury-enterprise-value-usd",
                   "api-reference/metrics/GAME/treasury-market-cap-usd",
-                  "api-reference/metrics/GAME/fully-diluted-ev-mnav",
                   "api-reference/metrics/GAME/fully-diluted-mnav",
+                  "api-reference/metrics/GAME/fully-diluted-ev-mnav",
                   "api-reference/metrics/GAME/outstanding-ev-mnav",
                   "api-reference/metrics/GAME/outstanding-mnav",
                   "api-reference/metrics/GAME/treasury-nav-total-usd",
@@ -1441,8 +1441,8 @@
                 "pages": [
                   "api-reference/metrics/HYPD/treasury-enterprise-value-usd",
                   "api-reference/metrics/HYPD/treasury-market-cap-usd",
-                  "api-reference/metrics/HYPD/fully-diluted-ev-mnav",
                   "api-reference/metrics/HYPD/fully-diluted-mnav",
+                  "api-reference/metrics/HYPD/fully-diluted-ev-mnav",
                   "api-reference/metrics/HYPD/outstanding-ev-mnav",
                   "api-reference/metrics/HYPD/outstanding-mnav",
                   "api-reference/metrics/HYPD/treasury-nav-total-usd",
@@ -1456,8 +1456,8 @@
                 "pages": [
                   "api-reference/metrics/MSTR/treasury-enterprise-value-usd",
                   "api-reference/metrics/MSTR/treasury-market-cap-usd",
-                  "api-reference/metrics/MSTR/fully-diluted-ev-mnav",
                   "api-reference/metrics/MSTR/fully-diluted-mnav",
+                  "api-reference/metrics/MSTR/fully-diluted-ev-mnav",
                   "api-reference/metrics/MSTR/outstanding-ev-mnav",
                   "api-reference/metrics/MSTR/outstanding-mnav",
                   "api-reference/metrics/MSTR/treasury-nav-total-usd",
@@ -1471,8 +1471,8 @@
                 "pages": [
                   "api-reference/metrics/NAKA/treasury-enterprise-value-usd",
                   "api-reference/metrics/NAKA/treasury-market-cap-usd",
-                  "api-reference/metrics/NAKA/fully-diluted-ev-mnav",
                   "api-reference/metrics/NAKA/fully-diluted-mnav",
+                  "api-reference/metrics/NAKA/fully-diluted-ev-mnav",
                   "api-reference/metrics/NAKA/outstanding-ev-mnav",
                   "api-reference/metrics/NAKA/outstanding-mnav",
                   "api-reference/metrics/NAKA/treasury-nav-total-usd",
@@ -1486,8 +1486,8 @@
                 "pages": [
                   "api-reference/metrics/PAPL/treasury-enterprise-value-usd",
                   "api-reference/metrics/PAPL/treasury-market-cap-usd",
-                  "api-reference/metrics/PAPL/fully-diluted-ev-mnav",
                   "api-reference/metrics/PAPL/fully-diluted-mnav",
+                  "api-reference/metrics/PAPL/fully-diluted-ev-mnav",
                   "api-reference/metrics/PAPL/outstanding-ev-mnav",
                   "api-reference/metrics/PAPL/treasury-nav-total-usd",
                   "api-reference/metrics/PAPL/treasury-holdings-inj",
@@ -1500,8 +1500,8 @@
                 "pages": [
                   "api-reference/metrics/SBET/treasury-enterprise-value-usd",
                   "api-reference/metrics/SBET/treasury-market-cap-usd",
-                  "api-reference/metrics/SBET/fully-diluted-ev-mnav",
                   "api-reference/metrics/SBET/fully-diluted-mnav",
+                  "api-reference/metrics/SBET/fully-diluted-ev-mnav",
                   "api-reference/metrics/SBET/outstanding-ev-mnav",
                   "api-reference/metrics/SBET/outstanding-mnav",
                   "api-reference/metrics/SBET/treasury-nav-total-usd",
@@ -1515,8 +1515,8 @@
                 "pages": [
                   "api-reference/metrics/SMLR/treasury-enterprise-value-usd",
                   "api-reference/metrics/SMLR/treasury-market-cap-usd",
-                  "api-reference/metrics/SMLR/fully-diluted-ev-mnav",
                   "api-reference/metrics/SMLR/fully-diluted-mnav",
+                  "api-reference/metrics/SMLR/fully-diluted-ev-mnav",
                   "api-reference/metrics/SMLR/outstanding-ev-mnav",
                   "api-reference/metrics/SMLR/outstanding-mnav",
                   "api-reference/metrics/SMLR/treasury-nav-total-usd",
@@ -1530,8 +1530,8 @@
                 "pages": [
                   "api-reference/metrics/SQNS/treasury-enterprise-value-usd",
                   "api-reference/metrics/SQNS/treasury-market-cap-usd",
-                  "api-reference/metrics/SQNS/fully-diluted-ev-mnav",
                   "api-reference/metrics/SQNS/fully-diluted-mnav",
+                  "api-reference/metrics/SQNS/fully-diluted-ev-mnav",
                   "api-reference/metrics/SQNS/outstanding-ev-mnav",
                   "api-reference/metrics/SQNS/outstanding-mnav",
                   "api-reference/metrics/SQNS/treasury-nav-total-usd",
@@ -1554,8 +1554,8 @@
                 "pages": [
                   "api-reference/metrics/STSS/treasury-enterprise-value-usd",
                   "api-reference/metrics/STSS/treasury-market-cap-usd",
-                  "api-reference/metrics/STSS/fully-diluted-ev-mnav",
                   "api-reference/metrics/STSS/fully-diluted-mnav",
+                  "api-reference/metrics/STSS/fully-diluted-ev-mnav",
                   "api-reference/metrics/STSS/outstanding-ev-mnav",
                   "api-reference/metrics/STSS/outstanding-mnav",
                   "api-reference/metrics/STSS/treasury-nav-total-usd",
@@ -1569,8 +1569,8 @@
                 "pages": [
                   "api-reference/metrics/UPXI/treasury-enterprise-value-usd",
                   "api-reference/metrics/UPXI/treasury-market-cap-usd",
-                  "api-reference/metrics/UPXI/fully-diluted-ev-mnav",
                   "api-reference/metrics/UPXI/fully-diluted-mnav",
+                  "api-reference/metrics/UPXI/fully-diluted-ev-mnav",
                   "api-reference/metrics/UPXI/outstanding-ev-mnav",
                   "api-reference/metrics/UPXI/outstanding-mnav",
                   "api-reference/metrics/UPXI/treasury-nav-total-usd",

@@ -5,7 +5,7 @@ type MetricPageConfig = { metric: Metric; sampleData: any; needsUsdTag?: boolean
 
 export const getMetricPage = ({ metric, sampleData, needsUsdTag = false }: MetricPageConfig) => {
   const title = needsUsdTag ? `${metric.pageTitle} (USD)` : metric.pageTitle
-  const sidebarTitle = metric.title // Always unaltered
+  const sidebarTitle = metric.name // Always unaltered
   const tagLine = needsUsdTag ? `\ntag: "USD"` : ''
 
   return `---
