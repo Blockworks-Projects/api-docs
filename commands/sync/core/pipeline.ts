@@ -3,13 +3,21 @@ import { OUTPUT_DIR } from '../lib/constants'
 import { Metric, Project } from '../classes'
 import { runFetchingStage } from '../stages/stage-fetching'
 import { runCleanupStage } from '../stages/stage-cleanup'
-import { compareMetrics } from '../stages/stage-scanning/metrics-catalog'
 import { runGenerationStage } from '../stages/stage-generation'
 import { populateMetricDataCache } from '../lib/cache'
-import { writeTextFile } from '../lib/file-operations'
+import { writeTextFile, readJsonFile } from '../lib/file-operations'
 import { runValidationStage } from '../stages/stage-validation'
 import { generateValidationReport } from '../stages/stage-validation/validation-reporter'
+import { compareMetricsDetailed } from '../lib/utils'
 import * as text from '../lib/text'
+
+type MetricChange = {
+  project: string
+  identifier: string
+  field: string
+  oldValue: any
+  newValue: any
+}
 
 type PipelineConfig = { updateOnlyMode?: boolean }
 type PipelineResults = {
@@ -17,6 +25,7 @@ type PipelineResults = {
   metrics: Metric[]
   added: string[]
   removed: string[]
+  changed: MetricChange[]
   omittedMetrics: Metric[]
   removedFiles: string[]
   removedDirs: string[]
@@ -79,6 +88,14 @@ const saveValidationReport = async (validationResult: any) => {
 }
 
 export const runSyncPipeline = async ({ updateOnlyMode = false }: PipelineConfig = {}): Promise<PipelineResults> => {
+  // Load cached metrics from previous run for detailed comparison
+  let cachedMetrics: any[] = []
+  try {
+    cachedMetrics = await readJsonFile<any[]>('./metrics.json')
+  } catch {
+    // No cache exists (first run)
+  }
+
   const { existingMetrics, projects, shouldContinue } = await runFetchingStage({ outputDir: OUTPUT_DIR, updateOnlyMode })
   const { filteredProjects, omittedMetrics } = filterProjects(projects)
   const metrics = extractMetrics(filteredProjects)
@@ -86,7 +103,8 @@ export const runSyncPipeline = async ({ updateOnlyMode = false }: PipelineConfig
   const validationResult = await runValidationStage(metrics)
   populateMetricDataCache(validationResult.metricDataCache)
 
-  const { added, removed } = compareMetrics(existingMetrics, metrics)
+  // Perform detailed comparison with cached metrics
+  const { added, removed, changed } = compareMetricsDetailed(cachedMetrics, metrics)
   const { removedFiles, removedDirs } = await runCleanupStage(existingMetrics, metrics, OUTPUT_DIR)
 
   if (shouldContinue) {
@@ -102,6 +120,7 @@ export const runSyncPipeline = async ({ updateOnlyMode = false }: PipelineConfig
     metrics,
     added,
     removed,
+    changed,
     omittedMetrics,
     removedFiles,
     removedDirs,
@@ -176,6 +195,50 @@ const displayRemovedMetrics = (removed: string[]) => {
   displayGroupedMetrics(grouped, text.removed)
 }
 
+const displayChangedMetrics = (changes: MetricChange[]) => {
+  if (changes.length === 0) return
+
+  text.subheader(`${changes.length} Field Changes Detected:`)
+
+  // Group changes by metric
+  const changesByMetric = new Map<string, MetricChange[]>()
+
+  changes.forEach(change => {
+    const key = `${change.project}/${change.identifier}`
+    const list = changesByMetric.get(key) || []
+    list.push(change)
+    changesByMetric.set(key, list)
+  })
+
+  // Display grouped by project
+  const changesByProject = new Map<string, Map<string, MetricChange[]>>()
+
+  changesByMetric.forEach((metricChanges, key) => {
+    const [project, identifier] = key.split('/')
+    if (!changesByProject.has(project!)) {
+      changesByProject.set(project!, new Map())
+    }
+    changesByProject.get(project!)!.set(identifier!, metricChanges)
+  })
+
+  Array.from(changesByProject.keys())
+    .sort()
+    .forEach(project => {
+      const metrics = changesByProject.get(project)!
+      Array.from(metrics.keys())
+        .sort()
+        .forEach(identifier => {
+          const metricChanges = metrics.get(identifier)!
+          text.warn(`${project}/${identifier}:`)
+          metricChanges.forEach(change => {
+            const oldVal = change.oldValue === undefined ? 'undefined' : JSON.stringify(change.oldValue)
+            const newVal = change.newValue === undefined ? 'undefined' : JSON.stringify(change.newValue)
+            text.warnDetail(`  ${change.field}: ${oldVal} → ${newVal}`)
+          })
+        })
+    })
+}
+
 const displayOmittedMetrics = (omitted: Metric[]) => {
   if (omitted.length === 0) return
 
@@ -232,7 +295,7 @@ const displayValidationIssues = (validationResult: any) => {
 }
 
 const displaySummaryStats = (results: PipelineResults) => {
-  const { metrics, omittedMetrics, added, removed, shouldContinue, removedFiles, removedDirs, validationResult } = results
+  const { metrics, omittedMetrics, added, removed, changed, shouldContinue, removedFiles, removedDirs, validationResult } = results
 
   text.summaryHeader('Sync Summary:')
   text.summarySuccess(`Output Folder: {dir}`, OUTPUT_DIR)
@@ -251,6 +314,7 @@ const displaySummaryStats = (results: PipelineResults) => {
     text.summarySuccess('Navigation updated')
     if (added.length > 0) text.summarySuccess(`Added Metrics: {count}`, added.length)
     if (removed.length > 0) text.summarySuccess(`Removed Metrics: {count}`, removed.length)
+    if (changed.length > 0) text.summaryWarn(`Changed Fields: {count}`, changed.length)
   } else {
     text.summaryWarn('Sync skipped (no changes)')
   }
@@ -276,6 +340,7 @@ const displaySummaryStats = (results: PipelineResults) => {
 export const displaySummary = (results: PipelineResults) => {
   displayAddedMetrics(results.metrics, results.added)
   displayRemovedMetrics(results.removed)
+  displayChangedMetrics(results.changed)
   displayOmittedMetrics(results.omittedMetrics)
   displayApiErrors()
   displayValidationIssues(results.validationResult)
