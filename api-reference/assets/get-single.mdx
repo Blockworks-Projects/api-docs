@@ -52,30 +52,28 @@ data = r.json()
   "description": "Ethereum is a distributed blockchain computing platform for smart contracts and decentralized applications. Its native token is ether (ETH), which primarily serves as a means of payment for transaction fees and as collateral for borrowing specific ERC-20 tokens within the decentralized finance (DeFi) sector.",
   "image_url": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
   "category": "Infrastructure",
-  "updated_at": 1759877194,
+  "updated_at": 1761159971,
   "type": "Infrastructure",
+  "sector": "L1",
   "market_cap": {
-    "assetId": 2,
     "rank": 2,
-    "usd": 4456.91,
-    "dominance": 11.9754,
-    "percent_change_btc_1h": -0.134556,
-    "percent_change_btc_24h": -1.56252,
-    "percent_change_usd_1h": 0.0999065,
-    "percent_change_usd_24h": -0.63777,
-    "percent_change_usd_7d": 2.94011,
-    "percent_change_usd_30d": 2.0461,
+    "usd": 459025701727,
+    "dominance": 11.741,
+    "percent_change_btc_1h": -0.399197,
+    "percent_change_btc_24h": -1.63031,
+    "percent_change_usd_1h": -0.216457,
+    "percent_change_usd_24h": -5.08756,
+    "percent_change_usd_7d": -4.58515,
+    "percent_change_usd_30d": -8.57149,
     "percent_change_eth_1h": 0,
     "percent_change_eth_24h": 0,
-    "updated_at": 1759940402
+    "updated_at": 1761159971
   },
   "price": {
-    "assetId": 2,
-    "usd": 4456.91,
-    "btc": 0.03630913490130266,
+    "usd": 3814.21,
+    "btc": 0.035259267482631,
     "eth": 1,
-    "sparkline_7d": "[4284.313082023931,4296.705443083519, ...]",
-    "updated_at": 1759940402
+    "updated_at": 1761159971
   }
 }
 ```
@@ -92,17 +90,18 @@ data = r.json()
 | Field | Type | Description |
 |---|---|---|
 | `id` | number | Unique asset identifier |
+| `category` | string | Asset category (e.g., Infrastructure, DeFi) |
 | `code` | string | Asset ticker symbol (e.g., BTC, ETH) |
-| `title` | string | Full asset name |
-| `slug` | string | URL-friendly identifier |
-| `tag_line` | string | Short description or tagline |
 | `description` | string | Detailed asset description |
 | `image_url` | string | URL to asset logo/image |
-| `category` | string | Asset category (e.g., Infrastructure, DeFi) |
-| `updated_at` | number | Unix timestamp of last update |
-| `type` | string | Asset type classification |
 | `market_cap` | object | Market capitalization data (expanded by default) |
 | `price` | object | Price data (expanded by default) |
+| `sector` | string | Sector of the asset |
+| `slug` | string | URL-friendly identifier |
+| `tag_line` | string | Short description or tagline |
+| `title` | string | Full asset name |
+| `type` | string | Asset type classification |
+| `updated_at` | number | Unix timestamp of last update |
 
 ## See also
 

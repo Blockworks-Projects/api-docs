@@ -49,20 +49,21 @@ A successful response returns a paginated list of assets.
 {
   "data": [
     {
-     "id": 4,
-      "code": "BTC",
-      "title": "Bitcoin",
-      "slug": "bitcoin",
-      "tag_line": "A peer-to-peer electronic cash system",
-      "description": "Bitcoin is the first distributed consensus-based, censorship-resistant, permissionless, peer-to-peer payment settlement network with a provably scarce, programmable, native currency. Bitcoin (BTC), the native asset of the Bitcoin blockchain, is the world's first digital currency without a central bank or administrator. The Bitcoin network is an emergent decentralized monetary institution that exists through the interplay between full nodes, miners, and developers. It is set by a social contract that is created and opted into by the users of the network and hardened through game theory and cryptography. Bitcoin is the first, oldest, and largest cryptocurrency in the world.",
-      "image_url": "https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
+      "id": 1,
+      "code": "NEAR",
+      "title": "NEAR Protocol",
+      "slug": "near-protocol",
+      "tag_line": "A scalable, developer-friendly blockchain",
+      "description": "NEAR is a decentralized development platform that uses a Proof-of-Stake (PoS) consensus mechanism and will eventually feature a sharded architecture to scale transaction throughput. Its block generation scheme is called Doomslug and its proposed sharding design is dubbed Nightshade. These technologies will work together to scale the network and minimize congestion. NEAR has also been designed to be developer and user-friendly as it features a few key innovations to accelerate the application development and user-onboarding processes. The NEAR blockchain was created and developed by the NEAR Foundation. Its mainnet went live in April 2020, and network validators voted to unlock token transfers in October 2020. NEAR's bridge to Ethereum (called the Rainbow Bridge) launched in March 2021.",
+      "image_url": "https://coin-images.coingecko.com/coins/images/10365/large/near.jpg?1696510367",
       "category": "Infrastructure",
-      "updated_at": 1755185437,
-      "type": "Infrastructure"
+      "updated_at": 1761160398,
+      "type": "Infrastructure",
+      "sector": "L1"
     },
-    // ... 99 other assets
+    ... // more assets
   ],
-  "total": 133505,
+  "total": 133030,
   "page": 1
 }
 ```
@@ -79,16 +80,17 @@ A successful response returns a paginated list of assets.
 
 | Field | Type | Description |
 |---|---|---|
-| `id` | number | Unique asset identifier |
+| `category` | string | Asset category (e.g., Infrastructure, DeFi) |
 | `code` | string | Asset ticker symbol (e.g., BTC, ETH) |
-| `title` | string | Full asset name |
+| `description` | string | Detailed asset description |
+| `id` | number | Unique asset identifier |
+| `image_url` | string | URL to asset logo/image |
+| `sector` | string | Sector of the asset |
 | `slug` | string | URL-friendly identifier |
 | `tag_line` | string | Short description or tagline |
-| `description` | string | Detailed asset description |
-| `image_url` | string | URL to asset logo/image |
-| `category` | string | Asset category (e.g., Infrastructure, DeFi) |
-| `updated_at` | number | Unix timestamp of last update |
+| `title` | string | Full asset name |
 | `type` | string | Asset type classification |
+| `updated_at` | number | Unix timestamp of last update |
 
 ## Notes
 
