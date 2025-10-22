@@ -451,15 +451,6 @@
             }
           },
           {
-            "name": "is_supported",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "nullable": true,
-              "type": "boolean"
-            }
-          },
-          {
             "name": "category",
             "required": false,
             "in": "query",
@@ -19339,7 +19330,7 @@
             "nullable": true,
             "maxLength": 255
           },
-          "legacy_sector": {
+          "sector": {
             "type": "string",
             "nullable": true,
             "maxLength": 50
@@ -19349,20 +19340,10 @@
             "nullable": true,
             "maxLength": 25
           },
-          "is_supported": {
-            "type": "boolean",
-            "nullable": true
-          },
           "updated_at": {
             "type": "number",
             "nullable": true,
             "description": "Unix timestamp"
-          },
-          "sector_id": {
-            "type": "integer",
-            "nullable": true,
-            "minimum": 0,
-            "maximum": 4294967295
           },
           "type": {
             "type": "string",
@@ -19370,14 +19351,6 @@
             "enum": [
               "Infrastructure",
               "Application"
-            ]
-          },
-          "sector": {
-            "description": "Expandable relationship",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/AssetSector"
-              }
             ]
           },
           "reference": {
@@ -19447,11 +19420,9 @@
           "tag_line",
           "description",
           "image_url",
-          "legacy_sector",
+          "sector",
           "category",
-          "is_supported",
           "updated_at",
-          "sector_id",
           "type"
         ]
       },
@@ -19493,7 +19464,7 @@
             "nullable": true,
             "maxLength": 255
           },
-          "legacy_sector": {
+          "sector": {
             "type": "string",
             "nullable": true,
             "maxLength": 50
@@ -19503,20 +19474,10 @@
             "nullable": true,
             "maxLength": 25
           },
-          "is_supported": {
-            "type": "boolean",
-            "nullable": true
-          },
           "updated_at": {
             "type": "number",
             "nullable": true,
             "description": "Unix timestamp"
-          },
-          "sector_id": {
-            "type": "integer",
-            "nullable": true,
-            "minimum": 0,
-            "maximum": 4294967295
           },
           "type": {
             "type": "string",
@@ -19551,11 +19512,9 @@
           "tag_line",
           "description",
           "image_url",
-          "legacy_sector",
+          "sector",
           "category",
-          "is_supported",
           "updated_at",
-          "sector_id",
           "type"
         ]
       },
