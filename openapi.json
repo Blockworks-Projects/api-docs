@@ -25,7 +25,6 @@
                   "addresses",
                   "chains",
                   "addresses.chain",
-                  "is_favorite",
                   "markets",
                   "market_cap",
                   "ohlcv_last_24_h",
@@ -494,7 +493,6 @@
                   "addresses",
                   "chains",
                   "addresses.chain",
-                  "is_favorite",
                   "markets",
                   "market_cap",
                   "ohlcv_last_24_h",
@@ -19706,10 +19704,6 @@
             "items": {
               "$ref": "#/components/schemas/Market"
             }
-          },
-          "is_favorite": {
-            "type": "boolean",
-            "description": "Expandable relationship"
           }
         },
         "required": [
