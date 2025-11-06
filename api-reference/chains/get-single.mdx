@@ -43,14 +43,55 @@ data = r.json()
 ```json
 {
   "id": 1,
+  "project_id": null,
+  "sector_id": null,
+  "network_id": null,
+  "chain_identifier": null,
   "title": "Ethereum",
   "slug": "ethereum",
-  "description": "Ethereum is a distributed blockchain computing platform for smart contracts and decentralized applications.",
-  "image_url": "https://example.com/ethereum.png",
-  "category": "Infrastructure",
   "type": "Infrastructure",
-  "sector": "L1",
-  "updated_at": 1761159971
+  "image_url": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
+  "rpcs": null,
+  "is_test_net": 0,
+  "updated_at": 1704324040,
+  "asset": {
+    "id": 2,
+    "code": "ETH",
+    "title": "Ethereum",
+    "slug": "ethereum",
+    "tag_line": "A decentralized computing platform",
+    "description": "Ethereum is a distributed blockchain computing platform for smart contracts and decentralized applications. Its native token is ether (ETH), which primarily serves as a means of payment for transaction fees and as collateral for borrowing specific ERC-20 tokens within the decentralized finance (DeFi) sector.",
+    "image_url": "https://blockworks-assets.imgix.net/279/large/ethereum.png?1696501628",
+    "category": "Infrastructure",
+    "updated_at": 1761760828,
+    "type": "Infrastructure",
+    "sector": "L1",
+    "market_cap": {
+      "rank": 2,
+      "usd": 401590918646,
+      "dominance": 11.009,
+      "percent_change_usd_1h": 0.831618,
+      "percent_change_usd_24h": -3.59323,
+      "percent_change_usd_7d": -12.3654,
+      "percent_change_usd_30d": -26.407
+    },
+    "price": {
+      "usd": 3311.76,
+      "btc": 0.032660677126993366,
+      "eth": 1
+    },
+    "markets": {
+      "volume_24h": 33824500000,
+      "ath": 4946.05,
+      "ath_change_percentage": -32.7199,
+      "ath_date": 2025
+    },
+    "supply": {
+      "circulating": 120698095.31649,
+      "liquid": 0,
+      "total": 120698095.31649
+    }
+  }
 }
 ```
 
@@ -66,14 +107,18 @@ data = r.json()
 | Field | Type | Description |
 |---|---|---|
 | `id` | number | Unique chain identifier |
+| `project_id` | number \| null | Associated project ID |
+| `sector_id` | number \| null | Associated sector ID |
+| `network_id` | number \| null | Associated network ID |
+| `chain_identifier` | string \| null | Chain identifier |
 | `title` | string | Full chain name |
 | `slug` | string | URL-friendly identifier |
-| `description` | string | Detailed chain description |
-| `image_url` | string | URL to chain logo/image |
-| `category` | string | Chain category (e.g., Infrastructure) |
 | `type` | string | Chain type classification |
-| `sector` | string | Sector of the chain |
+| `image_url` | string \| null | URL to chain logo/image |
+| `rpcs` | string \| null | RPC endpoints |
+| `is_test_net` | number | Whether this is a testnet (0 = mainnet, 1 = testnet) |
 | `updated_at` | number | Unix timestamp of last update |
+| `asset` | object \| null | Associated asset with full details including market_cap, price, markets, and supply data |
 
 ## See also
 

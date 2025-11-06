@@ -49,19 +49,41 @@ A successful response returns a paginated list of projects.
 {
   "data": [
     {
-      "id": 1,
+      "id": 289,
       "title": "Ethereum",
+      "tagline": null,
+      "description": null,
       "slug": "ethereum",
-      "description": "A decentralized computing platform for smart contracts and decentralized applications",
-      "image_url": "https://example.com/ethereum.png",
-      "category": "Infrastructure",
-      "type": "Infrastructure",
-      "sector": "L1",
-      "updated_at": 1761160398
-    }
-    // ... more projects
+      "url": null,
+      "image_url": "https://blockworks-website-assets.s3.us-east-2.amazonaws.com/projects/project-images/ethereum_logo.png",
+      "updated_at": 1761939081,
+      "asset": {
+        "id": 2,
+        "code": "ETH",
+        "title": "Ethereum",
+        "slug": "ethereum",
+        "tag_line": "A decentralized computing platform",
+        "description": "Ethereum is a distributed blockchain computing platform for smart contracts and decentralized applications.",
+        "image_url": "https://blockworks-assets.imgix.net/279/large/ethereum.png?1696501628",
+        "category": "Infrastructure",
+        "updated_at": 1761760828,
+        "type": "Infrastructure",
+        "sector": "L1",
+        "market_cap": {
+          "rank": 2,
+          "usd": 401590918646,
+          "dominance": 11.009
+        },
+        "price": {
+          "usd": 3311.76,
+          "btc": 0.032660677126993366,
+          "eth": 1
+        }
+      }
+    },
+    ... // more projects
   ],
-  "total": 250,
+  "total": 1081,
   "page": 1
 }
 ```
@@ -81,13 +103,13 @@ A successful response returns a paginated list of projects.
 |---|---|---|
 | `id` | number | Unique project identifier |
 | `title` | string | Full project name |
+| `tagline` | string \| null | Short tagline for the project |
+| `description` | string \| null | Detailed project description |
 | `slug` | string | URL-friendly identifier |
-| `description` | string | Detailed project description |
+| `url` | string \| null | Project website URL |
 | `image_url` | string | URL to project logo/image |
-| `category` | string | Project category (e.g., Infrastructure, DeFi) |
-| `type` | string | Project type classification |
-| `sector` | string | Sector of the project |
 | `updated_at` | number | Unix timestamp of last update |
+| `asset` | object | Associated asset information (includes code, title, category, type, sector, and optional market_cap/price data) |
 
 ## Notes
 
