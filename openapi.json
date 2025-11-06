@@ -18689,6 +18689,306 @@
           }
         ]
       }
+    },
+    "/v1/projects/{idOrSlug}": {
+      "get": {
+        "operationId": "ProjectController_get_v1",
+        "parameters": [
+          {
+            "name": "idOrSlug",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sparkline",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "enum": [
+                "7d"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/v1/projects": {
+      "get": {
+        "operationId": "ProjectController_list_v1",
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 1,
+              "maximum": 2147483647,
+              "default": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 1,
+              "maximum": 100,
+              "default": 100,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "sparkline",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "enum": [
+                "7d"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "maxLength": 100,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProjectPageResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/v1/projects/{idOrSlug}/chains": {
+      "get": {
+        "operationId": "ProjectController_chains_v1",
+        "parameters": [
+          {
+            "name": "idOrSlug",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sparkline",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "enum": [
+                "7d"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChainPageResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/v1/chains/{idOrSlug}": {
+      "get": {
+        "operationId": "ChainController_get_v1",
+        "parameters": [
+          {
+            "name": "idOrSlug",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sparkline",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "enum": [
+                "7d"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChainResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "chains"
+        ]
+      }
+    },
+    "/v1/chains": {
+      "get": {
+        "operationId": "ChainController_list_v1",
+        "parameters": [
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 1,
+              "maximum": 2147483647,
+              "default": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "minimum": 1,
+              "maximum": 100,
+              "default": 100,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "sparkline",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "enum": [
+                "7d"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "maxLength": 100,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChainPageResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ],
+        "tags": [
+          "chains"
+        ]
+      }
     }
   },
   "info": {
@@ -22883,6 +23183,208 @@
           "total",
           "asset_code",
           "asset_slug"
+        ]
+      },
+      "ProjectResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "tagline": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 255
+          },
+          "description": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 65535
+          },
+          "slug": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "url": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 255
+          },
+          "image_url": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 255
+          },
+          "updated_at": {
+            "type": "number",
+            "nullable": true,
+            "description": "Unix timestamp"
+          },
+          "asset": {
+            "description": "Expandable relationship",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AssetResponse"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "tagline",
+          "description",
+          "slug",
+          "url",
+          "image_url",
+          "updated_at"
+        ]
+      },
+      "ProjectPageResponse": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProjectResponse"
+            }
+          }
+        },
+        "required": [
+          "page",
+          "total",
+          "data"
+        ]
+      },
+      "ChainResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "project_id": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "sector_id": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "network_id": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "chain_identifier": {
+            "type": "integer",
+            "nullable": true,
+            "minimum": 0,
+            "maximum": 4294967295
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "slug": {
+            "type": "string",
+            "maxLength": 100
+          },
+          "type": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 100
+          },
+          "image_url": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 255
+          },
+          "rpcs": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 65535
+          },
+          "is_test_net": {
+            "type": "integer",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "updated_at": {
+            "type": "number",
+            "description": "Unix timestamp"
+          },
+          "asset": {
+            "description": "Expandable relationship",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AssetResponse"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "project_id",
+          "sector_id",
+          "network_id",
+          "chain_identifier",
+          "title",
+          "slug",
+          "type",
+          "image_url",
+          "rpcs",
+          "is_test_net",
+          "updated_at"
+        ]
+      },
+      "ChainPageResponse": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChainResponse"
+            }
+          }
+        },
+        "required": [
+          "page",
+          "total",
+          "data"
         ]
       }
     }

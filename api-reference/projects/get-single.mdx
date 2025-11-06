@@ -1,0 +1,81 @@
+---
+title: 'Get Single Project'
+description: 'Retrieve detailed information for one project by ID or slug'
+openapi: 'GET /v1/projects/{idOrSlug}'
+mode: 'wide'
+---
+
+## Overview
+
+Fetch a single project by **ID** (1), or **slug** (`ethereum`). You can optionally include sparkline data to visualize recent trends. This endpoint provides comprehensive information about a specific project.
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/projects/ethereum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/projects/ethereum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/projects/ethereum',
+  headers={'x-api-key': 'YOUR_API_KEY'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "id": 1,
+  "title": "Ethereum",
+  "slug": "ethereum",
+  "description": "Ethereum is a distributed blockchain computing platform for smart contracts and decentralized applications. Its native token is ether (ETH), which primarily serves as a means of payment for transaction fees and as collateral for borrowing specific ERC-20 tokens within the decentralized finance (DeFi) sector.",
+  "image_url": "https://example.com/ethereum.png",
+  "category": "Infrastructure",
+  "type": "Infrastructure",
+  "sector": "L1",
+  "updated_at": 1761159971
+}
+```
+
+## Supported Options
+
+| Name | Type | Details |
+| - | - | - |
+| `idOrSlug` | path | The ID or slug of the project to fetch |
+| `sparkline` | query | Include sparkline data (e.g., '7d' for 7-day price history) |
+
+## Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | number | Unique project identifier |
+| `title` | string | Full project name |
+| `slug` | string | URL-friendly identifier |
+| `description` | string | Detailed project description |
+| `image_url` | string | URL to project logo/image |
+| `category` | string | Project category (e.g., Infrastructure, DeFi) |
+| `type` | string | Project type classification |
+| `sector` | string | Sector of the project |
+| `updated_at` | number | Unix timestamp of last update |
+
+## See also
+
+- [List Projects](/api-reference/projects/list)
+- [Get Project Chains](/api-reference/projects/get-chains)

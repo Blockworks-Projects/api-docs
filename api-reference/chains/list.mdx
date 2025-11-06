@@ -1,0 +1,100 @@
+---
+title: 'List Chains'
+description: 'Retrieve a list of all available chains with their key metadata'
+openapi: 'GET /v1/chains'
+mode: 'wide'
+---
+
+## Overview
+
+This endpoint returns a **paginated list of chains** supported by the API.
+Each chain includes its identifier, title, slug, description, and other metadata used across API endpoints.
+Use this endpoint to **discover chains** before querying metrics or other detailed data.
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/chains?limit=20"
+```
+
+```typescript TypeScript
+const response = await fetch(
+  'https://api.blockworks.com/v1/chains?limit=20',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await response.json()
+```
+
+```python Python
+import requests
+
+response = requests.get(
+    'https://api.blockworks.com/v1/chains',
+    headers={'x-api-key': 'YOUR_API_KEY'},
+    params={'limit': 20}
+)
+data = response.json()
+```
+
+</CodeGroup>
+
+### Example Response
+
+A successful response returns a paginated list of chains.
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Ethereum",
+      "slug": "ethereum",
+      "description": "The main Ethereum network",
+      "image_url": "https://example.com/ethereum.png",
+      "category": "Infrastructure",
+      "type": "Infrastructure",
+      "sector": "L1",
+      "updated_at": 1761160398
+    }
+    // ... more chains
+  ],
+  "total": 150,
+  "page": 1
+}
+```
+
+## Supported Options
+
+| Name | Type | Details |
+| - | - | - |
+| `limit` | query | The number of chains to return (max 100). |
+| `page` | query | The page number to return. |
+| `search` | query | Search term to filter chains by title or slug. |
+| `sparkline` | query | Include sparkline data (e.g., '7d' for 7-day price history). |
+
+## Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | number | Unique chain identifier |
+| `title` | string | Full chain name |
+| `slug` | string | URL-friendly identifier |
+| `description` | string | Detailed chain description |
+| `image_url` | string | URL to chain logo/image |
+| `category` | string | Chain category (e.g., Infrastructure) |
+| `type` | string | Chain type classification |
+| `sector` | string | Sector of the chain |
+| `updated_at` | number | Unix timestamp of last update |
+
+## Notes
+
+- Results are **paginated** — use `limit` and `page` query parameters to navigate.
+- Chain identifiers returned here can be used in other API endpoints.
+
+## Related Endpoints
+
+- [Get Single Chain](/api-reference/chains/get-single)
+- [List Projects](/api-reference/projects/list)

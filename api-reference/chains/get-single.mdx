@@ -1,0 +1,81 @@
+---
+title: 'Get Single Chain'
+description: 'Retrieve detailed information for one chain by ID or slug'
+openapi: 'GET /v1/chains/{idOrSlug}'
+mode: 'wide'
+---
+
+## Overview
+
+Fetch a single chain by **ID** (1), or **slug** (`ethereum`). You can optionally include sparkline data to visualize recent trends. This endpoint provides comprehensive information about a specific blockchain network.
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/chains/ethereum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/chains/ethereum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/chains/ethereum',
+  headers={'x-api-key': 'YOUR_API_KEY'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "id": 1,
+  "title": "Ethereum",
+  "slug": "ethereum",
+  "description": "Ethereum is a distributed blockchain computing platform for smart contracts and decentralized applications.",
+  "image_url": "https://example.com/ethereum.png",
+  "category": "Infrastructure",
+  "type": "Infrastructure",
+  "sector": "L1",
+  "updated_at": 1761159971
+}
+```
+
+## Supported Options
+
+| Name | Type | Details |
+| - | - | - |
+| `idOrSlug` | path | The ID or slug of the chain to fetch |
+| `sparkline` | query | Include sparkline data (e.g., '7d' for 7-day price history) |
+
+## Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | number | Unique chain identifier |
+| `title` | string | Full chain name |
+| `slug` | string | URL-friendly identifier |
+| `description` | string | Detailed chain description |
+| `image_url` | string | URL to chain logo/image |
+| `category` | string | Chain category (e.g., Infrastructure) |
+| `type` | string | Chain type classification |
+| `sector` | string | Sector of the chain |
+| `updated_at` | number | Unix timestamp of last update |
+
+## See also
+
+- [List Chains](/api-reference/chains/list)
+- [List Projects](/api-reference/projects/list)

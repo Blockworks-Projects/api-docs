@@ -1,0 +1,94 @@
+---
+title: 'Get Project Chains'
+description: 'Retrieve all chains associated with a specific project'
+openapi: 'GET /v1/projects/{idOrSlug}/chains'
+mode: 'wide'
+---
+
+## Overview
+
+Fetch all chains associated with a specific project by **ID** or **slug**. This endpoint returns a paginated list of chains that are related to the specified project, including their metadata and optional sparkline data.
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/projects/ethereum/chains"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/projects/ethereum/chains',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/projects/ethereum/chains',
+  headers={'x-api-key': 'YOUR_API_KEY'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Ethereum Mainnet",
+      "slug": "ethereum",
+      "description": "The main Ethereum network",
+      "image_url": "https://example.com/ethereum.png",
+      "category": "Infrastructure",
+      "type": "Infrastructure",
+      "sector": "L1",
+      "updated_at": 1761159971
+    }
+    // ... more chains
+  ],
+  "total": 5,
+  "page": 1
+}
+```
+
+## Supported Options
+
+| Name | Type | Details |
+| - | - | - |
+| `idOrSlug` | path | The ID or slug of the project |
+| `sparkline` | query | Include sparkline data (e.g., '7d' for 7-day price history) |
+
+## Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | number | Unique chain identifier |
+| `title` | string | Full chain name |
+| `slug` | string | URL-friendly identifier |
+| `description` | string | Detailed chain description |
+| `image_url` | string | URL to chain logo/image |
+| `category` | string | Chain category |
+| `type` | string | Chain type classification |
+| `sector` | string | Sector of the chain |
+| `updated_at` | number | Unix timestamp of last update |
+
+## Notes
+
+- Returns chains that are associated with the specified project
+- Results are paginated
+
+## See also
+
+- [Get Single Project](/api-reference/projects/get-single)
+- [List Chains](/api-reference/chains/list)
+- [Get Single Chain](/api-reference/chains/get-single)

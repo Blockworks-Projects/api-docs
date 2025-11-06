@@ -1,0 +1,100 @@
+---
+title: 'List Projects'
+description: 'Retrieve a list of all available projects with their key metadata'
+openapi: 'GET /v1/projects'
+mode: 'wide'
+---
+
+## Overview
+
+This endpoint returns a **paginated list of projects** supported by the API.
+Each project includes its identifier, title, slug, description, and other metadata used across API endpoints.
+Use this endpoint to **discover projects** before querying metrics, chains, or other detailed data.
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/projects?limit=20"
+```
+
+```typescript TypeScript
+const response = await fetch(
+  'https://api.blockworks.com/v1/projects?limit=20',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await response.json()
+```
+
+```python Python
+import requests
+
+response = requests.get(
+    'https://api.blockworks.com/v1/projects',
+    headers={'x-api-key': 'YOUR_API_KEY'},
+    params={'limit': 20}
+)
+data = response.json()
+```
+
+</CodeGroup>
+
+### Example Response
+
+A successful response returns a paginated list of projects.
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "Ethereum",
+      "slug": "ethereum",
+      "description": "A decentralized computing platform for smart contracts and decentralized applications",
+      "image_url": "https://example.com/ethereum.png",
+      "category": "Infrastructure",
+      "type": "Infrastructure",
+      "sector": "L1",
+      "updated_at": 1761160398
+    }
+    // ... more projects
+  ],
+  "total": 250,
+  "page": 1
+}
+```
+
+## Supported Options
+
+| Name | Type | Details |
+| - | - | - |
+| `limit` | query | The number of projects to return (max 100). |
+| `page` | query | The page number to return. |
+| `search` | query | Search term to filter projects by title or slug. |
+| `sparkline` | query | Include sparkline data (e.g., '7d' for 7-day price history). |
+
+## Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | number | Unique project identifier |
+| `title` | string | Full project name |
+| `slug` | string | URL-friendly identifier |
+| `description` | string | Detailed project description |
+| `image_url` | string | URL to project logo/image |
+| `category` | string | Project category (e.g., Infrastructure, DeFi) |
+| `type` | string | Project type classification |
+| `sector` | string | Sector of the project |
+| `updated_at` | number | Unix timestamp of last update |
+
+## Notes
+
+- Results are **paginated** — use `limit` and `page` query parameters to navigate.
+- Project identifiers returned here can be used in other API endpoints.
+
+## Related Endpoints
+
+- [Get Single Project](/api-reference/projects/get-single)
+- [Get Project Chains](/api-reference/projects/get-chains)

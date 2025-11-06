@@ -64,6 +64,21 @@
             ]
           },
           {
+            "group": "Projects",
+            "pages": [
+              "api-reference/projects/list",
+              "api-reference/projects/get-single",
+              "api-reference/projects/get-chains"
+            ]
+          },
+          {
+            "group": "Chains",
+            "pages": [
+              "api-reference/chains/list",
+              "api-reference/chains/get-single"
+            ]
+          },
+          {
             "group": "Chart Data",
             "pages": [
               "api-reference/charts/list",
