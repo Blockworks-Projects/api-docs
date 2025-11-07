@@ -1,0 +1,112 @@
+---
+title: 'Get Project Chains'
+description: 'Retrieve all chains associated with a specific project'
+openapi: 'GET /v1/projects/{idOrSlug}/chains'
+mode: 'wide'
+---
+
+## Overview
+
+Fetch all chains associated with a specific project by **ID** or **slug**. This endpoint returns a paginated list of chains that are related to the specified project, including their metadata and optional sparkline data.
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/projects/ethereum/chains"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/projects/ethereum/chains',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/projects/ethereum/chains',
+  headers={'x-api-key': 'YOUR_API_KEY'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "project_id": null,
+      "sector_id": null,
+      "network_id": null,
+      "chain_identifier": null,
+      "title": "Ethereum",
+      "slug": "ethereum",
+      "type": "Infrastructure",
+      "image_url": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
+      "rpcs": null,
+      "is_test_net": 0,
+      "updated_at": 1704324040,
+      "asset": {
+        "id": 2,
+        "code": "ETH",
+        "title": "Ethereum",
+        "slug": "ethereum",
+        "tag_line": "A decentralized computing platform",
+        "description": "Ethereum is a distributed blockchain computing platform for smart contracts and decentralized applications.",
+        "category": "Infrastructure",
+        "type": "Infrastructure",
+        "sector": "L1"
+      }
+    },
+    ... // more chains
+  ],
+  "total": 0,
+  "page": 1
+}
+```
+
+## Supported Options
+
+| Name | Type | Details |
+| - | - | - |
+| `idOrSlug` | path | The ID or slug of the project |
+| `sparkline` | query | Include sparkline data (e.g., '7d' for 7-day price history) |
+
+## Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | number | Unique chain identifier |
+| `project_id` | number \| null | Associated project ID |
+| `sector_id` | number \| null | Associated sector ID |
+| `network_id` | number \| null | Associated network ID |
+| `chain_identifier` | string \| null | Chain identifier |
+| `title` | string | Full chain name |
+| `slug` | string | URL-friendly identifier |
+| `type` | string | Chain type classification |
+| `image_url` | string \| null | URL to chain logo/image |
+| `rpcs` | string \| null | RPC endpoints |
+| `is_test_net` | number | Whether this is a testnet (0 = mainnet, 1 = testnet) |
+| `updated_at` | number | Unix timestamp of last update |
+| `asset` | object \| null | Associated asset information (if available) |
+
+## Notes
+
+- Returns chains that are associated with the specified project
+- Results are paginated
+
+## See also
+
+- [Get Single Project](/api-reference/projects/get-single)
+- [List Chains](/api-reference/chains/list)
+- [Get Single Chain](/api-reference/chains/get-single)
