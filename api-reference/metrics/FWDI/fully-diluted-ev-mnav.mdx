@@ -1,8 +1,8 @@
 ---
-title: "mNAV - Outstanding"
-sidebarTitle: "mNAV - Outstanding"
+title: "mNAV - Fully Diluted EV"
+sidebarTitle: "mNAV - Fully Diluted EV"
 description: "The company's market cap divided by the value of crypto asset holdings. Often called Basic mNAV, it is the most simplistic way to track the multiple the company trades at relative to its crypto assets held. This figure can be calculated using both the market cap and the enterprise value. Some Companies may hold a considerable amount of cash that has not yet been deployed into crypto, which the Enterprise Value calculation highlights."
-openapi: "GET /v1/metrics/outstanding-mnav"
+openapi: "GET /v1/metrics/fully-diluted-ev-mnav"
 mode: "wide"
 ---
 
@@ -19,12 +19,12 @@ mode: "wide"
 
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworks.com/v1/metrics/outstanding-mnav?project=FORD"
+  "https://api.blockworks.com/v1/metrics/fully-diluted-ev-mnav?project=FWDI"
 ```
 
 ```typescript TypeScript
 const res = await fetch(
-  'https://api.blockworks.com/v1/metrics/outstanding-mnav?project=FORD',
+  'https://api.blockworks.com/v1/metrics/fully-diluted-ev-mnav?project=FWDI',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
@@ -34,9 +34,9 @@ const data = await res.json()
 import requests
 
 r = requests.get(
-  'https://api.blockworks.com/v1/metrics/outstanding-mnav',
+  'https://api.blockworks.com/v1/metrics/fully-diluted-ev-mnav',
   headers={'x-api-key': 'YOUR_API_KEY'},
-  params={'project': 'FORD'}
+  params={'project': 'FWDI'}
 )
 data = r.json()
 ```
@@ -47,20 +47,7 @@ data = r.json()
 
 ```json
 {
-  "ford": [
-    {
-      "date": "2025-10-17",
-      "value": 1.4239060566689465
-    },
-    {
-      "date": "2025-10-16",
-      "value": 1.473865929627544
-    },
-    {
-      "date": "2025-10-15",
-      "value": 1.4599681941423166
-    }
-  ]
+  "fwdi": []
 }
 ```
 

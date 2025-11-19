@@ -1,8 +1,8 @@
 ---
-title: "Market Cap"
-sidebarTitle: "Market Cap"
-description: "Market capitalization of the equity"
-openapi: "GET /v1/metrics/treasury-market-cap-usd"
+title: "NAV"
+sidebarTitle: "NAV"
+description: "Dollar value of crypto assets (does not include cash)"
+openapi: "GET /v1/metrics/treasury-nav-total-usd"
 mode: "wide"
 ---
 
@@ -19,12 +19,12 @@ mode: "wide"
 
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworks.com/v1/metrics/treasury-market-cap-usd?project=FORD"
+  "https://api.blockworks.com/v1/metrics/treasury-nav-total-usd?project=FWDI"
 ```
 
 ```typescript TypeScript
 const res = await fetch(
-  'https://api.blockworks.com/v1/metrics/treasury-market-cap-usd?project=FORD',
+  'https://api.blockworks.com/v1/metrics/treasury-nav-total-usd?project=FWDI',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
@@ -34,9 +34,9 @@ const data = await res.json()
 import requests
 
 r = requests.get(
-  'https://api.blockworks.com/v1/metrics/treasury-market-cap-usd',
+  'https://api.blockworks.com/v1/metrics/treasury-nav-total-usd',
   headers={'x-api-key': 'YOUR_API_KEY'},
-  params={'project': 'FORD'}
+  params={'project': 'FWDI'}
 )
 data = r.json()
 ```
@@ -47,18 +47,18 @@ data = r.json()
 
 ```json
 {
-  "ford": [
+  "fwdi": [
     {
-      "date": "2025-10-17",
-      "value": 1805967067.9050002
+      "date": "2025-11-18",
+      "value": 898039568.1406963
     },
     {
-      "date": "2025-10-16",
-      "value": 1964419401.4536
+      "date": "2025-11-17",
+      "value": 944828184.9502391
     },
     {
-      "date": "2025-10-15",
-      "value": 2034335858.9736
+      "date": "2025-11-14",
+      "value": 997452504.0527017
     }
   ]
 }

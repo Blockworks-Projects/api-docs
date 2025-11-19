@@ -64,21 +64,6 @@
             ]
           },
           {
-            "group": "Projects",
-            "pages": [
-              "api-reference/projects/list",
-              "api-reference/projects/get-single",
-              "api-reference/projects/get-chains"
-            ]
-          },
-          {
-            "group": "Chains",
-            "pages": [
-              "api-reference/chains/list",
-              "api-reference/chains/get-single"
-            ]
-          },
-          {
             "group": "Chart Data",
             "pages": [
               "api-reference/charts/list",
@@ -1421,18 +1406,18 @@
                 ]
               },
               {
-                "group": "FORD",
+                "group": "FWDI",
                 "icon": "building-columns",
                 "pages": [
-                  "api-reference/metrics/FORD/treasury-enterprise-value-usd",
-                  "api-reference/metrics/FORD/treasury-market-cap-usd",
-                  "api-reference/metrics/FORD/fully-diluted-mnav",
-                  "api-reference/metrics/FORD/fully-diluted-ev-mnav",
-                  "api-reference/metrics/FORD/outstanding-ev-mnav",
-                  "api-reference/metrics/FORD/outstanding-mnav",
-                  "api-reference/metrics/FORD/treasury-nav-total-usd",
-                  "api-reference/metrics/FORD/treasury-holdings-sol",
-                  "api-reference/metrics/FORD/treasury-volume-total-usd"
+                  "api-reference/metrics/FWDI/treasury-enterprise-value-usd",
+                  "api-reference/metrics/FWDI/treasury-market-cap-usd",
+                  "api-reference/metrics/FWDI/fully-diluted-mnav",
+                  "api-reference/metrics/FWDI/fully-diluted-ev-mnav",
+                  "api-reference/metrics/FWDI/outstanding-ev-mnav",
+                  "api-reference/metrics/FWDI/outstanding-mnav",
+                  "api-reference/metrics/FWDI/treasury-nav-total-usd",
+                  "api-reference/metrics/FWDI/treasury-holdings-sol",
+                  "api-reference/metrics/FWDI/treasury-volume-total-usd"
                 ]
               },
               {

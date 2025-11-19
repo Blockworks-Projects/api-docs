@@ -15032,7 +15032,7 @@
                 "ETHM",
                 "ETHZ",
                 "FGNX",
-                "FORD",
+                "FWDI",
                 "GAME",
                 "HYPD",
                 "MSTR",
@@ -15091,9 +15091,9 @@
                 "value": "FGNX",
                 "summary": "FGNX"
               },
-              "FORD": {
-                "value": "FORD",
-                "summary": "FORD"
+              "FWDI": {
+                "value": "FWDI",
+                "summary": "FWDI"
               },
               "GAME": {
                 "value": "GAME",
@@ -15235,7 +15235,7 @@
                 "ETHM",
                 "ETHZ",
                 "FGNX",
-                "FORD",
+                "FWDI",
                 "GAME",
                 "HYPD",
                 "MSTR",
@@ -15294,9 +15294,9 @@
                 "value": "FGNX",
                 "summary": "FGNX"
               },
-              "FORD": {
-                "value": "FORD",
-                "summary": "FORD"
+              "FWDI": {
+                "value": "FWDI",
+                "summary": "FWDI"
               },
               "GAME": {
                 "value": "GAME",
@@ -15547,7 +15547,7 @@
               "enum": [
                 "BTCM",
                 "DFDV",
-                "FORD",
+                "FWDI",
                 "STKE",
                 "STSS",
                 "UPXI"
@@ -15563,9 +15563,9 @@
                 "value": "DFDV",
                 "summary": "DFDV"
               },
-              "FORD": {
-                "value": "FORD",
-                "summary": "FORD"
+              "FWDI": {
+                "value": "FWDI",
+                "summary": "FWDI"
               },
               "STKE": {
                 "value": "STKE",
@@ -15679,7 +15679,7 @@
                 "ETHM",
                 "ETHZ",
                 "FGNX",
-                "FORD",
+                "FWDI",
                 "GAME",
                 "HYPD",
                 "MSTR",
@@ -15739,9 +15739,9 @@
                 "value": "FGNX",
                 "summary": "FGNX"
               },
-              "FORD": {
-                "value": "FORD",
-                "summary": "FORD"
+              "FWDI": {
+                "value": "FWDI",
+                "summary": "FWDI"
               },
               "GAME": {
                 "value": "GAME",
@@ -16775,7 +16775,7 @@
                 "ETHM",
                 "ETHZ",
                 "FGNX",
-                "FORD",
+                "FWDI",
                 "GAME",
                 "HYPD",
                 "MSTR",
@@ -16835,9 +16835,9 @@
                 "value": "FGNX",
                 "summary": "FGNX"
               },
-              "FORD": {
-                "value": "FORD",
-                "summary": "FORD"
+              "FWDI": {
+                "value": "FWDI",
+                "summary": "FWDI"
               },
               "GAME": {
                 "value": "GAME",
@@ -17812,7 +17812,7 @@
                 "ETHM",
                 "ETHZ",
                 "FGNX",
-                "FORD",
+                "FWDI",
                 "GAME",
                 "HYPD",
                 "MSTR",
@@ -17870,9 +17870,9 @@
                 "value": "FGNX",
                 "summary": "FGNX"
               },
-              "FORD": {
-                "value": "FORD",
-                "summary": "FORD"
+              "FWDI": {
+                "value": "FWDI",
+                "summary": "FWDI"
               },
               "GAME": {
                 "value": "GAME",
@@ -18010,7 +18010,7 @@
                 "ETHM",
                 "ETHZ",
                 "FGNX",
-                "FORD",
+                "FWDI",
                 "GAME",
                 "HYPD",
                 "MSTR",
@@ -18069,9 +18069,9 @@
                 "value": "FGNX",
                 "summary": "FGNX"
               },
-              "FORD": {
-                "value": "FORD",
-                "summary": "FORD"
+              "FWDI": {
+                "value": "FWDI",
+                "summary": "FWDI"
               },
               "GAME": {
                 "value": "GAME",
@@ -18213,7 +18213,7 @@
                 "ETHM",
                 "ETHZ",
                 "FGNX",
-                "FORD",
+                "FWDI",
                 "GAME",
                 "HYPD",
                 "MSTR",
@@ -18272,9 +18272,9 @@
                 "value": "FGNX",
                 "summary": "FGNX"
               },
-              "FORD": {
-                "value": "FORD",
-                "summary": "FORD"
+              "FWDI": {
+                "value": "FWDI",
+                "summary": "FWDI"
               },
               "GAME": {
                 "value": "GAME",
@@ -18416,7 +18416,7 @@
                 "ETHM",
                 "ETHZ",
                 "FGNX",
-                "FORD",
+                "FWDI",
                 "GAME",
                 "HYPD",
                 "MSTR",
@@ -18475,9 +18475,9 @@
                 "value": "FGNX",
                 "summary": "FGNX"
               },
-              "FORD": {
-                "value": "FORD",
-                "summary": "FORD"
+              "FWDI": {
+                "value": "FWDI",
+                "summary": "FWDI"
               },
               "GAME": {
                 "value": "GAME",

@@ -19,12 +19,12 @@ mode: "wide"
 
 ```bash cURL
 curl -H "x-api-key: YOUR_API_KEY" \
-  "https://api.blockworks.com/v1/metrics/treasury-volume-total-usd?project=FORD"
+  "https://api.blockworks.com/v1/metrics/treasury-volume-total-usd?project=FWDI"
 ```
 
 ```typescript TypeScript
 const res = await fetch(
-  'https://api.blockworks.com/v1/metrics/treasury-volume-total-usd?project=FORD',
+  'https://api.blockworks.com/v1/metrics/treasury-volume-total-usd?project=FWDI',
   { headers: { 'x-api-key': 'YOUR_API_KEY' } }
 )
 const data = await res.json()
@@ -36,7 +36,7 @@ import requests
 r = requests.get(
   'https://api.blockworks.com/v1/metrics/treasury-volume-total-usd',
   headers={'x-api-key': 'YOUR_API_KEY'},
-  params={'project': 'FORD'}
+  params={'project': 'FWDI'}
 )
 data = r.json()
 ```
@@ -47,18 +47,18 @@ data = r.json()
 
 ```json
 {
-  "ford": [
+  "fwdi": [
     {
-      "date": "2025-10-17",
-      "value": 8403854.002500001
+      "date": "2025-11-18",
+      "value": 9937097.865600001
     },
     {
-      "date": "2025-10-16",
-      "value": 9692989.238799999
+      "date": "2025-11-17",
+      "value": 4406553.4996
     },
     {
-      "date": "2025-10-15",
-      "value": 7562058.3976
+      "date": "2025-11-14",
+      "value": 6409141.1992999995
     }
   ]
 }
