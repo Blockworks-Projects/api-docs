@@ -18,6 +18,7 @@ export async function fetchAllMetrics(updateOnlyMode: boolean = false): Promise<
   const rawMetrics: any[] = []
   let page = 1
   let hasMore = true
+  let fetchError: Error | null = null
 
   while (hasMore) {
     text.detail(`fetching page ${page}...`)
@@ -33,9 +34,27 @@ export async function fetchAllMetrics(updateOnlyMode: boolean = false): Promise<
       hasMore = page < totalPages
       page++
     } catch (error: any) {
-      text.fail('Error fetching metrics:', error.message)
+      fetchError = error
       break
     }
+  }
+
+  // If the API errored during fetch, abort immediately to prevent
+  // downstream stages from treating missing metrics as "removed"
+  if (fetchError) {
+    const pagesLoaded = page - 1
+    const lines = [
+      `Failed to fetch metrics from API (errored on page ${page})`,
+      `  ${fetchError.message}`,
+      pagesLoaded > 0
+        ? `  ${rawMetrics.length} metrics loaded from ${pagesLoaded} page(s) before failure — partial results discarded`
+        : `  No metrics were loaded`,
+      ``,
+      `This is likely a temporary API issue (e.g. 5xx server error).`,
+      `The sync/validate process has been aborted to prevent existing metric pages from being incorrectly removed.`,
+      `Please retry once the API is healthy.`,
+    ]
+    throw new Error(lines.join('\n'))
   }
 
   text.detail(text.withCount(`Found {count} metrics`, rawMetrics.length))
