@@ -1,0 +1,77 @@
+---
+title: "Total Deposits"
+sidebarTitle: "Total Deposits"
+description: "Total value of deposits across all markets"
+openapi: "GET /v1/metrics/deposit-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/deposit-total-usd?project=aave"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/deposit-total-usd?project=aave',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/deposit-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'aave'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "aave": [
+    {
+      "date": "2026-02-19",
+      "value": 42812071326.55982
+    },
+    {
+      "date": "2026-02-18",
+      "value": 43205359552.22921
+    },
+    {
+      "date": "2026-02-17",
+      "value": 43438980020.06024
+    },
+    {
+      "date": "2026-02-16",
+      "value": 43556162961.88664
+    },
+    {
+      "date": "2026-02-15",
+      "value": 44226732184.286644
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

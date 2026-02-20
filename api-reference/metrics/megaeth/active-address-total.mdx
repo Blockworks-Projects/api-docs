@@ -1,0 +1,77 @@
+---
+title: "megaeth: Active Addresses"
+sidebarTitle: "Active Addresses"
+description: "Number of unique addresses that interacted on-chain during the time period."
+openapi: "GET /v1/metrics/active-address-total"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** Count
+- **Type:** Integer
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/active-address-total?project=megaeth"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/active-address-total?project=megaeth',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/active-address-total',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'megaeth'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "megaeth": [
+    {
+      "date": "2026-02-19",
+      "value": 9787
+    },
+    {
+      "date": "2026-02-18",
+      "value": 16585
+    },
+    {
+      "date": "2026-02-17",
+      "value": 16952
+    },
+    {
+      "date": "2026-02-16",
+      "value": 16639
+    },
+    {
+      "date": "2026-02-15",
+      "value": 12673
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

@@ -1,0 +1,77 @@
+---
+title: "zksync: Stablecoin Supply"
+sidebarTitle: "Stablecoin Supply"
+description: "Supply tracked via transfers to/from the null address, as well as distinct issuance and redemption events for supported stablecoins."
+openapi: "GET /v1/metrics/stablecoin-supply-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd?project=zksync"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd?project=zksync',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'zksync'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "zksync": [
+    {
+      "date": "2026-02-19",
+      "value": 27895801.111664746
+    },
+    {
+      "date": "2026-02-18",
+      "value": 27893225.312922806
+    },
+    {
+      "date": "2026-02-17",
+      "value": 27910415.697457794
+    },
+    {
+      "date": "2026-02-16",
+      "value": 27911153.533642773
+    },
+    {
+      "date": "2026-02-15",
+      "value": 27907083.730688274
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

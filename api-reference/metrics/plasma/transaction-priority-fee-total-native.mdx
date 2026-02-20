@@ -1,0 +1,77 @@
+---
+title: "plasma: Priority Fees"
+sidebarTitle: "Priority Fees"
+description: "An additional transaction fee to incentivize validators to prioritize and execute transactions"
+openapi: "GET /v1/metrics/transaction-priority-fee-total-native"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** PLASMA
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-native?project=plasma"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-native?project=plasma',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-native',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'plasma'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "plasma": [
+    {
+      "date": "2026-02-19",
+      "value": 1181.1410032005579
+    },
+    {
+      "date": "2026-02-18",
+      "value": 1240.7909675156714
+    },
+    {
+      "date": "2026-02-17",
+      "value": 1151.408842826752
+    },
+    {
+      "date": "2026-02-16",
+      "value": 1569.0024725116218
+    },
+    {
+      "date": "2026-02-15",
+      "value": 1237.0643372864638
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

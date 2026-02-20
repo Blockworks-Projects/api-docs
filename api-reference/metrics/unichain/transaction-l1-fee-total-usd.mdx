@@ -1,0 +1,77 @@
+---
+title: "unichain: L1 Fees"
+sidebarTitle: "L1 Fees"
+description: "Fees paid to Ethereum L1 for data availability"
+openapi: "GET /v1/metrics/transaction-l1-fee-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-l1-fee-total-usd?project=unichain"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-l1-fee-total-usd?project=unichain',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-l1-fee-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'unichain'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "unichain": [
+    {
+      "date": "2026-02-19",
+      "value": 2.5564166106973882
+    },
+    {
+      "date": "2026-02-18",
+      "value": 2.9937265443411523
+    },
+    {
+      "date": "2026-02-17",
+      "value": 2.868793181349532
+    },
+    {
+      "date": "2026-02-16",
+      "value": 1.5181363485347423
+    },
+    {
+      "date": "2026-02-15",
+      "value": 1.4339320568107854
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

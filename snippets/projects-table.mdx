@@ -5,6 +5,63 @@ export const ProjectsTable = () => {
 
   const projects = [
   {
+    "name": "Aptos",
+    "type": "Chain",
+    "metrics": 11,
+    "metricsList": [
+      {
+        "name": "Active Addresses",
+        "identifier": "active-address-total"
+      },
+      {
+        "name": "Burn",
+        "identifier": "burn-usd"
+      },
+      {
+        "name": "Fee Average",
+        "identifier": "transaction-fee-avg-usd"
+      },
+      {
+        "name": "Fee Median",
+        "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "Issuance",
+        "identifier": "issuance-usd"
+      },
+      {
+        "name": "REV",
+        "identifier": "rev-usd"
+      },
+      {
+        "name": "Stablecoin Supply",
+        "identifier": "stablecoin-supply-total-usd"
+      },
+      {
+        "name": "Transaction Fees",
+        "identifier": "transaction-fee-total-usd"
+      },
+      {
+        "name": "Transactions (Failed)",
+        "identifier": "transaction-fail-total"
+      },
+      {
+        "name": "Transactions (Succeeded)",
+        "identifier": "transaction-succeed-total"
+      },
+      {
+        "name": "Transactions (Total)",
+        "identifier": "transaction-total"
+      }
+    ],
+    "categories": [
+      "Activity",
+      "Financials",
+      "Stablecoins"
+    ],
+    "slug": "aptos"
+  },
+  {
     "name": "Arbitrum",
     "type": "Chain",
     "metrics": 27,
@@ -128,6 +185,63 @@ export const ProjectsTable = () => {
     "slug": "arbitrum"
   },
   {
+    "name": "Avalanche",
+    "type": "Chain",
+    "metrics": 11,
+    "metricsList": [
+      {
+        "name": "Active Addresses",
+        "identifier": "active-address-total"
+      },
+      {
+        "name": "Base Fees",
+        "identifier": "transaction-base-fee-total-usd"
+      },
+      {
+        "name": "DEX Spot Volume",
+        "identifier": "dex-spot-volume-total-usd"
+      },
+      {
+        "name": "Fee Average",
+        "identifier": "transaction-fee-avg-usd"
+      },
+      {
+        "name": "Fee Median",
+        "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "Issuance",
+        "identifier": "issuance-usd"
+      },
+      {
+        "name": "Priority Fees",
+        "identifier": "transaction-priority-fee-total-usd"
+      },
+      {
+        "name": "REV",
+        "identifier": "rev-usd"
+      },
+      {
+        "name": "Transactions (Failed)",
+        "identifier": "transaction-fail-total"
+      },
+      {
+        "name": "Transactions (Succeeded)",
+        "identifier": "transaction-succeed-total"
+      },
+      {
+        "name": "Transactions (Total)",
+        "identifier": "transaction-total"
+      }
+    ],
+    "categories": [
+      "Activity",
+      "Financials",
+      "Trading"
+    ],
+    "slug": "avalanche"
+  },
+  {
     "name": "Base",
     "type": "Chain",
     "metrics": 22,
@@ -230,19 +344,204 @@ export const ProjectsTable = () => {
     "slug": "base"
   },
   {
-    "name": "Bitcoin",
+    "name": "Berachain",
     "type": "Chain",
-    "metrics": 1,
+    "metrics": 16,
     "metricsList": [
       {
-        "name": "Total ETF Flows",
-        "identifier": "etf-flows-total-usd"
+        "name": "Active Addresses",
+        "identifier": "active-address-total"
+      },
+      {
+        "name": "Base Fees",
+        "identifier": "transaction-base-fee-total-native"
+      },
+      {
+        "name": "Base Fees (USD)",
+        "identifier": "transaction-base-fee-total-usd"
+      },
+      {
+        "name": "Fee Average (USD)",
+        "identifier": "transaction-fee-avg-usd"
+      },
+      {
+        "name": "Fee Average",
+        "identifier": "transaction-fee-avg-native"
+      },
+      {
+        "name": "Fee Median",
+        "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "Priority Fees",
+        "identifier": "transaction-priority-fee-total-native"
+      },
+      {
+        "name": "Priority Fees (USD)",
+        "identifier": "transaction-priority-fee-total-usd"
+      },
+      {
+        "name": "REV",
+        "identifier": "rev-native"
+      },
+      {
+        "name": "REV (USD)",
+        "identifier": "rev-usd"
+      },
+      {
+        "name": "Stablecoin Supply",
+        "identifier": "stablecoin-supply-total-usd"
+      },
+      {
+        "name": "Transaction Fees",
+        "identifier": "transaction-fee-total-native"
+      },
+      {
+        "name": "Transaction Fees (USD)",
+        "identifier": "transaction-fee-total-usd"
+      },
+      {
+        "name": "Transactions (Failed)",
+        "identifier": "transaction-fail-total"
+      },
+      {
+        "name": "Transactions (Succeeded)",
+        "identifier": "transaction-succeed-total"
+      },
+      {
+        "name": "Transactions (Total)",
+        "identifier": "transaction-total"
       }
     ],
     "categories": [
-      "ETF"
+      "Activity",
+      "Financials",
+      "Stablecoins"
+    ],
+    "slug": "berachain"
+  },
+  {
+    "name": "Bitcoin",
+    "type": "Chain",
+    "metrics": 5,
+    "metricsList": [
+      {
+        "name": "Active Addresses",
+        "identifier": "active-address-total"
+      },
+      {
+        "name": "Fee Average",
+        "identifier": "transaction-fee-avg-usd"
+      },
+      {
+        "name": "REV",
+        "identifier": "rev-usd"
+      },
+      {
+        "name": "Total ETF Flows",
+        "identifier": "etf-flows-total-usd"
+      },
+      {
+        "name": "Transactions (Total)",
+        "identifier": "transaction-total"
+      }
+    ],
+    "categories": [
+      "Activity",
+      "ETF",
+      "Financials"
     ],
     "slug": "bitcoin"
+  },
+  {
+    "name": "Bnb",
+    "type": "Chain",
+    "metrics": 9,
+    "metricsList": [
+      {
+        "name": "Active Addresses",
+        "identifier": "active-address-total"
+      },
+      {
+        "name": "DEX Spot Volume",
+        "identifier": "dex-spot-volume-total-usd"
+      },
+      {
+        "name": "Fee Average",
+        "identifier": "transaction-fee-avg-usd"
+      },
+      {
+        "name": "Fee Median",
+        "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "REV",
+        "identifier": "rev-usd"
+      },
+      {
+        "name": "Stablecoin Supply",
+        "identifier": "stablecoin-supply-total-usd"
+      },
+      {
+        "name": "Transactions (Failed)",
+        "identifier": "transaction-fail-total"
+      },
+      {
+        "name": "Transactions (Succeeded)",
+        "identifier": "transaction-succeed-total"
+      },
+      {
+        "name": "Transactions (Total)",
+        "identifier": "transaction-total"
+      }
+    ],
+    "categories": [
+      "Activity",
+      "Financials",
+      "Stablecoins",
+      "Trading"
+    ],
+    "slug": "bnb"
+  },
+  {
+    "name": "Celestia",
+    "type": "Chain",
+    "metrics": 7,
+    "metricsList": [
+      {
+        "name": "Blob Fees",
+        "identifier": "transaction-other-fee-total-usd"
+      },
+      {
+        "name": "Fee Average",
+        "identifier": "transaction-fee-avg-usd"
+      },
+      {
+        "name": "Fee Median",
+        "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "REV",
+        "identifier": "rev-usd"
+      },
+      {
+        "name": "Transactions (Failed)",
+        "identifier": "transaction-fail-total"
+      },
+      {
+        "name": "Transactions (Succeeded)",
+        "identifier": "transaction-succeed-total"
+      },
+      {
+        "name": "Transactions (Total)",
+        "identifier": "transaction-total"
+      }
+    ],
+    "categories": [
+      "Activity",
+      "Financials"
+    ],
+    "slug": "celestia"
   },
   {
     "name": "Ethereum",
@@ -393,9 +692,9 @@ export const ProjectsTable = () => {
     "slug": "ethereum"
   },
   {
-    "name": "Katana",
+    "name": "Fogo",
     "type": "Chain",
-    "metrics": 22,
+    "metrics": 19,
     "metricsList": [
       {
         "name": "Active Addresses",
@@ -408,6 +707,162 @@ export const ProjectsTable = () => {
       {
         "name": "Base Fees (USD)",
         "identifier": "transaction-base-fee-total-usd"
+      },
+      {
+        "name": "DEX Spot Volume",
+        "identifier": "dex-spot-volume-total-usd"
+      },
+      {
+        "name": "Fee Average (USD)",
+        "identifier": "transaction-fee-avg-usd"
+      },
+      {
+        "name": "Fee Average",
+        "identifier": "transaction-fee-avg-native"
+      },
+      {
+        "name": "Fee Median",
+        "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "Price",
+        "identifier": "token-price-usd"
+      },
+      {
+        "name": "Priority Fees",
+        "identifier": "transaction-priority-fee-total-native"
+      },
+      {
+        "name": "Priority Fees (USD)",
+        "identifier": "transaction-priority-fee-total-usd"
+      },
+      {
+        "name": "REV",
+        "identifier": "rev-usd"
+      },
+      {
+        "name": "Staked Supply",
+        "identifier": "token-supply-staked"
+      },
+      {
+        "name": "Token FDV",
+        "identifier": "token-fdv-usd"
+      },
+      {
+        "name": "Token Supply",
+        "identifier": "token-supply"
+      },
+      {
+        "name": "Transaction Fees",
+        "identifier": "transaction-fee-total-native"
+      },
+      {
+        "name": "Transaction Fees (USD)",
+        "identifier": "transaction-fee-total-usd"
+      },
+      {
+        "name": "Transactions (Failed)",
+        "identifier": "transaction-fail-total"
+      },
+      {
+        "name": "Transactions (Succeeded)",
+        "identifier": "transaction-succeed-total"
+      },
+      {
+        "name": "Transactions (Total)",
+        "identifier": "transaction-total"
+      }
+    ],
+    "categories": [
+      "Activity",
+      "Financials",
+      "Token",
+      "Trading"
+    ],
+    "slug": "fogo"
+  },
+  {
+    "name": "Hyperevm",
+    "type": "Chain",
+    "metrics": 12,
+    "metricsList": [
+      {
+        "name": "Active Addresses",
+        "identifier": "active-address-total"
+      },
+      {
+        "name": "DEX Spot Volume",
+        "identifier": "dex-spot-volume-total-usd"
+      },
+      {
+        "name": "Fee Average (USD)",
+        "identifier": "transaction-fee-avg-usd"
+      },
+      {
+        "name": "Fee Average",
+        "identifier": "transaction-fee-avg-native"
+      },
+      {
+        "name": "Fee Median (USD)",
+        "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "Fee Median",
+        "identifier": "transaction-fee-med-native"
+      },
+      {
+        "name": "REV (USD)",
+        "identifier": "rev-usd"
+      },
+      {
+        "name": "REV",
+        "identifier": "rev-native"
+      },
+      {
+        "name": "Stablecoin Supply",
+        "identifier": "stablecoin-supply-total-usd"
+      },
+      {
+        "name": "Transactions (Failed)",
+        "identifier": "transaction-fail-total"
+      },
+      {
+        "name": "Transactions (Succeeded)",
+        "identifier": "transaction-succeed-total"
+      },
+      {
+        "name": "Transactions (Total)",
+        "identifier": "transaction-total"
+      }
+    ],
+    "categories": [
+      "Activity",
+      "Financials",
+      "Stablecoins",
+      "Trading"
+    ],
+    "slug": "hyperevm"
+  },
+  {
+    "name": "Katana",
+    "type": "Chain",
+    "metrics": 24,
+    "metricsList": [
+      {
+        "name": "Active Addresses",
+        "identifier": "active-address-total"
+      },
+      {
+        "name": "Base Fees",
+        "identifier": "transaction-base-fee-total-native"
+      },
+      {
+        "name": "Base Fees (USD)",
+        "identifier": "transaction-base-fee-total-usd"
+      },
+      {
+        "name": "DEX Spot Volume",
+        "identifier": "dex-spot-volume-total-usd"
       },
       {
         "name": "Fee Average",
@@ -466,6 +921,10 @@ export const ProjectsTable = () => {
         "identifier": "sequencer-cost-total"
       },
       {
+        "name": "Stablecoin Supply",
+        "identifier": "stablecoin-supply-total-usd"
+      },
+      {
         "name": "Transaction Fees",
         "identifier": "transaction-fee-total-native"
       },
@@ -488,9 +947,346 @@ export const ProjectsTable = () => {
     ],
     "categories": [
       "Activity",
-      "Financials"
+      "Financials",
+      "Stablecoins",
+      "Trading"
     ],
     "slug": "katana"
+  },
+  {
+    "name": "Megaeth",
+    "type": "Chain",
+    "metrics": 15,
+    "metricsList": [
+      {
+        "name": "Active Addresses",
+        "identifier": "active-address-total"
+      },
+      {
+        "name": "Base Fees (USD)",
+        "identifier": "transaction-base-fee-total-usd"
+      },
+      {
+        "name": "Base Fees",
+        "identifier": "transaction-base-fee-total-native"
+      },
+      {
+        "name": "Fee Average (USD)",
+        "identifier": "transaction-fee-avg-usd"
+      },
+      {
+        "name": "Fee Average",
+        "identifier": "transaction-fee-avg-native"
+      },
+      {
+        "name": "Fee Median (USD)",
+        "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "Fee Median",
+        "identifier": "transaction-fee-med-native"
+      },
+      {
+        "name": "Priority Fees (USD)",
+        "identifier": "transaction-priority-fee-total-usd"
+      },
+      {
+        "name": "Priority Fees",
+        "identifier": "transaction-priority-fee-total-native"
+      },
+      {
+        "name": "REV",
+        "identifier": "rev-usd"
+      },
+      {
+        "name": "Transaction Fees (USD)",
+        "identifier": "transaction-fee-total-usd"
+      },
+      {
+        "name": "Transaction Fees",
+        "identifier": "transaction-fee-total-native"
+      },
+      {
+        "name": "Transactions (Failed)",
+        "identifier": "transaction-fail-total"
+      },
+      {
+        "name": "Transactions (Succeeded)",
+        "identifier": "transaction-succeed-total"
+      },
+      {
+        "name": "Transactions (Total)",
+        "identifier": "transaction-total"
+      }
+    ],
+    "categories": [
+      "Activity",
+      "Financials"
+    ],
+    "slug": "megaeth"
+  },
+  {
+    "name": "Monad",
+    "type": "Chain",
+    "metrics": 15,
+    "metricsList": [
+      {
+        "name": "Active Addresses",
+        "identifier": "active-address-total"
+      },
+      {
+        "name": "Base Fees (USD)",
+        "identifier": "transaction-base-fee-total-usd"
+      },
+      {
+        "name": "Base Fees",
+        "identifier": "transaction-base-fee-total-native"
+      },
+      {
+        "name": "Fee Average (USD)",
+        "identifier": "transaction-fee-avg-usd"
+      },
+      {
+        "name": "Fee Average",
+        "identifier": "transaction-fee-avg-native"
+      },
+      {
+        "name": "Fee Median (USD)",
+        "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "Fee Median",
+        "identifier": "transaction-fee-med-native"
+      },
+      {
+        "name": "Priority Fees (USD)",
+        "identifier": "transaction-priority-fee-total-usd"
+      },
+      {
+        "name": "Priority Fees",
+        "identifier": "transaction-priority-fee-total-native"
+      },
+      {
+        "name": "REV",
+        "identifier": "rev-usd"
+      },
+      {
+        "name": "Transaction Fees (USD)",
+        "identifier": "transaction-fee-total-usd"
+      },
+      {
+        "name": "Transaction Fees",
+        "identifier": "transaction-fee-total-native"
+      },
+      {
+        "name": "Transactions (Failed)",
+        "identifier": "transaction-fail-total"
+      },
+      {
+        "name": "Transactions (Succeeded)",
+        "identifier": "transaction-succeed-total"
+      },
+      {
+        "name": "Transactions (Total)",
+        "identifier": "transaction-total"
+      }
+    ],
+    "categories": [
+      "Activity",
+      "Financials"
+    ],
+    "slug": "monad"
+  },
+  {
+    "name": "Optimism",
+    "type": "Chain",
+    "metrics": 11,
+    "metricsList": [
+      {
+        "name": "Active Addresses",
+        "identifier": "active-address-total"
+      },
+      {
+        "name": "Fee Average",
+        "identifier": "transaction-fee-avg-usd"
+      },
+      {
+        "name": "Fee Median",
+        "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "REV",
+        "identifier": "rev-usd"
+      },
+      {
+        "name": "Sequencer Cost",
+        "identifier": "sequencer-cost-total"
+      },
+      {
+        "name": "Sequencer Gross Profit",
+        "identifier": "sequencer-gross-profit"
+      },
+      {
+        "name": "Stablecoin Supply",
+        "identifier": "stablecoin-supply-total-usd"
+      },
+      {
+        "name": "Transaction Fees",
+        "identifier": "transaction-fee-total-usd"
+      },
+      {
+        "name": "Transactions (Failed)",
+        "identifier": "transaction-fail-total"
+      },
+      {
+        "name": "Transactions (Succeeded)",
+        "identifier": "transaction-succeed-total"
+      },
+      {
+        "name": "Transactions (Total)",
+        "identifier": "transaction-total"
+      }
+    ],
+    "categories": [
+      "Activity",
+      "Financials",
+      "Stablecoins"
+    ],
+    "slug": "optimism"
+  },
+  {
+    "name": "Plasma",
+    "type": "Chain",
+    "metrics": 16,
+    "metricsList": [
+      {
+        "name": "Active Addresses",
+        "identifier": "active-address-total"
+      },
+      {
+        "name": "Base Fees",
+        "identifier": "transaction-base-fee-total-native"
+      },
+      {
+        "name": "Base Fees (USD)",
+        "identifier": "transaction-base-fee-total-usd"
+      },
+      {
+        "name": "Fee Average (USD)",
+        "identifier": "transaction-fee-avg-usd"
+      },
+      {
+        "name": "Fee Average",
+        "identifier": "transaction-fee-avg-native"
+      },
+      {
+        "name": "Fee Median",
+        "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "Priority Fees",
+        "identifier": "transaction-priority-fee-total-native"
+      },
+      {
+        "name": "Priority Fees (USD)",
+        "identifier": "transaction-priority-fee-total-usd"
+      },
+      {
+        "name": "REV",
+        "identifier": "rev-native"
+      },
+      {
+        "name": "REV (USD)",
+        "identifier": "rev-usd"
+      },
+      {
+        "name": "Stablecoin Supply",
+        "identifier": "stablecoin-supply-total-usd"
+      },
+      {
+        "name": "Transaction Fees",
+        "identifier": "transaction-fee-total-native"
+      },
+      {
+        "name": "Transaction Fees (USD)",
+        "identifier": "transaction-fee-total-usd"
+      },
+      {
+        "name": "Transactions (Failed)",
+        "identifier": "transaction-fail-total"
+      },
+      {
+        "name": "Transactions (Succeeded)",
+        "identifier": "transaction-succeed-total"
+      },
+      {
+        "name": "Transactions (Total)",
+        "identifier": "transaction-total"
+      }
+    ],
+    "categories": [
+      "Activity",
+      "Financials",
+      "Stablecoins"
+    ],
+    "slug": "plasma"
+  },
+  {
+    "name": "Polygon",
+    "type": "Chain",
+    "metrics": 11,
+    "metricsList": [
+      {
+        "name": "Active Addresses",
+        "identifier": "active-address-total"
+      },
+      {
+        "name": "Base Fees",
+        "identifier": "transaction-base-fee-total-usd"
+      },
+      {
+        "name": "Fee Average",
+        "identifier": "transaction-fee-avg-usd"
+      },
+      {
+        "name": "Fee Median",
+        "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "Priority Fees",
+        "identifier": "transaction-priority-fee-total-usd"
+      },
+      {
+        "name": "REV",
+        "identifier": "rev-usd"
+      },
+      {
+        "name": "Stablecoin Supply",
+        "identifier": "stablecoin-supply-total-usd"
+      },
+      {
+        "name": "Transaction Fees",
+        "identifier": "transaction-fee-total-usd"
+      },
+      {
+        "name": "Transactions (Failed)",
+        "identifier": "transaction-fail-total"
+      },
+      {
+        "name": "Transactions (Succeeded)",
+        "identifier": "transaction-succeed-total"
+      },
+      {
+        "name": "Transactions (Total)",
+        "identifier": "transaction-total"
+      }
+    ],
+    "categories": [
+      "Activity",
+      "Financials",
+      "Stablecoins"
+    ],
+    "slug": "polygon"
   },
   {
     "name": "Solana",
@@ -633,13 +1429,209 @@ export const ProjectsTable = () => {
     "slug": "solana"
   },
   {
+    "name": "Tron",
+    "type": "Chain",
+    "metrics": 9,
+    "metricsList": [
+      {
+        "name": "Active Addresses",
+        "identifier": "active-address-total"
+      },
+      {
+        "name": "Fee Average",
+        "identifier": "transaction-fee-avg-usd"
+      },
+      {
+        "name": "Fee Median",
+        "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "Issuance",
+        "identifier": "issuance-usd"
+      },
+      {
+        "name": "REV",
+        "identifier": "rev-usd"
+      },
+      {
+        "name": "Stablecoin Supply",
+        "identifier": "stablecoin-supply-total-usd"
+      },
+      {
+        "name": "Transactions (Failed)",
+        "identifier": "transaction-fail-total"
+      },
+      {
+        "name": "Transactions (Succeeded)",
+        "identifier": "transaction-succeed-total"
+      },
+      {
+        "name": "Transactions (Total)",
+        "identifier": "transaction-total"
+      }
+    ],
+    "categories": [
+      "Activity",
+      "Financials",
+      "Stablecoins"
+    ],
+    "slug": "tron"
+  },
+  {
+    "name": "Unichain",
+    "type": "Chain",
+    "metrics": 15,
+    "metricsList": [
+      {
+        "name": "Active Addresses",
+        "identifier": "active-address-total"
+      },
+      {
+        "name": "DEX Spot Volume",
+        "identifier": "dex-spot-volume-total-usd"
+      },
+      {
+        "name": "Fee Average (USD)",
+        "identifier": "transaction-fee-avg-usd"
+      },
+      {
+        "name": "Fee Average",
+        "identifier": "transaction-fee-avg-native"
+      },
+      {
+        "name": "Fee Median",
+        "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "L1 Fees",
+        "identifier": "transaction-l1-fee-total-usd"
+      },
+      {
+        "name": "REV",
+        "identifier": "rev-native"
+      },
+      {
+        "name": "REV (USD)",
+        "identifier": "rev-usd"
+      },
+      {
+        "name": "Sequencer Cost",
+        "identifier": "sequencer-cost-total"
+      },
+      {
+        "name": "Sequencer Gross Profit",
+        "identifier": "sequencer-gross-profit"
+      },
+      {
+        "name": "Stablecoin Supply",
+        "identifier": "stablecoin-supply-total-usd"
+      },
+      {
+        "name": "Transaction Fees",
+        "identifier": "transaction-fee-total-usd"
+      },
+      {
+        "name": "Transactions (Failed)",
+        "identifier": "transaction-fail-total"
+      },
+      {
+        "name": "Transactions (Succeeded)",
+        "identifier": "transaction-succeed-total"
+      },
+      {
+        "name": "Transactions (Total)",
+        "identifier": "transaction-total"
+      }
+    ],
+    "categories": [
+      "Activity",
+      "Financials",
+      "Stablecoins",
+      "Trading"
+    ],
+    "slug": "unichain"
+  },
+  {
+    "name": "Zksync",
+    "type": "Chain",
+    "metrics": 11,
+    "metricsList": [
+      {
+        "name": "Active Addresses",
+        "identifier": "active-address-total"
+      },
+      {
+        "name": "Fee Average",
+        "identifier": "transaction-fee-avg-usd"
+      },
+      {
+        "name": "Fee Median",
+        "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "REV",
+        "identifier": "rev-usd"
+      },
+      {
+        "name": "Sequencer Cost",
+        "identifier": "sequencer-cost-total"
+      },
+      {
+        "name": "Sequencer Gross Profit",
+        "identifier": "sequencer-gross-profit"
+      },
+      {
+        "name": "Stablecoin Supply",
+        "identifier": "stablecoin-supply-total-usd"
+      },
+      {
+        "name": "Transaction Fees",
+        "identifier": "transaction-fee-total-usd"
+      },
+      {
+        "name": "Transactions (Failed)",
+        "identifier": "transaction-fail-total"
+      },
+      {
+        "name": "Transactions (Succeeded)",
+        "identifier": "transaction-succeed-total"
+      },
+      {
+        "name": "Transactions (Total)",
+        "identifier": "transaction-total"
+      }
+    ],
+    "categories": [
+      "Activity",
+      "Financials",
+      "Stablecoins"
+    ],
+    "slug": "zksync"
+  },
+  {
     "name": "Aave",
     "type": "Project",
-    "metrics": 1,
+    "metrics": 5,
     "metricsList": [
+      {
+        "name": "Interest Generated",
+        "identifier": "interest-total-usd"
+      },
+      {
+        "name": "Net Interest Income",
+        "identifier": "nii-total-usd"
+      },
       {
         "name": "Revenue",
         "identifier": "revenue-total-usd"
+      },
+      {
+        "name": "Total Borrows",
+        "identifier": "borrow-total-usd"
+      },
+      {
+        "name": "Total Deposits",
+        "identifier": "deposit-total-usd"
       }
     ],
     "categories": [
@@ -1139,6 +2131,33 @@ export const ProjectsTable = () => {
     "slug": "flashbots"
   },
   {
+    "name": "Fluid",
+    "type": "Project",
+    "metrics": 4,
+    "metricsList": [
+      {
+        "name": "Interest Generated",
+        "identifier": "interest-total-usd"
+      },
+      {
+        "name": "Net Interest Income",
+        "identifier": "nii-total-usd"
+      },
+      {
+        "name": "Total Borrows",
+        "identifier": "borrow-total-usd"
+      },
+      {
+        "name": "Total Deposits",
+        "identifier": "deposit-total-usd"
+      }
+    ],
+    "categories": [
+      "Financials"
+    ],
+    "slug": "fluid"
+  },
+  {
     "name": "Fourmeme",
     "type": "Project",
     "metrics": 1,
@@ -1214,17 +2233,81 @@ export const ProjectsTable = () => {
     "slug": "humidifi"
   },
   {
-    "name": "Hyperliquid",
+    "name": "Hyperlend",
     "type": "Project",
-    "metrics": 1,
+    "metrics": 4,
     "metricsList": [
       {
-        "name": "Revenue",
-        "identifier": "revenue-total-usd"
+        "name": "Interest Generated",
+        "identifier": "interest-total-usd"
+      },
+      {
+        "name": "Net Interest Income",
+        "identifier": "nii-total-usd"
+      },
+      {
+        "name": "Total Borrows",
+        "identifier": "borrow-total-usd"
+      },
+      {
+        "name": "Total Deposits",
+        "identifier": "deposit-total-usd"
       }
     ],
     "categories": [
       "Financials"
+    ],
+    "slug": "hyperlend"
+  },
+  {
+    "name": "Hyperliquid",
+    "type": "Project",
+    "metrics": 10,
+    "metricsList": [
+      {
+        "name": "Base Fees",
+        "identifier": "transaction-base-fee-total-usd"
+      },
+      {
+        "name": "DEX Spot Volume",
+        "identifier": "dex-spot-volume-total-usd"
+      },
+      {
+        "name": "HyperCore Fees",
+        "identifier": "hypercore-fees-total-usd"
+      },
+      {
+        "name": "Issuance",
+        "identifier": "issuance-usd"
+      },
+      {
+        "name": "Perps Fees",
+        "identifier": "perps-fees-total-usd"
+      },
+      {
+        "name": "Priority Fees",
+        "identifier": "transaction-priority-fee-total-usd"
+      },
+      {
+        "name": "Revenue",
+        "identifier": "revenue-total-usd"
+      },
+      {
+        "name": "Spot Fees",
+        "identifier": "spot-fees-total-usd"
+      },
+      {
+        "name": "Trading Revenue",
+        "identifier": "trading-revenue-total-usd"
+      },
+      {
+        "name": "Transaction Fees",
+        "identifier": "transaction-fee-total-usd"
+      }
+    ],
+    "categories": [
+      "Financials",
+      "Trading"
     ],
     "slug": "hyperliquid"
   },
@@ -1257,6 +2340,33 @@ export const ProjectsTable = () => {
       "Financials"
     ],
     "slug": "jito"
+  },
+  {
+    "name": "Jupiter Lend",
+    "type": "Project",
+    "metrics": 4,
+    "metricsList": [
+      {
+        "name": "Interest Generated",
+        "identifier": "interest-total-usd"
+      },
+      {
+        "name": "Net Interest Income",
+        "identifier": "nii-total-usd"
+      },
+      {
+        "name": "Total Borrows",
+        "identifier": "borrow-total-usd"
+      },
+      {
+        "name": "Total Deposits",
+        "identifier": "deposit-total-usd"
+      }
+    ],
+    "categories": [
+      "Financials"
+    ],
+    "slug": "jupiter-lend"
   },
   {
     "name": "Jupstudio",
@@ -1523,11 +2633,27 @@ export const ProjectsTable = () => {
   {
     "name": "Morpho",
     "type": "Project",
-    "metrics": 1,
+    "metrics": 5,
     "metricsList": [
+      {
+        "name": "Interest Generated",
+        "identifier": "interest-total-usd"
+      },
+      {
+        "name": "Net Interest Income",
+        "identifier": "nii-total-usd"
+      },
       {
         "name": "Revenue",
         "identifier": "revenue-total-usd"
+      },
+      {
+        "name": "Total Borrows",
+        "identifier": "borrow-total-usd"
+      },
+      {
+        "name": "Total Deposits",
+        "identifier": "deposit-total-usd"
       }
     ],
     "categories": [
@@ -1877,11 +3003,27 @@ export const ProjectsTable = () => {
   {
     "name": "Spark",
     "type": "Project",
-    "metrics": 1,
+    "metrics": 5,
     "metricsList": [
+      {
+        "name": "Interest Generated",
+        "identifier": "interest-total-usd"
+      },
+      {
+        "name": "Net Interest Income",
+        "identifier": "nii-total-usd"
+      },
       {
         "name": "Revenue",
         "identifier": "revenue-total-usd"
+      },
+      {
+        "name": "Total Borrows",
+        "identifier": "borrow-total-usd"
+      },
+      {
+        "name": "Total Deposits",
+        "identifier": "deposit-total-usd"
       }
     ],
     "categories": [
@@ -2128,6 +3270,34 @@ export const ProjectsTable = () => {
       "Financials"
     ],
     "slug": "wildcat"
+  },
+  {
+    "name": "Zcash",
+    "type": "Project",
+    "metrics": 4,
+    "metricsList": [
+      {
+        "name": "Fee Average",
+        "identifier": "transaction-fee-avg-usd"
+      },
+      {
+        "name": "Fee Median",
+        "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "REV",
+        "identifier": "rev-usd"
+      },
+      {
+        "name": "Transactions (Total)",
+        "identifier": "transaction-total"
+      }
+    ],
+    "categories": [
+      "Activity",
+      "Financials"
+    ],
+    "slug": "zcash"
   },
   {
     "name": "ZeroFi",
@@ -2475,6 +3645,41 @@ export const ProjectsTable = () => {
     "slug": "SSK"
   },
   {
+    "name": "ASST",
+    "type": "Treasury",
+    "metrics": 6,
+    "metricsList": [
+      {
+        "name": "Enterprise Value",
+        "identifier": "treasury-enterprise-value-usd"
+      },
+      {
+        "name": "Market Cap",
+        "identifier": "treasury-market-cap-usd"
+      },
+      {
+        "name": "MNAV   Outstanding",
+        "identifier": "outstanding-mnav"
+      },
+      {
+        "name": "NAV",
+        "identifier": "treasury-nav-total-usd"
+      },
+      {
+        "name": "Treasury Holdings",
+        "identifier": "treasury-holdings-btc"
+      },
+      {
+        "name": "Volume",
+        "identifier": "treasury-volume-total-usd"
+      }
+    ],
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "ASST"
+  },
+  {
     "name": "BMNR",
     "type": "Treasury",
     "metrics": 9,
@@ -2567,6 +3772,76 @@ export const ProjectsTable = () => {
       "Treasury"
     ],
     "slug": "BNC"
+  },
+  {
+    "name": "BNKK",
+    "type": "Treasury",
+    "metrics": 6,
+    "metricsList": [
+      {
+        "name": "Enterprise Value",
+        "identifier": "treasury-enterprise-value-usd"
+      },
+      {
+        "name": "Market Cap",
+        "identifier": "treasury-market-cap-usd"
+      },
+      {
+        "name": "MNAV   Outstanding",
+        "identifier": "outstanding-mnav"
+      },
+      {
+        "name": "NAV",
+        "identifier": "treasury-nav-total-usd"
+      },
+      {
+        "name": "Treasury Holdings",
+        "identifier": "treasury-holdings-bonk"
+      },
+      {
+        "name": "Volume",
+        "identifier": "treasury-volume-total-usd"
+      }
+    ],
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "BNKK"
+  },
+  {
+    "name": "BRR",
+    "type": "Treasury",
+    "metrics": 6,
+    "metricsList": [
+      {
+        "name": "Enterprise Value",
+        "identifier": "treasury-enterprise-value-usd"
+      },
+      {
+        "name": "Market Cap",
+        "identifier": "treasury-market-cap-usd"
+      },
+      {
+        "name": "MNAV   Outstanding",
+        "identifier": "outstanding-mnav"
+      },
+      {
+        "name": "NAV",
+        "identifier": "treasury-nav-total-usd"
+      },
+      {
+        "name": "Treasury Holdings",
+        "identifier": "treasury-holdings-btc"
+      },
+      {
+        "name": "Volume",
+        "identifier": "treasury-volume-total-usd"
+      }
+    ],
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "BRR"
   },
   {
     "name": "BTBT",
@@ -3086,6 +4361,41 @@ export const ProjectsTable = () => {
     "slug": "GAME"
   },
   {
+    "name": "HSDT",
+    "type": "Treasury",
+    "metrics": 6,
+    "metricsList": [
+      {
+        "name": "Enterprise Value",
+        "identifier": "treasury-enterprise-value-usd"
+      },
+      {
+        "name": "Market Cap",
+        "identifier": "treasury-market-cap-usd"
+      },
+      {
+        "name": "MNAV   Outstanding",
+        "identifier": "outstanding-mnav"
+      },
+      {
+        "name": "NAV",
+        "identifier": "treasury-nav-total-usd"
+      },
+      {
+        "name": "Treasury Holdings",
+        "identifier": "treasury-holdings-sol"
+      },
+      {
+        "name": "Volume",
+        "identifier": "treasury-volume-total-usd"
+      }
+    ],
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "HSDT"
+  },
+  {
     "name": "HYPD",
     "type": "Treasury",
     "metrics": 9,
@@ -3131,6 +4441,41 @@ export const ProjectsTable = () => {
       "Treasury"
     ],
     "slug": "HYPD"
+  },
+  {
+    "name": "IPST",
+    "type": "Treasury",
+    "metrics": 6,
+    "metricsList": [
+      {
+        "name": "Enterprise Value",
+        "identifier": "treasury-enterprise-value-usd"
+      },
+      {
+        "name": "Market Cap",
+        "identifier": "treasury-market-cap-usd"
+      },
+      {
+        "name": "MNAV   Outstanding",
+        "identifier": "outstanding-mnav"
+      },
+      {
+        "name": "NAV",
+        "identifier": "treasury-nav-total-usd"
+      },
+      {
+        "name": "Treasury Holdings",
+        "identifier": "treasury-holdings-ip"
+      },
+      {
+        "name": "Volume",
+        "identifier": "treasury-volume-total-usd"
+      }
+    ],
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "IPST"
   },
   {
     "name": "MSTR",
@@ -3270,6 +4615,41 @@ export const ProjectsTable = () => {
     "slug": "PAPL"
   },
   {
+    "name": "PURR",
+    "type": "Treasury",
+    "metrics": 6,
+    "metricsList": [
+      {
+        "name": "Enterprise Value",
+        "identifier": "treasury-enterprise-value-usd"
+      },
+      {
+        "name": "Market Cap",
+        "identifier": "treasury-market-cap-usd"
+      },
+      {
+        "name": "MNAV   Outstanding",
+        "identifier": "outstanding-mnav"
+      },
+      {
+        "name": "NAV",
+        "identifier": "treasury-nav-total-usd"
+      },
+      {
+        "name": "Treasury Holdings",
+        "identifier": "treasury-holdings-hype"
+      },
+      {
+        "name": "Volume",
+        "identifier": "treasury-volume-total-usd"
+      }
+    ],
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "PURR"
+  },
+  {
     "name": "SBET",
     "type": "Treasury",
     "metrics": 9,
@@ -3315,6 +4695,76 @@ export const ProjectsTable = () => {
       "Treasury"
     ],
     "slug": "SBET"
+  },
+  {
+    "name": "SLAI",
+    "type": "Treasury",
+    "metrics": 6,
+    "metricsList": [
+      {
+        "name": "Enterprise Value",
+        "identifier": "treasury-enterprise-value-usd"
+      },
+      {
+        "name": "Market Cap",
+        "identifier": "treasury-market-cap-usd"
+      },
+      {
+        "name": "MNAV   Outstanding",
+        "identifier": "outstanding-mnav"
+      },
+      {
+        "name": "NAV",
+        "identifier": "treasury-nav-total-usd"
+      },
+      {
+        "name": "Treasury Holdings",
+        "identifier": "treasury-holdings-sol"
+      },
+      {
+        "name": "Volume",
+        "identifier": "treasury-volume-total-usd"
+      }
+    ],
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "SLAI"
+  },
+  {
+    "name": "SLMT",
+    "type": "Treasury",
+    "metrics": 6,
+    "metricsList": [
+      {
+        "name": "Enterprise Value",
+        "identifier": "treasury-enterprise-value-usd"
+      },
+      {
+        "name": "Market Cap",
+        "identifier": "treasury-market-cap-usd"
+      },
+      {
+        "name": "MNAV   Outstanding",
+        "identifier": "outstanding-mnav"
+      },
+      {
+        "name": "NAV",
+        "identifier": "treasury-nav-total-usd"
+      },
+      {
+        "name": "Treasury Holdings",
+        "identifier": "treasury-holdings-sol"
+      },
+      {
+        "name": "Volume",
+        "identifier": "treasury-volume-total-usd"
+      }
+    ],
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "SLMT"
   },
   {
     "name": "SMLR",
@@ -3481,6 +4931,41 @@ export const ProjectsTable = () => {
     "slug": "STSS"
   },
   {
+    "name": "SUIG",
+    "type": "Treasury",
+    "metrics": 6,
+    "metricsList": [
+      {
+        "name": "Enterprise Value",
+        "identifier": "treasury-enterprise-value-usd"
+      },
+      {
+        "name": "Market Cap",
+        "identifier": "treasury-market-cap-usd"
+      },
+      {
+        "name": "MNAV   Outstanding",
+        "identifier": "outstanding-mnav"
+      },
+      {
+        "name": "NAV",
+        "identifier": "treasury-nav-total-usd"
+      },
+      {
+        "name": "Treasury Holdings",
+        "identifier": "treasury-holdings-sui"
+      },
+      {
+        "name": "Volume",
+        "identifier": "treasury-volume-total-usd"
+      }
+    ],
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "SUIG"
+  },
+  {
     "name": "UPXI",
     "type": "Treasury",
     "metrics": 9,
@@ -3526,6 +5011,41 @@ export const ProjectsTable = () => {
       "Treasury"
     ],
     "slug": "UPXI"
+  },
+  {
+    "name": "XXI",
+    "type": "Treasury",
+    "metrics": 6,
+    "metricsList": [
+      {
+        "name": "Enterprise Value",
+        "identifier": "treasury-enterprise-value-usd"
+      },
+      {
+        "name": "Market Cap",
+        "identifier": "treasury-market-cap-usd"
+      },
+      {
+        "name": "MNAV   Outstanding",
+        "identifier": "outstanding-mnav"
+      },
+      {
+        "name": "NAV",
+        "identifier": "treasury-nav-total-usd"
+      },
+      {
+        "name": "Treasury Holdings",
+        "identifier": "treasury-holdings-btc"
+      },
+      {
+        "name": "Volume",
+        "identifier": "treasury-volume-total-usd"
+      }
+    ],
+    "categories": [
+      "Treasury"
+    ],
+    "slug": "XXI"
   }
 ]
 

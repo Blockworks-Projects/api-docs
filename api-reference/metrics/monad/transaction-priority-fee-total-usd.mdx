@@ -1,0 +1,78 @@
+---
+title: "monad: Priority Fees (USD)"
+sidebarTitle: "Priority Fees"
+tag: "USD"
+description: "An additional transaction fee to incentivize validators to prioritize and execute transactions."
+openapi: "GET /v1/metrics/transaction-priority-fee-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-usd?project=monad"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-usd?project=monad',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'monad'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "monad": [
+    {
+      "date": "2026-02-19",
+      "value": 1648.6874453156422
+    },
+    {
+      "date": "2026-02-18",
+      "value": 1563.71944615023
+    },
+    {
+      "date": "2026-02-17",
+      "value": 1516.2999358956026
+    },
+    {
+      "date": "2026-02-16",
+      "value": 2677.9447871998505
+    },
+    {
+      "date": "2026-02-15",
+      "value": 3405.1855298670225
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

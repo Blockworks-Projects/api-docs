@@ -1,0 +1,77 @@
+---
+title: "Priority Fees"
+sidebarTitle: "Priority Fees"
+description: "On-chain EVM priority fees in USD on the Hyperliquid network."
+openapi: "GET /v1/metrics/transaction-priority-fee-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-usd?project=hyperliquid"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-usd?project=hyperliquid',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'hyperliquid'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "hyperliquid": [
+    {
+      "date": "2026-02-19",
+      "value": 8274.310298241126
+    },
+    {
+      "date": "2026-02-18",
+      "value": 8119.253244959518
+    },
+    {
+      "date": "2026-02-17",
+      "value": 8777.955628301412
+    },
+    {
+      "date": "2026-02-16",
+      "value": 9175.513577661975
+    },
+    {
+      "date": "2026-02-15",
+      "value": 12734.801539180886
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

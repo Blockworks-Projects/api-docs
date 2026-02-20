@@ -1,0 +1,77 @@
+---
+title: "tron: Stablecoin Supply"
+sidebarTitle: "Stablecoin Supply"
+description: "Supply tracked via transfers to/from the null address, as well as distinct issuance and redemption events for supported stablecoins."
+openapi: "GET /v1/metrics/stablecoin-supply-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd?project=tron"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd?project=tron',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'tron'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "tron": [
+    {
+      "date": "2026-02-19",
+      "value": 86251324289.03294
+    },
+    {
+      "date": "2026-02-18",
+      "value": 86241684066.40976
+    },
+    {
+      "date": "2026-02-17",
+      "value": 86246645901.8183
+    },
+    {
+      "date": "2026-02-16",
+      "value": 86238880968.20427
+    },
+    {
+      "date": "2026-02-15",
+      "value": 86235429418.67534
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

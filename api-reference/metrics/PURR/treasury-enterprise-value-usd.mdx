@@ -1,0 +1,69 @@
+---
+title: "Enterprise Value"
+sidebarTitle: "Enterprise Value"
+description: "Actual enterprise value for the equity. Calculated as market cap - liabilities + assets"
+openapi: "GET /v1/metrics/treasury-enterprise-value-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/treasury-enterprise-value-usd?project=PURR"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/treasury-enterprise-value-usd?project=PURR',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/treasury-enterprise-value-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'PURR'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "purr": [
+    {
+      "date": "2026-02-19",
+      "value": 500821640.4223
+    },
+    {
+      "date": "2026-02-18",
+      "value": 520942489.60150003
+    },
+    {
+      "date": "2026-02-17",
+      "value": 526696747.6054
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

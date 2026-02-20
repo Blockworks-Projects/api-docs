@@ -1,0 +1,77 @@
+---
+title: "DEX Spot Volume"
+sidebarTitle: "DEX Spot Volume"
+description: "Total amount of daily spot volume from major DEXs."
+openapi: "GET /v1/metrics/dex-spot-volume-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/dex-spot-volume-total-usd?project=hyperliquid"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/dex-spot-volume-total-usd?project=hyperliquid',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/dex-spot-volume-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'hyperliquid'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "hyperliquid": [
+    {
+      "date": "2026-02-19",
+      "value": 86959941.91414963
+    },
+    {
+      "date": "2026-02-18",
+      "value": 89011628.66333856
+    },
+    {
+      "date": "2026-02-17",
+      "value": 96080931.55984075
+    },
+    {
+      "date": "2026-02-16",
+      "value": 74583261.85227844
+    },
+    {
+      "date": "2026-02-15",
+      "value": 67505318.43943633
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

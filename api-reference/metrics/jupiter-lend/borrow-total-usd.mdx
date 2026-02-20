@@ -1,0 +1,77 @@
+---
+title: "Total Borrows"
+sidebarTitle: "Total Borrows"
+description: "Total value of outstanding borrows across all markets"
+openapi: "GET /v1/metrics/borrow-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/borrow-total-usd?project=jupiter-lend"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/borrow-total-usd?project=jupiter-lend',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/borrow-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'jupiter-lend'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "jupiter-lend": [
+    {
+      "date": "2026-02-19",
+      "value": 623795836.321022
+    },
+    {
+      "date": "2026-02-18",
+      "value": 628249069.6816183
+    },
+    {
+      "date": "2026-02-17",
+      "value": 631807926.0563854
+    },
+    {
+      "date": "2026-02-16",
+      "value": 630521940.0609589
+    },
+    {
+      "date": "2026-02-15",
+      "value": 633385731.9097087
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

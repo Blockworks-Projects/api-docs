@@ -1,0 +1,77 @@
+---
+title: "fogo: Active Addresses"
+sidebarTitle: "Active Addresses"
+description: "Total number of active addresses"
+openapi: "GET /v1/metrics/active-address-total"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** Count
+- **Type:** Integer
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/active-address-total?project=fogo"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/active-address-total?project=fogo',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/active-address-total',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'fogo'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "fogo": [
+    {
+      "date": "2026-02-19",
+      "value": 10653
+    },
+    {
+      "date": "2026-02-18",
+      "value": 9157
+    },
+    {
+      "date": "2026-02-17",
+      "value": 8747
+    },
+    {
+      "date": "2026-02-16",
+      "value": 8817
+    },
+    {
+      "date": "2026-02-15",
+      "value": 8222
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

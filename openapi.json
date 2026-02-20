@@ -1601,12 +1601,17 @@
             "schema": {
               "type": "string",
               "enum": [
+                "aptos",
                 "ethereum",
                 "solana"
               ],
-              "example": "ethereum"
+              "example": "aptos"
             },
             "examples": {
+              "aptos": {
+                "value": "aptos",
+                "summary": "Aptos"
+              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
@@ -1616,8 +1621,8 @@
                 "summary": "Solana"
               },
               "multi": {
-                "value": "ethereum,solana",
-                "summary": "Ethereum + Solana"
+                "value": "aptos,ethereum",
+                "summary": "Aptos + Ethereum"
               }
             }
           },
@@ -3513,23 +3518,43 @@
             "schema": {
               "type": "string",
               "enum": [
+                "aptos",
+                "avalanche",
                 "ethereum",
-                "solana"
+                "hyperliquid",
+                "solana",
+                "tron"
               ],
-              "example": "ethereum"
+              "example": "aptos"
             },
             "examples": {
+              "aptos": {
+                "value": "aptos",
+                "summary": "Aptos"
+              },
+              "avalanche": {
+                "value": "avalanche",
+                "summary": "Avalanche"
+              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
+              },
+              "hyperliquid": {
+                "value": "hyperliquid",
+                "summary": "Hyperliquid"
               },
               "solana": {
                 "value": "solana",
                 "summary": "Solana"
               },
+              "tron": {
+                "value": "tron",
+                "summary": "Tron"
+              },
               "multi": {
-                "value": "ethereum,solana",
-                "summary": "Ethereum + Solana"
+                "value": "aptos,avalanche",
+                "summary": "Aptos + Avalanche"
               }
             }
           },
@@ -4054,38 +4079,123 @@
             "schema": {
               "type": "string",
               "enum": [
+                "aptos",
                 "arbitrum",
+                "avalanche",
                 "base",
+                "berachain",
+                "bitcoin",
+                "bnb",
+                "celestia",
                 "ethereum",
+                "fogo",
+                "hyperevm",
                 "katana",
-                "solana"
+                "megaeth",
+                "monad",
+                "optimism",
+                "plasma",
+                "polygon",
+                "solana",
+                "tron",
+                "unichain",
+                "zcash",
+                "zksync"
               ],
-              "example": "arbitrum"
+              "example": "aptos"
             },
             "examples": {
+              "aptos": {
+                "value": "aptos",
+                "summary": "Aptos"
+              },
               "arbitrum": {
                 "value": "arbitrum",
                 "summary": "Arbitrum"
+              },
+              "avalanche": {
+                "value": "avalanche",
+                "summary": "Avalanche"
               },
               "base": {
                 "value": "base",
                 "summary": "Base"
               },
+              "berachain": {
+                "value": "berachain",
+                "summary": "Berachain"
+              },
+              "bitcoin": {
+                "value": "bitcoin",
+                "summary": "Bitcoin"
+              },
+              "bnb": {
+                "value": "bnb",
+                "summary": "Bnb"
+              },
+              "celestia": {
+                "value": "celestia",
+                "summary": "Celestia"
+              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
+              },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
+              },
+              "hyperevm": {
+                "value": "hyperevm",
+                "summary": "Hyperevm"
               },
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
               },
+              "megaeth": {
+                "value": "megaeth",
+                "summary": "Megaeth"
+              },
+              "monad": {
+                "value": "monad",
+                "summary": "Monad"
+              },
+              "optimism": {
+                "value": "optimism",
+                "summary": "Optimism"
+              },
+              "plasma": {
+                "value": "plasma",
+                "summary": "Plasma"
+              },
+              "polygon": {
+                "value": "polygon",
+                "summary": "Polygon"
+              },
               "solana": {
                 "value": "solana",
                 "summary": "Solana"
               },
+              "tron": {
+                "value": "tron",
+                "summary": "Tron"
+              },
+              "unichain": {
+                "value": "unichain",
+                "summary": "Unichain"
+              },
+              "zcash": {
+                "value": "zcash",
+                "summary": "Zcash"
+              },
+              "zksync": {
+                "value": "zksync",
+                "summary": "Zksync"
+              },
               "multi": {
-                "value": "arbitrum,base",
-                "summary": "Arbitrum + Base"
+                "value": "aptos,arbitrum",
+                "summary": "Aptos + Arbitrum"
               }
             }
           },
@@ -4639,38 +4749,123 @@
             "schema": {
               "type": "string",
               "enum": [
+                "aptos",
                 "arbitrum",
+                "avalanche",
                 "base",
+                "berachain",
+                "bitcoin",
+                "bnb",
+                "celestia",
                 "ethereum",
+                "fogo",
+                "hyperevm",
                 "katana",
-                "solana"
+                "megaeth",
+                "monad",
+                "optimism",
+                "plasma",
+                "polygon",
+                "solana",
+                "tron",
+                "unichain",
+                "zcash",
+                "zksync"
               ],
-              "example": "arbitrum"
+              "example": "aptos"
             },
             "examples": {
+              "aptos": {
+                "value": "aptos",
+                "summary": "Aptos"
+              },
               "arbitrum": {
                 "value": "arbitrum",
                 "summary": "Arbitrum"
+              },
+              "avalanche": {
+                "value": "avalanche",
+                "summary": "Avalanche"
               },
               "base": {
                 "value": "base",
                 "summary": "Base"
               },
+              "berachain": {
+                "value": "berachain",
+                "summary": "Berachain"
+              },
+              "bitcoin": {
+                "value": "bitcoin",
+                "summary": "Bitcoin"
+              },
+              "bnb": {
+                "value": "bnb",
+                "summary": "Bnb"
+              },
+              "celestia": {
+                "value": "celestia",
+                "summary": "Celestia"
+              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
+              },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
+              },
+              "hyperevm": {
+                "value": "hyperevm",
+                "summary": "Hyperevm"
               },
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
               },
+              "megaeth": {
+                "value": "megaeth",
+                "summary": "Megaeth"
+              },
+              "monad": {
+                "value": "monad",
+                "summary": "Monad"
+              },
+              "optimism": {
+                "value": "optimism",
+                "summary": "Optimism"
+              },
+              "plasma": {
+                "value": "plasma",
+                "summary": "Plasma"
+              },
+              "polygon": {
+                "value": "polygon",
+                "summary": "Polygon"
+              },
               "solana": {
                 "value": "solana",
                 "summary": "Solana"
               },
+              "tron": {
+                "value": "tron",
+                "summary": "Tron"
+              },
+              "unichain": {
+                "value": "unichain",
+                "summary": "Unichain"
+              },
+              "zcash": {
+                "value": "zcash",
+                "summary": "Zcash"
+              },
+              "zksync": {
+                "value": "zksync",
+                "summary": "Zksync"
+              },
               "multi": {
-                "value": "arbitrum,base",
-                "summary": "Arbitrum + Base"
+                "value": "aptos,arbitrum",
+                "summary": "Aptos + Arbitrum"
               }
             }
           },
@@ -11019,6 +11214,7 @@
               "type": "string",
               "enum": [
                 "ethereum",
+                "fogo",
                 "solana"
               ],
               "example": "ethereum"
@@ -11028,13 +11224,17 @@
                 "value": "ethereum",
                 "summary": "Ethereum"
               },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
+              },
               "solana": {
                 "value": "solana",
                 "summary": "Solana"
               },
               "multi": {
-                "value": "ethereum,solana",
-                "summary": "Ethereum + Solana"
+                "value": "ethereum,fogo",
+                "summary": "Ethereum + Fogo"
               }
             }
           },
@@ -11394,6 +11594,7 @@
               "enum": [
                 "arbitrum",
                 "ethereum",
+                "fogo",
                 "solana"
               ],
               "example": "arbitrum"
@@ -11406,6 +11607,10 @@
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
+              },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
               },
               "solana": {
                 "value": "solana",
@@ -11502,8 +11707,13 @@
               "enum": [
                 "arbitrum",
                 "base",
+                "berachain",
                 "ethereum",
+                "fogo",
                 "katana",
+                "megaeth",
+                "monad",
+                "plasma",
                 "solana"
               ],
               "example": "arbitrum"
@@ -11517,13 +11727,33 @@
                 "value": "base",
                 "summary": "Base"
               },
+              "berachain": {
+                "value": "berachain",
+                "summary": "Berachain"
+              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
               },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
+              },
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
+              },
+              "megaeth": {
+                "value": "megaeth",
+                "summary": "Megaeth"
+              },
+              "monad": {
+                "value": "monad",
+                "summary": "Monad"
+              },
+              "plasma": {
+                "value": "plasma",
+                "summary": "Plasma"
               },
               "solana": {
                 "value": "solana",
@@ -11618,31 +11848,94 @@
             "schema": {
               "type": "string",
               "enum": [
+                "aptos",
                 "arbitrum",
+                "avalanche",
                 "base",
+                "berachain",
+                "bitcoin",
+                "bnb",
                 "ethereum",
+                "fogo",
+                "hyperevm",
                 "katana",
+                "megaeth",
+                "monad",
+                "optimism",
+                "plasma",
+                "polygon",
                 "polymarket",
-                "solana"
+                "solana",
+                "tron",
+                "unichain",
+                "zksync"
               ],
-              "example": "arbitrum"
+              "example": "aptos"
             },
             "examples": {
+              "aptos": {
+                "value": "aptos",
+                "summary": "Aptos"
+              },
               "arbitrum": {
                 "value": "arbitrum",
                 "summary": "Arbitrum"
+              },
+              "avalanche": {
+                "value": "avalanche",
+                "summary": "Avalanche"
               },
               "base": {
                 "value": "base",
                 "summary": "Base"
               },
+              "berachain": {
+                "value": "berachain",
+                "summary": "Berachain"
+              },
+              "bitcoin": {
+                "value": "bitcoin",
+                "summary": "Bitcoin"
+              },
+              "bnb": {
+                "value": "bnb",
+                "summary": "Bnb"
+              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
               },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
+              },
+              "hyperevm": {
+                "value": "hyperevm",
+                "summary": "Hyperevm"
+              },
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
+              },
+              "megaeth": {
+                "value": "megaeth",
+                "summary": "Megaeth"
+              },
+              "monad": {
+                "value": "monad",
+                "summary": "Monad"
+              },
+              "optimism": {
+                "value": "optimism",
+                "summary": "Optimism"
+              },
+              "plasma": {
+                "value": "plasma",
+                "summary": "Plasma"
+              },
+              "polygon": {
+                "value": "polygon",
+                "summary": "Polygon"
               },
               "polymarket": {
                 "value": "polymarket",
@@ -11652,9 +11945,21 @@
                 "value": "solana",
                 "summary": "Solana"
               },
+              "tron": {
+                "value": "tron",
+                "summary": "Tron"
+              },
+              "unichain": {
+                "value": "unichain",
+                "summary": "Unichain"
+              },
+              "zksync": {
+                "value": "zksync",
+                "summary": "Zksync"
+              },
               "multi": {
-                "value": "arbitrum,base",
-                "summary": "Arbitrum + Base"
+                "value": "aptos,arbitrum",
+                "summary": "Aptos + Arbitrum"
               }
             }
           },
@@ -11850,6 +12155,7 @@
               "type": "string",
               "enum": [
                 "arbitrum",
+                "celestia",
                 "ethereum"
               ],
               "example": "arbitrum"
@@ -11859,13 +12165,17 @@
                 "value": "arbitrum",
                 "summary": "Arbitrum"
               },
+              "celestia": {
+                "value": "celestia",
+                "summary": "Celestia"
+              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
               },
               "multi": {
-                "value": "arbitrum,ethereum",
-                "summary": "Arbitrum + Ethereum"
+                "value": "arbitrum,celestia",
+                "summary": "Arbitrum + Celestia"
               }
             }
           },
@@ -11955,7 +12265,10 @@
                 "arbitrum",
                 "base",
                 "ethereum",
+                "hyperevm",
                 "katana",
+                "megaeth",
+                "monad",
                 "solana"
               ],
               "example": "arbitrum"
@@ -11973,9 +12286,21 @@
                 "value": "ethereum",
                 "summary": "Ethereum"
               },
+              "hyperevm": {
+                "value": "hyperevm",
+                "summary": "Hyperevm"
+              },
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
+              },
+              "megaeth": {
+                "value": "megaeth",
+                "summary": "Megaeth"
+              },
+              "monad": {
+                "value": "monad",
+                "summary": "Monad"
               },
               "solana": {
                 "value": "solana",
@@ -12071,9 +12396,17 @@
               "type": "string",
               "enum": [
                 "arbitrum",
+                "avalanche",
                 "base",
+                "berachain",
                 "ethereum",
+                "fogo",
+                "hyperliquid",
                 "katana",
+                "megaeth",
+                "monad",
+                "plasma",
+                "polygon",
                 "solana"
               ],
               "example": "arbitrum"
@@ -12083,25 +12416,57 @@
                 "value": "arbitrum",
                 "summary": "Arbitrum"
               },
+              "avalanche": {
+                "value": "avalanche",
+                "summary": "Avalanche"
+              },
               "base": {
                 "value": "base",
                 "summary": "Base"
+              },
+              "berachain": {
+                "value": "berachain",
+                "summary": "Berachain"
               },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
               },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
+              },
+              "hyperliquid": {
+                "value": "hyperliquid",
+                "summary": "Hyperliquid"
+              },
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
+              },
+              "megaeth": {
+                "value": "megaeth",
+                "summary": "Megaeth"
+              },
+              "monad": {
+                "value": "monad",
+                "summary": "Monad"
+              },
+              "plasma": {
+                "value": "plasma",
+                "summary": "Plasma"
+              },
+              "polygon": {
+                "value": "polygon",
+                "summary": "Polygon"
               },
               "solana": {
                 "value": "solana",
                 "summary": "Solana"
               },
               "multi": {
-                "value": "arbitrum,base",
-                "summary": "Arbitrum + Base"
+                "value": "arbitrum,avalanche",
+                "summary": "Arbitrum + Avalanche"
               }
             }
           },
@@ -12188,38 +12553,113 @@
             "schema": {
               "type": "string",
               "enum": [
+                "aptos",
                 "arbitrum",
+                "avalanche",
                 "base",
+                "berachain",
+                "bnb",
+                "celestia",
                 "ethereum",
+                "fogo",
+                "hyperevm",
                 "katana",
-                "solana"
+                "megaeth",
+                "monad",
+                "optimism",
+                "plasma",
+                "polygon",
+                "solana",
+                "tron",
+                "unichain",
+                "zksync"
               ],
-              "example": "arbitrum"
+              "example": "aptos"
             },
             "examples": {
+              "aptos": {
+                "value": "aptos",
+                "summary": "Aptos"
+              },
               "arbitrum": {
                 "value": "arbitrum",
                 "summary": "Arbitrum"
+              },
+              "avalanche": {
+                "value": "avalanche",
+                "summary": "Avalanche"
               },
               "base": {
                 "value": "base",
                 "summary": "Base"
               },
+              "berachain": {
+                "value": "berachain",
+                "summary": "Berachain"
+              },
+              "bnb": {
+                "value": "bnb",
+                "summary": "Bnb"
+              },
+              "celestia": {
+                "value": "celestia",
+                "summary": "Celestia"
+              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
+              },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
+              },
+              "hyperevm": {
+                "value": "hyperevm",
+                "summary": "Hyperevm"
               },
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
               },
+              "megaeth": {
+                "value": "megaeth",
+                "summary": "Megaeth"
+              },
+              "monad": {
+                "value": "monad",
+                "summary": "Monad"
+              },
+              "optimism": {
+                "value": "optimism",
+                "summary": "Optimism"
+              },
+              "plasma": {
+                "value": "plasma",
+                "summary": "Plasma"
+              },
+              "polygon": {
+                "value": "polygon",
+                "summary": "Polygon"
+              },
               "solana": {
                 "value": "solana",
                 "summary": "Solana"
               },
+              "tron": {
+                "value": "tron",
+                "summary": "Tron"
+              },
+              "unichain": {
+                "value": "unichain",
+                "summary": "Unichain"
+              },
+              "zksync": {
+                "value": "zksync",
+                "summary": "Zksync"
+              },
               "multi": {
-                "value": "arbitrum,base",
-                "summary": "Arbitrum + Base"
+                "value": "aptos,arbitrum",
+                "summary": "Aptos + Arbitrum"
               }
             }
           },
@@ -12532,15 +12972,30 @@
             "schema": {
               "type": "string",
               "enum": [
+                "aptos",
                 "arbitrum",
                 "base",
+                "berachain",
                 "ethereum",
+                "fogo",
+                "hyperliquid",
                 "katana",
-                "solana"
+                "megaeth",
+                "monad",
+                "optimism",
+                "plasma",
+                "polygon",
+                "solana",
+                "unichain",
+                "zksync"
               ],
-              "example": "arbitrum"
+              "example": "aptos"
             },
             "examples": {
+              "aptos": {
+                "value": "aptos",
+                "summary": "Aptos"
+              },
               "arbitrum": {
                 "value": "arbitrum",
                 "summary": "Arbitrum"
@@ -12549,21 +13004,61 @@
                 "value": "base",
                 "summary": "Base"
               },
+              "berachain": {
+                "value": "berachain",
+                "summary": "Berachain"
+              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
+              },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
+              },
+              "hyperliquid": {
+                "value": "hyperliquid",
+                "summary": "Hyperliquid"
               },
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
               },
+              "megaeth": {
+                "value": "megaeth",
+                "summary": "Megaeth"
+              },
+              "monad": {
+                "value": "monad",
+                "summary": "Monad"
+              },
+              "optimism": {
+                "value": "optimism",
+                "summary": "Optimism"
+              },
+              "plasma": {
+                "value": "plasma",
+                "summary": "Plasma"
+              },
+              "polygon": {
+                "value": "polygon",
+                "summary": "Polygon"
+              },
               "solana": {
                 "value": "solana",
                 "summary": "Solana"
               },
+              "unichain": {
+                "value": "unichain",
+                "summary": "Unichain"
+              },
+              "zksync": {
+                "value": "zksync",
+                "summary": "Zksync"
+              },
               "multi": {
-                "value": "arbitrum,base",
-                "summary": "Arbitrum + Base"
+                "value": "aptos,arbitrum",
+                "summary": "Aptos + Arbitrum"
               }
             }
           },
@@ -12652,6 +13147,7 @@
               "enum": [
                 "arbitrum",
                 "ethereum",
+                "fogo",
                 "solana"
               ],
               "example": "arbitrum"
@@ -12664,6 +13160,10 @@
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
+              },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
               },
               "solana": {
                 "value": "solana",
@@ -12760,8 +13260,13 @@
               "enum": [
                 "arbitrum",
                 "base",
+                "berachain",
                 "ethereum",
+                "fogo",
                 "katana",
+                "megaeth",
+                "monad",
+                "plasma",
                 "solana"
               ],
               "example": "arbitrum"
@@ -12775,13 +13280,33 @@
                 "value": "base",
                 "summary": "Base"
               },
+              "berachain": {
+                "value": "berachain",
+                "summary": "Berachain"
+              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
               },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
+              },
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
+              },
+              "megaeth": {
+                "value": "megaeth",
+                "summary": "Megaeth"
+              },
+              "monad": {
+                "value": "monad",
+                "summary": "Monad"
+              },
+              "plasma": {
+                "value": "plasma",
+                "summary": "Plasma"
               },
               "solana": {
                 "value": "solana",
@@ -12877,9 +13402,17 @@
               "type": "string",
               "enum": [
                 "arbitrum",
+                "avalanche",
                 "base",
+                "berachain",
                 "ethereum",
+                "fogo",
+                "hyperliquid",
                 "katana",
+                "megaeth",
+                "monad",
+                "plasma",
+                "polygon",
                 "solana"
               ],
               "example": "arbitrum"
@@ -12889,25 +13422,57 @@
                 "value": "arbitrum",
                 "summary": "Arbitrum"
               },
+              "avalanche": {
+                "value": "avalanche",
+                "summary": "Avalanche"
+              },
               "base": {
                 "value": "base",
                 "summary": "Base"
+              },
+              "berachain": {
+                "value": "berachain",
+                "summary": "Berachain"
               },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
               },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
+              },
+              "hyperliquid": {
+                "value": "hyperliquid",
+                "summary": "Hyperliquid"
+              },
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
+              },
+              "megaeth": {
+                "value": "megaeth",
+                "summary": "Megaeth"
+              },
+              "monad": {
+                "value": "monad",
+                "summary": "Monad"
+              },
+              "plasma": {
+                "value": "plasma",
+                "summary": "Plasma"
+              },
+              "polygon": {
+                "value": "polygon",
+                "summary": "Polygon"
               },
               "solana": {
                 "value": "solana",
                 "summary": "Solana"
               },
               "multi": {
-                "value": "arbitrum,base",
-                "summary": "Arbitrum + Base"
+                "value": "arbitrum,avalanche",
+                "summary": "Arbitrum + Avalanche"
               }
             }
           },
@@ -12994,38 +13559,113 @@
             "schema": {
               "type": "string",
               "enum": [
+                "aptos",
                 "arbitrum",
+                "avalanche",
                 "base",
+                "berachain",
+                "bnb",
+                "celestia",
                 "ethereum",
+                "fogo",
+                "hyperevm",
                 "katana",
-                "solana"
+                "megaeth",
+                "monad",
+                "optimism",
+                "plasma",
+                "polygon",
+                "solana",
+                "tron",
+                "unichain",
+                "zksync"
               ],
-              "example": "arbitrum"
+              "example": "aptos"
             },
             "examples": {
+              "aptos": {
+                "value": "aptos",
+                "summary": "Aptos"
+              },
               "arbitrum": {
                 "value": "arbitrum",
                 "summary": "Arbitrum"
+              },
+              "avalanche": {
+                "value": "avalanche",
+                "summary": "Avalanche"
               },
               "base": {
                 "value": "base",
                 "summary": "Base"
               },
+              "berachain": {
+                "value": "berachain",
+                "summary": "Berachain"
+              },
+              "bnb": {
+                "value": "bnb",
+                "summary": "Bnb"
+              },
+              "celestia": {
+                "value": "celestia",
+                "summary": "Celestia"
+              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
+              },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
+              },
+              "hyperevm": {
+                "value": "hyperevm",
+                "summary": "Hyperevm"
               },
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
               },
+              "megaeth": {
+                "value": "megaeth",
+                "summary": "Megaeth"
+              },
+              "monad": {
+                "value": "monad",
+                "summary": "Monad"
+              },
+              "optimism": {
+                "value": "optimism",
+                "summary": "Optimism"
+              },
+              "plasma": {
+                "value": "plasma",
+                "summary": "Plasma"
+              },
+              "polygon": {
+                "value": "polygon",
+                "summary": "Polygon"
+              },
               "solana": {
                 "value": "solana",
                 "summary": "Solana"
               },
+              "tron": {
+                "value": "tron",
+                "summary": "Tron"
+              },
+              "unichain": {
+                "value": "unichain",
+                "summary": "Unichain"
+              },
+              "zksync": {
+                "value": "zksync",
+                "summary": "Zksync"
+              },
               "multi": {
-                "value": "arbitrum,base",
-                "summary": "Arbitrum + Base"
+                "value": "aptos,arbitrum",
+                "summary": "Aptos + Arbitrum"
               }
             }
           },
@@ -13112,38 +13752,118 @@
             "schema": {
               "type": "string",
               "enum": [
+                "aptos",
                 "arbitrum",
+                "avalanche",
                 "base",
+                "berachain",
+                "bnb",
+                "celestia",
                 "ethereum",
+                "fogo",
+                "hyperevm",
                 "katana",
-                "solana"
+                "megaeth",
+                "monad",
+                "optimism",
+                "plasma",
+                "polygon",
+                "solana",
+                "tron",
+                "unichain",
+                "zcash",
+                "zksync"
               ],
-              "example": "arbitrum"
+              "example": "aptos"
             },
             "examples": {
+              "aptos": {
+                "value": "aptos",
+                "summary": "Aptos"
+              },
               "arbitrum": {
                 "value": "arbitrum",
                 "summary": "Arbitrum"
+              },
+              "avalanche": {
+                "value": "avalanche",
+                "summary": "Avalanche"
               },
               "base": {
                 "value": "base",
                 "summary": "Base"
               },
+              "berachain": {
+                "value": "berachain",
+                "summary": "Berachain"
+              },
+              "bnb": {
+                "value": "bnb",
+                "summary": "Bnb"
+              },
+              "celestia": {
+                "value": "celestia",
+                "summary": "Celestia"
+              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
+              },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
+              },
+              "hyperevm": {
+                "value": "hyperevm",
+                "summary": "Hyperevm"
               },
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
               },
+              "megaeth": {
+                "value": "megaeth",
+                "summary": "Megaeth"
+              },
+              "monad": {
+                "value": "monad",
+                "summary": "Monad"
+              },
+              "optimism": {
+                "value": "optimism",
+                "summary": "Optimism"
+              },
+              "plasma": {
+                "value": "plasma",
+                "summary": "Plasma"
+              },
+              "polygon": {
+                "value": "polygon",
+                "summary": "Polygon"
+              },
               "solana": {
                 "value": "solana",
                 "summary": "Solana"
               },
+              "tron": {
+                "value": "tron",
+                "summary": "Tron"
+              },
+              "unichain": {
+                "value": "unichain",
+                "summary": "Unichain"
+              },
+              "zcash": {
+                "value": "zcash",
+                "summary": "Zcash"
+              },
+              "zksync": {
+                "value": "zksync",
+                "summary": "Zksync"
+              },
               "multi": {
-                "value": "arbitrum,base",
-                "summary": "Arbitrum + Base"
+                "value": "aptos,arbitrum",
+                "summary": "Aptos + Arbitrum"
               }
             }
           },
@@ -13230,14 +13950,29 @@
             "schema": {
               "type": "string",
               "enum": [
+                "aptos",
                 "arbitrum",
                 "base",
+                "berachain",
+                "bnb",
                 "ethereum",
-                "solana"
+                "hyperevm",
+                "katana",
+                "optimism",
+                "plasma",
+                "polygon",
+                "solana",
+                "tron",
+                "unichain",
+                "zksync"
               ],
-              "example": "arbitrum"
+              "example": "aptos"
             },
             "examples": {
+              "aptos": {
+                "value": "aptos",
+                "summary": "Aptos"
+              },
               "arbitrum": {
                 "value": "arbitrum",
                 "summary": "Arbitrum"
@@ -13246,17 +13981,57 @@
                 "value": "base",
                 "summary": "Base"
               },
+              "berachain": {
+                "value": "berachain",
+                "summary": "Berachain"
+              },
+              "bnb": {
+                "value": "bnb",
+                "summary": "Bnb"
+              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
+              },
+              "hyperevm": {
+                "value": "hyperevm",
+                "summary": "Hyperevm"
+              },
+              "katana": {
+                "value": "katana",
+                "summary": "Katana"
+              },
+              "optimism": {
+                "value": "optimism",
+                "summary": "Optimism"
+              },
+              "plasma": {
+                "value": "plasma",
+                "summary": "Plasma"
+              },
+              "polygon": {
+                "value": "polygon",
+                "summary": "Polygon"
               },
               "solana": {
                 "value": "solana",
                 "summary": "Solana"
               },
+              "tron": {
+                "value": "tron",
+                "summary": "Tron"
+              },
+              "unichain": {
+                "value": "unichain",
+                "summary": "Unichain"
+              },
+              "zksync": {
+                "value": "zksync",
+                "summary": "Zksync"
+              },
               "multi": {
-                "value": "arbitrum,base",
-                "summary": "Arbitrum + Base"
+                "value": "aptos,arbitrum",
+                "summary": "Aptos + Arbitrum"
               }
             }
           },
@@ -13343,38 +14118,123 @@
             "schema": {
               "type": "string",
               "enum": [
+                "aptos",
                 "arbitrum",
+                "avalanche",
                 "base",
+                "berachain",
+                "bitcoin",
+                "bnb",
+                "celestia",
                 "ethereum",
+                "fogo",
+                "hyperevm",
                 "katana",
-                "solana"
+                "megaeth",
+                "monad",
+                "optimism",
+                "plasma",
+                "polygon",
+                "solana",
+                "tron",
+                "unichain",
+                "zcash",
+                "zksync"
               ],
-              "example": "arbitrum"
+              "example": "aptos"
             },
             "examples": {
+              "aptos": {
+                "value": "aptos",
+                "summary": "Aptos"
+              },
               "arbitrum": {
                 "value": "arbitrum",
                 "summary": "Arbitrum"
+              },
+              "avalanche": {
+                "value": "avalanche",
+                "summary": "Avalanche"
               },
               "base": {
                 "value": "base",
                 "summary": "Base"
               },
+              "berachain": {
+                "value": "berachain",
+                "summary": "Berachain"
+              },
+              "bitcoin": {
+                "value": "bitcoin",
+                "summary": "Bitcoin"
+              },
+              "bnb": {
+                "value": "bnb",
+                "summary": "Bnb"
+              },
+              "celestia": {
+                "value": "celestia",
+                "summary": "Celestia"
+              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
+              },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
+              },
+              "hyperevm": {
+                "value": "hyperevm",
+                "summary": "Hyperevm"
               },
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
               },
+              "megaeth": {
+                "value": "megaeth",
+                "summary": "Megaeth"
+              },
+              "monad": {
+                "value": "monad",
+                "summary": "Monad"
+              },
+              "optimism": {
+                "value": "optimism",
+                "summary": "Optimism"
+              },
+              "plasma": {
+                "value": "plasma",
+                "summary": "Plasma"
+              },
+              "polygon": {
+                "value": "polygon",
+                "summary": "Polygon"
+              },
               "solana": {
                 "value": "solana",
                 "summary": "Solana"
               },
+              "tron": {
+                "value": "tron",
+                "summary": "Tron"
+              },
+              "unichain": {
+                "value": "unichain",
+                "summary": "Unichain"
+              },
+              "zcash": {
+                "value": "zcash",
+                "summary": "Zcash"
+              },
+              "zksync": {
+                "value": "zksync",
+                "summary": "Zksync"
+              },
               "multi": {
-                "value": "arbitrum,base",
-                "summary": "Arbitrum + Base"
+                "value": "aptos,arbitrum",
+                "summary": "Aptos + Arbitrum"
               }
             }
           },
@@ -13462,9 +14322,16 @@
               "type": "string",
               "enum": [
                 "arbitrum",
+                "avalanche",
                 "base",
+                "bnb",
                 "ethereum",
-                "solana"
+                "fogo",
+                "hyperevm",
+                "hyperliquid",
+                "katana",
+                "solana",
+                "unichain"
               ],
               "example": "arbitrum"
             },
@@ -13473,21 +14340,49 @@
                 "value": "arbitrum",
                 "summary": "Arbitrum"
               },
+              "avalanche": {
+                "value": "avalanche",
+                "summary": "Avalanche"
+              },
               "base": {
                 "value": "base",
                 "summary": "Base"
+              },
+              "bnb": {
+                "value": "bnb",
+                "summary": "Bnb"
               },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
               },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
+              },
+              "hyperevm": {
+                "value": "hyperevm",
+                "summary": "Hyperevm"
+              },
+              "hyperliquid": {
+                "value": "hyperliquid",
+                "summary": "Hyperliquid"
+              },
+              "katana": {
+                "value": "katana",
+                "summary": "Katana"
+              },
               "solana": {
                 "value": "solana",
                 "summary": "Solana"
               },
+              "unichain": {
+                "value": "unichain",
+                "summary": "Unichain"
+              },
               "multi": {
-                "value": "arbitrum,base",
-                "summary": "Arbitrum + Base"
+                "value": "arbitrum,avalanche",
+                "summary": "Arbitrum + Avalanche"
               }
             }
           },
@@ -13576,6 +14471,7 @@
               "enum": [
                 "arbitrum",
                 "ethereum",
+                "fogo",
                 "solana"
               ],
               "example": "arbitrum"
@@ -13588,6 +14484,10 @@
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
+              },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
               },
               "solana": {
                 "value": "solana",
@@ -13684,8 +14584,13 @@
               "enum": [
                 "arbitrum",
                 "base",
+                "berachain",
                 "ethereum",
+                "fogo",
                 "katana",
+                "megaeth",
+                "monad",
+                "plasma",
                 "solana"
               ],
               "example": "arbitrum"
@@ -13699,13 +14604,33 @@
                 "value": "base",
                 "summary": "Base"
               },
+              "berachain": {
+                "value": "berachain",
+                "summary": "Berachain"
+              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
               },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
+              },
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
+              },
+              "megaeth": {
+                "value": "megaeth",
+                "summary": "Megaeth"
+              },
+              "monad": {
+                "value": "monad",
+                "summary": "Monad"
+              },
+              "plasma": {
+                "value": "plasma",
+                "summary": "Plasma"
               },
               "solana": {
                 "value": "solana",
@@ -13905,9 +14830,16 @@
               "enum": [
                 "arbitrum",
                 "base",
+                "berachain",
                 "ethereum",
+                "fogo",
+                "hyperevm",
                 "katana",
-                "solana"
+                "megaeth",
+                "monad",
+                "plasma",
+                "solana",
+                "unichain"
               ],
               "example": "arbitrum"
             },
@@ -13920,17 +14852,45 @@
                 "value": "base",
                 "summary": "Base"
               },
+              "berachain": {
+                "value": "berachain",
+                "summary": "Berachain"
+              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
+              },
+              "fogo": {
+                "value": "fogo",
+                "summary": "Fogo"
+              },
+              "hyperevm": {
+                "value": "hyperevm",
+                "summary": "Hyperevm"
               },
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
               },
+              "megaeth": {
+                "value": "megaeth",
+                "summary": "Megaeth"
+              },
+              "monad": {
+                "value": "monad",
+                "summary": "Monad"
+              },
+              "plasma": {
+                "value": "plasma",
+                "summary": "Plasma"
+              },
               "solana": {
                 "value": "solana",
                 "summary": "Solana"
+              },
+              "unichain": {
+                "value": "unichain",
+                "summary": "Unichain"
               },
               "multi": {
                 "value": "arbitrum,base",
@@ -14023,7 +14983,10 @@
               "enum": [
                 "arbitrum",
                 "base",
-                "katana"
+                "katana",
+                "optimism",
+                "unichain",
+                "zksync"
               ],
               "example": "arbitrum"
             },
@@ -14039,6 +15002,18 @@
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
+              },
+              "optimism": {
+                "value": "optimism",
+                "summary": "Optimism"
+              },
+              "unichain": {
+                "value": "unichain",
+                "summary": "Unichain"
+              },
+              "zksync": {
+                "value": "zksync",
+                "summary": "Zksync"
               },
               "multi": {
                 "value": "arbitrum,base",
@@ -14131,9 +15106,13 @@
               "enum": [
                 "arbitrum",
                 "base",
+                "berachain",
                 "ethereum",
+                "hyperevm",
                 "katana",
-                "solana"
+                "plasma",
+                "solana",
+                "unichain"
               ],
               "example": "arbitrum"
             },
@@ -14146,17 +15125,33 @@
                 "value": "base",
                 "summary": "Base"
               },
+              "berachain": {
+                "value": "berachain",
+                "summary": "Berachain"
+              },
               "ethereum": {
                 "value": "ethereum",
                 "summary": "Ethereum"
+              },
+              "hyperevm": {
+                "value": "hyperevm",
+                "summary": "Hyperevm"
               },
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
               },
+              "plasma": {
+                "value": "plasma",
+                "summary": "Plasma"
+              },
               "solana": {
                 "value": "solana",
                 "summary": "Solana"
+              },
+              "unichain": {
+                "value": "unichain",
+                "summary": "Unichain"
               },
               "multi": {
                 "value": "arbitrum,base",
@@ -14249,7 +15244,10 @@
               "enum": [
                 "arbitrum",
                 "base",
-                "katana"
+                "katana",
+                "optimism",
+                "unichain",
+                "zksync"
               ],
               "example": "arbitrum"
             },
@@ -14265,6 +15263,18 @@
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
+              },
+              "optimism": {
+                "value": "optimism",
+                "summary": "Optimism"
+              },
+              "unichain": {
+                "value": "unichain",
+                "summary": "Unichain"
+              },
+              "zksync": {
+                "value": "zksync",
+                "summary": "Zksync"
               },
               "multi": {
                 "value": "arbitrum,base",
@@ -15021,8 +16031,11 @@
             "schema": {
               "type": "string",
               "enum": [
+                "ASST",
                 "BMNR",
                 "BNC",
+                "BNKK",
+                "BRR",
                 "BTBT",
                 "BTCM",
                 "BTCS",
@@ -15034,19 +16047,30 @@
                 "FGNX",
                 "FWDI",
                 "GAME",
+                "HSDT",
                 "HYPD",
+                "IPST",
                 "MSTR",
                 "NAKA",
                 "PAPL",
+                "PURR",
                 "SBET",
+                "SLAI",
+                "SLMT",
                 "SMLR",
                 "SQNS",
                 "STSS",
-                "UPXI"
+                "SUIG",
+                "UPXI",
+                "XXI"
               ],
-              "example": "BMNR"
+              "example": "ASST"
             },
             "examples": {
+              "ASST": {
+                "value": "ASST",
+                "summary": "ASST"
+              },
               "BMNR": {
                 "value": "BMNR",
                 "summary": "BMNR"
@@ -15054,6 +16078,14 @@
               "BNC": {
                 "value": "BNC",
                 "summary": "BNC"
+              },
+              "BNKK": {
+                "value": "BNKK",
+                "summary": "BNKK"
+              },
+              "BRR": {
+                "value": "BRR",
+                "summary": "BRR"
               },
               "BTBT": {
                 "value": "BTBT",
@@ -15099,9 +16131,17 @@
                 "value": "GAME",
                 "summary": "GAME"
               },
+              "HSDT": {
+                "value": "HSDT",
+                "summary": "HSDT"
+              },
               "HYPD": {
                 "value": "HYPD",
                 "summary": "HYPD"
+              },
+              "IPST": {
+                "value": "IPST",
+                "summary": "IPST"
               },
               "MSTR": {
                 "value": "MSTR",
@@ -15115,9 +16155,21 @@
                 "value": "PAPL",
                 "summary": "PAPL"
               },
+              "PURR": {
+                "value": "PURR",
+                "summary": "PURR"
+              },
               "SBET": {
                 "value": "SBET",
                 "summary": "SBET"
+              },
+              "SLAI": {
+                "value": "SLAI",
+                "summary": "SLAI"
+              },
+              "SLMT": {
+                "value": "SLMT",
+                "summary": "SLMT"
               },
               "SMLR": {
                 "value": "SMLR",
@@ -15131,13 +16183,21 @@
                 "value": "STSS",
                 "summary": "STSS"
               },
+              "SUIG": {
+                "value": "SUIG",
+                "summary": "SUIG"
+              },
               "UPXI": {
                 "value": "UPXI",
                 "summary": "UPXI"
               },
+              "XXI": {
+                "value": "XXI",
+                "summary": "XXI"
+              },
               "multi": {
-                "value": "BMNR,BNC",
-                "summary": "BMNR + BNC"
+                "value": "ASST,BMNR",
+                "summary": "ASST + BMNR"
               }
             }
           },
@@ -15224,8 +16284,11 @@
             "schema": {
               "type": "string",
               "enum": [
+                "ASST",
                 "BMNR",
                 "BNC",
+                "BNKK",
+                "BRR",
                 "BTBT",
                 "BTCM",
                 "BTCS",
@@ -15237,19 +16300,30 @@
                 "FGNX",
                 "FWDI",
                 "GAME",
+                "HSDT",
                 "HYPD",
+                "IPST",
                 "MSTR",
                 "NAKA",
                 "PAPL",
+                "PURR",
                 "SBET",
+                "SLAI",
+                "SLMT",
                 "SMLR",
                 "SQNS",
                 "STSS",
-                "UPXI"
+                "SUIG",
+                "UPXI",
+                "XXI"
               ],
-              "example": "BMNR"
+              "example": "ASST"
             },
             "examples": {
+              "ASST": {
+                "value": "ASST",
+                "summary": "ASST"
+              },
               "BMNR": {
                 "value": "BMNR",
                 "summary": "BMNR"
@@ -15257,6 +16331,14 @@
               "BNC": {
                 "value": "BNC",
                 "summary": "BNC"
+              },
+              "BNKK": {
+                "value": "BNKK",
+                "summary": "BNKK"
+              },
+              "BRR": {
+                "value": "BRR",
+                "summary": "BRR"
               },
               "BTBT": {
                 "value": "BTBT",
@@ -15302,9 +16384,17 @@
                 "value": "GAME",
                 "summary": "GAME"
               },
+              "HSDT": {
+                "value": "HSDT",
+                "summary": "HSDT"
+              },
               "HYPD": {
                 "value": "HYPD",
                 "summary": "HYPD"
+              },
+              "IPST": {
+                "value": "IPST",
+                "summary": "IPST"
               },
               "MSTR": {
                 "value": "MSTR",
@@ -15318,9 +16408,21 @@
                 "value": "PAPL",
                 "summary": "PAPL"
               },
+              "PURR": {
+                "value": "PURR",
+                "summary": "PURR"
+              },
               "SBET": {
                 "value": "SBET",
                 "summary": "SBET"
+              },
+              "SLAI": {
+                "value": "SLAI",
+                "summary": "SLAI"
+              },
+              "SLMT": {
+                "value": "SLMT",
+                "summary": "SLMT"
               },
               "SMLR": {
                 "value": "SMLR",
@@ -15334,13 +16436,21 @@
                 "value": "STSS",
                 "summary": "STSS"
               },
+              "SUIG": {
+                "value": "SUIG",
+                "summary": "SUIG"
+              },
               "UPXI": {
                 "value": "UPXI",
                 "summary": "UPXI"
               },
+              "XXI": {
+                "value": "XXI",
+                "summary": "XXI"
+              },
               "multi": {
-                "value": "BMNR,BNC",
-                "summary": "BMNR + BNC"
+                "value": "ASST,BMNR",
+                "summary": "ASST + BMNR"
               }
             }
           },
@@ -15548,6 +16658,9 @@
                 "BTCM",
                 "DFDV",
                 "FWDI",
+                "HSDT",
+                "SLAI",
+                "SLMT",
                 "STKE",
                 "STSS",
                 "UPXI"
@@ -15566,6 +16679,18 @@
               "FWDI": {
                 "value": "FWDI",
                 "summary": "FWDI"
+              },
+              "HSDT": {
+                "value": "HSDT",
+                "summary": "HSDT"
+              },
+              "SLAI": {
+                "value": "SLAI",
+                "summary": "SLAI"
+              },
+              "SLMT": {
+                "value": "SLMT",
+                "summary": "SLMT"
               },
               "STKE": {
                 "value": "STKE",
@@ -15668,8 +16793,11 @@
             "schema": {
               "type": "string",
               "enum": [
+                "ASST",
                 "BMNR",
                 "BNC",
+                "BNKK",
+                "BRR",
                 "BTBT",
                 "BTCM",
                 "BTCS",
@@ -15681,20 +16809,31 @@
                 "FGNX",
                 "FWDI",
                 "GAME",
+                "HSDT",
                 "HYPD",
+                "IPST",
                 "MSTR",
                 "NAKA",
                 "PAPL",
+                "PURR",
                 "SBET",
+                "SLAI",
+                "SLMT",
                 "SMLR",
                 "SQNS",
                 "STKE",
                 "STSS",
-                "UPXI"
+                "SUIG",
+                "UPXI",
+                "XXI"
               ],
-              "example": "BMNR"
+              "example": "ASST"
             },
             "examples": {
+              "ASST": {
+                "value": "ASST",
+                "summary": "ASST"
+              },
               "BMNR": {
                 "value": "BMNR",
                 "summary": "BMNR"
@@ -15702,6 +16841,14 @@
               "BNC": {
                 "value": "BNC",
                 "summary": "BNC"
+              },
+              "BNKK": {
+                "value": "BNKK",
+                "summary": "BNKK"
+              },
+              "BRR": {
+                "value": "BRR",
+                "summary": "BRR"
               },
               "BTBT": {
                 "value": "BTBT",
@@ -15747,9 +16894,17 @@
                 "value": "GAME",
                 "summary": "GAME"
               },
+              "HSDT": {
+                "value": "HSDT",
+                "summary": "HSDT"
+              },
               "HYPD": {
                 "value": "HYPD",
                 "summary": "HYPD"
+              },
+              "IPST": {
+                "value": "IPST",
+                "summary": "IPST"
               },
               "MSTR": {
                 "value": "MSTR",
@@ -15763,9 +16918,21 @@
                 "value": "PAPL",
                 "summary": "PAPL"
               },
+              "PURR": {
+                "value": "PURR",
+                "summary": "PURR"
+              },
               "SBET": {
                 "value": "SBET",
                 "summary": "SBET"
+              },
+              "SLAI": {
+                "value": "SLAI",
+                "summary": "SLAI"
+              },
+              "SLMT": {
+                "value": "SLMT",
+                "summary": "SLMT"
               },
               "SMLR": {
                 "value": "SMLR",
@@ -15783,13 +16950,21 @@
                 "value": "STSS",
                 "summary": "STSS"
               },
+              "SUIG": {
+                "value": "SUIG",
+                "summary": "SUIG"
+              },
               "UPXI": {
                 "value": "UPXI",
                 "summary": "UPXI"
               },
+              "XXI": {
+                "value": "XXI",
+                "summary": "XXI"
+              },
               "multi": {
-                "value": "BMNR,BNC",
-                "summary": "BMNR + BNC"
+                "value": "ASST,BMNR",
+                "summary": "ASST + BMNR"
               }
             }
           },
@@ -16064,16 +17239,27 @@
             "schema": {
               "type": "string",
               "enum": [
+                "ASST",
+                "BRR",
                 "CEP",
                 "CEPO",
                 "MSTR",
                 "NAKA",
                 "SMLR",
-                "SQNS"
+                "SQNS",
+                "XXI"
               ],
-              "example": "CEP"
+              "example": "ASST"
             },
             "examples": {
+              "ASST": {
+                "value": "ASST",
+                "summary": "ASST"
+              },
+              "BRR": {
+                "value": "BRR",
+                "summary": "BRR"
+              },
               "CEP": {
                 "value": "CEP",
                 "summary": "CEP"
@@ -16098,9 +17284,13 @@
                 "value": "SQNS",
                 "summary": "SQNS"
               },
+              "XXI": {
+                "value": "XXI",
+                "summary": "XXI"
+              },
               "multi": {
-                "value": "CEP,CEPO",
-                "summary": "CEP + CEPO"
+                "value": "ASST,BRR",
+                "summary": "ASST + BRR"
               }
             }
           },
@@ -16670,7 +17860,8 @@
             "schema": {
               "type": "string",
               "enum": [
-                "HYPD"
+                "HYPD",
+                "PURR"
               ],
               "example": "HYPD"
             },
@@ -16678,6 +17869,14 @@
               "HYPD": {
                 "value": "HYPD",
                 "summary": "HYPD"
+              },
+              "PURR": {
+                "value": "PURR",
+                "summary": "PURR"
+              },
+              "multi": {
+                "value": "HYPD,PURR",
+                "summary": "HYPD + PURR"
               }
             }
           },
@@ -16764,8 +17963,11 @@
             "schema": {
               "type": "string",
               "enum": [
+                "ASST",
                 "BMNR",
                 "BNC",
+                "BNKK",
+                "BRR",
                 "BTBT",
                 "BTCM",
                 "BTCS",
@@ -16777,20 +17979,31 @@
                 "FGNX",
                 "FWDI",
                 "GAME",
+                "HSDT",
                 "HYPD",
+                "IPST",
                 "MSTR",
                 "NAKA",
                 "PAPL",
+                "PURR",
                 "SBET",
+                "SLAI",
+                "SLMT",
                 "SMLR",
                 "SQNS",
                 "STKE",
                 "STSS",
-                "UPXI"
+                "SUIG",
+                "UPXI",
+                "XXI"
               ],
-              "example": "BMNR"
+              "example": "ASST"
             },
             "examples": {
+              "ASST": {
+                "value": "ASST",
+                "summary": "ASST"
+              },
               "BMNR": {
                 "value": "BMNR",
                 "summary": "BMNR"
@@ -16798,6 +18011,14 @@
               "BNC": {
                 "value": "BNC",
                 "summary": "BNC"
+              },
+              "BNKK": {
+                "value": "BNKK",
+                "summary": "BNKK"
+              },
+              "BRR": {
+                "value": "BRR",
+                "summary": "BRR"
               },
               "BTBT": {
                 "value": "BTBT",
@@ -16843,9 +18064,17 @@
                 "value": "GAME",
                 "summary": "GAME"
               },
+              "HSDT": {
+                "value": "HSDT",
+                "summary": "HSDT"
+              },
               "HYPD": {
                 "value": "HYPD",
                 "summary": "HYPD"
+              },
+              "IPST": {
+                "value": "IPST",
+                "summary": "IPST"
               },
               "MSTR": {
                 "value": "MSTR",
@@ -16859,9 +18088,21 @@
                 "value": "PAPL",
                 "summary": "PAPL"
               },
+              "PURR": {
+                "value": "PURR",
+                "summary": "PURR"
+              },
               "SBET": {
                 "value": "SBET",
                 "summary": "SBET"
+              },
+              "SLAI": {
+                "value": "SLAI",
+                "summary": "SLAI"
+              },
+              "SLMT": {
+                "value": "SLMT",
+                "summary": "SLMT"
               },
               "SMLR": {
                 "value": "SMLR",
@@ -16879,13 +18120,21 @@
                 "value": "STSS",
                 "summary": "STSS"
               },
+              "SUIG": {
+                "value": "SUIG",
+                "summary": "SUIG"
+              },
               "UPXI": {
                 "value": "UPXI",
                 "summary": "UPXI"
               },
+              "XXI": {
+                "value": "XXI",
+                "summary": "XXI"
+              },
               "multi": {
-                "value": "BMNR,BNC",
-                "summary": "BMNR + BNC"
+                "value": "ASST,BMNR",
+                "summary": "ASST + BMNR"
               }
             }
           },
@@ -17066,7 +18315,8 @@
             "schema": {
               "type": "string",
               "enum": [
-                "katana"
+                "katana",
+                "unichain"
               ],
               "example": "katana"
             },
@@ -17074,6 +18324,14 @@
               "katana": {
                 "value": "katana",
                 "summary": "Katana"
+              },
+              "unichain": {
+                "value": "unichain",
+                "summary": "Unichain"
+              },
+              "multi": {
+                "value": "katana,unichain",
+                "summary": "Katana + Unichain"
               }
             }
           },
@@ -17801,8 +19059,11 @@
             "schema": {
               "type": "string",
               "enum": [
+                "ASST",
                 "BMNR",
                 "BNC",
+                "BNKK",
+                "BRR",
                 "BTBT",
                 "BTCM",
                 "BTCS",
@@ -17814,18 +19075,29 @@
                 "FGNX",
                 "FWDI",
                 "GAME",
+                "HSDT",
                 "HYPD",
+                "IPST",
                 "MSTR",
                 "NAKA",
+                "PURR",
                 "SBET",
+                "SLAI",
+                "SLMT",
                 "SMLR",
                 "SQNS",
                 "STSS",
-                "UPXI"
+                "SUIG",
+                "UPXI",
+                "XXI"
               ],
-              "example": "BMNR"
+              "example": "ASST"
             },
             "examples": {
+              "ASST": {
+                "value": "ASST",
+                "summary": "ASST"
+              },
               "BMNR": {
                 "value": "BMNR",
                 "summary": "BMNR"
@@ -17833,6 +19105,14 @@
               "BNC": {
                 "value": "BNC",
                 "summary": "BNC"
+              },
+              "BNKK": {
+                "value": "BNKK",
+                "summary": "BNKK"
+              },
+              "BRR": {
+                "value": "BRR",
+                "summary": "BRR"
               },
               "BTBT": {
                 "value": "BTBT",
@@ -17878,9 +19158,17 @@
                 "value": "GAME",
                 "summary": "GAME"
               },
+              "HSDT": {
+                "value": "HSDT",
+                "summary": "HSDT"
+              },
               "HYPD": {
                 "value": "HYPD",
                 "summary": "HYPD"
+              },
+              "IPST": {
+                "value": "IPST",
+                "summary": "IPST"
               },
               "MSTR": {
                 "value": "MSTR",
@@ -17890,9 +19178,21 @@
                 "value": "NAKA",
                 "summary": "NAKA"
               },
+              "PURR": {
+                "value": "PURR",
+                "summary": "PURR"
+              },
               "SBET": {
                 "value": "SBET",
                 "summary": "SBET"
+              },
+              "SLAI": {
+                "value": "SLAI",
+                "summary": "SLAI"
+              },
+              "SLMT": {
+                "value": "SLMT",
+                "summary": "SLMT"
               },
               "SMLR": {
                 "value": "SMLR",
@@ -17906,13 +19206,21 @@
                 "value": "STSS",
                 "summary": "STSS"
               },
+              "SUIG": {
+                "value": "SUIG",
+                "summary": "SUIG"
+              },
               "UPXI": {
                 "value": "UPXI",
                 "summary": "UPXI"
               },
+              "XXI": {
+                "value": "XXI",
+                "summary": "XXI"
+              },
               "multi": {
-                "value": "BMNR,BNC",
-                "summary": "BMNR + BNC"
+                "value": "ASST,BMNR",
+                "summary": "ASST + BMNR"
               }
             }
           },
@@ -18985,6 +20293,1156 @@
         ],
         "tags": [
           "chains"
+        ]
+      }
+    },
+    "/v1/metrics/borrow-total-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_borrow_total_usd",
+        "summary": "Borrow Total Usd",
+        "description": "Retrieve the 'borrow-total-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "aave",
+                "fluid",
+                "hyperlend",
+                "jupiter-lend",
+                "morpho",
+                "spark"
+              ],
+              "example": "aave"
+            },
+            "examples": {
+              "aave": {
+                "value": "aave",
+                "summary": "Aave"
+              },
+              "fluid": {
+                "value": "fluid",
+                "summary": "Fluid"
+              },
+              "hyperlend": {
+                "value": "hyperlend",
+                "summary": "Hyperlend"
+              },
+              "jupiter-lend": {
+                "value": "jupiter-lend",
+                "summary": "Jupiter Lend"
+              },
+              "morpho": {
+                "value": "morpho",
+                "summary": "Morpho"
+              },
+              "spark": {
+                "value": "spark",
+                "summary": "Spark"
+              },
+              "multi": {
+                "value": "aave,fluid",
+                "summary": "Aave + Fluid"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/deposit-total-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_deposit_total_usd",
+        "summary": "Deposit Total Usd",
+        "description": "Retrieve the 'deposit-total-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "aave",
+                "fluid",
+                "hyperlend",
+                "jupiter-lend",
+                "morpho",
+                "spark"
+              ],
+              "example": "aave"
+            },
+            "examples": {
+              "aave": {
+                "value": "aave",
+                "summary": "Aave"
+              },
+              "fluid": {
+                "value": "fluid",
+                "summary": "Fluid"
+              },
+              "hyperlend": {
+                "value": "hyperlend",
+                "summary": "Hyperlend"
+              },
+              "jupiter-lend": {
+                "value": "jupiter-lend",
+                "summary": "Jupiter Lend"
+              },
+              "morpho": {
+                "value": "morpho",
+                "summary": "Morpho"
+              },
+              "spark": {
+                "value": "spark",
+                "summary": "Spark"
+              },
+              "multi": {
+                "value": "aave,fluid",
+                "summary": "Aave + Fluid"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/interest-total-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_interest_total_usd",
+        "summary": "Interest Total Usd",
+        "description": "Retrieve the 'interest-total-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "aave",
+                "fluid",
+                "hyperlend",
+                "jupiter-lend",
+                "morpho",
+                "spark"
+              ],
+              "example": "aave"
+            },
+            "examples": {
+              "aave": {
+                "value": "aave",
+                "summary": "Aave"
+              },
+              "fluid": {
+                "value": "fluid",
+                "summary": "Fluid"
+              },
+              "hyperlend": {
+                "value": "hyperlend",
+                "summary": "Hyperlend"
+              },
+              "jupiter-lend": {
+                "value": "jupiter-lend",
+                "summary": "Jupiter Lend"
+              },
+              "morpho": {
+                "value": "morpho",
+                "summary": "Morpho"
+              },
+              "spark": {
+                "value": "spark",
+                "summary": "Spark"
+              },
+              "multi": {
+                "value": "aave,fluid",
+                "summary": "Aave + Fluid"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/nii-total-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_nii_total_usd",
+        "summary": "Nii Total Usd",
+        "description": "Retrieve the 'nii-total-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "aave",
+                "fluid",
+                "hyperlend",
+                "jupiter-lend",
+                "morpho",
+                "spark"
+              ],
+              "example": "aave"
+            },
+            "examples": {
+              "aave": {
+                "value": "aave",
+                "summary": "Aave"
+              },
+              "fluid": {
+                "value": "fluid",
+                "summary": "Fluid"
+              },
+              "hyperlend": {
+                "value": "hyperlend",
+                "summary": "Hyperlend"
+              },
+              "jupiter-lend": {
+                "value": "jupiter-lend",
+                "summary": "Jupiter Lend"
+              },
+              "morpho": {
+                "value": "morpho",
+                "summary": "Morpho"
+              },
+              "spark": {
+                "value": "spark",
+                "summary": "Spark"
+              },
+              "multi": {
+                "value": "aave,fluid",
+                "summary": "Aave + Fluid"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/trading-revenue-total-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_trading_revenue_total_usd",
+        "summary": "Trading Revenue Total Usd",
+        "description": "Retrieve the 'trading-revenue-total-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "hyperliquid"
+              ],
+              "example": "hyperliquid"
+            },
+            "examples": {
+              "hyperliquid": {
+                "value": "hyperliquid",
+                "summary": "Hyperliquid"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/perps-fees-total-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_perps_fees_total_usd",
+        "summary": "Perps Fees Total Usd",
+        "description": "Retrieve the 'perps-fees-total-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "hyperliquid"
+              ],
+              "example": "hyperliquid"
+            },
+            "examples": {
+              "hyperliquid": {
+                "value": "hyperliquid",
+                "summary": "Hyperliquid"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/spot-fees-total-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_spot_fees_total_usd",
+        "summary": "Spot Fees Total Usd",
+        "description": "Retrieve the 'spot-fees-total-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "hyperliquid"
+              ],
+              "example": "hyperliquid"
+            },
+            "examples": {
+              "hyperliquid": {
+                "value": "hyperliquid",
+                "summary": "Hyperliquid"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/hypercore-fees-total-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_hypercore_fees_total_usd",
+        "summary": "Hypercore Fees Total Usd",
+        "description": "Retrieve the 'hypercore-fees-total-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "hyperliquid"
+              ],
+              "example": "hyperliquid"
+            },
+            "examples": {
+              "hyperliquid": {
+                "value": "hyperliquid",
+                "summary": "Hyperliquid"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/treasury-holdings-bonk": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_treasury_holdings_bonk",
+        "summary": "Treasury Holdings Bonk",
+        "description": "Retrieve the 'treasury-holdings-bonk' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "BNKK"
+              ],
+              "example": "BNKK"
+            },
+            "examples": {
+              "BNKK": {
+                "value": "BNKK",
+                "summary": "BNKK"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/treasury-holdings-ip": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_treasury_holdings_ip",
+        "summary": "Treasury Holdings Ip",
+        "description": "Retrieve the 'treasury-holdings-ip' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "IPST"
+              ],
+              "example": "IPST"
+            },
+            "examples": {
+              "IPST": {
+                "value": "IPST",
+                "summary": "IPST"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/treasury-holdings-sui": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_treasury_holdings_sui",
+        "summary": "Treasury Holdings Sui",
+        "description": "Retrieve the 'treasury-holdings-sui' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "SUIG"
+              ],
+              "example": "SUIG"
+            },
+            "examples": {
+              "SUIG": {
+                "value": "SUIG",
+                "summary": "SUIG"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
         ]
       }
     }

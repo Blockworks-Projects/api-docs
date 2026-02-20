@@ -1,0 +1,77 @@
+---
+title: "optimism: Sequencer Cost"
+sidebarTitle: "Sequencer Cost"
+description: "Total cost paid by the sequencer for L1 data and state root submission"
+openapi: "GET /v1/metrics/sequencer-cost-total"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/sequencer-cost-total?project=optimism"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/sequencer-cost-total?project=optimism',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/sequencer-cost-total',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'optimism'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "optimism": [
+    {
+      "date": "2026-02-19",
+      "value": 56.388926062672766
+    },
+    {
+      "date": "2026-02-18",
+      "value": 54.50507181136507
+    },
+    {
+      "date": "2026-02-17",
+      "value": 49.96905632466044
+    },
+    {
+      "date": "2026-02-16",
+      "value": 60.56027808356365
+    },
+    {
+      "date": "2026-02-15",
+      "value": 52.256918475210256
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

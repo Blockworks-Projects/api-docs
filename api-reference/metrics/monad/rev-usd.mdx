@@ -1,0 +1,77 @@
+---
+title: "monad: REV"
+sidebarTitle: "REV"
+description: "Network REV (Real Economic Value) for Monad, a high-performance EVM-compatible L1 blockchain."
+openapi: "GET /v1/metrics/rev-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/rev-usd?project=monad"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/rev-usd?project=monad',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/rev-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'monad'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "monad": [
+    {
+      "date": "2026-02-19",
+      "value": 3244.5894991419223
+    },
+    {
+      "date": "2026-02-18",
+      "value": 3731.3514949571436
+    },
+    {
+      "date": "2026-02-17",
+      "value": 3471.0233923686924
+    },
+    {
+      "date": "2026-02-16",
+      "value": 4990.404092907844
+    },
+    {
+      "date": "2026-02-15",
+      "value": 5880.371539866458
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

@@ -1,0 +1,77 @@
+---
+title: "celestia: Fee Average"
+sidebarTitle: "Fee Average"
+description: "Average of the sum of the base fee and priority fee in USD that day"
+openapi: "GET /v1/metrics/transaction-fee-avg-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-fee-avg-usd?project=celestia"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-fee-avg-usd?project=celestia',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-fee-avg-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'celestia'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "celestia": [
+    {
+      "date": "2026-02-19",
+      "value": 0.0005443630734134511
+    },
+    {
+      "date": "2026-02-18",
+      "value": 0.0006437580111898225
+    },
+    {
+      "date": "2026-02-17",
+      "value": 0.0006916365292319107
+    },
+    {
+      "date": "2026-02-16",
+      "value": 0.0006921106478252882
+    },
+    {
+      "date": "2026-02-15",
+      "value": 0.0008100285419093291
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

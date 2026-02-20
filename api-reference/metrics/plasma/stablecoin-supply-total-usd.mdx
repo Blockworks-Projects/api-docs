@@ -1,0 +1,77 @@
+---
+title: "plasma: Stablecoin Supply"
+sidebarTitle: "Stablecoin Supply"
+description: "Total stablecoin supply on the chain."
+openapi: "GET /v1/metrics/stablecoin-supply-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd?project=plasma"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd?project=plasma',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'plasma'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "plasma": [
+    {
+      "date": "2026-02-19",
+      "value": 1732454024.1007183
+    },
+    {
+      "date": "2026-02-18",
+      "value": 1866426816.851862
+    },
+    {
+      "date": "2026-02-17",
+      "value": 1929708490.3492665
+    },
+    {
+      "date": "2026-02-16",
+      "value": 1949671923.0598001
+    },
+    {
+      "date": "2026-02-15",
+      "value": 1940272909.6716938
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

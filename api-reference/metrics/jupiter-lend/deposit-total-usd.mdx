@@ -1,0 +1,77 @@
+---
+title: "Total Deposits"
+sidebarTitle: "Total Deposits"
+description: "Total value of deposits across all markets"
+openapi: "GET /v1/metrics/deposit-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/deposit-total-usd?project=jupiter-lend"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/deposit-total-usd?project=jupiter-lend',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/deposit-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'jupiter-lend'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "jupiter-lend": [
+    {
+      "date": "2026-02-19",
+      "value": 1710597606.187907
+    },
+    {
+      "date": "2026-02-18",
+      "value": 1722663897.031926
+    },
+    {
+      "date": "2026-02-17",
+      "value": 1730098240.4115713
+    },
+    {
+      "date": "2026-02-16",
+      "value": 1725643243.0070927
+    },
+    {
+      "date": "2026-02-15",
+      "value": 1737957344.5173137
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

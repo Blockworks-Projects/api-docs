@@ -1,0 +1,77 @@
+---
+title: "HyperCore Fees"
+sidebarTitle: "HyperCore Fees"
+description: "Total fees from HyperCore (L1 trading and auctions) in USD."
+openapi: "GET /v1/metrics/hypercore-fees-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/hypercore-fees-total-usd?project=hyperliquid"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/hypercore-fees-total-usd?project=hyperliquid',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/hypercore-fees-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'hyperliquid'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "hyperliquid": [
+    {
+      "date": "2026-02-19",
+      "value": 1082534.495895028
+    },
+    {
+      "date": "2026-02-18",
+      "value": 1221629.0545099974
+    },
+    {
+      "date": "2026-02-17",
+      "value": 1306893.0043389797
+    },
+    {
+      "date": "2026-02-16",
+      "value": 972778.9371730089
+    },
+    {
+      "date": "2026-02-15",
+      "value": 1008458.9942309856
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

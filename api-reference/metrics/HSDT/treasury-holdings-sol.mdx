@@ -1,0 +1,81 @@
+---
+title: "Treasury Holdings"
+sidebarTitle: "Treasury Holdings"
+description: "Number of tokens held by the company. See crypto-asset for asset indicator"
+openapi: "GET /v1/metrics/treasury-holdings-sol"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** SOL
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/treasury-holdings-sol?project=HSDT"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/treasury-holdings-sol?project=HSDT',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/treasury-holdings-sol',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'HSDT'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "hsdt": [
+    {
+      "date": "2026-02-20",
+      "value": 2300000
+    },
+    {
+      "date": "2026-02-19",
+      "value": 2300000
+    },
+    {
+      "date": "2026-02-18",
+      "value": 2300000
+    },
+    {
+      "date": "2026-02-17",
+      "value": 2300000
+    },
+    {
+      "date": "2026-02-16",
+      "value": 2300000
+    },
+    {
+      "date": "2026-02-15",
+      "value": 2300000
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

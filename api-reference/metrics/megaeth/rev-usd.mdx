@@ -1,0 +1,77 @@
+---
+title: "megaeth: REV"
+sidebarTitle: "REV"
+description: "Network REV (Real Economic Value) for MegaETH, measuring total user-paid value accrual."
+openapi: "GET /v1/metrics/rev-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/rev-usd?project=megaeth"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/rev-usd?project=megaeth',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/rev-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'megaeth'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "megaeth": [
+    {
+      "date": "2026-02-19",
+      "value": 1584.6620774613714
+    },
+    {
+      "date": "2026-02-18",
+      "value": 1768.2925779098152
+    },
+    {
+      "date": "2026-02-17",
+      "value": 1675.681880898131
+    },
+    {
+      "date": "2026-02-16",
+      "value": 1735.1976186369172
+    },
+    {
+      "date": "2026-02-15",
+      "value": 1650.8371267570492
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

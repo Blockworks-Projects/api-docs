@@ -96,6 +96,38 @@
             "group": "Metrics: Chains",
             "pages": [
               {
+                "group": "Aptos",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/aptos/active-address-total",
+                      "api-reference/metrics/aptos/transaction-fee-avg-usd",
+                      "api-reference/metrics/aptos/transaction-fee-med-usd",
+                      "api-reference/metrics/aptos/transaction-fail-total",
+                      "api-reference/metrics/aptos/transaction-succeed-total",
+                      "api-reference/metrics/aptos/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/aptos/burn-usd",
+                      "api-reference/metrics/aptos/issuance-usd",
+                      "api-reference/metrics/aptos/rev-usd",
+                      "api-reference/metrics/aptos/transaction-fee-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Stablecoins",
+                    "pages": [
+                      "api-reference/metrics/aptos/stablecoin-supply-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
                 "group": "Arbitrum",
                 "icon": "link",
                 "pages": [
@@ -154,6 +186,38 @@
                 ]
               },
               {
+                "group": "Avalanche",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/avalanche/active-address-total",
+                      "api-reference/metrics/avalanche/transaction-fee-avg-usd",
+                      "api-reference/metrics/avalanche/transaction-fee-med-usd",
+                      "api-reference/metrics/avalanche/transaction-fail-total",
+                      "api-reference/metrics/avalanche/transaction-succeed-total",
+                      "api-reference/metrics/avalanche/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/avalanche/transaction-base-fee-total-usd",
+                      "api-reference/metrics/avalanche/issuance-usd",
+                      "api-reference/metrics/avalanche/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/avalanche/rev-usd"
+                    ]
+                  },
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/avalanche/dex-spot-volume-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
                 "group": "Base",
                 "icon": "link",
                 "pages": [
@@ -202,13 +266,122 @@
                 ]
               },
               {
+                "group": "Berachain",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/berachain/active-address-total",
+                      "api-reference/metrics/berachain/transaction-fee-avg-native",
+                      "api-reference/metrics/berachain/transaction-fee-avg-usd",
+                      "api-reference/metrics/berachain/transaction-fee-med-usd",
+                      "api-reference/metrics/berachain/transaction-fail-total",
+                      "api-reference/metrics/berachain/transaction-succeed-total",
+                      "api-reference/metrics/berachain/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/berachain/transaction-base-fee-total-native",
+                      "api-reference/metrics/berachain/transaction-base-fee-total-usd",
+                      "api-reference/metrics/berachain/transaction-priority-fee-total-native",
+                      "api-reference/metrics/berachain/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/berachain/rev-native",
+                      "api-reference/metrics/berachain/rev-usd",
+                      "api-reference/metrics/berachain/transaction-fee-total-native",
+                      "api-reference/metrics/berachain/transaction-fee-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Stablecoins",
+                    "pages": [
+                      "api-reference/metrics/berachain/stablecoin-supply-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
                 "group": "Bitcoin",
                 "icon": "link",
                 "pages": [
                   {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/bitcoin/active-address-total",
+                      "api-reference/metrics/bitcoin/transaction-fee-avg-usd",
+                      "api-reference/metrics/bitcoin/transaction-total"
+                    ]
+                  },
+                  {
                     "group": "ETF",
                     "pages": [
                       "api-reference/metrics/bitcoin/etf-flows-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/bitcoin/rev-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Bnb",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/bnb/active-address-total",
+                      "api-reference/metrics/bnb/transaction-fee-avg-usd",
+                      "api-reference/metrics/bnb/transaction-fee-med-usd",
+                      "api-reference/metrics/bnb/transaction-fail-total",
+                      "api-reference/metrics/bnb/transaction-succeed-total",
+                      "api-reference/metrics/bnb/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/bnb/rev-usd"
+                    ]
+                  },
+                  {
+                    "group": "Stablecoins",
+                    "pages": [
+                      "api-reference/metrics/bnb/stablecoin-supply-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/bnb/dex-spot-volume-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Celestia",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/celestia/transaction-fee-avg-usd",
+                      "api-reference/metrics/celestia/transaction-fee-med-usd",
+                      "api-reference/metrics/celestia/transaction-fail-total",
+                      "api-reference/metrics/celestia/transaction-succeed-total",
+                      "api-reference/metrics/celestia/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/celestia/transaction-other-fee-total-usd",
+                      "api-reference/metrics/celestia/rev-usd"
                     ]
                   }
                 ]
@@ -283,6 +456,89 @@
                 ]
               },
               {
+                "group": "Fogo",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/fogo/active-address-total",
+                      "api-reference/metrics/fogo/transaction-fee-avg-native",
+                      "api-reference/metrics/fogo/transaction-fee-avg-usd",
+                      "api-reference/metrics/fogo/transaction-fee-med-usd",
+                      "api-reference/metrics/fogo/transaction-fail-total",
+                      "api-reference/metrics/fogo/transaction-succeed-total",
+                      "api-reference/metrics/fogo/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/fogo/transaction-base-fee-total-native",
+                      "api-reference/metrics/fogo/transaction-base-fee-total-usd",
+                      "api-reference/metrics/fogo/transaction-priority-fee-total-native",
+                      "api-reference/metrics/fogo/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/fogo/rev-usd",
+                      "api-reference/metrics/fogo/transaction-fee-total-native",
+                      "api-reference/metrics/fogo/transaction-fee-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/fogo/token-price-usd",
+                      "api-reference/metrics/fogo/token-supply-staked",
+                      "api-reference/metrics/fogo/token-fdv-usd",
+                      "api-reference/metrics/fogo/token-supply"
+                    ]
+                  },
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/fogo/dex-spot-volume-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Hyperevm",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/hyperevm/active-address-total",
+                      "api-reference/metrics/hyperevm/transaction-fee-avg-native",
+                      "api-reference/metrics/hyperevm/transaction-fee-avg-usd",
+                      "api-reference/metrics/hyperevm/transaction-fee-med-native",
+                      "api-reference/metrics/hyperevm/transaction-fee-med-usd",
+                      "api-reference/metrics/hyperevm/transaction-fail-total",
+                      "api-reference/metrics/hyperevm/transaction-succeed-total",
+                      "api-reference/metrics/hyperevm/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/hyperevm/rev-native",
+                      "api-reference/metrics/hyperevm/rev-usd"
+                    ]
+                  },
+                  {
+                    "group": "Stablecoins",
+                    "pages": [
+                      "api-reference/metrics/hyperevm/stablecoin-supply-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/hyperevm/dex-spot-volume-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
                 "group": "Katana",
                 "icon": "link",
                 "pages": [
@@ -316,6 +572,181 @@
                       "api-reference/metrics/katana/sequencer-cost-total",
                       "api-reference/metrics/katana/transaction-fee-total-native",
                       "api-reference/metrics/katana/transaction-fee-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Stablecoins",
+                    "pages": [
+                      "api-reference/metrics/katana/stablecoin-supply-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/katana/dex-spot-volume-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Megaeth",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/megaeth/active-address-total",
+                      "api-reference/metrics/megaeth/transaction-fee-avg-native",
+                      "api-reference/metrics/megaeth/transaction-fee-avg-usd",
+                      "api-reference/metrics/megaeth/transaction-fee-med-native",
+                      "api-reference/metrics/megaeth/transaction-fee-med-usd",
+                      "api-reference/metrics/megaeth/transaction-fail-total",
+                      "api-reference/metrics/megaeth/transaction-succeed-total",
+                      "api-reference/metrics/megaeth/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/megaeth/transaction-base-fee-total-native",
+                      "api-reference/metrics/megaeth/transaction-base-fee-total-usd",
+                      "api-reference/metrics/megaeth/transaction-priority-fee-total-native",
+                      "api-reference/metrics/megaeth/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/megaeth/rev-usd",
+                      "api-reference/metrics/megaeth/transaction-fee-total-native",
+                      "api-reference/metrics/megaeth/transaction-fee-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Monad",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/monad/active-address-total",
+                      "api-reference/metrics/monad/transaction-fee-avg-native",
+                      "api-reference/metrics/monad/transaction-fee-avg-usd",
+                      "api-reference/metrics/monad/transaction-fee-med-native",
+                      "api-reference/metrics/monad/transaction-fee-med-usd",
+                      "api-reference/metrics/monad/transaction-fail-total",
+                      "api-reference/metrics/monad/transaction-succeed-total",
+                      "api-reference/metrics/monad/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/monad/transaction-base-fee-total-native",
+                      "api-reference/metrics/monad/transaction-base-fee-total-usd",
+                      "api-reference/metrics/monad/transaction-priority-fee-total-native",
+                      "api-reference/metrics/monad/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/monad/rev-usd",
+                      "api-reference/metrics/monad/transaction-fee-total-native",
+                      "api-reference/metrics/monad/transaction-fee-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Optimism",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/optimism/active-address-total",
+                      "api-reference/metrics/optimism/transaction-fee-avg-usd",
+                      "api-reference/metrics/optimism/transaction-fee-med-usd",
+                      "api-reference/metrics/optimism/transaction-fail-total",
+                      "api-reference/metrics/optimism/transaction-succeed-total",
+                      "api-reference/metrics/optimism/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/optimism/rev-usd",
+                      "api-reference/metrics/optimism/sequencer-cost-total",
+                      "api-reference/metrics/optimism/sequencer-gross-profit",
+                      "api-reference/metrics/optimism/transaction-fee-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Stablecoins",
+                    "pages": [
+                      "api-reference/metrics/optimism/stablecoin-supply-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Plasma",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/plasma/active-address-total",
+                      "api-reference/metrics/plasma/transaction-fee-avg-native",
+                      "api-reference/metrics/plasma/transaction-fee-avg-usd",
+                      "api-reference/metrics/plasma/transaction-fee-med-usd",
+                      "api-reference/metrics/plasma/transaction-fail-total",
+                      "api-reference/metrics/plasma/transaction-succeed-total",
+                      "api-reference/metrics/plasma/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/plasma/transaction-base-fee-total-native",
+                      "api-reference/metrics/plasma/transaction-base-fee-total-usd",
+                      "api-reference/metrics/plasma/transaction-priority-fee-total-native",
+                      "api-reference/metrics/plasma/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/plasma/rev-native",
+                      "api-reference/metrics/plasma/rev-usd",
+                      "api-reference/metrics/plasma/transaction-fee-total-native",
+                      "api-reference/metrics/plasma/transaction-fee-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Stablecoins",
+                    "pages": [
+                      "api-reference/metrics/plasma/stablecoin-supply-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Polygon",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/polygon/active-address-total",
+                      "api-reference/metrics/polygon/transaction-fee-avg-usd",
+                      "api-reference/metrics/polygon/transaction-fee-med-usd",
+                      "api-reference/metrics/polygon/transaction-fail-total",
+                      "api-reference/metrics/polygon/transaction-succeed-total",
+                      "api-reference/metrics/polygon/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/polygon/transaction-base-fee-total-usd",
+                      "api-reference/metrics/polygon/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/polygon/rev-usd",
+                      "api-reference/metrics/polygon/transaction-fee-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Stablecoins",
+                    "pages": [
+                      "api-reference/metrics/polygon/stablecoin-supply-total-usd"
                     ]
                   }
                 ]
@@ -386,9 +817,112 @@
                     ]
                   }
                 ]
+              },
+              {
+                "group": "Tron",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/tron/active-address-total",
+                      "api-reference/metrics/tron/transaction-fee-avg-usd",
+                      "api-reference/metrics/tron/transaction-fee-med-usd",
+                      "api-reference/metrics/tron/transaction-fail-total",
+                      "api-reference/metrics/tron/transaction-succeed-total",
+                      "api-reference/metrics/tron/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/tron/issuance-usd",
+                      "api-reference/metrics/tron/rev-usd"
+                    ]
+                  },
+                  {
+                    "group": "Stablecoins",
+                    "pages": [
+                      "api-reference/metrics/tron/stablecoin-supply-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Unichain",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/unichain/active-address-total",
+                      "api-reference/metrics/unichain/transaction-fee-avg-native",
+                      "api-reference/metrics/unichain/transaction-fee-avg-usd",
+                      "api-reference/metrics/unichain/transaction-fee-med-usd",
+                      "api-reference/metrics/unichain/transaction-fail-total",
+                      "api-reference/metrics/unichain/transaction-succeed-total",
+                      "api-reference/metrics/unichain/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/unichain/transaction-l1-fee-total-usd",
+                      "api-reference/metrics/unichain/rev-native",
+                      "api-reference/metrics/unichain/rev-usd",
+                      "api-reference/metrics/unichain/sequencer-cost-total",
+                      "api-reference/metrics/unichain/sequencer-gross-profit",
+                      "api-reference/metrics/unichain/transaction-fee-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Stablecoins",
+                    "pages": [
+                      "api-reference/metrics/unichain/stablecoin-supply-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/unichain/dex-spot-volume-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Zksync",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/zksync/active-address-total",
+                      "api-reference/metrics/zksync/transaction-fee-avg-usd",
+                      "api-reference/metrics/zksync/transaction-fee-med-usd",
+                      "api-reference/metrics/zksync/transaction-fail-total",
+                      "api-reference/metrics/zksync/transaction-succeed-total",
+                      "api-reference/metrics/zksync/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/zksync/rev-usd",
+                      "api-reference/metrics/zksync/sequencer-cost-total",
+                      "api-reference/metrics/zksync/sequencer-gross-profit",
+                      "api-reference/metrics/zksync/transaction-fee-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Stablecoins",
+                    "pages": [
+                      "api-reference/metrics/zksync/stablecoin-supply-total-usd"
+                    ]
+                  }
+                ]
               }
             ],
-            "tag": "6"
+            "tag": "21"
           },
           {
             "group": "Metrics: Projects",
@@ -397,7 +931,11 @@
                 "group": "Aave",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/aave/revenue-total-usd"
+                  "api-reference/metrics/aave/interest-total-usd",
+                  "api-reference/metrics/aave/nii-total-usd",
+                  "api-reference/metrics/aave/revenue-total-usd",
+                  "api-reference/metrics/aave/borrow-total-usd",
+                  "api-reference/metrics/aave/deposit-total-usd"
                 ]
               },
               {
@@ -624,6 +1162,16 @@
                 ]
               },
               {
+                "group": "Fluid",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/fluid/interest-total-usd",
+                  "api-reference/metrics/fluid/nii-total-usd",
+                  "api-reference/metrics/fluid/borrow-total-usd",
+                  "api-reference/metrics/fluid/deposit-total-usd"
+                ]
+              },
+              {
                 "group": "Fourmeme",
                 "icon": "cube",
                 "pages": [
@@ -659,10 +1207,29 @@
                 ]
               },
               {
+                "group": "Hyperlend",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/hyperlend/interest-total-usd",
+                  "api-reference/metrics/hyperlend/nii-total-usd",
+                  "api-reference/metrics/hyperlend/borrow-total-usd",
+                  "api-reference/metrics/hyperlend/deposit-total-usd"
+                ]
+              },
+              {
                 "group": "Hyperliquid",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/hyperliquid/revenue-total-usd"
+                  "api-reference/metrics/hyperliquid/transaction-base-fee-total-usd",
+                  "api-reference/metrics/hyperliquid/dex-spot-volume-total-usd",
+                  "api-reference/metrics/hyperliquid/hypercore-fees-total-usd",
+                  "api-reference/metrics/hyperliquid/issuance-usd",
+                  "api-reference/metrics/hyperliquid/perps-fees-total-usd",
+                  "api-reference/metrics/hyperliquid/transaction-priority-fee-total-usd",
+                  "api-reference/metrics/hyperliquid/revenue-total-usd",
+                  "api-reference/metrics/hyperliquid/spot-fees-total-usd",
+                  "api-reference/metrics/hyperliquid/trading-revenue-total-usd",
+                  "api-reference/metrics/hyperliquid/transaction-fee-total-usd"
                 ]
               },
               {
@@ -677,6 +1244,16 @@
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/jito/revenue-total-usd"
+                ]
+              },
+              {
+                "group": "Jupiter Lend",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/jupiter-lend/interest-total-usd",
+                  "api-reference/metrics/jupiter-lend/nii-total-usd",
+                  "api-reference/metrics/jupiter-lend/borrow-total-usd",
+                  "api-reference/metrics/jupiter-lend/deposit-total-usd"
                 ]
               },
               {
@@ -800,7 +1377,11 @@
                 "group": "Morpho",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/morpho/revenue-total-usd"
+                  "api-reference/metrics/morpho/interest-total-usd",
+                  "api-reference/metrics/morpho/nii-total-usd",
+                  "api-reference/metrics/morpho/revenue-total-usd",
+                  "api-reference/metrics/morpho/borrow-total-usd",
+                  "api-reference/metrics/morpho/deposit-total-usd"
                 ]
               },
               {
@@ -952,7 +1533,11 @@
                 "group": "Spark",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/spark/revenue-total-usd"
+                  "api-reference/metrics/spark/interest-total-usd",
+                  "api-reference/metrics/spark/nii-total-usd",
+                  "api-reference/metrics/spark/revenue-total-usd",
+                  "api-reference/metrics/spark/borrow-total-usd",
+                  "api-reference/metrics/spark/deposit-total-usd"
                 ]
               },
               {
@@ -1068,6 +1653,16 @@
                 ]
               },
               {
+                "group": "Zcash",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/zcash/transaction-fee-avg-usd",
+                  "api-reference/metrics/zcash/transaction-fee-med-usd",
+                  "api-reference/metrics/zcash/rev-usd",
+                  "api-reference/metrics/zcash/transaction-total"
+                ]
+              },
+              {
                 "group": "ZeroFi",
                 "icon": "cube",
                 "pages": [
@@ -1082,7 +1677,7 @@
                 ]
               }
             ],
-            "tag": "95"
+            "tag": "99"
           },
           {
             "group": "Metrics: ETFs",
@@ -1241,6 +1836,18 @@
             "group": "Metrics: Treasuries",
             "pages": [
               {
+                "group": "ASST",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/ASST/treasury-enterprise-value-usd",
+                  "api-reference/metrics/ASST/treasury-market-cap-usd",
+                  "api-reference/metrics/ASST/outstanding-mnav",
+                  "api-reference/metrics/ASST/treasury-nav-total-usd",
+                  "api-reference/metrics/ASST/treasury-holdings-btc",
+                  "api-reference/metrics/ASST/treasury-volume-total-usd"
+                ]
+              },
+              {
                 "group": "BMNR",
                 "icon": "building-columns",
                 "pages": [
@@ -1268,6 +1875,30 @@
                   "api-reference/metrics/BNC/treasury-nav-total-usd",
                   "api-reference/metrics/BNC/treasury-holdings-bnb",
                   "api-reference/metrics/BNC/treasury-volume-total-usd"
+                ]
+              },
+              {
+                "group": "BNKK",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/BNKK/treasury-enterprise-value-usd",
+                  "api-reference/metrics/BNKK/treasury-market-cap-usd",
+                  "api-reference/metrics/BNKK/outstanding-mnav",
+                  "api-reference/metrics/BNKK/treasury-nav-total-usd",
+                  "api-reference/metrics/BNKK/treasury-holdings-bonk",
+                  "api-reference/metrics/BNKK/treasury-volume-total-usd"
+                ]
+              },
+              {
+                "group": "BRR",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/BRR/treasury-enterprise-value-usd",
+                  "api-reference/metrics/BRR/treasury-market-cap-usd",
+                  "api-reference/metrics/BRR/outstanding-mnav",
+                  "api-reference/metrics/BRR/treasury-nav-total-usd",
+                  "api-reference/metrics/BRR/treasury-holdings-btc",
+                  "api-reference/metrics/BRR/treasury-volume-total-usd"
                 ]
               },
               {
@@ -1436,6 +2067,18 @@
                 ]
               },
               {
+                "group": "HSDT",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/HSDT/treasury-enterprise-value-usd",
+                  "api-reference/metrics/HSDT/treasury-market-cap-usd",
+                  "api-reference/metrics/HSDT/outstanding-mnav",
+                  "api-reference/metrics/HSDT/treasury-nav-total-usd",
+                  "api-reference/metrics/HSDT/treasury-holdings-sol",
+                  "api-reference/metrics/HSDT/treasury-volume-total-usd"
+                ]
+              },
+              {
                 "group": "HYPD",
                 "icon": "building-columns",
                 "pages": [
@@ -1448,6 +2091,18 @@
                   "api-reference/metrics/HYPD/treasury-nav-total-usd",
                   "api-reference/metrics/HYPD/treasury-holdings-hype",
                   "api-reference/metrics/HYPD/treasury-volume-total-usd"
+                ]
+              },
+              {
+                "group": "IPST",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/IPST/treasury-enterprise-value-usd",
+                  "api-reference/metrics/IPST/treasury-market-cap-usd",
+                  "api-reference/metrics/IPST/outstanding-mnav",
+                  "api-reference/metrics/IPST/treasury-nav-total-usd",
+                  "api-reference/metrics/IPST/treasury-holdings-ip",
+                  "api-reference/metrics/IPST/treasury-volume-total-usd"
                 ]
               },
               {
@@ -1495,6 +2150,18 @@
                 ]
               },
               {
+                "group": "PURR",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/PURR/treasury-enterprise-value-usd",
+                  "api-reference/metrics/PURR/treasury-market-cap-usd",
+                  "api-reference/metrics/PURR/outstanding-mnav",
+                  "api-reference/metrics/PURR/treasury-nav-total-usd",
+                  "api-reference/metrics/PURR/treasury-holdings-hype",
+                  "api-reference/metrics/PURR/treasury-volume-total-usd"
+                ]
+              },
+              {
                 "group": "SBET",
                 "icon": "building-columns",
                 "pages": [
@@ -1507,6 +2174,30 @@
                   "api-reference/metrics/SBET/treasury-nav-total-usd",
                   "api-reference/metrics/SBET/treasury-holdings-eth",
                   "api-reference/metrics/SBET/treasury-volume-total-usd"
+                ]
+              },
+              {
+                "group": "SLAI",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/SLAI/treasury-enterprise-value-usd",
+                  "api-reference/metrics/SLAI/treasury-market-cap-usd",
+                  "api-reference/metrics/SLAI/outstanding-mnav",
+                  "api-reference/metrics/SLAI/treasury-nav-total-usd",
+                  "api-reference/metrics/SLAI/treasury-holdings-sol",
+                  "api-reference/metrics/SLAI/treasury-volume-total-usd"
+                ]
+              },
+              {
+                "group": "SLMT",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/SLMT/treasury-enterprise-value-usd",
+                  "api-reference/metrics/SLMT/treasury-market-cap-usd",
+                  "api-reference/metrics/SLMT/outstanding-mnav",
+                  "api-reference/metrics/SLMT/treasury-nav-total-usd",
+                  "api-reference/metrics/SLMT/treasury-holdings-sol",
+                  "api-reference/metrics/SLMT/treasury-volume-total-usd"
                 ]
               },
               {
@@ -1564,6 +2255,18 @@
                 ]
               },
               {
+                "group": "SUIG",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/SUIG/treasury-enterprise-value-usd",
+                  "api-reference/metrics/SUIG/treasury-market-cap-usd",
+                  "api-reference/metrics/SUIG/outstanding-mnav",
+                  "api-reference/metrics/SUIG/treasury-nav-total-usd",
+                  "api-reference/metrics/SUIG/treasury-holdings-sui",
+                  "api-reference/metrics/SUIG/treasury-volume-total-usd"
+                ]
+              },
+              {
                 "group": "UPXI",
                 "icon": "building-columns",
                 "pages": [
@@ -1577,9 +2280,21 @@
                   "api-reference/metrics/UPXI/treasury-holdings-sol",
                   "api-reference/metrics/UPXI/treasury-volume-total-usd"
                 ]
+              },
+              {
+                "group": "XXI",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/XXI/treasury-enterprise-value-usd",
+                  "api-reference/metrics/XXI/treasury-market-cap-usd",
+                  "api-reference/metrics/XXI/outstanding-mnav",
+                  "api-reference/metrics/XXI/treasury-nav-total-usd",
+                  "api-reference/metrics/XXI/treasury-holdings-btc",
+                  "api-reference/metrics/XXI/treasury-volume-total-usd"
+                ]
               }
             ],
-            "tag": "23"
+            "tag": "33"
           }
         ]
       },

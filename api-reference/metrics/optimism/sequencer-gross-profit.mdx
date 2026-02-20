@@ -1,0 +1,77 @@
+---
+title: "optimism: Sequencer Gross Profit"
+sidebarTitle: "Sequencer Gross Profit"
+description: "Gross profit earned by the sequencer (fees minus operator costs)"
+openapi: "GET /v1/metrics/sequencer-gross-profit"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/sequencer-gross-profit?project=optimism"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/sequencer-gross-profit?project=optimism',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/sequencer-gross-profit',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'optimism'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "optimism": [
+    {
+      "date": "2026-02-19",
+      "value": 2059.3018754986315
+    },
+    {
+      "date": "2026-02-18",
+      "value": 2963.7125541151213
+    },
+    {
+      "date": "2026-02-17",
+      "value": 1542.8668792406268
+    },
+    {
+      "date": "2026-02-16",
+      "value": 1197.8193718859386
+    },
+    {
+      "date": "2026-02-15",
+      "value": 1728.0406166598764
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

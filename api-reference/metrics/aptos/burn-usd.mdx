@@ -1,0 +1,77 @@
+---
+title: "aptos: Burn"
+sidebarTitle: "Burn"
+description: "The total amount of burned transaction fees in USD"
+openapi: "GET /v1/metrics/burn-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/burn-usd?project=aptos"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/burn-usd?project=aptos',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/burn-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'aptos'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "aptos": [
+    {
+      "date": "2026-02-19",
+      "value": 171.50091398406676
+    },
+    {
+      "date": "2026-02-18",
+      "value": 162.012443948232
+    },
+    {
+      "date": "2026-02-17",
+      "value": 141.51289835935984
+    },
+    {
+      "date": "2026-02-16",
+      "value": 145.2330930455968
+    },
+    {
+      "date": "2026-02-15",
+      "value": 166.259359706726
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

@@ -1,0 +1,77 @@
+---
+title: "bnb: DEX Spot Volume"
+sidebarTitle: "DEX Spot Volume"
+description: "Total amount of daily spot volume from major DEXs. Only includes volumes from fee-paying liquidity pools."
+openapi: "GET /v1/metrics/dex-spot-volume-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/dex-spot-volume-total-usd?project=bnb"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/dex-spot-volume-total-usd?project=bnb',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/dex-spot-volume-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'bnb'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "bnb": [
+    {
+      "date": "2026-02-19",
+      "value": 1328463762.3596153
+    },
+    {
+      "date": "2026-02-18",
+      "value": 1190993448.879597
+    },
+    {
+      "date": "2026-02-17",
+      "value": 1032606470.1890486
+    },
+    {
+      "date": "2026-02-16",
+      "value": 1365132748.00233
+    },
+    {
+      "date": "2026-02-15",
+      "value": 1640423396.1434782
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

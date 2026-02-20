@@ -1,0 +1,77 @@
+---
+title: "unichain: Stablecoin Supply"
+sidebarTitle: "Stablecoin Supply"
+description: "Total stablecoin supply on the chain."
+openapi: "GET /v1/metrics/stablecoin-supply-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd?project=unichain"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd?project=unichain',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'unichain'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "unichain": [
+    {
+      "date": "2026-02-19",
+      "value": 82948472.80526125
+    },
+    {
+      "date": "2026-02-18",
+      "value": 76090600.63429588
+    },
+    {
+      "date": "2026-02-17",
+      "value": 75773861.06757198
+    },
+    {
+      "date": "2026-02-16",
+      "value": 77477091.6285483
+    },
+    {
+      "date": "2026-02-15",
+      "value": 79139004.75513774
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

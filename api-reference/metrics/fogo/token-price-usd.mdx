@@ -1,0 +1,81 @@
+---
+title: "fogo: Price"
+sidebarTitle: "Price"
+description: "The average token price during the specified time period for the native asset of that chain."
+openapi: "GET /v1/metrics/token-price-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/token-price-usd?project=fogo"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/token-price-usd?project=fogo',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/token-price-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'fogo'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "fogo": [
+    {
+      "date": "2026-02-20",
+      "value": 0.02356380467878831
+    },
+    {
+      "date": "2026-02-19",
+      "value": 0.025019962580709158
+    },
+    {
+      "date": "2026-02-18",
+      "value": 0.024613242249056574
+    },
+    {
+      "date": "2026-02-17",
+      "value": 0.024004735015701956
+    },
+    {
+      "date": "2026-02-16",
+      "value": 0.022136782400259816
+    },
+    {
+      "date": "2026-02-15",
+      "value": 0.022953415608565512
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

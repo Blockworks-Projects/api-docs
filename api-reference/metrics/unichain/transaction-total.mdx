@@ -1,0 +1,77 @@
+---
+title: "unichain: Transactions (Total)"
+sidebarTitle: "Transactions (Total)"
+description: "Daily number of all transactions."
+openapi: "GET /v1/metrics/transaction-total"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** Count
+- **Type:** Integer
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-total?project=unichain"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-total?project=unichain',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-total',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'unichain'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "unichain": [
+    {
+      "date": "2026-02-19",
+      "value": 951847
+    },
+    {
+      "date": "2026-02-18",
+      "value": 935395
+    },
+    {
+      "date": "2026-02-17",
+      "value": 981636
+    },
+    {
+      "date": "2026-02-16",
+      "value": 948286
+    },
+    {
+      "date": "2026-02-15",
+      "value": 988263
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

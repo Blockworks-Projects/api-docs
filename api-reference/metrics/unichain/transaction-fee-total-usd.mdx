@@ -1,0 +1,77 @@
+---
+title: "unichain: Transaction Fees"
+sidebarTitle: "Transaction Fees"
+description: "Total transaction fees paid converted to USD"
+openapi: "GET /v1/metrics/transaction-fee-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-fee-total-usd?project=unichain"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-fee-total-usd?project=unichain',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-fee-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'unichain'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "unichain": [
+    {
+      "date": "2026-02-19",
+      "value": 277.1189557810188
+    },
+    {
+      "date": "2026-02-18",
+      "value": 303.5362406963004
+    },
+    {
+      "date": "2026-02-17",
+      "value": 421.8453412468603
+    },
+    {
+      "date": "2026-02-16",
+      "value": 368.26340793133886
+    },
+    {
+      "date": "2026-02-15",
+      "value": 495.8830073238756
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

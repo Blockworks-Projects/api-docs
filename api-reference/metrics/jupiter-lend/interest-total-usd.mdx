@@ -1,0 +1,77 @@
+---
+title: "Interest Generated"
+sidebarTitle: "Interest Generated"
+description: "Total interest generated from borrowers"
+openapi: "GET /v1/metrics/interest-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/interest-total-usd?project=jupiter-lend"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/interest-total-usd?project=jupiter-lend',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/interest-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'jupiter-lend'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "jupiter-lend": [
+    {
+      "date": "2026-02-19",
+      "value": 68046.87181907622
+    },
+    {
+      "date": "2026-02-18",
+      "value": 72486.55836336009
+    },
+    {
+      "date": "2026-02-17",
+      "value": 72646.4669742534
+    },
+    {
+      "date": "2026-02-16",
+      "value": 72102.68602665531
+    },
+    {
+      "date": "2026-02-15",
+      "value": 72309.65611833101
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

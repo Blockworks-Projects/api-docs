@@ -1,0 +1,77 @@
+---
+title: "zksync: Transaction Fees"
+sidebarTitle: "Transaction Fees"
+description: "Total L2 transaction fees paid converted to USD"
+openapi: "GET /v1/metrics/transaction-fee-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-fee-total-usd?project=zksync"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-fee-total-usd?project=zksync',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-fee-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'zksync'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "zksync": [
+    {
+      "date": "2026-02-19",
+      "value": 547.1674746539516
+    },
+    {
+      "date": "2026-02-18",
+      "value": 580.8199026903449
+    },
+    {
+      "date": "2026-02-17",
+      "value": 581.0876651849348
+    },
+    {
+      "date": "2026-02-16",
+      "value": 540.2933869738756
+    },
+    {
+      "date": "2026-02-15",
+      "value": 736.141757163313
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

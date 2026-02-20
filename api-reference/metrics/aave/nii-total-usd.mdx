@@ -1,0 +1,77 @@
+---
+title: "Net Interest Income"
+sidebarTitle: "Net Interest Income"
+description: "Net interest income retained by the protocol"
+openapi: "GET /v1/metrics/nii-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/nii-total-usd?project=aave"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/nii-total-usd?project=aave',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/nii-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'aave'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "aave": [
+    {
+      "date": "2026-02-19",
+      "value": 194391.50007316202
+    },
+    {
+      "date": "2026-02-18",
+      "value": 195981.60695117072
+    },
+    {
+      "date": "2026-02-17",
+      "value": 214852.65048129822
+    },
+    {
+      "date": "2026-02-16",
+      "value": 228481.9588511138
+    },
+    {
+      "date": "2026-02-15",
+      "value": 298882.00377686246
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

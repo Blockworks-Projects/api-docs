@@ -1,0 +1,78 @@
+---
+title: "plasma: Base Fees (USD)"
+sidebarTitle: "Base Fees"
+tag: "USD"
+description: "The minimum transaction fee required for a transaction to be included in a block"
+openapi: "GET /v1/metrics/transaction-base-fee-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-base-fee-total-usd?project=plasma"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-base-fee-total-usd?project=plasma',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-base-fee-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'plasma'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "plasma": [
+    {
+      "date": "2026-02-19",
+      "value": 10.119574181817727
+    },
+    {
+      "date": "2026-02-18",
+      "value": 8.87663537535198
+    },
+    {
+      "date": "2026-02-17",
+      "value": 19.443115914697444
+    },
+    {
+      "date": "2026-02-16",
+      "value": 22.491281881375688
+    },
+    {
+      "date": "2026-02-15",
+      "value": 16.862425422486755
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

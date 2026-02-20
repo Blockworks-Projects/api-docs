@@ -1,0 +1,77 @@
+---
+title: "avalanche: Issuance"
+sidebarTitle: "Issuance"
+description: "Total token issuance to validators and stakers"
+openapi: "GET /v1/metrics/issuance-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/issuance-usd?project=avalanche"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/issuance-usd?project=avalanche',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/issuance-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'avalanche'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "avalanche": [
+    {
+      "date": "2026-02-19",
+      "value": 169671.5761326295
+    },
+    {
+      "date": "2026-02-18",
+      "value": 61630.59075363484
+    },
+    {
+      "date": "2026-02-17",
+      "value": 233932.20521818812
+    },
+    {
+      "date": "2026-02-16",
+      "value": 47858.27002933371
+    },
+    {
+      "date": "2026-02-15",
+      "value": 63618.03665340983
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
