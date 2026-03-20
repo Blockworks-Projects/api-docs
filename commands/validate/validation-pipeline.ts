@@ -1,3 +1,4 @@
+import { readFile } from 'node:fs/promises'
 import { apiErrors } from '../sync/lib/api-errors'
 import { OUTPUT_DIR } from '../sync/lib/constants'
 import { Metric, Project } from '../sync/classes'
@@ -16,6 +17,11 @@ type MetricChange = {
   newValue: any
 }
 
+type OpenApiDrift = {
+  stale: string[]
+  missing: string[]
+}
+
 type ValidationResults = {
   projects: Map<string, Project>
   metrics: Metric[]
@@ -24,6 +30,7 @@ type ValidationResults = {
   changed: MetricChange[]
   omittedMetrics: Metric[]
   validationResult: any
+  openApiDrift: OpenApiDrift
   hasIssues: boolean
 }
 
@@ -71,6 +78,24 @@ const filterProjects = (projects: Map<string, Project>) => {
 const extractMetrics = (projects: Map<string, Project>) =>
   Array.from(projects.values()).flatMap(project => project.metrics)
 
+const checkOpenApiDrift = async (metrics: Metric[]): Promise<OpenApiDrift> => {
+  const openApiContent = await readFile('./openapi.json', 'utf-8')
+  const openApiSpec = JSON.parse(openApiContent)
+
+  const apiIdentifiers = new Set(metrics.map(m => m.identifier))
+  const openApiIdentifiers = new Set<string>()
+
+  for (const path of Object.keys(openApiSpec.paths)) {
+    const match = path.match(/^\/v1\/metrics\/(.+)$/)
+    if (match) openApiIdentifiers.add(match[1])
+  }
+
+  const stale = [...openApiIdentifiers].filter(id => !apiIdentifiers.has(id)).sort()
+  const missing = [...apiIdentifiers].filter(id => !openApiIdentifiers.has(id)).sort()
+
+  return { stale, missing }
+}
+
 const saveValidationReport = async (validationResult: any) => {
   const report = generateValidationReport(validationResult)
   try {
@@ -105,6 +130,9 @@ export const runValidationPipeline = async (): Promise<ValidationResults> => {
   // Perform detailed comparison with cached metrics
   const { added, removed, changed } = compareMetricsDetailed(cachedMetrics, metrics)
 
+  // Check for OpenAPI spec drift
+  const openApiDrift = await checkOpenApiDrift(metrics)
+
   // Save validation report if there are issues
   if (validationResult.issues.length > 0) {
     await saveValidationReport(validationResult)
@@ -116,7 +144,9 @@ export const runValidationPipeline = async (): Promise<ValidationResults> => {
     omittedMetrics.length > 0 ||
     added.length > 0 ||
     removed.length > 0 ||
-    changed.length > 0
+    changed.length > 0 ||
+    openApiDrift.stale.length > 0 ||
+    openApiDrift.missing.length > 0
   )
 
   return {
@@ -127,6 +157,7 @@ export const runValidationPipeline = async (): Promise<ValidationResults> => {
     changed,
     omittedMetrics,
     validationResult,
+    openApiDrift,
     hasIssues
   }
 }
@@ -307,6 +338,23 @@ const displayValidationIssues = (validationResult: any) => {
   })
 }
 
+const displayOpenApiDrift = (drift: OpenApiDrift) => {
+  if (drift.stale.length === 0 && drift.missing.length === 0) {
+    text.pass('OpenAPI spec in sync with API')
+    return
+  }
+
+  if (drift.stale.length > 0) {
+    text.warnHeader(`🧹 ${drift.stale.length} Stale OpenAPI Endpoints (not in API):`)
+    drift.stale.forEach(id => text.warnDetail(`  ${id}`))
+  }
+
+  if (drift.missing.length > 0) {
+    text.warnHeader(`❌ ${drift.missing.length} Missing OpenAPI Endpoints (in API but not in spec):`)
+    drift.missing.forEach(id => text.warnDetail(`  ${id}`))
+  }
+}
+
 const displayValidationStats = (results: ValidationResults) => {
   const { metrics, omittedMetrics, added, removed, changed, validationResult } = results
 
@@ -335,6 +383,16 @@ const displayValidationStats = (results: ValidationResults) => {
   } else {
     text.summarySuccess(`Validation Issues: {count}`, 0)
   }
+
+  const { openApiDrift } = results
+  if (openApiDrift.stale.length > 0 || openApiDrift.missing.length > 0) {
+    const staleFn = openApiDrift.stale.length > 0 ? text.summaryWarn : text.summarySuccess
+    const missingFn = openApiDrift.missing.length > 0 ? text.summaryWarn : text.summarySuccess
+    staleFn(`OpenAPI Stale: {count}`, openApiDrift.stale.length)
+    missingFn(`OpenAPI Missing: {count}`, openApiDrift.missing.length)
+  } else {
+    text.summarySuccess(`OpenAPI Drift: {count}`, 0)
+  }
 }
 
 export const displayValidationSummary = (results: ValidationResults) => {
@@ -342,5 +400,6 @@ export const displayValidationSummary = (results: ValidationResults) => {
   displayOmittedMetrics(results.omittedMetrics)
   displayApiErrors()
   displayValidationIssues(results.validationResult)
+  displayOpenApiDrift(results.openApiDrift)
   displayValidationStats(results)
 }

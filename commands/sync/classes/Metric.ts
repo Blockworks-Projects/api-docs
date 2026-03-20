@@ -57,7 +57,7 @@ export class Metric {
   }
 
   get pageTitle() {
-    return this.parent?.isChain ? `${this.parent.name}: ${this.name}` : this.name
+    return this.parent?.isChain ? `${toTitleCase(this.parent.name)}: ${this.name}` : this.name
   }
 
   get unit(): string {

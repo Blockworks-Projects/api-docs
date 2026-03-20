@@ -50,6 +50,23 @@ export const updateOpenApiSpec = async (metrics: Metric[]): Promise<void> => {
     }
   }
 
+  // Remove stale metric endpoints no longer in API
+  const currentIdentifiers = new Set(metricGroups.keys())
+  const staleEndpoints: string[] = []
+
+  for (const path of Object.keys(openApiSpec.paths)) {
+    const match = path.match(/^\/v1\/metrics\/(.+)$/)
+    if (match && !currentIdentifiers.has(match[1])) {
+      staleEndpoints.push(match[1])
+      delete openApiSpec.paths[path]
+    }
+  }
+
+  if (staleEndpoints.length > 0) {
+    text.detail(text.withCount(`Removed {count} stale endpoints`, staleEndpoints.length))
+    staleEndpoints.forEach(id => text.detail(`- ${id}`))
+  }
+
   text.detail(text.withCount('Analyzed {count} existing endpoints', existingCount))
   text.detail('Adding missing endpoints and updating project enums')
 
