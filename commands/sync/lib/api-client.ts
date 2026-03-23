@@ -15,10 +15,11 @@ export const api = fetcher(API_BASE_URL, {
   headers: { 'x-api-key': API_KEY },
 })
 
-export const fetch = async <T>(endpoint: string, params?: Record<string, any>): Promise<T> => {
+export const fetch = async <T>(endpoint: string, params?: Record<string, any>, signal?: AbortSignal): Promise<T> => {
   try {
-    return await api.get<T>(endpoint, { query: params })
+    return await api.get<T>(endpoint, { query: params, signal })
   } catch (error: any) {
+    if (signal?.aborted) throw error
     const url = `${endpoint}${params ? '?' + new URLSearchParams(params).toString() : ''}`
     apiErrors.push({ ...error, url })
     throw new Error(`API Error: ${error.message || 'Unknown error'} at ${url}`)

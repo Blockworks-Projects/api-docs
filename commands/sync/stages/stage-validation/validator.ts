@@ -1,9 +1,21 @@
+import chalk from 'chalk'
+import * as cliProgress from 'cli-progress'
 import * as text from '../../lib/text'
 import { Metric, ValidationError } from '../../classes'
 import { fetchMetricDataWithTimeout } from './api-fetcher'
 import type { ValidationIssue, ValidationResult } from './types'
 import { displayValidationResults } from './validation-reporter'
-import { createProgressBar } from '../../lib/createProgressBar'
+import { VALIDATION_CONCURRENCY, RETRY_COOLOFF_MS } from '../../lib/constants'
+
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
+
+const createFetchProgressBar = () =>
+  new cliProgress.SingleBar({
+    format: `   Fetching  |{bar}| {percentage}% || ${chalk.greenBright('{completed}')} done ${chalk.yellowBright('{pending} pending')} ${chalk.redBright('{failed} failed')} / {total}`,
+    barCompleteChar: '\u2588',
+    barIncompleteChar: '\u2591',
+    hideCursor: true
+  }, cliProgress.Presets.legacy)
 
 export const validateMetrics = async (metrics: Metric[]): Promise<ValidationResult> => {
   const issues: ValidationIssue[] = []
@@ -19,79 +31,120 @@ export const validateMetrics = async (metrics: Metric[]): Promise<ValidationResu
   for (const metric of metrics) {
     const dataTypeErrors = metric.validateDataType()
     dataTypeIssueCount += dataTypeErrors.length
-    
-    dataTypeIssueCount += dataTypeErrors.length
   }
 
-  // Stage 2: Fetch and validate metric data in batches
-  const BATCH_SIZE = 100
-  const batches = []
+  // Stage 2: Fetch and validate metric data with concurrency pool
+  text.detail(text.withCount(`Fetching {count} metrics (concurrency: ${VALIDATION_CONCURRENCY})`, totalChecked))
 
-  // Create batches of metrics
-  for (let i = 0; i < metrics.length; i += BATCH_SIZE) {
-    batches.push(metrics.slice(i, i + BATCH_SIZE))
-  }
+  let resolved = 0
+  let failed = 0
+  let nextIndex = 0
 
-  text.detail(text.withCount(`Fetching {count} metrics in {count} batches of up to 100 each...`, totalChecked, batches.length))
+  // Track failed metrics for retry
+  const failedMetrics: Metric[] = []
 
-  const progressBar = createProgressBar()
+  const progressBar = createFetchProgressBar()
+  progressBar.start(totalChecked, 0, { completed: 0, pending: 0, failed: 0 })
 
-  progressBar.start(batches.length, 0)
-
-  const allResults = []
-
-  // Process each batch sequentially
-  for (let batchIndex = 0; batchIndex < batches.length; batchIndex++) {
-    const batch = batches[batchIndex]
-
-    const fetchPromises = batch?.map(async (metric) => {
-      const { response, error } = await fetchMetricDataWithTimeout(metric)
-      const cacheKey = `${metric.project}/${metric.identifier}`
-
-      if (error) {
-        failedFetches++
-        const issue = {
-          metric,
-          issue: `Failed to fetch: ${error}`,
-          data: null
-        }
-        issues.push(issue)
-        
-        // Add validation error to metric instance
-        metric.addValidationError(new ValidationError({
-          type: 'fetch_error',
-          message: `Failed to fetch: ${error}`,
-          endpoint: `/metrics/${metric.identifier}?project=${metric.project}`
-        }))
-        
-        return { metric, response: null, error }
-      }
-
-      if (response) {
-        // Cache the successful response
-        metricDataCache.set(cacheKey, response)
-
-        const dataValidationErrors = metric.validateData(response)
-        
-        // Track errors for display
-        
-        return { metric, response, error: null }
-      }
-
-      return { metric, response: null, error: 'No response' }
+  const updateProgress = () => {
+    progressBar.update(resolved + failed, {
+      completed: resolved,
+      pending: inflight.size,
+      failed,
     })
-
-    // Wait for this batch to complete before moving to next batch
-    const batchResults = await Promise.allSettled(fetchPromises || [])
-    allResults.push(...batchResults)
-
-    progressBar.update(batchIndex + 1)
   }
+
+  const processMetric = async (metric: Metric) => {
+    const { response, error, timedOut: wasTimeout } = await fetchMetricDataWithTimeout(metric)
+    const cacheKey = `${metric.project}/${metric.identifier}`
+
+    if (error) {
+      failedFetches++
+      failed++
+      failedMetrics.push(metric)
+      issues.push({ metric, issue: `Failed to fetch: ${error}`, data: null })
+      metric.addValidationError(new ValidationError({
+        type: wasTimeout ? 'timeout' : 'fetch_error',
+        message: `Failed to fetch: ${error}`,
+        endpoint: `/metrics/${metric.identifier}?project=${metric.project}`
+      }))
+    } else if (response) {
+      metricDataCache.set(cacheKey, response)
+      metric.validateData(response)
+      resolved++
+    } else {
+      resolved++
+    }
+  }
+
+  const inflight = new Set<Promise<void>>()
+
+  const launchNext = () => {
+    if (nextIndex >= metrics.length) return
+    const metric = metrics[nextIndex++]!
+    const p = processMetric(metric).finally(() => {
+      inflight.delete(p)
+      updateProgress()
+      launchNext()
+    })
+    inflight.add(p)
+  }
+
+  // Kick off initial pool
+  for (let i = 0; i < VALIDATION_CONCURRENCY && i < metrics.length; i++) {
+    launchNext()
+  }
+  updateProgress()
+
+  // Wait for everything to drain
+  await new Promise<void>(resolve => {
+    const check = () => {
+      if (inflight.size === 0 && nextIndex >= metrics.length) return resolve()
+      setTimeout(check, 50)
+    }
+    check()
+  })
 
   progressBar.stop()
 
-  // Count successful fetches
-  const successfulFetches = allResults.filter(r => r.status === 'fulfilled' && r.value?.response).length
+  // Stage 3: Retry failed metrics after cooloff
+  if (failedMetrics.length > 0) {
+    text.detail(`\n   ${failedMetrics.length} failed — retrying after ${RETRY_COOLOFF_MS / 1000}s cooloff...`)
+    await sleep(RETRY_COOLOFF_MS)
+
+    let retryRecovered = 0
+    let retryStillFailed = 0
+
+    for (const metric of failedMetrics) {
+      const { response, error } = await fetchMetricDataWithTimeout(metric)
+      const cacheKey = `${metric.project}/${metric.identifier}`
+      const endpoint = `/metrics/${metric.identifier}?project=${metric.project}`
+
+      if (response) {
+        // Recovered — update cache, clear the original error
+        metricDataCache.set(cacheKey, response)
+        metric.validateData(response)
+
+        // Remove original issue and validation error
+        const issueIdx = issues.findIndex(i => i.metric === metric)
+        if (issueIdx !== -1) issues.splice(issueIdx, 1)
+        metric.validationErrors = metric.validationErrors.filter(e => e.endpoint !== endpoint)
+
+        failedFetches--
+        failed--
+        resolved++
+        retryRecovered++
+        text.pass(`   ✓ ${metric.project}/${metric.identifier} — recovered on retry (transient failure)`)
+      } else {
+        retryStillFailed++
+        text.warn(`   ✗ ${metric.project}/${metric.identifier} — still failing: ${error}`)
+      }
+    }
+
+    if (retryRecovered > 0) {
+      text.detail(`   ${retryRecovered} recovered, ${retryStillFailed} still failing`)
+    }
+  }
 
   // Display results
   displayValidationResults(issues, totalChecked, dataTypeIssueCount)
