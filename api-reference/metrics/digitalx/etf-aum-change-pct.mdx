@@ -1,0 +1,69 @@
+---
+title: "AUM 30d Change"
+sidebarTitle: "AUM 30d Change"
+description: "Percentage change in AUM over the last 30 days."
+openapi: "GET /v1/metrics/etf-aum-change-pct"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** %
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/etf-aum-change-pct?project=digitalx"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/etf-aum-change-pct?project=digitalx',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/etf-aum-change-pct',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'digitalx'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "digitalx": [
+    {
+      "date": "2026-03-20",
+      "value": 0.0482547628869666
+    },
+    {
+      "date": "2026-03-19",
+      "value": 0.0509327094144047
+    },
+    {
+      "date": "2026-03-18",
+      "value": 0.064860010970892
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

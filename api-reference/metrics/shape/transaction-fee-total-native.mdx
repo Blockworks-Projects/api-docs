@@ -1,0 +1,77 @@
+---
+title: "Shape: Transaction Fees"
+sidebarTitle: "Transaction Fees"
+description: "Total transaction fees paid in native token."
+openapi: "GET /v1/metrics/transaction-fee-total-native"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** ETH
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-fee-total-native?project=shape"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-fee-total-native?project=shape',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-fee-total-native',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'shape'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "shape": [
+    {
+      "date": "2026-03-22",
+      "value": 0.004649247122757445
+    },
+    {
+      "date": "2026-03-21",
+      "value": 0.004302418031327686
+    },
+    {
+      "date": "2026-03-20",
+      "value": 0.010738817484025944
+    },
+    {
+      "date": "2026-03-19",
+      "value": 0.03312849755378809
+    },
+    {
+      "date": "2026-03-18",
+      "value": 0.0014582722838408085
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

@@ -1,0 +1,73 @@
+---
+title: "Memecoin Volume Share"
+sidebarTitle: "Memecoin Volume Share"
+description: "Percentage of spot volume attributed to memecoins for humidifi."
+openapi: "GET /v1/metrics/dex-memecoin-volume-share"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** %
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/dex-memecoin-volume-share?project=humidifi"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/dex-memecoin-volume-share?project=humidifi',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/dex-memecoin-volume-share',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'humidifi'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "humidifi": [
+    {
+      "date": "2026-03-21",
+      "value": 0.015440583752063905
+    },
+    {
+      "date": "2026-03-20",
+      "value": 0.019847734569286908
+    },
+    {
+      "date": "2026-03-19",
+      "value": 0.022424007228302806
+    },
+    {
+      "date": "2026-03-18",
+      "value": 0.028484916429788676
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

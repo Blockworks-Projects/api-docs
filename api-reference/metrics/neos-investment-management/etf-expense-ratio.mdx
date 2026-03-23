@@ -1,0 +1,69 @@
+---
+title: "Weighted AUM Expense Ratio"
+sidebarTitle: "Weighted AUM Expense Ratio"
+description: "AUM-weighted average expense ratio across products."
+openapi: "GET /v1/metrics/etf-expense-ratio"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** %
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/etf-expense-ratio?project=neos-investment-management"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/etf-expense-ratio?project=neos-investment-management',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/etf-expense-ratio',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'neos-investment-management'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "neos-investment-management": [
+    {
+      "date": "2026-03-20",
+      "value": 0.009894584108636868
+    },
+    {
+      "date": "2026-03-19",
+      "value": 0.009894506249157215
+    },
+    {
+      "date": "2026-03-18",
+      "value": 0.009894443719002485
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

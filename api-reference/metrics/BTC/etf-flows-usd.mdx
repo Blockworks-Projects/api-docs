@@ -11,7 +11,7 @@ mode: "wide"
 - **Denomination:** USD
 - **Type:** USD Value
 - **Interval:** Daily
-- **Source:** Farside UK
+- **Source:** Blockworks
 
 ## Example Request
 
@@ -47,7 +47,20 @@ data = r.json()
 
 ```json
 {
-  "btc": []
+  "btc": [
+    {
+      "date": "2026-03-20",
+      "value": 61178
+    },
+    {
+      "date": "2026-03-19",
+      "value": 272075
+    },
+    {
+      "date": "2026-03-18",
+      "value": -92422
+    }
+  ]
 }
 ```
 

@@ -1,0 +1,77 @@
+---
+title: "Worldchain: Fee Average"
+sidebarTitle: "Fee Average"
+description: "Average of the sum of the base fee and priority fee that day in native chain token"
+openapi: "GET /v1/metrics/transaction-fee-avg-native"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** ETH
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-fee-avg-native?project=worldchain"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-fee-avg-native?project=worldchain',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-fee-avg-native',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'worldchain'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "worldchain": [
+    {
+      "date": "2026-03-22",
+      "value": 1.2827394959191308e-7
+    },
+    {
+      "date": "2026-03-21",
+      "value": 8.039299910010353e-8
+    },
+    {
+      "date": "2026-03-20",
+      "value": 7.51930856651103e-8
+    },
+    {
+      "date": "2026-03-19",
+      "value": 8.715313028365546e-8
+    },
+    {
+      "date": "2026-03-18",
+      "value": 1.8071319560854116e-7
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

@@ -1,0 +1,81 @@
+---
+title: "Megaeth: DEX Spot Volume"
+sidebarTitle: "DEX Spot Volume"
+description: "Total amount of daily spot volume from major DEXs."
+openapi: "GET /v1/metrics/dex-spot-volume-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/dex-spot-volume-total-usd?project=megaeth"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/dex-spot-volume-total-usd?project=megaeth',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/dex-spot-volume-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'megaeth'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "megaeth": [
+    {
+      "date": "2026-03-23",
+      "value": 674938.0212656466
+    },
+    {
+      "date": "2026-03-22",
+      "value": 1958296.8715306974
+    },
+    {
+      "date": "2026-03-21",
+      "value": 1082870.7257874229
+    },
+    {
+      "date": "2026-03-20",
+      "value": 2197920.1596037624
+    },
+    {
+      "date": "2026-03-19",
+      "value": 3083695.0011556917
+    },
+    {
+      "date": "2026-03-18",
+      "value": 3285343.6920057377
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

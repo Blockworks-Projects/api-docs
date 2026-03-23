@@ -1,0 +1,78 @@
+---
+title: "Bob: Priority Fees (USD)"
+sidebarTitle: "Priority Fees"
+tag: "USD"
+description: "An additional transaction fee to incentivize validators to prioritize and execute transactions."
+openapi: "GET /v1/metrics/transaction-priority-fee-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-usd?project=bob"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-usd?project=bob',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'bob'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "bob": [
+    {
+      "date": "2026-03-22",
+      "value": 4.503156954614077
+    },
+    {
+      "date": "2026-03-21",
+      "value": 3.8035331794135745
+    },
+    {
+      "date": "2026-03-20",
+      "value": 3.4555688006541465
+    },
+    {
+      "date": "2026-03-19",
+      "value": 25.31373572420429
+    },
+    {
+      "date": "2026-03-18",
+      "value": 6.1436809726016115
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

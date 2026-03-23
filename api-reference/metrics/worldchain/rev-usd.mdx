@@ -1,0 +1,77 @@
+---
+title: "Worldchain: REV"
+sidebarTitle: "REV"
+description: "Network REV (Real Economic Value) for Worldchain, measuring total user-paid transaction fees."
+openapi: "GET /v1/metrics/rev-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/rev-usd?project=worldchain"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/rev-usd?project=worldchain',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/rev-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'worldchain'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "worldchain": [
+    {
+      "date": "2026-03-22",
+      "value": 358.5073223921933
+    },
+    {
+      "date": "2026-03-21",
+      "value": 242.5066296389045
+    },
+    {
+      "date": "2026-03-20",
+      "value": 244.03930668313222
+    },
+    {
+      "date": "2026-03-19",
+      "value": 287.70370396904815
+    },
+    {
+      "date": "2026-03-18",
+      "value": 607.7619189966969
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

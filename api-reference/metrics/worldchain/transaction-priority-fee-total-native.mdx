@@ -1,0 +1,77 @@
+---
+title: "Worldchain: Priority Fees"
+sidebarTitle: "Priority Fees"
+description: "An additional transaction fee to incentivize validators to prioritize and execute transactions."
+openapi: "GET /v1/metrics/transaction-priority-fee-total-native"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** ETH
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-native?project=worldchain"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-native?project=worldchain',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-priority-fee-total-native',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'worldchain'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "worldchain": [
+    {
+      "date": "2026-03-22",
+      "value": 0.09117393502874362
+    },
+    {
+      "date": "2026-03-21",
+      "value": 0.10673744197291664
+    },
+    {
+      "date": "2026-03-20",
+      "value": 0.09971997758466575
+    },
+    {
+      "date": "2026-03-19",
+      "value": 0.11321625767500941
+    },
+    {
+      "date": "2026-03-18",
+      "value": 0.24646359003633284
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

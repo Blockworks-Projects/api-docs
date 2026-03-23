@@ -1,0 +1,77 @@
+---
+title: "Memecoin Volume Share"
+sidebarTitle: "Memecoin Volume Share"
+description: "Percentage of spot volume attributed to memecoins for ekubo-protocol."
+openapi: "GET /v1/metrics/dex-memecoin-volume-share"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** %
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/dex-memecoin-volume-share?project=ekubo-protocol"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/dex-memecoin-volume-share?project=ekubo-protocol',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/dex-memecoin-volume-share',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ekubo-protocol'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "ekubo-protocol": [
+    {
+      "date": "2026-03-22",
+      "value": 9.831170825506627e-9
+    },
+    {
+      "date": "2026-03-21",
+      "value": 0
+    },
+    {
+      "date": "2026-03-20",
+      "value": 5.271898164592777e-8
+    },
+    {
+      "date": "2026-03-19",
+      "value": 1.2033676424631643e-8
+    },
+    {
+      "date": "2026-03-18",
+      "value": 0.000042115722397860924
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

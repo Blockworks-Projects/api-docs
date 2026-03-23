@@ -1,0 +1,69 @@
+---
+title: "AUM 30d Change"
+sidebarTitle: "AUM 30d Change"
+description: "Percentage change in AUM over the last 30 days."
+openapi: "GET /v1/metrics/etf-aum-change-pct"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** %
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/etf-aum-change-pct?project=yieldmax-etfs"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/etf-aum-change-pct?project=yieldmax-etfs',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/etf-aum-change-pct',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'yieldmax-etfs'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "yieldmax-etfs": [
+    {
+      "date": "2026-03-20",
+      "value": 0.12667474538482973
+    },
+    {
+      "date": "2026-03-19",
+      "value": 0.14708161312430484
+    },
+    {
+      "date": "2026-03-18",
+      "value": 0.01950123108917177
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

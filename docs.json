@@ -210,6 +210,12 @@
                     ]
                   },
                   {
+                    "group": "Stablecoins",
+                    "pages": [
+                      "api-reference/metrics/avalanche/stablecoin-supply-total-usd"
+                    ]
+                  },
+                  {
                     "group": "Trading",
                     "pages": [
                       "api-reference/metrics/avalanche/dex-spot-volume-total-usd"
@@ -359,6 +365,68 @@
                     "group": "Trading",
                     "pages": [
                       "api-reference/metrics/bnb/dex-spot-volume-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Bob",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/bob/active-address-total",
+                      "api-reference/metrics/bob/transaction-fee-avg-native",
+                      "api-reference/metrics/bob/transaction-fee-avg-usd",
+                      "api-reference/metrics/bob/transaction-fee-med-native",
+                      "api-reference/metrics/bob/transaction-fee-med-usd",
+                      "api-reference/metrics/bob/transaction-fail-total",
+                      "api-reference/metrics/bob/transaction-succeed-total",
+                      "api-reference/metrics/bob/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/bob/transaction-base-fee-total-native",
+                      "api-reference/metrics/bob/transaction-base-fee-total-usd",
+                      "api-reference/metrics/bob/transaction-priority-fee-total-native",
+                      "api-reference/metrics/bob/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/bob/rev-usd",
+                      "api-reference/metrics/bob/transaction-fee-total-native",
+                      "api-reference/metrics/bob/transaction-fee-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Boba",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/boba/active-address-total",
+                      "api-reference/metrics/boba/transaction-fee-avg-native",
+                      "api-reference/metrics/boba/transaction-fee-avg-usd",
+                      "api-reference/metrics/boba/transaction-fee-med-native",
+                      "api-reference/metrics/boba/transaction-fee-med-usd",
+                      "api-reference/metrics/boba/transaction-fail-total",
+                      "api-reference/metrics/boba/transaction-succeed-total",
+                      "api-reference/metrics/boba/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/boba/transaction-base-fee-total-native",
+                      "api-reference/metrics/boba/transaction-base-fee-total-usd",
+                      "api-reference/metrics/boba/transaction-priority-fee-total-native",
+                      "api-reference/metrics/boba/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/boba/rev-usd",
+                      "api-reference/metrics/boba/transaction-fee-total-native",
+                      "api-reference/metrics/boba/transaction-fee-total-usd"
                     ]
                   }
                 ]
@@ -539,6 +607,49 @@
                 ]
               },
               {
+                "group": "Ink",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/ink/active-address-total",
+                      "api-reference/metrics/ink/transaction-fee-avg-native",
+                      "api-reference/metrics/ink/transaction-fee-avg-usd",
+                      "api-reference/metrics/ink/transaction-fee-med-native",
+                      "api-reference/metrics/ink/transaction-fee-med-usd",
+                      "api-reference/metrics/ink/transaction-fail-total",
+                      "api-reference/metrics/ink/transaction-succeed-total",
+                      "api-reference/metrics/ink/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/ink/transaction-base-fee-total-native",
+                      "api-reference/metrics/ink/transaction-base-fee-total-usd",
+                      "api-reference/metrics/ink/transaction-priority-fee-total-native",
+                      "api-reference/metrics/ink/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/ink/rev-usd",
+                      "api-reference/metrics/ink/transaction-fee-total-native",
+                      "api-reference/metrics/ink/transaction-fee-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Stablecoins",
+                    "pages": [
+                      "api-reference/metrics/ink/stablecoin-supply-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/ink/dex-spot-volume-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
                 "group": "Katana",
                 "icon": "link",
                 "pages": [
@@ -615,6 +726,43 @@
                       "api-reference/metrics/megaeth/rev-usd",
                       "api-reference/metrics/megaeth/transaction-fee-total-native",
                       "api-reference/metrics/megaeth/transaction-fee-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/megaeth/dex-spot-volume-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Mode",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/mode/active-address-total",
+                      "api-reference/metrics/mode/transaction-fee-avg-native",
+                      "api-reference/metrics/mode/transaction-fee-avg-usd",
+                      "api-reference/metrics/mode/transaction-fee-med-native",
+                      "api-reference/metrics/mode/transaction-fee-med-usd",
+                      "api-reference/metrics/mode/transaction-fail-total",
+                      "api-reference/metrics/mode/transaction-succeed-total",
+                      "api-reference/metrics/mode/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/mode/transaction-base-fee-total-native",
+                      "api-reference/metrics/mode/transaction-base-fee-total-usd",
+                      "api-reference/metrics/mode/transaction-priority-fee-total-native",
+                      "api-reference/metrics/mode/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/mode/rev-usd",
+                      "api-reference/metrics/mode/transaction-fee-total-native",
+                      "api-reference/metrics/mode/transaction-fee-total-usd"
                     ]
                   }
                 ]
@@ -752,6 +900,37 @@
                 ]
               },
               {
+                "group": "Shape",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/shape/active-address-total",
+                      "api-reference/metrics/shape/transaction-fee-avg-native",
+                      "api-reference/metrics/shape/transaction-fee-avg-usd",
+                      "api-reference/metrics/shape/transaction-fee-med-native",
+                      "api-reference/metrics/shape/transaction-fee-med-usd",
+                      "api-reference/metrics/shape/transaction-fail-total",
+                      "api-reference/metrics/shape/transaction-succeed-total",
+                      "api-reference/metrics/shape/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/shape/transaction-base-fee-total-native",
+                      "api-reference/metrics/shape/transaction-base-fee-total-usd",
+                      "api-reference/metrics/shape/transaction-priority-fee-total-native",
+                      "api-reference/metrics/shape/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/shape/rev-usd",
+                      "api-reference/metrics/shape/transaction-fee-total-native",
+                      "api-reference/metrics/shape/transaction-fee-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
                 "group": "Solana",
                 "icon": "link",
                 "pages": [
@@ -814,6 +993,37 @@
                     "group": "Trading",
                     "pages": [
                       "api-reference/metrics/solana/dex-spot-volume-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Superseed",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/superseed/active-address-total",
+                      "api-reference/metrics/superseed/transaction-fee-avg-native",
+                      "api-reference/metrics/superseed/transaction-fee-avg-usd",
+                      "api-reference/metrics/superseed/transaction-fee-med-native",
+                      "api-reference/metrics/superseed/transaction-fee-med-usd",
+                      "api-reference/metrics/superseed/transaction-fail-total",
+                      "api-reference/metrics/superseed/transaction-succeed-total",
+                      "api-reference/metrics/superseed/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/superseed/transaction-base-fee-total-native",
+                      "api-reference/metrics/superseed/transaction-base-fee-total-usd",
+                      "api-reference/metrics/superseed/transaction-priority-fee-total-native",
+                      "api-reference/metrics/superseed/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/superseed/rev-usd",
+                      "api-reference/metrics/superseed/transaction-fee-total-native",
+                      "api-reference/metrics/superseed/transaction-fee-total-usd"
                     ]
                   }
                 ]
@@ -890,6 +1100,49 @@
                 ]
               },
               {
+                "group": "Worldchain",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/worldchain/active-address-total",
+                      "api-reference/metrics/worldchain/transaction-fee-avg-native",
+                      "api-reference/metrics/worldchain/transaction-fee-avg-usd",
+                      "api-reference/metrics/worldchain/transaction-fee-med-native",
+                      "api-reference/metrics/worldchain/transaction-fee-med-usd",
+                      "api-reference/metrics/worldchain/transaction-fail-total",
+                      "api-reference/metrics/worldchain/transaction-succeed-total",
+                      "api-reference/metrics/worldchain/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/worldchain/transaction-base-fee-total-native",
+                      "api-reference/metrics/worldchain/transaction-base-fee-total-usd",
+                      "api-reference/metrics/worldchain/transaction-priority-fee-total-native",
+                      "api-reference/metrics/worldchain/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/worldchain/rev-usd",
+                      "api-reference/metrics/worldchain/transaction-fee-total-native",
+                      "api-reference/metrics/worldchain/transaction-fee-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Stablecoins",
+                    "pages": [
+                      "api-reference/metrics/worldchain/stablecoin-supply-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Trading",
+                    "pages": [
+                      "api-reference/metrics/worldchain/dex-spot-volume-total-usd"
+                    ]
+                  }
+                ]
+              },
+              {
                 "group": "Zksync",
                 "icon": "link",
                 "pages": [
@@ -920,13 +1173,70 @@
                     ]
                   }
                 ]
+              },
+              {
+                "group": "Zora",
+                "icon": "link",
+                "pages": [
+                  {
+                    "group": "Activity",
+                    "pages": [
+                      "api-reference/metrics/zora/active-address-total",
+                      "api-reference/metrics/zora/transaction-fee-avg-native",
+                      "api-reference/metrics/zora/transaction-fee-avg-usd",
+                      "api-reference/metrics/zora/transaction-fee-med-native",
+                      "api-reference/metrics/zora/transaction-fee-med-usd",
+                      "api-reference/metrics/zora/transaction-fail-total",
+                      "api-reference/metrics/zora/transaction-succeed-total",
+                      "api-reference/metrics/zora/transaction-total"
+                    ]
+                  },
+                  {
+                    "group": "Financials",
+                    "pages": [
+                      "api-reference/metrics/zora/transaction-base-fee-total-native",
+                      "api-reference/metrics/zora/transaction-base-fee-total-usd",
+                      "api-reference/metrics/zora/transaction-priority-fee-total-native",
+                      "api-reference/metrics/zora/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/zora/rev-usd",
+                      "api-reference/metrics/zora/transaction-fee-total-native",
+                      "api-reference/metrics/zora/transaction-fee-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/zora/tokens-launched-by-launchpad"
+                    ]
+                  }
+                ]
               }
             ],
-            "tag": "21"
+            "tag": "29"
           },
           {
             "group": "Metrics: Projects",
             "pages": [
+              {
+                "group": "0x Protocol",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/0x-protocol/dex-spot-volume-usd",
+                  "api-reference/metrics/0x-protocol/dex-memecoin-volume-share",
+                  "api-reference/metrics/0x-protocol/dex-revenue-usd",
+                  "api-reference/metrics/0x-protocol/dex-fees-usd"
+                ]
+              },
+              {
+                "group": "1inch",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/1inch/dex-spot-volume-usd",
+                  "api-reference/metrics/1inch/dex-memecoin-volume-share",
+                  "api-reference/metrics/1inch/dex-revenue-usd",
+                  "api-reference/metrics/1inch/dex-fees-usd"
+                ]
+              },
               {
                 "group": "Aave",
                 "icon": "cube",
@@ -946,10 +1256,70 @@
                 ]
               },
               {
+                "group": "Aerodrome Finance",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/aerodrome-finance/dex-spot-volume-usd",
+                  "api-reference/metrics/aerodrome-finance/dex-memecoin-volume-share",
+                  "api-reference/metrics/aerodrome-finance/dex-revenue-usd",
+                  "api-reference/metrics/aerodrome-finance/dex-fees-usd"
+                ]
+              },
+              {
+                "group": "Airswap",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/airswap/dex-spot-volume-usd",
+                  "api-reference/metrics/airswap/dex-memecoin-volume-share",
+                  "api-reference/metrics/airswap/dex-revenue-usd",
+                  "api-reference/metrics/airswap/dex-fees-usd"
+                ]
+              },
+              {
+                "group": "Alien Base",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/alien-base/dex-spot-volume-usd",
+                  "api-reference/metrics/alien-base/dex-memecoin-volume-share",
+                  "api-reference/metrics/alien-base/dex-revenue-usd",
+                  "api-reference/metrics/alien-base/dex-fees-usd"
+                ]
+              },
+              {
+                "group": "Alphaq",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/alphaq/dex-spot-volume-usd",
+                  "api-reference/metrics/alphaq/dex-memecoin-volume-share",
+                  "api-reference/metrics/alphaq/dex-revenue-usd",
+                  "api-reference/metrics/alphaq/dex-fees-usd"
+                ]
+              },
+              {
+                "group": "Apebond",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/apebond/dex-spot-volume-usd",
+                  "api-reference/metrics/apebond/dex-memecoin-volume-share",
+                  "api-reference/metrics/apebond/dex-revenue-usd",
+                  "api-reference/metrics/apebond/dex-fees-usd"
+                ]
+              },
+              {
                 "group": "Apex",
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/apex/revenue-total-usd"
+                ]
+              },
+              {
+                "group": "Aquifer",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/aquifer/dex-spot-volume-usd",
+                  "api-reference/metrics/aquifer/dex-memecoin-volume-share",
+                  "api-reference/metrics/aquifer/dex-revenue-usd",
+                  "api-reference/metrics/aquifer/dex-fees-usd"
                 ]
               },
               {
@@ -984,7 +1354,11 @@
                 "group": "Balancer",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/balancer/revenue-total-usd"
+                  "api-reference/metrics/balancer/dex-spot-volume-usd",
+                  "api-reference/metrics/balancer/dex-memecoin-volume-share",
+                  "api-reference/metrics/balancer/revenue-total-usd",
+                  "api-reference/metrics/balancer/dex-revenue-usd",
+                  "api-reference/metrics/balancer/dex-fees-usd"
                 ]
               },
               {
@@ -995,6 +1369,26 @@
                 ]
               },
               {
+                "group": "Bancor Network",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/bancor-network/dex-spot-volume-usd",
+                  "api-reference/metrics/bancor-network/dex-memecoin-volume-share",
+                  "api-reference/metrics/bancor-network/dex-revenue-usd",
+                  "api-reference/metrics/bancor-network/dex-fees-usd"
+                ]
+              },
+              {
+                "group": "Baseswap",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/baseswap/dex-spot-volume-usd",
+                  "api-reference/metrics/baseswap/dex-memecoin-volume-share",
+                  "api-reference/metrics/baseswap/dex-revenue-usd",
+                  "api-reference/metrics/baseswap/dex-fees-usd"
+                ]
+              },
+              {
                 "group": "Believe",
                 "icon": "cube",
                 "pages": [
@@ -1002,6 +1396,36 @@
                   "api-reference/metrics/believe/launchpad-tokens-graduated",
                   "api-reference/metrics/believe/revenue-total-usd",
                   "api-reference/metrics/believe/tokens-launched-by-launchpad"
+                ]
+              },
+              {
+                "group": "Bisonfi",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/bisonfi/dex-spot-volume-usd",
+                  "api-reference/metrics/bisonfi/dex-memecoin-volume-share",
+                  "api-reference/metrics/bisonfi/dex-revenue-usd",
+                  "api-reference/metrics/bisonfi/dex-fees-usd"
+                ]
+              },
+              {
+                "group": "Biswap",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/biswap/dex-spot-volume-usd",
+                  "api-reference/metrics/biswap/dex-memecoin-volume-share",
+                  "api-reference/metrics/biswap/dex-revenue-usd",
+                  "api-reference/metrics/biswap/dex-fees-usd"
+                ]
+              },
+              {
+                "group": "Blackhole",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/blackhole/dex-spot-volume-usd",
+                  "api-reference/metrics/blackhole/dex-memecoin-volume-share",
+                  "api-reference/metrics/blackhole/dex-revenue-usd",
+                  "api-reference/metrics/blackhole/dex-fees-usd"
                 ]
               },
               {
@@ -1051,7 +1475,21 @@
                 "group": "Byreal",
                 "icon": "cube",
                 "pages": [
+                  "api-reference/metrics/byreal/dex-spot-volume-usd",
+                  "api-reference/metrics/byreal/dex-memecoin-volume-share",
+                  "api-reference/metrics/byreal/dex-revenue-usd",
+                  "api-reference/metrics/byreal/dex-fees-usd",
                   "api-reference/metrics/byreal/volume-usd"
+                ]
+              },
+              {
+                "group": "Camelot Token",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/camelot-token/dex-spot-volume-usd",
+                  "api-reference/metrics/camelot-token/dex-memecoin-volume-share",
+                  "api-reference/metrics/camelot-token/dex-revenue-usd",
+                  "api-reference/metrics/camelot-token/dex-fees-usd"
                 ]
               },
               {
@@ -1106,6 +1544,16 @@
                 ]
               },
               {
+                "group": "Curve Dao",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/curve-dao/dex-spot-volume-usd",
+                  "api-reference/metrics/curve-dao/dex-memecoin-volume-share",
+                  "api-reference/metrics/curve-dao/dex-revenue-usd",
+                  "api-reference/metrics/curve-dao/dex-fees-usd"
+                ]
+              },
+              {
                 "group": "Dexscreener",
                 "icon": "cube",
                 "pages": [
@@ -1116,7 +1564,11 @@
                 "group": "Dodo",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/dodo/revenue-total-usd"
+                  "api-reference/metrics/dodo/dex-spot-volume-usd",
+                  "api-reference/metrics/dodo/dex-memecoin-volume-share",
+                  "api-reference/metrics/dodo/revenue-total-usd",
+                  "api-reference/metrics/dodo/dex-revenue-usd",
+                  "api-reference/metrics/dodo/dex-fees-usd"
                 ]
               },
               {
@@ -1141,6 +1593,16 @@
                 ]
               },
               {
+                "group": "Ekubo Protocol",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/ekubo-protocol/dex-spot-volume-usd",
+                  "api-reference/metrics/ekubo-protocol/dex-memecoin-volume-share",
+                  "api-reference/metrics/ekubo-protocol/dex-revenue-usd",
+                  "api-reference/metrics/ekubo-protocol/dex-fees-usd"
+                ]
+              },
+              {
                 "group": "Ethena",
                 "icon": "cube",
                 "pages": [
@@ -1151,7 +1613,11 @@
                 "group": "Euler",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/euler/revenue-total-usd"
+                  "api-reference/metrics/euler/dex-spot-volume-usd",
+                  "api-reference/metrics/euler/dex-memecoin-volume-share",
+                  "api-reference/metrics/euler/revenue-total-usd",
+                  "api-reference/metrics/euler/dex-revenue-usd",
+                  "api-reference/metrics/euler/dex-fees-usd"
                 ]
               },
               {
@@ -1165,10 +1631,14 @@
                 "group": "Fluid",
                 "icon": "cube",
                 "pages": [
+                  "api-reference/metrics/fluid/dex-spot-volume-usd",
                   "api-reference/metrics/fluid/interest-total-usd",
+                  "api-reference/metrics/fluid/dex-memecoin-volume-share",
                   "api-reference/metrics/fluid/nii-total-usd",
+                  "api-reference/metrics/fluid/dex-revenue-usd",
                   "api-reference/metrics/fluid/borrow-total-usd",
-                  "api-reference/metrics/fluid/deposit-total-usd"
+                  "api-reference/metrics/fluid/deposit-total-usd",
+                  "api-reference/metrics/fluid/dex-fees-usd"
                 ]
               },
               {
@@ -1189,20 +1659,52 @@
                 "group": "Gmx",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/gmx/revenue-total-usd"
+                  "api-reference/metrics/gmx/dex-spot-volume-usd",
+                  "api-reference/metrics/gmx/dex-memecoin-volume-share",
+                  "api-reference/metrics/gmx/revenue-total-usd",
+                  "api-reference/metrics/gmx/dex-revenue-usd",
+                  "api-reference/metrics/gmx/dex-fees-usd"
                 ]
               },
               {
                 "group": "Goonfi",
                 "icon": "cube",
                 "pages": [
+                  "api-reference/metrics/goonfi/dex-spot-volume-usd",
+                  "api-reference/metrics/goonfi/dex-memecoin-volume-share",
+                  "api-reference/metrics/goonfi/dex-revenue-usd",
+                  "api-reference/metrics/goonfi/dex-fees-usd",
                   "api-reference/metrics/goonfi/volume-usd"
+                ]
+              },
+              {
+                "group": "Goosefx",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/goosefx/dex-spot-volume-usd",
+                  "api-reference/metrics/goosefx/dex-memecoin-volume-share",
+                  "api-reference/metrics/goosefx/dex-revenue-usd",
+                  "api-reference/metrics/goosefx/dex-fees-usd"
+                ]
+              },
+              {
+                "group": "Hashflow",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/hashflow/dex-spot-volume-usd",
+                  "api-reference/metrics/hashflow/dex-memecoin-volume-share",
+                  "api-reference/metrics/hashflow/dex-revenue-usd",
+                  "api-reference/metrics/hashflow/dex-fees-usd"
                 ]
               },
               {
                 "group": "Humidifi",
                 "icon": "cube",
                 "pages": [
+                  "api-reference/metrics/humidifi/dex-spot-volume-usd",
+                  "api-reference/metrics/humidifi/dex-memecoin-volume-share",
+                  "api-reference/metrics/humidifi/dex-revenue-usd",
+                  "api-reference/metrics/humidifi/dex-fees-usd",
                   "api-reference/metrics/humidifi/volume-usd"
                 ]
               },
@@ -1247,6 +1749,16 @@
                 ]
               },
               {
+                "group": "Joe",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/joe/dex-spot-volume-usd",
+                  "api-reference/metrics/joe/dex-memecoin-volume-share",
+                  "api-reference/metrics/joe/dex-revenue-usd",
+                  "api-reference/metrics/joe/dex-fees-usd"
+                ]
+              },
+              {
                 "group": "Jupiter Lend",
                 "icon": "cube",
                 "pages": [
@@ -1267,7 +1779,11 @@
                 "group": "Kamino",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/kamino/revenue-total-usd"
+                  "api-reference/metrics/kamino/interest-total-usd",
+                  "api-reference/metrics/kamino/nii-total-usd",
+                  "api-reference/metrics/kamino/revenue-total-usd",
+                  "api-reference/metrics/kamino/borrow-total-usd",
+                  "api-reference/metrics/kamino/deposit-total-usd"
                 ]
               },
               {
@@ -1317,7 +1833,11 @@
                 "group": "Lifinity",
                 "icon": "cube",
                 "pages": [
+                  "api-reference/metrics/lifinity/dex-spot-volume-usd",
+                  "api-reference/metrics/lifinity/dex-memecoin-volume-share",
                   "api-reference/metrics/lifinity/revenue-total-usd",
+                  "api-reference/metrics/lifinity/dex-revenue-usd",
+                  "api-reference/metrics/lifinity/dex-fees-usd",
                   "api-reference/metrics/lifinity/volume-usd"
                 ]
               },
@@ -1336,10 +1856,40 @@
                 ]
               },
               {
+                "group": "Manifest Dex",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/manifest-dex/dex-spot-volume-usd",
+                  "api-reference/metrics/manifest-dex/dex-memecoin-volume-share",
+                  "api-reference/metrics/manifest-dex/dex-revenue-usd",
+                  "api-reference/metrics/manifest-dex/dex-fees-usd"
+                ]
+              },
+              {
+                "group": "Maverick Protocol",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/maverick-protocol/dex-spot-volume-usd",
+                  "api-reference/metrics/maverick-protocol/dex-memecoin-volume-share",
+                  "api-reference/metrics/maverick-protocol/dex-revenue-usd",
+                  "api-reference/metrics/maverick-protocol/dex-fees-usd"
+                ]
+              },
+              {
                 "group": "Metaplex",
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/metaplex/revenue-total-usd"
+                ]
+              },
+              {
+                "group": "Meteora",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/meteora/dex-spot-volume-usd",
+                  "api-reference/metrics/meteora/dex-memecoin-volume-share",
+                  "api-reference/metrics/meteora/dex-revenue-usd",
+                  "api-reference/metrics/meteora/dex-fees-usd"
                 ]
               },
               {
@@ -1392,10 +1942,30 @@
                 ]
               },
               {
+                "group": "Nominex",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/nominex/dex-spot-volume-usd",
+                  "api-reference/metrics/nominex/dex-memecoin-volume-share",
+                  "api-reference/metrics/nominex/dex-revenue-usd",
+                  "api-reference/metrics/nominex/dex-fees-usd"
+                ]
+              },
+              {
                 "group": "Nova",
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/nova/revenue-total-usd"
+                ]
+              },
+              {
+                "group": "Obric",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/obric/dex-spot-volume-usd",
+                  "api-reference/metrics/obric/dex-memecoin-volume-share",
+                  "api-reference/metrics/obric/dex-revenue-usd",
+                  "api-reference/metrics/obric/dex-fees-usd"
                 ]
               },
               {
@@ -1416,7 +1986,11 @@
                 "group": "Orca",
                 "icon": "cube",
                 "pages": [
+                  "api-reference/metrics/orca/dex-spot-volume-usd",
+                  "api-reference/metrics/orca/dex-memecoin-volume-share",
                   "api-reference/metrics/orca/revenue-total-usd",
+                  "api-reference/metrics/orca/dex-revenue-usd",
+                  "api-reference/metrics/orca/dex-fees-usd",
                   "api-reference/metrics/orca/volume-usd"
                 ]
               },
@@ -1446,7 +2020,11 @@
                 "group": "Pancakeswap",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/pancakeswap/revenue-total-usd"
+                  "api-reference/metrics/pancakeswap/dex-spot-volume-usd",
+                  "api-reference/metrics/pancakeswap/dex-memecoin-volume-share",
+                  "api-reference/metrics/pancakeswap/revenue-total-usd",
+                  "api-reference/metrics/pancakeswap/dex-revenue-usd",
+                  "api-reference/metrics/pancakeswap/dex-fees-usd"
                 ]
               },
               {
@@ -1464,10 +2042,30 @@
                 ]
               },
               {
+                "group": "Phoenix Dex",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/phoenix-dex/dex-spot-volume-usd",
+                  "api-reference/metrics/phoenix-dex/dex-memecoin-volume-share",
+                  "api-reference/metrics/phoenix-dex/dex-revenue-usd",
+                  "api-reference/metrics/phoenix-dex/dex-fees-usd"
+                ]
+              },
+              {
                 "group": "Photon",
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/photon/revenue-total-usd"
+                ]
+              },
+              {
+                "group": "Platypus Finance",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/platypus-finance/dex-spot-volume-usd",
+                  "api-reference/metrics/platypus-finance/dex-memecoin-volume-share",
+                  "api-reference/metrics/platypus-finance/dex-revenue-usd",
+                  "api-reference/metrics/platypus-finance/dex-fees-usd"
                 ]
               },
               {
@@ -1492,12 +2090,36 @@
                 ]
               },
               {
+                "group": "Pumpswap",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/pumpswap/dex-spot-volume-usd",
+                  "api-reference/metrics/pumpswap/dex-memecoin-volume-share",
+                  "api-reference/metrics/pumpswap/dex-revenue-usd",
+                  "api-reference/metrics/pumpswap/dex-fees-usd"
+                ]
+              },
+              {
+                "group": "Ramses Exchange",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/ramses-exchange/dex-spot-volume-usd",
+                  "api-reference/metrics/ramses-exchange/dex-memecoin-volume-share",
+                  "api-reference/metrics/ramses-exchange/dex-revenue-usd",
+                  "api-reference/metrics/ramses-exchange/dex-fees-usd"
+                ]
+              },
+              {
                 "group": "Raydium",
                 "icon": "cube",
                 "pages": [
+                  "api-reference/metrics/raydium/dex-spot-volume-usd",
                   "api-reference/metrics/raydium/launchpad-bonding-volume",
                   "api-reference/metrics/raydium/launchpad-tokens-graduated",
+                  "api-reference/metrics/raydium/dex-memecoin-volume-share",
                   "api-reference/metrics/raydium/revenue-total-usd",
+                  "api-reference/metrics/raydium/dex-revenue-usd",
+                  "api-reference/metrics/raydium/dex-fees-usd",
                   "api-reference/metrics/raydium/volume-usd"
                 ]
               },
@@ -1512,7 +2134,21 @@
                 "group": "Solfi",
                 "icon": "cube",
                 "pages": [
+                  "api-reference/metrics/solfi/dex-spot-volume-usd",
+                  "api-reference/metrics/solfi/dex-memecoin-volume-share",
+                  "api-reference/metrics/solfi/dex-revenue-usd",
+                  "api-reference/metrics/solfi/dex-fees-usd",
                   "api-reference/metrics/solfi/volume-usd"
+                ]
+              },
+              {
+                "group": "Solidly",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/solidly/dex-spot-volume-usd",
+                  "api-reference/metrics/solidly/dex-memecoin-volume-share",
+                  "api-reference/metrics/solidly/dex-revenue-usd",
+                  "api-reference/metrics/solidly/dex-fees-usd"
                 ]
               },
               {
@@ -1544,6 +2180,10 @@
                 "group": "Stabble",
                 "icon": "cube",
                 "pages": [
+                  "api-reference/metrics/stabble/dex-spot-volume-usd",
+                  "api-reference/metrics/stabble/dex-memecoin-volume-share",
+                  "api-reference/metrics/stabble/dex-revenue-usd",
+                  "api-reference/metrics/stabble/dex-fees-usd",
                   "api-reference/metrics/stabble/volume-usd"
                 ]
               },
@@ -1559,6 +2199,16 @@
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/stakewise/revenue-total-usd"
+                ]
+              },
+              {
+                "group": "Sushi",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/sushi/dex-spot-volume-usd",
+                  "api-reference/metrics/sushi/dex-memecoin-volume-share",
+                  "api-reference/metrics/sushi/dex-revenue-usd",
+                  "api-reference/metrics/sushi/dex-fees-usd"
                 ]
               },
               {
@@ -1586,6 +2236,10 @@
                 "group": "Tessera",
                 "icon": "cube",
                 "pages": [
+                  "api-reference/metrics/tessera/dex-spot-volume-usd",
+                  "api-reference/metrics/tessera/dex-memecoin-volume-share",
+                  "api-reference/metrics/tessera/dex-revenue-usd",
+                  "api-reference/metrics/tessera/dex-fees-usd",
                   "api-reference/metrics/tessera/volume-usd"
                 ]
               },
@@ -1621,7 +2275,11 @@
                 "group": "Uniswap",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/uniswap/revenue-total-usd"
+                  "api-reference/metrics/uniswap/dex-spot-volume-usd",
+                  "api-reference/metrics/uniswap/dex-memecoin-volume-share",
+                  "api-reference/metrics/uniswap/revenue-total-usd",
+                  "api-reference/metrics/uniswap/dex-revenue-usd",
+                  "api-reference/metrics/uniswap/dex-fees-usd"
                 ]
               },
               {
@@ -1629,6 +2287,16 @@
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/uniswap-labs/revenue-total-usd"
+                ]
+              },
+              {
+                "group": "Velodrome Finance",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/velodrome-finance/dex-spot-volume-usd",
+                  "api-reference/metrics/velodrome-finance/dex-memecoin-volume-share",
+                  "api-reference/metrics/velodrome-finance/dex-revenue-usd",
+                  "api-reference/metrics/velodrome-finance/dex-fees-usd"
                 ]
               },
               {
@@ -1663,25 +2331,126 @@
                 ]
               },
               {
+                "group": "Zerofi",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/zerofi/dex-spot-volume-usd",
+                  "api-reference/metrics/zerofi/dex-memecoin-volume-share",
+                  "api-reference/metrics/zerofi/dex-revenue-usd",
+                  "api-reference/metrics/zerofi/dex-fees-usd"
+                ]
+              },
+              {
                 "group": "ZeroFi",
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/ZeroFi/volume-usd"
                 ]
-              },
-              {
-                "group": "Zora",
-                "icon": "cube",
-                "pages": [
-                  "api-reference/metrics/zora/tokens-launched-by-launchpad"
-                ]
               }
             ],
-            "tag": "99"
+            "tag": "130"
           },
           {
             "group": "Metrics: ETFs",
             "pages": [
+              {
+                "group": "21shares",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/21shares/etf-aum-usd",
+                  "api-reference/metrics/21shares/etf-aum-change-pct",
+                  "api-reference/metrics/21shares/etf-bitcoin-aum-share",
+                  "api-reference/metrics/21shares/etf-flow-usd",
+                  "api-reference/metrics/21shares/etf-num-products",
+                  "api-reference/metrics/21shares/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/21shares/etf-spot-aum-share",
+                  "api-reference/metrics/21shares/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "3iq",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/3iq/etf-aum-usd",
+                  "api-reference/metrics/3iq/etf-aum-change-pct",
+                  "api-reference/metrics/3iq/etf-bitcoin-aum-share",
+                  "api-reference/metrics/3iq/etf-flow-usd",
+                  "api-reference/metrics/3iq/etf-num-products",
+                  "api-reference/metrics/3iq/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/3iq/etf-spot-aum-share",
+                  "api-reference/metrics/3iq/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Accelerate Financial Technologies",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/accelerate-financial-technologies/etf-aum-usd",
+                  "api-reference/metrics/accelerate-financial-technologies/etf-aum-change-pct",
+                  "api-reference/metrics/accelerate-financial-technologies/etf-bitcoin-aum-share",
+                  "api-reference/metrics/accelerate-financial-technologies/etf-flow-usd",
+                  "api-reference/metrics/accelerate-financial-technologies/etf-num-products",
+                  "api-reference/metrics/accelerate-financial-technologies/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/accelerate-financial-technologies/etf-spot-aum-share",
+                  "api-reference/metrics/accelerate-financial-technologies/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Advisorshares",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/advisorshares/etf-aum-usd",
+                  "api-reference/metrics/advisorshares/etf-aum-change-pct",
+                  "api-reference/metrics/advisorshares/etf-bitcoin-aum-share",
+                  "api-reference/metrics/advisorshares/etf-flow-usd",
+                  "api-reference/metrics/advisorshares/etf-num-products",
+                  "api-reference/metrics/advisorshares/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/advisorshares/etf-spot-aum-share",
+                  "api-reference/metrics/advisorshares/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Alphabit Investments",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/alphabit-investments/etf-aum-usd",
+                  "api-reference/metrics/alphabit-investments/etf-aum-change-pct",
+                  "api-reference/metrics/alphabit-investments/etf-bitcoin-aum-share",
+                  "api-reference/metrics/alphabit-investments/etf-flow-usd",
+                  "api-reference/metrics/alphabit-investments/etf-num-products",
+                  "api-reference/metrics/alphabit-investments/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/alphabit-investments/etf-spot-aum-share",
+                  "api-reference/metrics/alphabit-investments/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Amina Bank",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/amina-bank/etf-aum-usd",
+                  "api-reference/metrics/amina-bank/etf-aum-change-pct",
+                  "api-reference/metrics/amina-bank/etf-bitcoin-aum-share",
+                  "api-reference/metrics/amina-bank/etf-flow-usd",
+                  "api-reference/metrics/amina-bank/etf-num-products",
+                  "api-reference/metrics/amina-bank/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/amina-bank/etf-spot-aum-share",
+                  "api-reference/metrics/amina-bank/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Amplify Etfs",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/amplify-etfs/etf-aum-usd",
+                  "api-reference/metrics/amplify-etfs/etf-aum-change-pct",
+                  "api-reference/metrics/amplify-etfs/etf-bitcoin-aum-share",
+                  "api-reference/metrics/amplify-etfs/etf-flow-usd",
+                  "api-reference/metrics/amplify-etfs/etf-num-products",
+                  "api-reference/metrics/amplify-etfs/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/amplify-etfs/etf-spot-aum-share",
+                  "api-reference/metrics/amplify-etfs/etf-expense-ratio"
+                ]
+              },
               {
                 "group": "ARKB",
                 "icon": "chart-line",
@@ -1690,10 +2459,94 @@
                 ]
               },
               {
+                "group": "Betashares",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/betashares/etf-aum-usd",
+                  "api-reference/metrics/betashares/etf-aum-change-pct",
+                  "api-reference/metrics/betashares/etf-bitcoin-aum-share",
+                  "api-reference/metrics/betashares/etf-flow-usd",
+                  "api-reference/metrics/betashares/etf-num-products",
+                  "api-reference/metrics/betashares/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/betashares/etf-spot-aum-share",
+                  "api-reference/metrics/betashares/etf-expense-ratio"
+                ]
+              },
+              {
                 "group": "BITB",
                 "icon": "chart-line",
                 "pages": [
                   "api-reference/metrics/BITB/etf-flows-usd"
+                ]
+              },
+              {
+                "group": "Bitcoin Capital Ag",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/bitcoin-capital-ag/etf-aum-usd",
+                  "api-reference/metrics/bitcoin-capital-ag/etf-aum-change-pct",
+                  "api-reference/metrics/bitcoin-capital-ag/etf-bitcoin-aum-share",
+                  "api-reference/metrics/bitcoin-capital-ag/etf-flow-usd",
+                  "api-reference/metrics/bitcoin-capital-ag/etf-num-products",
+                  "api-reference/metrics/bitcoin-capital-ag/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/bitcoin-capital-ag/etf-spot-aum-share",
+                  "api-reference/metrics/bitcoin-capital-ag/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Bitpanda",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/bitpanda/etf-aum-usd",
+                  "api-reference/metrics/bitpanda/etf-aum-change-pct",
+                  "api-reference/metrics/bitpanda/etf-bitcoin-aum-share",
+                  "api-reference/metrics/bitpanda/etf-flow-usd",
+                  "api-reference/metrics/bitpanda/etf-num-products",
+                  "api-reference/metrics/bitpanda/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/bitpanda/etf-spot-aum-share",
+                  "api-reference/metrics/bitpanda/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Bitwise",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/bitwise/etf-aum-usd",
+                  "api-reference/metrics/bitwise/etf-aum-change-pct",
+                  "api-reference/metrics/bitwise/etf-bitcoin-aum-share",
+                  "api-reference/metrics/bitwise/etf-flow-usd",
+                  "api-reference/metrics/bitwise/etf-num-products",
+                  "api-reference/metrics/bitwise/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/bitwise/etf-spot-aum-share",
+                  "api-reference/metrics/bitwise/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Blackrock",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/blackrock/etf-aum-usd",
+                  "api-reference/metrics/blackrock/etf-aum-change-pct",
+                  "api-reference/metrics/blackrock/etf-bitcoin-aum-share",
+                  "api-reference/metrics/blackrock/etf-flow-usd",
+                  "api-reference/metrics/blackrock/etf-num-products",
+                  "api-reference/metrics/blackrock/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/blackrock/etf-spot-aum-share",
+                  "api-reference/metrics/blackrock/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Bosera Fund Management",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/bosera-fund-management/etf-aum-usd",
+                  "api-reference/metrics/bosera-fund-management/etf-aum-change-pct",
+                  "api-reference/metrics/bosera-fund-management/etf-bitcoin-aum-share",
+                  "api-reference/metrics/bosera-fund-management/etf-flow-usd",
+                  "api-reference/metrics/bosera-fund-management/etf-num-products",
+                  "api-reference/metrics/bosera-fund-management/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/bosera-fund-management/etf-spot-aum-share",
+                  "api-reference/metrics/bosera-fund-management/etf-expense-ratio"
                 ]
               },
               {
@@ -1725,10 +2578,206 @@
                 ]
               },
               {
+                "group": "Calamos Investments",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/calamos-investments/etf-aum-usd",
+                  "api-reference/metrics/calamos-investments/etf-aum-change-pct",
+                  "api-reference/metrics/calamos-investments/etf-bitcoin-aum-share",
+                  "api-reference/metrics/calamos-investments/etf-flow-usd",
+                  "api-reference/metrics/calamos-investments/etf-num-products",
+                  "api-reference/metrics/calamos-investments/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/calamos-investments/etf-spot-aum-share",
+                  "api-reference/metrics/calamos-investments/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Canary Capital",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/canary-capital/etf-aum-usd",
+                  "api-reference/metrics/canary-capital/etf-aum-change-pct",
+                  "api-reference/metrics/canary-capital/etf-bitcoin-aum-share",
+                  "api-reference/metrics/canary-capital/etf-flow-usd",
+                  "api-reference/metrics/canary-capital/etf-num-products",
+                  "api-reference/metrics/canary-capital/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/canary-capital/etf-spot-aum-share",
+                  "api-reference/metrics/canary-capital/etf-expense-ratio"
+                ]
+              },
+              {
                 "group": "CETH",
                 "icon": "chart-line",
                 "pages": [
                   "api-reference/metrics/CETH/etf-flows-usd"
+                ]
+              },
+              {
+                "group": "Chinaamc",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/chinaamc/etf-aum-usd",
+                  "api-reference/metrics/chinaamc/etf-aum-change-pct",
+                  "api-reference/metrics/chinaamc/etf-bitcoin-aum-share",
+                  "api-reference/metrics/chinaamc/etf-flow-usd",
+                  "api-reference/metrics/chinaamc/etf-num-products",
+                  "api-reference/metrics/chinaamc/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/chinaamc/etf-spot-aum-share",
+                  "api-reference/metrics/chinaamc/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Ci",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/ci/etf-aum-usd",
+                  "api-reference/metrics/ci/etf-aum-change-pct",
+                  "api-reference/metrics/ci/etf-bitcoin-aum-share",
+                  "api-reference/metrics/ci/etf-flow-usd",
+                  "api-reference/metrics/ci/etf-num-products",
+                  "api-reference/metrics/ci/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/ci/etf-spot-aum-share",
+                  "api-reference/metrics/ci/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Coinshares",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/coinshares/etf-aum-usd",
+                  "api-reference/metrics/coinshares/etf-aum-change-pct",
+                  "api-reference/metrics/coinshares/etf-bitcoin-aum-share",
+                  "api-reference/metrics/coinshares/etf-flow-usd",
+                  "api-reference/metrics/coinshares/etf-num-products",
+                  "api-reference/metrics/coinshares/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/coinshares/etf-spot-aum-share",
+                  "api-reference/metrics/coinshares/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Cosmos Asset Management",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/cosmos-asset-management/etf-aum-usd",
+                  "api-reference/metrics/cosmos-asset-management/etf-aum-change-pct",
+                  "api-reference/metrics/cosmos-asset-management/etf-bitcoin-aum-share",
+                  "api-reference/metrics/cosmos-asset-management/etf-flow-usd",
+                  "api-reference/metrics/cosmos-asset-management/etf-num-products",
+                  "api-reference/metrics/cosmos-asset-management/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/cosmos-asset-management/etf-spot-aum-share",
+                  "api-reference/metrics/cosmos-asset-management/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Crypto Finance Asset Management",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/crypto-finance-asset-management/etf-aum-usd",
+                  "api-reference/metrics/crypto-finance-asset-management/etf-aum-change-pct",
+                  "api-reference/metrics/crypto-finance-asset-management/etf-bitcoin-aum-share",
+                  "api-reference/metrics/crypto-finance-asset-management/etf-flow-usd",
+                  "api-reference/metrics/crypto-finance-asset-management/etf-num-products",
+                  "api-reference/metrics/crypto-finance-asset-management/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/crypto-finance-asset-management/etf-spot-aum-share",
+                  "api-reference/metrics/crypto-finance-asset-management/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Csop",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/csop/etf-aum-usd",
+                  "api-reference/metrics/csop/etf-aum-change-pct",
+                  "api-reference/metrics/csop/etf-bitcoin-aum-share",
+                  "api-reference/metrics/csop/etf-flow-usd",
+                  "api-reference/metrics/csop/etf-num-products",
+                  "api-reference/metrics/csop/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/csop/etf-spot-aum-share",
+                  "api-reference/metrics/csop/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Dda",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/dda/etf-aum-usd",
+                  "api-reference/metrics/dda/etf-aum-change-pct",
+                  "api-reference/metrics/dda/etf-bitcoin-aum-share",
+                  "api-reference/metrics/dda/etf-flow-usd",
+                  "api-reference/metrics/dda/etf-num-products",
+                  "api-reference/metrics/dda/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/dda/etf-spot-aum-share",
+                  "api-reference/metrics/dda/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Defiance Etfs",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/defiance-etfs/etf-aum-usd",
+                  "api-reference/metrics/defiance-etfs/etf-aum-change-pct",
+                  "api-reference/metrics/defiance-etfs/etf-bitcoin-aum-share",
+                  "api-reference/metrics/defiance-etfs/etf-flow-usd",
+                  "api-reference/metrics/defiance-etfs/etf-num-products",
+                  "api-reference/metrics/defiance-etfs/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/defiance-etfs/etf-spot-aum-share",
+                  "api-reference/metrics/defiance-etfs/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Digitalx",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/digitalx/etf-aum-usd",
+                  "api-reference/metrics/digitalx/etf-aum-change-pct",
+                  "api-reference/metrics/digitalx/etf-bitcoin-aum-share",
+                  "api-reference/metrics/digitalx/etf-flow-usd",
+                  "api-reference/metrics/digitalx/etf-num-products",
+                  "api-reference/metrics/digitalx/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/digitalx/etf-spot-aum-share",
+                  "api-reference/metrics/digitalx/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Dynamic Funds",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/dynamic-funds/etf-aum-usd",
+                  "api-reference/metrics/dynamic-funds/etf-aum-change-pct",
+                  "api-reference/metrics/dynamic-funds/etf-bitcoin-aum-share",
+                  "api-reference/metrics/dynamic-funds/etf-flow-usd",
+                  "api-reference/metrics/dynamic-funds/etf-num-products",
+                  "api-reference/metrics/dynamic-funds/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/dynamic-funds/etf-spot-aum-share",
+                  "api-reference/metrics/dynamic-funds/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Eqonex Investment Products",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/eqonex-investment-products/etf-aum-usd",
+                  "api-reference/metrics/eqonex-investment-products/etf-aum-change-pct",
+                  "api-reference/metrics/eqonex-investment-products/etf-bitcoin-aum-share",
+                  "api-reference/metrics/eqonex-investment-products/etf-flow-usd",
+                  "api-reference/metrics/eqonex-investment-products/etf-num-products",
+                  "api-reference/metrics/eqonex-investment-products/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/eqonex-investment-products/etf-spot-aum-share",
+                  "api-reference/metrics/eqonex-investment-products/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Etc Group",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/etc-group/etf-aum-usd",
+                  "api-reference/metrics/etc-group/etf-aum-change-pct",
+                  "api-reference/metrics/etc-group/etf-bitcoin-aum-share",
+                  "api-reference/metrics/etc-group/etf-flow-usd",
+                  "api-reference/metrics/etc-group/etf-num-products",
+                  "api-reference/metrics/etc-group/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/etc-group/etf-spot-aum-share",
+                  "api-reference/metrics/etc-group/etf-expense-ratio"
                 ]
               },
               {
@@ -1767,6 +2816,20 @@
                 ]
               },
               {
+                "group": "Evolve Etfs",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/evolve-etfs/etf-aum-usd",
+                  "api-reference/metrics/evolve-etfs/etf-aum-change-pct",
+                  "api-reference/metrics/evolve-etfs/etf-bitcoin-aum-share",
+                  "api-reference/metrics/evolve-etfs/etf-flow-usd",
+                  "api-reference/metrics/evolve-etfs/etf-num-products",
+                  "api-reference/metrics/evolve-etfs/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/evolve-etfs/etf-spot-aum-share",
+                  "api-reference/metrics/evolve-etfs/etf-expense-ratio"
+                ]
+              },
+              {
                 "group": "EZBC",
                 "icon": "chart-line",
                 "pages": [
@@ -1795,10 +2858,178 @@
                 ]
               },
               {
+                "group": "Fidelity",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/fidelity/etf-aum-usd",
+                  "api-reference/metrics/fidelity/etf-aum-change-pct",
+                  "api-reference/metrics/fidelity/etf-bitcoin-aum-share",
+                  "api-reference/metrics/fidelity/etf-flow-usd",
+                  "api-reference/metrics/fidelity/etf-num-products",
+                  "api-reference/metrics/fidelity/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/fidelity/etf-spot-aum-share",
+                  "api-reference/metrics/fidelity/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "First Trust",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/first-trust/etf-aum-usd",
+                  "api-reference/metrics/first-trust/etf-aum-change-pct",
+                  "api-reference/metrics/first-trust/etf-bitcoin-aum-share",
+                  "api-reference/metrics/first-trust/etf-flow-usd",
+                  "api-reference/metrics/first-trust/etf-num-products",
+                  "api-reference/metrics/first-trust/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/first-trust/etf-spot-aum-share",
+                  "api-reference/metrics/first-trust/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Fortuna",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/fortuna/etf-aum-usd",
+                  "api-reference/metrics/fortuna/etf-aum-change-pct",
+                  "api-reference/metrics/fortuna/etf-bitcoin-aum-share",
+                  "api-reference/metrics/fortuna/etf-flow-usd",
+                  "api-reference/metrics/fortuna/etf-num-products",
+                  "api-reference/metrics/fortuna/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/fortuna/etf-spot-aum-share",
+                  "api-reference/metrics/fortuna/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Franklin Templeton",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/franklin-templeton/etf-aum-usd",
+                  "api-reference/metrics/franklin-templeton/etf-aum-change-pct",
+                  "api-reference/metrics/franklin-templeton/etf-bitcoin-aum-share",
+                  "api-reference/metrics/franklin-templeton/etf-flow-usd",
+                  "api-reference/metrics/franklin-templeton/etf-num-products",
+                  "api-reference/metrics/franklin-templeton/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/franklin-templeton/etf-spot-aum-share",
+                  "api-reference/metrics/franklin-templeton/etf-expense-ratio"
+                ]
+              },
+              {
                 "group": "GBTC",
                 "icon": "chart-line",
                 "pages": [
                   "api-reference/metrics/GBTC/etf-flows-usd"
+                ]
+              },
+              {
+                "group": "Global X",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/global-x/etf-aum-usd",
+                  "api-reference/metrics/global-x/etf-aum-change-pct",
+                  "api-reference/metrics/global-x/etf-bitcoin-aum-share",
+                  "api-reference/metrics/global-x/etf-flow-usd",
+                  "api-reference/metrics/global-x/etf-num-products",
+                  "api-reference/metrics/global-x/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/global-x/etf-spot-aum-share",
+                  "api-reference/metrics/global-x/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Graniteshares",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/graniteshares/etf-aum-usd",
+                  "api-reference/metrics/graniteshares/etf-aum-change-pct",
+                  "api-reference/metrics/graniteshares/etf-bitcoin-aum-share",
+                  "api-reference/metrics/graniteshares/etf-flow-usd",
+                  "api-reference/metrics/graniteshares/etf-num-products",
+                  "api-reference/metrics/graniteshares/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/graniteshares/etf-spot-aum-share",
+                  "api-reference/metrics/graniteshares/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Grayscale",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/grayscale/etf-aum-usd",
+                  "api-reference/metrics/grayscale/etf-aum-change-pct",
+                  "api-reference/metrics/grayscale/etf-bitcoin-aum-share",
+                  "api-reference/metrics/grayscale/etf-flow-usd",
+                  "api-reference/metrics/grayscale/etf-num-products",
+                  "api-reference/metrics/grayscale/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/grayscale/etf-spot-aum-share",
+                  "api-reference/metrics/grayscale/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Hanetf",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/hanetf/etf-aum-usd",
+                  "api-reference/metrics/hanetf/etf-aum-change-pct",
+                  "api-reference/metrics/hanetf/etf-bitcoin-aum-share",
+                  "api-reference/metrics/hanetf/etf-flow-usd",
+                  "api-reference/metrics/hanetf/etf-num-products",
+                  "api-reference/metrics/hanetf/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/hanetf/etf-spot-aum-share",
+                  "api-reference/metrics/hanetf/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Harvest Global Investments Limited",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/harvest-global-investments-limited/etf-aum-usd",
+                  "api-reference/metrics/harvest-global-investments-limited/etf-aum-change-pct",
+                  "api-reference/metrics/harvest-global-investments-limited/etf-bitcoin-aum-share",
+                  "api-reference/metrics/harvest-global-investments-limited/etf-flow-usd",
+                  "api-reference/metrics/harvest-global-investments-limited/etf-num-products",
+                  "api-reference/metrics/harvest-global-investments-limited/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/harvest-global-investments-limited/etf-spot-aum-share",
+                  "api-reference/metrics/harvest-global-investments-limited/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Harvest Portfolios Group",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/harvest-portfolios-group/etf-aum-usd",
+                  "api-reference/metrics/harvest-portfolios-group/etf-aum-change-pct",
+                  "api-reference/metrics/harvest-portfolios-group/etf-bitcoin-aum-share",
+                  "api-reference/metrics/harvest-portfolios-group/etf-flow-usd",
+                  "api-reference/metrics/harvest-portfolios-group/etf-num-products",
+                  "api-reference/metrics/harvest-portfolios-group/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/harvest-portfolios-group/etf-spot-aum-share",
+                  "api-reference/metrics/harvest-portfolios-group/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Hashdex",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/hashdex/etf-aum-usd",
+                  "api-reference/metrics/hashdex/etf-aum-change-pct",
+                  "api-reference/metrics/hashdex/etf-bitcoin-aum-share",
+                  "api-reference/metrics/hashdex/etf-flow-usd",
+                  "api-reference/metrics/hashdex/etf-num-products",
+                  "api-reference/metrics/hashdex/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/hashdex/etf-spot-aum-share",
+                  "api-reference/metrics/hashdex/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Helveteq Ag",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/helveteq-ag/etf-aum-usd",
+                  "api-reference/metrics/helveteq-ag/etf-aum-change-pct",
+                  "api-reference/metrics/helveteq-ag/etf-bitcoin-aum-share",
+                  "api-reference/metrics/helveteq-ag/etf-flow-usd",
+                  "api-reference/metrics/helveteq-ag/etf-num-products",
+                  "api-reference/metrics/helveteq-ag/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/helveteq-ag/etf-spot-aum-share",
+                  "api-reference/metrics/helveteq-ag/etf-expense-ratio"
                 ]
               },
               {
@@ -1809,10 +3040,220 @@
                 ]
               },
               {
+                "group": "Horizons Etfs",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/horizons-etfs/etf-aum-usd",
+                  "api-reference/metrics/horizons-etfs/etf-aum-change-pct",
+                  "api-reference/metrics/horizons-etfs/etf-bitcoin-aum-share",
+                  "api-reference/metrics/horizons-etfs/etf-flow-usd",
+                  "api-reference/metrics/horizons-etfs/etf-num-products",
+                  "api-reference/metrics/horizons-etfs/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/horizons-etfs/etf-spot-aum-share",
+                  "api-reference/metrics/horizons-etfs/etf-expense-ratio"
+                ]
+              },
+              {
                 "group": "IBIT",
                 "icon": "chart-line",
                 "pages": [
                   "api-reference/metrics/IBIT/etf-flows-usd"
+                ]
+              },
+              {
+                "group": "Innovator",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/innovator/etf-aum-usd",
+                  "api-reference/metrics/innovator/etf-aum-change-pct",
+                  "api-reference/metrics/innovator/etf-bitcoin-aum-share",
+                  "api-reference/metrics/innovator/etf-flow-usd",
+                  "api-reference/metrics/innovator/etf-num-products",
+                  "api-reference/metrics/innovator/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/innovator/etf-spot-aum-share",
+                  "api-reference/metrics/innovator/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Invesco",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/invesco/etf-aum-usd",
+                  "api-reference/metrics/invesco/etf-aum-change-pct",
+                  "api-reference/metrics/invesco/etf-bitcoin-aum-share",
+                  "api-reference/metrics/invesco/etf-flow-usd",
+                  "api-reference/metrics/invesco/etf-num-products",
+                  "api-reference/metrics/invesco/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/invesco/etf-spot-aum-share",
+                  "api-reference/metrics/invesco/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Jacobi Asset Management",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/jacobi-asset-management/etf-aum-usd",
+                  "api-reference/metrics/jacobi-asset-management/etf-aum-change-pct",
+                  "api-reference/metrics/jacobi-asset-management/etf-bitcoin-aum-share",
+                  "api-reference/metrics/jacobi-asset-management/etf-flow-usd",
+                  "api-reference/metrics/jacobi-asset-management/etf-num-products",
+                  "api-reference/metrics/jacobi-asset-management/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/jacobi-asset-management/etf-spot-aum-share",
+                  "api-reference/metrics/jacobi-asset-management/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Liqwid",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/liqwid/etf-aum-usd",
+                  "api-reference/metrics/liqwid/etf-aum-change-pct",
+                  "api-reference/metrics/liqwid/etf-bitcoin-aum-share",
+                  "api-reference/metrics/liqwid/etf-flow-usd",
+                  "api-reference/metrics/liqwid/etf-num-products",
+                  "api-reference/metrics/liqwid/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/liqwid/etf-spot-aum-share",
+                  "api-reference/metrics/liqwid/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Melanion",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/melanion/etf-aum-usd",
+                  "api-reference/metrics/melanion/etf-aum-change-pct",
+                  "api-reference/metrics/melanion/etf-bitcoin-aum-share",
+                  "api-reference/metrics/melanion/etf-flow-usd",
+                  "api-reference/metrics/melanion/etf-num-products",
+                  "api-reference/metrics/melanion/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/melanion/etf-spot-aum-share",
+                  "api-reference/metrics/melanion/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Microbit",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/microbit/etf-aum-usd",
+                  "api-reference/metrics/microbit/etf-aum-change-pct",
+                  "api-reference/metrics/microbit/etf-bitcoin-aum-share",
+                  "api-reference/metrics/microbit/etf-flow-usd",
+                  "api-reference/metrics/microbit/etf-num-products",
+                  "api-reference/metrics/microbit/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/microbit/etf-spot-aum-share",
+                  "api-reference/metrics/microbit/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Monochrome",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/monochrome/etf-aum-usd",
+                  "api-reference/metrics/monochrome/etf-aum-change-pct",
+                  "api-reference/metrics/monochrome/etf-bitcoin-aum-share",
+                  "api-reference/metrics/monochrome/etf-flow-usd",
+                  "api-reference/metrics/monochrome/etf-num-products",
+                  "api-reference/metrics/monochrome/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/monochrome/etf-spot-aum-share",
+                  "api-reference/metrics/monochrome/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Neos Investment Management",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/neos-investment-management/etf-aum-usd",
+                  "api-reference/metrics/neos-investment-management/etf-aum-change-pct",
+                  "api-reference/metrics/neos-investment-management/etf-bitcoin-aum-share",
+                  "api-reference/metrics/neos-investment-management/etf-flow-usd",
+                  "api-reference/metrics/neos-investment-management/etf-num-products",
+                  "api-reference/metrics/neos-investment-management/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/neos-investment-management/etf-spot-aum-share",
+                  "api-reference/metrics/neos-investment-management/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Nicholas Wealth Management",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/nicholas-wealth-management/etf-aum-usd",
+                  "api-reference/metrics/nicholas-wealth-management/etf-aum-change-pct",
+                  "api-reference/metrics/nicholas-wealth-management/etf-bitcoin-aum-share",
+                  "api-reference/metrics/nicholas-wealth-management/etf-flow-usd",
+                  "api-reference/metrics/nicholas-wealth-management/etf-num-products",
+                  "api-reference/metrics/nicholas-wealth-management/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/nicholas-wealth-management/etf-spot-aum-share",
+                  "api-reference/metrics/nicholas-wealth-management/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Ninepoint Partners",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/ninepoint-partners/etf-aum-usd",
+                  "api-reference/metrics/ninepoint-partners/etf-aum-change-pct",
+                  "api-reference/metrics/ninepoint-partners/etf-bitcoin-aum-share",
+                  "api-reference/metrics/ninepoint-partners/etf-flow-usd",
+                  "api-reference/metrics/ninepoint-partners/etf-num-products",
+                  "api-reference/metrics/ninepoint-partners/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/ninepoint-partners/etf-spot-aum-share",
+                  "api-reference/metrics/ninepoint-partners/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Nxtassets",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/nxtassets/etf-aum-usd",
+                  "api-reference/metrics/nxtassets/etf-aum-change-pct",
+                  "api-reference/metrics/nxtassets/etf-bitcoin-aum-share",
+                  "api-reference/metrics/nxtassets/etf-flow-usd",
+                  "api-reference/metrics/nxtassets/etf-num-products",
+                  "api-reference/metrics/nxtassets/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/nxtassets/etf-spot-aum-share",
+                  "api-reference/metrics/nxtassets/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Pando Finance",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/pando-finance/etf-aum-usd",
+                  "api-reference/metrics/pando-finance/etf-aum-change-pct",
+                  "api-reference/metrics/pando-finance/etf-bitcoin-aum-share",
+                  "api-reference/metrics/pando-finance/etf-flow-usd",
+                  "api-reference/metrics/pando-finance/etf-num-products",
+                  "api-reference/metrics/pando-finance/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/pando-finance/etf-spot-aum-share",
+                  "api-reference/metrics/pando-finance/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Proshares",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/proshares/etf-aum-usd",
+                  "api-reference/metrics/proshares/etf-aum-change-pct",
+                  "api-reference/metrics/proshares/etf-bitcoin-aum-share",
+                  "api-reference/metrics/proshares/etf-flow-usd",
+                  "api-reference/metrics/proshares/etf-num-products",
+                  "api-reference/metrics/proshares/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/proshares/etf-spot-aum-share",
+                  "api-reference/metrics/proshares/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Purpose Investments",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/purpose-investments/etf-aum-usd",
+                  "api-reference/metrics/purpose-investments/etf-aum-change-pct",
+                  "api-reference/metrics/purpose-investments/etf-bitcoin-aum-share",
+                  "api-reference/metrics/purpose-investments/etf-flow-usd",
+                  "api-reference/metrics/purpose-investments/etf-num-products",
+                  "api-reference/metrics/purpose-investments/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/purpose-investments/etf-spot-aum-share",
+                  "api-reference/metrics/purpose-investments/etf-expense-ratio"
                 ]
               },
               {
@@ -1823,14 +3264,308 @@
                 ]
               },
               {
+                "group": "Quantify Funds",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/quantify-funds/etf-aum-usd",
+                  "api-reference/metrics/quantify-funds/etf-aum-change-pct",
+                  "api-reference/metrics/quantify-funds/etf-bitcoin-aum-share",
+                  "api-reference/metrics/quantify-funds/etf-flow-usd",
+                  "api-reference/metrics/quantify-funds/etf-num-products",
+                  "api-reference/metrics/quantify-funds/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/quantify-funds/etf-spot-aum-share",
+                  "api-reference/metrics/quantify-funds/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Rex Shares",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/rex-shares/etf-aum-usd",
+                  "api-reference/metrics/rex-shares/etf-aum-change-pct",
+                  "api-reference/metrics/rex-shares/etf-bitcoin-aum-share",
+                  "api-reference/metrics/rex-shares/etf-flow-usd",
+                  "api-reference/metrics/rex-shares/etf-num-products",
+                  "api-reference/metrics/rex-shares/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/rex-shares/etf-spot-aum-share",
+                  "api-reference/metrics/rex-shares/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Roundhill Investments",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/roundhill-investments/etf-aum-usd",
+                  "api-reference/metrics/roundhill-investments/etf-aum-change-pct",
+                  "api-reference/metrics/roundhill-investments/etf-bitcoin-aum-share",
+                  "api-reference/metrics/roundhill-investments/etf-flow-usd",
+                  "api-reference/metrics/roundhill-investments/etf-num-products",
+                  "api-reference/metrics/roundhill-investments/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/roundhill-investments/etf-spot-aum-share",
+                  "api-reference/metrics/roundhill-investments/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Samsung Asset Management",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/samsung-asset-management/etf-aum-usd",
+                  "api-reference/metrics/samsung-asset-management/etf-aum-change-pct",
+                  "api-reference/metrics/samsung-asset-management/etf-bitcoin-aum-share",
+                  "api-reference/metrics/samsung-asset-management/etf-flow-usd",
+                  "api-reference/metrics/samsung-asset-management/etf-num-products",
+                  "api-reference/metrics/samsung-asset-management/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/samsung-asset-management/etf-spot-aum-share",
+                  "api-reference/metrics/samsung-asset-management/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Schwab Etfs",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/schwab-etfs/etf-aum-usd",
+                  "api-reference/metrics/schwab-etfs/etf-aum-change-pct",
+                  "api-reference/metrics/schwab-etfs/etf-bitcoin-aum-share",
+                  "api-reference/metrics/schwab-etfs/etf-flow-usd",
+                  "api-reference/metrics/schwab-etfs/etf-num-products",
+                  "api-reference/metrics/schwab-etfs/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/schwab-etfs/etf-spot-aum-share",
+                  "api-reference/metrics/schwab-etfs/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Simplify",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/simplify/etf-aum-usd",
+                  "api-reference/metrics/simplify/etf-aum-change-pct",
+                  "api-reference/metrics/simplify/etf-bitcoin-aum-share",
+                  "api-reference/metrics/simplify/etf-flow-usd",
+                  "api-reference/metrics/simplify/etf-num-products",
+                  "api-reference/metrics/simplify/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/simplify/etf-spot-aum-share",
+                  "api-reference/metrics/simplify/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Smart",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/smart/etf-aum-usd",
+                  "api-reference/metrics/smart/etf-aum-change-pct",
+                  "api-reference/metrics/smart/etf-bitcoin-aum-share",
+                  "api-reference/metrics/smart/etf-flow-usd",
+                  "api-reference/metrics/smart/etf-num-products",
+                  "api-reference/metrics/smart/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/smart/etf-spot-aum-share",
+                  "api-reference/metrics/smart/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Spdr",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/spdr/etf-aum-usd",
+                  "api-reference/metrics/spdr/etf-aum-change-pct",
+                  "api-reference/metrics/spdr/etf-bitcoin-aum-share",
+                  "api-reference/metrics/spdr/etf-flow-usd",
+                  "api-reference/metrics/spdr/etf-num-products",
+                  "api-reference/metrics/spdr/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/spdr/etf-spot-aum-share",
+                  "api-reference/metrics/spdr/etf-expense-ratio"
+                ]
+              },
+              {
                 "group": "SSK",
                 "icon": "chart-line",
                 "pages": [
                   "api-reference/metrics/SSK/etf-flows-usd"
                 ]
+              },
+              {
+                "group": "Teucrium",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/teucrium/etf-aum-usd",
+                  "api-reference/metrics/teucrium/etf-aum-change-pct",
+                  "api-reference/metrics/teucrium/etf-bitcoin-aum-share",
+                  "api-reference/metrics/teucrium/etf-flow-usd",
+                  "api-reference/metrics/teucrium/etf-num-products",
+                  "api-reference/metrics/teucrium/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/teucrium/etf-spot-aum-share",
+                  "api-reference/metrics/teucrium/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Tidal",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/tidal/etf-aum-usd",
+                  "api-reference/metrics/tidal/etf-aum-change-pct",
+                  "api-reference/metrics/tidal/etf-bitcoin-aum-share",
+                  "api-reference/metrics/tidal/etf-flow-usd",
+                  "api-reference/metrics/tidal/etf-num-products",
+                  "api-reference/metrics/tidal/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/tidal/etf-spot-aum-share",
+                  "api-reference/metrics/tidal/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Tobam",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/tobam/etf-aum-usd",
+                  "api-reference/metrics/tobam/etf-aum-change-pct",
+                  "api-reference/metrics/tobam/etf-bitcoin-aum-share",
+                  "api-reference/metrics/tobam/etf-flow-usd",
+                  "api-reference/metrics/tobam/etf-num-products",
+                  "api-reference/metrics/tobam/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/tobam/etf-spot-aum-share",
+                  "api-reference/metrics/tobam/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Tuttle Capital Management",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/tuttle-capital-management/etf-aum-usd",
+                  "api-reference/metrics/tuttle-capital-management/etf-aum-change-pct",
+                  "api-reference/metrics/tuttle-capital-management/etf-bitcoin-aum-share",
+                  "api-reference/metrics/tuttle-capital-management/etf-flow-usd",
+                  "api-reference/metrics/tuttle-capital-management/etf-num-products",
+                  "api-reference/metrics/tuttle-capital-management/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/tuttle-capital-management/etf-spot-aum-share",
+                  "api-reference/metrics/tuttle-capital-management/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Valkyrie",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/valkyrie/etf-aum-usd",
+                  "api-reference/metrics/valkyrie/etf-aum-change-pct",
+                  "api-reference/metrics/valkyrie/etf-bitcoin-aum-share",
+                  "api-reference/metrics/valkyrie/etf-flow-usd",
+                  "api-reference/metrics/valkyrie/etf-num-products",
+                  "api-reference/metrics/valkyrie/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/valkyrie/etf-spot-aum-share",
+                  "api-reference/metrics/valkyrie/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Valour",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/valour/etf-aum-usd",
+                  "api-reference/metrics/valour/etf-aum-change-pct",
+                  "api-reference/metrics/valour/etf-bitcoin-aum-share",
+                  "api-reference/metrics/valour/etf-flow-usd",
+                  "api-reference/metrics/valour/etf-num-products",
+                  "api-reference/metrics/valour/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/valour/etf-spot-aum-share",
+                  "api-reference/metrics/valour/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Vaneck",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/vaneck/etf-aum-usd",
+                  "api-reference/metrics/vaneck/etf-aum-change-pct",
+                  "api-reference/metrics/vaneck/etf-bitcoin-aum-share",
+                  "api-reference/metrics/vaneck/etf-flow-usd",
+                  "api-reference/metrics/vaneck/etf-num-products",
+                  "api-reference/metrics/vaneck/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/vaneck/etf-spot-aum-share",
+                  "api-reference/metrics/vaneck/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Virtune",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/virtune/etf-aum-usd",
+                  "api-reference/metrics/virtune/etf-aum-change-pct",
+                  "api-reference/metrics/virtune/etf-bitcoin-aum-share",
+                  "api-reference/metrics/virtune/etf-flow-usd",
+                  "api-reference/metrics/virtune/etf-num-products",
+                  "api-reference/metrics/virtune/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/virtune/etf-spot-aum-share",
+                  "api-reference/metrics/virtune/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Volatility Shares",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/volatility-shares/etf-aum-usd",
+                  "api-reference/metrics/volatility-shares/etf-aum-change-pct",
+                  "api-reference/metrics/volatility-shares/etf-bitcoin-aum-share",
+                  "api-reference/metrics/volatility-shares/etf-flow-usd",
+                  "api-reference/metrics/volatility-shares/etf-num-products",
+                  "api-reference/metrics/volatility-shares/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/volatility-shares/etf-spot-aum-share",
+                  "api-reference/metrics/volatility-shares/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Volt Funds",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/volt-funds/etf-aum-usd",
+                  "api-reference/metrics/volt-funds/etf-aum-change-pct",
+                  "api-reference/metrics/volt-funds/etf-bitcoin-aum-share",
+                  "api-reference/metrics/volt-funds/etf-flow-usd",
+                  "api-reference/metrics/volt-funds/etf-num-products",
+                  "api-reference/metrics/volt-funds/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/volt-funds/etf-spot-aum-share",
+                  "api-reference/metrics/volt-funds/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Wisdomtree",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/wisdomtree/etf-aum-usd",
+                  "api-reference/metrics/wisdomtree/etf-aum-change-pct",
+                  "api-reference/metrics/wisdomtree/etf-bitcoin-aum-share",
+                  "api-reference/metrics/wisdomtree/etf-flow-usd",
+                  "api-reference/metrics/wisdomtree/etf-num-products",
+                  "api-reference/metrics/wisdomtree/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/wisdomtree/etf-spot-aum-share",
+                  "api-reference/metrics/wisdomtree/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Xtrackers By Dws",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/xtrackers-by-dws/etf-aum-usd",
+                  "api-reference/metrics/xtrackers-by-dws/etf-aum-change-pct",
+                  "api-reference/metrics/xtrackers-by-dws/etf-bitcoin-aum-share",
+                  "api-reference/metrics/xtrackers-by-dws/etf-flow-usd",
+                  "api-reference/metrics/xtrackers-by-dws/etf-num-products",
+                  "api-reference/metrics/xtrackers-by-dws/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/xtrackers-by-dws/etf-spot-aum-share",
+                  "api-reference/metrics/xtrackers-by-dws/etf-expense-ratio"
+                ]
+              },
+              {
+                "group": "Yieldmax Etfs",
+                "icon": "chart-line",
+                "pages": [
+                  "api-reference/metrics/yieldmax-etfs/etf-aum-usd",
+                  "api-reference/metrics/yieldmax-etfs/etf-aum-change-pct",
+                  "api-reference/metrics/yieldmax-etfs/etf-bitcoin-aum-share",
+                  "api-reference/metrics/yieldmax-etfs/etf-flow-usd",
+                  "api-reference/metrics/yieldmax-etfs/etf-num-products",
+                  "api-reference/metrics/yieldmax-etfs/etf-rolling-30d-flow-usd",
+                  "api-reference/metrics/yieldmax-etfs/etf-spot-aum-share",
+                  "api-reference/metrics/yieldmax-etfs/etf-expense-ratio"
+                ]
               }
             ],
-            "tag": "21"
+            "tag": "97"
           },
           {
             "group": "Metrics: Treasuries",

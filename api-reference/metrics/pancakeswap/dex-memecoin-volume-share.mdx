@@ -1,0 +1,77 @@
+---
+title: "Memecoin Volume Share"
+sidebarTitle: "Memecoin Volume Share"
+description: "Percentage of spot volume attributed to memecoins for pancakeswap."
+openapi: "GET /v1/metrics/dex-memecoin-volume-share"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** %
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/dex-memecoin-volume-share?project=pancakeswap"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/dex-memecoin-volume-share?project=pancakeswap',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/dex-memecoin-volume-share',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'pancakeswap'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "pancakeswap": [
+    {
+      "date": "2026-03-22",
+      "value": 0.5047692059119603
+    },
+    {
+      "date": "2026-03-21",
+      "value": 0.5594001931849898
+    },
+    {
+      "date": "2026-03-20",
+      "value": 0.43828588811836844
+    },
+    {
+      "date": "2026-03-19",
+      "value": 0.4012417587760774
+    },
+    {
+      "date": "2026-03-18",
+      "value": 0.41803430368579897
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

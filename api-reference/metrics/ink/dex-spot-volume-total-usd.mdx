@@ -1,0 +1,77 @@
+---
+title: "Ink: DEX Spot Volume"
+sidebarTitle: "DEX Spot Volume"
+description: "Total amount of daily spot volume from major DEXs."
+openapi: "GET /v1/metrics/dex-spot-volume-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/dex-spot-volume-total-usd?project=ink"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/dex-spot-volume-total-usd?project=ink',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/dex-spot-volume-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ink'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "ink": [
+    {
+      "date": "2026-03-22",
+      "value": 3148632.9832757814
+    },
+    {
+      "date": "2026-03-21",
+      "value": 1726806.9017579954
+    },
+    {
+      "date": "2026-03-20",
+      "value": 3253742.052684035
+    },
+    {
+      "date": "2026-03-19",
+      "value": 3849141.70624206
+    },
+    {
+      "date": "2026-03-18",
+      "value": 3803621.073121592
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

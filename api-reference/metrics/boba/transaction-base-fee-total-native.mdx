@@ -1,0 +1,77 @@
+---
+title: "Boba: Base Fees"
+sidebarTitle: "Base Fees"
+description: "The minimum transaction fee required for a transaction to be included in a block."
+openapi: "GET /v1/metrics/transaction-base-fee-total-native"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** ETH
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-base-fee-total-native?project=boba"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-base-fee-total-native?project=boba',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-base-fee-total-native',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'boba'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "boba": [
+    {
+      "date": "2026-03-22",
+      "value": 6.072448709880038e-7
+    },
+    {
+      "date": "2026-03-21",
+      "value": 0.0000010144872430559889
+    },
+    {
+      "date": "2026-03-20",
+      "value": 6.070947187499982e-7
+    },
+    {
+      "date": "2026-03-19",
+      "value": 6.146592365769988e-7
+    },
+    {
+      "date": "2026-03-18",
+      "value": 6.564254719950012e-7
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

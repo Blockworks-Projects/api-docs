@@ -1,0 +1,73 @@
+---
+title: "DEX Spot Volume"
+sidebarTitle: "DEX Spot Volume"
+description: "Daily spot trading volume in USD for manifest-dex."
+openapi: "GET /v1/metrics/dex-spot-volume-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/dex-spot-volume-usd?project=manifest-dex"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/dex-spot-volume-usd?project=manifest-dex',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/dex-spot-volume-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'manifest-dex'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "manifest-dex": [
+    {
+      "date": "2026-03-21",
+      "value": 41301598.74273303
+    },
+    {
+      "date": "2026-03-20",
+      "value": 70379323.15904273
+    },
+    {
+      "date": "2026-03-19",
+      "value": 70532512.90999037
+    },
+    {
+      "date": "2026-03-18",
+      "value": 85600346.70480639
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

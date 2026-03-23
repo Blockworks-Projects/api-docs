@@ -11,7 +11,7 @@ mode: "wide"
 - **Denomination:** USD
 - **Type:** USD Value
 - **Interval:** Daily
-- **Source:** Farside UK
+- **Source:** Blockworks
 
 ## Example Request
 
@@ -47,7 +47,20 @@ data = r.json()
 
 ```json
 {
-  "qeth": []
+  "qeth": [
+    {
+      "date": "2026-03-20",
+      "value": 0
+    },
+    {
+      "date": "2026-03-19",
+      "value": -3411197
+    },
+    {
+      "date": "2026-03-18",
+      "value": 0
+    }
+  ]
 }
 ```
 

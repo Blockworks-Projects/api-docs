@@ -11,7 +11,7 @@ mode: "wide"
 - **Denomination:** USD
 - **Type:** USD Value
 - **Interval:** Daily
-- **Source:** Farside UK
+- **Source:** Blockworks
 
 ## Example Request
 
@@ -47,7 +47,20 @@ data = r.json()
 
 ```json
 {
-  "ethw": []
+  "ethw": [
+    {
+      "date": "2026-03-20",
+      "value": 167995
+    },
+    {
+      "date": "2026-03-19",
+      "value": -3871663
+    },
+    {
+      "date": "2026-03-18",
+      "value": 1270487
+    }
+  ]
 }
 ```
 

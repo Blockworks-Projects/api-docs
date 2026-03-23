@@ -1,0 +1,77 @@
+---
+title: "Avalanche: Stablecoin Supply"
+sidebarTitle: "Stablecoin Supply"
+description: "Circulating stablecoin supply on Avalanche."
+openapi: "GET /v1/metrics/stablecoin-supply-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd?project=avalanche"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd?project=avalanche',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/stablecoin-supply-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'avalanche'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "avalanche": [
+    {
+      "date": "2026-03-22",
+      "value": 2769199935.6466875
+    },
+    {
+      "date": "2026-03-21",
+      "value": 2774991404.8342004
+    },
+    {
+      "date": "2026-03-20",
+      "value": 2775785388.6564274
+    },
+    {
+      "date": "2026-03-19",
+      "value": 2770259604.9144583
+    },
+    {
+      "date": "2026-03-18",
+      "value": 2767180380.657659
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

@@ -1,0 +1,77 @@
+---
+title: "DEX Spot Volume"
+sidebarTitle: "DEX Spot Volume"
+description: "Daily spot trading volume in USD for balancer."
+openapi: "GET /v1/metrics/dex-spot-volume-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/dex-spot-volume-usd?project=balancer"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/dex-spot-volume-usd?project=balancer',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/dex-spot-volume-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'balancer'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "balancer": [
+    {
+      "date": "2026-03-22",
+      "value": 165062460.09554565
+    },
+    {
+      "date": "2026-03-21",
+      "value": 49938195.67621593
+    },
+    {
+      "date": "2026-03-20",
+      "value": 176466943.1546899
+    },
+    {
+      "date": "2026-03-19",
+      "value": 92658237.08356321
+    },
+    {
+      "date": "2026-03-18",
+      "value": 74222875.95494732
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

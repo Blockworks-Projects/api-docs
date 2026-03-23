@@ -1,0 +1,69 @@
+---
+title: "Bitcoin AUM Share"
+sidebarTitle: "Bitcoin AUM Share"
+description: "Percentage of AUM allocated to Bitcoin products."
+openapi: "GET /v1/metrics/etf-bitcoin-aum-share"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** %
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/etf-bitcoin-aum-share?project=xtrackers-by-dws"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/etf-bitcoin-aum-share?project=xtrackers-by-dws',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/etf-bitcoin-aum-share',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'xtrackers-by-dws'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "xtrackers-by-dws": [
+    {
+      "date": "2026-03-20",
+      "value": 0.6762296217375435
+    },
+    {
+      "date": "2026-03-19",
+      "value": 0.6583482241660062
+    },
+    {
+      "date": "2026-03-18",
+      "value": 0.6576613040354087
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

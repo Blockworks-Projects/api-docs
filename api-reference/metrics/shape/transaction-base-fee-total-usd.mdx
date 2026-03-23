@@ -1,0 +1,78 @@
+---
+title: "Shape: Base Fees (USD)"
+sidebarTitle: "Base Fees"
+tag: "USD"
+description: "The minimum transaction fee required for a transaction to be included in a block."
+openapi: "GET /v1/metrics/transaction-base-fee-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/transaction-base-fee-total-usd?project=shape"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/transaction-base-fee-total-usd?project=shape',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/transaction-base-fee-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'shape'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "shape": [
+    {
+      "date": "2026-03-22",
+      "value": 0.0015983754269756672
+    },
+    {
+      "date": "2026-03-21",
+      "value": 0.001673084720229218
+    },
+    {
+      "date": "2026-03-20",
+      "value": 0.002105577049144896
+    },
+    {
+      "date": "2026-03-19",
+      "value": 0.003037597604289091
+    },
+    {
+      "date": "2026-03-18",
+      "value": 0.001475157717969482
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

@@ -1,0 +1,77 @@
+---
+title: "Bob: REV"
+sidebarTitle: "REV"
+description: "Network REV (Real Economic Value) for Bob, measuring total user-paid transaction fees."
+openapi: "GET /v1/metrics/rev-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/rev-usd?project=bob"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/rev-usd?project=bob',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/rev-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'bob'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "bob": [
+    {
+      "date": "2026-03-22",
+      "value": 54.64831428757159
+    },
+    {
+      "date": "2026-03-21",
+      "value": 6.42283816894492
+    },
+    {
+      "date": "2026-03-20",
+      "value": 10.256197374620964
+    },
+    {
+      "date": "2026-03-19",
+      "value": 40.171540833244634
+    },
+    {
+      "date": "2026-03-18",
+      "value": 21.08981111835241
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
