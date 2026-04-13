@@ -4,8 +4,8 @@ import chalk from 'chalk'
 export const API_BASE_URL = 'https://api.blockworks.com/v1'
 export const API_KEY = process.env.BWR_API_KEY
 export const OUTPUT_DIR = './api-reference/metrics'
-export const VALIDATION_CONCURRENCY = 10
-export const FETCH_TIMEOUT_MS = 5000
+export const VALIDATION_CONCURRENCY =  5
+export const FETCH_TIMEOUT_MS = 25000
 export const RETRY_COOLOFF_MS = 5000
 
 export const colors = {
