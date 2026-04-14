@@ -18015,6 +18015,582 @@
           }
         ]
       }
+    },
+    "/v1/metrics/stock-price-usd": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_stock_price_usd",
+        "summary": "Stock Price Usd",
+        "description": "Retrieve the 'stock-price-usd' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASST",
+                "BMNR",
+                "BNC",
+                "BNKK",
+                "BRR",
+                "BTBT",
+                "BTCS",
+                "CEPO",
+                "CNTN",
+                "CYPH",
+                "DFDV",
+                "ETHM",
+                "FGNX",
+                "FWDI",
+                "GAME",
+                "HSDT",
+                "HYPD",
+                "IPST",
+                "LGHL",
+                "MBAV",
+                "MSTR",
+                "NAKA",
+                "NVVE",
+                "PAPL",
+                "PURR",
+                "SBET",
+                "SBLX",
+                "SLAI",
+                "SLMT",
+                "SQNS",
+                "STKE",
+                "STSS",
+                "SUIG",
+                "SVRN",
+                "TLGYF",
+                "UPXI",
+                "WETO",
+                "WGRX",
+                "XXI"
+              ],
+              "example": "ASST"
+            },
+            "examples": {
+              "ASST": {
+                "value": "ASST",
+                "summary": "ASST"
+              },
+              "BMNR": {
+                "value": "BMNR",
+                "summary": "BMNR"
+              },
+              "BNC": {
+                "value": "BNC",
+                "summary": "BNC"
+              },
+              "BNKK": {
+                "value": "BNKK",
+                "summary": "BNKK"
+              },
+              "BRR": {
+                "value": "BRR",
+                "summary": "BRR"
+              },
+              "BTBT": {
+                "value": "BTBT",
+                "summary": "BTBT"
+              },
+              "BTCS": {
+                "value": "BTCS",
+                "summary": "BTCS"
+              },
+              "CEPO": {
+                "value": "CEPO",
+                "summary": "CEPO"
+              },
+              "CNTN": {
+                "value": "CNTN",
+                "summary": "CNTN"
+              },
+              "CYPH": {
+                "value": "CYPH",
+                "summary": "CYPH"
+              },
+              "DFDV": {
+                "value": "DFDV",
+                "summary": "DFDV"
+              },
+              "ETHM": {
+                "value": "ETHM",
+                "summary": "ETHM"
+              },
+              "FGNX": {
+                "value": "FGNX",
+                "summary": "FGNX"
+              },
+              "FWDI": {
+                "value": "FWDI",
+                "summary": "FWDI"
+              },
+              "GAME": {
+                "value": "GAME",
+                "summary": "GAME"
+              },
+              "HSDT": {
+                "value": "HSDT",
+                "summary": "HSDT"
+              },
+              "HYPD": {
+                "value": "HYPD",
+                "summary": "HYPD"
+              },
+              "IPST": {
+                "value": "IPST",
+                "summary": "IPST"
+              },
+              "LGHL": {
+                "value": "LGHL",
+                "summary": "LGHL"
+              },
+              "MBAV": {
+                "value": "MBAV",
+                "summary": "MBAV"
+              },
+              "MSTR": {
+                "value": "MSTR",
+                "summary": "MSTR"
+              },
+              "NAKA": {
+                "value": "NAKA",
+                "summary": "NAKA"
+              },
+              "NVVE": {
+                "value": "NVVE",
+                "summary": "NVVE"
+              },
+              "PAPL": {
+                "value": "PAPL",
+                "summary": "PAPL"
+              },
+              "PURR": {
+                "value": "PURR",
+                "summary": "PURR"
+              },
+              "SBET": {
+                "value": "SBET",
+                "summary": "SBET"
+              },
+              "SBLX": {
+                "value": "SBLX",
+                "summary": "SBLX"
+              },
+              "SLAI": {
+                "value": "SLAI",
+                "summary": "SLAI"
+              },
+              "SLMT": {
+                "value": "SLMT",
+                "summary": "SLMT"
+              },
+              "SQNS": {
+                "value": "SQNS",
+                "summary": "SQNS"
+              },
+              "STKE": {
+                "value": "STKE",
+                "summary": "STKE"
+              },
+              "STSS": {
+                "value": "STSS",
+                "summary": "STSS"
+              },
+              "SUIG": {
+                "value": "SUIG",
+                "summary": "SUIG"
+              },
+              "SVRN": {
+                "value": "SVRN",
+                "summary": "SVRN"
+              },
+              "TLGYF": {
+                "value": "TLGYF",
+                "summary": "TLGYF"
+              },
+              "UPXI": {
+                "value": "UPXI",
+                "summary": "UPXI"
+              },
+              "WETO": {
+                "value": "WETO",
+                "summary": "WETO"
+              },
+              "WGRX": {
+                "value": "WGRX",
+                "summary": "WGRX"
+              },
+              "XXI": {
+                "value": "XXI",
+                "summary": "XXI"
+              },
+              "multi": {
+                "value": "ASST,BMNR",
+                "summary": "ASST + BMNR"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
+    },
+    "/v1/metrics/outstanding-shares": {
+      "get": {
+        "operationId": "MetricController_getResults_v1_outstanding_shares",
+        "summary": "Outstanding Shares",
+        "description": "Retrieve the 'outstanding-shares' metric for supported projects.",
+        "parameters": [
+          {
+            "name": "project",
+            "in": "query",
+            "required": true,
+            "description": "Project slug (comma-separated for multiple).",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ASST",
+                "BMNR",
+                "BNC",
+                "BNKK",
+                "BRR",
+                "BTBT",
+                "BTCS",
+                "CEPO",
+                "CNTN",
+                "CYPH",
+                "DFDV",
+                "ETHM",
+                "FGNX",
+                "FWDI",
+                "GAME",
+                "HSDT",
+                "HYPD",
+                "IPST",
+                "LGHL",
+                "MBAV",
+                "MSTR",
+                "NAKA",
+                "NVVE",
+                "PAPL",
+                "PURR",
+                "SBET",
+                "SBLX",
+                "SLAI",
+                "SLMT",
+                "SQNS",
+                "STKE",
+                "STSS",
+                "SUIG",
+                "SVRN",
+                "TLGYF",
+                "UPXI",
+                "WETO",
+                "WGRX",
+                "XXI"
+              ],
+              "example": "ASST"
+            },
+            "examples": {
+              "ASST": {
+                "value": "ASST",
+                "summary": "ASST"
+              },
+              "BMNR": {
+                "value": "BMNR",
+                "summary": "BMNR"
+              },
+              "BNC": {
+                "value": "BNC",
+                "summary": "BNC"
+              },
+              "BNKK": {
+                "value": "BNKK",
+                "summary": "BNKK"
+              },
+              "BRR": {
+                "value": "BRR",
+                "summary": "BRR"
+              },
+              "BTBT": {
+                "value": "BTBT",
+                "summary": "BTBT"
+              },
+              "BTCS": {
+                "value": "BTCS",
+                "summary": "BTCS"
+              },
+              "CEPO": {
+                "value": "CEPO",
+                "summary": "CEPO"
+              },
+              "CNTN": {
+                "value": "CNTN",
+                "summary": "CNTN"
+              },
+              "CYPH": {
+                "value": "CYPH",
+                "summary": "CYPH"
+              },
+              "DFDV": {
+                "value": "DFDV",
+                "summary": "DFDV"
+              },
+              "ETHM": {
+                "value": "ETHM",
+                "summary": "ETHM"
+              },
+              "FGNX": {
+                "value": "FGNX",
+                "summary": "FGNX"
+              },
+              "FWDI": {
+                "value": "FWDI",
+                "summary": "FWDI"
+              },
+              "GAME": {
+                "value": "GAME",
+                "summary": "GAME"
+              },
+              "HSDT": {
+                "value": "HSDT",
+                "summary": "HSDT"
+              },
+              "HYPD": {
+                "value": "HYPD",
+                "summary": "HYPD"
+              },
+              "IPST": {
+                "value": "IPST",
+                "summary": "IPST"
+              },
+              "LGHL": {
+                "value": "LGHL",
+                "summary": "LGHL"
+              },
+              "MBAV": {
+                "value": "MBAV",
+                "summary": "MBAV"
+              },
+              "MSTR": {
+                "value": "MSTR",
+                "summary": "MSTR"
+              },
+              "NAKA": {
+                "value": "NAKA",
+                "summary": "NAKA"
+              },
+              "NVVE": {
+                "value": "NVVE",
+                "summary": "NVVE"
+              },
+              "PAPL": {
+                "value": "PAPL",
+                "summary": "PAPL"
+              },
+              "PURR": {
+                "value": "PURR",
+                "summary": "PURR"
+              },
+              "SBET": {
+                "value": "SBET",
+                "summary": "SBET"
+              },
+              "SBLX": {
+                "value": "SBLX",
+                "summary": "SBLX"
+              },
+              "SLAI": {
+                "value": "SLAI",
+                "summary": "SLAI"
+              },
+              "SLMT": {
+                "value": "SLMT",
+                "summary": "SLMT"
+              },
+              "SQNS": {
+                "value": "SQNS",
+                "summary": "SQNS"
+              },
+              "STKE": {
+                "value": "STKE",
+                "summary": "STKE"
+              },
+              "STSS": {
+                "value": "STSS",
+                "summary": "STSS"
+              },
+              "SUIG": {
+                "value": "SUIG",
+                "summary": "SUIG"
+              },
+              "SVRN": {
+                "value": "SVRN",
+                "summary": "SVRN"
+              },
+              "TLGYF": {
+                "value": "TLGYF",
+                "summary": "TLGYF"
+              },
+              "UPXI": {
+                "value": "UPXI",
+                "summary": "UPXI"
+              },
+              "WETO": {
+                "value": "WETO",
+                "summary": "WETO"
+              },
+              "WGRX": {
+                "value": "WGRX",
+                "summary": "WGRX"
+              },
+              "XXI": {
+                "value": "XXI",
+                "summary": "XXI"
+              },
+              "multi": {
+                "value": "ASST,BMNR",
+                "summary": "ASST + BMNR"
+              }
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "End date (YYYY-MM-DD)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  }
+                },
+                "example": {
+                  "projectName": [
+                    {
+                      "date": "2025-08-10",
+                      "value": 123456.789
+                    },
+                    {
+                      "date": "2025-08-11",
+                      "value": 234567.89
+                    },
+                    {
+                      "date": "2025-08-12",
+                      "value": 345678.901
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "x-api-key": []
+          }
+        ]
+      }
     }
   },
   "info": {

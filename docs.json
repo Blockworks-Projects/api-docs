@@ -3578,6 +3578,8 @@
                   "api-reference/metrics/ASST/treasury-market-cap-usd",
                   "api-reference/metrics/ASST/outstanding-mnav",
                   "api-reference/metrics/ASST/treasury-nav-total-usd",
+                  "api-reference/metrics/ASST/outstanding-shares",
+                  "api-reference/metrics/ASST/stock-price-usd",
                   "api-reference/metrics/ASST/treasury-holdings-btc",
                   "api-reference/metrics/ASST/treasury-volume-total-usd"
                 ]
@@ -3593,6 +3595,8 @@
                   "api-reference/metrics/BMNR/outstanding-ev-mnav",
                   "api-reference/metrics/BMNR/outstanding-mnav",
                   "api-reference/metrics/BMNR/treasury-nav-total-usd",
+                  "api-reference/metrics/BMNR/outstanding-shares",
+                  "api-reference/metrics/BMNR/stock-price-usd",
                   "api-reference/metrics/BMNR/treasury-holdings-eth",
                   "api-reference/metrics/BMNR/treasury-volume-total-usd"
                 ]
@@ -3608,6 +3612,8 @@
                   "api-reference/metrics/BNC/outstanding-ev-mnav",
                   "api-reference/metrics/BNC/outstanding-mnav",
                   "api-reference/metrics/BNC/treasury-nav-total-usd",
+                  "api-reference/metrics/BNC/outstanding-shares",
+                  "api-reference/metrics/BNC/stock-price-usd",
                   "api-reference/metrics/BNC/treasury-holdings-bnb",
                   "api-reference/metrics/BNC/treasury-volume-total-usd"
                 ]
@@ -3620,6 +3626,8 @@
                   "api-reference/metrics/BNKK/treasury-market-cap-usd",
                   "api-reference/metrics/BNKK/outstanding-mnav",
                   "api-reference/metrics/BNKK/treasury-nav-total-usd",
+                  "api-reference/metrics/BNKK/outstanding-shares",
+                  "api-reference/metrics/BNKK/stock-price-usd",
                   "api-reference/metrics/BNKK/treasury-holdings-bonk",
                   "api-reference/metrics/BNKK/treasury-volume-total-usd"
                 ]
@@ -3632,6 +3640,8 @@
                   "api-reference/metrics/BRR/treasury-market-cap-usd",
                   "api-reference/metrics/BRR/outstanding-mnav",
                   "api-reference/metrics/BRR/treasury-nav-total-usd",
+                  "api-reference/metrics/BRR/outstanding-shares",
+                  "api-reference/metrics/BRR/stock-price-usd",
                   "api-reference/metrics/BRR/treasury-holdings-btc",
                   "api-reference/metrics/BRR/treasury-volume-total-usd"
                 ]
@@ -3647,6 +3657,8 @@
                   "api-reference/metrics/BTBT/outstanding-ev-mnav",
                   "api-reference/metrics/BTBT/outstanding-mnav",
                   "api-reference/metrics/BTBT/treasury-nav-total-usd",
+                  "api-reference/metrics/BTBT/outstanding-shares",
+                  "api-reference/metrics/BTBT/stock-price-usd",
                   "api-reference/metrics/BTBT/treasury-holdings-eth",
                   "api-reference/metrics/BTBT/treasury-volume-total-usd"
                 ]
@@ -3677,6 +3689,8 @@
                   "api-reference/metrics/BTCS/outstanding-ev-mnav",
                   "api-reference/metrics/BTCS/outstanding-mnav",
                   "api-reference/metrics/BTCS/treasury-nav-total-usd",
+                  "api-reference/metrics/BTCS/outstanding-shares",
+                  "api-reference/metrics/BTCS/stock-price-usd",
                   "api-reference/metrics/BTCS/treasury-holdings-eth",
                   "api-reference/metrics/BTCS/treasury-volume-total-usd"
                 ]
@@ -3707,8 +3721,26 @@
                   "api-reference/metrics/CEPO/outstanding-ev-mnav",
                   "api-reference/metrics/CEPO/outstanding-mnav",
                   "api-reference/metrics/CEPO/treasury-nav-total-usd",
+                  "api-reference/metrics/CEPO/outstanding-shares",
+                  "api-reference/metrics/CEPO/stock-price-usd",
                   "api-reference/metrics/CEPO/treasury-holdings-btc",
                   "api-reference/metrics/CEPO/treasury-volume-total-usd"
+                ]
+              },
+              {
+                "group": "CNTN",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/CNTN/outstanding-shares",
+                  "api-reference/metrics/CNTN/stock-price-usd"
+                ]
+              },
+              {
+                "group": "CYPH",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/CYPH/outstanding-shares",
+                  "api-reference/metrics/CYPH/stock-price-usd"
                 ]
               },
               {
@@ -3722,6 +3754,8 @@
                   "api-reference/metrics/DFDV/outstanding-ev-mnav",
                   "api-reference/metrics/DFDV/outstanding-mnav",
                   "api-reference/metrics/DFDV/treasury-nav-total-usd",
+                  "api-reference/metrics/DFDV/outstanding-shares",
+                  "api-reference/metrics/DFDV/stock-price-usd",
                   "api-reference/metrics/DFDV/treasury-holdings-sol",
                   "api-reference/metrics/DFDV/treasury-volume-total-usd"
                 ]
@@ -3737,6 +3771,8 @@
                   "api-reference/metrics/ETHM/outstanding-ev-mnav",
                   "api-reference/metrics/ETHM/outstanding-mnav",
                   "api-reference/metrics/ETHM/treasury-nav-total-usd",
+                  "api-reference/metrics/ETHM/outstanding-shares",
+                  "api-reference/metrics/ETHM/stock-price-usd",
                   "api-reference/metrics/ETHM/treasury-holdings-eth",
                   "api-reference/metrics/ETHM/treasury-volume-total-usd"
                 ]
@@ -3767,6 +3803,8 @@
                   "api-reference/metrics/FGNX/outstanding-ev-mnav",
                   "api-reference/metrics/FGNX/outstanding-mnav",
                   "api-reference/metrics/FGNX/treasury-nav-total-usd",
+                  "api-reference/metrics/FGNX/outstanding-shares",
+                  "api-reference/metrics/FGNX/stock-price-usd",
                   "api-reference/metrics/FGNX/treasury-holdings-eth",
                   "api-reference/metrics/FGNX/treasury-volume-total-usd"
                 ]
@@ -3782,6 +3820,8 @@
                   "api-reference/metrics/FWDI/outstanding-ev-mnav",
                   "api-reference/metrics/FWDI/outstanding-mnav",
                   "api-reference/metrics/FWDI/treasury-nav-total-usd",
+                  "api-reference/metrics/FWDI/outstanding-shares",
+                  "api-reference/metrics/FWDI/stock-price-usd",
                   "api-reference/metrics/FWDI/treasury-holdings-sol",
                   "api-reference/metrics/FWDI/treasury-volume-total-usd"
                 ]
@@ -3797,6 +3837,8 @@
                   "api-reference/metrics/GAME/outstanding-ev-mnav",
                   "api-reference/metrics/GAME/outstanding-mnav",
                   "api-reference/metrics/GAME/treasury-nav-total-usd",
+                  "api-reference/metrics/GAME/outstanding-shares",
+                  "api-reference/metrics/GAME/stock-price-usd",
                   "api-reference/metrics/GAME/treasury-holdings-eth",
                   "api-reference/metrics/GAME/treasury-volume-total-usd"
                 ]
@@ -3809,6 +3851,8 @@
                   "api-reference/metrics/HSDT/treasury-market-cap-usd",
                   "api-reference/metrics/HSDT/outstanding-mnav",
                   "api-reference/metrics/HSDT/treasury-nav-total-usd",
+                  "api-reference/metrics/HSDT/outstanding-shares",
+                  "api-reference/metrics/HSDT/stock-price-usd",
                   "api-reference/metrics/HSDT/treasury-holdings-sol",
                   "api-reference/metrics/HSDT/treasury-volume-total-usd"
                 ]
@@ -3824,6 +3868,8 @@
                   "api-reference/metrics/HYPD/outstanding-ev-mnav",
                   "api-reference/metrics/HYPD/outstanding-mnav",
                   "api-reference/metrics/HYPD/treasury-nav-total-usd",
+                  "api-reference/metrics/HYPD/outstanding-shares",
+                  "api-reference/metrics/HYPD/stock-price-usd",
                   "api-reference/metrics/HYPD/treasury-holdings-hype",
                   "api-reference/metrics/HYPD/treasury-volume-total-usd"
                 ]
@@ -3836,8 +3882,26 @@
                   "api-reference/metrics/IPST/treasury-market-cap-usd",
                   "api-reference/metrics/IPST/outstanding-mnav",
                   "api-reference/metrics/IPST/treasury-nav-total-usd",
+                  "api-reference/metrics/IPST/outstanding-shares",
+                  "api-reference/metrics/IPST/stock-price-usd",
                   "api-reference/metrics/IPST/treasury-holdings-ip",
                   "api-reference/metrics/IPST/treasury-volume-total-usd"
+                ]
+              },
+              {
+                "group": "LGHL",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/LGHL/outstanding-shares",
+                  "api-reference/metrics/LGHL/stock-price-usd"
+                ]
+              },
+              {
+                "group": "MBAV",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/MBAV/outstanding-shares",
+                  "api-reference/metrics/MBAV/stock-price-usd"
                 ]
               },
               {
@@ -3851,6 +3915,8 @@
                   "api-reference/metrics/MSTR/outstanding-ev-mnav",
                   "api-reference/metrics/MSTR/outstanding-mnav",
                   "api-reference/metrics/MSTR/treasury-nav-total-usd",
+                  "api-reference/metrics/MSTR/outstanding-shares",
+                  "api-reference/metrics/MSTR/stock-price-usd",
                   "api-reference/metrics/MSTR/treasury-holdings-btc",
                   "api-reference/metrics/MSTR/treasury-volume-total-usd"
                 ]
@@ -3866,8 +3932,18 @@
                   "api-reference/metrics/NAKA/outstanding-ev-mnav",
                   "api-reference/metrics/NAKA/outstanding-mnav",
                   "api-reference/metrics/NAKA/treasury-nav-total-usd",
+                  "api-reference/metrics/NAKA/outstanding-shares",
+                  "api-reference/metrics/NAKA/stock-price-usd",
                   "api-reference/metrics/NAKA/treasury-holdings-btc",
                   "api-reference/metrics/NAKA/treasury-volume-total-usd"
+                ]
+              },
+              {
+                "group": "NVVE",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/NVVE/outstanding-shares",
+                  "api-reference/metrics/NVVE/stock-price-usd"
                 ]
               },
               {
@@ -3880,6 +3956,8 @@
                   "api-reference/metrics/PAPL/fully-diluted-ev-mnav",
                   "api-reference/metrics/PAPL/outstanding-ev-mnav",
                   "api-reference/metrics/PAPL/treasury-nav-total-usd",
+                  "api-reference/metrics/PAPL/outstanding-shares",
+                  "api-reference/metrics/PAPL/stock-price-usd",
                   "api-reference/metrics/PAPL/treasury-holdings-inj",
                   "api-reference/metrics/PAPL/treasury-volume-total-usd"
                 ]
@@ -3892,6 +3970,8 @@
                   "api-reference/metrics/PURR/treasury-market-cap-usd",
                   "api-reference/metrics/PURR/outstanding-mnav",
                   "api-reference/metrics/PURR/treasury-nav-total-usd",
+                  "api-reference/metrics/PURR/outstanding-shares",
+                  "api-reference/metrics/PURR/stock-price-usd",
                   "api-reference/metrics/PURR/treasury-holdings-hype",
                   "api-reference/metrics/PURR/treasury-volume-total-usd"
                 ]
@@ -3907,8 +3987,18 @@
                   "api-reference/metrics/SBET/outstanding-ev-mnav",
                   "api-reference/metrics/SBET/outstanding-mnav",
                   "api-reference/metrics/SBET/treasury-nav-total-usd",
+                  "api-reference/metrics/SBET/outstanding-shares",
+                  "api-reference/metrics/SBET/stock-price-usd",
                   "api-reference/metrics/SBET/treasury-holdings-eth",
                   "api-reference/metrics/SBET/treasury-volume-total-usd"
+                ]
+              },
+              {
+                "group": "SBLX",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/SBLX/outstanding-shares",
+                  "api-reference/metrics/SBLX/stock-price-usd"
                 ]
               },
               {
@@ -3919,6 +4009,8 @@
                   "api-reference/metrics/SLAI/treasury-market-cap-usd",
                   "api-reference/metrics/SLAI/outstanding-mnav",
                   "api-reference/metrics/SLAI/treasury-nav-total-usd",
+                  "api-reference/metrics/SLAI/outstanding-shares",
+                  "api-reference/metrics/SLAI/stock-price-usd",
                   "api-reference/metrics/SLAI/treasury-holdings-sol",
                   "api-reference/metrics/SLAI/treasury-volume-total-usd"
                 ]
@@ -3931,6 +4023,8 @@
                   "api-reference/metrics/SLMT/treasury-market-cap-usd",
                   "api-reference/metrics/SLMT/outstanding-mnav",
                   "api-reference/metrics/SLMT/treasury-nav-total-usd",
+                  "api-reference/metrics/SLMT/outstanding-shares",
+                  "api-reference/metrics/SLMT/stock-price-usd",
                   "api-reference/metrics/SLMT/treasury-holdings-sol",
                   "api-reference/metrics/SLMT/treasury-volume-total-usd"
                 ]
@@ -3961,6 +4055,8 @@
                   "api-reference/metrics/SQNS/outstanding-ev-mnav",
                   "api-reference/metrics/SQNS/outstanding-mnav",
                   "api-reference/metrics/SQNS/treasury-nav-total-usd",
+                  "api-reference/metrics/SQNS/outstanding-shares",
+                  "api-reference/metrics/SQNS/stock-price-usd",
                   "api-reference/metrics/SQNS/treasury-holdings-btc",
                   "api-reference/metrics/SQNS/treasury-volume-total-usd"
                 ]
@@ -3970,6 +4066,8 @@
                 "icon": "building-columns",
                 "pages": [
                   "api-reference/metrics/STKE/treasury-nav-total-usd",
+                  "api-reference/metrics/STKE/outstanding-shares",
+                  "api-reference/metrics/STKE/stock-price-usd",
                   "api-reference/metrics/STKE/treasury-holdings-sol",
                   "api-reference/metrics/STKE/treasury-volume-total-usd"
                 ]
@@ -3985,6 +4083,8 @@
                   "api-reference/metrics/STSS/outstanding-ev-mnav",
                   "api-reference/metrics/STSS/outstanding-mnav",
                   "api-reference/metrics/STSS/treasury-nav-total-usd",
+                  "api-reference/metrics/STSS/outstanding-shares",
+                  "api-reference/metrics/STSS/stock-price-usd",
                   "api-reference/metrics/STSS/treasury-holdings-sol",
                   "api-reference/metrics/STSS/treasury-volume-total-usd"
                 ]
@@ -3997,8 +4097,26 @@
                   "api-reference/metrics/SUIG/treasury-market-cap-usd",
                   "api-reference/metrics/SUIG/outstanding-mnav",
                   "api-reference/metrics/SUIG/treasury-nav-total-usd",
+                  "api-reference/metrics/SUIG/outstanding-shares",
+                  "api-reference/metrics/SUIG/stock-price-usd",
                   "api-reference/metrics/SUIG/treasury-holdings-sui",
                   "api-reference/metrics/SUIG/treasury-volume-total-usd"
+                ]
+              },
+              {
+                "group": "SVRN",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/SVRN/outstanding-shares",
+                  "api-reference/metrics/SVRN/stock-price-usd"
+                ]
+              },
+              {
+                "group": "TLGYF",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/TLGYF/outstanding-shares",
+                  "api-reference/metrics/TLGYF/stock-price-usd"
                 ]
               },
               {
@@ -4012,8 +4130,26 @@
                   "api-reference/metrics/UPXI/outstanding-ev-mnav",
                   "api-reference/metrics/UPXI/outstanding-mnav",
                   "api-reference/metrics/UPXI/treasury-nav-total-usd",
+                  "api-reference/metrics/UPXI/outstanding-shares",
+                  "api-reference/metrics/UPXI/stock-price-usd",
                   "api-reference/metrics/UPXI/treasury-holdings-sol",
                   "api-reference/metrics/UPXI/treasury-volume-total-usd"
+                ]
+              },
+              {
+                "group": "WETO",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/WETO/outstanding-shares",
+                  "api-reference/metrics/WETO/stock-price-usd"
+                ]
+              },
+              {
+                "group": "WGRX",
+                "icon": "building-columns",
+                "pages": [
+                  "api-reference/metrics/WGRX/outstanding-shares",
+                  "api-reference/metrics/WGRX/stock-price-usd"
                 ]
               },
               {
@@ -4024,12 +4160,14 @@
                   "api-reference/metrics/XXI/treasury-market-cap-usd",
                   "api-reference/metrics/XXI/outstanding-mnav",
                   "api-reference/metrics/XXI/treasury-nav-total-usd",
+                  "api-reference/metrics/XXI/outstanding-shares",
+                  "api-reference/metrics/XXI/stock-price-usd",
                   "api-reference/metrics/XXI/treasury-holdings-btc",
                   "api-reference/metrics/XXI/treasury-volume-total-usd"
                 ]
               }
             ],
-            "tag": "33"
+            "tag": "43"
           }
         ]
       },
