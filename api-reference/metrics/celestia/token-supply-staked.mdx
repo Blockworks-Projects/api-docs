@@ -1,0 +1,78 @@
+---
+title: "Celestia: Native Token Supply Staked (USD)"
+sidebarTitle: "Native Token Supply Staked"
+tag: "USD"
+description: "The native token supply staked during the specified time period for given blockchain."
+openapi: "GET /v1/metrics/token-supply-staked"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/token-supply-staked?project=celestia"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/token-supply-staked?project=celestia',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/token-supply-staked',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'celestia'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "celestia": [
+    {
+      "date": "2026-04-19",
+      "value": 199472047.7435015
+    },
+    {
+      "date": "2026-04-18",
+      "value": 219241809.85209775
+    },
+    {
+      "date": "2026-04-17",
+      "value": 209620326.21504214
+    },
+    {
+      "date": "2026-04-16",
+      "value": 167365827.46173406
+    },
+    {
+      "date": "2026-04-15",
+      "value": 155597060.0581419
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

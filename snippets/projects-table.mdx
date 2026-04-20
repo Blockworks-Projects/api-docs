@@ -64,7 +64,7 @@ export const ProjectsTable = () => {
   {
     "name": "Arbitrum",
     "type": "Chain",
-    "metrics": 27,
+    "metrics": 31,
     "metricsList": [
       {
         "name": "Active Addresses",
@@ -105,6 +105,22 @@ export const ProjectsTable = () => {
       {
         "name": "Gross Profit",
         "identifier": "sequencer-gross-profit"
+      },
+      {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
       },
       {
         "name": "Other Fees",
@@ -187,7 +203,7 @@ export const ProjectsTable = () => {
   {
     "name": "Avalanche",
     "type": "Chain",
-    "metrics": 12,
+    "metrics": 17,
     "metricsList": [
       {
         "name": "Active Addresses",
@@ -214,6 +230,22 @@ export const ProjectsTable = () => {
         "identifier": "issuance-usd"
       },
       {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
+      },
+      {
         "name": "Priority Fees",
         "identifier": "transaction-priority-fee-total-usd"
       },
@@ -224,6 +256,10 @@ export const ProjectsTable = () => {
       {
         "name": "Stablecoin Supply",
         "identifier": "stablecoin-supply-total-usd"
+      },
+      {
+        "name": "Tokens Launched",
+        "identifier": "launchpad-tokens-launched"
       },
       {
         "name": "Transactions (Failed)",
@@ -242,6 +278,7 @@ export const ProjectsTable = () => {
       "Activity",
       "Financials",
       "Stablecoins",
+      "Token",
       "Trading"
     ],
     "slug": "avalanche"
@@ -249,7 +286,7 @@ export const ProjectsTable = () => {
   {
     "name": "Base",
     "type": "Chain",
-    "metrics": 22,
+    "metrics": 27,
     "metricsList": [
       {
         "name": "Active Addresses",
@@ -292,6 +329,22 @@ export const ProjectsTable = () => {
         "identifier": "sequencer-gross-profit"
       },
       {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
+      },
+      {
         "name": "Priority Fees",
         "identifier": "transaction-priority-fee-total-native"
       },
@@ -320,6 +373,10 @@ export const ProjectsTable = () => {
         "identifier": "stablecoin-supply-total-usd"
       },
       {
+        "name": "Tokens Launched",
+        "identifier": "launchpad-tokens-launched"
+      },
+      {
         "name": "Transaction Fees",
         "identifier": "transaction-fee-total-native"
       },
@@ -344,6 +401,7 @@ export const ProjectsTable = () => {
       "Activity",
       "Financials",
       "Stablecoins",
+      "Token",
       "Trading"
     ],
     "slug": "base"
@@ -461,7 +519,7 @@ export const ProjectsTable = () => {
   {
     "name": "Bnb",
     "type": "Chain",
-    "metrics": 9,
+    "metrics": 14,
     "metricsList": [
       {
         "name": "Active Addresses",
@@ -480,12 +538,32 @@ export const ProjectsTable = () => {
         "identifier": "transaction-fee-med-usd"
       },
       {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
+      },
+      {
         "name": "REV",
         "identifier": "rev-usd"
       },
       {
         "name": "Stablecoin Supply",
         "identifier": "stablecoin-supply-total-usd"
+      },
+      {
+        "name": "Tokens Launched",
+        "identifier": "launchpad-tokens-launched"
       },
       {
         "name": "Transactions (Failed)",
@@ -504,6 +582,7 @@ export const ProjectsTable = () => {
       "Activity",
       "Financials",
       "Stablecoins",
+      "Token",
       "Trading"
     ],
     "slug": "bnb"
@@ -655,7 +734,7 @@ export const ProjectsTable = () => {
   {
     "name": "Celestia",
     "type": "Chain",
-    "metrics": 7,
+    "metrics": 10,
     "metricsList": [
       {
         "name": "Blob Fees",
@@ -670,8 +749,20 @@ export const ProjectsTable = () => {
         "identifier": "transaction-fee-med-usd"
       },
       {
+        "name": "Native Token Supply Staked",
+        "identifier": "token-supply-staked-native"
+      },
+      {
+        "name": "Native Token Supply Staked (USD)",
+        "identifier": "token-supply-staked"
+      },
+      {
         "name": "REV",
         "identifier": "rev-usd"
+      },
+      {
+        "name": "Staking Rate",
+        "identifier": "staking-rate"
       },
       {
         "name": "Transactions (Failed)",
@@ -695,7 +786,7 @@ export const ProjectsTable = () => {
   {
     "name": "Ethereum",
     "type": "Chain",
-    "metrics": 33,
+    "metrics": 45,
     "metricsList": [
       {
         "name": "Active Addresses",
@@ -750,6 +841,34 @@ export const ProjectsTable = () => {
         "identifier": "issuance-usd"
       },
       {
+        "name": "Issuance APR",
+        "identifier": "staking-apr-issuance"
+      },
+      {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
+      },
+      {
+        "name": "Liquid Staking Rate",
+        "identifier": "staking-liquid-rate"
+      },
+      {
+        "name": "MEV APR",
+        "identifier": "staking-apr-mev"
+      },
+      {
         "name": "MEV Tips",
         "identifier": "mev-tips-fees"
       },
@@ -758,8 +877,16 @@ export const ProjectsTable = () => {
         "identifier": "mev-tips-fees-usd"
       },
       {
-        "name": "Native Token Supply Staked",
+        "name": "Native Token Supply Staked (USD)",
         "identifier": "token-supply-staked"
+      },
+      {
+        "name": "Native Token Supply Staked",
+        "identifier": "token-supply-staked-native"
+      },
+      {
+        "name": "Net Staking Flow",
+        "identifier": "staking-net-flow-native"
       },
       {
         "name": "Other Fees",
@@ -782,6 +909,10 @@ export const ProjectsTable = () => {
         "identifier": "transaction-priority-fee-total-usd"
       },
       {
+        "name": "Priority Fees APR",
+        "identifier": "staking-apr-priority-fees"
+      },
+      {
         "name": "REV (USD)",
         "identifier": "rev-usd"
       },
@@ -798,6 +929,10 @@ export const ProjectsTable = () => {
         "identifier": "stablecoin-supply-total-usd"
       },
       {
+        "name": "Staking Rate",
+        "identifier": "staking-rate"
+      },
+      {
         "name": "Token FDV",
         "identifier": "token-fdv-usd"
       },
@@ -808,6 +943,10 @@ export const ProjectsTable = () => {
       {
         "name": "Total ETF Flows",
         "identifier": "etf-flows-total-usd"
+      },
+      {
+        "name": "Total Staking APR",
+        "identifier": "staking-apr-total"
       },
       {
         "name": "Transaction Fees",
@@ -933,7 +1072,7 @@ export const ProjectsTable = () => {
   {
     "name": "Hyperevm",
     "type": "Chain",
-    "metrics": 12,
+    "metrics": 16,
     "metricsList": [
       {
         "name": "Active Addresses",
@@ -958,6 +1097,22 @@ export const ProjectsTable = () => {
       {
         "name": "Fee Median",
         "identifier": "transaction-fee-med-native"
+      },
+      {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
       },
       {
         "name": "REV (USD)",
@@ -1077,7 +1232,7 @@ export const ProjectsTable = () => {
   {
     "name": "Katana",
     "type": "Chain",
-    "metrics": 24,
+    "metrics": 28,
     "metricsList": [
       {
         "name": "Active Addresses",
@@ -1122,6 +1277,22 @@ export const ProjectsTable = () => {
       {
         "name": "L1 Fees (USD)",
         "identifier": "transaction-l1-fee-total-usd"
+      },
+      {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
       },
       {
         "name": "Operator Fees",
@@ -1408,7 +1579,7 @@ export const ProjectsTable = () => {
   {
     "name": "Optimism",
     "type": "Chain",
-    "metrics": 11,
+    "metrics": 15,
     "metricsList": [
       {
         "name": "Active Addresses",
@@ -1421,6 +1592,22 @@ export const ProjectsTable = () => {
       {
         "name": "Fee Median",
         "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
       },
       {
         "name": "REV",
@@ -1465,7 +1652,7 @@ export const ProjectsTable = () => {
   {
     "name": "Plasma",
     "type": "Chain",
-    "metrics": 16,
+    "metrics": 20,
     "metricsList": [
       {
         "name": "Active Addresses",
@@ -1490,6 +1677,22 @@ export const ProjectsTable = () => {
       {
         "name": "Fee Median",
         "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
       },
       {
         "name": "Priority Fees",
@@ -1542,7 +1745,7 @@ export const ProjectsTable = () => {
   {
     "name": "Polygon",
     "type": "Chain",
-    "metrics": 11,
+    "metrics": 15,
     "metricsList": [
       {
         "name": "Active Addresses",
@@ -1559,6 +1762,22 @@ export const ProjectsTable = () => {
       {
         "name": "Fee Median",
         "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
       },
       {
         "name": "Priority Fees",
@@ -1671,7 +1890,7 @@ export const ProjectsTable = () => {
   {
     "name": "Solana",
     "type": "Chain",
-    "metrics": 31,
+    "metrics": 44,
     "metricsList": [
       {
         "name": "Active Addresses",
@@ -1718,12 +1937,44 @@ export const ProjectsTable = () => {
         "identifier": "transaction-fee-med-native"
       },
       {
+        "name": "Inflation Rate",
+        "identifier": "staking-inflation-rate"
+      },
+      {
         "name": "Issuance",
         "identifier": "issuance"
       },
       {
         "name": "Issuance (USD)",
         "identifier": "issuance-usd"
+      },
+      {
+        "name": "Issuance Staker Yield",
+        "identifier": "staking-issuance-yield-native"
+      },
+      {
+        "name": "Launchpad Volume",
+        "identifier": "launchpad-volume-usd"
+      },
+      {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
+      },
+      {
+        "name": "MEV Staker Yield",
+        "identifier": "staking-mev-yield-native"
       },
       {
         "name": "MEV Tips",
@@ -1734,8 +1985,16 @@ export const ProjectsTable = () => {
         "identifier": "mev-tips-fees-usd"
       },
       {
-        "name": "Native Token Supply Staked",
+        "name": "Native Staking APY",
+        "identifier": "staking-apy"
+      },
+      {
+        "name": "Native Token Supply Staked (USD)",
         "identifier": "token-supply-staked"
+      },
+      {
+        "name": "Native Token Supply Staked",
+        "identifier": "token-supply-staked-native"
       },
       {
         "name": "Price",
@@ -1748,6 +2007,10 @@ export const ProjectsTable = () => {
       {
         "name": "Priority Fees (USD)",
         "identifier": "transaction-priority-fee-total-usd"
+      },
+      {
+        "name": "Real Staking APY",
+        "identifier": "staking-apy-real"
       },
       {
         "name": "REV",
@@ -1766,12 +2029,20 @@ export const ProjectsTable = () => {
         "identifier": "stablecoin-supply-total-usd"
       },
       {
+        "name": "Staking Rate",
+        "identifier": "staking-rate"
+      },
+      {
         "name": "Token FDV",
         "identifier": "token-fdv-usd"
       },
       {
         "name": "Token Supply",
         "identifier": "token-supply"
+      },
+      {
+        "name": "Tokens Launched",
+        "identifier": "launchpad-tokens-launched"
       },
       {
         "name": "Total ETF Flows",
@@ -1932,7 +2203,7 @@ export const ProjectsTable = () => {
   {
     "name": "Unichain",
     "type": "Chain",
-    "metrics": 15,
+    "metrics": 19,
     "metricsList": [
       {
         "name": "Active Addresses",
@@ -1957,6 +2228,22 @@ export const ProjectsTable = () => {
       {
         "name": "L1 Fees",
         "identifier": "transaction-l1-fee-total-usd"
+      },
+      {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
       },
       {
         "name": "REV",
@@ -2006,7 +2293,7 @@ export const ProjectsTable = () => {
   {
     "name": "Worldchain",
     "type": "Chain",
-    "metrics": 17,
+    "metrics": 21,
     "metricsList": [
       {
         "name": "Active Addresses",
@@ -2039,6 +2326,22 @@ export const ProjectsTable = () => {
       {
         "name": "Fee Median",
         "identifier": "transaction-fee-med-native"
+      },
+      {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
       },
       {
         "name": "Priority Fees (USD)",
@@ -2088,7 +2391,7 @@ export const ProjectsTable = () => {
   {
     "name": "Zksync",
     "type": "Chain",
-    "metrics": 11,
+    "metrics": 15,
     "metricsList": [
       {
         "name": "Active Addresses",
@@ -2101,6 +2404,22 @@ export const ProjectsTable = () => {
       {
         "name": "Fee Median",
         "identifier": "transaction-fee-med-usd"
+      },
+      {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
       },
       {
         "name": "REV",
@@ -2188,8 +2507,8 @@ export const ProjectsTable = () => {
         "identifier": "rev-usd"
       },
       {
-        "name": "Tokens Launched By Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
+        "name": "Tokens Launched",
+        "identifier": "launchpad-tokens-launched"
       },
       {
         "name": "Transaction Fees (USD)",
@@ -2685,8 +3004,8 @@ export const ProjectsTable = () => {
         "identifier": "revenue-total-usd"
       },
       {
-        "name": "Tokens Launched By Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
+        "name": "Tokens Launched",
+        "identifier": "launchpad-tokens-launched"
       }
     ],
     "categories": [
@@ -2849,8 +3168,8 @@ export const ProjectsTable = () => {
         "identifier": "launchpad-tokens-graduated"
       },
       {
-        "name": "Tokens Launched By Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
+        "name": "Tokens Launched",
+        "identifier": "launchpad-tokens-launched"
       }
     ],
     "categories": [
@@ -2934,6 +3253,33 @@ export const ProjectsTable = () => {
     "slug": "camelot-token"
   },
   {
+    "name": "Celo",
+    "type": "Project",
+    "metrics": 4,
+    "metricsList": [
+      {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
+      }
+    ],
+    "categories": [
+      "Financials"
+    ],
+    "slug": "celo"
+  },
+  {
     "name": "Cetus",
     "type": "Project",
     "metrics": 1,
@@ -2958,8 +3304,8 @@ export const ProjectsTable = () => {
         "identifier": "revenue-total-usd"
       },
       {
-        "name": "Tokens Launched By Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
+        "name": "Tokens Launched",
+        "identifier": "launchpad-tokens-launched"
       }
     ],
     "categories": [
@@ -3307,8 +3653,8 @@ export const ProjectsTable = () => {
     "metrics": 1,
     "metricsList": [
       {
-        "name": "Tokens Launched By Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
+        "name": "Tokens Launched",
+        "identifier": "launchpad-tokens-launched"
       }
     ],
     "categories": [
@@ -3362,6 +3708,33 @@ export const ProjectsTable = () => {
       "Trading"
     ],
     "slug": "gmx"
+  },
+  {
+    "name": "Gnosis",
+    "type": "Project",
+    "metrics": 4,
+    "metricsList": [
+      {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
+      }
+    ],
+    "categories": [
+      "Financials"
+    ],
+    "slug": "gnosis"
   },
   {
     "name": "Goonfi",
@@ -3703,8 +4076,8 @@ export const ProjectsTable = () => {
         "identifier": "launchpad-tokens-graduated"
       },
       {
-        "name": "Tokens Launched By Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
+        "name": "Tokens Launched",
+        "identifier": "launchpad-tokens-launched"
       }
     ],
     "categories": [
@@ -3822,6 +4195,33 @@ export const ProjectsTable = () => {
       "Trading"
     ],
     "slug": "lifinity"
+  },
+  {
+    "name": "Linea",
+    "type": "Project",
+    "metrics": 4,
+    "metricsList": [
+      {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
+      }
+    ],
+    "categories": [
+      "Financials"
+    ],
+    "slug": "linea"
   },
   {
     "name": "Looter",
@@ -4015,8 +4415,8 @@ export const ProjectsTable = () => {
         "identifier": "revenue-total-usd"
       },
       {
-        "name": "Tokens Launched By Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
+        "name": "Tokens Launched",
+        "identifier": "launchpad-tokens-launched"
       }
     ],
     "categories": [
@@ -4233,8 +4633,8 @@ export const ProjectsTable = () => {
         "identifier": "launchpad-tokens-graduated"
       },
       {
-        "name": "Tokens Launched By Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
+        "name": "Tokens Launched",
+        "identifier": "launchpad-tokens-launched"
       }
     ],
     "categories": [
@@ -4391,6 +4791,33 @@ export const ProjectsTable = () => {
     "slug": "platypus-finance"
   },
   {
+    "name": "Plume",
+    "type": "Project",
+    "metrics": 4,
+    "metricsList": [
+      {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
+      }
+    ],
+    "categories": [
+      "Financials"
+    ],
+    "slug": "plume"
+  },
+  {
     "name": "Polymarket",
     "type": "Project",
     "metrics": 4,
@@ -4436,8 +4863,8 @@ export const ProjectsTable = () => {
         "identifier": "revenue-total-usd"
       },
       {
-        "name": "Tokens Launched By Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
+        "name": "Tokens Launched",
+        "identifier": "launchpad-tokens-launched"
       },
       {
         "name": "Volume",
@@ -4568,6 +4995,33 @@ export const ProjectsTable = () => {
     "slug": "scallop"
   },
   {
+    "name": "Scroll",
+    "type": "Project",
+    "metrics": 4,
+    "metricsList": [
+      {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
+      }
+    ],
+    "categories": [
+      "Financials"
+    ],
+    "slug": "scroll"
+  },
+  {
     "name": "Solfi",
     "type": "Project",
     "metrics": 5,
@@ -4641,6 +5095,33 @@ export const ProjectsTable = () => {
       "Financials"
     ],
     "slug": "soltradingbot"
+  },
+  {
+    "name": "Sonic",
+    "type": "Project",
+    "metrics": 4,
+    "metricsList": [
+      {
+        "name": "Lending Revenue",
+        "identifier": "lending-revenue-total-usd"
+      },
+      {
+        "name": "Lending Total Borrows",
+        "identifier": "lending-borrow-total-usd"
+      },
+      {
+        "name": "Lending Total Deposits",
+        "identifier": "lending-deposit-total-usd"
+      },
+      {
+        "name": "Lending TVL",
+        "identifier": "lending-tvl-total-usd"
+      }
+    ],
+    "categories": [
+      "Financials"
+    ],
+    "slug": "sonic"
   },
   {
     "name": "Sosovalue",
@@ -4861,8 +5342,8 @@ export const ProjectsTable = () => {
     "metrics": 1,
     "metricsList": [
       {
-        "name": "Tokens Launched By Launchpad",
-        "identifier": "tokens-launched-by-launchpad"
+        "name": "Tokens Launched",
+        "identifier": "launchpad-tokens-launched"
       }
     ],
     "categories": [

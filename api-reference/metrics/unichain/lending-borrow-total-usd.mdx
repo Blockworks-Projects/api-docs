@@ -1,0 +1,77 @@
+---
+title: "Unichain: Lending Total Borrows"
+sidebarTitle: "Lending Total Borrows"
+description: "Total outstanding borrows across all lending protocols on this chain."
+openapi: "GET /v1/metrics/lending-borrow-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/lending-borrow-total-usd?project=unichain"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/lending-borrow-total-usd?project=unichain',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/lending-borrow-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'unichain'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "unichain": [
+    {
+      "date": "2026-04-19",
+      "value": 2933337.3061204394
+    },
+    {
+      "date": "2026-04-18",
+      "value": 2933336.14553574
+    },
+    {
+      "date": "2026-04-17",
+      "value": 2936577.4787952183
+    },
+    {
+      "date": "2026-04-16",
+      "value": 2907372.1981666735
+    },
+    {
+      "date": "2026-04-15",
+      "value": 2903960.6059757043
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

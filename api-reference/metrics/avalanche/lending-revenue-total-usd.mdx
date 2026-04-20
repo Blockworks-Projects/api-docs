@@ -1,0 +1,77 @@
+---
+title: "Avalanche: Lending Revenue"
+sidebarTitle: "Lending Revenue"
+description: "Daily revenue (NII + flash-loan fees + liquidation fees + royalties) across all lending protocols on this chain."
+openapi: "GET /v1/metrics/lending-revenue-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/lending-revenue-total-usd?project=avalanche"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/lending-revenue-total-usd?project=avalanche',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/lending-revenue-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'avalanche'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "avalanche": [
+    {
+      "date": "2026-04-19",
+      "value": 10657.095409105495
+    },
+    {
+      "date": "2026-04-18",
+      "value": 3215.1120945521493
+    },
+    {
+      "date": "2026-04-17",
+      "value": 4105.990617374337
+    },
+    {
+      "date": "2026-04-16",
+      "value": 3566.379948774101
+    },
+    {
+      "date": "2026-04-15",
+      "value": 4863.0088024840925
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

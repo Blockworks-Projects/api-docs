@@ -1,0 +1,77 @@
+---
+title: "Bnb: Lending Revenue"
+sidebarTitle: "Lending Revenue"
+description: "Daily revenue (NII + flash-loan fees + liquidation fees + royalties) across all lending protocols on this chain."
+openapi: "GET /v1/metrics/lending-revenue-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/lending-revenue-total-usd?project=bnb"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/lending-revenue-total-usd?project=bnb',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/lending-revenue-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'bnb'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "bnb": [
+    {
+      "date": "2026-04-19",
+      "value": 766.6121245114301
+    },
+    {
+      "date": "2026-04-18",
+      "value": 680.517802674901
+    },
+    {
+      "date": "2026-04-17",
+      "value": 765.3692348207168
+    },
+    {
+      "date": "2026-04-16",
+      "value": 639.3377427947564
+    },
+    {
+      "date": "2026-04-15",
+      "value": 645.6750928658956
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

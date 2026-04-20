@@ -1,0 +1,77 @@
+---
+title: "Celestia: Staking Rate"
+sidebarTitle: "Staking Rate"
+description: "Percentage of the native token supply currently staked."
+openapi: "GET /v1/metrics/staking-rate"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** %
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/staking-rate?project=celestia"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/staking-rate?project=celestia',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/staking-rate',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'celestia'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "celestia": [
+    {
+      "date": "2026-04-19",
+      "value": 0.4357802697755271
+    },
+    {
+      "date": "2026-04-18",
+      "value": 0.43582993425681554
+    },
+    {
+      "date": "2026-04-17",
+      "value": 0.43583075129434523
+    },
+    {
+      "date": "2026-04-16",
+      "value": 0.4358385268164999
+    },
+    {
+      "date": "2026-04-15",
+      "value": 0.4357807254077441
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

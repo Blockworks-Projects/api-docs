@@ -1,0 +1,77 @@
+---
+title: "Ethereum: Lending Total Borrows"
+sidebarTitle: "Lending Total Borrows"
+description: "Total outstanding borrows across all lending protocols on this chain."
+openapi: "GET /v1/metrics/lending-borrow-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/lending-borrow-total-usd?project=ethereum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/lending-borrow-total-usd?project=ethereum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/lending-borrow-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ethereum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "ethereum": [
+    {
+      "date": "2026-04-19",
+      "value": 17223708911.164555
+    },
+    {
+      "date": "2026-04-18",
+      "value": 17899311768.777714
+    },
+    {
+      "date": "2026-04-17",
+      "value": 18346013858.82393
+    },
+    {
+      "date": "2026-04-16",
+      "value": 18268133895.261463
+    },
+    {
+      "date": "2026-04-15",
+      "value": 18243349572.26903
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

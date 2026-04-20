@@ -1,0 +1,77 @@
+---
+title: "Solana: Launchpad Volume"
+sidebarTitle: "Launchpad Volume"
+description: "Total launchpad trading volume during the specified time period for the given chain."
+openapi: "GET /v1/metrics/launchpad-volume-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/launchpad-volume-usd?project=solana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/launchpad-volume-usd?project=solana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/launchpad-volume-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'solana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2026-04-19",
+      "value": 64462847.767665185
+    },
+    {
+      "date": "2026-04-18",
+      "value": 67055307.757980265
+    },
+    {
+      "date": "2026-04-17",
+      "value": 80587256.44146794
+    },
+    {
+      "date": "2026-04-16",
+      "value": 90678047.49717204
+    },
+    {
+      "date": "2026-04-15",
+      "value": 80485765.76103601
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

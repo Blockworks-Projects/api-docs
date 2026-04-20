@@ -1,0 +1,77 @@
+---
+title: "Ethereum: Staking Rate"
+sidebarTitle: "Staking Rate"
+description: "Percentage of the native token supply currently staked."
+openapi: "GET /v1/metrics/staking-rate"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** %
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/staking-rate?project=ethereum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/staking-rate?project=ethereum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/staking-rate',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ethereum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "ethereum": [
+    {
+      "date": "2026-04-19",
+      "value": 0.35923988238759536
+    },
+    {
+      "date": "2026-04-18",
+      "value": 0.35922277565864724
+    },
+    {
+      "date": "2026-04-17",
+      "value": 0.3597736190321608
+    },
+    {
+      "date": "2026-04-16",
+      "value": 0.35969078679985544
+    },
+    {
+      "date": "2026-04-15",
+      "value": 0.3594900819612822
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

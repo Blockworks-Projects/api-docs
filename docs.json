@@ -151,6 +151,10 @@
                       "api-reference/metrics/arbitrum/transaction-base-fee-total-native",
                       "api-reference/metrics/arbitrum/transaction-base-fee-total-usd",
                       "api-reference/metrics/arbitrum/sequencer-gross-profit",
+                      "api-reference/metrics/arbitrum/lending-revenue-total-usd",
+                      "api-reference/metrics/arbitrum/lending-borrow-total-usd",
+                      "api-reference/metrics/arbitrum/lending-deposit-total-usd",
+                      "api-reference/metrics/arbitrum/lending-tvl-total-usd",
                       "api-reference/metrics/arbitrum/transaction-other-fee-total-native",
                       "api-reference/metrics/arbitrum/transaction-other-fee-total-usd",
                       "api-reference/metrics/arbitrum/transaction-priority-fee-total-native",
@@ -205,6 +209,10 @@
                     "pages": [
                       "api-reference/metrics/avalanche/transaction-base-fee-total-usd",
                       "api-reference/metrics/avalanche/issuance-usd",
+                      "api-reference/metrics/avalanche/lending-revenue-total-usd",
+                      "api-reference/metrics/avalanche/lending-borrow-total-usd",
+                      "api-reference/metrics/avalanche/lending-deposit-total-usd",
+                      "api-reference/metrics/avalanche/lending-tvl-total-usd",
                       "api-reference/metrics/avalanche/transaction-priority-fee-total-usd",
                       "api-reference/metrics/avalanche/rev-usd"
                     ]
@@ -213,6 +221,12 @@
                     "group": "Stablecoins",
                     "pages": [
                       "api-reference/metrics/avalanche/stablecoin-supply-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/avalanche/launchpad-tokens-launched"
                     ]
                   },
                   {
@@ -247,6 +261,10 @@
                       "api-reference/metrics/base/transaction-base-fee-total-native",
                       "api-reference/metrics/base/transaction-base-fee-total-usd",
                       "api-reference/metrics/base/sequencer-gross-profit",
+                      "api-reference/metrics/base/lending-revenue-total-usd",
+                      "api-reference/metrics/base/lending-borrow-total-usd",
+                      "api-reference/metrics/base/lending-deposit-total-usd",
+                      "api-reference/metrics/base/lending-tvl-total-usd",
                       "api-reference/metrics/base/transaction-priority-fee-total-native",
                       "api-reference/metrics/base/transaction-priority-fee-total-usd",
                       "api-reference/metrics/base/rev-native",
@@ -261,6 +279,12 @@
                     "pages": [
                       "api-reference/metrics/base/stablecoin-circulating-supply-total-usd",
                       "api-reference/metrics/base/stablecoin-supply-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/base/launchpad-tokens-launched"
                     ]
                   },
                   {
@@ -352,6 +376,10 @@
                   {
                     "group": "Financials",
                     "pages": [
+                      "api-reference/metrics/bnb/lending-revenue-total-usd",
+                      "api-reference/metrics/bnb/lending-borrow-total-usd",
+                      "api-reference/metrics/bnb/lending-deposit-total-usd",
+                      "api-reference/metrics/bnb/lending-tvl-total-usd",
                       "api-reference/metrics/bnb/rev-usd"
                     ]
                   },
@@ -359,6 +387,12 @@
                     "group": "Stablecoins",
                     "pages": [
                       "api-reference/metrics/bnb/stablecoin-supply-total-usd"
+                    ]
+                  },
+                  {
+                    "group": "Token",
+                    "pages": [
+                      "api-reference/metrics/bnb/launchpad-tokens-launched"
                     ]
                   },
                   {
@@ -449,7 +483,10 @@
                     "group": "Financials",
                     "pages": [
                       "api-reference/metrics/celestia/transaction-other-fee-total-usd",
-                      "api-reference/metrics/celestia/rev-usd"
+                      "api-reference/metrics/celestia/token-supply-staked-native",
+                      "api-reference/metrics/celestia/token-supply-staked",
+                      "api-reference/metrics/celestia/rev-usd",
+                      "api-reference/metrics/celestia/staking-rate"
                     ]
                   }
                 ]
@@ -487,15 +524,27 @@
                       "api-reference/metrics/ethereum/burn-usd",
                       "api-reference/metrics/ethereum/issuance",
                       "api-reference/metrics/ethereum/issuance-usd",
+                      "api-reference/metrics/ethereum/staking-apr-issuance",
+                      "api-reference/metrics/ethereum/lending-revenue-total-usd",
+                      "api-reference/metrics/ethereum/lending-borrow-total-usd",
+                      "api-reference/metrics/ethereum/lending-deposit-total-usd",
+                      "api-reference/metrics/ethereum/lending-tvl-total-usd",
+                      "api-reference/metrics/ethereum/staking-liquid-rate",
+                      "api-reference/metrics/ethereum/staking-apr-mev",
                       "api-reference/metrics/ethereum/mev-tips-fees",
                       "api-reference/metrics/ethereum/mev-tips-fees-usd",
+                      "api-reference/metrics/ethereum/token-supply-staked-native",
                       "api-reference/metrics/ethereum/token-supply-staked",
+                      "api-reference/metrics/ethereum/staking-net-flow-native",
                       "api-reference/metrics/ethereum/transaction-other-fee-total-native",
                       "api-reference/metrics/ethereum/transaction-other-fee-total-usd",
                       "api-reference/metrics/ethereum/transaction-priority-fee-total-native",
                       "api-reference/metrics/ethereum/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/ethereum/staking-apr-priority-fees",
                       "api-reference/metrics/ethereum/rev-native",
                       "api-reference/metrics/ethereum/rev-usd",
+                      "api-reference/metrics/ethereum/staking-rate",
+                      "api-reference/metrics/ethereum/staking-apr-total",
                       "api-reference/metrics/ethereum/transaction-fee-total-native",
                       "api-reference/metrics/ethereum/transaction-fee-total-usd"
                     ]
@@ -588,6 +637,10 @@
                   {
                     "group": "Financials",
                     "pages": [
+                      "api-reference/metrics/hyperevm/lending-revenue-total-usd",
+                      "api-reference/metrics/hyperevm/lending-borrow-total-usd",
+                      "api-reference/metrics/hyperevm/lending-deposit-total-usd",
+                      "api-reference/metrics/hyperevm/lending-tvl-total-usd",
                       "api-reference/metrics/hyperevm/rev-native",
                       "api-reference/metrics/hyperevm/rev-usd"
                     ]
@@ -674,6 +727,10 @@
                       "api-reference/metrics/katana/sequencer-gross-profit",
                       "api-reference/metrics/katana/transaction-l1-fee-total-native",
                       "api-reference/metrics/katana/transaction-l1-fee-total-usd",
+                      "api-reference/metrics/katana/lending-revenue-total-usd",
+                      "api-reference/metrics/katana/lending-borrow-total-usd",
+                      "api-reference/metrics/katana/lending-deposit-total-usd",
+                      "api-reference/metrics/katana/lending-tvl-total-usd",
                       "api-reference/metrics/katana/transaction-operator-fee-total-native",
                       "api-reference/metrics/katana/transaction-operator-fee-total-usd",
                       "api-reference/metrics/katana/transaction-priority-fee-total-native",
@@ -816,6 +873,10 @@
                   {
                     "group": "Financials",
                     "pages": [
+                      "api-reference/metrics/optimism/lending-revenue-total-usd",
+                      "api-reference/metrics/optimism/lending-borrow-total-usd",
+                      "api-reference/metrics/optimism/lending-deposit-total-usd",
+                      "api-reference/metrics/optimism/lending-tvl-total-usd",
                       "api-reference/metrics/optimism/rev-usd",
                       "api-reference/metrics/optimism/sequencer-cost-total",
                       "api-reference/metrics/optimism/sequencer-gross-profit",
@@ -851,6 +912,10 @@
                     "pages": [
                       "api-reference/metrics/plasma/transaction-base-fee-total-native",
                       "api-reference/metrics/plasma/transaction-base-fee-total-usd",
+                      "api-reference/metrics/plasma/lending-revenue-total-usd",
+                      "api-reference/metrics/plasma/lending-borrow-total-usd",
+                      "api-reference/metrics/plasma/lending-deposit-total-usd",
+                      "api-reference/metrics/plasma/lending-tvl-total-usd",
                       "api-reference/metrics/plasma/transaction-priority-fee-total-native",
                       "api-reference/metrics/plasma/transaction-priority-fee-total-usd",
                       "api-reference/metrics/plasma/rev-native",
@@ -886,6 +951,10 @@
                     "group": "Financials",
                     "pages": [
                       "api-reference/metrics/polygon/transaction-base-fee-total-usd",
+                      "api-reference/metrics/polygon/lending-revenue-total-usd",
+                      "api-reference/metrics/polygon/lending-borrow-total-usd",
+                      "api-reference/metrics/polygon/lending-deposit-total-usd",
+                      "api-reference/metrics/polygon/lending-tvl-total-usd",
                       "api-reference/metrics/polygon/transaction-priority-fee-total-usd",
                       "api-reference/metrics/polygon/rev-usd",
                       "api-reference/metrics/polygon/transaction-fee-total-usd"
@@ -961,15 +1030,26 @@
                       "api-reference/metrics/solana/transaction-base-fee-total-usd",
                       "api-reference/metrics/solana/burn",
                       "api-reference/metrics/solana/burn-usd",
+                      "api-reference/metrics/solana/staking-inflation-rate",
                       "api-reference/metrics/solana/issuance",
                       "api-reference/metrics/solana/issuance-usd",
+                      "api-reference/metrics/solana/staking-issuance-yield-native",
+                      "api-reference/metrics/solana/lending-revenue-total-usd",
+                      "api-reference/metrics/solana/lending-borrow-total-usd",
+                      "api-reference/metrics/solana/lending-deposit-total-usd",
+                      "api-reference/metrics/solana/lending-tvl-total-usd",
+                      "api-reference/metrics/solana/staking-mev-yield-native",
                       "api-reference/metrics/solana/mev-tips-fees",
                       "api-reference/metrics/solana/mev-tips-fees-usd",
+                      "api-reference/metrics/solana/staking-apy",
+                      "api-reference/metrics/solana/token-supply-staked-native",
                       "api-reference/metrics/solana/token-supply-staked",
                       "api-reference/metrics/solana/transaction-priority-fee-total-native",
                       "api-reference/metrics/solana/transaction-priority-fee-total-usd",
+                      "api-reference/metrics/solana/staking-apy-real",
                       "api-reference/metrics/solana/rev-native",
                       "api-reference/metrics/solana/rev-usd",
+                      "api-reference/metrics/solana/staking-rate",
                       "api-reference/metrics/solana/transaction-fee-total-native",
                       "api-reference/metrics/solana/transaction-fee-total-usd"
                     ]
@@ -984,9 +1064,11 @@
                   {
                     "group": "Token",
                     "pages": [
+                      "api-reference/metrics/solana/launchpad-volume-usd",
                       "api-reference/metrics/solana/token-price-usd",
                       "api-reference/metrics/solana/token-fdv-usd",
-                      "api-reference/metrics/solana/token-supply"
+                      "api-reference/metrics/solana/token-supply",
+                      "api-reference/metrics/solana/launchpad-tokens-launched"
                     ]
                   },
                   {
@@ -1078,6 +1160,10 @@
                     "group": "Financials",
                     "pages": [
                       "api-reference/metrics/unichain/transaction-l1-fee-total-usd",
+                      "api-reference/metrics/unichain/lending-revenue-total-usd",
+                      "api-reference/metrics/unichain/lending-borrow-total-usd",
+                      "api-reference/metrics/unichain/lending-deposit-total-usd",
+                      "api-reference/metrics/unichain/lending-tvl-total-usd",
                       "api-reference/metrics/unichain/rev-native",
                       "api-reference/metrics/unichain/rev-usd",
                       "api-reference/metrics/unichain/sequencer-cost-total",
@@ -1121,6 +1207,10 @@
                     "pages": [
                       "api-reference/metrics/worldchain/transaction-base-fee-total-native",
                       "api-reference/metrics/worldchain/transaction-base-fee-total-usd",
+                      "api-reference/metrics/worldchain/lending-revenue-total-usd",
+                      "api-reference/metrics/worldchain/lending-borrow-total-usd",
+                      "api-reference/metrics/worldchain/lending-deposit-total-usd",
+                      "api-reference/metrics/worldchain/lending-tvl-total-usd",
                       "api-reference/metrics/worldchain/transaction-priority-fee-total-native",
                       "api-reference/metrics/worldchain/transaction-priority-fee-total-usd",
                       "api-reference/metrics/worldchain/rev-usd",
@@ -1160,6 +1250,10 @@
                   {
                     "group": "Financials",
                     "pages": [
+                      "api-reference/metrics/zksync/lending-revenue-total-usd",
+                      "api-reference/metrics/zksync/lending-borrow-total-usd",
+                      "api-reference/metrics/zksync/lending-deposit-total-usd",
+                      "api-reference/metrics/zksync/lending-tvl-total-usd",
                       "api-reference/metrics/zksync/rev-usd",
                       "api-reference/metrics/zksync/sequencer-cost-total",
                       "api-reference/metrics/zksync/sequencer-gross-profit",
@@ -1206,7 +1300,7 @@
                   {
                     "group": "Token",
                     "pages": [
-                      "api-reference/metrics/zora/tokens-launched-by-launchpad"
+                      "api-reference/metrics/zora/launchpad-tokens-launched"
                     ]
                   }
                 ]
@@ -1395,7 +1489,7 @@
                   "api-reference/metrics/believe/launchpad-bonding-volume",
                   "api-reference/metrics/believe/launchpad-tokens-graduated",
                   "api-reference/metrics/believe/revenue-total-usd",
-                  "api-reference/metrics/believe/tokens-launched-by-launchpad"
+                  "api-reference/metrics/believe/launchpad-tokens-launched"
                 ]
               },
               {
@@ -1461,7 +1555,7 @@
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/boopfun/launchpad-tokens-graduated",
-                  "api-reference/metrics/boopfun/tokens-launched-by-launchpad"
+                  "api-reference/metrics/boopfun/launchpad-tokens-launched"
                 ]
               },
               {
@@ -1493,6 +1587,16 @@
                 ]
               },
               {
+                "group": "Celo",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/celo/lending-revenue-total-usd",
+                  "api-reference/metrics/celo/lending-borrow-total-usd",
+                  "api-reference/metrics/celo/lending-deposit-total-usd",
+                  "api-reference/metrics/celo/lending-tvl-total-usd"
+                ]
+              },
+              {
                 "group": "Cetus",
                 "icon": "cube",
                 "pages": [
@@ -1504,7 +1608,7 @@
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/clanker/revenue-total-usd",
-                  "api-reference/metrics/clanker/tokens-launched-by-launchpad"
+                  "api-reference/metrics/clanker/launchpad-tokens-launched"
                 ]
               },
               {
@@ -1645,7 +1749,7 @@
                 "group": "Fourmeme",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/fourmeme/tokens-launched-by-launchpad"
+                  "api-reference/metrics/fourmeme/launchpad-tokens-launched"
                 ]
               },
               {
@@ -1664,6 +1768,16 @@
                   "api-reference/metrics/gmx/revenue-total-usd",
                   "api-reference/metrics/gmx/dex-revenue-usd",
                   "api-reference/metrics/gmx/dex-fees-usd"
+                ]
+              },
+              {
+                "group": "Gnosis",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/gnosis/lending-revenue-total-usd",
+                  "api-reference/metrics/gnosis/lending-borrow-total-usd",
+                  "api-reference/metrics/gnosis/lending-deposit-total-usd",
+                  "api-reference/metrics/gnosis/lending-tvl-total-usd"
                 ]
               },
               {
@@ -1791,7 +1905,7 @@
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/letsbonk/launchpad-tokens-graduated",
-                  "api-reference/metrics/letsbonk/tokens-launched-by-launchpad"
+                  "api-reference/metrics/letsbonk/launchpad-tokens-launched"
                 ]
               },
               {
@@ -1839,6 +1953,16 @@
                   "api-reference/metrics/lifinity/dex-revenue-usd",
                   "api-reference/metrics/lifinity/dex-fees-usd",
                   "api-reference/metrics/lifinity/volume-usd"
+                ]
+              },
+              {
+                "group": "Linea",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/linea/lending-revenue-total-usd",
+                  "api-reference/metrics/linea/lending-borrow-total-usd",
+                  "api-reference/metrics/linea/lending-deposit-total-usd",
+                  "api-reference/metrics/linea/lending-tvl-total-usd"
                 ]
               },
               {
@@ -1920,7 +2044,7 @@
                   "api-reference/metrics/moonshot/launchpad-bonding-volume",
                   "api-reference/metrics/moonshot/launchpad-tokens-graduated",
                   "api-reference/metrics/moonshot/revenue-total-usd",
-                  "api-reference/metrics/moonshot/tokens-launched-by-launchpad"
+                  "api-reference/metrics/moonshot/launchpad-tokens-launched"
                 ]
               },
               {
@@ -2006,7 +2130,7 @@
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/other-launchpads/launchpad-tokens-graduated",
-                  "api-reference/metrics/other-launchpads/tokens-launched-by-launchpad"
+                  "api-reference/metrics/other-launchpads/launchpad-tokens-launched"
                 ]
               },
               {
@@ -2069,6 +2193,16 @@
                 ]
               },
               {
+                "group": "Plume",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/plume/lending-revenue-total-usd",
+                  "api-reference/metrics/plume/lending-borrow-total-usd",
+                  "api-reference/metrics/plume/lending-deposit-total-usd",
+                  "api-reference/metrics/plume/lending-tvl-total-usd"
+                ]
+              },
+              {
                 "group": "Polymarket",
                 "icon": "cube",
                 "pages": [
@@ -2085,7 +2219,7 @@
                   "api-reference/metrics/pumpfun/launchpad-bonding-volume",
                   "api-reference/metrics/pumpfun/launchpad-tokens-graduated",
                   "api-reference/metrics/pumpfun/revenue-total-usd",
-                  "api-reference/metrics/pumpfun/tokens-launched-by-launchpad",
+                  "api-reference/metrics/pumpfun/launchpad-tokens-launched",
                   "api-reference/metrics/pumpfun/volume-usd"
                 ]
               },
@@ -2131,6 +2265,16 @@
                 ]
               },
               {
+                "group": "Scroll",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/scroll/lending-revenue-total-usd",
+                  "api-reference/metrics/scroll/lending-borrow-total-usd",
+                  "api-reference/metrics/scroll/lending-deposit-total-usd",
+                  "api-reference/metrics/scroll/lending-tvl-total-usd"
+                ]
+              },
+              {
                 "group": "Solfi",
                 "icon": "cube",
                 "pages": [
@@ -2156,6 +2300,16 @@
                 "icon": "cube",
                 "pages": [
                   "api-reference/metrics/soltradingbot/revenue-total-usd"
+                ]
+              },
+              {
+                "group": "Sonic",
+                "icon": "cube",
+                "pages": [
+                  "api-reference/metrics/sonic/lending-revenue-total-usd",
+                  "api-reference/metrics/sonic/lending-borrow-total-usd",
+                  "api-reference/metrics/sonic/lending-deposit-total-usd",
+                  "api-reference/metrics/sonic/lending-tvl-total-usd"
                 ]
               },
               {
@@ -2247,7 +2401,7 @@
                 "group": "Thearena",
                 "icon": "cube",
                 "pages": [
-                  "api-reference/metrics/thearena/tokens-launched-by-launchpad"
+                  "api-reference/metrics/thearena/launchpad-tokens-launched"
                 ]
               },
               {
@@ -2348,7 +2502,7 @@
                 ]
               }
             ],
-            "tag": "130"
+            "tag": "136"
           },
           {
             "group": "Metrics: ETFs",

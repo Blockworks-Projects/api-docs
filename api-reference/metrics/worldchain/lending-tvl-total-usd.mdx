@@ -1,0 +1,77 @@
+---
+title: "Worldchain: Lending TVL"
+sidebarTitle: "Lending TVL"
+description: "Total value locked in lending protocols on this chain (deposits minus borrows)."
+openapi: "GET /v1/metrics/lending-tvl-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/lending-tvl-total-usd?project=worldchain"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/lending-tvl-total-usd?project=worldchain',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/lending-tvl-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'worldchain'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "worldchain": [
+    {
+      "date": "2026-04-19",
+      "value": 21095476.956941556
+    },
+    {
+      "date": "2026-04-18",
+      "value": 21492852.91895043
+    },
+    {
+      "date": "2026-04-17",
+      "value": 22975316.624449007
+    },
+    {
+      "date": "2026-04-16",
+      "value": 22880339.871717148
+    },
+    {
+      "date": "2026-04-15",
+      "value": 22634509.8069325
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

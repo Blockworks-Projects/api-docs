@@ -1,0 +1,77 @@
+---
+title: "Unichain: Lending TVL"
+sidebarTitle: "Lending TVL"
+description: "Total value locked in lending protocols on this chain (deposits minus borrows)."
+openapi: "GET /v1/metrics/lending-tvl-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/lending-tvl-total-usd?project=unichain"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/lending-tvl-total-usd?project=unichain',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/lending-tvl-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'unichain'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "unichain": [
+    {
+      "date": "2026-04-19",
+      "value": 3191684.0085266177
+    },
+    {
+      "date": "2026-04-18",
+      "value": 3191713.949330787
+    },
+    {
+      "date": "2026-04-17",
+      "value": 3104659.86864774
+    },
+    {
+      "date": "2026-04-16",
+      "value": 3094516.3465936906
+    },
+    {
+      "date": "2026-04-15",
+      "value": 3136584.270212941
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

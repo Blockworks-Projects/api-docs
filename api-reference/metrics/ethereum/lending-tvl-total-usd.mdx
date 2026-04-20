@@ -1,0 +1,77 @@
+---
+title: "Ethereum: Lending TVL"
+sidebarTitle: "Lending TVL"
+description: "Total value locked in lending protocols on this chain (deposits minus borrows)."
+openapi: "GET /v1/metrics/lending-tvl-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/lending-tvl-total-usd?project=ethereum"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/lending-tvl-total-usd?project=ethereum',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/lending-tvl-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'ethereum'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "ethereum": [
+    {
+      "date": "2026-04-19",
+      "value": 21978763567.38229
+    },
+    {
+      "date": "2026-04-18",
+      "value": 24767721652.073544
+    },
+    {
+      "date": "2026-04-17",
+      "value": 28222358795.524628
+    },
+    {
+      "date": "2026-04-16",
+      "value": 27922751620.42435
+    },
+    {
+      "date": "2026-04-15",
+      "value": 28149473580.717945
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

@@ -1,0 +1,77 @@
+---
+title: "Base: Lending Total Deposits"
+sidebarTitle: "Lending Total Deposits"
+description: "Total deposits across all lending protocols on this chain."
+openapi: "GET /v1/metrics/lending-deposit-total-usd"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** USD
+- **Type:** USD Value
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/lending-deposit-total-usd?project=base"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/lending-deposit-total-usd?project=base',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/lending-deposit-total-usd',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'base'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "base": [
+    {
+      "date": "2026-04-19",
+      "value": 4881511845.421171
+    },
+    {
+      "date": "2026-04-18",
+      "value": 5158676461.625408
+    },
+    {
+      "date": "2026-04-17",
+      "value": 5226582226.626199
+    },
+    {
+      "date": "2026-04-16",
+      "value": 5147420486.956621
+    },
+    {
+      "date": "2026-04-15",
+      "value": 5131898903.85586
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

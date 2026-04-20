@@ -1,0 +1,77 @@
+---
+title: "Solana: Real Staking APY"
+sidebarTitle: "Real Staking APY"
+description: "Inflation-adjusted staker APY (native APY minus inflation rate)."
+openapi: "GET /v1/metrics/staking-apy-real"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** %
+- **Type:** Decimal
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/staking-apy-real?project=solana"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/staking-apy-real?project=solana',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/staking-apy-real',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'solana'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "solana": [
+    {
+      "date": "2026-04-19",
+      "value": 0.01839336931984247
+    },
+    {
+      "date": "2026-04-18",
+      "value": 0.01839336931984247
+    },
+    {
+      "date": "2026-04-17",
+      "value": 0.018623077253361757
+    },
+    {
+      "date": "2026-04-16",
+      "value": 0.018623077253361757
+    },
+    {
+      "date": "2026-04-15",
+      "value": 0.018534024885391333
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.

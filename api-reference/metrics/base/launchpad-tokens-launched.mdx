@@ -1,0 +1,77 @@
+---
+title: "Base: Tokens Launched"
+sidebarTitle: "Tokens Launched"
+description: "Tokens launched during the specified time period for the given launchpad or chain."
+openapi: "GET /v1/metrics/launchpad-tokens-launched"
+mode: "wide"
+---
+
+## Overview
+
+- **Denomination:** Count
+- **Type:** Integer
+- **Interval:** Daily
+- **Source:** Blockworks
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl -H "x-api-key: YOUR_API_KEY" \
+  "https://api.blockworks.com/v1/metrics/launchpad-tokens-launched?project=base"
+```
+
+```typescript TypeScript
+const res = await fetch(
+  'https://api.blockworks.com/v1/metrics/launchpad-tokens-launched?project=base',
+  { headers: { 'x-api-key': 'YOUR_API_KEY' } }
+)
+const data = await res.json()
+```
+
+```python Python
+import requests
+
+r = requests.get(
+  'https://api.blockworks.com/v1/metrics/launchpad-tokens-launched',
+  headers={'x-api-key': 'YOUR_API_KEY'},
+  params={'project': 'base'}
+)
+data = r.json()
+```
+
+</CodeGroup>
+
+## Example Response
+
+```json
+{
+  "base": [
+    {
+      "date": "2026-04-19",
+      "value": 18644
+    },
+    {
+      "date": "2026-04-18",
+      "value": 18570
+    },
+    {
+      "date": "2026-04-17",
+      "value": 18515
+    },
+    {
+      "date": "2026-04-16",
+      "value": 17318
+    },
+    {
+      "date": "2026-04-15",
+      "value": 11986
+    }
+  ]
+}
+```
+
+## Notes
+- Intervals are daily unless otherwise noted.
+- Data is updated daily and may be revised after late-arriving data.
