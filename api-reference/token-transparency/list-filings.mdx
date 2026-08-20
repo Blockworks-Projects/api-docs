@@ -1,0 +1,127 @@
+---
+title: 'List Filings'
+sidebarTitle: 'List Filings'
+description: 'Retrieve published Token Transparency filings grouped by project'
+tag: 'public'
+openapi: 'GET /v1/ttf/filings'
+mode: 'wide'
+---
+
+## Overview
+
+This endpoint returns **published Token Transparency filings grouped by project**. Each project group includes the project's slug, name, and ticker, along with its filings and their completion and staleness status.
+
+Unlike other Blockworks API endpoints, this endpoint is **public and does not require an API key**.
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl "https://api.blockworks.com/v1/ttf/filings?latest=true"
+```
+
+```typescript TypeScript
+const response = await fetch(
+  'https://api.blockworks.com/v1/ttf/filings?latest=true'
+)
+const data = await response.json()
+```
+
+```python Python
+import requests
+
+response = requests.get(
+    'https://api.blockworks.com/v1/ttf/filings',
+    params={'latest': 'true'}
+)
+data = response.json()
+```
+
+</CodeGroup>
+
+### Example Response
+
+A successful response returns filings grouped by project, sorted by project slug.
+
+```json
+{
+  "page": 1,
+  "data": [
+    {
+      "project_slug": "celo",
+      "protocol_name": "Celo",
+      "protocol_ticker": "CELO",
+      "filings": [
+        {
+          "filing_id": "de86b664-f412-4ae6-ba76-2125fedfbd0a",
+          "filing_type": "B1",
+          "completion_label": "partial - 2 gaps",
+          "filing_version": "1.3",
+          "date_filed": "2026-08-18",
+          "static_url": "https://blockworks.com/token-transparency/filing/de86b664-f412-4ae6-ba76-2125fedfbd0a",
+          "filing_status": "current",
+          "provenance": "issuer-filed"
+        }
+      ]
+    },
+    {
+      "project_slug": "curve",
+      "protocol_name": "Curve",
+      "protocol_ticker": "CRV",
+      "filings": [
+        {
+          "filing_id": "27d01bc9-3cb4-458e-92e7-03a54169a561",
+          "filing_type": "B1",
+          "completion_label": "complete",
+          "filing_version": "1.3",
+          "date_filed": "2026-07-23",
+          "static_url": "https://blockworks.com/token-transparency/filing/27d01bc9-3cb4-458e-92e7-03a54169a561",
+          "filing_status": "current",
+          "provenance": "issuer-filed"
+        }
+      ]
+    }
+  ],
+  "total": 2
+}
+```
+
+## Supported Options
+
+| Name | Type | Details | Available Options |
+| - | - | - | - |
+| `project_slugs` | query | Project slugs to filter by (max: 50). Cannot be combined with `tickers`. | e.g. `celo`, `curve` |
+| `tickers` | query | Asset tickers to filter by (max: 50). Cannot be combined with `project_slugs`. | e.g. `CELO`, `CRV` |
+| `latest` | query | When `true`, return only the most recent filing per filing type for each project. Default is `false` (all published filings, including superseded ones). | `true`, `false` |
+
+Omit both `project_slugs` and `tickers` to list all projects with published filings. Providing both returns a `400` error.
+
+## Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `page` | number | Always `1` (the full result set is returned) |
+| `total` | number | Number of project groups returned |
+| `data` | array | Project groups, sorted by `project_slug` |
+| `data[].project_slug` | string | Project slug |
+| `data[].protocol_name` | string | Project display name |
+| `data[].protocol_ticker` | string \| null | Asset ticker, `null` when the project has no listed asset |
+| `data[].filings` | array | The project's published filings |
+| `filings[].filing_id` | string | Unique filing identifier |
+| `filings[].filing_type` | string | Filing type (e.g. `B1`) |
+| `filings[].completion_label` | string | Completion summary (e.g. `complete`, `partial - 2 gaps`) |
+| `filings[].filing_version` | string | Version of the filing schema the filing was submitted against |
+| `filings[].date_filed` | string | Publication date (UTC, `YYYY-MM-DD`) |
+| `filings[].static_url` | string | Permalink to the filing on blockworks.com |
+| `filings[].filing_status` | string | `current`, or `stale` when superseded or past its staleness deadline |
+| `filings[].provenance` | string | How the filing was produced (e.g. `issuer-filed`) |
+
+## Notes
+
+- Responses are cached at the edge for up to 5 minutes (`Cache-Control: public, max-age=300`).
+- No API key or authentication header is needed for this endpoint.
+
+## Related Endpoints
+
+- [Get Single Token Transparency](/api-reference/token-transparency/get-single)

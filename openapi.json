@@ -762,7 +762,7 @@
           "market-stats"
         ],
         "summary": "List Market Stats",
-        "description": "Returns a paginated list of Blockworks’ computed market-level statistics. Use this endpoint to discover available stats and build market overviews and dashboards. Each item includes a stat key, value, effective time window, and metadata."
+        "description": "Returns a paginated list of Blockworks\u2019 computed market-level statistics. Use this endpoint to discover available stats and build market overviews and dashboards. Each item includes a stat key, value, effective time window, and metadata."
       }
     },
     "/v1/market-stats": {
@@ -993,76 +993,46 @@
         "description": "Downloads the complete token transparency framework report as a PDF file."
       }
     },
-    "/v1/transparency": {
+    "/v1/ttf/filings": {
       "get": {
-        "operationId": "TransparencyController_list_v1",
+        "operationId": "PublicFilingsController_list_v1",
         "parameters": [
           {
-            "name": "page",
+            "name": "project_slugs",
             "required": false,
             "in": "query",
+            "description": "Project slugs to filter by (at most one of project_slugs or tickers; omit both to list all projects with published filings)",
             "schema": {
-              "minimum": 1,
-              "maximum": 2147483647,
-              "default": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "name": "limit",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "minimum": 1,
-              "maximum": 100,
-              "default": 100,
-              "type": "integer"
-            }
-          },
-          {
-            "name": "expand",
-            "required": false,
-            "in": "query",
-            "schema": {
+              "maxItems": 50,
               "type": "array",
               "items": {
                 "type": "string",
-                "enum": [
-                  "asset"
-                ]
+                "maxLength": 100
               }
             }
           },
           {
-            "name": "query",
+            "name": "tickers",
             "required": false,
             "in": "query",
+            "description": "Asset tickers to filter by (at most one of project_slugs or tickers; omit both to list all projects with published filings)",
             "schema": {
-              "maxLength": 65535,
-              "format": "json",
-              "type": "string"
+              "maxItems": 50,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 20
+              }
             }
           },
           {
-            "name": "order_by",
+            "name": "latest",
             "required": false,
             "in": "query",
+            "description": "When true, return only the most recent filing per filing type for each project",
             "schema": {
-              "default": "id",
-              "type": "string"
-            }
-          },
-          {
-            "name": "order_dir",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "default": "asc",
-              "enum": [
-                "asc",
-                "desc"
-              ],
-              "type": "string"
+              "default": false,
+              "type": "boolean"
             }
           }
         ],
@@ -1072,36 +1042,47 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TransparencyPageResponse"
+                  "$ref": "#/components/schemas/PublicFilingsPageResponse"
                 },
                 "example": {
+                  "page": 1,
                   "data": [
                     {
-                      "id": 1,
-                      "asset_id": 345426,
-                      "summary": "",
-                      "created_at": 1755624545,
-                      "updated_at": 1758051174,
-                      "project_team": {
-                        "rating": 10,
-                        "max": 10
-                      },
-                      "token_allocation": {
-                        "rating": 17,
-                        "max": 18
-                      },
-                      "market_structure": {
-                        "rating": 7,
-                        "max": 7
-                      },
-                      "financial_disclosure": {
-                        "rating": 4,
-                        "max": 5
-                      }
+                      "project_slug": "celo",
+                      "protocol_name": "Celo",
+                      "protocol_ticker": "CELO",
+                      "filings": [
+                        {
+                          "filing_id": "de86b664-f412-4ae6-ba76-2125fedfbd0a",
+                          "filing_type": "B1",
+                          "completion_label": "partial - 2 gaps",
+                          "filing_version": "1.3",
+                          "date_filed": "2026-08-18",
+                          "static_url": "https://blockworks.com/token-transparency/filing/de86b664-f412-4ae6-ba76-2125fedfbd0a",
+                          "filing_status": "current",
+                          "provenance": "issuer-filed"
+                        }
+                      ]
+                    },
+                    {
+                      "project_slug": "curve",
+                      "protocol_name": "Curve",
+                      "protocol_ticker": "CRV",
+                      "filings": [
+                        {
+                          "filing_id": "27d01bc9-3cb4-458e-92e7-03a54169a561",
+                          "filing_type": "B1",
+                          "completion_label": "complete",
+                          "filing_version": "1.3",
+                          "date_filed": "2026-07-23",
+                          "static_url": "https://blockworks.com/token-transparency/filing/27d01bc9-3cb4-458e-92e7-03a54169a561",
+                          "filing_status": "current",
+                          "provenance": "issuer-filed"
+                        }
+                      ]
                     }
                   ],
-                  "total": 27,
-                  "page": 1
+                  "total": 2
                 }
               }
             }
@@ -1110,16 +1091,12 @@
             "description": "Bad Request"
           }
         },
-        "security": [
-          {
-            "x-api-key": []
-          }
-        ],
+        "security": [],
         "tags": [
-          "transparency"
+          "ttf-public"
         ],
-        "summary": "List Token Transparency Reports",
-        "description": "Returns a paginated list of token transparency framework reports with scores across four key categories."
+        "summary": "List Public Filings",
+        "description": "Returns published Token Transparency filings grouped by project. This endpoint does not require an API key."
       }
     },
     "/v1/metrics": {
@@ -25124,6 +25101,110 @@
           "page",
           "total",
           "data"
+        ]
+      },
+      "PublicFilingResponse": {
+        "type": "object",
+        "properties": {
+          "filing_id": {
+            "type": "string",
+            "description": "Unique filing identifier"
+          },
+          "filing_type": {
+            "type": "string",
+            "description": "Filing type, e.g. B1"
+          },
+          "completion_label": {
+            "type": "string",
+            "description": "Completion summary, e.g. \"complete\" or \"partial - 2 gaps\""
+          },
+          "filing_version": {
+            "type": "string",
+            "description": "Version of the filing schema the filing was submitted against"
+          },
+          "date_filed": {
+            "type": "string",
+            "description": "Publication date (UTC, YYYY-MM-DD)"
+          },
+          "static_url": {
+            "type": "string",
+            "description": "Permalink to the filing on blockworks.com"
+          },
+          "filing_status": {
+            "type": "string",
+            "enum": [
+              "current",
+              "stale"
+            ],
+            "description": "Whether the filing is current or stale (superseded or past its staleness deadline)"
+          },
+          "provenance": {
+            "type": "string",
+            "description": "How the filing was produced, e.g. issuer-filed"
+          }
+        },
+        "required": [
+          "filing_id",
+          "filing_type",
+          "completion_label",
+          "filing_version",
+          "date_filed",
+          "static_url",
+          "filing_status",
+          "provenance"
+        ]
+      },
+      "PublicProjectGroupResponse": {
+        "type": "object",
+        "properties": {
+          "project_slug": {
+            "type": "string",
+            "description": "Project slug"
+          },
+          "protocol_name": {
+            "type": "string",
+            "description": "Project display name"
+          },
+          "protocol_ticker": {
+            "type": "string",
+            "nullable": true,
+            "description": "Asset ticker, null when the project has no listed asset"
+          },
+          "filings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PublicFilingResponse"
+            }
+          }
+        },
+        "required": [
+          "project_slug",
+          "protocol_name",
+          "protocol_ticker",
+          "filings"
+        ]
+      },
+      "PublicFilingsPageResponse": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PublicProjectGroupResponse"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "description": "Number of project groups returned"
+          }
+        },
+        "required": [
+          "page",
+          "data",
+          "total"
         ]
       }
     }
