@@ -1,0 +1,131 @@
+---
+title: 'Get Filing Detail'
+sidebarTitle: 'Get Filing'
+description: 'Retrieve one published Token Transparency filing with its full content'
+tag: 'public'
+openapi: 'GET /v1/ttf/filings/{id}'
+mode: 'wide'
+---
+
+## Overview
+
+This endpoint returns **one published Token Transparency filing** with its full content: the project, the filing metadata, the pinned schema (sections and question definitions), and the answers keyed by question id.
+
+Use the `filing_id` values from the [List Filings](/api-reference/token-transparency/list-filings) endpoint as the `id` path parameter.
+
+Unlike other Blockworks API endpoints, this endpoint is **public and does not require an API key**.
+
+## Example Request
+
+<CodeGroup>
+
+```bash cURL
+curl "https://api.blockworks.com/v1/ttf/filings/04c27d54-14c9-40a0-bd56-c9a9437c14df"
+```
+
+```typescript TypeScript
+const response = await fetch(
+  'https://api.blockworks.com/v1/ttf/filings/04c27d54-14c9-40a0-bd56-c9a9437c14df'
+)
+const data = await response.json()
+```
+
+```python Python
+import requests
+
+response = requests.get(
+    'https://api.blockworks.com/v1/ttf/filings/04c27d54-14c9-40a0-bd56-c9a9437c14df'
+)
+data = response.json()
+```
+
+</CodeGroup>
+
+### Example Response
+
+A successful response returns the project, the filing, the schema the filing was submitted against, and the answers. The example below is truncated to one section and one question.
+
+```json
+{
+  "project": {
+    "project_slug": "aerodrome-finance",
+    "protocol_name": "Aerodrome Finance",
+    "protocol_ticker": "AERO"
+  },
+  "filing": {
+    "filing_id": "04c27d54-14c9-40a0-bd56-c9a9437c14df",
+    "filing_type": "B1",
+    "completion_label": "complete",
+    "filing_version": "1.3",
+    "date_filed": "2026-06-11",
+    "static_url": "https://blockworks.com/token-transparency/filing/aerodrome-finance",
+    "filing_status": "current",
+    "provenance": "issuer-filed"
+  },
+  "schema": {
+    "version_id": "1.3",
+    "sections": [
+      {
+        "name": "Project & Team",
+        "questions": [
+          {
+            "id": "q1",
+            "label": "Description of Project",
+            "config": {
+              "mode": "fielded",
+              "sub_fields": [
+                { "id": "q1a", "label": "Problem the project solves" }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "questions": {
+    "q1": {
+      "answer": {
+        "sub_answers": [
+          {
+            "sub_field_id": "q1a",
+            "text": "Aerodrome is a central liquidity hub on Base."
+          }
+        ]
+      },
+      "gap": false,
+      "label": null
+    }
+  }
+}
+```
+
+## Supported Options
+
+| Name | Type | Details | Available Options |
+| - | - | - | - |
+| `id` | path | Filing UUID from the List Filings endpoint. A malformed UUID returns a `400` error. An unknown or unpublished filing returns a `404` error. | e.g. `04c27d54-14c9-40a0-bd56-c9a9437c14df` |
+
+## Response Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `project` | object | The project the filing belongs to (`project_slug`, `protocol_name`, `protocol_ticker`) |
+| `filing` | object | Filing metadata, in the same shape as the List Filings endpoint |
+| `schema` | object | The schema version the filing was submitted against |
+| `schema.version_id` | string | Schema version identifier |
+| `schema.sections` | array | Ordered sections; each has a `name` and its question definitions. Each question has an `id`, a `label`, and a `config` that describes the answer shape |
+| `questions` | object | Answers keyed by question id (e.g. `q1`) |
+| `questions.*.answer` | object \| null | The published answer. Its shape follows the question's `config` in `schema.sections` |
+| `questions.*.gap` | boolean | `true` when the reviewer marked the answer as a gap |
+| `questions.*.label` | string \| null | Completeness label for the answer, when available |
+
+All answer text and table cell values are markdown strings.
+
+## Notes
+
+- Responses are cached at the edge for up to 5 minutes (`Cache-Control: public, max-age=300`).
+- No API key or authentication header is needed for this endpoint.
+
+## Related Endpoints
+
+- [List Filings](/api-reference/token-transparency/list-filings)

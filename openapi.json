@@ -1099,6 +1099,101 @@
         "description": "Returns published Token Transparency filings grouped by project. This endpoint does not require an API key."
       }
     },
+    "/v1/ttf/filings/{id}": {
+      "get": {
+        "operationId": "PublicFilingsController_getDetail_v1",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "Filing UUID (`filing_id` from the List Filings endpoint)",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PublicFilingDetailResponse"
+                },
+                "example": {
+                  "project": {
+                    "project_slug": "aerodrome-finance",
+                    "protocol_name": "Aerodrome Finance",
+                    "protocol_ticker": "AERO"
+                  },
+                  "filing": {
+                    "filing_id": "04c27d54-14c9-40a0-bd56-c9a9437c14df",
+                    "filing_type": "B1",
+                    "completion_label": "complete",
+                    "filing_version": "1.3",
+                    "date_filed": "2026-06-11",
+                    "static_url": "https://blockworks.com/token-transparency/filing/aerodrome-finance",
+                    "filing_status": "current",
+                    "provenance": "issuer-filed"
+                  },
+                  "schema": {
+                    "version_id": "1.3",
+                    "sections": [
+                      {
+                        "name": "Project & Team",
+                        "questions": [
+                          {
+                            "id": "q1",
+                            "label": "Description of Project",
+                            "config": {
+                              "mode": "fielded",
+                              "sub_fields": [
+                                {
+                                  "id": "q1a",
+                                  "label": "Problem the project solves"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "questions": {
+                    "q1": {
+                      "answer": {
+                        "sub_answers": [
+                          {
+                            "sub_field_id": "q1a",
+                            "text": "Aerodrome is a central liquidity hub on Base."
+                          }
+                        ]
+                      },
+                      "gap": false,
+                      "label": null
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [],
+        "tags": [
+          "ttf-public"
+        ],
+        "summary": "Get Filing Detail",
+        "description": "Returns one published Token Transparency filing with its full content: the project, the filing metadata, the pinned schema (sections and question definitions), and the answers keyed by question id. This endpoint does not require an API key."
+      }
+    },
     "/v1/metrics": {
       "get": {
         "operationId": "MetricController_list_v1",
@@ -25205,6 +25300,94 @@
           "page",
           "data",
           "total"
+        ]
+      },
+      "PublicProjectResponse": {
+        "type": "object",
+        "properties": {
+          "project_slug": {
+            "type": "string"
+          },
+          "protocol_name": {
+            "type": "string"
+          },
+          "protocol_ticker": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "project_slug",
+          "protocol_name",
+          "protocol_ticker"
+        ]
+      },
+      "PublicFilingDetailSchemaResponse": {
+        "type": "object",
+        "properties": {
+          "version_id": {
+            "type": "string"
+          },
+          "sections": {
+            "type": "array",
+            "description": "Ordered filing sections; each has a name and its question definitions",
+            "items": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          }
+        },
+        "required": [
+          "version_id",
+          "sections"
+        ]
+      },
+      "PublicQuestionResponse": {
+        "type": "object",
+        "properties": {
+          "answer": {
+            "type": "object",
+            "nullable": true,
+            "additionalProperties": true
+          },
+          "gap": {
+            "type": "boolean"
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "answer",
+          "gap",
+          "label"
+        ]
+      },
+      "PublicFilingDetailResponse": {
+        "type": "object",
+        "properties": {
+          "project": {
+            "$ref": "#/components/schemas/PublicProjectResponse"
+          },
+          "filing": {
+            "$ref": "#/components/schemas/PublicFilingResponse"
+          },
+          "schema": {
+            "$ref": "#/components/schemas/PublicFilingDetailSchemaResponse"
+          },
+          "questions": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PublicQuestionResponse"
+            }
+          }
+        },
+        "required": [
+          "project",
+          "filing",
+          "schema",
+          "questions"
         ]
       }
     }
