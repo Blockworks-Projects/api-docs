@@ -71,7 +71,7 @@
             ]
           },
           {
-            "group": "Token Transparency",
+            "group": "TTF",
             "pages": [
               "api-reference/token-transparency/list-filings",
               "api-reference/token-transparency/get-filing"
