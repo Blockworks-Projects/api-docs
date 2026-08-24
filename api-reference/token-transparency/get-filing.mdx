@@ -20,12 +20,12 @@ Unlike other Blockworks API endpoints, this endpoint is **public and does not re
 <CodeGroup>
 
 ```bash cURL
-curl "https://api.blockworks.com/v1/ttf/filings/04c27d54-14c9-40a0-bd56-c9a9437c14df"
+curl "https://api.blockworks.com/v1/ttf/filings/35f94c78-ec1a-4061-8c74-6fd6a0b88a38"
 ```
 
 ```typescript TypeScript
 const response = await fetch(
-  'https://api.blockworks.com/v1/ttf/filings/04c27d54-14c9-40a0-bd56-c9a9437c14df'
+  'https://api.blockworks.com/v1/ttf/filings/35f94c78-ec1a-4061-8c74-6fd6a0b88a38'
 )
 const data = await response.json()
 ```
@@ -34,7 +34,7 @@ const data = await response.json()
 import requests
 
 response = requests.get(
-    'https://api.blockworks.com/v1/ttf/filings/04c27d54-14c9-40a0-bd56-c9a9437c14df'
+    'https://api.blockworks.com/v1/ttf/filings/35f94c78-ec1a-4061-8c74-6fd6a0b88a38'
 )
 data = response.json()
 ```
@@ -43,22 +43,22 @@ data = response.json()
 
 ### Example Response
 
-A successful response returns the project, the filing, the schema the filing was submitted against, and the answers. The example below is truncated to one section and one question.
+A successful response returns the project, the filing, the schema the filing was submitted against, and the answers. The example below is truncated to one section and two questions: one complete answer and one gap.
 
 ```json
 {
   "project": {
-    "project_slug": "aerodrome-finance",
-    "protocol_name": "Aerodrome Finance",
-    "protocol_ticker": "AERO"
+    "project_slug": "mina-protocol",
+    "protocol_name": "Mina Protocol",
+    "protocol_ticker": "MINA"
   },
   "filing": {
-    "filing_id": "04c27d54-14c9-40a0-bd56-c9a9437c14df",
+    "filing_id": "35f94c78-ec1a-4061-8c74-6fd6a0b88a38",
     "filing_type": "B1",
-    "completion_label": "complete",
+    "completion_label": "partial - 3 gaps",
     "filing_version": "1.3",
-    "date_filed": "2026-06-11",
-    "static_url": "https://blockworks.com/token-transparency/filing/aerodrome-finance",
+    "date_filed": "2026-08-17",
+    "static_url": "https://blockworks.com/token-transparency/filing/mina-protocol",
     "filing_status": "current",
     "provenance": "issuer-filed"
   },
@@ -74,9 +74,16 @@ A successful response returns the project, the filing, the schema the filing was
             "config": {
               "mode": "fielded",
               "sub_fields": [
-                { "id": "q1a", "label": "Problem the project solves" }
+                {
+                  "id": "q1a",
+                  "label": "Problem the project solves",
+                  "instructions": "The problem the project is solving."
+                }
               ]
-            }
+            },
+            "max_score": 5,
+            "answer_type": "text",
+            "instructions": "Provide a concise narrative that clearly states each of (a)-(e) below."
           }
         ]
       }
@@ -88,12 +95,26 @@ A successful response returns the project, the filing, the schema the filing was
         "sub_answers": [
           {
             "sub_field_id": "q1a",
-            "text": "Aerodrome is a central liquidity hub on Base."
+            "text": "Mina is presented as a public, decentralized layer-1 blockchain built to keep the chain extremely small while supporting zero-knowledge applications."
           }
         ]
       },
       "gap": false,
-      "label": null
+      "label": "complete"
+    },
+    "q8": {
+      "answer": {
+        "rows": [
+          {
+            "market_maker_name": "N/A no current listings, historic listings unknown",
+            "token_allocation": "N/A no current listings, historic listings unknown",
+            "term_duration": "N/A no current listings, historic listings unknown",
+            "structure_name": "N/A no current listings, historic listings unknown"
+          }
+        ]
+      },
+      "gap": true,
+      "label": "incomplete"
     }
   }
 }
@@ -113,11 +134,11 @@ A successful response returns the project, the filing, the schema the filing was
 | `filing` | object | Filing metadata, in the same shape as the List Filings endpoint |
 | `schema` | object | The schema version the filing was submitted against |
 | `schema.version_id` | string | Schema version identifier |
-| `schema.sections` | array | Ordered sections; each has a `name` and its question definitions. Each question has an `id`, a `label`, and a `config` that describes the answer shape |
+| `schema.sections` | array | Ordered sections; each has a `name` and its question definitions. Each question has an `id`, a `label`, a `config` that describes the answer shape (`mode`: `fielded`, `open`, `sectioned`, or `grid`), a `max_score`, an `answer_type`, and its `instructions` |
 | `questions` | object | Answers keyed by question id (e.g. `q1`) |
-| `questions.*.answer` | object \| null | The published answer. Its shape follows the question's `config` in `schema.sections` |
-| `questions.*.gap` | boolean | `true` when the reviewer marked the answer as a gap |
-| `questions.*.label` | string \| null | Completeness label for the answer, when available |
+| `questions.*.answer` | object \| null | The published answer. Its shape follows the question's `config` in `schema.sections`: `sub_answers` for fielded text, `rows` for open and grid tables, `sections` for sectioned tables |
+| `questions.*.gap` | boolean | `true` when the reviewer marked the answer as a gap. A gap answer keeps its published content |
+| `questions.*.label` | string \| null | Completeness label: `incomplete`, `partially_complete`, or `complete`. `null` when no label is available |
 
 All answer text and table cell values are markdown strings.
 

@@ -1124,17 +1124,17 @@
                 },
                 "example": {
                   "project": {
-                    "project_slug": "aerodrome-finance",
-                    "protocol_name": "Aerodrome Finance",
-                    "protocol_ticker": "AERO"
+                    "project_slug": "mina-protocol",
+                    "protocol_name": "Mina Protocol",
+                    "protocol_ticker": "MINA"
                   },
                   "filing": {
-                    "filing_id": "04c27d54-14c9-40a0-bd56-c9a9437c14df",
+                    "filing_id": "35f94c78-ec1a-4061-8c74-6fd6a0b88a38",
                     "filing_type": "B1",
-                    "completion_label": "complete",
+                    "completion_label": "partial - 3 gaps",
                     "filing_version": "1.3",
-                    "date_filed": "2026-06-11",
-                    "static_url": "https://blockworks.com/token-transparency/filing/aerodrome-finance",
+                    "date_filed": "2026-08-17",
+                    "static_url": "https://blockworks.com/token-transparency/filing/mina-protocol",
                     "filing_status": "current",
                     "provenance": "issuer-filed"
                   },
@@ -1152,10 +1152,14 @@
                               "sub_fields": [
                                 {
                                   "id": "q1a",
-                                  "label": "Problem the project solves"
+                                  "label": "Problem the project solves",
+                                  "instructions": "The problem the project is solving."
                                 }
                               ]
-                            }
+                            },
+                            "max_score": 5,
+                            "answer_type": "text",
+                            "instructions": "Provide a concise narrative that clearly states each of (a)-(e) below."
                           }
                         ]
                       }
@@ -1167,12 +1171,26 @@
                         "sub_answers": [
                           {
                             "sub_field_id": "q1a",
-                            "text": "Aerodrome is a central liquidity hub on Base."
+                            "text": "Mina is presented as a public, decentralized layer-1 blockchain built to keep the chain extremely small while supporting zero-knowledge applications."
                           }
                         ]
                       },
                       "gap": false,
-                      "label": null
+                      "label": "complete"
+                    },
+                    "q8": {
+                      "answer": {
+                        "rows": [
+                          {
+                            "market_maker_name": "N/A no current listings, historic listings unknown",
+                            "token_allocation": "N/A no current listings, historic listings unknown",
+                            "term_duration": "N/A no current listings, historic listings unknown",
+                            "structure_name": "N/A no current listings, historic listings unknown"
+                          }
+                        ]
+                      },
+                      "gap": true,
+                      "label": "incomplete"
                     }
                   }
                 }
@@ -25348,14 +25366,17 @@
           "answer": {
             "type": "object",
             "nullable": true,
-            "additionalProperties": true
+            "additionalProperties": true,
+            "description": "The published answer; its shape follows the question's config in schema.sections"
           },
           "gap": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "True when the reviewer marked the answer as a gap"
           },
           "label": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "description": "Completeness label: incomplete, partially_complete, or complete; null when no label is available"
           }
         },
         "required": [
