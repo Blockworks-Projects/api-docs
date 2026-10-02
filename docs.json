@@ -1,14 +1,31 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Blockworks API",
+  "name": "Blockworks API (Legacy)",
   "colors": {
     "primary": "#545cf8",
     "light": "#9297f6",
     "dark": "#4349c7"
   },
   "favicon": "/favicon.ico",
+  "banner": {
+    "content": "**This API is in maintenance mode.** New data and features ship only on the new Blockworks API.<br />[**Go to the new API docs →**](https://docs.blockworks.com)",
+    "color": {
+      "light": "#6633ff",
+      "dark": "#5a2fdc"
+    },
+    "dismissible": false
+  },
   "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "New API docs →",
+          "icon": "arrow-up-right",
+          "href": "https://docs.blockworks.com"
+        }
+      ]
+    },
     "tabs": [
       {
         "tab": "Documentation",
